@@ -1,0 +1,1457 @@
+{
+  "\u0000E:/devsynx/New folder/node_modules/invariant/browser.js?commonjs-es-import": [],
+  "\u0000E:/devsynx/New folder/node_modules/react-dom/cjs/react-dom-client.production.js?commonjs-exports": [],
+  "\u0000E:/devsynx/New folder/node_modules/react-dom/cjs/react-dom.production.js?commonjs-exports": [],
+  "\u0000E:/devsynx/New folder/node_modules/react-dom/client.js?commonjs-es-import": [],
+  "\u0000E:/devsynx/New folder/node_modules/react-dom/client.js?commonjs-module": [],
+  "\u0000E:/devsynx/New folder/node_modules/react-dom/index.js?commonjs-module": [],
+  "\u0000E:/devsynx/New folder/node_modules/react-fast-compare/index.js?commonjs-es-import": [],
+  "\u0000E:/devsynx/New folder/node_modules/react/cjs/react-jsx-runtime.production.js?commonjs-exports": [],
+  "\u0000E:/devsynx/New folder/node_modules/react/cjs/react.production.js?commonjs-exports": [],
+  "\u0000E:/devsynx/New folder/node_modules/react/index.js?commonjs-es-import": [],
+  "\u0000E:/devsynx/New folder/node_modules/react/index.js?commonjs-module": [],
+  "\u0000E:/devsynx/New folder/node_modules/react/jsx-runtime.js?commonjs-es-import": [],
+  "\u0000E:/devsynx/New folder/node_modules/react/jsx-runtime.js?commonjs-module": [],
+  "\u0000E:/devsynx/New folder/node_modules/scheduler/cjs/scheduler.production.js?commonjs-exports": [],
+  "\u0000E:/devsynx/New folder/node_modules/scheduler/index.js?commonjs-module": [],
+  "\u0000E:/devsynx/New folder/node_modules/shallowequal/index.js?commonjs-es-import": [],
+  "\u0000commonjsHelpers.js": [],
+  "\u0000vite/modulepreload-polyfill.js": [],
+  "\u0000vite/preload-helper.js": [],
+  "index.html": [],
+  "index.html?html-proxy&inline-css&index=0.css": [],
+  "node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/components/AnimatePresence/utils.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/LazyContext.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/MotionContext/create.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/MotionContext/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/PresenceContext.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/events/add-pointer-event.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/events/event-info.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/drag/VisualElementDragControls.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/drag/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/drag/utils/constraints.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/focus.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/hover.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/pan/PanSession.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/pan/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/press.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/animation/exit.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/animation/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/animations.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/definitions.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/drag.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/gestures.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/layout.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/load-features.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/viewport/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/viewport/observers.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/utils/symbol.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/utils/valid-prop.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/components/create-proxy.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/components/motion/feature-bundle.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/dom/use-render.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/dom/utils/filter-props.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/dom/utils/is-svg-component.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/html/use-html-visual-state.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/html/use-props.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/svg/lowercase-elements.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/svg/use-props.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/svg/use-svg-visual-state.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/distance.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/get-context-window.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/is-browser.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/is-ref-object.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/use-constant.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/invariant/browser.js": [],
+  "node_modules/lucide-react/dist/esm/Icon.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/createLucideIcon.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/defaultAttributes.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/activity.js": [
+    "/assets/EconomicsPage-rlngYYNT.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/align-left.js": [
+    "/assets/align-left-B80EwBxb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/arrow-right.js": [
+    "/assets/arrow-right-DHydAqr-.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/atom.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/award.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/badge-check.js": [
+    "/assets/badge-check-DMSrv9tX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/banknote.js": [
+    "/assets/SubjectsPage-BhCd-B4S.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/book-marked.js": [
+    "/assets/book-marked-B5rKa7UM.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/book-open.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/brackets.js": [
+    "/assets/MathematicsLanding-B5rXKAUw.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/brain-circuit.js": [
+    "/assets/brain-circuit-Dhw5C4fS.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/brain.js": [
+    "/assets/brain-Nf4H9omK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/briefcase.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/bug.js": [
+    "/assets/BiologyPage-9BxjQZQr.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/building-2.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/calculator.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/calendar-check.js": [
+    "/assets/SubjectsPage-BhCd-B4S.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/calendar.js": [
+    "/assets/calendar-DKj66L20.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chart-column.js": [
+    "/assets/chart-column-BXv1h7u7.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chart-line.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chart-no-axes-column.js": [
+    "/assets/chart-no-axes-column-DTqTKjw0.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chevron-down.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chevron-left.js": [
+    "/assets/chevron-left-X-5t72OW.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chevron-right.js": [
+    "/assets/chevron-right-DD4S9E--.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chevron-up.js": [
+    "/assets/chevron-up-DYfUxnJi.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/circle-check-big.js": [
+    "/assets/circle-check-big-CjR6Z1oh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/circle-check.js": [
+    "/assets/circle-check-bzNXxu9-.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/circle-help.js": [
+    "/assets/circle-help-C892Mjs8.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/circle-x.js": [
+    "/assets/IGCSEPage-D4nwiQiy.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/clipboard-check.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/clipboard-list.js": [
+    "/assets/clipboard-list-DBxikDtK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/clock.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/cog.js": [
+    "/assets/EngineeringPage-BLweoa1K.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/compass.js": [
+    "/assets/compass-Bj-NP3WT.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/cpu.js": [
+    "/assets/cpu-CKLW4sOp.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/credit-card.js": [
+    "/assets/FinancePage-C4y11wPT.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/crosshair.js": [
+    "/assets/App-CoH1ezl4.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/dice-5.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/dna.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/dollar-sign.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/eye-off.js": [
+    "/assets/App-CoH1ezl4.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/eye.js": [
+    "/assets/eye-gYszCu_t.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/facebook.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/file-digit.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/file-pen.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/file-search.js": [
+    "/assets/file-search-QULo4u80.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/file-stack.js": [
+    "/assets/App-CoH1ezl4.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/file-text.js": [
+    "/assets/file-text-D2cXlCgx.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/flag.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/flame.js": [
+    "/assets/flame-BeG6tqnw.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/flask-conical.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/footprints.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/funnel.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/gauge.js": [
+    "/assets/gauge-CUmXqWdY.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/git-branch.js": [
+    "/assets/git-branch-BwpGD_iN.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/git-compare-arrows.js": [
+    "/assets/ChemistryPage-CcZ2Evdk.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/globe.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/graduation-cap.js": [
+    "/assets/StatsBar-BxKadWH5.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/grid-3x3.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/hammer.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/hard-hat.js": [
+    "/assets/SubjectsPage-BhCd-B4S.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/hash.js": [
+    "/assets/hash-DO_sNgJb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/headphones.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/heart.js": [
+    "/assets/BiologyPage-9BxjQZQr.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/house.js": [
+    "/assets/user-G8L-US8Q.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/infinity.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/instagram.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/landmark.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/layers.js": [
+    "/assets/layers-N_WYsSS1.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/leaf.js": [
+    "/assets/leaf-CJA-Mw0A.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/library-big.js": [
+    "/assets/CurriculumPage-pWJR_M0G.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/library.js": [
+    "/assets/App-CoH1ezl4.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/lightbulb.js": [
+    "/assets/lightbulb-Cfl8U1jZ.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/link-2.js": [
+    "/assets/link-2-3PZtbK4i.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/linkedin.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/list-checks.js": [
+    "/assets/AccountingPage-COH_a-uL.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/mail.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/map-pin.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/megaphone.js": [
+    "/assets/BusinessPage-B_MpjAGX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/menu.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/message-circle-question.js": [
+    "/assets/CurriculumPage-pWJR_M0G.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/message-circle.js": [
+    "/assets/message-circle-CjKrAKOF.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/message-square.js": [
+    "/assets/message-square-K_DNstOH.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/microscope.js": [
+    "/assets/microscope-DuDWuEK0.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/network.js": [
+    "/assets/network-DPeHMJ9H.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/notebook-pen.js": [
+    "/assets/SubjectsPage-BhCd-B4S.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/orbit.js": [
+    "/assets/CurriculumPage-pWJR_M0G.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/pen-line.js": [
+    "/assets/pen-line-CCzOXbOg.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/pen-tool.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/phone.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/plug.js": [
+    "/assets/PhysicsPage-CC28vG_r.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/receipt.js": [
+    "/assets/SubjectsPage-BhCd-B4S.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/refresh-cw.js": [
+    "/assets/BiologyPage-9BxjQZQr.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/repeat.js": [
+    "/assets/AboutPage-DsNcydPz.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/rotate-ccw.js": [
+    "/assets/BiologyPage-9BxjQZQr.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/rotate-cw.js": [
+    "/assets/rotate-cw-BpO5_TXc.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/route.js": [
+    "/assets/route-CdSVV7Qm.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/scale.js": [
+    "/assets/scale-aKTecM31.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/scan-search.js": [
+    "/assets/PhysicsLanding-COp0ws7-.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/school.js": [
+    "/assets/CurriculumPage-pWJR_M0G.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/scroll-text.js": [
+    "/assets/SubjectsPage-BhCd-B4S.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/search.js": [
+    "/assets/search-Jm43lr7d.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/send.js": [
+    "/assets/ContactPage-CtPMXuHb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/settings.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/shapes.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/shield-check.js": [
+    "/assets/shield-check-DFC0xXnV.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/shield.js": [
+    "/assets/App-CoH1ezl4.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/shuffle.js": [
+    "/assets/StatisticsPage-MvsVhg6d.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/sigma.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/sliders-horizontal.js": [
+    "/assets/SubjectsPage-BhCd-B4S.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/sparkles.js": [
+    "/assets/sparkles-NDG2AJuS.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/split.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/square-check-big.js": [
+    "/assets/BusinessPage-B_MpjAGX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/square-function.js": [
+    "/assets/square-function-CWw4igpi.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/star.js": [
+    "/assets/star-Bs0ScmMv.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/tag.js": [
+    "/assets/BiologyPage-9BxjQZQr.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/target.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/thermometer.js": [
+    "/assets/PhysicsLanding-COp0ws7-.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/timer.js": [
+    "/assets/timer-R6CwbukD.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/trending-down.js": [
+    "/assets/trending-down-DkcCdLiz.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/trending-up.js": [
+    "/assets/StatsBar-BxKadWH5.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/triangle-alert.js": [
+    "/assets/triangle-alert-DAgEgJXm.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/triangle.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/trophy.js": [
+    "/assets/trophy-Ct9HL-eb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/twitter.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/user-check.js": [
+    "/assets/StatsBar-BxKadWH5.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/user-plus.js": [
+    "/assets/App-CoH1ezl4.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/user.js": [
+    "/assets/user-G8L-US8Q.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/users.js": [
+    "/assets/users-bbcIBOkE.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/variable.js": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/wallet.js": [
+    "/assets/FinancePage-C4y11wPT.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/waves.js": [
+    "/assets/waves-CXqPE0yJ.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/wrench.js": [
+    "/assets/wrench-K6gmflUz.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/x.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/zap.js": [
+    "/assets/zap-DNvnnFCW.js"
+  ],
+  "node_modules/lucide-react/dist/esm/shared/src/utils.js": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/AsyncMotionValueAnimation.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/JSAnimation.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/NativeAnimationExtended.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/animate/single-value.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/drivers/frame.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/inertia.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/keyframes.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/spring.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/utils/calc-duration.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/utils/create-generator-easing.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/utils/is-generator.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/utils/velocity.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/interfaces/motion-value.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/interfaces/visual-element-target.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/interfaces/visual-element-variant.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/interfaces/visual-element.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/DOMKeyframesResolver.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/KeyframesResolver.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/get-final.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/offsets/default.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/offsets/fill.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/offsets/time.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/utils/fill-wildcards.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/utils/is-none.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/utils/make-none-animatable.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/utils/unit-conversion.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/optimized-appear/data-id.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/optimized-appear/get-appear-id.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/WithPromise.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/calc-child-stagger.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/can-animate.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/css-variables-conversion.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/default-transitions.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/get-value-transition.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/is-animatable.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/is-css-variable.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/is-transition-defined.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/make-animation-instant.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/replace-transition-type.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/resolve-transition.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/easing/cubic-bezier.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/easing/map-easing.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/easing/supported.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/start-waapi-animation.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/supports/waapi.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/utils/accelerated-values.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/utils/apply-generator.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/utils/is-browser-color.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/utils/linear.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/utils/unsupported-easing.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/events/add-dom-event.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/batcher.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/frame.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/microtask.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/order.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/render-step.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/sync-time.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/drag/state/is-active.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/drag/state/set-active.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/hover.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/press/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/press/utils/is-keyboard-accessible.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/press/utils/keyboard.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/press/utils/state.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/utils/is-node-or-child.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/utils/is-primary-pointer.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/utils/setup.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/animation/mix-values.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/conversion.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/copy.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/delta-apply.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/delta-calc.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/delta-remove.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/models.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/utils.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/node/DocumentProjectionNode.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/node/HTMLProjectionNode.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/node/create-projection-node.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/node/state.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/shared/stack.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/styles/scale-border-radius.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/styles/scale-box-shadow.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/styles/scale-correction.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/styles/transform.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/utils/compare-by-depth.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/utils/each-axis.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/utils/flat-tree.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/utils/has-transform.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/utils/measure.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/Feature.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/VisualElement.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/dom/DOMVisualElement.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/dom/is-css-var.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/dom/parse-transform.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/dom/style-set.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/dom/utils/camel-to-dash.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/html/HTMLVisualElement.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/html/utils/build-styles.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/html/utils/build-transform.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/html/utils/render.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/html/utils/scrape-motion-values.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/store.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/SVGVisualElement.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/build-attrs.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/camel-case-attrs.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/is-svg-tag.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/path.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/render.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/scrape-motion-values.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/animation-state.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/get-variant-context.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/is-animation-controls.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/is-controlling-variants.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/is-forced-motion-value.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/is-keyframes-target.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/is-variant-label.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/keys-position.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/keys-transform.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/motion-values.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/reduced-motion/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/reduced-motion/state.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/resolve-dynamic-variants.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/resolve-variants.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/setters.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/shallow-compare.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/variant-props.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/resize/handle-element.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/resize/handle-window.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/resize/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/border-radius.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/delay.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/interpolate.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/is-html-element.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/is-svg-element.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/is-svg-svg-element.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/color.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/complex.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/immediate.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/number.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/visibility.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/resolve-elements.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/supports/flags.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/supports/linear-easing.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/supports/memo.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/supports/scroll-timeline.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/auto.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/hex.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/hsla-to-rgba.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/hsla.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/rgba.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/utils.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/complex/filter.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/complex/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/complex/mask.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/dimensions.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/int.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/maps/defaults.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/maps/number.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/maps/transform.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/numbers/index.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/numbers/units.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/test.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/animatable-none.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/color-regex.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/find.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/float-regex.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/get-as-type.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/is-nullish.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/sanitize.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/single-color-regex.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/utils/is-motion-value.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/utils/resolve-motion-value.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/will-change/add-will-change.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/will-change/is.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/array.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/clamp.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/anticipate.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/back.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/circ.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/cubic-bezier.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/ease.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/modifiers/mirror.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/modifiers/reverse.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/utils/is-bezier-definition.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/utils/is-easing-array.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/utils/map.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/errors.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/global-config.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/is-numerical-string.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/is-object.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/is-zero-value-string.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/memo.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/noop.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/pipe.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/progress.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/subscription-manager.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/time-conversion.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/motion-utils/dist/es/velocity-per-second.mjs": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "node_modules/react-dom/cjs/react-dom-client.production.js": [],
+  "node_modules/react-dom/cjs/react-dom.production.js": [],
+  "node_modules/react-dom/client.js": [],
+  "node_modules/react-dom/index.js": [],
+  "node_modules/react-fast-compare/index.js": [],
+  "node_modules/react-helmet-async/lib/index.esm.js": [],
+  "node_modules/react-router/dist/development/chunk-JZWAC4HX.mjs": [],
+  "node_modules/react/cjs/react-jsx-runtime.production.js": [],
+  "node_modules/react/cjs/react.production.js": [],
+  "node_modules/react/index.js": [],
+  "node_modules/react/jsx-runtime.js": [],
+  "node_modules/scheduler/cjs/scheduler.production.js": [],
+  "node_modules/scheduler/index.js": [],
+  "node_modules/shallowequal/index.js": [],
+  "src/app/ALevelPage.tsx": [
+    "/assets/ALevelPage-CA7UVmjN.js"
+  ],
+  "src/app/APPage.tsx": [
+    "/assets/APPage-C8SYDTwp.js"
+  ],
+  "src/app/AboutPage.tsx": [
+    "/assets/AboutPage-DsNcydPz.js"
+  ],
+  "src/app/AccountingPage.tsx": [
+    "/assets/AccountingPage-COH_a-uL.js"
+  ],
+  "src/app/AmericanCurriculumPage.tsx": [
+    "/assets/AmericanCurriculumPage-BVGy48Pl.js"
+  ],
+  "src/app/App.tsx": [
+    "/assets/App-CoH1ezl4.js"
+  ],
+  "src/app/AskExpertSection.tsx": [
+    "/assets/App-CoH1ezl4.js"
+  ],
+  "src/app/AuthorPage.tsx": [
+    "/assets/AuthorPage-BHIkgF2D.js"
+  ],
+  "src/app/BiologyPage.tsx": [
+    "/assets/BiologyPage-9BxjQZQr.js"
+  ],
+  "src/app/BiologyTutorAbuDhabiPage.tsx": [
+    "/assets/BiologyTutorAbuDhabiPage-BjkdEixl.js"
+  ],
+  "src/app/BlogsPage.tsx": [
+    "/assets/BlogsPage-D8QhNFyP.js"
+  ],
+  "src/app/BritishCurriculumPage.tsx": [
+    "/assets/BritishCurriculumPage-2bSt8zAa.js"
+  ],
+  "src/app/BusinessPage.tsx": [
+    "/assets/BusinessPage-B_MpjAGX.js"
+  ],
+  "src/app/ChemistryFadesBlog.tsx": [
+    "/assets/ChemistryFadesBlog-CILYhd-z.js"
+  ],
+  "src/app/ChemistryLandingPage.tsx": [
+    "/assets/ChemistryLandingPage-eBc7yEo1.js"
+  ],
+  "src/app/ChemistryPage.tsx": [
+    "/assets/ChemistryPage-CcZ2Evdk.js"
+  ],
+  "src/app/ContactPage.tsx": [
+    "/assets/ContactPage-CtPMXuHb.js"
+  ],
+  "src/app/CurriculumPage.tsx": [
+    "/assets/CurriculumPage-pWJR_M0G.js"
+  ],
+  "src/app/DPHLPage.tsx": [
+    "/assets/DPHLPage-CcTQF_Ng.js"
+  ],
+  "src/app/DPSLPage.tsx": [
+    "/assets/DPSLPage-yrkEXHtN.js"
+  ],
+  "src/app/EarlySignsChemistryBlog.tsx": [
+    "/assets/EarlySignsChemistryBlog-B4Bb1Wmc.js"
+  ],
+  "src/app/EconomicsPage.tsx": [
+    "/assets/EconomicsPage-rlngYYNT.js"
+  ],
+  "src/app/EditorialPage.tsx": [
+    "/assets/EditorialPage-D2NXlNbU.js"
+  ],
+  "src/app/EngineeringPage.tsx": [
+    "/assets/EngineeringPage-BLweoa1K.js"
+  ],
+  "src/app/EnglishPage.tsx": [
+    "/assets/EnglishPage-C5cwgKjh.js"
+  ],
+  "src/app/ExamPanicBlog.tsx": [
+    "/assets/ExamPanicBlog-Dwp0ODaR.js"
+  ],
+  "src/app/ExamPreparationPage.tsx": [
+    "/assets/ExamPreparationPage-BCDF-Sze.js"
+  ],
+  "src/app/FinancePage.tsx": [
+    "/assets/FinancePage-C4y11wPT.js"
+  ],
+  "src/app/GCSEPage.tsx": [
+    "/assets/GCSEPage-CCtxzcRk.js"
+  ],
+  "src/app/HighSchoolPage.tsx": [
+    "/assets/HighSchoolPage-DUhumY_c.js"
+  ],
+  "src/app/HowItWorksPage.tsx": [
+    "/assets/HowItWorksPage-B5JWlPZt.js"
+  ],
+  "src/app/IBCurriculumPage.tsx": [
+    "/assets/IBCurriculumPage-CCFCulwY.js"
+  ],
+  "src/app/IGCSEMathsLowMarksBlog.tsx": [
+    "/assets/IGCSEMathsLowMarksBlog-BK4DAdVG.js"
+  ],
+  "src/app/IGCSEPage.tsx": [
+    "/assets/IGCSEPage-D4nwiQiy.js"
+  ],
+  "src/app/IGCSEPhysicsFormulasBlog.tsx": [
+    "/assets/IGCSEPhysicsFormulasBlog-jq8zWdk2.js"
+  ],
+  "src/app/IGCSETutorAbuDhabiPage.tsx": [
+    "/assets/IGCSETutorAbuDhabiPage-Zgfk092o.js"
+  ],
+  "src/app/MYPPage.tsx": [
+    "/assets/MYPPage-TbjjEF5I.js"
+  ],
+  "src/app/MathematicsLanding.tsx": [
+    "/assets/MathematicsLanding-B5rXKAUw.js"
+  ],
+  "src/app/MathsPage.tsx": [
+    "/assets/MathsPage-DlASp1dX.js"
+  ],
+  "src/app/MiddleSchoolPage.tsx": [
+    "/assets/MiddleSchoolPage-DofkBcV3.js"
+  ],
+  "src/app/PhysicsLanding.tsx": [
+    "/assets/PhysicsLanding-COp0ws7-.js"
+  ],
+  "src/app/PhysicsPage.tsx": [
+    "/assets/PhysicsPage-CC28vG_r.js"
+  ],
+  "src/app/PhysicsUnderstandingMarksBlog.tsx": [
+    "/assets/PhysicsUnderstandingMarksBlog-Cfu-YJUk.js"
+  ],
+  "src/app/PrivacyPage.tsx": [
+    "/assets/PrivacyPage-C4MSf2kP.js"
+  ],
+  "src/app/SciencesPage.tsx": [
+    "/assets/SciencesPage-CnyF9zJ6.js"
+  ],
+  "src/app/StatisticsPage.tsx": [
+    "/assets/StatisticsPage-MvsVhg6d.js"
+  ],
+  "src/app/SubjectPageTemplate.tsx": [
+    "/assets/SubjectPageTemplate-jMDyj3d7.js"
+  ],
+  "src/app/SubjectsPage.tsx": [
+    "/assets/SubjectsPage-BhCd-B4S.js"
+  ],
+  "src/app/TermsPage.tsx": [
+    "/assets/TermsPage-JL8JHSto.js"
+  ],
+  "src/app/TutorsPage.tsx": [
+    "/assets/TutorsPage-BRgEr1lz.js"
+  ],
+  "src/app/shared/FinalCTA.tsx": [
+    "/assets/FinalCTA-C0zMdiW5.js"
+  ],
+  "src/app/shared/FloatingWidget.tsx": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "src/app/shared/Footer.tsx": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "src/app/shared/GoldButton.tsx": [
+    "/assets/GoldButton-DGQBCH7C.js"
+  ],
+  "src/app/shared/GoogleReviewCard.tsx": [
+    "/assets/HeroCTABlock--cprUxcP.js"
+  ],
+  "src/app/shared/GradientHeadingText.tsx": [
+    "/assets/GradientHeadingText-B9oQJat7.js"
+  ],
+  "src/app/shared/Header.tsx": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "src/app/shared/HeroCTABlock.tsx": [
+    "/assets/HeroCTABlock--cprUxcP.js"
+  ],
+  "src/app/shared/LanguageSwitcher.tsx": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "src/app/shared/Layout.tsx": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "src/app/shared/ReadMoreParagraph.tsx": [
+    "/assets/ReadMoreParagraph-Mg8v6YL5.js"
+  ],
+  "src/app/shared/RelatedContent.tsx": [
+    "/assets/RelatedContent-Cr3sf82b.js"
+  ],
+  "src/app/shared/SEOHead.tsx": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "src/app/shared/SchoolsMarquee.tsx": [
+    "/assets/SchoolsMarquee-D7APIiSP.js"
+  ],
+  "src/app/shared/StatsBar.tsx": [
+    "/assets/StatsBar-BxKadWH5.js"
+  ],
+  "src/app/shared/TrustBar.tsx": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "src/app/shared/Watermarks.tsx": [
+    "/assets/Watermarks-BrcH7LTx.js"
+  ],
+  "src/app/shared/schemas.ts": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "src/content/authors.ts": [
+    "/assets/AuthorPage-BHIkgF2D.js"
+  ],
+  "src/lib/googleTranslate.ts": [
+    "/assets/schemas-CWYT11Fh.js"
+  ],
+  "src/main.tsx": [],
+  "src/styles/fonts.css": [],
+  "src/styles/index.css": []
+}

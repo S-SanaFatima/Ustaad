@@ -1,0 +1,57 @@
+# Ustaad — Private Tutors UAE
+# https://ustaad.ae
+
+## About
+Ustaad is a UAE-based private tutoring service providing expert 1-to-1 academic support to students across Dubai, Abu Dhabi, Sharjah, Ajman, Al Ain, Ras Al Khaimah, and Fujairah. Founded in 2015, Ustaad has supported over 2,500 students across all major curricula.
+
+## Services
+- Private 1-to-1 tutoring for IGCSE, GCSE, A-Level, IB (MYP, DP SL/HL), and American Curriculum (AP, SAT)
+- Subject expertise: Mathematics, Physics, Chemistry, Biology, English, Economics, Business Studies, Accounting, Finance, Statistics, Engineering
+- Exam preparation: Past paper practice, mark scheme training, exam technique
+- Curriculum-aligned teaching: Cambridge, Edexcel, AQA, IB, College Board
+- Free homework question service: written solution in 15 minutes via WhatsApp
+
+## Key Pages
+- Homepage: https://ustaad.ae/
+- About: https://ustaad.ae/about
+- Subjects: https://ustaad.ae/subjects
+- Curriculum: https://ustaad.ae/curriculum
+- British Curriculum (IGCSE, GCSE, A-Level): https://ustaad.ae/british-curriculum
+- IB Curriculum (MYP, DP): https://ustaad.ae/ib-curriculum
+- American Curriculum (AP, SAT): https://ustaad.ae/american-curriculum
+- IGCSE Tutoring: https://ustaad.ae/igcse
+- GCSE Tutoring: https://ustaad.ae/gcse
+- A-Level Tutoring: https://ustaad.ae/a-level
+- IB MYP Tutoring: https://ustaad.ae/myp
+- IB DP SL Tutoring: https://ustaad.ae/dp-sl
+- IB DP HL Tutoring: https://ustaad.ae/dp-hl
+- AP Tutoring: https://ustaad.ae/ap
+- Maths Tutoring: https://ustaad.ae/maths
+- Physics Tutoring: https://ustaad.ae/physics
+- Chemistry Tutoring: https://ustaad.ae/chemistry
+- Biology Tutoring: https://ustaad.ae/biology
+- English Tutoring: https://ustaad.ae/english
+- Economics Tutoring: https://ustaad.ae/economics
+- Sciences Tutoring: https://ustaad.ae/sciences
+- Exam Preparation: https://ustaad.ae/exam-preparation
+- How It Works: https://ustaad.ae/how-it-works
+- Tutors: https://ustaad.ae/tutors
+- Blog: https://ustaad.ae/blogs
+- Contact: https://ustaad.ae/contact
+
+## Location-Specific Pages
+- Maths Tutor Abu Dhabi: https://ustaad.ae/maths-tutor-abu-dhabi
+- Physics Tutor Abu Dhabi: https://ustaad.ae/physics-tutor-abu-dhabi
+- Chemistry Tutor Abu Dhabi: https://ustaad.ae/chemistry-tutor-abu-dhabi
+
+## Blog Articles
+- Why IGCSE Maths Students Lose Marks After Hours of Revision: https://ustaad.ae/blogs/igcse-maths-revision-low-marks
+- My Child Only Panics Right Before Exams: https://ustaad.ae/blogs/exam-panic-before-exams-uae
+
+## Contact
+- Phone/WhatsApp: +971561249005
+- Email: support@ustaad.ae
+- Location: United Arab Emirates
+
+## Sitemap
+https://ustaad.ae/sitemap.xml

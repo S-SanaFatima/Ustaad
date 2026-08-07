@@ -1,0 +1,13 @@
+/* System stack — same approach as production Vercel deploy.
+   Do NOT declare a single @font-face with a weight range against local()
+   Regular faces; browsers then render font-bold/font-extrabold as Regular. */
+:root {
+  --font-sans: ui-sans-serif, system-ui, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: ui-sans-serif, system-ui, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
