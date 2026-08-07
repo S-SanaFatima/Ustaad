@@ -1,1 +1,0 @@
-import{j as t}from"./index-DCXYSGMa.js";const e=({text:s})=>{const r=s.split(" "),a=r.pop();return t.jsxs(t.Fragment,{children:[r.join(" ")," ",t.jsx("span",{className:"text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79]",children:a})]})};export{e as G};

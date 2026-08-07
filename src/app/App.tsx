@@ -1,4 +1,4 @@
-﻿import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { 
   Star, GraduationCap, Award, BookOpen, CheckCircle,
   MessageCircle, ChevronDown, ChevronLeft, ChevronRight, HelpCircle, TrendingUp, Clock,
@@ -18,7 +18,7 @@ import AskExpertSection from './AskExpertSection';
 
 const REVIEWS = [
   { name: "Fares Al Kindi",    initials: "FK", location: "Abu Dhabi, UAE", text: "I had a great experience with Ustaad. They truly provide some of the Best Tutors in Abu Dhabi. The teaching style is clear, professional, and very supportive." },
-  { name: "Sumayya Alamri",    initials: "SA", location: "Abu Dhabi, UAE", text: "I had very good experience with Ustad for my daughterâ€¦ her math teacher is one of the best tutors I experienced. He explains the concepts very well." },
+  { name: "Sumayya Alamri",    initials: "SA", location: "Abu Dhabi, UAE", text: "I had very good experience with Ustad for my daughter… her math teacher is one of the best tutors I experienced. He explains the concepts very well." },
   { name: "Wadeema Al M",      initials: "WA", location: "Abu Dhabi, UAE", text: "Very good tutoring institute with supportive tutor and clear teaching methods. Would definitely recommend to anyone looking for quality education." },
   { name: "Humaid Khalaf",     initials: "HK", location: "Abu Dhabi, UAE", text: "very good site if you want a good teacher for your studies. The tutors really know how to make difficult topics easy to understand." },
   { name: "Zayed Al Teneiji",  initials: "ZT", location: "Abu Dhabi, UAE", text: "Best tutoring institution in Abu Dhabi. The tutors are extremely knowledgeable and really care about student success in exams." },
@@ -168,17 +168,17 @@ const SCHOOL_LOGOS = [
 const FAQ_ITEMS: { q: string; a: React.ReactNode; aText: string }[] = [
   {
     q: 'How is Ustaad different from a tutor marketplace?',
-    a: <>We are a managed tutoring service, not a marketplace. We select and vet every tutor, stay involved throughout, and adjust the match if sessions are not working. <a href="/how-it-works" className="text-[#0f4a9b] font-medium hover:underline">See how Ustaad works â†’</a></>,
+    a: <>We are a managed tutoring service, not a marketplace. We select and vet every tutor, stay involved throughout, and adjust the match if sessions are not working. <a href="/how-it-works" className="text-[#0f4a9b] font-medium hover:underline">See how Ustaad works →</a></>,
     aText: 'We are a managed tutoring service, not a marketplace. We select and vet every tutor, stay involved throughout, and adjust the match if sessions are not working.',
   },
   {
     q: 'Which curriculums and exam boards does Ustaad cover?',
-    a: <>We cover every major international curriculum taught in the UAE â€” IGCSE, GCSE, A-Level (Edexcel, Cambridge, AQA), IB (MYP and DP SL/HL), American Curriculum (AP, SAT, Common Core), and more. <a href="/curriculum" className="text-[#0f4a9b] font-medium hover:underline">Explore each curriculum in detail â†’</a></>,
-    aText: 'We cover every major international curriculum taught in the UAE â€” IGCSE, GCSE, A-Level (Edexcel, Cambridge, AQA), IB (MYP and DP SL/HL), American Curriculum (AP, SAT, Common Core), and more.',
+    a: <>We cover every major international curriculum taught in the UAE — IGCSE, GCSE, A-Level (Edexcel, Cambridge, AQA), IB (MYP and DP SL/HL), American Curriculum (AP, SAT, Common Core), and more. <a href="/curriculum" className="text-[#0f4a9b] font-medium hover:underline">Explore each curriculum in detail →</a></>,
+    aText: 'We cover every major international curriculum taught in the UAE — IGCSE, GCSE, A-Level (Edexcel, Cambridge, AQA), IB (MYP and DP SL/HL), American Curriculum (AP, SAT, Common Core), and more.',
   },
   {
     q: 'Can I get a tutor who has actually taught at a UAE school?',
-    a: <>Most of our tutors have direct experience in UAE schools or with UAE-specific exam boards. We match based on curriculum expertise, not just subject knowledge. <a href="/tutors" className="text-[#0f4a9b] font-medium hover:underline">Meet our tutors â†’</a></>,
+    a: <>Most of our tutors have direct experience in UAE schools or with UAE-specific exam boards. We match based on curriculum expertise, not just subject knowledge. <a href="/tutors" className="text-[#0f4a9b] font-medium hover:underline">Meet our tutors →</a></>,
     aText: 'Most of our tutors have direct experience in UAE schools or with UAE-specific exam boards. We match based on curriculum expertise, not just subject knowledge.',
   },
   {
@@ -188,18 +188,18 @@ const FAQ_ITEMS: { q: string; a: React.ReactNode; aText: string }[] = [
   },
   {
     q: 'What happens in the free trial session?',
-    a: <>The trial session focuses on the student&apos;s actual work â€” a topic they are currently studying or a past paper question they found difficult. There is no scripted demo. <a href="/contact#form" className="text-[#0f4a9b] font-medium hover:underline">Book a free trial â†’</a></>,
-    aText: "The trial session focuses on the student's actual work â€” a topic they are currently studying or a past paper question they found difficult. There is no scripted demo.",
+    a: <>The trial session focuses on the student&apos;s actual work — a topic they are currently studying or a past paper question they found difficult. There is no scripted demo. <a href="/contact#form" className="text-[#0f4a9b] font-medium hover:underline">Book a free trial →</a></>,
+    aText: "The trial session focuses on the student's actual work — a topic they are currently studying or a past paper question they found difficult. There is no scripted demo.",
   },
   {
     q: 'My child has exams in a few weeks. Is it too late to start?',
-    a: <>No. Short-lead tutoring is one of our most common requests. We prioritise high-impact exam topics and exam technique quickly. <a href="/exam-preparation" className="text-[#0f4a9b] font-medium hover:underline">See our exam preparation approach â†’</a></>,
+    a: <>No. Short-lead tutoring is one of our most common requests. We prioritise high-impact exam topics and exam technique quickly. <a href="/exam-preparation" className="text-[#0f4a9b] font-medium hover:underline">See our exam preparation approach →</a></>,
     aText: 'No. Short-lead tutoring is one of our most common requests. We prioritise high-impact exam topics and exam technique quickly.',
   },
   {
     q: 'How much does private tutoring cost in the UAE?',
-    a: <>Rates depend on the subject, level, and session frequency. We are transparent about pricing from the first call â€” no hidden fees. <a href="/contact#form" className="text-[#0f4a9b] font-medium hover:underline">Contact us for a quote â†’</a></>,
-    aText: 'Rates depend on the subject, level, and session frequency. We are transparent about pricing from the first call â€” no hidden fees.',
+    a: <>Rates depend on the subject, level, and session frequency. We are transparent about pricing from the first call — no hidden fees. <a href="/contact#form" className="text-[#0f4a9b] font-medium hover:underline">Contact us for a quote →</a></>,
+    aText: 'Rates depend on the subject, level, and session frequency. We are transparent about pricing from the first call — no hidden fees.',
   },
 ];
 
@@ -224,7 +224,7 @@ const WELCOME_CHAT_SLIDES = [
     avatarBg: "linear-gradient(135deg, #0e2a47 0%, #174070 100%)",
     subject: "Maths",
     question: "Can you help with quadratics?",
-    answer: "Sure! For xÂ² â€“ 5x + 6 = 0, factor as (xâ€“2)(xâ€“3). So x = 2 or x = 3.",
+    answer: "Sure! For x² - 5x + 6 = 0, factor as (x-2)(x-3). So x = 2 or x = 3.",
   },
   {
     teacherName: "Mr. Omar",
@@ -233,7 +233,7 @@ const WELCOME_CHAT_SLIDES = [
     avatarBg: "linear-gradient(135deg, #103e75 0%, #1d5fa8 100%)",
     subject: "Physics",
     question: "Stuck on Newton's second law.",
-    answer: "Happy to help. F = ma. If m = 4 kg and a = 3 m/sÂ², then F = 12 N.",
+    answer: "Happy to help. F = ma. If m = 4 kg and a = 3 m/s², then F = 12 N.",
   },
   {
     teacherName: "Ms. Fatima",
@@ -241,8 +241,8 @@ const WELCOME_CHAT_SLIDES = [
     initials: "FA",
     avatarBg: "linear-gradient(135deg, #1b6845 0%, #2d8a5e 100%)",
     subject: "Chemistry",
-    question: "How do I balance Hâ‚‚ + Oâ‚‚ â†’ Hâ‚‚O?",
-    answer: "Balance as 2Hâ‚‚ + Oâ‚‚ â†’ 2Hâ‚‚O. Two Hâ‚‚ give 4 H atoms; 2 Hâ‚‚O uses them all.",
+    question: "How do I balance H₂ + O₂ → H₂O?",
+    answer: "Balance as 2H₂ + O₂ → 2H₂O. Two H₂ give 4 H atoms; 2 H₂O uses them all.",
   },
 ];
 
@@ -302,7 +302,7 @@ export default function App() {
             className="relative w-full max-w-[880px] bg-white rounded-[22px] border border-[#dfe4ef] shadow-[0_24px_70px_rgba(10,31,61,0.5)] overflow-hidden max-h-[90vh]"
             onClick={e => e.stopPropagation()}
           >
-            {/* Close button â€” always visible */}
+            {/* Close button — always visible */}
             <button
               type="button"
               aria-label="Close welcome popup"
@@ -313,10 +313,10 @@ export default function App() {
             </button>
 
             <div className="grid grid-cols-1 md:grid-cols-2 max-h-[90vh] overflow-y-auto">
-              {/* Left Column â€” Chat preview */}
+              {/* Left Column — Chat preview */}
               <div className="px-5 py-6 sm:px-6 sm:py-8 bg-[#f5efde] border-b md:border-b-0 md:border-r border-[#ece2c9] flex flex-col justify-between">
                 <div>
-                  {/* Top Bar Header â€” Teacher Info changes per slide */}
+                  {/* Top Bar Header — Teacher Info changes per slide */}
                   <div className="bg-white rounded-[16px] border border-[#e7ebf3] px-4 py-3 mb-4 shadow-sm flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-black text-[#f0c96a] shrink-0 relative border border-white/20" style={{ background: currentSlide.avatarBg }}>
@@ -325,7 +325,7 @@ export default function App() {
                       </div>
                       <div>
                         <p className="text-sm font-extrabold text-[#0a1f3d]">
-                          {currentSlide.teacherName} <span className="text-[#0f4a9b] font-bold">Â· {currentSlide.teacherRole}</span>
+                          {currentSlide.teacherName} <span className="text-[#0f4a9b] font-bold">· {currentSlide.teacherRole}</span>
                         </p>
                         <p className="text-[11px] text-[#4d8662] font-medium">online, replies in ~12 min</p>
                       </div>
@@ -344,7 +344,7 @@ export default function App() {
                       {/* Student Message */}
                       <div className="ml-auto max-w-[88%] bg-[#cbf5cd] text-[#1c3d27] rounded-2xl rounded-tr-sm px-4 py-2.5 text-xs font-medium leading-relaxed shadow-sm">
                         <p>{currentSlide.question}</p>
-                        <div className="text-[10px] text-[#558661] text-right mt-1 font-sans">now âœ“âœ“</div>
+                        <div className="text-[10px] text-[#558661] text-right mt-1 font-sans">now ✓✓</div>
                       </div>
 
                       {/* Teacher Response */}
@@ -373,7 +373,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Right Column â€” Main Copy & Action */}
+              {/* Right Column — Main Copy & Action */}
               <div className="p-5 sm:p-7 bg-white flex flex-col justify-between">
                 <div>
                   <div className="inline-flex items-center rounded-full bg-[#f7f1df] border border-[#eadfbc] px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-[#8a6a2f] font-bold mb-3">
@@ -890,7 +890,7 @@ export default function App() {
               <GradientHeadingText text="What Parents Say" />
             </h2>
             <p className="text-gray-500 text-base lg:text-lg leading-relaxed max-w-2xl mx-auto">
-              Real feedback from UAE families whoâ€™ve seen genuine progress and confidence grow.
+              Real feedback from UAE families who've seen genuine progress and confidence grow.
             </p>
           </div>
           <ReviewsCarousel />
@@ -963,7 +963,7 @@ export default function App() {
                         </span>
                       </button>
                     </div>
-                    {/* Answer always rendered in DOM for SEO â€” max-height CSS controls visibility */}
+                    {/* Answer always rendered in DOM for SEO — max-height CSS controls visibility */}
                     <div
                       style={{
                         maxHeight: isOpen ? '400px' : '0',
