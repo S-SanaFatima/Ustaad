@@ -14,8 +14,8 @@ const BLOG = {
   heroImage: '/images/blogs/uae-physics-student-understanding-vs-marks.webp',
   heroAlt: 'UAE physics student at home who understands the material but still receives low exam marks',
   heroCaption: 'Understanding a chapter at home does not always translate to the exam paper. Learning and performance are two different processes.',
-  datePublished: '2026-07-01',
-  dateModified: '2026-08-01',
+  datePublished: '2026-07-07',
+  dateModified: '2026-08-05',
   author: 'Nimra Shahzada',
   reviewer: 'Nida Iqbal | MPhil in Education Leadership and Management',
   readTime: '9 min read',
@@ -284,7 +284,7 @@ export default function PhysicsUnderstandingMarksBlog() {
               <span className="flex items-center gap-1 mr-3"><User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />Reviewed by: <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">{BLOG.reviewer}</a></span>
             </div>
             <div className="flex flex-wrap items-center gap-3 mb-4 mt-2 text-xs text-gray-400">
-              <time dateTime={BLOG.datePublished} className="flex items-center gap-1">
+              <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
                 <Calendar className="h-3.5 w-3.5 text-[#C7A24A]" />Last reviewed: August 2026 | Ustaad UAE Editorial Team
               </time>
               <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-[#C7A24A]" />{BLOG.readTime}</span>

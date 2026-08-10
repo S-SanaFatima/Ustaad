@@ -37,7 +37,9 @@ function extractHeadTags(bodyHtml) {
   // JSON-LD structured data — valid in body but head is preferred
   cleaned = cleaned.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/gi, m => { tags.push(m); return ''; });
 
-  return { tags, cleanedHtml: cleaned };
+  const uniqueTags = Array.from(new Set(tags.map(t => t.trim())));
+
+  return { tags: uniqueTags, cleanedHtml: cleaned };
 }
 
 async function prerender() {
@@ -57,6 +59,7 @@ async function prerender() {
     .replace(/<meta name="description"[^>]*>/i, '')
     .replace(/<meta name="keywords"[^>]*>/i, '')
     .replace(/<meta name="robots"[^>]*>/i, '')
+    .replace(/<meta name="author"[^>]*>/i, '')
     .replace(/<link rel="canonical"[^>]*>/i, '')
     .replace(/<link rel="alternate"[^>]*>/gi, '')
     .replace(/<meta property="og:[^>]*>/gi, '')

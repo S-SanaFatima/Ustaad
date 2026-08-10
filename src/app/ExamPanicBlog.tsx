@@ -14,8 +14,8 @@ const BLOG = {
   heroImage: '/images/blogs/uae-teenager-exam-stress-quiet.webp',
   heroAlt: 'UAE teenager studying at home showing quiet signs of exam stress before exam season',
   heroCaption: 'Exam stress rarely starts in exam week. It builds quietly across the term.',
-  datePublished: '2026-06-27',
-  dateModified: '2026-06-27',
+  datePublished: '2026-06-23',
+  dateModified: '2026-08-05',
   author: 'Nimra Shahzada | Education Counsellor & Student Support Specialist | Ustaad UAE',
   reviewer: 'Nida Iqbal | MPhil in Education Leadership and Management',
   readTime: '10 min read',
@@ -306,8 +306,8 @@ export default function ExamPanicBlog() {
               <span className="flex items-center gap-1 mr-3"><User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />Reviewed by: <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">{BLOG.reviewer}</a> · <a href="/editorial" className="text-[#0f4a9b] underline">Ustaad Editorial</a></span>
             </div>
             <div className="flex flex-wrap items-center gap-3 mb-4 mt-2 text-xs text-gray-400">
-              <time dateTime={BLOG.datePublished} className="flex items-center gap-1">
-                <Calendar className="h-3.5 w-3.5 text-[#C7A24A]" />Last reviewed: May 2026 | Ustaad UAE Editorial Team
+              <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
+                <Calendar className="h-3.5 w-3.5 text-[#C7A24A]" />Last reviewed: August 2026 | Ustaad UAE Editorial Team
               </time>
               <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-[#C7A24A]" />{BLOG.readTime}</span>
               <SocialShare url={shareUrl} title={BLOG.title} />

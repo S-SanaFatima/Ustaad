@@ -4,3 +4,6 @@ dist
 .DS_Store
 scratch/
 .system_generated/
+*.tar
+*.tar.gz
+

@@ -15,7 +15,7 @@ const BLOG = {
   heroAlt: 'UAE chemistry student revising molecular structures at a desk before an IGCSE exam',
   heroCaption: 'Chemistry formulas look simple on a page. But the moment a student sits down with a blank sheet to write them out, the memory often goes empty.',
   datePublished: '2026-07-20',
-  dateModified: '2026-07-20',
+  dateModified: '2026-08-05',
   author: 'Saira S.',
   reviewer: 'Nida Iqbal | MPhil in Education Leadership and Management',
   readTime: '9 min read',
@@ -260,8 +260,8 @@ export default function ChemistryFadesBlog() {
               <span className="flex items-center gap-1 mr-3"><User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />Reviewed by: <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">{BLOG.reviewer}</a></span>
             </div>
             <div className="flex flex-wrap items-center gap-3 mb-4 mt-2 text-xs text-gray-400">
-              <time dateTime={BLOG.datePublished} className="flex items-center gap-1">
-                <Calendar className="h-3.5 w-3.5 text-[#C7A24A]" />Last reviewed: July 2026 | Ustaad UAE Editorial Team
+              <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
+                <Calendar className="h-3.5 w-3.5 text-[#C7A24A]" />Last reviewed: August 2026 | Ustaad UAE Editorial Team
               </time>
               <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-[#C7A24A]" />{BLOG.readTime}</span>
               <SocialShare url={shareUrl} title={BLOG.title} />

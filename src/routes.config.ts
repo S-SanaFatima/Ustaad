@@ -534,7 +534,8 @@ export const ROUTES: RouteConfig[] = [
       title: 'Physics Understanding vs Marks | Ustaad Blog',
       description: 'Why understanding Physics is not the same as scoring marks, and what UAE students can change before the next paper.',
       priority: 0.9,
-      changefreq: 'monthly'
+      changefreq: 'monthly',
+      lastmod: '2026-07-07'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Physics Understanding vs Marks', url: '/blogs/physics-understanding-vs-marks' }]
   },
@@ -570,6 +571,17 @@ export const ROUTES: RouteConfig[] = [
       changefreq: 'monthly'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Early Signs Chemistry Help', url: '/blogs/early-signs-chemistry-help-uae' }]
+  },
+  {
+    path: '/blogs/read-uae-school-report-card',
+    component: 'ReadSchoolReportCardBlog',
+    seo: {
+      title: 'Read a UAE School Report Card Like a Counsellor | Ustaad',
+      description: 'Report card comments follow patterns most parents miss. A UAE education counsellor decodes the phrases teachers use, and what they actually mean.',
+      priority: 0.9,
+      changefreq: 'monthly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Read UAE School Report Card', url: '/blogs/read-uae-school-report-card' }]
   },
   {
     path: '/privacy',

@@ -12,10 +12,10 @@ const BLOG = {
   slug: 'early-signs-chemistry-help-uae',
   description: 'Six early signs your child is struggling in IGCSE or A-Level chemistry, well before the report card drops. Calm guidance from a UAE education counsellor.',
   heroImage: '/images/blogs/chemistry_tutor_session.jpg',
-  heroAlt: 'Ustaad private tutor working one-to-one with a student in the UAE',
+  heroAlt: 'Ustaad chemistry tutor working one-to-one with an IGCSE student in the UAE',
   heroCaption: 'The drop is almost never the first sign. It is the last one. The earlier signs appear at home, in the notebook, and in one honest conversation.',
-  datePublished: '2026-07-20',
-  dateModified: '2026-07-20',
+  datePublished: '2026-07-28',
+  dateModified: '2026-08-05',
   author: 'Nimra Shahzada',
   reviewer: 'Nida Iqbal',
   readTime: '8 min read',
@@ -264,7 +264,7 @@ export default function EarlySignsChemistryBlog() {
             </div>
             <div className="flex flex-wrap items-center gap-3 mb-4 mt-2 text-xs text-gray-400">
               <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
-                <Calendar className="h-3.5 w-3.5 text-[#C7A24A]" />Last reviewed: July 2026 | Ustaad UAE Editorial Team
+                <Calendar className="h-3.5 w-3.5 text-[#C7A24A]" />Last reviewed: August 2026 | Ustaad UAE Editorial Team
               </time>
               <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-[#C7A24A]" />{BLOG.readTime}</span>
               <SocialShare url={shareUrl} title={BLOG.title} />
@@ -348,6 +348,12 @@ export default function EarlySignsChemistryBlog() {
             <p>This is not about panicking at the first missed homework. It is about noticing when two or three signs appear together and taking a short, low-effort action while the gap is still small.</p>
 
             {/* 05 */}
+            <InlineImage
+              src="/images/blogs/parents_wait_report_card.png"
+              alt="Parent and student reviewing a report card together at home"
+              caption="Waiting for the report card often delays early intervention, making gaps harder to fix."
+            />
+
             <SectionHeading num="05" id="what-parents-can-do-this-week">What Parents Can Do This Week</SectionHeading>
             <p>The most useful checks take under fifteen minutes and give parents a clearer picture than any report card.</p>
             <ul className="list-disc pl-5 mb-4 space-y-2">

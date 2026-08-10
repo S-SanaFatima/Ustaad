@@ -55,6 +55,7 @@ const loadPhysicsUnderstandingMarksBlog = () => import('./app/PhysicsUnderstandi
 const loadIGCSEPhysicsFormulasBlog = () => import('./app/IGCSEPhysicsFormulasBlog');
 const loadChemistryFadesBlog = () => import('./app/ChemistryFadesBlog');
 const loadEarlySignsChemistryBlog = () => import('./app/EarlySignsChemistryBlog');
+const loadReadSchoolReportCardBlog = () => import('./app/ReadSchoolReportCardBlog');
 const loadBiologyLanding = () => import('./app/BiologyTutorAbuDhabiPage');
 const loadIGCSETutorLanding = () => import('./app/IGCSETutorAbuDhabiPage');
 
@@ -97,6 +98,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/igcse-physics-formulas-exam': loadIGCSEPhysicsFormulasBlog,
   '/blogs/why-chemistry-fades-from-memory': loadChemistryFadesBlog,
   '/blogs/early-signs-chemistry-help-uae': loadEarlySignsChemistryBlog,
+  '/blogs/read-uae-school-report-card': loadReadSchoolReportCardBlog,
   '/sciences': loadSciencesPage,
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
   '/physics-tutor-abu-dhabi': loadPhysicsLanding,
@@ -158,6 +160,7 @@ const PhysicsUnderstandingMarksBlog = lazy(loadPhysicsUnderstandingMarksBlog);
 const IGCSEPhysicsFormulasBlog = lazy(loadIGCSEPhysicsFormulasBlog);
 const ChemistryFadesBlog = lazy(loadChemistryFadesBlog);
 const EarlySignsChemistryBlog = lazy(loadEarlySignsChemistryBlog);
+const ReadSchoolReportCardBlog = lazy(loadReadSchoolReportCardBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
 
@@ -241,6 +244,7 @@ function AppRoutes() {
           <Route path="/blogs/igcse-physics-formulas-exam"  element={<IGCSEPhysicsFormulasBlog />} />
           <Route path="/blogs/why-chemistry-fades-from-memory" element={<ChemistryFadesBlog />} />
           <Route path="/blogs/early-signs-chemistry-help-uae" element={<EarlySignsChemistryBlog />} />
+          <Route path="/blogs/read-uae-school-report-card" element={<ReadSchoolReportCardBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />
           <Route path="/physics-tutor-abu-dhabi"             element={<PhysicsLanding />} />

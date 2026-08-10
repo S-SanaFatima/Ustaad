@@ -49,12 +49,13 @@ export const ROUTES = [
   // Other
   { path: '/exam-preparation', component: 'ExamPreparationPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/blogs', component: 'BlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-07-28' },
-  { path: '/blogs/exam-panic-before-exams-uae', component: 'ExamPanicBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-27' },
-  { path: '/blogs/igcse-maths-revision-low-marks', component: 'IGCSEMathsLowMarksBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-25' },
-  { path: '/blogs/physics-understanding-vs-marks', component: 'PhysicsUnderstandingMarksBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-07-15' },
-  { path: '/blogs/igcse-physics-formulas-exam', component: 'IGCSEPhysicsFormulasBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-07-12' },
-  { path: '/blogs/why-chemistry-fades-from-memory', component: 'ChemistryFadesBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-07-28' },
-  { path: '/blogs/early-signs-chemistry-help-uae', component: 'EarlySignsChemistryBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-07' },
+  { path: '/blogs/exam-panic-before-exams-uae', component: 'ExamPanicBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-23' },
+  { path: '/blogs/igcse-maths-revision-low-marks', component: 'IGCSEMathsLowMarksBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-16' },
+  { path: '/blogs/physics-understanding-vs-marks', component: 'PhysicsUnderstandingMarksBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-07-07' },
+  { path: '/blogs/igcse-physics-formulas-exam', component: 'IGCSEPhysicsFormulasBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-30' },
+  { path: '/blogs/why-chemistry-fades-from-memory', component: 'ChemistryFadesBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-07-20' },
+  { path: '/blogs/early-signs-chemistry-help-uae', component: 'EarlySignsChemistryBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-07-28' },
+  { path: '/blogs/read-uae-school-report-card', component: 'ReadSchoolReportCardBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-10' },
 
   // City × subject landings
   { path: '/maths-tutor-abu-dhabi', component: 'MathematicsLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
