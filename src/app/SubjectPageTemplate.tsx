@@ -2,7 +2,7 @@ import { useState, Fragment } from 'react';
 import type { ReactNode } from 'react';
 import { MessageCircle, ArrowRight, ChevronDown, GraduationCap, TrendingUp, Award, UserCheck, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar} from './shared';
+import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared';
 import SEOHead from './shared/SEOHead';
 import RelatedContent from './shared/RelatedContent';
 
@@ -289,6 +289,9 @@ export default function SubjectPageTemplate(p: SubjectPageProps) {
           </div>
         </section>
       )}
+
+      {/* ── SCHOOLS MARQUEE ── */}
+      <SchoolsMarquee />
 
       {/* ── RELATED + BREADCRUMBS ── */}
       {p.seo?.canonical && (

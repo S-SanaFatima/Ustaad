@@ -916,7 +916,7 @@ export default function App() {
               className="inline-flex items-center justify-center font-bold rounded-xl px-8 py-4 text-base transition hover:brightness-110"
               style={{ background: '#0a1f3d', color: '#ffffff', textDecoration: 'none' }}
             >
-              Explore All Articles From Ustaad UAE â†’
+              Explore All Articles From Ustaad UAE →
             </a>
             <a
               href="/editorial"

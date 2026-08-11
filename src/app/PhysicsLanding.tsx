@@ -290,9 +290,9 @@ const Eyebrow = ({ icon, text, dark = false }: { icon: React.ReactNode; text: st
 
 /* ─── Parents Testimonial Slider — Abu Dhabi parents only ─── */
 const PARENT_REVIEWS = [
+  { name: 'Wadeema Al M', initials: 'WA', location: 'Abu Dhabi, UAE', text: 'Very good tutoring institute with supportive tutor and clear teaching methods. Would definitely recommend to anyone looking for quality education.' },
   { name: 'Fares Al Kindi', initials: 'FK', location: 'Abu Dhabi, UAE', text: 'I had a great experience with Ustaad. They truly provide some of the best tutors in Abu Dhabi. The teaching style is clear, professional, and very supportive.' },
   { name: 'Sumayya Alamri', initials: 'SA', location: 'Abu Dhabi, UAE', text: 'I had a very good experience with Ustaad for my daughter — her tutor is one of the best I have experienced. He explains the concepts very well.' },
-  { name: 'Wadeema Al M', initials: 'WA', location: 'Abu Dhabi, UAE', text: 'Very good tutoring institute with supportive tutors and clear teaching methods. Would definitely recommend to anyone looking for quality education.' },
   { name: 'Humaid Khalaf', initials: 'HK', location: 'Abu Dhabi, UAE', text: 'A very good place if you want a good teacher for your studies. The tutors really know how to make difficult topics easy to understand.' },
   { name: 'Zayed Al Teneiji', initials: 'ZT', location: 'Abu Dhabi, UAE', text: 'Best tutoring institution in Abu Dhabi. The tutors are extremely knowledgeable and really care about student success in exams.' },
   { name: 'Nouf Al Mansouri', initials: 'NM', location: 'Abu Dhabi, UAE', text: 'Being a teacher, I found them the most professional and organised service provider. They really care and arrange lessons around the student\u2019s learning pace.' },

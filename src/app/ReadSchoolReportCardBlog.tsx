@@ -132,22 +132,36 @@ function SocialShare({ url, title, center }: { url: string; title: string; cente
 
 function PhraseDecoderCard({ phrase, surface, working }: { phrase: string; surface: string; working: React.ReactNode }) {
   return (
-    <div className="my-4 rounded-2xl border border-[#0f4a9b]/15 bg-gradient-to-br from-white to-[#f8fafd] p-5 shadow-[0_2px_12px_rgba(15,74,155,0.04)]">
-      <h3 className="text-base font-extrabold text-[#0a1f3d] mb-3 border-b border-[#0f4a9b]/10 pb-2">
-        "{phrase}"
-      </h3>
-      <div className="grid md:grid-cols-2 gap-4 text-xs lg:text-[13px]">
-        <div className="bg-slate-50 rounded-xl p-3.5 border border-slate-200/80">
-          <span className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
-            Surface Reading
-          </span>
-          <p className="text-gray-700 leading-relaxed">{surface}</p>
+    <div className="my-5 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] hover:border-[#0f4a9b]/30 group">
+      <div className="flex items-center justify-between gap-3 mb-3 pb-2.5 border-b border-slate-100">
+        <h3 className="text-base sm:text-lg font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#C7A24A] inline-block shrink-0" />
+          "{phrase}"
+        </h3>
+        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/8 px-2.5 py-1 rounded-full border border-[#0f4a9b]/15 shrink-0">
+          Decoded 🔍
+        </span>
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-3.5 text-xs lg:text-[13px]">
+        <div className="bg-slate-50/90 rounded-xl p-4 border border-slate-200/70 group-hover:border-slate-300 transition-colors">
+          <div className="flex items-center gap-1.5 mb-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+              Surface Reading (What Parents Hear)
+            </span>
+          </div>
+          <p className="text-slate-700 leading-relaxed font-medium">{surface}</p>
         </div>
-        <div className="bg-[#0f4a9b]/6 rounded-xl p-3.5 border border-[#0f4a9b]/15">
-          <span className="block text-[10px] font-extrabold uppercase tracking-wider text-[#0f4a9b] mb-1">
-            Working Meaning
-          </span>
-          <div className="text-gray-800 leading-relaxed">{working}</div>
+
+        <div className="bg-[#0f4a9b]/5 rounded-xl p-4 border border-[#0f4a9b]/20 group-hover:bg-[#0f4a9b]/8 group-hover:border-[#0f4a9b]/35 transition-all">
+          <div className="flex items-center gap-1.5 mb-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0f4a9b]" />
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#0f4a9b]">
+              Working Meaning (What Teacher Intended)
+            </span>
+          </div>
+          <div className="text-[#0a1f3d] leading-relaxed font-medium">{working}</div>
         </div>
       </div>
     </div>
@@ -343,17 +357,28 @@ export default function ReadSchoolReportCardBlog() {
             <p>Every comment on a UAE school report carries three layers. Read all three together, or the surface layer alone will mislead.</p>
 
             <div className="my-5 space-y-3">
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <span className="block text-[11px] font-extrabold uppercase tracking-widest text-slate-600 mb-1">SURFACE</span>
-                <p className="text-sm font-semibold text-[#0a1f3d]">The sentence the parent reads at first glance.</p>
+              <div className="group rounded-2xl border border-slate-200/90 bg-slate-50/80 p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-slate-300 hover:bg-white cursor-pointer">
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="block text-[11px] font-extrabold uppercase tracking-widest text-slate-500 group-hover:text-[#0f4a9b] transition-colors">LAYER 1 · SURFACE</span>
+                  <span className="w-2 h-2 rounded-full bg-slate-400 group-hover:bg-[#0f4a9b] transition-colors" />
+                </div>
+                <p className="text-sm font-semibold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors">The sentence the parent reads at first glance.</p>
               </div>
-              <div className="rounded-xl border border-[#0f4a9b]/20 bg-[#0f4a9b]/5 p-4">
-                <span className="block text-[11px] font-extrabold uppercase tracking-widest text-[#0f4a9b] mb-1">SECOND</span>
-                <p className="text-sm font-semibold text-[#0a1f3d]">What the teacher observed in class over the term.</p>
+
+              <div className="group rounded-2xl border border-[#0f4a9b]/20 bg-[#0f4a9b]/5 p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#0f4a9b]/40 hover:bg-white cursor-pointer">
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="block text-[11px] font-extrabold uppercase tracking-widest text-[#0f4a9b]">LAYER 2 · SECOND</span>
+                  <span className="w-2 h-2 rounded-full bg-[#0f4a9b]" />
+                </div>
+                <p className="text-sm font-semibold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors">What the teacher observed in class over the term.</p>
               </div>
-              <div className="rounded-xl border border-[#0a1f3d]/20 bg-[#0a1f3d]/5 p-4">
-                <span className="block text-[11px] font-extrabold uppercase tracking-widest text-[#0a1f3d] mb-1">THIRD</span>
-                <p className="text-sm font-semibold text-[#0a1f3d]">What the teacher recommends, translated into report-card-safe language.</p>
+
+              <div className="group rounded-2xl border border-[#C7A24A]/30 bg-[#C7A24A]/5 p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#C7A24A]/60 hover:bg-white cursor-pointer">
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="block text-[11px] font-extrabold uppercase tracking-widest text-[#a37f2c]">LAYER 3 · THIRD</span>
+                  <span className="w-2 h-2 rounded-full bg-[#C7A24A]" />
+                </div>
+                <p className="text-sm font-semibold text-[#0a1f3d] group-hover:text-[#C7A24A] transition-colors">What the teacher recommends, translated into report-card-safe language.</p>
               </div>
             </div>
 
@@ -471,22 +496,70 @@ export default function ReadSchoolReportCardBlog() {
             <SectionHeading num="06" id="what-to-do-in-next-48-hours">What to Do With the Report Card in the Next 48 Hours</SectionHeading>
             <p>The first 48 hours after a report arrives shape whether the term ahead improves or repeats the same pattern.</p>
 
-            <div className="my-5 space-y-3">
-              <div className="flex items-start gap-4 p-4 rounded-xl border border-slate-200 bg-slate-50">
-                <span className="shrink-0 px-2.5 py-1 rounded-md bg-[#0f4a9b] text-white text-xs font-extrabold">HOUR 1</span>
-                <p className="text-xs lg:text-sm text-gray-700 leading-relaxed">Read the comments twice before saying anything. The first read is emotional. The second read is where the pattern shows.</p>
+            {/* Timeline UI for Section 6 */}
+            <div className="my-6 relative pl-6 sm:pl-8 border-l-2 border-[#0f4a9b]/20 space-y-5">
+              {/* Step 1 */}
+              <div className="relative group">
+                <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#0a1f3d] border-2 border-[#C7A24A] flex items-center justify-center text-[10px] font-extrabold text-[#C7A24A] shadow-md group-hover:scale-110 transition-transform">
+                  1
+                </div>
+                <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-[#0f4a9b]/30 group-hover:bg-slate-50/50">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span className="px-3 py-1 rounded-full bg-[#0f4a9b] text-white text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider shadow-sm">
+                      HOUR 1 · FIRST READ
+                    </span>
+                    <span className="text-xs text-gray-400 font-semibold">Read Twice</span>
+                  </div>
+                  <p className="text-xs lg:text-sm text-gray-700 leading-relaxed font-medium">Read the comments twice before saying anything. The first read is emotional. The second read is where the pattern shows.</p>
+                </div>
               </div>
-              <div className="flex items-start gap-4 p-4 rounded-xl border border-slate-200 bg-slate-50">
-                <span className="shrink-0 px-2.5 py-1 rounded-md bg-[#0f4a9b] text-white text-xs font-extrabold">HOUR 2</span>
-                <p className="text-xs lg:text-sm text-gray-700 leading-relaxed">Do not lead with the grade. Ask about a specific comment. 'Your maths teacher wrote that you would benefit from checking your working. What do you think she meant?' This gets a real answer. 'Why did you get a B?' does not.</p>
+
+              {/* Step 2 */}
+              <div className="relative group">
+                <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#0a1f3d] border-2 border-[#C7A24A] flex items-center justify-center text-[10px] font-extrabold text-[#C7A24A] shadow-md group-hover:scale-110 transition-transform">
+                  2
+                </div>
+                <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-[#0f4a9b]/30 group-hover:bg-slate-50/50">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span className="px-3 py-1 rounded-full bg-[#0f4a9b] text-white text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider shadow-sm">
+                      HOUR 2 · CONVERSATION
+                    </span>
+                    <span className="text-xs text-gray-400 font-semibold">Ask Specifics</span>
+                  </div>
+                  <p className="text-xs lg:text-sm text-gray-700 leading-relaxed font-medium">Do not lead with the grade. Ask about a specific comment. <em>'Your maths teacher wrote that you would benefit from checking your working. What do you think she meant?'</em> This gets a real answer. <em>'Why did you get a B?'</em> does not.</p>
+                </div>
               </div>
-              <div className="flex items-start gap-4 p-4 rounded-xl border border-slate-200 bg-slate-50">
-                <span className="shrink-0 px-2.5 py-1 rounded-md bg-[#0f4a9b] text-white text-xs font-extrabold">SAME DAY</span>
-                <p className="text-xs lg:text-sm text-gray-700 leading-relaxed">Compare this term's comments to last term's for the same subject. One report tells you where the student is. Two consecutive reports tell you where they are moving.</p>
+
+              {/* Step 3 */}
+              <div className="relative group">
+                <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#0a1f3d] border-2 border-[#C7A24A] flex items-center justify-center text-[10px] font-extrabold text-[#C7A24A] shadow-md group-hover:scale-110 transition-transform">
+                  3
+                </div>
+                <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-[#0f4a9b]/30 group-hover:bg-slate-50/50">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span className="px-3 py-1 rounded-full bg-[#0f4a9b] text-white text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider shadow-sm">
+                      SAME DAY · COMPARISON
+                    </span>
+                    <span className="text-xs text-gray-400 font-semibold">Track Trajectory</span>
+                  </div>
+                  <p className="text-xs lg:text-sm text-gray-700 leading-relaxed font-medium">Compare this term's comments to last term's for the same subject. One report tells you where the student is. Two consecutive reports tell you where they are moving.</p>
+                </div>
               </div>
-              <div className="flex items-start gap-4 p-4 rounded-xl border border-slate-200 bg-slate-50">
-                <span className="shrink-0 px-2.5 py-1 rounded-md bg-[#0f4a9b] text-white text-xs font-extrabold">DAY 2</span>
-                <p className="text-xs lg:text-sm text-gray-700 leading-relaxed">Wait until day two before deciding whether extra support is needed. Reports read differently after a night's sleep. Panic-booking tutors on the same evening rarely leads to the right match.</p>
+
+              {/* Step 4 */}
+              <div className="relative group">
+                <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#0a1f3d] border-2 border-[#C7A24A] flex items-center justify-center text-[10px] font-extrabold text-[#C7A24A] shadow-md group-hover:scale-110 transition-transform">
+                  4
+                </div>
+                <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-[#0f4a9b]/30 group-hover:bg-slate-50/50">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span className="px-3 py-1 rounded-full bg-[#0f4a9b] text-white text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider shadow-sm">
+                      DAY 2 · ACTION PLAN
+                    </span>
+                    <span className="text-xs text-gray-400 font-semibold">Calm Decisions</span>
+                  </div>
+                  <p className="text-xs lg:text-sm text-gray-700 leading-relaxed font-medium">Wait until day two before deciding whether extra support is needed. Reports read differently after a night's sleep. Panic-booking tutors on the same evening rarely leads to the right match.</p>
+                </div>
               </div>
             </div>
 

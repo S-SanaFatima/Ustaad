@@ -1197,17 +1197,17 @@ export default function MathematicsLanding() {
             <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 35%, transparent 65%, rgba(255,255,255,0.06) 100%)' }} />
             <div className="relative z-10">
               <p className="text-white/90 text-[15px] sm:text-[16px] leading-[1.7] mb-5 font-medium text-justify">
-              Being a teacher, I found them as the most professional and organised service provider. They really care and arrange lessons around the student's learning pace. My daughter's maths confidence improved noticeably within weeks.
+              I had a very good experience with Ustaad for my daughter. Her maths teacher is one of the best tutors I have experienced. He explains the concepts very well.
             </p>
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center text-[12px] font-extrabold text-white shrink-0 border-2 border-white/20"
                   style={{ background: 'linear-gradient(135deg, rgba(240,201,106,0.3), rgba(199,162,74,0.5))' }}>
-                  NM
+                  SA
                 </div>
                 <div>
-                  <p className="text-white font-extrabold text-[14px] leading-tight">Nouf Al Mansouri</p>
-                  <p className="text-blue-200/70 text-[11px] mt-0.5">Abu Dhabi, UAE · Maths Parent</p>
+                  <p className="text-white font-extrabold text-[14px] leading-tight">Sumayya Alamri</p>
+                  <p className="text-blue-200/70 text-[11px] mt-0.5">Abu Dhabi, UAE &middot; Maths Parent</p>
                 </div>
               </div>
             </div>
