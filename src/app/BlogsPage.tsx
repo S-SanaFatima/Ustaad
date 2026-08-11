@@ -194,7 +194,7 @@ export default function BlogsPage() {
               <span className="text-xs font-bold text-[#0f4a9b] uppercase tracking-wider">Ustaad Publications</span>
             </div>
             <h1 className="text-3xl lg:text-5xl font-extrabold text-[#0a1f3d] mb-5 tracking-tight leading-tight">
-              The Ustaad Blog
+              <GradientHeadingText text="The Ustaad Blog" />
             </h1>
             <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-3xl mx-auto text-justify sm:text-center">
               Every article here is written or reviewed by a teacher, academic mentor or counsellor working with students across the UAE. We write for families navigating the British, American and IB curricula, from IGCSE and GCSE through A-Level, AP and IB, and the guidance comes from real classrooms and counselling rooms in Dubai, Abu Dhabi and beyond rather than generic study tips. To make the writing easy to navigate, we group it into three streams: Academic skills for subject learning and exam technique, Psychology of Learning for how the mind performs under pressure, and Parent Guidance for spotting early signs and deciding when to step in. Choose a stream below, or read the latest first.
