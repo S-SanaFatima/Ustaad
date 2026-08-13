@@ -9,7 +9,17 @@ import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, reviewsSchema } from './shared/schemas';
 
-const BOOKING = '/contact#form';
+const BOOKING = "/contact#form";
+const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20ask%20a%20question.';
+
+const biologySchoolLogos = [
+  { name: 'Brighton College Abu Dhabi', file: 'brighton.png', alt: 'Brighton College Abu Dhabi logo, a leading British school in the capital for IGCSE and A-Level biology', scale: 1.25 },
+  { name: 'Cranleigh Abu Dhabi', file: 'cranleigh.png', alt: 'Cranleigh Abu Dhabi logo, a premium Saadiyat British school for IGCSE and A-Level biology', scale: 1.25 },
+  { name: 'The British International School Abu Dhabi', file: 'bisad.png', alt: 'The British International School Abu Dhabi logo, a Nord Anglia school for IGCSE and A-Level biology', scale: 1.25 },
+  { name: 'Al Yasmina Academy', file: 'al-yasmina-academy-abu-dhabi.png', alt: 'Al Yasmina Academy logo, a British curriculum school in Abu Dhabi teaching IGCSE biology', scale: 1.25 },
+  { name: 'Al Basma British School', file: 'albasma.png', alt: 'Al Basma British School logo, an affordable British school in Abu Dhabi for IGCSE biology', scale: 1.25 },
+  { name: 'Raha International School', file: 'raha.png', alt: 'Raha International School logo, an Abu Dhabi IB school with strong biology and life sciences' },
+];
 
 const BioGrid = ({ light = false }: { light?: boolean }) => (
   <svg className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
@@ -1267,17 +1277,9 @@ export default function BiologyLanding() {
                 style={{ background:'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow:'0 4px 16px rgba(15,74,155,0.5)' }}>
                 Book Your Free Trial
               </a>
-              <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
-              <div className="w-full flex items-center justify-center gap-2.5 px-3 py-2 rounded-xl" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <div className="flex items-center gap-1">
-                  <span className="text-[1.15rem] font-black text-white leading-none">5.0</span>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_,i) => <span key={i} className="text-[8px]" style={{ color: '#f0c96a' }}>★</span>)}
-                  </div>
-                </div>
-                <div className="w-px h-5 bg-white/15" />
-                <span className="text-[10px] font-bold text-white/90 leading-tight">Registered in UAE</span>
-              </div>
+              <span className="text-blue-200/50 text-[11px] -my-1">or</span>
+              <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
+              <p className="text-blue-200/50 text-[11px] mt-1">✦ No Commitment · Cancel Anytime</p>
             </div>
 
             <div className="hidden sm:flex items-start justify-center gap-4">
@@ -1289,17 +1291,10 @@ export default function BiologyLanding() {
                 </a>
                 <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
               </div>
-              <div className="inline-flex items-center justify-center gap-3 px-7 md:px-8 h-12 rounded-full" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)', minWidth: '196px' }}>
-                <div className="flex flex-col items-center justify-center">
-                  <div className="flex items-center gap-1">
-                    <span className="text-xl font-black text-white leading-none">5.0</span>
-                  </div>
-                  <div className="flex gap-0.5 mt-0.5">
-                    {[...Array(5)].map((_,i) => <span key={i} className="text-[9px]" style={{ color: '#f0c96a' }}>★</span>)}
-                  </div>
-                </div>
-                <div className="w-px h-8 bg-white/15" />
-                <span className="text-[11px] font-bold text-white/90 leading-tight">Registered in UAE</span>
+              <div className="flex flex-col items-center gap-1.5">
+                <a href={WA_URL} className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
+                  <MessageCircle className="w-4 h-4" /> WhatsApp Us
+                </a>
               </div>
             </div>
           </motion.div>
@@ -1821,7 +1816,7 @@ export default function BiologyLanding() {
       </section>
 
       {/* SCHOOLS MARQUEE */}
-      <SchoolsMarquee />
+      <SchoolsMarquee logoList={biologySchoolLogos} />
 
       {/* SECTION 10: START BIOLOGY PROGRESS */}
       <section className="py-12 sm:py-16 bg-white">

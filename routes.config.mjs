@@ -49,6 +49,9 @@ export const ROUTES = [
   // Other
   { path: '/exam-preparation', component: 'ExamPreparationPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/blogs', component: 'BlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-07-28' },
+  { path: '/blogs/academic-exam-skills', component: 'AcademicBlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-08-13' },
+  { path: '/blogs/psychology-of-learning', component: 'PsychologyBlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-08-13' },
+  { path: '/blogs/parent-guidance', component: 'ParentGuidanceBlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-08-13' },
   { path: '/blogs/exam-panic-before-exams-uae', component: 'ExamPanicBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-23' },
   { path: '/blogs/igcse-maths-revision-low-marks', component: 'IGCSEMathsLowMarksBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-16' },
   { path: '/blogs/physics-understanding-vs-marks', component: 'PhysicsUnderstandingMarksBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-07-07' },
@@ -63,6 +66,7 @@ export const ROUTES = [
   { path: '/chemistry-tutor-abu-dhabi', component: 'ChemistryLandingPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/biology-tutor-abu-dhabi', component: 'BiologyLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/igcse-tutor-abu-dhabi', component: 'IGCSETutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
+  { path: '/gcse-tutor-abu-dhabi', component: 'GCSETutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-12' },
 
   { path: '/privacy', component: 'PrivacyPage', priority: 0.3, changefreq: 'yearly', lastmod: '2026-07-11' },
   { path: '/terms', component: 'TermsPage', priority: 0.3, changefreq: 'yearly', lastmod: '2026-07-11' },

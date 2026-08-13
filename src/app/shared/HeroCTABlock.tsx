@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import { GoldButton } from './GoldButton';
-import GoogleReviewCard from './GoogleReviewCard';
 
 interface HeroCTABlockProps {
   children: ReactNode;
@@ -31,7 +30,6 @@ export default function HeroCTABlock({
           </p>
         </div>
       </div>
-      <GoogleReviewCard />
     </div>
   );
 }

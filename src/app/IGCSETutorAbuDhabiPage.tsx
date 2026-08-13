@@ -11,7 +11,7 @@ import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, courseSchema } from './shared/schemas';
 
-const BOOKING = '/contact#form';
+const BOOKING = "/contact#form";
 const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20my%20first%2030-minute%20session%20with%20a%20subject%20and%20curriculum-fit%20tutor.';
 
 /* Faint grid background */
@@ -534,17 +534,9 @@ export default function IGCSETutorAbuDhabiPage() {
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}>
                 Book Your Free Trial
               </a>
-              <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
-              <div className="w-full flex items-center justify-center gap-2.5 px-3 py-2 rounded-xl" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <div className="flex items-center gap-1">
-                  <span className="text-[1.15rem] font-black text-white leading-none">5.0</span>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => <span key={i} className="text-[8px]" style={{ color: '#f0c96a' }}>★</span>)}
-                  </div>
-                </div>
-                <div className="w-px h-5 bg-white/15" />
-                <span className="text-[10px] font-bold text-white/90 leading-tight">Registered in UAE</span>
-              </div>
+              <span className="text-blue-200/50 text-[11px] -my-1">or</span>
+              <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
+              <p className="text-blue-200/50 text-[11px] mt-1">✦ No Commitment · Cancel Anytime</p>
             </div>
 
             <div className="hidden sm:flex items-start justify-center gap-4">
@@ -556,15 +548,10 @@ export default function IGCSETutorAbuDhabiPage() {
                 </a>
                 <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
               </div>
-              <div className="inline-flex items-center justify-center gap-3 px-7 md:px-8 h-12 rounded-full" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)', minWidth: '196px' }}>
-                <div className="flex flex-col items-center">
-                  <span className="text-[1.4rem] font-black text-white leading-none">5.0</span>
-                  <div className="flex gap-0.5 mt-0.5">
-                    {[...Array(5)].map((_, i) => <span key={i} className="text-[9px]" style={{ color: '#f0c96a' }}>★</span>)}
-                  </div>
-                </div>
-                <div className="w-px h-7 bg-white/15" />
-                <span className="text-[12px] font-bold text-white/90 leading-tight">Registered in UAE</span>
+              <div className="flex flex-col items-center gap-1.5">
+                <a href={WA_URL} className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
+                  <MessageCircle className="w-4 h-4" /> WhatsApp Us
+                </a>
               </div>
             </div>
           </motion.div>

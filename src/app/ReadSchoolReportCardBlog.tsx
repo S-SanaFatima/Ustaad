@@ -295,19 +295,35 @@ export default function ReadSchoolReportCardBlog() {
             <p className="text-gray-500 text-sm lg:text-[15px] leading-relaxed mb-3 text-justify">{BLOG.description}</p>
 
             {/* Meta */}
-            <div className="flex flex-wrap items-start gap-y-1 gap-x-0 mb-1 text-xs text-gray-500">
-              <span className="flex items-center gap-1 mr-3"><User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />Written by: <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline">{BLOG.author}</a> | Education Counsellor at Ustaad UAE</span>
+            <div className="mb-4 mt-2 space-y-2">
+              <div className="flex items-start gap-2 text-xs text-gray-500">
+                <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
+                <span className="leading-relaxed">
+                  <span className="font-medium">Written by:</span>{' '}
+                  <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline">{BLOG.author}</a>
+                  <span className="text-gray-400"> — Education Counsellor at Ustaad UAE</span>
+                </span>
+              </div>
+              <div className="flex items-start gap-2 text-xs text-gray-500">
+                <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
+                <span className="leading-relaxed">
+                  <span className="font-medium">Reviewed by:</span>{' '}
+                  <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">{BLOG.reviewer}</a>
+                  <span className="text-gray-400"> — MPhil in Education Leadership and Management</span>
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-400 pt-1">
+                <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
+                  <Calendar className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />
+                  Last reviewed: July 2026 · Ustaad UAE Editorial Team
+                </time>
+                <span className="flex items-center gap-1">
+                  <Clock className="h-3.5 w-3.5 text-[#C7A24A]" />{BLOG.readTime}
+                </span>
+                <SocialShare url={shareUrl} title={BLOG.title} />
+              </div>
             </div>
-            <div className="flex flex-wrap items-start gap-y-1 gap-x-0 mb-1 text-xs text-gray-500">
-              <span className="flex items-center gap-1 mr-3"><User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />Reviewed by: <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">{BLOG.reviewer}</a> | MPhil in Education Leadership and Management</span>
-            </div>
-            <div className="flex flex-wrap items-center gap-3 mb-4 mt-2 text-xs text-gray-400">
-              <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
-                <Calendar className="h-3.5 w-3.5 text-[#C7A24A]" />Last reviewed: July 2026 | Ustaad UAE Editorial Team
-              </time>
-              <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-[#C7A24A]" />{BLOG.readTime}</span>
-              <SocialShare url={shareUrl} title={BLOG.title} />
-            </div>
+
           </motion.div>
 
           {/* Hero image */}
@@ -695,19 +711,17 @@ export default function ReadSchoolReportCardBlog() {
 
           {/* Author & Reviewer */}
           <div className="mt-7 grid md:grid-cols-2 gap-3">
-            <div className="relative rounded-2xl border border-[#0f4a9b]/10 bg-gradient-to-br from-white to-[#f4f7fd] p-4 overflow-hidden">
-              <div className="absolute top-3 right-3">
-                <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#0f4a9b] border border-[#0f4a9b]/15 bg-[#0f4a9b]/5">About the Author</span>
-              </div>
-              <p className="font-extrabold text-[#0a1f3d] text-sm mb-1 pr-28 mt-4">Nimra Shahzada | Education Counsellor at Ustaad UAE</p>
-              <p className="text-xs text-gray-500 leading-relaxed text-justify">Nimra Shahzada holds a Bachelor's degree in Psychology and works as an Education Counsellor with children across different school settings and age groups. Her work focuses on parent communication, report interpretation, and early-stage learning support. She helps families notice the small routine shifts that appear before performance drops.</p>
+            <div className="rounded-2xl border border-[#0f4a9b]/10 bg-gradient-to-br from-white to-[#f4f7fd] p-4 overflow-hidden">
+              <span className="inline-block mb-2 px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#0f4a9b] border border-[#0f4a9b]/15 bg-[#0f4a9b]/5">About the Author</span>
+              <p className="font-extrabold text-[#0a1f3d] text-sm mb-1">Nimra Shahzada</p>
+              <p className="text-[10px] text-[#0f4a9b] font-semibold mb-2">Education Counsellor at Ustaad UAE</p>
+              <p className="text-xs text-gray-500 leading-relaxed">Nimra Shahzada holds a Bachelor's degree in Psychology and works as an Education Counsellor with children across different school settings and age groups. Her work focuses on parent communication, report interpretation, and early-stage learning support. She helps families notice the small routine shifts that appear before performance drops.</p>
             </div>
-            <div className="relative rounded-2xl border border-[#0f4a9b]/10 bg-gradient-to-br from-white to-[#f8fafd] p-4 overflow-hidden">
-              <div className="absolute top-3 right-3">
-                <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#0f4a9b] border border-[#0f4a9b]/15 bg-[#0f4a9b]/5">Reviewed By</span>
-              </div>
-              <p className="font-extrabold text-[#0a1f3d] text-sm mb-1 pr-24 mt-4">Nida Iqbal | MPhil in Education Leadership and Management</p>
-              <p className="text-xs text-gray-500 leading-relaxed text-justify">Nida Iqbal reviewed this article for educational accuracy and parent relevance, ensuring the guidance reflects sound classroom practice for UAE families navigating report card season.</p>
+            <div className="rounded-2xl border border-[#0f4a9b]/10 bg-gradient-to-br from-white to-[#f8fafd] p-4 overflow-hidden">
+              <span className="inline-block mb-2 px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#0f4a9b] border border-[#0f4a9b]/15 bg-[#0f4a9b]/5">Reviewed By</span>
+              <p className="font-extrabold text-[#0a1f3d] text-sm mb-1">Nida Iqbal</p>
+              <p className="text-[10px] text-[#0f4a9b] font-semibold mb-2">MPhil in Education Leadership and Management</p>
+              <p className="text-xs text-gray-500 leading-relaxed">Nida Iqbal reviewed this article for educational accuracy and parent relevance, ensuring the guidance reflects sound classroom practice for UAE families navigating report card season.</p>
             </div>
           </div>
 

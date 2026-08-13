@@ -386,12 +386,45 @@ export const ROUTES: RouteConfig[] = [
     path: '/blogs',
     component: 'BlogsPage',
     seo: {
-      title: 'Blog | Private Tutoring Insights & Study Tips — Ustaad',
-      description: "Explore Ustaad's blog for expert tutoring insights, study tips, exam strategies, and curriculum guidance for IGCSE, A-Level, IB, and AP students in UAE.",
+      title: 'Ustaad Blog | Study Skills, Learning & Parent Guidance UAE',
+      description: 'Practical, honest advice for UAE parents and students. We cover IGCSE, A-Level, and IB study strategies, memory habits, and when to seek tutoring help.',
       priority: 0.9,
       changefreq: 'weekly'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }]
+  },
+  {
+    path: '/blogs/academic-exam-skills',
+    component: 'AcademicBlogsPage',
+    seo: {
+      title: 'Academic & Exam Skills | Ustaad Blog',
+      description: 'Understanding a topic at home and producing it under exam pressure are two different skills. The articles in this stream look at what happens in between.',
+      priority: 0.9,
+      changefreq: 'weekly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' }]
+  },
+  {
+    path: '/blogs/psychology-of-learning',
+    component: 'PsychologyBlogsPage',
+    seo: {
+      title: 'Psychology of Learning | Ustaad Blog',
+      description: 'Why capable students still underperform, and how memory, focus and nerves shape results.',
+      priority: 0.9,
+      changefreq: 'weekly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' }]
+  },
+  {
+    path: '/blogs/parent-guidance',
+    component: 'ParentGuidanceBlogsPage',
+    seo: {
+      title: 'Parent Guidance | Ustaad Blog',
+      description: 'Calm, clear help for spotting struggles early and knowing when to step in.',
+      priority: 0.9,
+      changefreq: 'weekly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }]
   },
   {
     path: '/blogs/igcse-maths-revision-low-marks',
@@ -471,6 +504,17 @@ export const ROUTES: RouteConfig[] = [
       changefreq: 'monthly'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IGCSE Tutor Abu Dhabi', url: '/igcse-tutor-abu-dhabi' }]
+  },
+  {
+    path: '/gcse-tutor-abu-dhabi',
+    component: 'GCSETutorLanding',
+    seo: {
+      title: 'GCSE Tutor Abu Dhabi | Private GCSE Tutoring — Ustaad',
+      description: 'Private GCSE tutors in Abu Dhabi for Maths, Physics, Chemistry, Biology, English and more. AQA, OCR, and Edexcel aligned. Book a free trial.',
+      priority: 0.90,
+      changefreq: 'monthly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'GCSE Tutor Abu Dhabi', url: '/gcse-tutor-abu-dhabi' }]
   },
   {
     path: '/editorial',

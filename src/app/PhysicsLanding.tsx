@@ -13,7 +13,17 @@ import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, courseSchema } from './shared/schemas';
 import RelatedContent from './shared/RelatedContent';
 
-const BOOKING = '/contact#form';
+const BOOKING = "/contact#form";
+const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20ask%20a%20question.';
+
+const physicsSchoolLogos = [
+  { name: 'Cranleigh Abu Dhabi', file: 'cranleigh.png', alt: 'Cranleigh Abu Dhabi logo, a premium Saadiyat school for IGCSE and A-Level physics students', scale: 1.25 },
+  { name: 'The British International School Abu Dhabi', file: 'bisad.png', alt: 'The British International School Abu Dhabi logo, a Nord Anglia school for IGCSE and A-Level physics', scale: 1.25 },
+  { name: 'Brighton College Abu Dhabi', file: 'brighton.png', alt: 'Brighton College Abu Dhabi logo, a British school with strong A-Level physics provision in the capital', scale: 1.25 },
+  { name: 'Al Yasmina Academy', file: 'al-yasmina-academy-abu-dhabi.png', alt: 'Al Yasmina Academy logo, a British curriculum school in Khalifa City Abu Dhabi teaching IGCSE physics', scale: 1.25 },
+  { name: 'Repton School Abu Dhabi', file: 'repton.png', alt: 'Repton School Abu Dhabi logo, a British and IB school in Abu Dhabi for IGCSE and A-Level physics', scale: 1.25 },
+  { name: 'Al Basma British School', file: 'albasma.png', alt: 'Al Basma British School logo, an ADEK Very Good British school in Abu Dhabi for IGCSE physics', scale: 1.25 },
+];
 
 /* faint physics grid background */
 const PhysGrid = ({ light = false }: { light?: boolean }) => (
@@ -169,10 +179,11 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className={`flex flex-col items-center text-center px-3 ${above ? 'justify-end pb-5' : 'invisible'}`}
+                  whileHover={{ y: -6 }}
+                  className={`flex flex-col items-center text-center px-3 cursor-default group ${above ? 'justify-end pb-5' : 'invisible'}`}
                   style={{ minHeight: '140px' }}
                 >
-                  <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] flex items-center justify-center text-[#0f4a9b] mb-3">
+                  <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] group-hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] transition-shadow duration-300 flex items-center justify-center text-[#0f4a9b] mb-3">
                     {s.icon}
                   </div>
                   <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
@@ -232,10 +243,11 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className={`flex flex-col items-center text-center px-3 ${below ? 'justify-start pt-5' : 'invisible'}`}
+                  whileHover={{ y: -6 }}
+                  className={`flex flex-col items-center text-center px-3 cursor-default group ${below ? 'justify-start pt-5' : 'invisible'}`}
                   style={{ minHeight: '140px' }}
                 >
-                  <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] flex items-center justify-center text-[#0f4a9b] mb-3">
+                  <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] group-hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] transition-shadow duration-300 flex items-center justify-center text-[#0f4a9b] mb-3">
                     {s.icon}
                   </div>
                   <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
@@ -291,14 +303,6 @@ const Eyebrow = ({ icon, text, dark = false }: { icon: React.ReactNode; text: st
 /* ─── Parents Testimonial Slider — Abu Dhabi parents only ─── */
 const PARENT_REVIEWS = [
   { name: 'Wadeema Al M', initials: 'WA', location: 'Abu Dhabi, UAE', text: 'Very good tutoring institute with supportive tutor and clear teaching methods. Would definitely recommend to anyone looking for quality education.' },
-  { name: 'Fares Al Kindi', initials: 'FK', location: 'Abu Dhabi, UAE', text: 'I had a great experience with Ustaad. They truly provide some of the best tutors in Abu Dhabi. The teaching style is clear, professional, and very supportive.' },
-  { name: 'Sumayya Alamri', initials: 'SA', location: 'Abu Dhabi, UAE', text: 'I had a very good experience with Ustaad for my daughter — her tutor is one of the best I have experienced. He explains the concepts very well.' },
-  { name: 'Humaid Khalaf', initials: 'HK', location: 'Abu Dhabi, UAE', text: 'A very good place if you want a good teacher for your studies. The tutors really know how to make difficult topics easy to understand.' },
-  { name: 'Zayed Al Teneiji', initials: 'ZT', location: 'Abu Dhabi, UAE', text: 'Best tutoring institution in Abu Dhabi. The tutors are extremely knowledgeable and really care about student success in exams.' },
-  { name: 'Nouf Al Mansouri', initials: 'NM', location: 'Abu Dhabi, UAE', text: 'Being a teacher, I found them the most professional and organised service provider. They really care and arrange lessons around the student\u2019s learning pace.' },
-  { name: 'Elyazia Alkaabi', initials: 'EA', location: 'Abu Dhabi, UAE', text: 'A very good teacher — he makes the lessons easier to understand and has good ways of getting the information into my mind easily.' },
-  { name: 'Mohamed al Hamed', initials: 'MH', location: 'Abu Dhabi, UAE', text: 'Ustaad is the best online institute in Abu Dhabi. They tutored me throughout university and are now consistently tutoring my siblings and cousins.' },
-  { name: 'Ahmed Als', initials: 'AA', location: 'Abu Dhabi, UAE', text: 'One of the best tutors in Abu Dhabi — his teaching method is very focused and effective. He breaks down complex concepts into simple steps and ensures full understanding.' },
 ];
 
 function ParentsSlider() {
@@ -353,41 +357,43 @@ function ParentsSlider() {
       </div>
 
       {/* Controls: prev arrow · dot indicators · next arrow */}
-      <div className="flex items-center justify-center gap-3 mt-5">
-        <button
-          onClick={() => go(index - 1)}
-          aria-label="Previous review"
-          className="flex items-center justify-center w-9 h-9 rounded-full transition-all hover:-translate-x-0.5"
-          style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
-        >
-          <ChevronLeft className="h-4 w-4 text-white" />
-        </button>
+      {count > 1 && (
+        <div className="flex items-center justify-center gap-3 mt-5">
+          <button
+            onClick={() => go(index - 1)}
+            aria-label="Previous review"
+            className="flex items-center justify-center w-9 h-9 rounded-full transition-all hover:-translate-x-0.5"
+            style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
+          >
+            <ChevronLeft className="h-4 w-4 text-white" />
+          </button>
 
-        <div className="flex items-center gap-2">
-          {PARENT_REVIEWS.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => go(i)}
-              aria-label={`Go to review ${i + 1}`}
-              className="rounded-full transition-all duration-300"
-              style={{
-                width: i === index ? 22 : 8,
-                height: 8,
-                background: i === index ? 'linear-gradient(92deg,#f0c96a,#fde68a)' : 'rgba(255,255,255,0.3)',
-              }}
-            />
-          ))}
+          <div className="flex items-center gap-2">
+            {PARENT_REVIEWS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => go(i)}
+                aria-label={`Go to review ${i + 1}`}
+                className="rounded-full transition-all duration-300"
+                style={{
+                  width: i === index ? 22 : 8,
+                  height: 8,
+                  background: i === index ? 'linear-gradient(92deg,#f0c96a,#fde68a)' : 'rgba(255,255,255,0.3)',
+                }}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={() => go(index + 1)}
+            aria-label="Next review"
+            className="flex items-center justify-center w-9 h-9 rounded-full transition-all hover:translate-x-0.5"
+            style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
+          >
+            <ChevronRight className="h-4 w-4 text-white" />
+          </button>
         </div>
-
-        <button
-          onClick={() => go(index + 1)}
-          aria-label="Next review"
-          className="flex items-center justify-center w-9 h-9 rounded-full transition-all hover:translate-x-0.5"
-          style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
-        >
-          <ChevronRight className="h-4 w-4 text-white" />
-        </button>
-      </div>
+      )}
     </div>
   );
 }
@@ -725,17 +731,9 @@ export default function PhysicsLanding() {
                 style={{ background:'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow:'0 4px 16px rgba(15,74,155,0.5)' }}>
                 Book Your Free Trial
               </a>
-              <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
-              <div className="w-full flex items-center justify-center gap-2.5 px-3 py-2 rounded-xl" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <div className="flex items-center gap-1">
-                  <span className="text-[1.15rem] font-black text-white leading-none">5.0</span>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_,i) => <span key={i} className="text-[8px]" style={{ color: '#f0c96a' }}>★</span>)}
-                  </div>
-                </div>
-                <div className="w-px h-5 bg-white/15" />
-                <span className="text-[10px] font-bold text-white/90 leading-tight">Registered in UAE</span>
-              </div>
+              <span className="text-blue-200/50 text-[11px] -my-1">or</span>
+              <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
+              <p className="text-blue-200/50 text-[11px] mt-1">✦ No Commitment · Cancel Anytime</p>
             </div>
 
             <div className="hidden sm:flex items-start justify-center gap-4">
@@ -747,15 +745,10 @@ export default function PhysicsLanding() {
                 </a>
                 <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
               </div>
-              <div className="inline-flex items-center justify-center gap-3 px-7 md:px-8 h-12 rounded-full" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)', minWidth: '196px' }}>
-                <div className="flex flex-col items-center">
-                  <span className="text-[1.4rem] font-black text-white leading-none">5.0</span>
-                  <div className="flex gap-0.5 mt-0.5">
-                    {[...Array(5)].map((_,i) => <span key={i} className="text-[9px]" style={{ color: '#f0c96a' }}>★</span>)}
-                  </div>
-                </div>
-                <div className="w-px h-7 bg-white/15" />
-                <span className="text-[12px] font-bold text-white/90 leading-tight">Registered in UAE</span>
+              <div className="flex flex-col items-center gap-1.5">
+                <a href={WA_URL} className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
+                  <MessageCircle className="w-4 h-4" /> WhatsApp Us
+                </a>
               </div>
             </div>
           </motion.div>
@@ -793,7 +786,8 @@ export default function PhysicsLanding() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="relative rounded-3xl p-5 sm:p-6 text-center overflow-hidden"
+                whileHover={{ y: -6, boxShadow: '0 12px 32px rgba(15,74,155,0.12)' }}
+                className="relative rounded-3xl p-5 sm:p-6 text-center overflow-hidden cursor-default transition-shadow duration-300"
                 style={{ background: 'linear-gradient(180deg, #fafbff 0%, #f5f7ff 100%)', border: '1px solid rgba(15,74,155,0.08)' }}
               >
                 <div className="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full mb-2.5"
@@ -826,7 +820,7 @@ export default function PhysicsLanding() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {journey.map((c, i) => (
-              <div key={i} className="rounded-2xl p-4 flex flex-col gap-2.5"
+              <div key={i} className="rounded-2xl p-4 flex flex-col gap-2.5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default"
                 style={{ background: 'rgba(15,74,155,0.18)', border: '1px solid rgba(110,168,255,0.18)' }}>
                 <div className="flex flex-col gap-1.5">
                   <span className="self-start text-[9px] font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap"
@@ -852,6 +846,7 @@ export default function PhysicsLanding() {
 
       {/* SECTION 07 — TRUSTED BY ABU DHABI SCHOOLS (shared SchoolsMarquee) */}
       <SchoolsMarquee
+        logoList={physicsSchoolLogos}
         header={
           <div className="text-center mb-5 sm:mb-6 max-w-2xl mx-auto">
             <p className="text-[13px] sm:text-[14px] font-bold text-[#0a1f3d] leading-relaxed mb-1">
@@ -885,7 +880,8 @@ export default function PhysicsLanding() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="relative rounded-3xl p-5 text-center overflow-hidden"
+                whileHover={{ y: -6, boxShadow: '0 12px 32px rgba(15,74,155,0.12)' }}
+                className="relative rounded-3xl p-5 text-center overflow-hidden cursor-default transition-shadow duration-300"
                 style={{ background: 'linear-gradient(180deg, #fafbff 0%, #f5f7ff 100%)', border: '1px solid rgba(15,74,155,0.08)' }}
               >
                 <div className="absolute inset-0 opacity-30 pointer-events-none"
@@ -926,7 +922,8 @@ export default function PhysicsLanding() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="rounded-2xl p-5 text-left relative overflow-hidden"
+                whileHover={{ y: -6, boxShadow: '0 12px 32px rgba(255,255,255,0.12)' }}
+                className="rounded-2xl p-5 text-left relative overflow-hidden cursor-default transition-shadow duration-300"
                 style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(110,168,255,0.18)' }}
               >
                 <div className="inline-flex items-center justify-center w-11 h-11 rounded-full mb-3"

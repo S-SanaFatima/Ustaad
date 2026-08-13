@@ -407,28 +407,7 @@ export default function AmericanCurriculumPage() {
 
       {/* ── SECTION 9: FINAL CTA ── */}
       
-      {/* UAE Curriculum Support Guarantee */}
-      <section className="py-12 bg-[#f8fafe] border-y border-[#0f4a9b]/10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#0f4a9b] bg-[#0f4a9b]/10 px-3 py-1 rounded-full border border-[#0f4a9b]/20">Ustaad Academic Excellence</span>
-          <h2 className="text-2xl font-extrabold text-[#0a1f3d] mt-3 mb-3">Personalised 1-to-1 Mentorship Tailored to UAE Schools</h2>
-          <p className="text-xs sm:text-sm text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">Every lesson at Ustaad is structured around your child's specific school syllabus, target grades, and assessment schedule. Whether preparing for upcoming term exams, resolving concept gaps, or practicing past-paper techniques, our specialist tutors deliver dedicated 1-to-1 guidance online across Dubai, Abu Dhabi, Sharjah, and all UAE emirates.</p>
-          <div className="grid sm:grid-cols-3 gap-4 text-xs text-left max-w-4xl mx-auto">
-            <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm">
-              <h3 className="font-bold text-[#0a1f3d] mb-1">1-to-1 Custom Pace</h3>
-              <p className="text-gray-500 leading-relaxed">Lessons adapt to your child's learning speed without classroom distraction or peer pressure.</p>
-            </div>
-            <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm">
-              <h3 className="font-bold text-[#0a1f3d] mb-1">Exam Board Precision</h3>
-              <p className="text-gray-500 leading-relaxed">Coverage directly aligned with Cambridge, Edexcel, AQA, IB, and AP mark schemes.</p>
-            </div>
-            <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm">
-              <h3 className="font-bold text-[#0a1f3d] mb-1">Flexible UAE Timings</h3>
-              <p className="text-gray-500 leading-relaxed">After-school and weekend session slots planned around UAE school terms and mock weeks.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <FinalCTA
         title="Book Your American Curriculum Tutor"

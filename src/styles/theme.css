@@ -1,5 +1,4 @@
 @custom-variant dark (&:is(.dark *));
-
 .sr-only {
   position: absolute;
   width: 1px;

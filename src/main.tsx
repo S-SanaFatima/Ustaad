@@ -58,6 +58,10 @@ const loadEarlySignsChemistryBlog = () => import('./app/EarlySignsChemistryBlog'
 const loadReadSchoolReportCardBlog = () => import('./app/ReadSchoolReportCardBlog');
 const loadBiologyLanding = () => import('./app/BiologyTutorAbuDhabiPage');
 const loadIGCSETutorLanding = () => import('./app/IGCSETutorAbuDhabiPage');
+const loadGCSETutorLanding = () => import('./app/GCSETutorAbuDhabiPage');
+const loadAcademicBlogsPage = () => import('./app/AcademicBlogsPage');
+const loadPsychologyBlogsPage = () => import('./app/PsychologyBlogsPage');
+const loadParentGuidanceBlogsPage = () => import('./app/ParentGuidanceBlogsPage');
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
   '/': loadApp,
@@ -105,6 +109,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/chemistry-tutor-abu-dhabi': loadChemistryLandingPage,
   '/biology-tutor-abu-dhabi': loadBiologyLanding,
   '/igcse-tutor-abu-dhabi': loadIGCSETutorLanding,
+  '/gcse-tutor-abu-dhabi': loadGCSETutorLanding,
   '/editorial': loadEditorialPage,
   '/authors/saira-s': loadAuthorPage,
   '/authors/nimra-shahzada': loadAuthorPage,
@@ -112,6 +117,9 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/authors/ustaad-subject-specialists': loadAuthorPage,
   '/privacy': loadPrivacyPage,
   '/terms': loadTermsPage,
+  '/blogs/academic-exam-skills': loadAcademicBlogsPage,
+  '/blogs/psychology-of-learning': loadPsychologyBlogsPage,
+  '/blogs/parent-guidance': loadParentGuidanceBlogsPage,
 };
 
 const App = lazy(loadApp);
@@ -163,6 +171,10 @@ const EarlySignsChemistryBlog = lazy(loadEarlySignsChemistryBlog);
 const ReadSchoolReportCardBlog = lazy(loadReadSchoolReportCardBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
+const GCSETutorLanding = lazy(loadGCSETutorLanding);
+const AcademicBlogsPage = lazy(loadAcademicBlogsPage);
+const PsychologyBlogsPage = lazy(loadPsychologyBlogsPage);
+const ParentGuidanceBlogsPage = lazy(loadParentGuidanceBlogsPage);
 
 function normalizePath(pathname: string): string {
   const trimmed = pathname.replace(/\/+$/, '');
@@ -238,6 +250,9 @@ function AppRoutes() {
           <Route path="/exam-preparation"                    element={<ExamPreparationPage />} />
           <Route path="/how-it-works"                        element={<HowItWorksPage />} />
           <Route path="/blogs"                               element={<BlogsPage />} />
+          <Route path="/blogs/academic-exam-skills"          element={<AcademicBlogsPage />} />
+          <Route path="/blogs/psychology-of-learning"        element={<PsychologyBlogsPage />} />
+          <Route path="/blogs/parent-guidance"               element={<ParentGuidanceBlogsPage />} />
           <Route path="/blogs/igcse-maths-revision-low-marks"element={<IGCSEMathsLowMarksBlog />} />
           <Route path="/blogs/exam-panic-before-exams-uae"   element={<ExamPanicBlog />} />
           <Route path="/blogs/physics-understanding-vs-marks" element={<PhysicsUnderstandingMarksBlog />} />
@@ -251,6 +266,7 @@ function AppRoutes() {
           <Route path="/chemistry-tutor-abu-dhabi"           element={<ChemistryLandingPage />} />
           <Route path="/biology-tutor-abu-dhabi"             element={<BiologyLanding />} />
           <Route path="/igcse-tutor-abu-dhabi"               element={<IGCSETutorLanding />} />
+          <Route path="/gcse-tutor-abu-dhabi"                element={<GCSETutorLanding />} />
           <Route path="/editorial"                           element={<EditorialPage />} />
           <Route path="/authors/saira-s"                     element={<AuthorPage />} />
           <Route path="/authors/nimra-shahzada"              element={<AuthorPage />} />

@@ -256,19 +256,35 @@ export default function EarlySignsChemistryBlog() {
             <p className="text-gray-500 text-sm lg:text-[15px] leading-relaxed mb-3 text-justify">{BLOG.description}</p>
 
             {/* Meta */}
-            <div className="flex flex-wrap items-start gap-y-1 gap-x-0 mb-1 text-xs text-gray-500">
-              <span className="flex items-center gap-1 mr-3"><User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />Written by: <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline">{BLOG.author}</a> | Education Counsellor & Student Support Specialist | Ustaad UAE</span>
+            <div className="mb-4 mt-2 space-y-2">
+              <div className="flex items-start gap-2 text-xs text-gray-500">
+                <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
+                <span className="leading-relaxed">
+                  <span className="font-medium">Written by:</span>{' '}
+                  <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline">{BLOG.author}</a>
+                  <span className="text-gray-400"> — Education Counsellor & Student Support Specialist, Ustaad UAE</span>
+                </span>
+              </div>
+              <div className="flex items-start gap-2 text-xs text-gray-500">
+                <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
+                <span className="leading-relaxed">
+                  <span className="font-medium">Reviewed by:</span>{' '}
+                  <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">{BLOG.reviewer}</a>
+                  <span className="text-gray-400"> — MPhil in Education Leadership and Management</span>
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-400 pt-1">
+                <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
+                  <Calendar className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />
+                  Last reviewed: August 2026 · Ustaad UAE Editorial Team
+                </time>
+                <span className="flex items-center gap-1">
+                  <Clock className="h-3.5 w-3.5 text-[#C7A24A]" />{BLOG.readTime}
+                </span>
+                <SocialShare url={shareUrl} title={BLOG.title} />
+              </div>
             </div>
-            <div className="flex flex-wrap items-start gap-y-1 gap-x-0 mb-1 text-xs text-gray-500">
-              <span className="flex items-center gap-1 mr-3"><User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />Reviewed by: <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">{BLOG.reviewer}</a> | MPhil in Education Leadership and Management</span>
-            </div>
-            <div className="flex flex-wrap items-center gap-3 mb-4 mt-2 text-xs text-gray-400">
-              <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
-                <Calendar className="h-3.5 w-3.5 text-[#C7A24A]" />Last reviewed: August 2026 | Ustaad UAE Editorial Team
-              </time>
-              <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5 text-[#C7A24A]" />{BLOG.readTime}</span>
-              <SocialShare url={shareUrl} title={BLOG.title} />
-            </div>
+
           </motion.div>
 
           {/* Hero image */}

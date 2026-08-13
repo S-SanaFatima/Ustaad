@@ -119,7 +119,7 @@ export default function EditorialPage() {
             <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-8">Who is behind our articles</h2>
             <div className="space-y-8">
               <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col sm:flex-row items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white flex items-center justify-center font-bold text-lg shrink-0 notranslate" translate="no">NS</div>
                   <div>
                     <h3 className="text-xl font-extrabold text-[#0a1f3d]">Nimra Shahzada</h3>
@@ -136,7 +136,7 @@ export default function EditorialPage() {
               </div>
 
               <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col sm:flex-row items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white flex items-center justify-center font-bold text-lg shrink-0 notranslate" translate="no">NI</div>
                   <div>
                     <h3 className="text-xl font-extrabold text-[#0a1f3d]">Nida Iqbal</h3>
@@ -153,7 +153,7 @@ export default function EditorialPage() {
               </div>
 
               <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col sm:flex-row items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white flex items-center justify-center font-bold text-lg shrink-0 notranslate" translate="no">US</div>
                   <div>
                     <h3 className="text-xl font-extrabold text-[#0a1f3d]">Ustaad Subject Specialists</h3>

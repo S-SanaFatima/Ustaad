@@ -94,13 +94,90 @@ export default function Header({ scrolled = false, logoAlt = "Ustaad logo — pr
                 <a href="/subjects" className="text-[#0a1f3d] hover:text-[#0f4a9b] text-[13px] font-bold transition flex items-center gap-1">
                   {"Subjects"} <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover/subjects:rotate-180" />
                 </a>
-                <div className={`absolute top-full right-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 transition-all z-50 max-h-[70vh] overflow-y-auto ${desktopOpen === 'subjects' ? 'opacity-100 visible' : 'opacity-0 invisible group-hover/subjects:opacity-100 group-hover/subjects:visible'}`}>
-                  <a href="/maths"       className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-bold text-[#0a1f3d] hover:bg-blue-50 hover:text-[#0f4a9b]"><Calculator className="h-4 w-4 text-[#0f4a9b]" /> {"Maths"}</a>
-                  <a href="/physics"     className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-bold text-[#0a1f3d] hover:bg-blue-50 hover:text-[#0f4a9b]"><Atom className="h-4 w-4 text-[#0f4a9b]" /> {"Physics"}</a>
-                  <a href="/chemistry"   className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-bold text-[#0a1f3d] hover:bg-blue-50 hover:text-[#0f4a9b]"><FlaskConical className="h-4 w-4 text-[#0f4a9b]" /> {"Chemistry"}</a>
-                  <a href="/biology"     className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-bold text-[#0a1f3d] hover:bg-blue-50 hover:text-[#0f4a9b]"><Dna className="h-4 w-4 text-[#0f4a9b]" /> {"Biology"}</a>
-                  <div className="border-t border-gray-100 my-1" />
-                  <a href="/exam-preparation" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-bold text-[#0a1f3d] hover:bg-blue-50 hover:text-[#0f4a9b]"><Award className="h-4 w-4 text-[#0f4a9b]" /> {"Exam Preparation"}</a>
+                <div className={`absolute top-full right-0 mt-2 w-[340px] bg-gradient-to-b from-white to-gray-50 rounded-2xl shadow-xl border border-gray-100 p-3 transition-all z-50 max-h-[85vh] overflow-y-auto space-y-3 ${desktopOpen === 'subjects' ? 'opacity-100 visible' : 'opacity-0 invisible group-hover/subjects:opacity-100 group-hover/subjects:visible'}`}>
+                  {/* Core Subjects */}
+                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
+                    <div className="flex items-center gap-2 mb-3 px-1">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm">
+                        <BookOpen className="h-4 w-4 text-white" />
+                      </div>
+                      <div className="text-xs font-extrabold text-[#0f4a9b] uppercase tracking-wider">{"Core Subjects"}</div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <a href="/maths" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Calculator className="h-4 w-4 text-white" /></div>
+                        <span>{"Maths"}</span>
+                      </a>
+                      <a href="/physics" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Atom className="h-4 w-4 text-white" /></div>
+                        <span>{"Physics"}</span>
+                      </a>
+                      <a href="/chemistry" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><FlaskConical className="h-4 w-4 text-white" /></div>
+                        <span>{"Chemistry"}</span>
+                      </a>
+                      <a href="/biology" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Dna className="h-4 w-4 text-white" /></div>
+                        <span>{"Biology"}</span>
+                      </a>
+                      <a href="/english" className="col-span-2 flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><PenTool className="h-4 w-4 text-white" /></div>
+                        <span>{"English"}</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Commerce & Business */}
+                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
+                    <div className="flex items-center gap-2 mb-3 px-1">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm">
+                        <Briefcase className="h-4 w-4 text-white" />
+                      </div>
+                      <div className="text-xs font-extrabold text-[#C7A24A] uppercase tracking-wider">{"Commerce & Business"}</div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <a href="/business" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><Briefcase className="h-4 w-4 text-white" /></div>
+                        <span>{"Business"}</span>
+                      </a>
+                      <a href="/economics" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><LineChart className="h-4 w-4 text-white" /></div>
+                        <span>{"Economics"}</span>
+                      </a>
+                      <a href="/accounting" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><ClipboardCheck className="h-4 w-4 text-white" /></div>
+                        <span>{"Accounting"}</span>
+                      </a>
+                      <a href="/finance" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><DollarSign className="h-4 w-4 text-white" /></div>
+                        <span>{"Finance"}</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Specialized & Test Prep */}
+                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
+                    <div className="flex items-center gap-2 mb-3 px-1">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm">
+                        <Target className="h-4 w-4 text-white" />
+                      </div>
+                      <div className="text-xs font-extrabold text-[#0f4a9b] uppercase tracking-wider">{"Specialized & Test Prep"}</div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      <a href="/statistics" className="flex flex-col items-center gap-2 px-2 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Sigma className="h-5 w-5 text-white" /></div>
+                        <span className="text-center text-[11px]">{"Statistics"}</span>
+                      </a>
+                      <a href="/engineering" className="flex flex-col items-center gap-2 px-2 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Settings className="h-5 w-5 text-white" /></div>
+                        <span className="text-center text-[11px]">{"Engineering"}</span>
+                      </a>
+                      <a href="/exam-preparation" className="flex flex-col items-center gap-2 px-2 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Target className="h-5 w-5 text-white" /></div>
+                        <span className="text-center text-[11px]">{"Exam Prep"}</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
               <a href="/tutors" className="text-[#0a1f3d] hover:text-[#0f4a9b] text-[13px] font-bold transition">{"Tutors"}</a>

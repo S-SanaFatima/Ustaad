@@ -58,6 +58,7 @@ export default function Footer({ logoAlt = "Ustaad — trusted UAE private tutor
       cityHref: '/tutors?city=abu-dhabi',
       tutors: [
         { label: 'IGCSE Tutor Abu Dhabi', href: '/igcse-tutor-abu-dhabi' },
+        { label: 'GCSE Tutor Abu Dhabi', href: '/gcse-tutor-abu-dhabi' },
         { label: 'Maths Tutor Abu Dhabi', href: '/maths-tutor-abu-dhabi' },
         { label: 'Physics Tutor Abu Dhabi', href: '/physics-tutor-abu-dhabi' },
         { label: 'Chemistry Tutor Abu Dhabi', href: '/chemistry-tutor-abu-dhabi' },
@@ -266,9 +267,9 @@ export default function Footer({ logoAlt = "Ustaad — trusted UAE private tutor
             </ul>
           </div>
 
-          {/* Curricula */}
+          {/* Curriculum */}
           <div>
-            <h3 className="font-bold text-sm mb-4 tracking-wide text-white uppercase border-b border-white/20 pb-2">{"Curricula"}</h3>
+            <h3 className="font-bold text-sm mb-4 tracking-wide text-white uppercase border-b border-white/20 pb-2">{"Curriculum"}</h3>
             <ul className="space-y-2.5 font-medium text-blue-200 text-xs">
               {curriculaLinks.map((link) => (
                 <li key={link.key}>

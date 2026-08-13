@@ -1,18 +1,25 @@
-import { useState, useEffect, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import {
-  FlaskConical, Atom, BookOpen, Calculator, PenTool, ShieldCheck,
-  CheckCircle2, ArrowRight, X,
-  ChevronDown, ChevronLeft, ChevronRight, FileSearch, Wrench, Timer,
-  ClipboardCheck, Brain, Target, Star, MessageCircle,
-  MapPin, Phone, Mail,
+  Calculator, MessageSquareQuote, List, ArrowRightLeft, FlaskConical, PenTool,
+  CheckCircle2, ChevronDown, Sparkles, Target, Star, MessageCircle, BookOpen, Video, Timer,
+  MapPin, Atom, Brain, X, ArrowRight, ShieldCheck, ClipboardCheck, ChevronLeft, ChevronRight
 } from 'lucide-react';
-import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared';
+import { Layout, StatsBar, GoldButton, SchoolsMarquee, FinalCTA } from './shared';
 import SEOHead from './shared/SEOHead';
-import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, courseSchema } from './shared/schemas';
-import RelatedContent from './shared/RelatedContent';
+import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
-const BOOKING = '/contact#form';
+const BOOKING = "/contact#form";
+const WA_URL = 'https://wa.me/971561249005';
+
+const chemistrySchoolLogos = [
+  { name: 'The British School Al Khubairat', file: 'british-school-al-khubairat-abu-dhabi.png', alt: 'The British School Al Khubairat logo, an Abu Dhabi school for IGCSE and A-Level chemistry', scale: 1.25 },
+  { name: 'Repton School Abu Dhabi', file: 'repton.png', alt: 'Repton School Abu Dhabi logo, a British and IB school in the capital offering IGCSE and A-Level chemistry', scale: 1.25 },
+  { name: 'Raha International School', file: 'raha.png', alt: 'Raha International School logo, an Abu Dhabi IB school with strong chemistry and sciences' },
+  { name: 'GEMS Cambridge International School Abu Dhabi', file: 'gems-cambridge-international-school-abu-dhabi.png', alt: 'GEMS Cambridge International School Abu Dhabi logo, a Cambridge school for IGCSE and A-Level chemistry', scale: 1.25 },
+  { name: 'Belvedere British School', file: 'belvedere.png', alt: 'Belvedere British School logo, a British curriculum school in Abu Dhabi teaching IGCSE chemistry', scale: 1.25 },
+  { name: 'Merryland International School', file: 'merryland.png', alt: 'Merryland International School logo, an Abu Dhabi British school supporting IGCSE chemistry students', scale: 1.25 },
+];
 
 const ChemGrid = ({ light = false }: { light?: boolean }) => (
   <svg className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
@@ -25,11 +32,23 @@ const ChemGrid = ({ light = false }: { light?: boolean }) => (
   </svg>
 );
 
-type Step = { n: string; icon: ReactNode; title: string; desc: string };
-type Challenge = { notation: string; icon: ReactNode; title: string; problem: string };
+const CHALLENGES = [
+  { notation: '01', icon: <Calculator className="w-5 h-5" />, title: 'Mole Calculations Unclear', problem: 'Most chemistry marks slip away in three quiet places students rarely notice.' },
+  { notation: '02', icon: <PenTool className="w-5 h-5" />, title: 'Equations Not Balanced', problem: 'Most chemistry marks slip away in three quiet places students rarely notice.' },
+  { notation: '03', icon: <FlaskConical className="w-5 h-5" />, title: 'Organic Mechanisms Incomplete', problem: 'Most chemistry marks slip away in three quiet places students rarely notice.' },
+];
 
-function ChallengesAccordion({ challenges }: { challenges: Challenge[] }) {
-  const [active, setActive] = useState<number>(-1);
+const FAQS = [
+  { q: 'My child keeps failing chemistry. Where do you start?', a: "We start with diagnosis, not practice. Tutors identify whether the gap sits in mole calculations, equation balancing, or organic mechanisms. The highest-impact topic is rebuilt first, then drilled with past papers." },
+  { q: 'Do you offer practical paper support for Cambridge 0620 and IB Chemistry?', a: "Yes. Paper 3 and Paper 5 practical work, data analysis, error treatment, and graph interpretation are built in alongside theory papers from the first session." },
+  { q: 'Can your tutors help with IB Chemistry HL and SL?', a: "Yes. We cover both IB Chemistry SL and HL syllabuses, including Internal Assessment and the full Option topics." },
+  { q: 'Do you support GCSE Chemistry, Edexcel A-Level, and AP Chemistry?', a: "Yes. Tutors specialise in GCSE Chemistry, Edexcel A-Level Chemistry, AP Chemistry, and Cambridge A-Level. The right tutor is matched to your child's exact board." },
+  { q: 'Do you offer online chemistry tutor sessions across Abu Dhabi?', a: "Yes. Online chemistry tutor sessions are available across Abu Dhabi, including Khalifa City, Al Reem Island, Saadiyat Island, Mohammed Bin Zayed City, Al Mushrif, Al Bateen, and Yas Island." },
+  { q: 'How quickly do students see real chemistry progress?', a: "Topic confidence usually shifts within four to six weeks. Visible mark improvement on mocks normally follows in the second assessment cycle, depending on starting level." },
+];
+
+function ChallengesAccordion({ challenges }: { challenges: typeof CHALLENGES }) {
+  const [active, setActive] = useState<number>(0);
   return (
     <div className="relative">
       <div className="flex flex-col gap-[10px]">
@@ -38,19 +57,10 @@ function ChallengesAccordion({ challenges }: { challenges: Challenge[] }) {
           return (
             <div key={i} className="flex flex-col gap-2">
               <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setActive(isOpen ? -1 : i)}
-                  className="flex-shrink-0 flex items-center justify-center rounded-full"
-                  style={{ width: 40, height: 40, minWidth: 40, minHeight: 40, background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', color: isOpen ? '#fff' : '#0f4a9b', transition: 'background 300ms ease, color 300ms ease', cursor: 'pointer', border: 'none', boxShadow: 'inset 0 0 0 2px #fff' }}
-                >
+                <button onClick={() => setActive(isOpen ? -1 : i)} className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ width: 40, height: 40, minWidth: 40, minHeight: 40, background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', color: isOpen ? '#fff' : '#0f4a9b', transition: 'background 300ms ease, color 300ms ease', cursor: 'pointer', border: 'none', boxShadow: 'inset 0 0 0 2px #fff' }}>
                   <span className="flex items-center justify-center w-full h-full">{c.icon}</span>
                 </button>
-                <button
-                  onClick={() => setActive(isOpen ? -1 : i)}
-                  aria-expanded={isOpen}
-                  className="flex-1 flex items-center gap-3 text-left rounded-full border"
-                  style={{ minHeight: '48px', padding: '8px 14px', cursor: 'pointer', background: 'transparent', borderColor: 'rgba(15,74,155,0.1)' }}
-                >
+                <button onClick={() => setActive(isOpen ? -1 : i)} aria-expanded={isOpen} className="flex-1 flex items-center gap-3 text-left rounded-full border" style={{ minHeight: '48px', padding: '8px 14px', cursor: 'pointer', background: 'transparent', borderColor: 'rgba(15,74,155,0.1)' }}>
                   <span className="flex-1 font-semibold text-[#0a1f3d] text-[14px] leading-snug">{c.title}</span>
                   <span className="flex-shrink-0 flex items-center justify-center" style={{ width: 32, height: 32, minWidth: 32, minHeight: 32, borderRadius: '50%', background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', color: isOpen ? '#fff' : '#0f4a9b', transition: 'background 300ms ease, color 300ms ease, transform 300ms cubic-bezier(0.22,1,0.36,1)', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
                     <ChevronDown className="h-3.5 w-3.5" />
@@ -76,241 +86,111 @@ function ChallengesAccordion({ challenges }: { challenges: Challenge[] }) {
   );
 }
 
-const PARENT_REVIEWS = [
-  { name: 'Fares Al Kindi', initials: 'FK', location: 'Abu Dhabi, UAE', text: 'I had a great experience with Ustaad. They truly provide some of the Best Tutors in Abu Dhabi. The teaching style is clear, professional, and very supportive.' },
-  { name: 'Wadeema Al M', initials: 'WA', location: 'Abu Dhabi, UAE', text: 'Very good tutoring institute with supportive tutor and clear teaching methods. Would definitely recommend to anyone looking for quality education.' },
-  { name: 'Sumayya Alamri', initials: 'SA', location: 'Abu Dhabi, UAE', text: 'I had a very good experience with Ustaad for my daughter — her tutor is one of the best I have experienced. He explains the concepts very well.' },
-  { name: 'Humaid Khalaf', initials: 'HK', location: 'Abu Dhabi, UAE', text: 'A very good place if you want a good teacher for your studies. The tutors really know how to make difficult topics easy to understand.' },
-  { name: 'Zayed Al Teneiji', initials: 'ZT', location: 'Abu Dhabi, UAE', text: 'Best tutoring institution in Abu Dhabi. The tutors are extremely knowledgeable and really care about student success in exams.' },
-  { name: 'Ahmed Als', initials: 'AA', location: 'Abu Dhabi, UAE', text: 'One of the best tutors in Abu Dhabi — his teaching method is very focused and effective. He breaks down complex concepts into simple steps and ensures full understanding.' },
-];
-
-function ParentsSlider() {
-  const [index, setIndex] = useState(0);
-  const count = PARENT_REVIEWS.length;
-  const go = (i: number) => setIndex(((i % count) + count) % count);
-  useEffect(() => {
-    const t = setInterval(() => setIndex(p => (p + 1) % count), 6000);
-    return () => clearInterval(t);
-  }, [count]);
-  const r = PARENT_REVIEWS[index];
-  return (
-    <div>
-      <div className="relative min-h-[230px] sm:min-h-[210px]">
-        <AnimatePresence mode="wait">
-          <motion.div key={index} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -24 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} className="relative rounded-2xl p-5 sm:p-6 lg:p-8 overflow-hidden bg-[#f4f7fc] border border-[#0f4a9b]/15 shadow-[0_8px_30px_rgba(15,74,155,0.08)]">
-            <div className="absolute top-3 left-4 text-[90px] font-black leading-none select-none pointer-events-none text-[#0f4a9b]/10" style={{ fontFamily: 'Georgia, serif' }}>“</div>
-            <div className="relative z-10">
-              <div className="flex gap-0.5 mb-3">{[...Array(5)].map((_, si) => <Star key={si} className="h-3.5 w-3.5 fill-[#f0c96a] text-[#f0c96a]" />)}</div>
-              <p className="text-[#3a4f6e] text-[15px] sm:text-[16px] leading-[1.7] mb-5 font-medium text-justify">{r.text}</p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center text-[12px] font-extrabold text-[#0f4a9b] bg-[#0f4a9b]/15 shrink-0 border border-[#0f4a9b]/20 notranslate" translate="no">{r.initials}</div>
-                <div>
-                  <p className="text-[#0a1f3d] font-extrabold text-[14px] leading-tight notranslate" translate="no">{r.name}</p>
-                  <p className="text-[#6C7A82] text-[11px] mt-0.5 notranslate" translate="no">{r.location}</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-      <div className="flex items-center justify-center gap-3 mt-5">
-        <button onClick={() => go(index - 1)} aria-label="Previous review" className="flex items-center justify-center w-9 h-9 rounded-full bg-[#0f4a9b]/10 border border-[#0f4a9b]/20 text-[#0f4a9b] hover:bg-[#0f4a9b] hover:text-white transition-all hover:-translate-x-0.5"><ChevronLeft className="h-4 w-4" /></button>
-        <div className="flex items-center gap-2">{PARENT_REVIEWS.map((_, i) => <button key={i} onClick={() => go(i)} aria-label={`Go to review ${i + 1}`} className="rounded-full transition-all duration-300" style={{ width: i === index ? 22 : 8, height: 8, background: i === index ? '#0f4a9b' : 'rgba(15,74,155,0.2)' }} />)}</div>
-        <button onClick={() => go(index + 1)} aria-label="Next review" className="flex items-center justify-center w-9 h-9 rounded-full bg-[#0f4a9b]/10 border border-[#0f4a9b]/20 text-[#0f4a9b] hover:bg-[#0f4a9b] hover:text-white transition-all hover:translate-x-0.5"><ChevronRight className="h-4 w-4" /></button>
-      </div>
-    </div>
-  );
-}
-
-const Eyebrow = ({ icon, text, dark = false }: { icon: React.ReactNode; text: string; dark?: boolean }) => (
-  <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] mb-5 border ${dark ? 'bg-white/5 border-white/15 text-blue-200' : 'bg-[#0f4a9b]/5 border-[#0f4a9b]/15 text-[#0f4a9b]'}`}>
-    {icon}{text}
-  </div>
-);
-
 export default function ChemistryLandingPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const challenges: Challenge[] = [
-    { notation: 'mol', icon: <FlaskConical className="h-5 w-5" />, title: 'Mole Calculations Unclear', problem: 'Moles, molar mass, and concentration calculations break down under exam conditions when steps are missed.' },
-    { notation: 'eq', icon: <Calculator className="h-5 w-5" />, title: 'Equations Not Balanced', problem: 'Half-equations, ionic equations, and redox balancing lose the most avoidable marks each paper.' },
-    { notation: 'org', icon: <PenTool className="h-5 w-5" />, title: 'Organic Mechanisms Incomplete', problem: 'Nucleophilic substitution, addition, and elimination mechanisms are left half-drawn or missing arrows.' },
-  ];
-
-  const steps: Step[] = [
-    { n: '01', icon: <FileSearch className="h-6 w-6" />, title: 'Diagnose The Gap', desc: 'Your tutor identifies whether the gap is in calculations, equations, or organic mechanisms.' },
-    { n: '02', icon: <Wrench className="h-6 w-6" />, title: 'Rebuild The Topic', desc: 'Each weak topic is rebuilt from first principles before past paper practice begins.' },
-    { n: '03', icon: <Timer className="h-6 w-6" />, title: 'Drill Past Papers', desc: 'Cambridge, Edexcel, and IB chemistry papers worked weekly under timed conditions.' },
-  ];
-
-  const journey = [
-    { years: 'Year 7–9', title: 'Foundation (KS3)', desc: 'KS3 chemistry builds atoms, bonding, and equation-writing habits early.', link: { label: 'Core sciences', href: '/middle-school' } },
-    { years: 'Year 10–11', title: 'IGCSE / GCSE', desc: 'Cambridge 0620, Edexcel 4CH1, and GCSE Chemistry, papers 1 to 6 covered.', link: { label: 'IGCSE chemistry tutor Abu Dhabi', href: '/igcse' } },
-    { years: 'Year 12–13', title: 'A-Level / IB / AP', desc: 'A-Level Chemistry, IB Chemistry SL/HL, and AP Chemistry support.', link: { label: 'A-Level chemistry tutor Abu Dhabi', href: '/a-level' } },
-  ];
-
-  const topics = [
-    { icon: <Atom className="w-7 h-7" />, title: 'Atomic Structure', desc: 'Electron configuration, ionisation energy, and periodic trends taught clearly.' },
-    { icon: <FlaskConical className="w-7 h-7" />, title: 'Organic Chemistry', desc: 'Reaction mechanisms, functional groups, and synthesis routes explained step by step.' },
-    { icon: <Calculator className="w-7 h-7" />, title: 'Quantitative Chemistry', desc: 'Moles, titrations, yield, and concentration calculations drilled to fluency.' },
-    { icon: <Brain className="w-7 h-7" />, title: 'Physical Chemistry', desc: 'Energetics, kinetics, equilibrium, and electrochemistry taught with worked examples.' },
-  ];
-
-  const paperLab = [
-    { icon: <PenTool className="w-7 h-7" />, title: 'Theory Paper Drills', desc: 'Paper 1, 2, and 4 worked through with full mark scheme guidance.' },
-    { icon: <FlaskConical className="w-7 h-7" />, title: 'Practical Paper Skills', desc: 'Paper 3 and 5 practical skills: data analysis, graph work, and error treatment.' },
-    { icon: <ClipboardCheck className="w-7 h-7" />, title: 'Past Paper Drills', desc: 'Cambridge, Edexcel, and IB chemistry past papers worked weekly under timed conditions.' },
-    { icon: <Timer className="w-7 h-7" />, title: 'Exam Technique', desc: 'Equation state symbols, significant figures, and command-word responses drilled until reflex.' },
-  ];
-
-  const assessmentSkills = [
-    { icon: <PenTool className="h-6 w-6" />, title: 'Subject Specialists' },
-    { icon: <ClipboardCheck className="h-6 w-6" />, title: 'Curriculum Specialists' },
-    { icon: <ShieldCheck className="h-6 w-6" />, title: 'Background Checked' },
-    { icon: <CheckCircle2 className="h-6 w-6" />, title: 'One-to-One Focused' },
-  ];
-
-  const compareRows = [
-    { label: 'Topic diagnosis first', ustaad: 'yes', market: 'no', school: 'no' },
-    { label: 'Curriculum-matched tutor', ustaad: 'yes', market: 'sometimes', school: 'yes' },
-    { label: 'Weekly past paper drills', ustaad: 'yes', market: 'no', school: 'rare' },
-    { label: 'Practical Paper 3/5 coverage', ustaad: 'yes', market: 'no', school: 'yes' },
-    { label: 'Parent progress notes', ustaad: 'yes', market: 'no', school: 'no' },
-  ];
-
-  const gapChecks = [
-    { q: 'Does your child know the formula but get the calculation wrong?', tag: 'Calculation gap' },
-    { q: 'Do they write equations without balancing or state symbols?', tag: 'Equation gap' },
-    { q: 'Are their organic mechanisms missing curly arrows?', tag: 'Mechanism gap' },
-  ];
-
-  const faqs: { q: string; a: React.ReactNode; plain: string }[] = [
-    { q: 'My child keeps failing chemistry. Where do you start?', plain: 'We start with diagnosis, not practice. Tutors identify whether the gap sits in mole calculations, equation balancing, or organic mechanisms. The highest-impact topic is rebuilt first, then drilled with past papers.', a: <>We start with diagnosis, not practice. Tutors identify whether the gap sits in mole calculations, equation balancing, or organic mechanisms. The highest-impact topic is rebuilt first, then drilled with past papers.</> },
-    { q: 'Do you offer practical paper support for Cambridge 0620 and IB Chemistry?', plain: 'Yes. Paper 3 and Paper 5 practical work, data analysis, error treatment, and graph interpretation are built in alongside theory papers from the first session.', a: <>Yes. Paper 3 and Paper 5 practical work, data analysis, error treatment, and graph interpretation are built in alongside theory papers from the first session.</> },
-    { q: 'Can your tutors help with IB Chemistry HL and SL?', plain: 'Yes. We cover both IB Chemistry SL and HL syllabuses, including Internal Assessment and the full Option topics.', a: <>Yes. We cover both <a href="/dp-sl" className="text-[#0f4a9b] font-semibold underline">IB Chemistry SL</a> and <a href="/dp-hl" className="text-[#0f4a9b] font-semibold underline">HL</a> syllabuses, including Internal Assessment and the full Option topics.</> },
-    { q: 'Do you support GCSE Chemistry, Edexcel A-Level, and AP Chemistry?', plain: "Yes. Tutors specialise in GCSE Chemistry, Edexcel A-Level Chemistry, AP Chemistry, and Cambridge A-Level. The right tutor is matched to your child's exact board.", a: <>Yes. Tutors specialise in <a href="/gcse" className="text-[#0f4a9b] font-semibold underline">GCSE Chemistry</a>, Edexcel <a href="/a-level" className="text-[#0f4a9b] font-semibold underline">A-Level Chemistry</a>, <a href="/ap" className="text-[#0f4a9b] font-semibold underline">AP Chemistry</a>, and Cambridge A-Level. The right tutor is matched to your child's exact board.</> },
-    { q: 'Do you offer online chemistry tutor sessions across Abu Dhabi?', plain: 'Yes. Online chemistry tutor sessions are available across Abu Dhabi, including Khalifa City, Al Reem Island, Saadiyat Island, Mohammed Bin Zayed City, Al Mushrif, Al Bateen, and Yas Island.', a: <>Yes. Online chemistry tutor sessions are available across Abu Dhabi, including Khalifa City, Al Reem Island, Saadiyat Island, Mohammed Bin Zayed City, Al Mushrif, Al Bateen, and Yas Island.</> },
-    { q: 'How quickly do students see real chemistry progress?', plain: 'Topic confidence usually shifts within four to six weeks. Visible mark improvement on mocks normally follows in the second assessment cycle, depending on starting level.', a: <>Topic confidence usually shifts within four to six weeks. Visible mark improvement on mocks normally follows in the second assessment cycle, depending on starting level.</> },
-  ];
-
-  const Mark = ({ v }: { v: string }) => {
-    if (v === 'yes') return <CheckCircle2 className="h-4 w-4 text-[#0f4a9b] mx-auto" />;
-    if (v === 'no') return <X className="h-4 w-4 text-gray-300 mx-auto" />;
-    return <span className="text-[11px] text-gray-400 italic">{v}</span>;
-  };
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <Layout>
       <SEOHead
         title="Chemistry Tutor Abu Dhabi | IGCSE, A-Level & IB | Ustaad"
-        description="Expert 1-to-1 chemistry tutors in Abu Dhabi for IGCSE, A-Level, and IB. Fix mole calculations, organic mechanisms, and past paper technique. Book a free trial."
+        description="Expert 1-to-1 chemistry tutors in Abu Dhabi for IGCSE, A-Level, and IB. Fix mole calculations, organic mechanisms, and past paper technique."
         canonical="/chemistry-tutor-abu-dhabi"
         placename="Abu Dhabi, UAE"
         schema={[
-          cityLocalBusinessSchema({
-            city: 'Abu Dhabi',
-            url: '/chemistry-tutor-abu-dhabi',
-            name: 'Ustaad — Chemistry Tutor Abu Dhabi',
-            description: 'Expert 1-to-1 chemistry tutors in Abu Dhabi for IGCSE, A-Level, and IB. Fix mole calculations, organic mechanisms, and past paper technique.',
-          }),
-          breadcrumbSchema([
-            { name: 'Home', url: '/' },
-            { name: 'Curriculum', url: '/curriculum' },
-            { name: 'Abu Dhabi', url: '/chemistry-tutor-abu-dhabi' },
-            { name: 'Chemistry', url: '/chemistry-tutor-abu-dhabi' },
-          ]),
-          serviceSchema('Private Chemistry Tutoring', 'One-to-one chemistry tutors in Abu Dhabi for IGCSE, GCSE, A-Level, IB, and AP students. Trusted by Abu Dhabi families since 2015.', '/chemistry-tutor-abu-dhabi'),
-          courseSchema({
-            courseName: 'Chemistry Private Tutoring Abu Dhabi',
-            description: 'Expert 1-to-1 chemistry tutors in Abu Dhabi for IGCSE, A-Level, and IB.',
-            url: '/chemistry-tutor-abu-dhabi',
-            city: 'Abu Dhabi',
-          }),
-          faqSchema(faqs.map(f => ({ q: f.q, a: f.plain }))),
+          cityLocalBusinessSchema({ city: 'Abu Dhabi', url: '/chemistry-tutor-abu-dhabi', name: 'Ustaad — Chemistry Tutor Abu Dhabi', description: 'Expert 1-to-1 chemistry tutors in Abu Dhabi.' }),
+          breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Curriculum', url: '/curriculum' }, { name: 'Abu Dhabi', url: '/chemistry-tutor-abu-dhabi' }, { name: 'Chemistry', url: '/chemistry-tutor-abu-dhabi' }]),
+          serviceSchema('Private Chemistry Tutoring', 'One-to-one chemistry tutors in Abu Dhabi.', '/chemistry-tutor-abu-dhabi'),
+          faqSchema(FAQS.map(f => ({ q: f.q, a: f.a }))),
         ]}
       />
 
-      {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f4a9b 60%, #1e5ba8 100%)', minHeight: '68vh', display: 'flex', alignItems: 'center' }}>
-        <ChemGrid />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 80% 40%, rgba(193,123,47,0.18) 0%, transparent 70%)' }} />
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Eyebrow icon={<MapPin className="h-3.5 w-3.5" />} text="Abu Dhabi · UAE" dark />
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.08] tracking-tight mb-5">
-                Chemistry Tutor<br />
-                <span style={{ background: 'linear-gradient(92deg,#f0c96a,#fde68a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Abu Dhabi</span>
-              </h1>
-              <p className="text-blue-100 text-lg sm:text-xl mb-8 leading-relaxed max-w-xl">
-                One-to-one chemistry tutors in Abu Dhabi for IGCSE, GCSE, A-Level, IB, and AP. We rebuild weak topics and drill past papers until chemistry clicks.
-              </p>
-              <div className="flex flex-wrap gap-3 mb-8">
-                {['IGCSE 0620', 'A-Level', 'IB SL & HL', 'AP Chemistry', 'GCSE'].map(tag => (
-                  <span key={tag} className="px-3 py-1.5 rounded-full text-xs font-bold text-white/80" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}>{tag}</span>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <GoldButton href={BOOKING} className="px-7 py-3.5 text-sm shadow-[0_0_30px_rgba(199,162,74,0.4)]">Book Your Free Trial</GoldButton>
-                <a href="https://wa.me/971561249005" target="_blank" rel="noopener" className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-bold text-white transition hover:bg-white/10" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.2)' }}>
-                  <Phone className="h-4 w-4" /> WhatsApp Us
-                </a>
-              </div>
-            </div>
-            <div className="hidden lg:block">
-              <div className="relative rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.3)' }}>
-                <img src="/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp" alt="Ustaad chemistry tutor in Abu Dhabi working through IGCSE and A-Level chemistry with a student" className="w-full h-[420px] object-cover"
-                width={1200} height={800} fetchPriority="high" />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,31,61,0.6) 0%, transparent 50%)' }} />
-                <div className="absolute bottom-5 left-5 flex flex-col gap-2">
-                  {['1-to-1 sessions', 'IGCSE · A-Level · IB'].map(t => (
-                    <span key={t} className="inline-flex px-3 py-1.5 rounded-full text-xs font-bold text-white" style={{ background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(8px)' }}>{t}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* ── SECTION 01: HERO CANVAS ── */}
+      <section className="relative -mt-16 overflow-hidden bg-[#060f22] flex flex-col items-center justify-center md:min-h-[75vh]">
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+          <img
+            src="/UpdatedImages/igcse-study-hero.jpg"
+            alt="Chemistry Tutor Abu Dhabi Background"
+            className="w-full h-full object-cover opacity-25 mix-blend-screen"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#060f22]/70 via-[#060f22]/40 to-[#060f22]" />
         </div>
+        
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block">
+          <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full" aria-hidden="true">
+            <defs>
+              <radialGradient id="atomGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#5fd3e6" stopOpacity="0.3"/>
+                <stop offset="100%" stopColor="#060f22" stopOpacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="700" cy="300" r="300" fill="url(#atomGlow)"/>
+          </svg>
+        </div>
+
+        <motion.div initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }} className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 md:pt-20 md:pb-14 max-w-5xl w-full">
+          <motion.div variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-2.5" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}>
+            <MapPin className="w-3 h-3 text-[#f0c96a]" />
+            <span className="text-blue-100/80 text-[11px] sm:text-[12px] font-semibold">Abu Dhabi · UAE</span>
+          </motion.div>
+
+          <motion.h1 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }} className="font-extrabold tracking-tight text-white leading-[1.05] mb-3 md:mb-5 text-[clamp(1.5rem,5vw,3.4rem)] max-w-[90%] sm:max-w-none">
+            Chemistry Tutor{' '}
+            <span style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Abu Dhabi
+            </span>
+          </motion.h1>
+
+          <motion.p variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0 } }} className="text-blue-100/80 text-[clamp(0.88rem,2vw,1.02rem)] leading-relaxed max-w-2xl mb-6 md:mb-8 px-4 italic">
+            One-to-one chemistry tutors in Abu Dhabi for IGCSE, GCSE, A-Level, IB, and AP. We rebuild weak topics and drill past papers until chemistry clicks.
+          </motion.p>
+          
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {['IGCSE 0620', 'A-Level', 'IB SL & HL', 'AP Chemistry', 'GCSE'].map(tag => (
+              <span key={tag} className="px-3 py-1.5 rounded-full text-[11px] font-bold text-white/80 border border-white/15 bg-white/10">{tag}</span>
+            ))}
+          </div>
+
+          <motion.div variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+            <a href={BOOKING} className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-full font-bold text-white transition-all hover:-translate-y-0.5 bg-gradient-to-r from-[#1e5bb3] to-[#0a3a79]">Book Your Free Trial</a>
+            <a href={WA_URL} className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-full font-bold text-white transition-all hover:-translate-y-0.5 bg-[#25D366] hover:bg-[#1eb657] shadow-[0_4px_14px_rgba(37,211,102,0.3)]"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* ── STATS ── */}
+      {/* ── SECTION 02: STATS BAR ── */}
       <StatsBar />
 
-      {/* ── CHALLENGES ── */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(ellipse, rgba(15,74,155,0.05) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+      {/* ── SECTION 03: WHERE CHEMISTRY MARKS VANISH ── */}
+      <section className="py-10 sm:py-12 lg:py-14 bg-[#f4f7fc] relative overflow-hidden">
+        <ChemGrid light />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <div className="lg:sticky lg:top-24">
-              <Eyebrow icon={<Target className="h-4 w-4" />} text="Exam Insight" />
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-4 leading-tight">
-                Where Chemistry{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5ba8] to-[#0a3a79]">Marks Vanish</span>
-              </h2>
-              <p className="text-gray-600 text-[15px] leading-relaxed">Most chemistry marks slip away in three quiet places students rarely notice.</p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0f4a9b]/5 to-transparent border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full mb-5"><Target className="h-4 w-4" /><span className="text-sm font-bold">Exam Insight</span></div>
+              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-4 leading-tight">Where Chemistry <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5ba8] to-[#0a3a79]">Marks Vanish</span></h2>
+              <p className="text-gray-600 text-[15px] leading-relaxed italic">Most chemistry marks slip away in three quiet places students rarely notice.</p>
             </div>
-            <ChallengesAccordion challenges={challenges} />
+            <ChallengesAccordion challenges={CHALLENGES} />
           </div>
         </div>
       </section>
 
-      {/* ── PROCESS ── */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-[#f4f7fc] relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(15,74,155,0.06) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-5 sm:mb-6">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-1.5">
-              Our Simple{' '}<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5ba8] to-[#0a3a79]">Process</span>
-            </h2>
-            <p className="text-gray-500 text-[13px] sm:text-[15px] max-w-2xl mx-auto leading-relaxed">Three steps from chemistry confusion to confident, independent exam practice.</p>
+      {/* ── SECTION 04: OUR SIMPLE PROCESS ── */}
+      <section className="py-14 lg:py-18 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3">Our Simple Process</h2>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">Three steps from chemistry confusion to confident, independent exam practice.</p>
           </div>
-          <div className="grid sm:grid-cols-3 gap-6 mt-8">
-            {steps.map((s, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-6 flex flex-col items-center text-center" style={{ boxShadow: '0 4px 20px rgba(15,74,155,0.08)', border: '1px solid rgba(15,74,155,0.08)' }}>
-                <div className="w-12 h-12 rounded-2xl bg-[#0f4a9b]/10 flex items-center justify-center text-[#0f4a9b] mb-4">{s.icon}</div>
-                <h3 className="text-[15px] font-extrabold text-[#0a1f3d] mb-1">{s.title}</h3>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              { title: 'Diagnose The Gap', desc: 'Your tutor identifies whether the gap is in calculations, equations, or organic mechanisms.', icon: <CheckCircle2 className="w-5 h-5 text-[#0f4a9b]" /> },
+              { title: 'Rebuild The Topic', desc: 'Each weak topic is rebuilt from first principles before past paper practice begins.', icon: <Brain className="w-5 h-5 text-[#0f4a9b]" /> },
+              { title: 'Drill Past Papers', desc: 'Cambridge, Edexcel, and IB chemistry papers worked weekly under timed conditions.', icon: <BookOpen className="w-5 h-5 text-[#0f4a9b]" /> }
+            ].map((s, i) => (
+              <motion.div key={i} whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(15,74,155,0.15)' }} className="flex flex-col items-center text-center px-4 py-8 bg-white rounded-2xl border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.04)] transition-all duration-300">
+                <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] flex items-center justify-center mb-4">{s.icon}</div>
+                <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-2">{s.title}</h3>
                 <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
@@ -318,176 +198,268 @@ export default function ChemistryLandingPage() {
         </div>
       </section>
 
-      {/* ── CURRICULUM JOURNEY ── */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-white">
+      {/* ── SECTION 05: CURRICULUM COVERAGE ── */}
+      <section className="py-14 lg:py-18 bg-[#f4f7fc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <Eyebrow icon={<BookOpen className="h-4 w-4" />} text="Curriculum Coverage" />
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight">Chemistry Across Every Year Group</h2>
+          <div className="text-center mb-10 max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3">Curriculum Coverage</h2>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">Chemistry Across Every Year Group</p>
           </div>
-          <div className="grid sm:grid-cols-3 gap-5">
-            {journey.map((j, i) => (
-              <div key={i} className="rounded-2xl p-6" style={{ background: 'linear-gradient(135deg, #f4f7fc 0%, #ffffff 100%)', border: '1px solid rgba(15,74,155,0.1)' }}>
-                <span className="text-xs font-bold text-[#0f4a9b] uppercase tracking-wider block mb-2">{j.years}</span>
-                <h3 className="text-lg font-extrabold text-[#0a1f3d] mb-2">{j.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-4">{j.desc}</p>
-                <a href={j.link.href} className="text-xs font-bold text-[#0f4a9b] hover:underline flex items-center gap-1">{j.link.label} <ArrowRight className="h-3 w-3" /></a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── TOPICS COVERED ── */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-[#f4f7fc]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <Eyebrow icon={<FlaskConical className="h-4 w-4" />} text="Topics We Cover" />
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight">Chemistry Topics, Covered in Depth</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {topics.map((t, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 flex flex-col" style={{ boxShadow: '0 4px 16px rgba(15,74,155,0.07)', border: '1px solid rgba(15,74,155,0.07)' }}>
-                <div className="w-12 h-12 rounded-xl bg-[#0f4a9b]/10 flex items-center justify-center text-[#0f4a9b] mb-4">{t.icon}</div>
-                <h3 className="text-[15px] font-extrabold text-[#0a1f3d] mb-2">{t.title}</h3>
-                <p className="text-[13px] text-gray-500 leading-relaxed">{t.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── PAST PAPER LABS ── */}
-      <section className="py-10 sm:py-12 lg:py-14 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f4a9b 100%)' }}>
-        <ChemGrid />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <Eyebrow icon={<ClipboardCheck className="h-4 w-4" />} text="Past Paper Preparation" dark />
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-white leading-tight">Exam Preparation Built Into Every Session</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {paperLab.map((p, i) => (
-              <div key={i} className="rounded-2xl p-5" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)' }}>
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center text-white mb-4" style={{ background: 'rgba(199,162,74,0.25)' }}>{p.icon}</div>
-                <h3 className="text-[15px] font-extrabold text-white mb-2">{p.title}</h3>
-                <p className="text-[13px] text-blue-200/70 leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── TUTOR QUALITY ── */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Eyebrow icon={<ShieldCheck className="h-4 w-4" />} text="Our Tutors" />
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-4 leading-tight">Chemistry Specialists, Not Generalists</h2>
-              <p className="text-gray-600 text-[15px] leading-relaxed mb-6">Every chemistry tutor is matched to the student's exact exam board and level. No generalists, no guesswork.</p>
-              <div className="grid grid-cols-2 gap-4">
-                {assessmentSkills.map((s, i) => (
-                  <div key={i} className="flex items-center gap-3 p-4 rounded-xl" style={{ background: '#f4f7fc', border: '1px solid rgba(15,74,155,0.08)' }}>
-                    <div className="text-[#0f4a9b]">{s.icon}</div>
-                    <span className="text-[13px] font-bold text-[#0a1f3d]">{s.title}</span>
-                  </div>
-                ))}
-              </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="bg-white rounded-2xl p-6 border border-[#0f4a9b]/10 hover:shadow-[0_12px_40px_rgba(15,74,155,0.12)] hover:-translate-y-1.5 transition-all duration-300">
+              <h3 className="font-bold text-[#0f4a9b] text-sm mb-1">Year 7–9</h3>
+              <h4 className="text-lg font-extrabold text-[#0a1f3d] mb-3">Foundation (KS3)</h4>
+              <p className="text-sm text-gray-600 mb-4 h-16">KS3 chemistry builds atoms, bonding, and equation-writing habits early.</p>
+              <a href="/middle-school" className="text-sm font-bold text-[#0f4a9b] hover:underline">Core sciences →</a>
             </div>
-            <ParentsSlider />
+            <div className="bg-white rounded-2xl p-6 border border-[#0f4a9b]/10 hover:shadow-[0_12px_40px_rgba(15,74,155,0.12)] hover:-translate-y-1.5 transition-all duration-300">
+              <h3 className="font-bold text-[#0f4a9b] text-sm mb-1">Year 10–11</h3>
+              <h4 className="text-lg font-extrabold text-[#0a1f3d] mb-3">IGCSE / GCSE</h4>
+              <p className="text-sm text-gray-600 mb-4 h-16">Cambridge 0620, Edexcel 4CH1, and GCSE Chemistry, papers 1 to 6 covered.</p>
+              <a href="/igcse" className="text-sm font-bold text-[#0f4a9b] hover:underline">IGCSE chemistry tutor Abu Dhabi →</a>
+            </div>
+            <div className="bg-white rounded-2xl p-6 border border-[#0f4a9b]/10 hover:shadow-[0_12px_40px_rgba(15,74,155,0.12)] hover:-translate-y-1.5 transition-all duration-300">
+              <h3 className="font-bold text-[#0f4a9b] text-sm mb-1">Year 12–13</h3>
+              <h4 className="text-lg font-extrabold text-[#0a1f3d] mb-3">A-Level / IB / AP</h4>
+              <p className="text-sm text-gray-600 mb-4 h-16">A-Level Chemistry, IB Chemistry SL/HL, and AP Chemistry support.</p>
+              <a href="/a-level" className="text-sm font-bold text-[#0f4a9b] hover:underline">A-Level chemistry tutor Abu Dhabi →</a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── SCHOOLS MARQUEE ── */}
-      <SchoolsMarquee />
-
-      {/* ── COMPARISON TABLE ── */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-[#f4f7fc]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight">Ustaad vs. Marketplace vs. School</h2>
+      {/* ── SECTION 06: TOPICS WE COVER (Matched to Screenshot) ── */}
+      <section className="py-14 lg:py-18 bg-white relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 bg-white border border-[#0f4a9b]/20 text-[#0f4a9b] rounded-full text-[11px] font-bold uppercase tracking-widest shadow-sm mb-5">
+              <FlaskConical className="w-4 h-4" /> TOPICS WE COVER
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">Chemistry Topics, Covered in Depth</h2>
           </div>
-          <div className="overflow-x-auto rounded-2xl" style={{ boxShadow: '0 8px 32px rgba(15,74,155,0.1)' }}>
-            <table className="w-full border-collapse bg-white">
-              <thead>
-                <tr style={{ background: '#0f4a9b' }}>
-                  <th className="text-left px-5 py-3.5 text-white text-[13px] font-bold">Feature</th>
-                  <th className="text-center px-5 py-3.5 text-white text-[13px] font-bold">Ustaad</th>
-                  <th className="text-center px-5 py-3.5 text-white text-[13px] font-bold">Marketplace</th>
-                  <th className="text-center px-5 py-3.5 text-white text-[13px] font-bold">School</th>
-                </tr>
-              </thead>
-              <tbody>
-                {compareRows.map((r, i) => (
-                  <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-[#f4f7fc]'}>
-                    <td className="px-5 py-3 text-[13px] text-[#0a1f3d] font-medium">{r.label}</td>
-                    <td className="px-5 py-3 text-center"><Mark v={r.ustaad} /></td>
-                    <td className="px-5 py-3 text-center"><Mark v={r.market} /></td>
-                    <td className="px-5 py-3 text-center"><Mark v={r.school} /></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {[
+              { title: 'Atomic Structure', desc: 'Electron configuration, ionisation energy, and periodic trends taught clearly.', icon: <Atom className="w-6 h-6 text-[#0f4a9b]" /> },
+              { title: 'Organic Chemistry', desc: 'Reaction mechanisms, functional groups, and synthesis routes explained step by step.', icon: <FlaskConical className="w-6 h-6 text-[#0f4a9b]" /> },
+              { title: 'Quantitative Chemistry', desc: 'Moles, titrations, yield, and concentration calculations drilled to fluency.', icon: <Calculator className="w-6 h-6 text-[#0f4a9b]" /> },
+              { title: 'Physical Chemistry', desc: 'Energetics, kinetics, equilibrium, and electrochemistry taught with worked examples.', icon: <Brain className="w-6 h-6 text-[#0f4a9b]" /> },
+            ].map((topic, i) => (
+              <div key={i} className="bg-white p-6 sm:p-8 rounded-[24px] shadow-[0_4px_24px_rgba(15,74,155,0.06)] hover:shadow-[0_12px_40px_rgba(15,74,155,0.12)] hover:-translate-y-1.5 transition-all duration-300 border border-gray-50 flex flex-col items-start text-left h-full">
+                <div className="w-14 h-14 rounded-2xl bg-[#f4f7fc] border border-gray-100 flex items-center justify-center mb-6 shrink-0 shadow-inner">
+                  {topic.icon}
+                </div>
+                <h4 className="text-[17px] font-extrabold text-[#0a1f3d] mb-3">{topic.title}</h4>
+                <p className="text-[14px] text-gray-500 leading-relaxed">{topic.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── GAP CHECK ── */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <Eyebrow icon={<Brain className="h-4 w-4" />} text="Quick Gap Check" />
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight">Does Your Child Have a Chemistry Gap?</h2>
+      {/* ── SECTION 07: PAST PAPER PREPARATION (Matched to Screenshot) ── */}
+      <section className="py-16 lg:py-20 relative bg-[#0a3a79] text-white">
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a3a79]/50 to-transparent pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 bg-white/10 border border-white/20 text-white rounded-full text-[11px] font-bold uppercase tracking-widest shadow-sm mb-5 backdrop-blur-sm">
+              <ClipboardCheck className="w-4 h-4" /> PAST PAPER PREPARATION
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Exam Preparation Built Into Every Session</h2>
           </div>
-          <div className="flex flex-col gap-4 mb-8">
-            {gapChecks.map((g, i) => (
-              <div key={i} className="flex items-start gap-4 p-5 rounded-2xl" style={{ background: '#f4f7fc', border: '1px solid rgba(15,74,155,0.08)' }}>
-                <CheckCircle2 className="h-5 w-5 text-[#0f4a9b] mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-[14px] font-semibold text-[#0a1f3d]">{g.q}</p>
-                  <span className="mt-1 inline-block text-[11px] font-bold uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/10 px-2.5 py-1 rounded-full">{g.tag}</span>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {[
+              { title: 'Theory Paper Drills', desc: 'Paper 1, 2, and 4 worked through with full mark scheme guidance.', icon: <PenTool className="w-5 h-5 text-white" /> },
+              { title: 'Practical Paper Skills', desc: 'Paper 3 and 5 practical skills: data analysis, graph work, and error treatment.', icon: <FlaskConical className="w-5 h-5 text-white" /> },
+              { title: 'Past Paper Drills', desc: 'Cambridge, Edexcel, and IB chemistry past papers worked weekly under timed conditions.', icon: <ClipboardCheck className="w-5 h-5 text-white" /> },
+              { title: 'Exam Technique', desc: 'Equation state symbols, significant figures, and command-word responses drilled until reflex.', icon: <Timer className="w-5 h-5 text-white" /> },
+            ].map((item, i) => (
+              <div key={i} className="bg-[#1e5ba8] p-6 sm:p-8 rounded-[24px] border border-[#1e5ba8] shadow-sm hover:shadow-[0_12px_32px_rgba(10,31,61,0.4)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-start h-full cursor-default">
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center mb-6 shrink-0 bg-white/5">
+                  {item.icon}
+                </div>
+                <h4 className="text-[17px] font-extrabold text-white mb-3 leading-snug">{item.title}</h4>
+                <p className="text-[14px] text-blue-100/70 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 08: OUR TUTORS (Matched to Screenshot & Centered) ── */}
+      <section className="py-14 lg:py-18 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-5 uppercase tracking-widest">
+            <ShieldCheck className="w-4 h-4" /> OUR TUTORS
+          </div>
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
+            Chemistry Specialists, Not Generalists
+          </h2>
+          <p className="text-gray-600 text-[15px] mb-8 leading-relaxed max-w-2xl mx-auto">
+            Every chemistry tutor is matched to the student's exact exam board and level. No generalists, no guesswork.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              { icon: <ShieldCheck className="w-5 h-5 text-[#0f4a9b]" />, text: 'Subject Specialists' },
+              { icon: <ClipboardCheck className="w-5 h-5 text-[#0f4a9b]" />, text: 'Curriculum Specialists' },
+              { icon: <CheckCircle2 className="w-5 h-5 text-[#0f4a9b]" />, text: 'Background Checked' },
+              { icon: <CheckCircle2 className="w-5 h-5 text-[#0f4a9b]" />, text: 'One-to-One Focused' },
+            ].map((tag, i) => (
+              <div key={i} className="flex items-center gap-3 px-6 py-4 bg-[#f4f7fc] border border-gray-100 rounded-2xl hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                {tag.icon}
+                <span className="font-extrabold text-[#0a1f3d] text-[14px]">{tag.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 08: TRUSTED BY SCHOOLS MARQUEE (Matched to Screenshot) ── */}
+      <SchoolsMarquee logoList={chemistrySchoolLogos} />
+
+      {/* ── SECTION 09: USTAAD VS MARKETPLACE (Matched to Screenshot) ── */}
+      <section className="py-14 lg:py-18 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-center text-[#0a1f3d] mb-8">Ustaad vs. Marketplace vs. School</h2>
+          <div className="bg-white rounded-[20px] shadow-sm border border-gray-100 overflow-hidden max-w-3xl mx-auto">
+            <div className="grid grid-cols-4 bg-[#1e5ba8] text-white font-bold text-[14px] py-4 px-3 text-center items-center">
+              <div className="text-left pl-2 col-span-1">Feature</div>
+              <div>Ustaad</div>
+              <div>Marketplace</div>
+              <div>School</div>
+            </div>
+            {[
+              { f: 'Topic diagnosis first', u: 'yes', m: 'no', s: 'no' },
+              { f: 'Curriculum-matched tutor', u: 'yes', m: 'sometimes', s: 'yes' },
+              { f: 'Weekly past paper drills', u: 'yes', m: 'no', s: 'rare' },
+              { f: 'Practical Paper 3/5 coverage', u: 'yes', m: 'no', s: 'yes' },
+              { f: 'Parent progress notes', u: 'yes', m: 'no', s: 'no' },
+            ].map((row, i) => (
+              <div key={i} className={`grid grid-cols-4 py-3 px-3 text-[13px] text-center items-center border-b border-gray-50 hover:bg-[#f4f7fc] transition-colors duration-300 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                <div className="text-left font-extrabold text-[#0a1f3d] col-span-1 pl-2">{row.f}</div>
+                <div className="font-bold flex justify-center">
+                  <div className="w-5 h-5 rounded-full border border-[#0f4a9b] text-[#0f4a9b] flex items-center justify-center bg-white shadow-sm">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+                <div className="text-gray-400 italic text-xs">
+                  {row.m === 'no' ? <X className="w-4 h-4 mx-auto opacity-30" /> : <span className="font-normal">{row.m}</span>}
+                </div>
+                <div className="text-gray-400 italic text-xs">
+                  {row.s === 'no' ? <X className="w-4 h-4 mx-auto opacity-30" /> : row.s === 'yes' ? <div className="w-5 h-5 rounded-full border border-[#0f4a9b] text-[#0f4a9b] flex items-center justify-center bg-white shadow-sm mx-auto"><CheckCircle2 className="w-3.5 h-3.5" /></div> : <span className="font-normal">{row.s}</span>}
                 </div>
               </div>
             ))}
           </div>
-          <div className="text-center">
-            <GoldButton href={BOOKING} className="px-8 py-4 text-sm shadow-[0_0_24px_rgba(199,162,74,0.3)]">Book a Free Trial to Find the Gap</GoldButton>
+        </div>
+      </section>
+
+      {/* ── SECTION 09.5: FEATURED REVIEW (Matched to Screenshot) ── */}
+      <section className="py-16 sm:py-20 relative overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f4a9b 100%)' }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+              From an <span style={{ color: '#f0c96a' }}>Abu Dhabi Family</span>
+            </h2>
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-xs text-white/90 font-semibold self-start sm:self-auto">
+              <span className="text-[#f0c96a] tracking-tighter">★★★★★</span>
+              <span>Verified</span>
+            </div>
+          </div>
+          
+          <div className="rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md p-6 sm:p-8 shadow-2xl relative text-left">
+            <div className="text-6xl font-serif text-white/15 absolute top-3 left-6 select-none pointer-events-none">“</div>
+            <p className="relative z-10 text-white text-base sm:text-lg lg:text-xl font-medium leading-relaxed mb-6 pt-2">
+              I had a great experience with Ustaad. They truly provide some of the Best Tutors in Abu Dhabi. The teaching style is clear, professional, and very supportive.
+            </p>
+            
+            <div className="flex items-center gap-3.5 relative z-10">
+              <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm shadow-inner shrink-0">
+                FA
+              </div>
+              <div>
+                <div className="font-extrabold text-white text-base leading-tight">Fares Al Kindi</div>
+                <div className="text-blue-200/70 text-xs mt-0.5">Abu Dhabi</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-[#f4f7fc]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight">Chemistry Tutor FAQ</h2>
+      {/* ── SECTION 10: QUICK GAP CHECK (Matched to Screenshot) ── */}
+      <section className="py-14 lg:py-18 bg-[#f4f7fc] border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-gray-200 text-[#0f4a9b] rounded-full text-xs font-bold mb-5 uppercase tracking-widest shadow-sm">
+            <span className="flex items-center justify-center gap-1.5"><ShieldCheck className="w-4 h-4" /> QUICK GAP CHECK</span>
           </div>
-          <div className="flex flex-col gap-[10px]">
-            {faqs.map((faq, i) => {
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-10">Does Your Child Have a Chemistry Gap?</h2>
+          
+          <div className="flex flex-col gap-5 max-w-3xl mx-auto mb-10 text-left">
+            <div className="bg-white p-6 rounded-2xl flex items-start gap-4 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-300 cursor-default">
+              <div className="w-6 h-6 rounded-full border-2 border-[#0f4a9b] text-[#0f4a9b] flex items-center justify-center shrink-0 mt-0.5">
+                <CheckCircle2 className="w-4 h-4" />
+              </div>
+              <div className="flex flex-col gap-2 w-full">
+                <span className="text-[15px] font-semibold text-[#0a1f3d]">Does your child know the formula but get the calculation wrong?</span>
+                <span className="text-[11px] font-extrabold bg-[#f4f7fc] text-[#0f4a9b] px-3 py-1 rounded-full uppercase tracking-widest w-fit">Calculation gap</span>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-2xl flex items-start gap-4 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-300 cursor-default">
+              <div className="w-6 h-6 rounded-full border-2 border-[#0f4a9b] text-[#0f4a9b] flex items-center justify-center shrink-0 mt-0.5">
+                <CheckCircle2 className="w-4 h-4" />
+              </div>
+              <div className="flex flex-col gap-2 w-full">
+                <span className="text-[15px] font-semibold text-[#0a1f3d]">Do they write equations without balancing or state symbols?</span>
+                <span className="text-[11px] font-extrabold bg-[#f4f7fc] text-[#0f4a9b] px-3 py-1 rounded-full uppercase tracking-widest w-fit">Equation gap</span>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-2xl flex items-start gap-4 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-300 cursor-default">
+              <div className="w-6 h-6 rounded-full border-2 border-[#0f4a9b] text-[#0f4a9b] flex items-center justify-center shrink-0 mt-0.5">
+                <CheckCircle2 className="w-4 h-4" />
+              </div>
+              <div className="flex flex-col gap-2 w-full">
+                <span className="text-[15px] font-semibold text-[#0a1f3d]">Are their organic mechanisms missing curly arrows?</span>
+                <span className="text-[11px] font-extrabold bg-[#f4f7fc] text-[#0f4a9b] px-3 py-1 rounded-full uppercase tracking-widest w-fit">Mechanism gap</span>
+              </div>
+            </div>
+          </div>
+          
+          <a href={BOOKING} className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-bold text-white transition-all bg-[#a58638] hover:bg-[#8e722f] shadow-sm">Book a Free Trial to Find the Gap</a>
+        </div>
+      </section>
+
+      {/* ── SECTION 11: FAQS ── */}
+      <section className="py-16 sm:py-20 bg-[#f4f7fc]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] text-center mb-10">Chemistry Tutor FAQ</h2>
+          <div className="flex flex-col gap-3">
+            {FAQS.map((faq, i) => {
               const isOpen = openFaq === i;
               return (
-                <div key={i} className="flex flex-col gap-2">
-                  <div className="flex items-center gap-3">
-                    <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen}
-                      style={{ width: 40, height: 40, background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', color: isOpen ? '#fff' : '#0f4a9b', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: 'bold', fontSize: '18px', border: 'none', cursor: 'pointer' }}>?</button>
-                    <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen}
-                      className="flex-1 flex items-center gap-3 text-left rounded-full border"
-                      style={{ minHeight: '48px', padding: '8px 14px', borderColor: isOpen ? 'rgba(15,74,155,0.25)' : 'rgba(15,74,155,0.1)', background: isOpen ? 'rgba(15,74,155,0.04)' : 'transparent', cursor: 'pointer' }}>
-                      <span className="flex-1 font-semibold text-[#0a1f3d] text-[14px] leading-snug">{faq.q}</span>
-                      <span style={{ width: 32, height: 32, borderRadius: '50%', background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}>
-                        <ChevronDown className="h-3.5 w-3.5" style={{ color: isOpen ? '#fff' : '#0f4a9b' }} />
-                      </span>
-                    </button>
-                  </div>
-                  <div style={{ maxHeight: isOpen ? '400px' : '0', overflow: 'hidden', transition: 'max-height 0.25s ease' }} aria-hidden={!isOpen}>
-                    <div className="ml-[56px] flex items-start gap-3 rounded-2xl border p-4" style={{ background: '#f8fafc', borderColor: 'rgba(15,74,155,0.15)', boxShadow: '0 4px 16px rgba(15,74,155,0.06)' }}>
-                      <p className="flex-1 text-gray-600 text-[13px] leading-relaxed">{faq.a}</p>
-                      <span style={{ width: 32, height: 32, background: '#0f4a9b', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <MessageCircle className="h-4 w-4" />
-                      </span>
+                <div key={i} className="border border-gray-100 rounded-full overflow-hidden bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1" style={{ boxShadow: isOpen ? '0 12px 30px rgba(15,74,155,0.08)' : 'none' }}>
+                  <button onClick={() => setOpenFaq(isOpen ? null : i)} className="w-full text-left px-6 py-4 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                      <span className="w-8 h-8 rounded-full bg-[#f4f7fc] text-[#0f4a9b] flex items-center justify-center font-extrabold text-[15px]">?</span>
+                      <span className="font-semibold text-[#0a1f3d] text-[15px]">{faq.q}</span>
                     </div>
-                  </div>
+                    <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? 'bg-[#f4f7fc] text-[#0f4a9b]' : 'bg-[#f4f7fc] text-[#0f4a9b]'}`}>
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                        <div className="px-16 pb-5 text-[14px] text-gray-600 leading-relaxed pt-1">{faq.a}</div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
@@ -495,48 +467,49 @@ export default function ChemistryLandingPage() {
         </div>
       </section>
 
-      {/* ── CONTACT STRIP ── */}
-      <section className="py-10 sm:py-12 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl p-8 sm:p-10 text-center" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f4a9b 100%)' }}>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">Ready to Fix Chemistry?</h2>
-            <p className="text-blue-100 text-[15px] mb-6 max-w-lg mx-auto">Book a free trial and we will match your child with a chemistry specialist in Abu Dhabi.</p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <GoldButton href={BOOKING} className="px-7 py-3.5 text-sm shadow-[0_0_30px_rgba(199,162,74,0.4)]">Book Your Free Trial</GoldButton>
-              <a href="https://wa.me/971561249005" target="_blank" rel="noopener" className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-bold text-white border border-white/20 hover:bg-white/10 transition">
-                <Phone className="h-4 w-4" /> WhatsApp Us
-              </a>
-              <a href="mailto:support@ustaad.ae" className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-bold text-blue-200 hover:text-white transition">
-                <Mail className="h-4 w-4" /> support@ustaad.ae
-              </a>
+      {/* ── SECTION 12: FINAL CTA & RELATED ── */}
+      <section className="bg-[#f4f7fc]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative -top-10">
+          <div className="rounded-3xl p-10 text-center shadow-lg bg-[#0a3a79]">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">Ready to Fix Chemistry?</h2>
+            <p className="text-blue-100/90 text-[15px] mb-8 max-w-lg mx-auto">Book a free trial and we will match your child with a chemistry specialist in Abu Dhabi.</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={BOOKING} className="inline-flex items-center justify-center px-8 h-12 rounded-xl font-bold text-white transition-all bg-[#a58638] hover:bg-[#8e722f] shadow-[0_0_20px_rgba(165,134,56,0.5)]">Book Your Free Trial</a>
+              <a href={WA_URL} target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-xl font-bold text-white transition-all bg-[#25D366] hover:bg-[#1eb657] shadow-[0_4px_14px_rgba(37,211,102,0.3)]"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
+              <a href="mailto:support@ustaad.ae" className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-xl font-bold text-white border border-white/20 hover:bg-white/10 transition-all">support@ustaad.ae</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-xl font-extrabold text-[#0a1f3d] mb-2">Related Subjects</h3>
+              <p className="text-sm text-gray-500 mb-6">Explore neighbouring subjects families often book alongside this page.</p>
+              <ul className="space-y-4">
+                <li><a href="/maths-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> Maths Tutor Abu Dhabi</a></li>
+                <li><a href="/physics-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> Physics Tutor Abu Dhabi</a></li>
+                <li><a href="/biology-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> Biology Tutor Abu Dhabi</a></li>
+                <li><a href="/chemistry" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> Chemistry subject hub</a></li>
+                <li><a href="/sciences" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> Sciences overview</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-extrabold text-[#0a1f3d] mb-2">Related Curricula</h3>
+              <p className="text-sm text-gray-500 mb-6">Match tutoring to the board and pathway your school follows.</p>
+              <ul className="space-y-4">
+                <li><a href="/igcse" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> IGCSE</a></li>
+                <li><a href="/a-level" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> A-Level</a></li>
+                <li><a href="/ib-curriculum" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> IB Curriculum</a></li>
+                <li><a href="/british-curriculum" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> British Curriculum</a></li>
+                <li><a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> IGCSE Tutor Abu Dhabi</a></li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <RelatedContent
-        breadcrumbs={[
-          { name: 'Home', href: '/' },
-          { name: 'Curriculum', href: '/curriculum' },
-          { name: 'Abu Dhabi', href: '/chemistry-tutor-abu-dhabi' },
-          { name: 'Chemistry', href: '/chemistry-tutor-abu-dhabi' },
-        ]}
-        subjects={[
-          { label: 'Maths Tutor Abu Dhabi', href: '/maths-tutor-abu-dhabi' },
-          { label: 'Physics Tutor Abu Dhabi', href: '/physics-tutor-abu-dhabi' },
-          { label: 'Biology Tutor Abu Dhabi', href: '/biology-tutor-abu-dhabi' },
-          { label: 'Chemistry subject hub', href: '/chemistry' },
-          { label: 'Sciences overview', href: '/sciences' },
-        ]}
-        curricula={[
-          { label: 'IGCSE', href: '/igcse' },
-          { label: 'A-Level', href: '/a-level' },
-          { label: 'IB Curriculum', href: '/ib-curriculum' },
-          { label: 'British Curriculum', href: '/british-curriculum' },
-          { label: 'IGCSE Tutor Abu Dhabi', href: '/igcse-tutor-abu-dhabi' },
-        ]}
-      />
-      <FinalCTA />
+      <FinalCTA title="Find the Right Tutor for Your Curriculum" description="Get matched with an expert tutor for your subject and curriculum." />
     </Layout>
   );
 }

@@ -10,6 +10,7 @@ import AccountingPage from "./app/AccountingPage.tsx";
 import AmericanCurriculumPage from "./app/AmericanCurriculumPage.tsx";
 import APPage from "./app/APPage.tsx";
 import App from "./app/App.tsx";
+import AcademicBlogsPage from "./app/AcademicBlogsPage.tsx";
 import BiologyPage from "./app/BiologyPage.tsx";
 import BlogsPage from "./app/BlogsPage.tsx";
 import BritishCurriculumPage from "./app/BritishCurriculumPage.tsx";
@@ -39,8 +40,10 @@ import MathematicsLanding from "./app/MathematicsLanding.tsx";
 import MathsPage from "./app/MathsPage.tsx";
 import MiddleSchoolPage from "./app/MiddleSchoolPage.tsx";
 import MYPPage from "./app/MYPPage.tsx";
+import ParentGuidanceBlogsPage from "./app/ParentGuidanceBlogsPage.tsx";
 import PhysicsLanding from "./app/PhysicsLanding.tsx";
 import PhysicsPage from "./app/PhysicsPage.tsx";
+import PsychologyBlogsPage from "./app/PsychologyBlogsPage.tsx";
 import PhysicsUnderstandingMarksBlog from "./app/PhysicsUnderstandingMarksBlog.tsx";
 import IGCSEPhysicsFormulasBlog from "./app/IGCSEPhysicsFormulasBlog.tsx";
 import PrivacyPage from "./app/PrivacyPage.tsx";
@@ -53,6 +56,7 @@ import EditorialPage from "./app/EditorialPage.tsx";
 import AuthorPage from "./app/AuthorPage.tsx";
 import BiologyTutorAbuDhabiPage from "./app/BiologyTutorAbuDhabiPage.tsx";
 import IGCSETutorLanding from "./app/IGCSETutorAbuDhabiPage.tsx";
+import GCSETutorLanding from "./app/GCSETutorAbuDhabiPage.tsx";
 
 // Component registry - maps component names to actual components
 const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
@@ -60,6 +64,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   AboutPage,
   ALevelPage,
   AccountingPage,
+  AcademicBlogsPage,
   AmericanCurriculumPage,
   APPage,
   AuthorPage,
@@ -92,12 +97,15 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   IGCSEPhysicsFormulasBlog,
   IGCSEPage,
   IGCSETutorLanding,
+  GCSETutorLanding,
   MathematicsLanding,
   MathsPage,
   MiddleSchoolPage,
   MYPPage,
   PhysicsLanding,
+  ParentGuidanceBlogsPage,
   PhysicsPage,
+  PsychologyBlogsPage,
   PhysicsUnderstandingMarksBlog,
   PrivacyPage,
   SciencesPage,

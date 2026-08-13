@@ -9,7 +9,7 @@ import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, reviewsSchema } from './shared/schemas';
 
-const BOOKING = '/contact#form';
+const BOOKING = "/contact#form";
 
 const BioGrid = ({ light = false }: { light?: boolean }) => (
   <svg className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">

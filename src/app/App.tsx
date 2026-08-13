@@ -295,131 +295,115 @@ export default function App() {
       <SEOHead {...homepageSEO} />
       {showWelcomePopup && (
         <div
-          className="fixed inset-0 z-[9999] bg-[#0e1d3f]/62 backdrop-blur-[2px] flex items-center justify-center p-3 sm:p-6"
+          className="fixed inset-0 z-[9999] bg-[#0e1d3f]/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
           onClick={() => setShowWelcomePopup(false)}
         >
           <div
-            className="relative w-full max-w-[880px] bg-white rounded-[22px] border border-[#dfe4ef] shadow-[0_24px_70px_rgba(10,31,61,0.5)] overflow-hidden max-h-[90vh]"
+            className="relative w-full max-w-[650px] bg-white rounded-[20px] shadow-[0_24px_70px_rgba(10,31,61,0.5)] overflow-visible mx-auto"
             onClick={e => e.stopPropagation()}
           >
-            {/* Close button — always visible */}
+            {/* Close button — shifts inward on very small screens to avoid edge clipping */}
             <button
               type="button"
               aria-label="Close welcome popup"
               onClick={() => setShowWelcomePopup(false)}
-              className="absolute top-3 right-3 z-50 w-9 h-9 rounded-full bg-white border border-[#dbe2ee] shadow-md flex items-center justify-center text-[#0f4a9b] hover:bg-[#f8fbff] transition-colors"
+              className="absolute -top-3 -right-1 sm:-top-4 sm:-right-4 z-50 w-8 h-8 rounded-full bg-[#ef4444] border-2 border-white shadow-md flex items-center justify-center text-white hover:bg-[#dc2626] transition-all"
             >
               <X className="w-4 h-4" strokeWidth={2.5} />
             </button>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 max-h-[90vh] overflow-y-auto">
-              {/* Left Column — Chat preview */}
-              <div className="px-5 py-6 sm:px-6 sm:py-8 bg-[#f5efde] border-b md:border-b-0 md:border-r border-[#ece2c9] flex flex-col justify-between">
-                <div>
-                  {/* Top Bar Header — Teacher Info changes per slide */}
-                  <div className="bg-white rounded-[16px] border border-[#e7ebf3] px-4 py-3 mb-4 shadow-sm flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-black text-[#f0c96a] shrink-0 relative border border-white/20" style={{ background: currentSlide.avatarBg }}>
-                        {currentSlide.initials}
-                        <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-white bg-[#25d366]" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-extrabold text-[#0a1f3d]">
-                          {currentSlide.teacherName} <span className="text-[#0f4a9b] font-bold">· {currentSlide.teacherRole}</span>
-                        </p>
-                        <p className="text-[11px] text-[#4d8662] font-medium">online, replies in ~12 min</p>
-                      </div>
-                    </div>
+            {/* Animated Color Gradient Background */}
+            <motion.div 
+              animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+              transition={{ duration: 10, ease: "linear", repeat: Infinity }}
+              style={{ 
+                backgroundSize: "300% 300%",
+                backgroundImage: "linear-gradient(-45deg, #f0f7ff, #fff0f5, #f0fff4, #fff9e6)"
+              }}
+              className="flex flex-col p-5 sm:p-8 rounded-[20px] overflow-hidden relative items-center text-center w-full"
+            >
+
+              {/* Floating 3D Elements */}
+              <motion.div 
+                className="absolute top-4 left-4 sm:top-8 sm:left-8 z-0 flex items-center justify-center p-2 sm:p-3 rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgba(15,74,155,0.12)] scale-75 sm:scale-100"
+                animate={{ y: [0, -15, 0], x: [0, 10, 0], rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
+              >
+                <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-[#0f4a9b]" strokeWidth={1.5} />
+              </motion.div>
+              <motion.div 
+                className="absolute bottom-6 right-4 sm:bottom-10 sm:right-8 z-0 flex items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgba(37,211,102,0.12)] scale-75 sm:scale-100"
+                animate={{ y: [0, 20, 0], x: [0, -15, 0], scale: [1, 1.05, 1] }}
+                transition={{ duration: 7, ease: "easeInOut", repeat: Infinity, delay: 1 }}
+              >
+                <GraduationCap className="w-8 h-8 sm:w-10 sm:h-10 text-[#25D366]" strokeWidth={1.5} />
+              </motion.div>
+              <motion.div 
+                className="absolute top-1/2 right-4 sm:right-12 z-0 flex items-center justify-center p-2 sm:p-2.5 rounded-xl bg-white/40 backdrop-blur-sm border border-white/70 shadow-[0_8px_20px_rgba(199,162,74,0.15)] scale-75 sm:scale-100"
+                animate={{ y: [0, -25, 0] }}
+                transition={{ duration: 5, ease: "easeInOut", repeat: Infinity, delay: 2 }}
+              >
+                <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-[#C7A24A]" strokeWidth={1.5} />
+              </motion.div>
+              <motion.div 
+                className="absolute top-8 right-16 sm:top-12 sm:right-24 z-0 flex items-center justify-center p-2 sm:p-2.5 rounded-xl bg-white/40 backdrop-blur-sm border border-white/60 shadow-lg scale-75 sm:scale-100"
+                animate={{ y: [0, 15, 0], scale: [1, 0.9, 1] }}
+                transition={{ duration: 8, ease: "easeInOut", repeat: Infinity, delay: 1.5 }}
+              >
+                <Atom className="w-4 h-4 sm:w-5 sm:h-5 text-[#ff9a9e]" strokeWidth={1.5} />
+              </motion.div>
+              <motion.div 
+                className="absolute bottom-12 left-4 sm:bottom-16 sm:left-12 z-0 flex items-center justify-center p-2 sm:p-3 rounded-2xl bg-white/40 backdrop-blur-sm border border-white/60 shadow-lg scale-75 sm:scale-100"
+                animate={{ y: [0, -15, 0], x: [0, -10, 0], rotate: [0, -15, 15, 0] }}
+                transition={{ duration: 7.5, ease: "easeInOut", repeat: Infinity, delay: 0.5 }}
+              >
+                <Globe className="w-5 h-5 sm:w-7 sm:h-7 text-[#9c27b0]" strokeWidth={1.5} />
+              </motion.div>
+
+              {/* Content */}
+              <div className="relative z-10 w-full flex flex-col items-center">
+                <div className="inline-flex items-center rounded-full bg-[#f7f1df]/90 backdrop-blur-sm border border-[#eadfbc] px-3 py-1 text-[9px] sm:text-[10px] uppercase tracking-[0.1em] text-[#8a6a2f] font-extrabold shadow-sm mb-3 sm:mb-4">
+                  Stuck on a question? Ask us
+                </div>
+
+                <h3 className="text-xl sm:text-[24px] text-[#0a1f3d] font-serif font-bold mb-2.5 sm:mb-3 leading-[1.25]">
+                  Get a <span className="italic text-[#b8883f]">free written</span> solution in 15 minutes.
+                </h3>
+
+                <p className="text-[#5f6f86] text-[12px] sm:text-[13px] leading-relaxed mb-5 max-w-[480px]">
+                  Send us any homework question your child is stuck on. A UAE subject specialist will reply with a worked solution, completely free.
+                </p>
+
+                <div className="flex flex-col sm:flex-row flex-wrap justify-center items-start sm:items-center gap-2.5 sm:gap-x-5 sm:gap-y-2.5 mb-6 w-full max-w-[480px] mx-auto text-left sm:text-center">
+                  <div className="flex items-center gap-2 text-[12px] text-[#344e72] font-semibold bg-white/40 px-3 py-1.5 rounded-full border border-white/60 shadow-[0_2px_10px_rgba(0,0,0,0.02)] backdrop-blur-sm">
+                    <CheckCircle className="w-4 h-4 text-[#0f4a9b] shrink-0" />
+                    12 min average reply time
                   </div>
-
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activeWelcomeSlide}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -16 }}
-                      transition={{ duration: 0.3, ease: 'easeOut' }}
-                      className="space-y-3"
-                    >
-                      {/* Student Message */}
-                      <div className="ml-auto max-w-[88%] bg-[#cbf5cd] text-[#1c3d27] rounded-2xl rounded-tr-sm px-4 py-2.5 text-xs font-medium leading-relaxed shadow-sm">
-                        <p>{currentSlide.question}</p>
-                        <div className="text-[10px] text-[#558661] text-right mt-1 font-sans">now ✓✓</div>
-                      </div>
-
-                      {/* Teacher Response */}
-                      <div className="flex items-start gap-2 max-w-[92%]">
-                        <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-black text-[#f0c96a] shrink-0 border border-white/20 mt-1" style={{ background: currentSlide.avatarBg }}>
-                          {currentSlide.initials}
-                        </div>
-                        <div className="bg-white text-[#1e2a2e] rounded-2xl rounded-tl-sm px-4 py-3 text-xs leading-relaxed shadow-sm border border-[#e7ebf3] flex-1">
-                          <p>{currentSlide.answer}</p>
-                          <div className="text-[10px] text-gray-400 text-right mt-1 font-sans">now</div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
+                  <div className="flex items-center gap-2 text-[12px] text-[#344e72] font-semibold bg-white/40 px-3 py-1.5 rounded-full border border-white/60 shadow-[0_2px_10px_rgba(0,0,0,0.02)] backdrop-blur-sm">
+                    <CheckCircle className="w-4 h-4 text-[#0f4a9b] shrink-0" />
+                    IGCSE, A-Level, IB & American
+                  </div>
+                  <div className="flex items-center gap-2 text-[12px] text-[#344e72] font-semibold bg-white/40 px-3 py-1.5 rounded-full border border-white/60 shadow-[0_2px_10px_rgba(0,0,0,0.02)] backdrop-blur-sm">
+                    <CheckCircle className="w-4 h-4 text-[#0f4a9b] shrink-0" />
+                    Hundreds of questions answered
+                  </div>
                 </div>
 
-                <div className="flex items-center justify-center gap-1.5 mt-6">
-                  {WELCOME_CHAT_SLIDES.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveWelcomeSlide(idx)}
-                      aria-label={`Go to slide ${idx + 1}`}
-                      className={`rounded-full transition-all ${idx === activeWelcomeSlide ? 'w-5 h-1.5 bg-[#0f4a9b]' : 'w-1.5 h-1.5 bg-[#cfd5df]'}`}
-                    />
-                  ))}
-                </div>
+                <a
+                  href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20my%20first%2030-minute%20session%20with%20a%20subject%20and%20curriculum-fit%20tutor."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-[280px] inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1fb858] text-white font-extrabold text-[14px] sm:text-[15px] py-3 sm:py-3.5 transition-all shadow-[0_8px_16px_rgba(37,211,102,0.25)] hover:shadow-[0_12px_20px_rgba(37,211,102,0.35)] hover:-translate-y-0.5"
+                >
+                  <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                  Ask on WhatsApp
+                </a>
+                
+                <p className="mt-3.5 text-[10px] sm:text-[11px] text-[#9aa5b5] font-medium">
+                  No sign-up. No credit card. Just send your question.
+                </p>
               </div>
-
-              {/* Right Column — Main Copy & Action */}
-              <div className="p-5 sm:p-7 bg-white flex flex-col justify-between">
-                <div>
-                  <div className="inline-flex items-center rounded-full bg-[#f7f1df] border border-[#eadfbc] px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-[#8a6a2f] font-bold mb-3">
-                    Stuck on a question? Ask us
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl lg:text-[30px] leading-[1.15] text-[#17345f] font-serif mb-2.5 pr-8">
-                    Get a <span className="italic text-[#b8883f]">free written</span> solution in <span className="font-semibold">15 minutes.</span>
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#5f6f86] leading-relaxed mb-4">
-                    Send us any homework question your child is stuck on. A UAE subject specialist will reply with a worked solution, completely free.
-                  </p>
-
-                  <div className="space-y-2 mb-5 text-xs sm:text-[13px] text-[#344e72]">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-[#b8c6dd] shrink-0" />
-                      12 min average reply time
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-[#b8c6dd] shrink-0" />
-                      IGCSE, A-Level, IB & American specialists
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-[#b8c6dd] shrink-0" />
-                      Hundreds of questions answered every week
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <a
-                    href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20my%20first%2030-minute%20session%20with%20a%20subject%20and%20curriculum-fit%20tutor."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1fb858] text-white font-bold text-base sm:text-lg py-3 transition-colors shadow-[0_12px_24px_rgba(37,211,102,0.35)]"
-                  >
-                    <MessageCircle className="w-5 h-5" />
-                    Ask on WhatsApp
-                  </a>
-                  <div className="text-center mt-2.5">
-                    <div className="mt-2.5 pt-2.5 border-t border-[#edf0f5] text-[10px] sm:text-[11px] text-[#9aa5b5]">
-                      No sign-up. No credit card. Just send your question.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       )}
@@ -445,7 +429,7 @@ export default function App() {
               <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
               
               <p className="text-gray-600 text-base lg:text-lg mb-10 leading-relaxed max-w-xl">
-                Private 1-to-1 tutoring across Dubai, Abu Dhabi, and the UAE for <a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-medium hover:underline">IGCSE tutoring across every subject</a>, GCSE, A-Level, IB, and American curriculum students.
+                Private 1-to-1 tutoring across Dubai, Abu Dhabi, and the UAE for IGCSE, GCSE, A-Level, IB, and American curriculum students.
               </p>
 
               <div className="flex flex-col gap-4 mb-4">
@@ -454,23 +438,10 @@ export default function App() {
                     <GoldButton className="w-full sm:w-auto px-8 py-3.5 text-sm hero-cta">
                       Book Your Free Trial
                     </GoldButton>
-                    <p className="text-xs text-gray-400 font-medium text-center sm:text-left tracking-wide">âœ¦ No Commitment Â· Cancel Anytime</p>
+                    <p className="text-xs text-gray-400 font-medium text-center sm:text-left tracking-wide">✦ No Commitment · Cancel Anytime</p>
                   </div>
                 </div>
 
-                {/* Premium Google Review Trust Card */}
-                <div className="inline-flex items-center gap-4 p-4 pr-6 bg-white border border-[#E5E7EB] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] max-w-max">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white border border-[#E5E7EB] shadow-sm flex-shrink-0">
-                    <svg viewBox="0 0 48 48" className="w-6 h-6"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <div className="flex items-center gap-1.5 mb-1">
-                      <span className="text-sm font-extrabold text-[#1F3F66] mr-1">5.0</span>
-                      {[1,2,3,4,5].map(j => <Star key={j} className="h-3.5 w-3.5 fill-[#C7A24A] text-[#C7A24A]" />)}
-                    </div>
-                    <span className="text-xs text-[#6B7280] font-medium">Registered in UAE</span>
-                  </div>
-                </div>
               </div>
             </motion.div>
 
@@ -496,7 +467,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* â”€â”€ STATS BAR (below hero, above Why Students Struggle) â”€â”€ */}
+      {/* ── STATS BAR (below hero, above Why Students Struggle) ── */}
       <StatsBar />
 
       {/* Why Students Struggle (Vertical Cards) */}
@@ -752,10 +723,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* â”€â”€ Ask an Expert (B1) â”€â”€ */}
+      {/* ── Ask an Expert (B1) ── */}
       <AskExpertSection />
 
-      {/* â”€â”€ Divider â”€â”€ */}
+      {/* ── Divider ── */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-px bg-gradient-to-r from-transparent via-[#0f4a9b]/30 to-transparent" />
       </div>
@@ -810,7 +781,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* â”€â”€ Divider â”€â”€ */}
+      {/* ── Divider ── */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-px bg-gradient-to-r from-transparent via-[#0f4a9b]/30 to-transparent" />
       </div>
@@ -897,7 +868,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* â”€â”€ Insights From Editorial Team (B2) â”€â”€ */}
+      {/* ── Insights From Editorial Team (B2) ── */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#c17b2f', letterSpacing: '0.1em' }}>
@@ -917,12 +888,6 @@ export default function App() {
               style={{ background: '#0a1f3d', color: '#ffffff', textDecoration: 'none' }}
             >
               Explore All Articles From Ustaad UAE →
-            </a>
-            <a
-              href="/editorial"
-              className="inline-flex items-center justify-center font-bold rounded-xl px-8 py-4 text-base border-2 border-[#0a1f3d] text-[#0a1f3d] hover:bg-[#0a1f3d]/5 transition"
-            >
-              Meet the writers
             </a>
           </div>
           <p className="mt-4 text-sm text-gray-400">New articles published regularly by our editorial team.</p>
