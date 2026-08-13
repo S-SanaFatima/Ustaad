@@ -6,7 +6,7 @@ import { localBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from 
 import {
   FlaskConical, Atom, Scale, Flame, Leaf, Network,
   GitCompareArrows, Route, Lightbulb, Layers, FileText,
-  Search, BookMarked, Brain, ClipboardList,
+  Search, BookMarked, Brain, ClipboardList, ArrowRight,
   AlignLeft, Hash, TrendingUp,
   HelpCircle, ChevronDown, MessageCircle, MapPin,
   Award, PenTool,
@@ -154,7 +154,7 @@ const customMethodsSection = (
 
 /* ─── §6 Thinking Skills — 2×2 flat bordered grid ─── */
 const thinkingSkills = [
-  { title: "Equation Translation",    icon: <Scale         className="h-6 w-6" strokeWidth={2} />, problem: "Stumbles when turning word descriptions into equations",   fix: <>We turn word reactions into balanced equations. See also <a href="/mathematics" className="text-[#5b3a8a] font-semibold underline">Mathematics</a></> },
+  { title: "Equation Translation",    icon: <Scale         className="h-6 w-6" strokeWidth={2} />, problem: "Stumbles when turning word descriptions into equations",   fix: <>We turn word reactions into balanced equations. See also <a href="/maths" className="text-[#5b3a8a] font-semibold underline">Mathematics</a></> },
   { title: "Mechanism Walkthrough",   icon: <Route         className="h-6 w-6" strokeWidth={2} />, problem: "Hops between arrow stages in mechanisms",                  fix: "We slot each arrow into the mechanism logic" },
   { title: "Product Prediction",      icon: <Lightbulb     className="h-6 w-6" strokeWidth={2} />, problem: "Guesses products from given reagents",                     fix: "We tie predictions to reagent and condition rules" },
   { title: "Structure Interpretation",icon: <Atom          className="h-6 w-6" strokeWidth={2} />, problem: "Misjudges polarity and bonding from formulae",             fix: "We pull structure cues that decide behaviour" },
@@ -354,6 +354,43 @@ function ChemistryFAQs() {
   );
 }
 
+const chemRelatedReading = (
+  <section className="py-16 bg-white border-t border-gray-100">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-10 max-w-3xl mx-auto">
+        <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-2">
+          <GradientHeadingText text="Related Reading & Chemistry Guides" />
+        </h2>
+        <p className="text-gray-600 text-sm lg:text-base">In-depth articles from our Chemistry specialists and academic mentors.</p>
+      </div>
+      <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <a href="/blogs/early-signs-chemistry-help-uae" className="group bg-[#f8fafc] border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-[#0f4a9b]/30 transition-all flex flex-col justify-between">
+          <div>
+            <span className="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full mb-3">Parent Guidance</span>
+            <h3 className="text-lg font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors mb-2">Early Signs Your Child Needs Help in Chemistry</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">Six signs a chemistry gap is forming long before the formal report card reflects it.</p>
+          </div>
+          <div className="mt-4 flex items-center text-sm font-bold text-[#0f4a9b] gap-2">
+            <span>Read Article</span>
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </a>
+        <a href="/blogs/why-chemistry-fades-from-memory" className="group bg-[#f8fafc] border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-[#0f4a9b]/30 transition-all flex flex-col justify-between">
+          <div>
+            <span className="inline-block px-3 py-1 bg-blue-50 text-[#0f4a9b] text-xs font-bold rounded-full mb-3">Academic & Exam Skills</span>
+            <h3 className="text-lg font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors mb-2">Why Students Forget Chemistry So Quickly</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">Why chemistry fades from memory, and the visual, spaced habits that make formulas and bonding stick.</p>
+          </div>
+          <div className="mt-4 flex items-center text-sm font-bold text-[#0f4a9b] gap-2">
+            <span>Read Article</span>
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+);
+
 /* ─── Page data ─── */
 const data: SubjectPageProps = {
   badgeIcon:        <FlaskConical className="h-4 w-4" />,
@@ -380,7 +417,7 @@ const data: SubjectPageProps = {
   customPracticesSection,    /* §7 Chemistry Paper Skills */
 
   results: [],
-  customResultsSection,      /* §8 UAE dark section */
+  customResultsSection: <>{customResultsSection}{chemRelatedReading}</>,      /* §8 UAE dark section + Related Reading */
 
   faqs: [],
   customFAQsSection: <ChemistryFAQs />, /* §9 Chemistry Questions Answered */

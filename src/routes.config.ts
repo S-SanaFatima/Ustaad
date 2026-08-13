@@ -10,6 +10,8 @@ export interface RouteConfig {
     description: string;
     priority?: number; // Sitemap priority (0.0 - 1.0)
     changefreq?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+    lastmod?: string;
+    noindex?: boolean;
   };
   breadcrumbs?: Array<{ name: string; url: string }>;
 }
@@ -657,14 +659,14 @@ export function getRouteByPath(path: string): RouteConfig | undefined {
 }
 
 // Generate sitemap XML — homepage uses trailing slash; all other locs have none
-export function generateSitemap(): string {
-  const baseUrl = 'https://ustaad.ae';
+export function generateSitemap(baseUrl = 'https://ustaad.ae'): string {
   const today = new Date().toISOString().split('T')[0];
-  const urlEntries = ROUTES.map(route => {
+  const urlEntries = ROUTES.filter(r => !r.seo.noindex).map(route => {
     const loc = route.path === '/' ? `${baseUrl}/` : `${baseUrl}${route.path}`;
+    const lastmod = route.seo.lastmod || today;
     return `  <url>
     <loc>${loc}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${route.seo.changefreq || 'monthly'}</changefreq>
     <priority>${route.seo.priority || 0.5}</priority>
   </url>`;

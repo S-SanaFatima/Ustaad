@@ -3,7 +3,7 @@ import {
   Star, GraduationCap, Award, BookOpen, CheckCircle,
   MessageCircle, ChevronDown, ChevronLeft, ChevronRight, HelpCircle, TrendingUp, Clock,
   Shield, Brain, ArrowRight, Library, Building,
-  Atom, Calculator, FlaskConical, Dna, Briefcase, Lightbulb,
+  Atom, Calculator, FlaskConical, Dna, Briefcase, Lightbulb, DollarSign,
   Sigma, ShieldCheck, Leaf, PenTool,
   Landmark, Globe, Compass, Rocket, LineChart, Microscope, Settings, 
   Search, UserCheck, HeartHandshake, BarChart3, BookMarked,
@@ -624,6 +624,26 @@ export default function App() {
               View Curriculum Details
             </GoldButton>
           </div>
+
+          {/* Quick-link chips for specific pathways */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-8 max-w-4xl mx-auto">
+            {[
+              { label: "Middle School", href: "/middle-school" },
+              { label: "Diploma Programme (HL)", href: "/dp-hl" },
+              { label: "High School", href: "/high-school" },
+              { label: "Exam Preparation", href: "/exam-preparation" },
+              { label: "A-Level", href: "/a-level" },
+            ].map((chip) => (
+              <a
+                key={chip.href}
+                href={chip.href}
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-white rounded-full border border-blue-100 text-xs sm:text-sm font-semibold text-[#0f4a9b] hover:bg-[#0f4a9b] hover:text-white shadow-sm hover:shadow-md transition-all duration-200"
+              >
+                <span>{chip.label}</span>
+                <ArrowRight className="h-3.5 w-3.5 opacity-60" />
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -659,7 +679,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 max-w-7xl mx-auto mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto mb-10">
             {[
               { 
                 title: "Mathematics", 
@@ -688,6 +708,20 @@ export default function App() {
                 icon: <Leaf className="h-6 w-6 text-white" strokeWidth={2.5} />,
                 watermark: <Leaf className="h-20 w-20 text-[#0f4a9b]" strokeWidth={1.5} />,
                 href: "/biology",
+              },
+              { 
+                title: "Sciences", 
+                desc: "Combined scientific principles for Middle School and GCSE.", 
+                icon: <BookOpen className="h-6 w-6 text-white" strokeWidth={2.5} />,
+                watermark: <BookOpen className="h-20 w-20 text-[#0f4a9b]" strokeWidth={1.5} />,
+                href: "/sciences",
+              },
+              { 
+                title: "Finance", 
+                desc: "Financial management, accounting principles, and valuation.", 
+                icon: <DollarSign className="h-6 w-6 text-white" strokeWidth={2.5} />,
+                watermark: <DollarSign className="h-20 w-20 text-[#0f4a9b]" strokeWidth={1.5} />,
+                href: "/finance",
               },
             ].map((subj, i) => (
               <a href={subj.href} key={i} className="relative bg-white rounded-[20px] border border-[#E5E7EB] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/50 transition-all flex flex-col cursor-pointer group overflow-hidden min-h-[260px]">

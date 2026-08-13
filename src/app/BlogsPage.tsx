@@ -263,7 +263,13 @@ export default function BlogsPage() {
               </p>
             </div>
             
-            <div className="flex items-center gap-4 shrink-0 flex-wrap">
+            <div className="flex items-center gap-3 shrink-0 flex-wrap">
+              <a 
+                href="/editorial"
+                className="bg-[#0f4a9b]/10 text-[#0f4a9b] px-6 py-3 rounded-xl font-bold text-sm inline-flex items-center gap-2 hover:bg-[#0f4a9b]/20 transition-colors"
+              >
+                Explore Editorial Library <ArrowRight className="h-4 w-4" />
+              </a>
               <a 
                 href="/contact#form"
                 className="bg-[#0f4a9b] text-white px-6 py-3 rounded-xl font-bold text-sm inline-flex items-center gap-2 hover:bg-[#0c3b7a] transition-colors"

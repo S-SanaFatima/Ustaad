@@ -240,9 +240,78 @@ function ModernContactForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleNext = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleNext = async () => {
     if (!validateStep()) return;
-    if (step === 5) { setIsSubmitted(true); return; }
+    if (step === 5) {
+      setIsSubmitting(true);
+
+      const templateParams = {
+        parentName: formData.parentName || (userType === 'student' ? formData.studentName : 'N/A'),
+        phone: `${selectedCountry.code} ${formData.phone}`,
+        email: formData.email,
+        studentName: formData.studentName || 'N/A',
+        studentAge: formData.studentAge || 'N/A',
+        area: formData.area || 'N/A',
+        curriculum: formData.curriculum || 'N/A',
+        subject: formData.subject || 'N/A',
+        level: formData.level || 'N/A',
+        requirements: formData.requirements || 'None provided',
+        // Fallbacks for standard EmailJS templates
+        user_type: userType === 'parent' ? 'Parent' : 'Student',
+        parent_name: formData.parentName || 'N/A',
+        student_name: formData.studentName || 'N/A',
+        from_name: formData.parentName || formData.studentName || 'Website Contact Form',
+        from_email: formData.email,
+        reply_to: formData.email,
+        to_name: 'Ustaad UAE',
+        message: `Role: ${userType === 'parent' ? 'Parent' : 'Student'}
+Parent Name: ${formData.parentName || 'N/A'}
+Student Name: ${formData.studentName || 'N/A'}
+Phone: ${selectedCountry.code} ${formData.phone}
+Email: ${formData.email}
+Student Age: ${formData.studentAge || 'N/A'}
+Area: ${formData.area || 'N/A'}
+Curriculum: ${formData.curriculum || 'N/A'}
+Subject: ${formData.subject || 'N/A'}
+Grade/Level: ${formData.level || 'N/A'}
+Requirements: ${formData.requirements || 'None provided'}`,
+      };
+
+      try {
+        const env = (import.meta as any).env || {};
+        const payload = {
+          service_id: env.VITE_EMAILJS_SERVICE_ID || 'service_1y9vvz6',
+          template_id: env.VITE_EMAILJS_TEMPLATE_ID || 'template_pea7cme',
+          user_id: env.VITE_EMAILJS_PUBLIC_KEY || 'Gph3JJxeL-kxmREzB',
+          accessToken: env.VITE_EMAILJS_PRIVATE_KEY || 'o0FGv-vPz9v9edSw6eVws',
+          template_params: templateParams,
+        };
+
+        const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok && response.status !== 200) {
+          // Retry without accessToken if EmailJS endpoint rejects optional accessToken
+          delete (payload as any).accessToken;
+          await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+        }
+      } catch (err) {
+        console.error('EmailJS submission error:', err);
+      } finally {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+      }
+      return;
+    }
     setStep(s => Math.min(s + 1, 5));
   };
 
@@ -721,9 +790,10 @@ function ModernContactForm() {
             <button 
               type="button"
               onClick={handleNext}
-              className="w-full sm:w-auto px-8 py-3 bg-[#0a1f3d] text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-[#0f4a9b] transition-colors shadow-lg shadow-[#0a1f3d]/20"
+              disabled={isSubmitting}
+              className={`w-full sm:w-auto px-8 py-3 bg-[#0a1f3d] text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-[#0f4a9b] transition-colors shadow-lg shadow-[#0a1f3d]/20 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              {step === 5 ? 'Submit Request' : (step === 4 ? 'Review' : 'Continue')}
+              {step === 5 ? (isSubmitting ? 'Submitting Request...' : 'Submit Request') : (step === 4 ? 'Review' : 'Continue')}
               {step === 5 ? <Send className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
             </button>
           </div>
@@ -1055,7 +1125,6 @@ export default function ContactPage() {
         subtitle="Connect with us and get matched with the right tutor."
         button1Text="Speak to an Advisor"
         button1Href="#form"
-        button2Text="Ask Your Question"
       />
 
     

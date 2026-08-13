@@ -7,7 +7,7 @@ import {
   Gauge, Waves, Zap, Plug, Flame, Atom, Magnet,
   Eye, Layers, Route, Lightbulb, ShieldCheck,
   FileText, Hash, Cpu, Network,
-  Search, BookMarked, ClipboardList,
+  Search, BookMarked, ClipboardList, ArrowRight,
   HelpCircle, ChevronDown, MessageCircle, MapPin,
   TrendingDown, Award,
 } from 'lucide-react';
@@ -155,7 +155,7 @@ const customMethodsSection = (
 /* ─── §6 Mathematical Problem-Solving Skills — 2×2 flat bordered grid ─── */
 const problemSkills = [
   { title: "Question Decoding",  icon: <Search     className="h-6 w-6" strokeWidth={2} />, problem: "Misses what the question actually asks",           fix: "We prime careful reading of each line" },
-  { title: "Variable Setup",     icon: <Layers     className="h-6 w-6" strokeWidth={2} />, problem: "Starts solving before listing the knowns",         fix: <>We frame setup notes before any calculation. See also <a href="/mathematics" className="text-[#5b3a8a] font-semibold underline">Mathematics</a></> },
+  { title: "Variable Setup",     icon: <Layers     className="h-6 w-6" strokeWidth={2} />, problem: "Starts solving before listing the knowns",         fix: <>We frame setup notes before any calculation. See also <a href="/maths" className="text-[#5b3a8a] font-semibold underline">Mathematics</a></> },
   { title: "Calculation Pathing",icon: <Route      className="h-6 w-6" strokeWidth={2} />, problem: "Tries random formulas under pressure",              fix: "We chart planned routes through every question" },
   { title: "Sanity Checking",    icon: <ShieldCheck className="h-6 w-6" strokeWidth={2} />, problem: "Submits answers without checking they make sense", fix: "We secure quick checks that catch wild results" },
 ];
@@ -354,6 +354,43 @@ function PhysicsFAQs() {
   );
 }
 
+const physicsRelatedReading = (
+  <section className="py-16 bg-white border-t border-gray-100">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-10 max-w-3xl mx-auto">
+        <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-2">
+          <GradientHeadingText text="Related Reading & Physics Guides" />
+        </h2>
+        <p className="text-gray-600 text-sm lg:text-base">In-depth articles from our Physics specialists and academic mentors.</p>
+      </div>
+      <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <a href="/blogs/igcse-physics-formulas-exam" className="group bg-[#f8fafc] border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-[#0f4a9b]/30 transition-all flex flex-col justify-between">
+          <div>
+            <span className="inline-block px-3 py-1 bg-blue-50 text-[#0f4a9b] text-xs font-bold rounded-full mb-3">Physics Revision</span>
+            <h3 className="text-lg font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors mb-2">Why IGCSE Physics Formulas Stop Working in Exams</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">Students memorise every formula and still freeze—the fix is reading command words and drawing first.</p>
+          </div>
+          <div className="mt-4 flex items-center text-sm font-bold text-[#0f4a9b] gap-2">
+            <span>Read Article</span>
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </a>
+        <a href="/blogs/physics-understanding-vs-marks" className="group bg-[#f8fafc] border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-[#0f4a9b]/30 transition-all flex flex-col justify-between">
+          <div>
+            <span className="inline-block px-3 py-1 bg-purple-50 text-purple-700 text-xs font-bold rounded-full mb-3">Psychology of Learning</span>
+            <h3 className="text-lg font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors mb-2">Your Child Understands Physics. So Why Are Marks Still Low?</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">The gap between understanding and exam performance: retrieval, working memory overload, and nerves.</p>
+          </div>
+          <div className="mt-4 flex items-center text-sm font-bold text-[#0f4a9b] gap-2">
+            <span>Read Article</span>
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+);
+
 /* ─── Page data ─── */
 const data: SubjectPageProps = {
   badgeIcon:        <Atom className="h-4 w-4" />,
@@ -380,7 +417,7 @@ const data: SubjectPageProps = {
   customPracticesSection,    /* §7 Physics Assessment Skills */
 
   results: [],
-  customResultsSection,      /* §8 UAE dark section */
+  customResultsSection: <>{customResultsSection}{physicsRelatedReading}</>,      /* §8 UAE dark section + Related Reading */
 
   faqs: [],
   customFAQsSection: <PhysicsFAQs />, /* §9 Physics FAQs */

@@ -23,6 +23,8 @@
     { "source": "/mathematics/", "destination": "/maths", "permanent": true },
     { "source": "/mathtestlanding", "destination": "/maths-tutor-abu-dhabi", "permanent": true },
     { "source": "/mathtestlanding/", "destination": "/maths-tutor-abu-dhabi", "permanent": true },
+    { "source": "/uae-guide", "destination": "/blogs", "permanent": true },
+    { "source": "/uae-guide/", "destination": "/blogs", "permanent": true },
     { "source": "/faqs", "destination": "/#faqs", "permanent": true },
     { "source": "/faqs/", "destination": "/#faqs", "permanent": true }
   ],

@@ -120,7 +120,11 @@ export default function Header({ scrolled = false, logoAlt = "Ustaad logo — pr
                         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Dna className="h-4 w-4 text-white" /></div>
                         <span>{"Biology"}</span>
                       </a>
-                      <a href="/english" className="col-span-2 flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
+                      <a href="/sciences" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><BookOpen className="h-4 w-4 text-white" /></div>
+                        <span>{"Sciences"}</span>
+                      </a>
+                      <a href="/english" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
                         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><PenTool className="h-4 w-4 text-white" /></div>
                         <span>{"English"}</span>
                       </a>
@@ -315,6 +319,10 @@ export default function Header({ scrolled = false, logoAlt = "Ustaad logo — pr
                       <a href="/biology" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
                         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Dna className="h-4 w-4 text-white" /></div>
                         <span>{"Biology"}</span>
+                      </a>
+                      <a href="/sciences" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><BookOpen className="h-4 w-4 text-white" /></div>
+                        <span>{"Sciences"}</span>
                       </a>
                       <a href="/english" onClick={() => setMobileOpen(false)} className="col-span-2 flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
                         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><PenTool className="h-4 w-4 text-white" /></div>

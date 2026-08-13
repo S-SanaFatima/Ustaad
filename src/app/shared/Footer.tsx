@@ -27,6 +27,7 @@ export default function Footer({ logoAlt = "Ustaad — trusted UAE private tutor
     { key: 'physics', href: '/physics' },
     { key: 'chemistry', href: '/chemistry' },
     { key: 'biology', href: '/biology' },
+    { key: 'sciences', href: '/sciences' },
     { key: 'english', href: '/english' },
     { key: 'business', href: '/business' },
     { key: 'economics', href: '/economics' },
@@ -254,6 +255,7 @@ export default function Footer({ logoAlt = "Ustaad — trusted UAE private tutor
                      link.key === 'physics' ? 'Physics' :
                      link.key === 'chemistry' ? 'Chemistry' :
                      link.key === 'biology' ? 'Biology' :
+                     link.key === 'sciences' ? 'Sciences' :
                      link.key === 'english' ? 'English' :
                      link.key === 'business' ? 'Business' :
                      link.key === 'economics' ? 'Economics' :

@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared';
 import SEOHead from './shared/SEOHead';
-import { localBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, reviewsSchema } from './shared/schemas';
+import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
 const BOOKING = "/contact#form";
 const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20ask%20a%20question.';
@@ -1096,15 +1096,12 @@ export default function BiologyLanding() {
         canonical="/biology-tutor-abu-dhabi"
         ogImage="/UpdatedImages/abu-dhabi-biology-tutor-student-online-session.jpg"
         placename="Abu Dhabi, UAE"
-        geoPosition="24.4539;54.3773"
-        geoRegion="AE-AZ"
-        robots="noindex,follow"
+        robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
         schema={[
-          localBusinessSchema,
+          cityLocalBusinessSchema({ city: 'Abu Dhabi', url: '/biology-tutor-abu-dhabi', name: 'Ustaad — Biology Tutor Abu Dhabi', description: 'Specialist 1-to-1 biology tutors in Abu Dhabi for IGCSE, A-Level and IB.' }),
           breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Biology Tutor Abu Dhabi', url: '/biology-tutor-abu-dhabi' }]),
           serviceSchema('Private Biology Tutoring', 'One-to-one biology tutors in Abu Dhabi for IGCSE, GCSE, A-Level, IB, and AP students. Trusted by Abu Dhabi families since 2015.', '/biology-tutor-abu-dhabi'),
           faqSchema(faqs.map(f => ({ q: f.q, a: f.plain }))),
-          ...reviewsSchema,
         ]}
       />
 
@@ -1919,9 +1916,7 @@ export default function BiologyLanding() {
         }
         button1Text="Book Your Free Trial"
         button1Href={BOOKING}
-        button2Text="Ask Your Question"
         subtext1="Free Trial • No Commitment"
-        subtext2="Stuck on a topic? Send it across."
       />
 
       {/* STICKY MOBILE BAR */}

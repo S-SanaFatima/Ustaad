@@ -1075,13 +1075,12 @@ export default function BiologyLanding() {
         placename="Abu Dhabi, UAE"
         geoPosition="24.4539;54.3773"
         geoRegion="AE-AZ"
-        robots="noindex,follow"
+        robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
         schema={[
-          localBusinessSchema,
+          cityLocalBusinessSchema({ city: 'Abu Dhabi', url: '/biology-tutor-abu-dhabi', name: 'Ustaad — Biology Tutor Abu Dhabi', description: 'Specialist 1-to-1 biology tutors in Abu Dhabi for IGCSE, A-Level and IB.' }),
           breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Biology Tutor Abu Dhabi', url: '/biology-tutor-abu-dhabi' }]),
           serviceSchema('Private Biology Tutoring', 'One-to-one biology tutors in Abu Dhabi for IGCSE, GCSE, A-Level, IB, and AP students. Trusted by Abu Dhabi families since 2015.', '/biology-tutor-abu-dhabi'),
           faqSchema(faqs.map(f => ({ q: f.q, a: f.plain }))),
-          ...reviewsSchema,
         ]}
       />
 

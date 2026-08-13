@@ -130,7 +130,7 @@ const engTopics: EngTopic[] = [
   },
   {
     title: "Engineering Mathematics",
-    boards: (<>Cambridge International A-Level Engineering <a href="/mathematics" className="underline text-[#0f4a9b] hover:text-[#0a3a79]">Mathematics</a>, BTEC Higher National</>),
+    boards: (<>Cambridge International A-Level Engineering <a href="/maths" className="underline text-[#0f4a9b] hover:text-[#0a3a79]">Mathematics</a>, BTEC Higher National</>),
     insight: "Differentials and integrals overlap with applied physics. We apply each method to its real use.",
     icon: <Calculator className="h-6 w-6" strokeWidth={2} />,
     wm:   <Calculator className="h-20 w-20" strokeWidth={1} />,

@@ -281,7 +281,7 @@ export default function MiddleSchoolPage() {
               </div>
               <ReadMoreParagraph
                 className="text-gray-700 text-base leading-relaxed relative z-10"
-                preview="Students used to organising work across multiple classes, drafting essays in stages, and revising for unit tests adapt more smoothly. Middle School is where those habits get built, through nightly homework, weekly quizzes, and unit projects."
+                preview={<>Students used to organising work across multiple classes, drafting essays in stages, and building early <a href="/exam-preparation" className="text-[#0f4a9b] font-semibold underline">exam preparation</a> techniques adapt more smoothly. Middle School is where those habits get built, supported by our <a href="/blogs" className="text-[#0f4a9b] font-semibold underline">academic blog guides</a>, through nightly homework, weekly quizzes, and unit projects.</>}
                 more={<>Ustaad works alongside Grade 8 students to set those habits in place before <a href="/high-school" className="text-[#0f4a9b] font-semibold underline">Grade 9</a> makes them essential. Sessions deliberately mirror <a href="/high-school" className="text-[#0f4a9b] font-semibold underline">Grade 9</a> cadence with longer essays, multi-week unit reviews, and GPA-style expectations, so the academic jump feels gradual rather than abrupt. Families see a clear handover plan as the student moves into the first year that counts toward the transcript.</>}
               />
             </div>

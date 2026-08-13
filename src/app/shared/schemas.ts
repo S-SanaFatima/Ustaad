@@ -27,6 +27,26 @@ const CITY_GEO: Record<string, { lat: string; lng: string; region: string }> = {
   Fujairah: { lat: "25.1288", lng: "56.3265", region: "Fujairah" },
 };
 
+const reviewsNodes = [
+  { name: "Fares Al Kindi",   date: "2024-03-01", body: "I had a great experience with Ustaad. They truly provide some of the Best Tutors in Abu Dhabi. The teaching style is clear, professional, and very supportive." },
+  { name: "Sumayya Alamri",   date: "2024-04-01", body: "I had very good experience with Ustad for my daughter… her math teacher is one of the best tutors I experienced. He explains the concepts very well." },
+  { name: "Wadeema Al M",     date: "2024-02-01", body: "Very good tutoring institute with supportive tutor and clear teaching methods. Would definitely recommend to anyone looking for quality education." },
+  { name: "Humaid Khalaf",    date: "2024-01-01", body: "very good site if you want a good teacher for your studies. The tutors really know how to make difficult topics easy to understand." },
+  { name: "Zayed Al Teneiji", date: "2023-11-01", body: "Best tutoring institution in Abu Dhabi. The tutors are extremely knowledgeable and really care about student success in exams." },
+  { name: "Nouf Al Mansouri", date: "2024-05-01", body: "Being a teacher, I found them as the most professional and organized service provider, they really care and organize lessons as per student learning speed." },
+  { name: "Elyazia Alkaabi",  date: "2023-12-01", body: "He is a very good teacher, he makes the lessons easier to understand and has good ways of getting the information in my mind easily." },
+  { name: "Omar Howwar",      date: "2024-02-01", body: "Sincere, encouraging, and passionate for his work. He put sufficient effort to elevate the education and knowledge of my son significantly." },
+  { name: "Mohamed Al Hamed", date: "2024-06-01", body: "Ustaad is the best online institute in Abu Dhabi, they tutored me throughout university and are now consistently tutoring my siblings and cousins." },
+  { name: "James T.",         date: "2024-03-01", body: "I started tutoring for A-Level Physics about three months before my exams. My tutor was incredibly patient and broke down complex topics like electromagnetic induction into simple, intuitive steps. I ended up getting an A*." },
+  { name: "Ahmed Als",        date: "2024-04-01", body: "One of the best math tutors in Abu Dhabi, his teaching method is very focused and effective. He breaks down complex mathematical concepts into simple steps and ensures full understanding." },
+].map(r => ({
+  "@type": "Review",
+  author: { "@type": "Person", name: r.name },
+  reviewBody: r.body,
+  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+  datePublished: r.date,
+}));
+
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -66,6 +86,7 @@ export const localBusinessSchema = {
     "https://www.linkedin.com/company/ustaad-ae",
   ],
   aggregateRating: AGGREGATE_RATING,
+  review: reviewsNodes,
   additionalProperty: [
     { "@type": "PropertyValue", name: "Exam Success Rate", value: "90%+" },
     { "@type": "PropertyValue", name: "Parent Satisfaction Rate", value: "98%" },
@@ -123,7 +144,6 @@ export const cityLocalBusinessSchema = ({
       longitude: geo.lng,
     },
     openingHoursSpecification: OPENING_HOURS,
-    aggregateRating: AGGREGATE_RATING,
     areaServed: { "@type": "City", name: city },
     parentOrganization: {
       "@type": "EducationalOrganization",
@@ -170,27 +190,7 @@ export const faqSchema = (faqs: { q: string; a: string }[]) => ({
   })),
 });
 
-export const reviewsSchema = [
-  { name: "Fares Al Kindi",   date: "2024-03-01", body: "I had a great experience with Ustaad. They truly provide some of the Best Tutors in Abu Dhabi. The teaching style is clear, professional, and very supportive." },
-  { name: "Sumayya Alamri",   date: "2024-04-01", body: "I had very good experience with Ustad for my daughter… her math teacher is one of the best tutors I experienced. He explains the concepts very well." },
-  { name: "Wadeema Al M",     date: "2024-02-01", body: "Very good tutoring institute with supportive tutor and clear teaching methods. Would definitely recommend to anyone looking for quality education." },
-  { name: "Humaid Khalaf",    date: "2024-01-01", body: "very good site if you want a good teacher for your studies. The tutors really know how to make difficult topics easy to understand." },
-  { name: "Zayed Al Teneiji", date: "2023-11-01", body: "Best tutoring institution in Abu Dhabi. The tutors are extremely knowledgeable and really care about student success in exams." },
-  { name: "Nouf Al Mansouri", date: "2024-05-01", body: "Being a teacher, I found them as the most professional and organized service provider, they really care and organize lessons as per student learning speed." },
-  { name: "Elyazia Alkaabi",  date: "2023-12-01", body: "He is a very good teacher, he makes the lessons easier to understand and has good ways of getting the information in my mind easily." },
-  { name: "Omar Howwar",      date: "2024-02-01", body: "Sincere, encouraging, and passionate for his work. He put sufficient effort to elevate the education and knowledge of my son significantly." },
-  { name: "Mohamed Al Hamed", date: "2024-06-01", body: "Ustaad is the best online institute in Abu Dhabi, they tutored me throughout university and are now consistently tutoring my siblings and cousins." },
-  { name: "James T.",         date: "2024-03-01", body: "I started tutoring for A-Level Physics about three months before my exams. My tutor was incredibly patient and broke down complex topics like electromagnetic induction into simple, intuitive steps. I ended up getting an A*." },
-  { name: "Ahmed Als",        date: "2024-04-01", body: "One of the best math tutors in Abu Dhabi, his teaching method is very focused and effective. He breaks down complex mathematical concepts into simple steps and ensures full understanding." },
-].map(r => ({
-  "@context": "https://schema.org",
-  "@type": "Review",
-  author: { "@type": "Person", name: r.name },
-  reviewBody: r.body,
-  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-  itemReviewed: { "@type": "EducationalOrganization", "@id": `${BASE_URL}/#organization`, name: "Ustaad — Private Tutors UAE", url: BASE_URL },
-  datePublished: r.date,
-}));
+export const reviewsSchema: any[] = [];
 
 export type PersonInput = {
   name: string;
