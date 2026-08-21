@@ -286,13 +286,7 @@ export default function AskExpertSection() {
                 <WhatsappIcon />
                 Ask on WhatsApp
               </a>
-              <a
-                href="/contact#form"
-                className="text-sm font-medium text-[#0f4a9b] hover:underline"
-                onClick={() => { if ((window as any).gtag) (window as any).gtag('event', 'ask_expert_form_link_click'); }}
-              >
-                Prefer the form? Send it here →
-              </a>
+
             </div>
 
             <p className="text-xs text-[#6B7280] italic">

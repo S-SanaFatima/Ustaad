@@ -9,6 +9,9 @@ interface FinalCTAProps {
   button1Text?: string;
   button1Href?: string;
   subtext1?: string;
+  button2Text?: string;
+  button2Href?: string;
+  subtext2?: string;
 }
 
 export default function FinalCTA({
@@ -18,6 +21,9 @@ export default function FinalCTA({
   button1Text = "Start Your First Session Today",
   button1Href = "/contact#form",
   subtext1 = "Free Trial • No Commitment",
+  button2Text,
+  button2Href = "https://wa.me/971561249005",
+  subtext2,
 }: FinalCTAProps) {
   return (
     <section className="py-8 lg:py-12 bg-gray-50 text-center relative overflow-hidden">
@@ -31,13 +37,26 @@ export default function FinalCTA({
         <div className="text-gray-600 text-[15px] mb-8">
           {subtitleNode ?? subtitle}
         </div>
-        <div className="flex justify-center">
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
           <div className="flex flex-col items-center">
-            <GoldButton href={button1Href} className="px-10 py-4 text-base shadow-[0_0_20px_rgba(234,179,8,0.4)]">
+            <GoldButton href={button1Href} className="w-full sm:w-auto px-10 py-4 text-base shadow-[0_0_20px_rgba(234,179,8,0.4)]">
               {button1Text}
             </GoldButton>
-            <p className="text-xs text-gray-500 font-medium mt-2">{subtext1}</p>
+            {subtext1 && <p className="text-xs text-gray-500 font-medium mt-2">{subtext1}</p>}
           </div>
+          {button2Text && (
+            <div className="flex flex-col items-center mt-4 sm:mt-0">
+              <a 
+                href={button2Href} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1fb858] text-white font-extrabold text-base py-4 px-10 transition-all shadow-[0_8px_16px_rgba(37,211,102,0.25)] hover:shadow-[0_12px_20px_rgba(37,211,102,0.35)] hover:-translate-y-0.5"
+              >
+                {button2Text}
+              </a>
+              {subtext2 && <p className="text-xs text-gray-500 font-medium mt-2">{subtext2}</p>}
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -21,6 +21,61 @@
 }
 .animate-marquee:hover { animation-play-state: paused; }
 
+.animate-marquee-slow {
+  animation: marquee 80s linear infinite;
+  will-change: transform;
+}
+.animate-marquee-slow:hover,
+.animate-marquee-slow:focus-within,
+.animate-marquee-slow:active,
+.animate-marquee-slow.is-paused {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-slow,
+  .animate-float-slow,
+  .animate-float-drift {
+    animation: none !important;
+  }
+}
+
+@keyframes gradient-slow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient-slow {
+  animation: gradient-slow 6s ease infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(6deg); }
+}
+@keyframes floatDrift {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(18px, -14px) rotate(-10deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+.animate-float-drift {
+  animation: floatDrift 7s ease-in-out infinite;
+}
+.animate-float-delay-1 {
+  animation-delay: 1.5s;
+}
+.animate-float-delay-2 {
+  animation-delay: 3s;
+}
+.animate-float-delay-3 {
+  animation-delay: 4.5s;
+}
+
 :root {
   --font-size: 16px;
   --background: #ffffff;

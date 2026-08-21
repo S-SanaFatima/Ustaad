@@ -657,16 +657,16 @@ Requirements: ${formData.requirements || 'None provided'}`,
                   </div>
                 )}
 
-                {/* 2. CONTACT */}
+                {/* 2. PHONE NUMBER */}
                 <div className="p-3.5 bg-gray-50/80 border border-gray-200/70 rounded-xl flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3 min-w-0">
                     <div className="w-7 h-7 rounded-full bg-gray-200/90 text-[#0a1f3d] font-bold text-xs flex items-center justify-center shrink-0">
                       2
                     </div>
                     <div className="min-w-0">
-                      <span className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider">CONTACT</span>
+                      <span className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider">PHONE NUMBER</span>
                       <span className="text-sm font-semibold text-[#0a1f3d] truncate block">
-                        {selectedCountry.code} {formData.phone} {formData.email ? `• ${formData.email}` : ''}
+                        {selectedCountry.code} {formData.phone}
                       </span>
                     </div>
                   </div>
@@ -678,6 +678,30 @@ Requirements: ${formData.requirements || 'None provided'}`,
                     Edit ✏️
                   </button>
                 </div>
+
+                {/* 2. EMAIL ADDRESS */}
+                {formData.email && (
+                  <div className="p-3.5 bg-gray-50/80 border border-gray-200/70 rounded-xl flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-7 h-7 rounded-full bg-gray-200/90 text-[#0a1f3d] font-bold text-xs flex items-center justify-center shrink-0">
+                        2
+                      </div>
+                      <div className="min-w-0">
+                        <span className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider">EMAIL ADDRESS</span>
+                        <span className="text-sm font-semibold text-[#0a1f3d] truncate block">
+                          {formData.email}
+                        </span>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setStep(2)}
+                      className="text-xs font-bold text-[#C7A24A] hover:text-[#0a1f3d] hover:underline flex items-center gap-1 cursor-pointer shrink-0"
+                    >
+                      Edit ✏️
+                    </button>
+                  </div>
+                )}
 
                 {/* 2. STUDENT'S NAME & AGE */}
                 <div className="p-3.5 bg-gray-50/80 border border-gray-200/70 rounded-xl flex items-center justify-between gap-3">

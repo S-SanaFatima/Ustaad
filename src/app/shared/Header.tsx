@@ -94,92 +94,34 @@ export default function Header({ scrolled = false, logoAlt = "Ustaad logo — pr
                 <a href="/subjects" className="text-[#0a1f3d] hover:text-[#0f4a9b] text-[13px] font-bold transition flex items-center gap-1">
                   {"Subjects"} <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover/subjects:rotate-180" />
                 </a>
-                <div className={`absolute top-full right-0 mt-2 w-[340px] bg-gradient-to-b from-white to-gray-50 rounded-2xl shadow-xl border border-gray-100 p-3 transition-all z-50 max-h-[85vh] overflow-y-auto space-y-3 ${desktopOpen === 'subjects' ? 'opacity-100 visible' : 'opacity-0 invisible group-hover/subjects:opacity-100 group-hover/subjects:visible'}`}>
-                  {/* Core Subjects */}
-                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
-                    <div className="flex items-center gap-2 mb-3 px-1">
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm">
-                        <BookOpen className="h-4 w-4 text-white" />
-                      </div>
-                      <div className="text-xs font-extrabold text-[#0f4a9b] uppercase tracking-wider">{"Core Subjects"}</div>
+                <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[min(760px,calc(100vw-2rem))] bg-white rounded-2xl shadow-xl border border-gray-100 p-5 transition-all z-50 max-h-[85vh] overflow-y-auto ${desktopOpen === 'subjects' ? 'opacity-100 visible' : 'opacity-0 invisible group-hover/subjects:opacity-100 group-hover/subjects:visible'}`}>
+                  <div className="grid grid-cols-3 gap-3">
+                    {/* Core Subjects */}
+                    <div>
+                      <div className="flex items-center gap-2 px-3 py-2 text-xs font-extrabold text-[#0f4a9b] uppercase tracking-wider whitespace-nowrap"><BookOpen className="h-3.5 w-3.5 shrink-0" /> {"Core Subjects"}</div>
+                      <a href="/maths" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Maths"}</a>
+                      <a href="/physics" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Physics"}</a>
+                      <a href="/chemistry" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Chemistry"}</a>
+                      <a href="/biology" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Biology"}</a>
+                      <a href="/sciences" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Sciences"}</a>
+                      <a href="/english" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"English"}</a>
                     </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      <a href="/maths" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Calculator className="h-4 w-4 text-white" /></div>
-                        <span>{"Maths"}</span>
-                      </a>
-                      <a href="/physics" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Atom className="h-4 w-4 text-white" /></div>
-                        <span>{"Physics"}</span>
-                      </a>
-                      <a href="/chemistry" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><FlaskConical className="h-4 w-4 text-white" /></div>
-                        <span>{"Chemistry"}</span>
-                      </a>
-                      <a href="/biology" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Dna className="h-4 w-4 text-white" /></div>
-                        <span>{"Biology"}</span>
-                      </a>
-                      <a href="/sciences" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><BookOpen className="h-4 w-4 text-white" /></div>
-                        <span>{"Sciences"}</span>
-                      </a>
-                      <a href="/english" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><PenTool className="h-4 w-4 text-white" /></div>
-                        <span>{"English"}</span>
-                      </a>
+                    
+                    {/* Commerce & Business */}
+                    <div>
+                      <div className="flex items-center gap-2 px-3 py-2 text-xs font-extrabold text-[#0f4a9b] uppercase tracking-wider whitespace-nowrap"><Briefcase className="h-3.5 w-3.5 shrink-0" /> {"Commerce & Business"}</div>
+                      <a href="/business" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Business"}</a>
+                      <a href="/economics" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Economics"}</a>
+                      <a href="/accounting" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Accounting"}</a>
+                      <a href="/finance" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Finance"}</a>
                     </div>
-                  </div>
 
-                  {/* Commerce & Business */}
-                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
-                    <div className="flex items-center gap-2 mb-3 px-1">
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm">
-                        <Briefcase className="h-4 w-4 text-white" />
-                      </div>
-                      <div className="text-xs font-extrabold text-[#C7A24A] uppercase tracking-wider">{"Commerce & Business"}</div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      <a href="/business" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><Briefcase className="h-4 w-4 text-white" /></div>
-                        <span>{"Business"}</span>
-                      </a>
-                      <a href="/economics" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><LineChart className="h-4 w-4 text-white" /></div>
-                        <span>{"Economics"}</span>
-                      </a>
-                      <a href="/accounting" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><ClipboardCheck className="h-4 w-4 text-white" /></div>
-                        <span>{"Accounting"}</span>
-                      </a>
-                      <a href="/finance" className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><DollarSign className="h-4 w-4 text-white" /></div>
-                        <span>{"Finance"}</span>
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Specialized & Test Prep */}
-                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
-                    <div className="flex items-center gap-2 mb-3 px-1">
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm">
-                        <Target className="h-4 w-4 text-white" />
-                      </div>
-                      <div className="text-xs font-extrabold text-[#0f4a9b] uppercase tracking-wider">{"Specialized & Test Prep"}</div>
-                    </div>
-                    <div className="grid grid-cols-3 gap-2">
-                      <a href="/statistics" className="flex flex-col items-center gap-2 px-2 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Sigma className="h-5 w-5 text-white" /></div>
-                        <span className="text-center text-[11px]">{"Statistics"}</span>
-                      </a>
-                      <a href="/engineering" className="flex flex-col items-center gap-2 px-2 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Settings className="h-5 w-5 text-white" /></div>
-                        <span className="text-center text-[11px]">{"Engineering"}</span>
-                      </a>
-                      <a href="/exam-preparation" className="flex flex-col items-center gap-2 px-2 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Target className="h-5 w-5 text-white" /></div>
-                        <span className="text-center text-[11px]">{"Exam Prep"}</span>
-                      </a>
+                    {/* Specialized & Test Prep */}
+                    <div>
+                      <div className="flex items-center gap-2 px-3 py-2 text-xs font-extrabold text-[#0f4a9b] uppercase tracking-wider whitespace-nowrap"><Target className="h-3.5 w-3.5 shrink-0" /> {"Specialized & Test Prep"}</div>
+                      <a href="/statistics" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Statistics"}</a>
+                      <a href="/engineering" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Engineering"}</a>
+                      <a href="/exam-preparation" className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg">{"Exam Prep"}</a>
                     </div>
                   </div>
                 </div>
@@ -234,50 +176,29 @@ export default function Header({ scrolled = false, logoAlt = "Ustaad logo — pr
                 </button>
               </div>
               {mobileExpanded === 'curriculum' && (
-                <div className="pb-4 space-y-3 bg-gradient-to-b from-gray-50 to-white rounded-2xl mx-1 mb-2 px-3 py-4 shadow-inner">
+                <div className="pb-4 pt-2 px-4 space-y-5 border-t border-gray-50 bg-gray-50/30">
                   {/* British Section */}
-                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
-                    <a href="/british-curriculum" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 text-sm font-extrabold text-[#0a1f3d]">
-                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-md">
-                        <Landmark className="h-4 w-4 text-white" />
-                      </div>
-                      <span>{"British Curriculum"}</span>
-                    </a>
-                    <div className="mt-2 ml-12 space-y-1">
-                      <a href="/igcse" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition-colors">{"IGCSE"}</a>
-                      <a href="/gcse" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition-colors">{"GCSE"}</a>
-                      <a href="/a-level" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition-colors">{"A-Level"}</a>
-                    </div>
+                  <div>
+                    <a href="/british-curriculum" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 px-3 py-2 text-[11px] font-extrabold text-[#0f4a9b] uppercase tracking-wider hover:bg-blue-50 rounded-lg transition"><Landmark className="h-3.5 w-3.5" /> {"British"}</a>
+                    <a href="/igcse" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"IGCSE"}</a>
+                    <a href="/gcse" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"GCSE"}</a>
+                    <a href="/a-level" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"A-Level"}</a>
                   </div>
 
                   {/* American Section */}
-                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
-                    <a href="/american-curriculum" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 text-sm font-extrabold text-[#0a1f3d]">
-                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-md">
-                        <Flag className="h-4 w-4 text-white" />
-                      </div>
-                      <span>{"American Curriculum"}</span>
-                    </a>
-                    <div className="mt-2 ml-12 space-y-1">
-                      <a href="/middle-school" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-gray-600 hover:bg-amber-50 hover:text-[#A8892A] rounded-lg transition-colors">{"Middle School"}</a>
-                      <a href="/high-school" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-gray-600 hover:bg-amber-50 hover:text-[#A8892A] rounded-lg transition-colors">{"High School"}</a>
-                      <a href="/ap" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-gray-600 hover:bg-amber-50 hover:text-[#A8892A] rounded-lg transition-colors">{"AP Courses"}</a>
-                    </div>
+                  <div>
+                    <a href="/american-curriculum" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 px-3 py-2 text-[11px] font-extrabold text-[#0f4a9b] uppercase tracking-wider hover:bg-blue-50 rounded-lg transition"><Flag className="h-3.5 w-3.5" /> {"American"}</a>
+                    <a href="/middle-school" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Middle School"}</a>
+                    <a href="/high-school" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"High School"}</a>
+                    <a href="/ap" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"AP Courses"}</a>
                   </div>
 
                   {/* IB Section */}
-                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
-                    <a href="/ib-curriculum" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 text-sm font-extrabold text-[#0a1f3d]">
-                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#10b981] to-[#059669] flex items-center justify-center shadow-md">
-                        <Globe className="h-4 w-4 text-white" />
-                      </div>
-                      <span>{"IB Curriculum"}</span>
-                    </a>
-                    <div className="mt-2 ml-12 space-y-1">
-                      <a href="/myp" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-gray-600 hover:bg-emerald-50 hover:text-[#059669] rounded-lg transition-colors">{"MYP"}</a>
-                      <a href="/dp-sl" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-gray-600 hover:bg-emerald-50 hover:text-[#059669] rounded-lg transition-colors">{"Diploma Programme (SL)"}</a>
-                      <a href="/dp-hl" onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium text-gray-600 hover:bg-emerald-50 hover:text-[#059669] rounded-lg transition-colors">{"Diploma Programme (HL)"}</a>
-                    </div>
+                  <div>
+                    <a href="/ib-curriculum" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 px-3 py-2 text-[11px] font-extrabold text-[#0f4a9b] uppercase tracking-wider hover:bg-blue-50 rounded-lg transition"><Globe className="h-3.5 w-3.5" /> {"IB"}</a>
+                    <a href="/myp" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"MYP"}</a>
+                    <a href="/dp-sl" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Diploma Programme (SL)"}</a>
+                    <a href="/dp-hl" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Diploma Programme (HL)"}</a>
                   </div>
                 </div>
               )}
@@ -294,93 +215,33 @@ export default function Header({ scrolled = false, logoAlt = "Ustaad logo — pr
                 </button>
               </div>
               {mobileExpanded === 'subjects' && (
-                <div className="pb-4 bg-gradient-to-b from-gray-50 to-white rounded-2xl mx-1 mb-2 px-3 py-4 shadow-inner space-y-3">
+                <div className="pb-4 pt-2 px-4 space-y-5 border-t border-gray-50 bg-gray-50/30">
                   {/* Core Subjects */}
-                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
-                    <div className="flex items-center gap-2 mb-3 px-1">
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm">
-                        <BookOpen className="h-4 w-4 text-white" />
-                      </div>
-                      <div className="text-xs font-extrabold text-[#0f4a9b] uppercase tracking-wider">{"Core Subjects"}</div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      <a href="/maths" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Calculator className="h-4 w-4 text-white" /></div>
-                        <span>{"Maths"}</span>
-                      </a>
-                      <a href="/physics" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Atom className="h-4 w-4 text-white" /></div>
-                        <span>{"Physics"}</span>
-                      </a>
-                      <a href="/chemistry" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><FlaskConical className="h-4 w-4 text-white" /></div>
-                        <span>{"Chemistry"}</span>
-                      </a>
-                      <a href="/biology" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Dna className="h-4 w-4 text-white" /></div>
-                        <span>{"Biology"}</span>
-                      </a>
-                      <a href="/sciences" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><BookOpen className="h-4 w-4 text-white" /></div>
-                        <span>{"Sciences"}</span>
-                      </a>
-                      <a href="/english" onClick={() => setMobileOpen(false)} className="col-span-2 flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><PenTool className="h-4 w-4 text-white" /></div>
-                        <span>{"English"}</span>
-                      </a>
-                    </div>
+                  <div>
+                    <div className="flex items-center gap-2 px-3 py-2 text-[11px] font-extrabold text-[#0f4a9b] uppercase tracking-wider hover:bg-blue-50 rounded-lg transition"><BookOpen className="h-3.5 w-3.5 shrink-0" /> {"Core Subjects"}</div>
+                    <a href="/maths" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Maths"}</a>
+                    <a href="/physics" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Physics"}</a>
+                    <a href="/chemistry" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Chemistry"}</a>
+                    <a href="/biology" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Biology"}</a>
+                    <a href="/sciences" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Sciences"}</a>
+                    <a href="/english" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"English"}</a>
                   </div>
 
                   {/* Commerce & Business */}
-                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
-                    <div className="flex items-center gap-2 mb-3 px-1">
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm">
-                        <Briefcase className="h-4 w-4 text-white" />
-                      </div>
-                      <div className="text-xs font-extrabold text-[#C7A24A] uppercase tracking-wider">{"Commerce & Business"}</div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      <a href="/business" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><Briefcase className="h-4 w-4 text-white" /></div>
-                        <span>{"Business"}</span>
-                      </a>
-                      <a href="/economics" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><LineChart className="h-4 w-4 text-white" /></div>
-                        <span>{"Economics"}</span>
-                      </a>
-                      <a href="/accounting" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><ClipboardCheck className="h-4 w-4 text-white" /></div>
-                        <span>{"Accounting"}</span>
-                      </a>
-                      <a href="/finance" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-amber-50/50 to-transparent rounded-xl hover:from-amber-50 hover:to-amber-50/30 transition-all border border-transparent hover:border-amber-100">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] flex items-center justify-center shadow-sm"><DollarSign className="h-4 w-4 text-white" /></div>
-                        <span>{"Finance"}</span>
-                      </a>
-                    </div>
+                  <div>
+                    <div className="flex items-center gap-2 px-3 py-2 text-[11px] font-extrabold text-[#0f4a9b] uppercase tracking-wider hover:bg-blue-50 rounded-lg transition"><Briefcase className="h-3.5 w-3.5 shrink-0" /> {"Commerce & Business"}</div>
+                    <a href="/business" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Business"}</a>
+                    <a href="/economics" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Economics"}</a>
+                    <a href="/accounting" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Accounting"}</a>
+                    <a href="/finance" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Finance"}</a>
                   </div>
 
                   {/* Specialized & Test Prep */}
-                  <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
-                    <div className="flex items-center gap-2 mb-3 px-1">
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm">
-                        <Target className="h-4 w-4 text-white" />
-                      </div>
-                      <div className="text-xs font-extrabold text-[#0f4a9b] uppercase tracking-wider">{"Specialized & Test Prep"}</div>
-                    </div>
-                    <div className="grid grid-cols-3 gap-2">
-                      <a href="/statistics" onClick={() => setMobileOpen(false)} className="flex flex-col items-center gap-2 px-2 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Sigma className="h-5 w-5 text-white" /></div>
-                        <span className="text-center text-xs">{"Statistics"}</span>
-                      </a>
-                      <a href="/engineering" onClick={() => setMobileOpen(false)} className="flex flex-col items-center gap-2 px-2 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Settings className="h-5 w-5 text-white" /></div>
-                        <span className="text-center text-xs">{"Engineering"}</span>
-                      </a>
-                      <a href="/exam-preparation" onClick={() => setMobileOpen(false)} className="flex flex-col items-center gap-2 px-2 py-3 text-sm font-semibold text-gray-700 bg-gradient-to-r from-blue-50/50 to-transparent rounded-xl hover:from-blue-50 hover:to-blue-50/30 transition-all border border-transparent hover:border-blue-100">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-sm"><Target className="h-5 w-5 text-white" /></div>
-                        <span className="text-center text-xs">{"Exam Preparation"}</span>
-                      </a>
-                    </div>
+                  <div>
+                    <div className="flex items-center gap-2 px-3 py-2 text-[11px] font-extrabold text-[#0f4a9b] uppercase tracking-wider hover:bg-blue-50 rounded-lg transition"><Target className="h-3.5 w-3.5 shrink-0" /> {"Specialized & Test Prep"}</div>
+                    <a href="/statistics" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Statistics"}</a>
+                    <a href="/engineering" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Engineering"}</a>
+                    <a href="/exam-preparation" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0f4a9b] rounded-lg transition">{"Exam Prep"}</a>
                   </div>
                 </div>
               )}

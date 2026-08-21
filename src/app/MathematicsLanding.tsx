@@ -15,7 +15,7 @@ import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, co
 import RelatedContent from './shared/RelatedContent';
 
 const BOOKING = "/contact#form";
-const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20ask%20a%20question.';
+const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27m%20looking%20for%20support%20with%20Mathematics.%20Could%20we%20discuss%20how%20you%20can%20help%20my%20child%3F';
 
 const mathsSchoolLogos = [
   { name: 'The British School Al Khubairat', file: 'british-school-al-khubairat-abu-dhabi.png', alt: 'The British School Al Khubairat logo, an Abu Dhabi school where students sit IGCSE and A-Level maths', scale: 1.25 },

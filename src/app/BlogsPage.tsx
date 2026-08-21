@@ -1,4 +1,4 @@
-import { BookOpen, Brain, ShieldAlert, ArrowRight, Sparkles } from 'lucide-react';
+import { BookOpen, Brain, ShieldAlert, ArrowRight, Sparkles, FileText } from 'lucide-react';
 import { Layout, FinalCTA, GradientHeadingText } from './shared';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema } from './shared/schemas';
@@ -50,6 +50,29 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'igcse-vs-gcse-curriculum-differences-uae',
+    image: '/images/blogs/igcse-vs-gcse-father-son-subject-list.png',
+    alt: 'Father and son reviewing GCSE subject choices list and study plans on laptop at home',
+    category: 'Parent Guidance',
+    title: 'IGCSE vs GCSE: Curriculum Differences UAE Parents Should Know',
+    description: 'IGCSE vs GCSE explained for UAE parents: the curriculum, assessment and recognition differences, and how to pick the right fit for your child.',
+    date: '21 Aug 2026',
+    readTime: '9 min read',
+    author: 'UAE Educationist',
+    featured: true,
+  },
+  {
+    slug: 'why-igcse-biology-students-lose-marks-on-6-mark-questions',
+    image: '/images/blogs/uae-parent-igcse-biology-6-mark-review.webp',
+    alt: 'UAE parent and IGCSE Biology student reviewing a 6-mark answer against the mark scheme at home, Ustaad UAE.',
+    category: 'Academic',
+    title: 'Why IGCSE Biology Students Lose Marks on 6-Mark Questions',
+    description: 'IGCSE Biology 6-mark questions cost students marks every year. This board-specific guide explains what Cambridge and Pearson mark schemes reward.',
+    date: '17 Aug 2026',
+    readTime: '6 min read',
+    author: 'Biology Specialist',
+  },
+  {
     slug: 'read-uae-school-report-card',
     image: '/images/blogs/uae-school-report-card-parent-guide.webp',
     alt: 'UAE parent sitting at a home desk reading a school report card carefully',
@@ -100,7 +123,7 @@ export const BLOGS: BlogPost[] = [
     alt: 'IGCSE Physics student in the UAE revising formulas and free body diagrams at a home study desk',
     category: 'Academic',
     title: 'Why IGCSE Physics Formulas Stop Working in Exams',
-    description: 'Students memorise every formula and still freeze—the fix is reading command words and drawing first.',
+    description: 'Students memorise every formula and still freeze. The fix is reading command words and drawing first.',
     date: '30 Jun 2026',
     readTime: '8 min read',
     author: 'Physics Teacher',
@@ -175,8 +198,8 @@ export default function BlogsPage() {
           {/* Typography */}
           <div className="flex justify-center mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-[#0f4a9b] text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase border border-slate-100 shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0f4a9b] animate-pulse"></span>
-              Ustaad Editorial & Knowledge Base
+              <FileText className="w-4 h-4" />
+              Ustaad Publications
             </span>
           </div>
 
@@ -184,9 +207,10 @@ export default function BlogsPage() {
             <GradientHeadingText text="The Ustaad Blog" />
           </h1>
 
-          <p className="text-slate-600 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto mb-20 font-medium">
-            Written and reviewed by teachers, academic mentors and counsellors working across the UAE. We cover British, American, and IB curriculum.
-          </p>
+          <div className="text-slate-600 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto mb-20 font-medium">
+            <p className="mb-4">Calm, practical guidance for UAE families, written or reviewed by teachers, mentors and counsellors who work with students here.</p>
+            <p>Choose a stream to begin.</p>
+          </div>
 
           {/* 3 White Elegant Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mb-20">
@@ -196,16 +220,19 @@ export default function BlogsPage() {
               href="/blogs/academic-exam-skills"
               className="group relative bg-white rounded-3xl p-8 border border-slate-100/80 shadow-[0_4px_24px_rgba(15,74,155,0.03)] hover:shadow-[0_12px_40px_rgba(15,74,155,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden"
             >
+              <div className="absolute top-8 right-8 bg-slate-50 text-slate-500 text-[11px] font-extrabold px-3 py-1 rounded-full border border-slate-100 uppercase tracking-wide">
+                {BLOGS.filter(b => b.category === 'Academic').length} Articles
+              </div>
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0088cc] to-[#005580] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-[#0088cc] mb-8 group-hover:bg-[#0088cc] group-hover:text-white transition-colors duration-300 shadow-sm">
                 <BookOpen className="h-7 w-7" />
               </div>
-              <h3 className="text-[22px] font-extrabold text-[#0a1f3d] mb-4 group-hover:text-[#0f4a9b] transition-colors font-serif">Academic & Exam Skills</h3>
+              <h3 className="text-[22px] font-extrabold text-[#0a1f3d] mb-4 group-hover:text-[#0f4a9b] transition-colors font-serif">Subject & Exam Skills</h3>
               <p className="text-slate-500 leading-relaxed mb-10 flex-grow text-[15px]">
-                This is where our subject specialists get practical. These articles explain why revision does not always turn into mark...
+                Practical ways to revise smarter and turn understanding into marks, subject by subject.
               </p>
               <div className="flex items-center justify-between text-slate-400 group-hover:text-[#0088cc] transition-colors pt-4 border-t border-slate-50">
-                <span className="text-sm font-semibold tracking-wide uppercase">3 articles</span>
+                <span className="text-sm font-semibold tracking-wide uppercase">Explore stream</span>
                 <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
               </div>
             </a>
@@ -215,16 +242,19 @@ export default function BlogsPage() {
               href="/blogs/psychology-of-learning"
               className="group relative bg-white rounded-3xl p-8 border border-slate-100/80 shadow-[0_4px_24px_rgba(139,92,246,0.03)] hover:shadow-[0_12px_40px_rgba(139,92,246,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden"
             >
+              <div className="absolute top-8 right-8 bg-slate-50 text-slate-500 text-[11px] font-extrabold px-3 py-1 rounded-full border border-slate-100 uppercase tracking-wide">
+                {BLOGS.filter(b => b.category === 'Psychology of Learning').length} Articles
+              </div>
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#8b5cf6] to-[#5b21b6] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center text-[#8b5cf6] mb-8 group-hover:bg-[#8b5cf6] group-hover:text-white transition-colors duration-300 shadow-sm">
                 <Brain className="h-7 w-7" />
               </div>
-              <h3 className="text-[22px] font-extrabold text-[#0a1f3d] mb-4 group-hover:text-[#0f4a9b] transition-colors font-serif">Psychology of Learning</h3>
+              <h3 className="text-[22px] font-extrabold text-[#0a1f3d] mb-4 group-hover:text-[#0f4a9b] transition-colors font-serif">The Psychology of Learning</h3>
               <p className="text-slate-500 leading-relaxed mb-10 flex-grow text-[15px]">
-                Understanding a topic at home and producing it under exam pressure are two different skills. The articles in this...
+                Why capable students still underperform, and how memory, focus and nerves shape results.
               </p>
               <div className="flex items-center justify-between text-slate-400 group-hover:text-[#8b5cf6] transition-colors pt-4 border-t border-slate-50">
-                <span className="text-sm font-semibold tracking-wide uppercase">2 articles</span>
+                <span className="text-sm font-semibold tracking-wide uppercase">Explore stream</span>
                 <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
               </div>
             </a>
@@ -234,48 +264,58 @@ export default function BlogsPage() {
               href="/blogs/parent-guidance"
               className="group relative bg-white rounded-3xl p-8 border border-slate-100/80 shadow-[0_4px_24px_rgba(16,185,129,0.03)] hover:shadow-[0_12px_40px_rgba(16,185,129,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden"
             >
+              <div className="absolute top-8 right-8 bg-slate-50 text-slate-500 text-[11px] font-extrabold px-3 py-1 rounded-full border border-slate-100 uppercase tracking-wide">
+                {BLOGS.filter(b => b.category === 'Parent Guidance').length} Articles
+              </div>
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#10b981] to-[#047857] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center text-[#10b981] mb-8 group-hover:bg-[#10b981] group-hover:text-white transition-colors duration-300 shadow-sm">
                 <ShieldAlert className="h-7 w-7" />
               </div>
               <h3 className="text-[22px] font-extrabold text-[#0a1f3d] mb-4 group-hover:text-[#0f4a9b] transition-colors font-serif">Parent Guidance</h3>
               <p className="text-slate-500 leading-relaxed mb-10 flex-grow text-[15px]">
-                The report card is often the last sign, not the first. These articles help parents read the smaller signals at home, a thinning...
+                Calm, clear help for spotting struggles early and knowing when to step in.
               </p>
               <div className="flex items-center justify-between text-slate-400 group-hover:text-[#10b981] transition-colors pt-4 border-t border-slate-50">
-                <span className="text-sm font-semibold tracking-wide uppercase">2 articles</span>
+                <span className="text-sm font-semibold tracking-wide uppercase">Explore stream</span>
                 <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
               </div>
             </a>
 
           </div>
 
-          {/* How to Use Our Articles Banner */}
-          <div className="relative bg-white rounded-3xl p-8 lg:p-10 border border-slate-100 shadow-[0_8px_30px_rgba(15,74,155,0.06)] text-left flex flex-col md:flex-row items-start md:items-center justify-between gap-8 overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          {/* Revision Companion Section */}
+          <div className="relative bg-white rounded-3xl p-8 lg:p-12 border border-slate-100 shadow-[0_8px_30px_rgba(15,74,155,0.06)] text-left flex flex-col gap-8 overflow-hidden group">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#0f4a9b] rounded-full blur-[100px] opacity-[0.07] -z-0"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#d97706] rounded-full blur-[100px] opacity-[0.07] -z-0"></div>
             
             <div className="relative z-10">
-              <h3 className="font-extrabold text-[#0a1f3d] text-xl mb-3 flex items-center gap-2 font-serif">
-                <Sparkles className="h-6 w-6 text-[#d97706]" /> How to Use Our Articles
+              <h3 className="font-extrabold text-[#0a1f3d] text-2xl lg:text-3xl mb-4 flex items-center gap-3 font-serif">
+                <Sparkles className="h-7 w-7 text-[#d97706]" /> How to use these articles as a revision companion
               </h3>
-              <p className="text-slate-600 text-[15px] max-w-xl leading-relaxed">
-                Read these articles alongside your child ahead of mock exams to build effective revision habits together.
+              <p className="text-slate-600 text-[17px] max-w-3xl leading-relaxed mb-10">
+                Our writing is not meant to be read once and forgotten. Used well, each article becomes a simple tool you and your child can return to across the term.
               </p>
-            </div>
-            
-            <div className="flex items-center gap-3 shrink-0 flex-wrap">
-              <a 
-                href="/editorial"
-                className="bg-[#0f4a9b]/10 text-[#0f4a9b] px-6 py-3 rounded-xl font-bold text-sm inline-flex items-center gap-2 hover:bg-[#0f4a9b]/20 transition-colors"
-              >
-                Explore Editorial Library <ArrowRight className="h-4 w-4" />
-              </a>
-              <a 
-                href="/contact#form"
-                className="bg-[#0f4a9b] text-white px-6 py-3 rounded-xl font-bold text-sm inline-flex items-center gap-2 hover:bg-[#0c3b7a] transition-colors"
-              >
-                Book a Free Trial <ArrowRight className="h-4 w-4" />
-              </a>
+              
+              <div className="grid md:grid-cols-3 gap-10 md:gap-8">
+                <div className="flex flex-col gap-2 relative">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-[#0f4a9b] font-bold text-lg mb-3 shadow-sm border border-blue-100/50">1</div>
+                  <h4 className="font-extrabold text-[#0a1f3d] text-lg font-serif">Read together, calmly</h4>
+                  <p className="text-slate-600 text-[15px] leading-relaxed">Pick the stream that matches what you are seeing at home, and read it side by side.</p>
+                </div>
+                
+                <div className="flex flex-col gap-2 relative">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-[#10b981] font-bold text-lg mb-3 shadow-sm border border-emerald-100/50">2</div>
+                  <h4 className="font-extrabold text-[#0a1f3d] text-lg font-serif">Try one habit</h4>
+                  <p className="text-slate-600 text-[15px] leading-relaxed">Each piece ends with a small, doable change. Choose one and give it a week.</p>
+                </div>
+                
+                <div className="flex flex-col gap-2 relative">
+                  <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-[#8b5cf6] font-bold text-lg mb-3 shadow-sm border border-purple-100/50">3</div>
+                  <h4 className="font-extrabold text-[#0a1f3d] text-lg font-serif">Talk to a tutor if it persists</h4>
+                  <p className="text-slate-600 text-[15px] leading-relaxed">If the same signs keep returning, a short conversation can turn guidance into a plan.</p>
+                </div>
+              </div>
             </div>
           </div>
           
@@ -285,12 +325,13 @@ export default function BlogsPage() {
 
 
       <FinalCTA
-        title="Find the Right Tutor for Your Child"
-        subtitle="Get matched with an expert tutor for your subject and curriculum."
-        button1Text="Book Your Free Trial"
-        button2Text="Ask Your Question"
-        subtext1="Free Trial • No Commitment"
-        subtext2="Stuck? Send it, we'll explain it."
+        title="Find the gaps holding your child back"
+        subtitle="Book a free 30 minute session with our specialists. We will pinpoint exactly where the gaps are and show you where to focus next."
+        button1Text="Book a Free Trial"
+        button2Text="Chat on WhatsApp"
+        button2Href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20a%20free%20session%20to%20discuss%20my%20child%27s%20learning%20gaps."
+        subtext1=""
+        subtext2=""
       />
     </Layout>
   );

@@ -455,17 +455,7 @@ function BiologyAskExpertSection() {
             </a>
 
             <p className="reassurance">No sign-up. No credit card. Just send your biology question.</p>
-            <a
-              className="secondary-link"
-              href="/contact#form"
-              onClick={() => {
-                if ((window as any).gtag) {
-                  (window as any).gtag('event', 'biology_ask_expert_form_link_click');
-                }
-              }}
-            >
-              Prefer the form? Send it here →
-            </a>
+
           </div>
 
           {/* Right column: animated chat mockup */}

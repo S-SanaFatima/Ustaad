@@ -58,6 +58,7 @@ export default function Footer({ logoAlt = "Ustaad — trusted UAE private tutor
       city: 'Abu Dhabi',
       cityHref: '/tutors?city=abu-dhabi',
       tutors: [
+        { label: 'A-Level Tutor Abu Dhabi', href: '/a-level-tutor-abu-dhabi' },
         { label: 'IGCSE Tutor Abu Dhabi', href: '/igcse-tutor-abu-dhabi' },
         { label: 'GCSE Tutor Abu Dhabi', href: '/gcse-tutor-abu-dhabi' },
         { label: 'Maths Tutor Abu Dhabi', href: '/maths-tutor-abu-dhabi' },

@@ -5,7 +5,7 @@ import {
   Dna, FileText, FlaskConical, GraduationCap, HelpCircle, Landmark, Link2, MapPin,
   MessageCircle, PenTool, Target, TrendingUp, Lightbulb, BarChart3,
 } from 'lucide-react';
-import { Layout, GradientHeadingText, FinalCTA, StatsBar, HeroCTABlock } from './shared';
+import { Layout, GradientHeadingText, FinalCTA, StatsBar, HeroCTABlock, SchoolsMarquee } from './shared';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
@@ -21,16 +21,28 @@ const aLevelSchemaFaqs = [
 ];
 
 export default function ALevelPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <Layout>
-      <SEOHead title="A-Level Tutors UAE | Dubai & Abu Dhabi | Ustaad" description="Specialised A-Level tutoring across Cambridge, Edexcel, AQA, and OCR for Year 12 and 13 students in the UAE. First lesson free." canonical="/a-level" ogImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp" schema={[localBusinessSchema, serviceSchema("Private A-Level Tutoring UAE", "Specialised 1-to-1 A-Level tutoring for all subjects across the UAE.", "/a-level"), breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Curriculum", url: "/curriculum" }, { name: "A-Level", url: "/a-level" }]), faqSchema(aLevelSchemaFaqs)]} />
-      {/* ── HERO BANNER ── */}
+      <SEOHead
+        title="A-Level Tutors UAE | Dubai & Abu Dhabi | Ustaad"
+        description="Specialised A-Level tutoring across Cambridge, Edexcel, AQA, and OCR for Year 12 and 13 students in the UAE. First lesson free."
+        canonical="/a-level"
+        ogImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
+        schema={[
+          localBusinessSchema,
+          serviceSchema("Private A-Level Tutoring UAE", "Specialised 1-to-1 A-Level tutoring for all subjects across the UAE.", "/a-level"),
+          breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Curriculum", url: "/curriculum" }, { name: "A-Level", url: "/a-level" }]),
+          faqSchema(aLevelSchemaFaqs),
+        ]}
+      />
+      {/* ── HERO CANVAS ── */}
       <section className="relative w-full min-h-[600px] lg:min-h-[700px] overflow-hidden">
         {/* Background image with blur */}
         <img
           src="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
+          srcSet="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp 1x, /UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.jpeg 2x"
           alt="Ustaad tutor supporting Year 12 and Year 13 A-Level students through Cambridge Edexcel and AQA exam preparation across the UAE"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: 'blur(2px)', transform: 'scale(1.05)' }}
@@ -49,8 +61,11 @@ export default function ALevelPage() {
               <GradientHeadingText text="Specialists." />
             </h1>
             <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
-            <p className="text-gray-700 text-lg mb-10 leading-relaxed max-w-xl">
+            <p className="text-gray-700 text-lg mb-4 leading-relaxed max-w-xl">
               Specialised tutoring across Cambridge, Edexcel, AQA, and OCR A-Levels for Year 12 and 13 students in the UAE.
+            </p>
+            <p className="text-[#0f4a9b] text-sm font-semibold mb-8">
+              Based in Abu Dhabi? See our dedicated <a href="/a-level-tutor-abu-dhabi" className="underline font-bold hover:text-[#0a1f3d]">A-Level Tutor Abu Dhabi</a> page.
             </p>
             <HeroCTABlock className="mb-4" trustText="✦ First lesson free. No commitment.">
               Book Your First A-Level Lesson
@@ -61,6 +76,19 @@ export default function ALevelPage() {
       </section>
 
       <StatsBar />
+
+      <SchoolsMarquee
+        header={
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-2">
+              Partner Schools & Communities
+            </div>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d]">
+              Leading Abu Dhabi Schools
+            </h2>
+          </div>
+        }
+      />
 
       {/* ── WHY A-LEVELS ARE ACADEMICALLY DIFFERENT ── */}
       <section className="py-20 bg-[#f8fafc] border-y border-gray-100">

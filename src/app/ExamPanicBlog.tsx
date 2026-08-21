@@ -272,7 +272,9 @@ export default function ExamPanicBlog() {
           <ChevronRightIcon className="h-3 w-3" />
           <a href="/blogs" className="hover:text-[#0f4a9b] transition">Blog</a>
           <ChevronRightIcon className="h-3 w-3" />
-          <span className="text-[#0f4a9b] font-semibold truncate max-w-[200px]">Exam Stress &amp; Panic</span>
+          <a href="/blogs/psychology-of-learning" className="hover:text-[#0f4a9b] transition truncate max-w-[150px]">Psychology of Learning</a>
+          <ChevronRightIcon className="h-3 w-3" />
+          <span className="text-[#0f4a9b] font-semibold truncate max-w-[150px]">Overcoming Exam Panic</span>
         </div>
       </div>
 

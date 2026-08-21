@@ -226,7 +226,9 @@ export default function ChemistryFadesBlog() {
           <ChevronRightIcon className="h-3 w-3" />
           <a href="/blogs" className="hover:text-[#0f4a9b] transition">Blog</a>
           <ChevronRightIcon className="h-3 w-3" />
-          <span className="text-[#0f4a9b] font-semibold truncate max-w-[200px]">IGCSE Chemistry Insights</span>
+          <a href="/blogs/academic-exam-skills" className="hover:text-[#0f4a9b] transition truncate max-w-[150px]">Subject & Exam Skills</a>
+          <ChevronRightIcon className="h-3 w-3" />
+          <span className="text-[#0f4a9b] font-semibold truncate max-w-[150px]">IGCSE Chemistry Insights</span>
         </div>
       </div>
 

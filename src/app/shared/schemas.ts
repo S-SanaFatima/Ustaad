@@ -190,6 +190,30 @@ export const faqSchema = (faqs: { q: string; a: string }[]) => ({
   })),
 });
 
+export const singleReviewSchema = ({
+  serviceName,
+  authorName,
+  reviewBody,
+  url,
+}: {
+  serviceName: string;
+  authorName: string;
+  reviewBody: string;
+  url: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Review",
+  itemReviewed: {
+    "@type": "Service",
+    name: serviceName,
+    provider: { "@type": "Organization", name: "Ustaad — Private Tutors UAE", url: BASE_URL },
+  },
+  author: { "@type": "Person", name: authorName },
+  reviewBody,
+  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+  url: url.startsWith("http") ? url : `${BASE_URL}${url}`,
+});
+
 export const reviewsSchema: any[] = [];
 
 export type PersonInput = {
@@ -231,6 +255,7 @@ export const articleSchema = ({
   author,
   reviewer,
   image,
+  timeRequired,
 }: {
   title: string;
   description: string;
@@ -240,6 +265,7 @@ export const articleSchema = ({
   author: string | PersonInput;
   reviewer?: string | PersonInput;
   image?: string;
+  timeRequired?: string;
 }) => ({
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -248,6 +274,7 @@ export const articleSchema = ({
   url: url.startsWith("http") ? url : `${BASE_URL}${url}`,
   datePublished,
   dateModified: dateModified || datePublished,
+  ...(timeRequired && { timeRequired }),
   author: personNode(author),
   ...(reviewer && { reviewedBy: personNode(reviewer) }),
   publisher: {
@@ -336,5 +363,29 @@ export const itemListSchema = (
     position: item.position ?? i + 1,
     name: item.name,
     url: item.url.startsWith("http") ? item.url : `${BASE_URL}${item.url}`,
+  })),
+});
+
+export const reviewSchema = (
+  itemName: string,
+  reviews: Array<{ author: string; reviewBody: string; ratingValue?: number }>
+) => ({
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: itemName,
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: reviews.length.toString(),
+  },
+  review: reviews.map((r) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: r.author },
+    reviewBody: r.reviewBody,
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: (r.ratingValue || 5).toString(),
+      bestRating: "5",
+    },
   })),
 });

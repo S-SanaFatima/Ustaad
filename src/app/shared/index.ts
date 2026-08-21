@@ -25,3 +25,4 @@ export { default as TeachingApproach } from './TeachingApproach';
 export { default as ReadMoreParagraph } from './ReadMoreParagraph';
 export { default as RelatedContent } from './RelatedContent';
 export { default as SEOHead } from './SEOHead';
+export { default as FAQAccordion } from './FAQAccordion';

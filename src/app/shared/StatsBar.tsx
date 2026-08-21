@@ -5,46 +5,89 @@ interface StatsBarProps {
   customText?: string;
 }
 
+const TARGETS = { students: 2500, grade: 3, exam: 90, satisfaction: 98 };
+
 export default function StatsBar({ customText }: StatsBarProps = {}) {
-  const [counts, setCounts] = useState({ students: 2500, grade: 3, exam: 90, satisfaction: 98 });
+  // Default to full target values so SSR, crawlers, and non-JS clients display full figures
+  const [counts, setCounts] = useState(TARGETS);
   const ref = useRef<HTMLDivElement>(null);
   const animated = useRef(false);
 
   useEffect(() => {
+    // Respect user's prefers-reduced-motion setting
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
     const el = ref.current;
     if (!el) return;
+
+    const startAnimation = () => {
+      if (animated.current) return;
+      animated.current = true;
+
+      setCounts({ students: 0, grade: 0, exam: 0, satisfaction: 0 });
+
+      const delays = { students: 0, grade: 150, exam: 300, satisfaction: 450 };
+      const duration = 1200;
+      const start = performance.now();
+      const easeOutCubic = (x: number) => 1 - Math.pow(1 - x, 3);
+
+      const tick = (now: number) => {
+        const elapsed = now - start;
+
+        setCounts((prev) => {
+          const next = { ...prev };
+          (Object.keys(TARGETS) as Array<keyof typeof TARGETS>).forEach((key) => {
+            const delay = delays[key];
+            if (elapsed >= delay) {
+              const p = Math.min(1, (elapsed - delay) / duration);
+              const eased = easeOutCubic(p);
+              next[key] = Math.round(eased * TARGETS[key]);
+            }
+          });
+          return next;
+        });
+
+        if (elapsed < duration + 450) {
+          requestAnimationFrame(tick);
+        } else {
+          setCounts(TARGETS); // Guarantee final state
+        }
+      };
+
+      requestAnimationFrame(tick);
+    };
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !animated.current) {
-          animated.current = true;
-          const duration = 2000;
-          const steps = 60;
-          const interval = duration / steps;
-          let step = 0;
-          const timer = setInterval(() => {
-            step++;
-            const progress = step / steps;
-            setCounts({
-              students: Math.floor(progress * 2500),
-              grade: Math.floor(progress * 3),
-              exam: Math.floor(progress * 90),
-              satisfaction: Math.floor(progress * 98),
-            });
-            if (step >= steps) clearInterval(timer);
-          }, interval);
+        if (entry.isIntersecting) {
+          startAnimation();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
+
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Fallback: If not triggered within 1.5s, ensure target stats are shown
+    const fallbackTimer = setTimeout(() => {
+      if (!animated.current) {
+        startAnimation();
+      }
+    }, 1500);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
   const stats = [
-    { icon: <GraduationCap className="h-6 w-6 text-white" />, iconBg: "bg-[#22b8cd]", val: `${counts.students}+`, label: "Students Taught", valColor: "text-[#1F3F66]", line: "bg-[#22b8cd]" },
-    { icon: <TrendingUp className="h-6 w-6 text-white" />, iconBg: "bg-[#f59e0b]", val: `+1 to +${counts.grade}`, label: "Grade Improvement", valColor: "text-[#C7A24A]", line: "bg-[#f59e0b]" },
-    { icon: <Award className="h-6 w-6 text-white" />, iconBg: "bg-[#ef4444]", val: `${counts.exam}%+`, label: "Exam Success Rate", valColor: "text-[#1F3F66]", line: "bg-[#ef4444]" },
-    { icon: <UserCheck className="h-6 w-6 text-white" />, iconBg: "bg-[#60a5fa]", val: `${counts.satisfaction}%`, label: "Satisfaction Rate", valColor: "text-[#1F3F66]", line: "bg-[#60a5fa]" },
+    { icon: <GraduationCap className="h-6 w-6 text-white" />, iconBg: "bg-[#22b8cd]", val: `${counts.students || TARGETS.students}+`, label: "Students Taught", valColor: "text-[#1F3F66]", line: "bg-[#22b8cd]" },
+    { icon: <TrendingUp className="h-6 w-6 text-white" />, iconBg: "bg-[#f59e0b]", val: `+1 to +${counts.grade || TARGETS.grade}`, label: "Grade Improvement", valColor: "text-[#C7A24A]", line: "bg-[#f59e0b]" },
+    { icon: <Award className="h-6 w-6 text-white" />, iconBg: "bg-[#ef4444]", val: `${counts.exam || TARGETS.exam}%+`, label: "Exam Success Rate", valColor: "text-[#1F3F66]", line: "bg-[#ef4444]" },
+    { icon: <UserCheck className="h-6 w-6 text-white" />, iconBg: "bg-[#60a5fa]", val: `${counts.satisfaction || TARGETS.satisfaction}%`, label: "Satisfaction Rate", valColor: "text-[#1F3F66]", line: "bg-[#60a5fa]" },
   ];
 
   return (

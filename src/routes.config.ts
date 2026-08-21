@@ -429,6 +429,17 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }]
   },
   {
+    path: '/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions',
+    component: 'IGCSEBiology6MarkBlog',
+    seo: {
+      title: 'Why IGCSE Biology Students Lose Marks on 6-Mark Questions',
+      description: 'IGCSE Biology 6-mark questions cost students marks every year. This board-specific guide explains what Cambridge and Pearson mark schemes reward.',
+      priority: 0.7,
+      changefreq: 'monthly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'IGCSE Biology 6-Mark Questions', url: '/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions' }]
+  },
+  {
     path: '/blogs/igcse-maths-revision-low-marks',
     component: 'IGCSEMathsLowMarksBlog',
     seo: {
@@ -449,6 +460,18 @@ export const ROUTES: RouteConfig[] = [
       changefreq: 'monthly'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Exam Panic UAE', url: '/blogs/exam-panic-before-exams-uae' }]
+  },
+  {
+    path: '/blogs/igcse-vs-gcse-curriculum-differences-uae',
+    component: 'IGCSEvsGCSEBlog',
+    seo: {
+      title: 'IGCSE vs GCSE: Curriculum Differences for UAE Parents | Ustaad',
+      description: 'IGCSE vs GCSE explained for UAE parents: the curriculum, assessment and recognition differences, and how to pick the right fit for your child.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-08-21'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'IGCSE vs GCSE', url: '/blogs/igcse-vs-gcse-curriculum-differences-uae' }]
   },
 
   // City landings
@@ -517,6 +540,17 @@ export const ROUTES: RouteConfig[] = [
       changefreq: 'monthly'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'GCSE Tutor Abu Dhabi', url: '/gcse-tutor-abu-dhabi' }]
+  },
+  {
+    path: '/a-level-tutor-abu-dhabi',
+    component: 'ALevelTutorLanding',
+    seo: {
+      title: 'Online A-Level Tutor Abu Dhabi | Cambridge & Edexcel',
+      description: 'Live online A-Level tutors for Abu Dhabi families. Cambridge, Edexcel, Oxford AQA and OCR support for Years 12 and 13. First lesson free.',
+      priority: 0.90,
+      changefreq: 'monthly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'A-Level Tutor Abu Dhabi', url: '/a-level-tutor-abu-dhabi' }]
   },
   {
     path: '/editorial',

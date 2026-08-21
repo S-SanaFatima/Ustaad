@@ -229,7 +229,9 @@ export default function EarlySignsChemistryBlog() {
           <ChevronRightIcon className="h-3 w-3" />
           <a href="/blogs" className="hover:text-[#0f4a9b] transition">Blog</a>
           <ChevronRightIcon className="h-3 w-3" />
-          <span className="text-[#0f4a9b] font-semibold truncate max-w-[200px]">Chemistry Insights</span>
+          <a href="/blogs/parent-guidance" className="hover:text-[#0f4a9b] transition truncate max-w-[150px]">Parent Guidance</a>
+          <ChevronRightIcon className="h-3 w-3" />
+          <span className="text-[#0f4a9b] font-semibold truncate max-w-[150px]">Early Signs in Chemistry</span>
         </div>
       </div>
 

@@ -31,11 +31,13 @@ import HowItWorksPage from "./app/HowItWorksPage.tsx";
 import IBCurriculumPage from "./app/IBCurriculumPage.tsx";
 import ExamPanicBlog from "./app/ExamPanicBlog.tsx";
 import IGCSEMathsLowMarksBlog from "./app/IGCSEMathsLowMarksBlog.tsx";
+import IGCSEBiology6MarkBlog from "./app/IGCSEBiology6MarkBlog.tsx";
 import IGCSEPage from "./app/IGCSEPage.tsx";
 import ChemistryLandingPage from "./app/ChemistryLandingPage.tsx";
 import ChemistryFadesBlog from "./app/ChemistryFadesBlog.tsx";
 import EarlySignsChemistryBlog from "./app/EarlySignsChemistryBlog.tsx";
 import ReadSchoolReportCardBlog from "./app/ReadSchoolReportCardBlog.tsx";
+import IGCSEvsGCSEBlog from "./app/IGCSEvsGCSEBlog.tsx";
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
 import MathsPage from "./app/MathsPage.tsx";
 import MiddleSchoolPage from "./app/MiddleSchoolPage.tsx";
@@ -57,6 +59,7 @@ import AuthorPage from "./app/AuthorPage.tsx";
 import BiologyTutorAbuDhabiPage from "./app/BiologyTutorAbuDhabiPage.tsx";
 import IGCSETutorLanding from "./app/IGCSETutorAbuDhabiPage.tsx";
 import GCSETutorLanding from "./app/GCSETutorAbuDhabiPage.tsx";
+import ALevelTutorLanding from "./app/ALevelTutorAbuDhabiPage.tsx";
 
 // Component registry - maps component names to actual components
 const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
@@ -94,10 +97,13 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   ChemistryLandingPage,
   ExamPanicBlog,
   IGCSEMathsLowMarksBlog,
+  IGCSEBiology6MarkBlog,
   IGCSEPhysicsFormulasBlog,
+  IGCSEvsGCSEBlog,
   IGCSEPage,
   IGCSETutorLanding,
   GCSETutorLanding,
+  ALevelTutorLanding,
   MathematicsLanding,
   MathsPage,
   MiddleSchoolPage,

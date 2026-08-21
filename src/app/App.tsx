@@ -390,7 +390,7 @@ export default function App() {
                 </div>
 
                 <a
-                  href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20my%20first%2030-minute%20session%20with%20a%20subject%20and%20curriculum-fit%20tutor."
+                  href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20have%20a%20homework%20question%20I%27d%20like%20help%20with."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-[280px] inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1fb858] text-white font-extrabold text-[14px] sm:text-[15px] py-3 sm:py-3.5 transition-all shadow-[0_8px_16px_rgba(37,211,102,0.25)] hover:shadow-[0_12px_20px_rgba(37,211,102,0.35)] hover:-translate-y-0.5"
@@ -659,8 +659,8 @@ export default function App() {
         <div className="flex w-full overflow-hidden group" ref={logosMarqueeRef}>
           <div className="school-logos-set flex shrink-0 animate-marquee-slower gap-5 items-center py-4 pr-5 min-w-full">
             {SCHOOL_LOGOS.map((logo) => (
-              <div key={logo.file} title={logo.alt.split(' logo')[0]} className="shrink-0 w-[130px] h-[130px] flex items-center justify-center rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_12px_rgba(15,74,155,0.07),inset_0_0_0_1px_rgba(15,74,155,0.06)] p-3.5 hover:shadow-[0_4px_20px_rgba(15,74,155,0.13)] hover:border-[#0f4a9b]/20 transition-all duration-300 cursor-default">
-                <img src={`/school-logos/${logo.file}`} alt={logo.alt} loading="lazy" />
+              <div key={logo.file} title={logo.alt.split(' logo')[0]} className="shrink-0 w-[220px] sm:w-[280px] h-[120px] sm:h-[150px] flex items-center justify-center px-4 cursor-default relative transition-all duration-300 hover:scale-110 hover:-translate-y-1">
+                <img src={`/school-logos/${logo.file}`} alt={logo.alt} className="w-full h-full max-h-[100px] sm:max-h-[120px] object-contain filter drop-shadow-sm mix-blend-multiply" loading="lazy" />
               </div>
             ))}
           </div>
@@ -918,8 +918,8 @@ export default function App() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="/blogs"
-              className="inline-flex items-center justify-center font-bold rounded-xl px-8 py-4 text-base transition hover:brightness-110"
-              style={{ background: '#0a1f3d', color: '#ffffff', textDecoration: 'none' }}
+              className="inline-flex items-center justify-center font-bold rounded-xl px-8 py-4 text-base transition hover:brightness-110 shadow-[0_8px_16px_rgba(15,74,155,0.25)] hover:shadow-[0_12px_20px_rgba(15,74,155,0.35)] hover:-translate-y-0.5"
+              style={{ background: '#0f4a9b', color: '#ffffff', textDecoration: 'none' }}
             >
               Explore All Articles From Ustaad UAE →
             </a>

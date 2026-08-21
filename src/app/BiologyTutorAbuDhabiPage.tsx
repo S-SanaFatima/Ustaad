@@ -10,7 +10,7 @@ import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
 const BOOKING = "/contact#form";
-const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20ask%20a%20question.';
+const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27m%20looking%20for%20support%20with%20Biology.%20Could%20we%20discuss%20how%20you%20can%20help%20my%20child%3F';
 
 const biologySchoolLogos = [
   { name: 'Brighton College Abu Dhabi', file: 'brighton.png', alt: 'Brighton College Abu Dhabi logo, a leading British school in the capital for IGCSE and A-Level biology', scale: 1.25 },
@@ -465,17 +465,6 @@ function BiologyAskExpertSection() {
             </a>
 
             <p className="reassurance">No sign-up. No credit card. Just send your biology question.</p>
-            <a
-              className="secondary-link"
-              href="/contact#form"
-              onClick={() => {
-                if ((window as any).gtag) {
-                  (window as any).gtag('event', 'biology_ask_expert_form_link_click');
-                }
-              }}
-            >
-              Prefer the form? Send it here →
-            </a>
           </div>
 
           {/* Right column: animated chat mockup */}

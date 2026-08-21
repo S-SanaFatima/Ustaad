@@ -14,7 +14,7 @@ import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, co
 import RelatedContent from './shared/RelatedContent';
 
 const BOOKING = "/contact#form";
-const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20ask%20a%20question.';
+const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27m%20looking%20for%20support%20with%20Physics.%20Could%20we%20discuss%20how%20you%20can%20help%20my%20child%3F';
 
 const physicsSchoolLogos = [
   { name: 'Cranleigh Abu Dhabi', file: 'cranleigh.png', alt: 'Cranleigh Abu Dhabi logo, a premium Saadiyat school for IGCSE and A-Level physics students', scale: 1.25 },

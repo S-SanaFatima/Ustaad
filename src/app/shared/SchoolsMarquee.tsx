@@ -32,6 +32,8 @@ export const FEATURED_SCHOOL_LOGOS: SchoolLogoItem[] = [
 interface SchoolsMarqueeProps {
   /** Optional header rendered above the marquee (page-specific copy). */
   header?: ReactNode;
+  /** Optional title for marquee header. */
+  title?: string;
   /** Optional override for school logo list. */
   logoList?: SchoolLogoItem[];
 }
@@ -65,6 +67,7 @@ const SchoolLogoCard = ({ logo }: { logo: SchoolLogoItem }) => (
  */
 export default function SchoolsMarquee({
   header,
+  title,
   logoList = FEATURED_SCHOOL_LOGOS,
 }: SchoolsMarqueeProps) {
   return (
@@ -76,7 +79,7 @@ export default function SchoolsMarquee({
               Partner Schools & Communities
             </div>
             <h2 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d]">
-              Trusted by Students Across Leading UAE Schools
+              {title || "Trusted by Students Across Leading Abu Dhabi Schools"}
             </h2>
           </div>
         )}
@@ -87,7 +90,7 @@ export default function SchoolsMarquee({
               100% { transform: translateX(-50%); }
             }
             .ustaad-logo-marquee {
-              animation: ustaad-logo-marquee 35s linear infinite;
+              animation: ustaad-logo-marquee 75s linear infinite;
             }
             .ustaad-logo-marquee:hover {
               animation-play-state: paused;

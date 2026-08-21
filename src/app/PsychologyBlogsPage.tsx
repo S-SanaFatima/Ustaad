@@ -70,12 +70,12 @@ export default function PsychologyBlogsPage() {
                   </p>
                   
                   <div className="pt-4 border-t border-slate-100">
-                    <div className="flex items-center gap-3 text-xs text-slate-400 font-medium mb-3">
-                      <span>{blog.author}</span>
-                      <span>•</span>
-                      <span>{blog.date}</span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> {blog.readTime}</span>
+                    <div className="flex items-center gap-1.5 sm:gap-2.5 text-[11px] lg:text-xs text-slate-400 font-medium mb-3 whitespace-nowrap overflow-hidden">
+                      <span className="truncate">{blog.author}</span>
+                      <span className="text-slate-300 shrink-0">•</span>
+                      <span className="shrink-0">{blog.date}</span>
+                      <span className="text-slate-300 shrink-0">•</span>
+                      <span className="flex items-center gap-1 shrink-0"><Clock className="h-3 w-3" /> {blog.readTime}</span>
                     </div>
                     
                     <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0f4a9b] group-hover:gap-2 transition-all">
@@ -121,12 +121,13 @@ export default function PsychologyBlogsPage() {
       </div>
       
       <FinalCTA
-        title="Find the Right Tutor for Your Child"
-        subtitle="Get matched with an expert tutor for your subject and curriculum."
-        button1Text="Book Your Free Trial"
-        button2Text="Ask Your Question"
-        subtext1="Free Trial • No Commitment"
-        subtext2="Stuck? Send it, we'll explain it."
+        title="Find the gaps holding your child back"
+        subtitle="Book a free 30 minute session with our specialists. We will pinpoint exactly where the gaps are and show you where to focus next."
+        button1Text="Book a Free Trial"
+        button2Text="Chat on WhatsApp"
+        button2Href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20a%20free%20session%20to%20discuss%20my%20child%27s%20learning%20gaps."
+        subtext1=""
+        subtext2=""
       />
     </Layout>
   );

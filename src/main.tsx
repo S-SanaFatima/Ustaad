@@ -41,6 +41,7 @@ const loadChemistryPage = () => import('./app/ChemistryPage');
 const loadExamPreparationPage = () => import('./app/ExamPreparationPage');
 const loadHowItWorksPage = () => import('./app/HowItWorksPage');
 const loadBlogsPage = () => import('./app/BlogsPage');
+const loadIGCSEBiology6MarkBlog = () => import('./app/IGCSEBiology6MarkBlog');
 const loadIGCSEMathsLowMarksBlog = () => import('./app/IGCSEMathsLowMarksBlog');
 const loadExamPanicBlog = () => import('./app/ExamPanicBlog');
 const loadMathematicsLanding = () => import('./app/MathematicsLanding');
@@ -56,9 +57,11 @@ const loadIGCSEPhysicsFormulasBlog = () => import('./app/IGCSEPhysicsFormulasBlo
 const loadChemistryFadesBlog = () => import('./app/ChemistryFadesBlog');
 const loadEarlySignsChemistryBlog = () => import('./app/EarlySignsChemistryBlog');
 const loadReadSchoolReportCardBlog = () => import('./app/ReadSchoolReportCardBlog');
+const loadIGCSEvsGCSEBlog = () => import('./app/IGCSEvsGCSEBlog');
 const loadBiologyLanding = () => import('./app/BiologyTutorAbuDhabiPage');
 const loadIGCSETutorLanding = () => import('./app/IGCSETutorAbuDhabiPage');
 const loadGCSETutorLanding = () => import('./app/GCSETutorAbuDhabiPage');
+const loadALevelTutorLanding = () => import('./app/ALevelTutorAbuDhabiPage');
 const loadAcademicBlogsPage = () => import('./app/AcademicBlogsPage');
 const loadPsychologyBlogsPage = () => import('./app/PsychologyBlogsPage');
 const loadParentGuidanceBlogsPage = () => import('./app/ParentGuidanceBlogsPage');
@@ -96,6 +99,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/exam-preparation': loadExamPreparationPage,
   '/how-it-works': loadHowItWorksPage,
   '/blogs': loadBlogsPage,
+  '/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions': loadIGCSEBiology6MarkBlog,
   '/blogs/igcse-maths-revision-low-marks': loadIGCSEMathsLowMarksBlog,
   '/blogs/exam-panic-before-exams-uae': loadExamPanicBlog,
   '/blogs/physics-understanding-vs-marks': loadPhysicsUnderstandingMarksBlog,
@@ -103,6 +107,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/why-chemistry-fades-from-memory': loadChemistryFadesBlog,
   '/blogs/early-signs-chemistry-help-uae': loadEarlySignsChemistryBlog,
   '/blogs/read-uae-school-report-card': loadReadSchoolReportCardBlog,
+  '/blogs/igcse-vs-gcse-curriculum-differences-uae': loadIGCSEvsGCSEBlog,
   '/sciences': loadSciencesPage,
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
   '/physics-tutor-abu-dhabi': loadPhysicsLanding,
@@ -110,6 +115,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/biology-tutor-abu-dhabi': loadBiologyLanding,
   '/igcse-tutor-abu-dhabi': loadIGCSETutorLanding,
   '/gcse-tutor-abu-dhabi': loadGCSETutorLanding,
+  '/a-level-tutor-abu-dhabi': loadALevelTutorLanding,
   '/editorial': loadEditorialPage,
   '/authors/saira-s': loadAuthorPage,
   '/authors/nimra-shahzada': loadAuthorPage,
@@ -154,6 +160,7 @@ const ChemistryPage = lazy(loadChemistryPage);
 const ExamPreparationPage = lazy(loadExamPreparationPage);
 const HowItWorksPage = lazy(loadHowItWorksPage);
 const BlogsPage = lazy(loadBlogsPage);
+const IGCSEBiology6MarkBlog = lazy(loadIGCSEBiology6MarkBlog);
 const IGCSEMathsLowMarksBlog = lazy(loadIGCSEMathsLowMarksBlog);
 const ExamPanicBlog = lazy(loadExamPanicBlog);
 const MathematicsLanding = lazy(loadMathematicsLanding);
@@ -169,9 +176,11 @@ const IGCSEPhysicsFormulasBlog = lazy(loadIGCSEPhysicsFormulasBlog);
 const ChemistryFadesBlog = lazy(loadChemistryFadesBlog);
 const EarlySignsChemistryBlog = lazy(loadEarlySignsChemistryBlog);
 const ReadSchoolReportCardBlog = lazy(loadReadSchoolReportCardBlog);
+const IGCSEvsGCSEBlog = lazy(loadIGCSEvsGCSEBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
 const GCSETutorLanding = lazy(loadGCSETutorLanding);
+const ALevelTutorLanding = lazy(loadALevelTutorLanding);
 const AcademicBlogsPage = lazy(loadAcademicBlogsPage);
 const PsychologyBlogsPage = lazy(loadPsychologyBlogsPage);
 const ParentGuidanceBlogsPage = lazy(loadParentGuidanceBlogsPage);
@@ -253,6 +262,7 @@ function AppRoutes() {
           <Route path="/blogs/academic-exam-skills"          element={<AcademicBlogsPage />} />
           <Route path="/blogs/psychology-of-learning"        element={<PsychologyBlogsPage />} />
           <Route path="/blogs/parent-guidance"               element={<ParentGuidanceBlogsPage />} />
+          <Route path="/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions"element={<IGCSEBiology6MarkBlog />} />
           <Route path="/blogs/igcse-maths-revision-low-marks"element={<IGCSEMathsLowMarksBlog />} />
           <Route path="/blogs/exam-panic-before-exams-uae"   element={<ExamPanicBlog />} />
           <Route path="/blogs/physics-understanding-vs-marks" element={<PhysicsUnderstandingMarksBlog />} />
@@ -260,6 +270,7 @@ function AppRoutes() {
           <Route path="/blogs/why-chemistry-fades-from-memory" element={<ChemistryFadesBlog />} />
           <Route path="/blogs/early-signs-chemistry-help-uae" element={<EarlySignsChemistryBlog />} />
           <Route path="/blogs/read-uae-school-report-card" element={<ReadSchoolReportCardBlog />} />
+          <Route path="/blogs/igcse-vs-gcse-curriculum-differences-uae" element={<IGCSEvsGCSEBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />
           <Route path="/physics-tutor-abu-dhabi"             element={<PhysicsLanding />} />
@@ -267,6 +278,7 @@ function AppRoutes() {
           <Route path="/biology-tutor-abu-dhabi"             element={<BiologyLanding />} />
           <Route path="/igcse-tutor-abu-dhabi"               element={<IGCSETutorLanding />} />
           <Route path="/gcse-tutor-abu-dhabi"                element={<GCSETutorLanding />} />
+          <Route path="/a-level-tutor-abu-dhabi"             element={<ALevelTutorLanding />} />
           <Route path="/editorial"                           element={<EditorialPage />} />
           <Route path="/authors/saira-s"                     element={<AuthorPage />} />
           <Route path="/authors/nimra-shahzada"              element={<AuthorPage />} />
