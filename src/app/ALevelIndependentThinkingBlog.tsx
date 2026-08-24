@@ -615,7 +615,7 @@ export default function ALevelIndependentThinkingBlog() {
             </figure>
 
             <figure className="my-8">
-              <img src="/images/blogs/home-habits-icons.jpg" alt="Five icons representing home habits for independent thinking" className="w-full h-auto block opacity-90" loading="lazy" />
+              <img src="/images/blogs/home-habits-icons.png" alt="Five icons representing home habits for independent thinking" className="w-full h-auto block opacity-90" loading="lazy" />
             </figure>
 
             <div className="my-6 space-y-3">
