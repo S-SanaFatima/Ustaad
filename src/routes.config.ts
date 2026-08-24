@@ -473,6 +473,18 @@ export const ROUTES: RouteConfig[] = [
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'IGCSE vs GCSE', url: '/blogs/igcse-vs-gcse-curriculum-differences-uae' }]
   },
+  {
+    path: '/blogs/a-level-tutoring-uae-independent-thinking',
+    component: 'ALevelIndependentThinkingBlog',
+    seo: {
+      title: 'A-Level Tutoring in the UAE and Independent Thinking | Ustaad',
+      description: 'UAE A-Level exams move to portfolios and coursework in 2026, so more past papers are not enough. See how independent thinking lifts your teen\'s grades.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-08-24'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' }, { name: 'A-Level Independent Thinking', url: '/blogs/a-level-tutoring-uae-independent-thinking' }]
+  },
 
   // City landings
   {

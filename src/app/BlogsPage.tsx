@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'a-level-tutoring-uae-independent-thinking',
+    image: '/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp',
+    alt: 'A-Level tutoring session in the UAE supporting Cambridge, Pearson Edexcel and OxfordAQA students',
+    category: 'Psychology of Learning',
+    title: 'A-Level Tutoring in the UAE Starts With Independent Thinking',
+    description: 'UAE A-Level exams move to portfolios and coursework in 2026, so more past papers are not enough. See how independent thinking lifts your teen\'s grades.',
+    date: '24 Aug 2026',
+    readTime: '8 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'igcse-vs-gcse-curriculum-differences-uae',
     image: '/images/blogs/igcse-vs-gcse-father-son-subject-list.png',
     alt: 'Father and son reviewing GCSE subject choices list and study plans on laptop at home',
@@ -59,7 +71,6 @@ export const BLOGS: BlogPost[] = [
     date: '21 Aug 2026',
     readTime: '9 min read',
     author: 'UAE Educationist',
-    featured: true,
   },
   {
     slug: 'why-igcse-biology-students-lose-marks-on-6-mark-questions',

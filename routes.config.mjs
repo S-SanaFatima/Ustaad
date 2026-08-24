@@ -61,6 +61,7 @@ export const ROUTES = [
   { path: '/blogs/early-signs-chemistry-help-uae', component: 'EarlySignsChemistryBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/blogs/read-uae-school-report-card', component: 'ReadSchoolReportCardBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-10' },
   { path: '/blogs/igcse-vs-gcse-curriculum-differences-uae', component: 'IGCSEvsGCSEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-21' },
+  { path: '/blogs/a-level-tutoring-uae-independent-thinking', component: 'ALevelIndependentThinkingBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-24' },
 
   // City × subject landings
   { path: '/maths-tutor-abu-dhabi', component: 'MathematicsLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
