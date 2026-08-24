@@ -614,10 +614,6 @@ export default function ALevelIndependentThinkingBlog() {
               <figcaption className="mt-2 text-center text-xs text-gray-500 italic px-4">Parents don't need to know the A-Level syllabus to help; guiding how a student responds to being stuck is far more valuable.</figcaption>
             </figure>
 
-            <figure className="my-8">
-              <img src="/images/blogs/home-habits-icons.png" alt="Five icons representing home habits for independent thinking" className="w-full h-auto block opacity-90" loading="lazy" />
-            </figure>
-
             <div className="my-6 space-y-3">
               <div className="p-4 bg-white rounded-2xl border border-slate-200 shadow-sm flex items-start gap-3">
                 <span className="w-6 h-6 rounded-full bg-[#0f4a9b] text-white font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
