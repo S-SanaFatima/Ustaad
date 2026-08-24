@@ -51,7 +51,7 @@ export const CATEGORY_META = {
 export const BLOGS: BlogPost[] = [
   {
     slug: 'a-level-tutoring-uae-independent-thinking',
-    image: '/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp',
+    image: '/images/blogs/hero-tutoring-session.jpg',
     alt: 'A-Level tutoring session in the UAE supporting Cambridge, Pearson Edexcel and OxfordAQA students',
     category: 'Psychology of Learning',
     title: 'A-Level Tutoring in the UAE Starts With Independent Thinking',

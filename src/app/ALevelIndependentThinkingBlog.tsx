@@ -11,7 +11,7 @@ const BLOG = {
   titleLine2: 'A-Level Tutoring in the UAE Starts With Independent Thinking',
   slug: 'a-level-tutoring-uae-independent-thinking',
   description: 'UAE A-Level exams move to portfolios and coursework in 2026, so more past papers are not enough. See how independent thinking lifts your teen\'s grades.',
-  heroImage: '/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp',
+  heroImage: '/images/blogs/hero-tutoring-session.jpg',
   heroAlt: 'A-Level tutoring session in the UAE supporting Cambridge, Pearson Edexcel and OxfordAQA students',
   heroCaption: 'Doing more past papers is not enough for A-Level. See how independent thinking lifts your teenager\'s grades.',
   datePublished: '2026-08-24',
