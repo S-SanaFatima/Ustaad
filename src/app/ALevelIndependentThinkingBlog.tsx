@@ -434,7 +434,7 @@ export default function ALevelIndependentThinkingBlog() {
 
             <figure className="my-8">
               <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                <img src="/images/blogs/student-exam-hall-mock-stress.webp" alt="UAE student looking stressed in an exam hall, highlighting the pressure of traditional timed exams" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/exam-hall-stress.jpg" alt="UAE student looking stressed in an exam hall, highlighting the pressure of traditional timed exams" className="w-full h-auto block" loading="lazy" />
               </div>
               <figcaption className="mt-2 text-center text-xs text-gray-500 italic px-4">Traditional timed exams are giving way to portfolios in 2026, meaning last-minute cramming is no longer an option.</figcaption>
             </figure>
@@ -452,6 +452,18 @@ export default function ALevelIndependentThinkingBlog() {
             <p>
               At A-Level, the top marks are not given for repeating a method from memory. They are given for choosing the right method, explaining why it works, and adjusting when the question changes. That is analytical reasoning, and it is a different skill from recall. A student can memorise fifty worked solutions and still freeze when an examiner rewords the question, because they were trained to remember, not to think.
             </p>
+
+            <figure className="my-8">
+              <div className="rounded-2xl overflow-hidden shadow-sm">
+                <img src="/images/blogs/callout-analytical-vs-memorisation.jpg" alt="Split graphic comparing repeating loop of memorization versus the branching paths of analytical reasoning" className="w-full h-auto block" loading="lazy" />
+              </div>
+            </figure>
+
+            <figure className="my-8">
+              <div className="rounded-2xl overflow-hidden shadow-sm">
+                <img src="/images/blogs/past-papers-vs-independent-thinking.jpg" alt="Comparison between rote learning past papers and developing independent thinking" className="w-full h-auto block" loading="lazy" />
+              </div>
+            </figure>
 
             {/* Comparison Table */}
             <div className="my-6 overflow-x-auto rounded-2xl border border-[#0f4a9b]/20 bg-white shadow-sm">
@@ -500,6 +512,12 @@ export default function ALevelIndependentThinkingBlog() {
               <strong>THE FIRST SIXTY SECONDS:</strong> It shows in how a student starts a hard question, not whether they finish it.
             </Blockquote>
 
+            <figure className="my-8">
+              <div className="rounded-2xl overflow-hidden shadow-sm">
+                <img src="/images/blogs/callout-first-sixty-seconds.jpg" alt="Stopwatch icon at 60 seconds highlighting the critical first minute of answering an exam question" className="w-full h-auto block" loading="lazy" />
+              </div>
+            </figure>
+
             <p>
               When Ustaad's tutors watch two students meet the same unfamiliar problem, the difference is obvious in the first sixty seconds. The dependent student scans for a matching example and stalls when none appears. The self-regulated student annotates the question, notes what is given, asks what the examiner is really testing and commits to a first step even without certainty.
             </p>
@@ -509,7 +527,7 @@ export default function ALevelIndependentThinkingBlog() {
 
             <figure className="my-8">
               <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                <img src="/images/blogs/physics-working-memory-cognitive-overload.webp" alt="Cognitive overload diagram showing how a student's working memory gets overwhelmed by memorised past paper methods" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/cognitive-overload-diagram.jpg" alt="Cognitive overload diagram showing how a student's working memory gets overwhelmed by memorised past paper methods" className="w-full h-auto block" loading="lazy" />
               </div>
               <figcaption className="mt-2 text-center text-xs text-gray-500 italic px-4">Memorising hundreds of past paper solutions can easily overload a student's working memory when faced with an unfamiliar exam question.</figcaption>
             </figure>
@@ -525,22 +543,34 @@ export default function ALevelIndependentThinkingBlog() {
               With a background in psychology, I read this stall as an emotional pattern as much as an academic one. Teenagers who have always been rewarded for neat, correct answers can develop a real fear of the blank page. Every past paper studied with the answers open beside it sends one quiet message: the right method already exists, so find it, do not create it. Over a year, this teaches dependence. The student gets good at spotting solutions and anxious about producing their own.
             </p>
             <p>
-              This is not only opinion. Reviewing hundreds of studies, the Education Endowment Foundation finds that metacognition and self-regulated learning, teaching students to plan, monitor and evaluate their own work, add around eight months of extra progress over a year. Retrieval practice and active recall build memory, but the larger gains come when a student also learns to manage and question their own thinking. The way out of the plateau is that same habit: asking why a method works rather than just copying it, so that not knowing feels like the start of learning instead of proof of failure.
+              When a dependent student sees a question they do not recognise, their first thought is not "what do I know that applies here?", but "I haven't been taught this." They stop trying to solve the problem and instead try to remember the solution. If memory fails, they freeze. This is the ceiling where grades stop improving, no matter how many hours they study.
             </p>
+
+            <figure className="my-8">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <img src="/images/blogs/callout-dependence-vs-confidence.jpg" alt="Illustration comparing locked dependent knowledge to open innovative thinking" className="w-full h-auto block" loading="lazy" />
+              </div>
+            </figure>
 
             {/* Section 06 */}
             <SectionHeading num="06" id="how-good-a-level-tutoring-in-the-uae-develops-independent-thinkers">How good A-Level tutoring in the UAE develops independent thinkers</SectionHeading>
 
             <Blockquote>
-              <strong>COACHING OVER SPOON-FEEDING:</strong> The right tutor talks less and asks better questions.
+              <strong>COACHING vs SPOON-FEEDING:</strong> Good tutoring removes the crutch so the student learns to walk alone.
             </Blockquote>
 
             <p>
-              This is where thoughtful tutoring earns its place. A tutor who spoon-feeds every answer keeps a student comfortable but dependent. Whether your child needs a Cambridge A-Level tutor in the UAE or an Edexcel A-Level tutor, the approach that works is the same, and it works across Maths, Physics, Chemistry and Economics. The tutors I work alongside coach students to think for themselves and practise with purpose rather than handing over solutions.
+              This is where private tutoring often gets misunderstood. If a tutor simply models the answer while the student copies it down, they are reinforcing the dependence. The student feels they understand it in the session, but fails the test on Monday because the tutor's thinking was doing all the work.
             </p>
             <p>
-              They pass the pen back, they ask a student to attempt the first line before any hint, they treat a wrong step as useful information, and they step back gradually as the student's judgement steadies. The aim of every session is a student who needs the tutor less next week, not more.
+              At Ustaad, our approach to A-Level tutoring is built around coaching rather than spoon-feeding. A strong tutor uses Socratic questioning, asking the student why they chose a method before confirming if it is right. They let the student make a mistake and trace it back, rather than interrupting to fix it immediately. This builds cognitive resilience, teaching the student that being wrong on the first attempt is part of the process, not a failure.
             </p>
+
+            <figure className="my-8">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <img src="/images/blogs/callout-coaching-vs-spoonfeeding.jpg" alt="Illustration comparing one-way spoon feeding to two-way coaching dialogue" className="w-full h-auto block" loading="lazy" />
+              </div>
+            </figure>
 
             {/* Case Studies Card */}
             <div className="my-6 p-5 bg-[#f8fafd] border border-slate-200 rounded-2xl space-y-4">
@@ -579,9 +609,13 @@ export default function ALevelIndependentThinkingBlog() {
 
             <figure className="my-8">
               <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                <img src="/images/blogs/uae-parent-teen-calm-conversation.webp" alt="UAE parent and teenager having a calm conversation about study habits and managing exam pressure at home" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/parent-teen-conversation.jpg" alt="UAE parent and teenager having a calm conversation about study habits and managing exam pressure at home" className="w-full h-auto block" loading="lazy" />
               </div>
               <figcaption className="mt-2 text-center text-xs text-gray-500 italic px-4">Parents don't need to know the A-Level syllabus to help; guiding how a student responds to being stuck is far more valuable.</figcaption>
+            </figure>
+
+            <figure className="my-8">
+              <img src="/images/blogs/home-habits-icons.jpg" alt="Five icons representing home habits for independent thinking" className="w-full h-auto block opacity-90" loading="lazy" />
             </figure>
 
             <div className="my-6 space-y-3">
