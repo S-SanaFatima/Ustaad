@@ -306,8 +306,8 @@ export default function ALevelIndependentThinkingBlog() {
       />
 
       {/* Header / Hero Header Section */}
-      <section className="bg-gradient-to-b from-slate-50 via-blue-50/20 to-white pt-8 pb-10 border-b border-slate-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-white pt-6 sm:pt-8 pb-0">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="mb-4">
@@ -432,6 +432,13 @@ export default function ALevelIndependentThinkingBlog() {
               The common thread is simple. A grade built from a year of work cannot be crammed the night before. It rewards the teenager who can plan an answer, defend a method and apply an idea to a problem they have not seen before, the exact skill that endless drilling never taught them.
             </p>
 
+            <figure className="my-8">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <img src="/images/blogs/student-exam-hall-mock-stress.webp" alt="UAE student looking stressed in an exam hall, highlighting the pressure of traditional timed exams" className="w-full h-auto block" loading="lazy" />
+              </div>
+              <figcaption className="mt-2 text-center text-xs text-gray-500 italic px-4">Traditional timed exams are giving way to portfolios in 2026, meaning last-minute cramming is no longer an option.</figcaption>
+            </figure>
+
             {/* Section 03 */}
             <SectionHeading num="03" id="why-more-past-papers-stopped-working">Why more past papers stopped working</SectionHeading>
 
@@ -500,6 +507,13 @@ export default function ALevelIndependentThinkingBlog() {
               That opening move is everything. In a Cambridge 9709 mechanics question or a 9701 chemistry synthesis, the marks live in the thinking, and that thinking only begins once a student trusts their own judgement enough to start. This kind of cognitive flexibility is not raw talent. It is a trained habit of starting before you feel ready.
             </p>
 
+            <figure className="my-8">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <img src="/images/blogs/physics-working-memory-cognitive-overload.webp" alt="Cognitive overload diagram showing how a student's working memory gets overwhelmed by memorised past paper methods" className="w-full h-auto block" loading="lazy" />
+              </div>
+              <figcaption className="mt-2 text-center text-xs text-gray-500 italic px-4">Memorising hundreds of past paper solutions can easily overload a student's working memory when faced with an unfamiliar exam question.</figcaption>
+            </figure>
+
             {/* Section 05 */}
             <SectionHeading num="05" id="why-some-students-stop-improving">Why some students stop improving</SectionHeading>
 
@@ -562,6 +576,13 @@ export default function ALevelIndependentThinkingBlog() {
             <p>
               You do not need to teach the syllabus to help. You just need to change how you respond when your child is stuck. These five habits do more than any extra worksheet.
             </p>
+
+            <figure className="my-8">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <img src="/images/blogs/uae-parent-teen-calm-conversation.webp" alt="UAE parent and teenager having a calm conversation about study habits and managing exam pressure at home" className="w-full h-auto block" loading="lazy" />
+              </div>
+              <figcaption className="mt-2 text-center text-xs text-gray-500 italic px-4">Parents don't need to know the A-Level syllabus to help; guiding how a student responds to being stuck is far more valuable.</figcaption>
+            </figure>
 
             <div className="my-6 space-y-3">
               <div className="p-4 bg-white rounded-2xl border border-slate-200 shadow-sm flex items-start gap-3">
