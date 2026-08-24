@@ -70,19 +70,6 @@ export default function TutorsPage() {
           <div className="grid lg:grid-cols-[1fr_1fr] gap-8 sm:gap-12 lg:gap-20 items-center">
 
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-              {/* Visible Breadcrumb Navigation */}
-              <nav aria-label="Breadcrumb" className="mb-3 sm:mb-4">
-                <ol className="flex items-center gap-2 text-xs font-semibold text-gray-500">
-                  <li>
-                    <a href="/" className="hover:text-[#0f4a9b] transition-colors">Home</a>
-                  </li>
-                  <li className="text-gray-400">/</li>
-                  <li className="text-[#0f4a9b] font-bold" aria-current="page">
-                    {cityName ? `Our Tutors (${cityName})` : 'Our Tutors'}
-                  </li>
-                </ol>
-              </nav>
-
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-xs sm:text-sm font-bold rounded-full mb-4 sm:mb-6 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.15)]">
                 <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> {cityName ? `Private Tutors in ${cityName}` : 'Our Tutors'}
               </div>

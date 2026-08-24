@@ -370,23 +370,13 @@ export default function ALevelTutorAbuDhabiPage() {
           </svg>
         </div>
 
-        {/* Hero Content Box */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
-          className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 md:pt-20 md:pb-14 max-w-5xl w-full"
-        >
-          {/* Breadcrumb Navigation */}
-          <nav aria-label="Breadcrumb" className="mb-4">
-            <ol className="flex items-center gap-2 text-xs font-medium text-gray-300">
-              <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
-              <li className="text-gray-500">/</li>
-              <li><a href="/a-level" className="hover:text-white transition-colors">A-Level</a></li>
-              <li className="text-gray-500">/</li>
-              <li className="text-[#f0c96a] font-semibold" aria-current="page">A-Level Tutor Abu Dhabi</li>
-            </ol>
-          </nav>
+          {/* Hero Content Box */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+            className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 md:pt-20 md:pb-14 max-w-5xl w-full"
+          >
 
           <motion.div
             variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}

@@ -14,22 +14,6 @@ export default function RelatedContent({ subjects = [], curricula = [], breadcru
   return (
     <section className="py-14 lg:py-16 bg-[#f7f9fc] border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {breadcrumbs.length > 0 && (
-          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-gray-500">
-            <ol className="flex flex-wrap items-center gap-1.5">
-              {breadcrumbs.map((crumb, i) => (
-                <li key={crumb.href} className="flex items-center gap-1.5">
-                  {i > 0 && <span aria-hidden="true" className="text-gray-300">→</span>}
-                  {i === breadcrumbs.length - 1 ? (
-                    <span className="font-semibold text-[#0a1f3d]">{crumb.name}</span>
-                  ) : (
-                    <a href={crumb.href} className="hover:text-[#0f4a9b] underline-offset-2 hover:underline">{crumb.name}</a>
-                  )}
-                </li>
-              ))}
-            </ol>
-          </nav>
-        )}
 
         <div className="grid md:grid-cols-2 gap-10">
           {subjects.length > 0 && (

@@ -144,17 +144,6 @@ export default function AboutPage() {
 
             {/* Left */}
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-              {/* Visible Breadcrumb Navigation */}
-              <nav aria-label="Breadcrumb" className="mb-4">
-                <ol className="flex items-center gap-2 text-xs font-semibold text-gray-500">
-                  <li>
-                    <a href="/" className="hover:text-[#0f4a9b] transition-colors">Home</a>
-                  </li>
-                  <li className="text-gray-400">/</li>
-                  <li className="text-[#0f4a9b] font-bold" aria-current="page">About</li>
-                </ol>
-              </nav>
-
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-sm font-bold rounded-full mb-6 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
                 <Users className="h-4 w-4" /> About Ustaad
               </div>
