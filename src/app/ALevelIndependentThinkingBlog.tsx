@@ -519,12 +519,6 @@ export default function ALevelIndependentThinkingBlog() {
               <strong>THE FIRST SIXTY SECONDS:</strong> It shows in how a student starts a hard question, not whether they finish it.
             </Blockquote>
 
-            <figure className="my-8">
-              <div className="rounded-2xl overflow-hidden shadow-sm">
-                <img src="/images/blogs/callout-first-sixty-seconds.jpg" alt="Stopwatch icon at 60 seconds highlighting the critical first minute of answering an exam question" className="w-full h-auto block" loading="lazy" />
-              </div>
-            </figure>
-
             <p>
               When Ustaad's tutors watch two students meet the same unfamiliar problem, the difference is obvious in the first sixty seconds. The dependent student scans for a matching example and stalls when none appears. The self-regulated student annotates the question, notes what is given, asks what the examiner is really testing and commits to a first step even without certainty.
             </p>
