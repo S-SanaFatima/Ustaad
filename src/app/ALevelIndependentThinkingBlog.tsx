@@ -346,28 +346,35 @@ export default function ALevelIndependentThinkingBlog() {
             <p className="text-gray-500 text-sm lg:text-[15px] leading-relaxed mb-4 text-left sm:text-justify">{BLOG.description}</p>
 
             {/* Meta Byline Box */}
-            <div className="mb-4 mt-2 space-y-2 p-4 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
+            <div className="mb-4 mt-2 space-y-3 p-4 bg-white rounded-2xl border border-slate-200/80 shadow-sm">
               <div className="flex items-start gap-2 text-xs text-gray-600">
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
-                <span className="leading-relaxed">
-                  <span className="font-medium">Written by:</span> <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">Nimra Shahzada</a>, Content Lead, Ustaad UAE
-                </span>
+                <div className="leading-relaxed">
+                  <div><span className="font-medium">Written by:</span> <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">Nimra Shahzada</a></div>
+                  <div className="text-gray-500 mt-0.5">Content Lead, Ustaad UAE</div>
+                </div>
               </div>
               <div className="flex items-start gap-2 text-xs text-gray-600">
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
-                <span className="leading-relaxed">
-                  <span className="font-medium">Reviewed by:</span> <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">Nida Iqbal</a>, MPhil in Education Leadership and Management
-                </span>
+                <div className="leading-relaxed">
+                  <div><span className="font-medium">Reviewed by:</span> <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">Nida Iqbal</a></div>
+                  <div className="text-gray-500 mt-0.5">MPhil in Education Leadership and Management</div>
+                </div>
               </div>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-400 pt-1 border-t border-slate-100 mt-2">
-                <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
+              <div className="flex flex-col gap-2.5 text-xs text-gray-500 pt-3 border-t border-slate-100 mt-2">
+                <time dateTime={BLOG.dateModified} className="flex items-center gap-1.5">
                   <Calendar className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />
-                  Last updated: July 2026 · Fact-checked against official exam-board sources (July 2026)
+                  Last updated: July 2026
                 </time>
-                <span className="flex items-center gap-1">
-                  <Clock className="h-3.5 w-3.5 text-[#C7A24A]" />{BLOG.readTime}
+                <span className="flex items-start gap-1.5 text-emerald-700 font-medium">
+                  <ShieldCheck className="h-3.5 w-3.5 shrink-0 mt-0.5" /> Fact-checked against official exam-board sources (July 2026)
                 </span>
-                <SocialShare url={shareUrl} title={BLOG.title} />
+                <span className="flex items-center gap-1.5">
+                  <Clock className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />{BLOG.readTime}
+                </span>
+                <div className="mt-1">
+                  <SocialShare url={shareUrl} title={BLOG.title} />
+                </div>
               </div>
             </div>
           </motion.div>
