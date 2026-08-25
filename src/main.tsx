@@ -63,6 +63,7 @@ const loadBiologyLanding = () => import('./app/BiologyTutorAbuDhabiPage');
 const loadIGCSETutorLanding = () => import('./app/IGCSETutorAbuDhabiPage');
 const loadGCSETutorLanding = () => import('./app/GCSETutorAbuDhabiPage');
 const loadALevelTutorLanding = () => import('./app/ALevelTutorAbuDhabiPage');
+const loadIBTutorLanding = () => import('./app/IBTutorAbuDhabiPage');
 const loadAcademicBlogsPage = () => import('./app/AcademicBlogsPage');
 const loadPsychologyBlogsPage = () => import('./app/PsychologyBlogsPage');
 const loadParentGuidanceBlogsPage = () => import('./app/ParentGuidanceBlogsPage');
@@ -118,6 +119,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/igcse-tutor-abu-dhabi': loadIGCSETutorLanding,
   '/gcse-tutor-abu-dhabi': loadGCSETutorLanding,
   '/a-level-tutor-abu-dhabi': loadALevelTutorLanding,
+  '/ib-tutor-abu-dhabi': loadIBTutorLanding,
   '/editorial': loadEditorialPage,
   '/authors/saira-s': loadAuthorPage,
   '/authors/nimra-shahzada': loadAuthorPage,
@@ -184,6 +186,7 @@ const BiologyLanding = lazy(loadBiologyLanding);
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
 const GCSETutorLanding = lazy(loadGCSETutorLanding);
 const ALevelTutorLanding = lazy(loadALevelTutorLanding);
+const IBTutorLanding = lazy(loadIBTutorLanding);
 const AcademicBlogsPage = lazy(loadAcademicBlogsPage);
 const PsychologyBlogsPage = lazy(loadPsychologyBlogsPage);
 const ParentGuidanceBlogsPage = lazy(loadParentGuidanceBlogsPage);
@@ -283,6 +286,7 @@ function AppRoutes() {
           <Route path="/igcse-tutor-abu-dhabi"               element={<IGCSETutorLanding />} />
           <Route path="/gcse-tutor-abu-dhabi"                element={<GCSETutorLanding />} />
           <Route path="/a-level-tutor-abu-dhabi"             element={<ALevelTutorLanding />} />
+          <Route path="/ib-tutor-abu-dhabi"                  element={<IBTutorLanding />} />
           <Route path="/editorial"                           element={<EditorialPage />} />
           <Route path="/authors/saira-s"                     element={<AuthorPage />} />
           <Route path="/authors/nimra-shahzada"              element={<AuthorPage />} />

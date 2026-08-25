@@ -532,10 +532,21 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Biology Tutors in Abu Dhabi', url: '/biology-tutor-abu-dhabi' }]
   },
   {
+    path: '/ib-tutor-abu-dhabi',
+    component: 'IBTutorAbuDhabiPage',
+    seo: {
+      title: 'IB Tutor Abu Dhabi | Online MYP, SL & HL Tuition',
+      description: 'Private online IB tutoring for Abu Dhabi families. Subject-matched MYP, SL and HL tutors, flexible weekly slots and between-session help. First session free.',
+      priority: 0.90,
+      changefreq: 'monthly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IB Curriculum', url: '/ib-curriculum' }, { name: 'IB Tutor Abu Dhabi', url: '/ib-tutor-abu-dhabi' }]
+  },
+  {
     path: '/igcse-tutor-abu-dhabi',
     component: 'IGCSETutorLanding',
     seo: {
-      title: 'IGCSE Tutor Abu Dhabi | Private IGCSE Tutoring — Ustaad',
+      title: 'IGCSE Tutor Abu Dhabi | Private IGCSE Tutoring – Ustaad',
       description: 'Private IGCSE tutors in Abu Dhabi for Maths, Physics, Chemistry, Biology, English and more. Cambridge and Edexcel aligned. Book a free trial.',
       priority: 0.90,
       changefreq: 'monthly'
