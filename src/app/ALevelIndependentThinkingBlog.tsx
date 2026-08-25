@@ -8,9 +8,9 @@ import { faqSchema } from './shared/schemas';
 const BLOG = {
   title: 'A-Level Tutoring in the UAE and Independent Thinking | Ustaad',
   titleLine1: 'USTAAD UAE · A-LEVEL STUDY PSYCHOLOGY',
-  titleLine2: 'A-Level Tutoring in the UAE Starts With Independent Thinking',
+  titleLine2: 'A-Level Tutoring in the UAE, Built on Independent Thinking',
   slug: 'a-level-tutoring-uae-independent-thinking',
-  description: 'UAE A-Level exams move to portfolios and coursework in 2026, so more past papers are not enough. See how independent thinking lifts your teen\'s grades.',
+  description: 'UAE A-Level exams move to portfolios and evidence-based grading in 2026, so more past papers are not enough. See how independent thinking lifts your teen\'s grades.',
   heroImage: '/images/blogs/hero-tutoring-session.webp',
   heroAlt: 'A-Level tutoring session in the UAE supporting Cambridge, Pearson Edexcel and OxfordAQA students',
   heroCaption: 'Doing more past papers is not enough for A-Level. See how independent thinking lifts your teenager\'s grades.',
@@ -432,7 +432,7 @@ export default function ALevelIndependentThinkingBlog() {
               Independent thinking at A-Level is a student's ability to approach an unfamiliar question without a memorised template: to analyse what is being asked, choose a suitable method, and justify each step on their own.
             </p>
             <p>
-              It draws on critical thinking, metacognition and problem-solving rather than recall alone. It is the skill that separates a grade B from an A or A*, because top marks reward reasoning applied to new problems.
+              It draws on critical thinking, <a href="https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] font-bold underline">metacognition and self-regulated learning</a> rather than recall alone. It is the skill that separates a grade B from an A or A*, because top marks reward reasoning applied to new problems.
             </p>
 
             {/* Section 02 */}
@@ -443,7 +443,7 @@ export default function ALevelIndependentThinkingBlog() {
             </Blockquote>
 
             <p>
-              This year the point matters more than ever. For the May and June 2026 series, Cambridge, Pearson Edexcel and OxfordAQA all cancelled their A-Level exams in the UAE, a decision taken with the authorities after regional disruption. In place of the single timed paper, each board now builds grades from a portfolio of evidence gathered across the year.
+              This year the point matters more than ever. For the May and June 2026 series, Cambridge, Pearson Edexcel and OxfordAQA all <a href="https://gulfnews.com/uae/education/dubais-khda-uae-schools-respond-after-igcse-a-level-ib-exam-cancellations-1.500495828" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] font-bold underline">cancelled their A-Level exams in the UAE</a>, a decision taken with the authorities after regional disruption. In place of the single timed paper, each board now builds grades from a portfolio of evidence gathered across the year.
             </p>
             <p>
               The detail differs by board. Cambridge grades a portfolio of work marked against the syllabus assessment objectives, with teachers confirming the work is the student's own. Pearson Edexcel awards grades from a portfolio that can include past papers, mock exams and predicted grades. OxfordAQA uses banked unit results, or a portfolio assessed by its examiners where a student has none.
@@ -499,11 +499,7 @@ export default function ALevelIndependentThinkingBlog() {
                     <td className="p-3.5">Limited; work can look rehearsed</td>
                     <td className="p-3.5 font-medium text-[#0a1f3d]">Strong; shows genuine understanding</td>
                   </tr>
-                  <tr className="hover:bg-[#0f4a9b]/[0.02] transition-colors">
-                    <td className="p-3.5 font-bold text-[#0f4a9b] bg-[#0f4a9b]/[0.04]">Typical ceiling</td>
-                    <td className="p-3.5 text-amber-700 font-medium">Plateaus around B or C</td>
-                    <td className="p-3.5 text-[#0f4a9b] font-bold">Reaches the top bands (A / A*)</td>
-                  </tr>
+                  
                 </tbody>
               </table>
             </div>
@@ -674,19 +670,19 @@ export default function ALevelIndependentThinkingBlog() {
             <ul className="space-y-2 text-xs sm:text-sm text-gray-600 bg-slate-50 p-4 rounded-2xl border border-slate-200">
               <li className="flex items-start gap-2">
                 <span className="text-[#0f4a9b] font-bold">•</span>
-                <span><strong>Cambridge International:</strong> Portfolio of Evidence (June 2026 series guidance)</span>
+                <span><a href="https://www.cambridgeinternational.org/" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]"><strong>Cambridge International:</strong> Portfolio of Evidence (June 2026 series guidance)</a></span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#0f4a9b] font-bold">•</span>
-                <span><strong>Pearson Edexcel:</strong> Arrangements for International GCSE and A Level exams, May/June 2026</span>
+                <span><a href="https://qualifications.pearson.com/en/campaigns/support-for-centres-affected-by-the-conflict-in-the-middle-east/arrangements-for-international-gcse-and-international-a-level-exams.html" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]"><strong>Pearson Edexcel:</strong> Arrangements for International GCSE and A Level exams, May/June 2026</a></span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#0f4a9b] font-bold">•</span>
-                <span><strong>OxfordAQA:</strong> Support for schools in the Gulf and Middle East region</span>
+                <span><a href="https://www.oxfordaqa.com/news/gulf-and-middle-east-region-support/" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]"><strong>OxfordAQA:</strong> Support for schools in the Gulf and Middle East region</a></span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#0f4a9b] font-bold">•</span>
-                <span><strong>Education Endowment Foundation:</strong> Metacognition and Self-Regulated Learning Evidence Review</span>
+                <span><a href="https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]"><strong>Education Endowment Foundation:</strong> Metacognition and Self-Regulated Learning Evidence Review</a></span>
               </li>
             </ul>
 
