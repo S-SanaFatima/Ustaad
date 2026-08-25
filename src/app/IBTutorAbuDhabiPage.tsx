@@ -241,6 +241,14 @@ export default function IBTutorAbuDhabiPage() {
   const [openBookletIndex, setOpenBookletIndex] = useState<number | null>(null);
   const [activeSubjectTab, setActiveSubjectTab] = useState(0);
   const [activeRadarIndex, setActiveRadarIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
 
   return (
     <Layout>
@@ -546,7 +554,7 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
       
-                  {/* 2 WHERE THE JUMP TO DIPLOMA BITES */}
+                        {/* 2 WHERE THE JUMP TO DIPLOMA BITES */}
       <section className="py-20 bg-white relative overflow-hidden">
         <GridBackground light />
         
@@ -561,21 +569,27 @@ export default function IBTutorAbuDhabiPage() {
             {/* Left Column: Interactive 3D Compass Radar Circle */}
             <div className="lg:col-span-5 flex justify-center">
               <div 
-                className="relative w-[270px] h-[270px] sm:w-[340px] sm:h-[340px] [--radius:95px] sm:[--radius:130px] select-none"
+                className="relative w-[270px] h-[270px] sm:w-[340px] sm:h-[340px] select-none shrink-0"
               >
                 {/* Connection lines underneath using absolute SVG */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ overflow: 'visible' }}>
+                <svg className="absolute inset-0 w-full h-full pointer-events-none animate-fade-in" style={{ overflow: 'visible' }}>
                   {JUMP_HABITS.map((_, idx) => {
                     const isActive = activeRadarIndex === idx;
                     const angleRad = ((idx * 60 - 90) * Math.PI) / 180;
+                    const radius = isMobile ? 95 : 130;
+                    const center = isMobile ? 135 : 170;
+                    
+                    const xTarget = center + Math.cos(angleRad) * radius;
+                    const yTarget = center + Math.sin(angleRad) * radius;
+
                     return (
                       <g key={idx}>
                         {/* Static connecting line */}
                         <line
-                          x1="50%"
-                          y1="50%"
-                          x2={`calc(50% + ${Math.cos(angleRad)} * var(--radius))`}
-                          y2={`calc(50% + ${Math.sin(angleRad)} * var(--radius))`}
+                          x1={center}
+                          y1={center}
+                          x2={xTarget}
+                          y2={yTarget}
                           className={`transition-all duration-500 ${
                             isActive ? 'stroke-[#C7A24A] stroke-[2px] opacity-100' : 'stroke-slate-200 stroke-[1px] opacity-50'
                           }`}
@@ -583,10 +597,10 @@ export default function IBTutorAbuDhabiPage() {
                         {/* Glow effect on the active connector line */}
                         {isActive && (
                           <line
-                            x1="50%"
-                            y1="50%"
-                            x2={`calc(50% + ${Math.cos(angleRad)} * var(--radius))`}
-                            y2={`calc(50% + ${Math.sin(angleRad)} * var(--radius))`}
+                            x1={center}
+                            y1={center}
+                            x2={xTarget}
+                            y2={yTarget}
                             className="stroke-[#C7A24A] stroke-[4px] opacity-25 blur-[3px]"
                           />
                         )}
@@ -597,10 +611,8 @@ export default function IBTutorAbuDhabiPage() {
 
                 {/* Central Compass dial */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-white border border-slate-100 shadow-[inset_0_2px_5px_rgba(15,74,155,0.03),0_10px_25px_rgba(15,74,155,0.06)] flex items-center justify-center relative">
-                  {/* Outer ticks */}
-                  <div className="absolute inset-2 border border-dashed border-slate-200/80 rounded-full animate-[spin_50s_linear_infinite]" />
                   
-                  {/* Compass pointer */}
+                  {/* Compass pointer arrow */}
                   <motion.div 
                     animate={{ rotate: activeRadarIndex * 60 }} 
                     transition={{ type: 'spring', stiffness: 90, damping: 16 }}
@@ -612,21 +624,29 @@ export default function IBTutorAbuDhabiPage() {
                   </motion.div>
                 </div>
 
-                {/* Circular Nodes */}
+                {/* Circular Nodes positioned mathematically */}
                 {JUMP_HABITS.map((item, idx) => {
                   const isActive = activeRadarIndex === idx;
-                  const angle = idx * 60 - 90;
+                  const angleRad = ((idx * 60 - 90) * Math.PI) / 180;
+                  const radius = isMobile ? 95 : 130;
+                  const center = isMobile ? 135 : 170;
+
+                  const xPos = center + Math.cos(angleRad) * radius;
+                  const yPos = center + Math.sin(angleRad) * radius;
+
                   return (
                     <button
                       key={idx}
                       onClick={() => setActiveRadarIndex(idx)}
-                      className={`absolute left-1/2 top-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-md border focus:outline-none ${
+                      className={`absolute w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-md border focus:outline-none ${
                         isActive 
                           ? 'bg-[#0f4a9b] text-white border-[#0f4a9b] scale-110 shadow-[#0f4a9b]/25 z-20' 
                           : 'bg-white text-slate-500 border-slate-100 hover:text-[#0f4a9b] hover:border-slate-200 scale-100 hover:scale-105 z-10'
                       }`}
                       style={{
-                        transform: `translate(-50%, -50%) rotate(${angle}deg) translate(var(--radius)) rotate(-${angle}deg)`
+                        left: `${xPos}px`,
+                        top: `${yPos}px`,
+                        transform: 'translate(-50%, -50%)'
                       }}
                       title={item.title}
                     >
