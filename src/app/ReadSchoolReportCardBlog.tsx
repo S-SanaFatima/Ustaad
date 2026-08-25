@@ -750,8 +750,8 @@ export default function ReadSchoolReportCardBlog() {
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <a href="/contact#form"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white hover:brightness-110 transition text-sm sm:w-auto"
-                style={{ background: 'linear-gradient(90deg, #0f4a9b 0%, #0a3a79 100%)' }}>
-                Book a Free Consultation →
+                style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
+                Book Your Free Trial →
               </a>
             </div>
           </div>

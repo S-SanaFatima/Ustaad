@@ -487,7 +487,7 @@ export default function ExamPanicBlog() {
               <a href="/contact#form"
                 className="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-white text-sm hover:brightness-110 transition"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Speak to an Ustaad academic mentor
+                Book Your Free Trial →
               </a>
             </div>
 
