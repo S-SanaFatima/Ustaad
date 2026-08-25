@@ -127,7 +127,7 @@ function TiltCard({ children, className, style, delay, ...props }) {
 export default function IBTutorAbuDhabiPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
-  const [activeDialIndex, setActiveDialIndex] = useState(0);
+  const [activeOrigamiIndex, setActiveOrigamiIndex] = useState<number | null>(0);
 
   return (
     <Layout>
@@ -672,76 +672,81 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
 
-            {/* 6 WHEN ABU DHABI PARENTS TEND TO CALL */}
+                  {/* 6 WHEN ABU DHABI PARENTS TEND TO CALL */}
       <section className="py-20 bg-slate-50/50 relative overflow-hidden">
         <GridBackground light />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#C7A24A]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#0f4a9b]/5 rounded-full blur-[100px] pointer-events-none" />
         
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="mb-14 max-w-2xl mx-auto">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-14 max-w-2xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">When Abu Dhabi Parents Tend to Call</h2>
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed italic">Four everyday signals families notice before that first phone call.</p>
           </div>
 
-          {/* Display Card for Active Option */}
-          <div className="relative w-full max-w-lg mx-auto h-[280px] sm:h-[260px] flex items-center justify-center mb-10">
-            {/* Glowing backdrop card with double shadows */}
-            <div className="absolute inset-0 bg-white rounded-3xl border border-slate-100/80 shadow-[0_2px_4px_rgba(0,0,0,0.01),0_20px_45px_rgba(15,74,155,0.05)] pointer-events-none" />
-            
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeDialIndex}
-                initial={{ opacity: 0, y: 15, scale: 0.97 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -15, scale: 0.97 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-                className="p-8 sm:p-10 flex flex-col items-center text-center max-w-md select-none"
-              >
-                <div className="w-16 h-16 rounded-full bg-[#0f4a9b]/5 flex items-center justify-center mb-5 text-[#0f4a9b] shadow-inner">
-                  {SIGNALS[activeDialIndex].largeIcon}
-                </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-3">{SIGNALS[activeDialIndex].title}</h3>
-                <p className="text-[14px] sm:text-[15px] text-slate-600 leading-relaxed">{SIGNALS[activeDialIndex].desc}</p>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* 3D Dial Control */}
-          <div className="relative w-full max-w-sm mx-auto h-[120px] flex items-center justify-center select-none" style={{ maskImage: 'linear-gradient(to right, transparent, white 20%, white 80%, transparent)' }}>
-            <div className="relative w-full h-full flex items-center justify-center" style={{ perspective: '1000px' }}>
-              <motion.div
-                animate={{ rotateY: activeDialIndex * -90 }}
-                transition={{ type: 'spring', stiffness: 100, damping: 18 }}
-                className="relative w-full h-[60px] flex items-center justify-center"
-                style={{ transformStyle: 'preserve-3d' }}
-              >
-                {SIGNALS.map((sig, idx) => {
-                  const isSelected = activeDialIndex === idx;
-                  return (
-                    <div
-                      key={idx}
-                      onClick={() => setActiveDialIndex(idx)}
-                      className={`absolute flex items-center justify-center px-4 py-2 border rounded-full font-bold cursor-pointer text-xs sm:text-sm transition-all duration-300 backface-hidden ${
-                        isSelected 
-                          ? 'border-[#C7A24A] bg-[#C7A24A]/10 text-[#C7A24A] shadow-md shadow-[#C7A24A]/10' 
-                          : 'border-slate-200 bg-white text-slate-500 hover:text-[#0f4a9b]'
-                      }`}
-                      style={{
-                        transform: `rotateY(${idx * 90}deg) translateZ(135px)`,
-                        transformStyle: 'preserve-3d',
-                      }}
-                    >
-                      <span className="mr-1.5">{sig.icon}</span>
-                      {sig.shortTitle}
+          {/* 3D Origami Folding Stack */}
+          <div className="flex flex-col gap-4 max-w-2xl mx-auto" style={{ perspective: '1200px' }}>
+            {SIGNALS.map((sig, idx) => {
+              const isOpen = activeOrigamiIndex === idx;
+              return (
+                <div 
+                  key={idx} 
+                  className={`border rounded-2xl overflow-hidden transition-all duration-300 bg-white ${
+                    isOpen 
+                      ? 'border-[#0f4a9b]/30 shadow-[0_12px_30px_rgba(15,74,155,0.06)]' 
+                      : 'border-slate-100 hover:border-slate-200/80 shadow-[0_4px_12px_rgba(0,0,0,0.01)]'
+                  }`}
+                >
+                  <button 
+                    onClick={() => setActiveOrigamiIndex(isOpen ? null : idx)}
+                    className="w-full flex items-center justify-between p-5 text-left focus:outline-none select-none"
+                    aria-expanded={isOpen}
+                  >
+                    <div className="flex items-center gap-4">
+                      {/* Interactive indicator circle */}
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                        isOpen ? 'bg-[#0f4a9b] text-white shadow-md shadow-[#0f4a9b]/20' : 'bg-[#0f4a9b]/5 text-[#0f4a9b]'
+                      }`}>
+                        {sig.icon}
+                      </div>
+                      <span className="font-extrabold text-[#0a1f3d] text-base sm:text-lg">{sig.title}</span>
                     </div>
-                  );
-                })}
-              </motion.div>
-            </div>
+                    
+                    {/* Rotating chevron */}
+                    <span className={`flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 border border-slate-100 text-slate-400 transition-transform duration-500 ${
+                      isOpen ? 'rotate-180 text-[#0f4a9b] border-[#0f4a9b]/20' : ''
+                    }`}>
+                      <ChevronDown className="h-4 w-4" />
+                    </span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0, rotateX: -60 }}
+                        animate={{ opacity: 1, height: 'auto', rotateX: 0 }}
+                        exit={{ opacity: 0, height: 0, rotateX: -60 }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ originY: 0, transformStyle: 'preserve-3d' }}
+                        className="overflow-hidden relative"
+                      >
+                        {/* Shading shadow line on the hinge fold */}
+                        <div className="absolute top-0 inset-x-0 h-4 bg-gradient-to-b from-black/[0.03] to-transparent pointer-events-none" />
+                        
+                        <div className="p-6 pt-5 bg-[#f8fafc] border-t border-slate-100/80">
+                          <p className="text-slate-600 text-sm sm:text-base leading-relaxed pl-14">
+                            {sig.desc}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
           </div>
 
           {/* Footnote */}
-          <div className="mt-8 text-center max-w-xl mx-auto">
+          <div className="mt-12 text-center max-w-xl mx-auto">
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
               If two or more signals ring true, the free first session is the quickest way to know whether tutoring will help.
             </p>
