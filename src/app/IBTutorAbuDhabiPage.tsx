@@ -235,42 +235,97 @@ export default function IBTutorAbuDhabiPage() {
       <StatsBar />
 
       {/* 1 HOW YOUR CHILD'S IB HOUR IS SPENT */}
-      <section className="py-14 sm:py-16 bg-white relative overflow-hidden">
+      <section className="py-20 bg-[#f8fafc] relative overflow-hidden">
+        {/* Subtle background decoration */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0f4a9b]/5 rounded-full blur-[100px] pointer-events-none -mt-48 -mr-48" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#C7A24A]/5 rounded-full blur-[100px] pointer-events-none -mb-48 -ml-48" />
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10 max-w-2xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14304D] mb-3">How Your Child's IB Hour Is Spent</h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">A look at the sixty minutes, from shared screen to next steps.</p>
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">How Your Child's IB Hour Is Spent</h2>
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
+                A look at the sixty minutes, from shared screen to next steps.
+              </p>
+            </motion.div>
           </div>
           
-          <div className="mb-8 max-w-4xl mx-auto">
-            <img src="/ib-tutor-abu-dhabi-session-flow-icons.svg" alt="Six icons showing how a Ustaad IB session runs, from shared screen to written next steps." className="w-full h-auto opacity-90" loading="lazy" />
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div className="bg-[#f8fafc] rounded-2xl p-6 border border-slate-200">
-              <h3 className="font-bold text-[#14304D] mb-2">One Shared Screen</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">Tutor and student work the same live document together, in real time.</p>
-            </div>
-            <div className="bg-[#f8fafc] rounded-2xl p-6 border border-slate-200">
-              <h3 className="font-bold text-[#14304D] mb-2">Drafts Reviewed First</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">Current coursework drafts get feedback before any new content is taught.</p>
-            </div>
-            <div className="bg-[#f8fafc] rounded-2xl p-6 border border-slate-200">
-              <h3 className="font-bold text-[#14304D] mb-2">Target on Record</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">Every session opens with the university course and points target visible.</p>
-            </div>
-            <div className="bg-[#f8fafc] rounded-2xl p-6 border border-slate-200">
-              <h3 className="font-bold text-[#14304D] mb-2">The Week Mapped</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">We agree exactly what your child studies before the next session.</p>
-            </div>
-            <div className="bg-[#f8fafc] rounded-2xl p-6 border border-slate-200">
-              <h3 className="font-bold text-[#14304D] mb-2">Answers, Not Notes</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">Time goes into writing full answers, not copying tidy revision notes.</p>
-            </div>
-            <div className="bg-[#f8fafc] rounded-2xl p-6 border border-slate-200">
-              <h3 className="font-bold text-[#14304D] mb-2">Written Next Steps</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">Each hour ends with two or three clear actions to complete.</p>
-            </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto" style={{ perspective: '1200px' }}>
+            {[
+              { 
+                icon: <Video className="w-8 h-8 text-[#0f4a9b]" />, 
+                title: 'One Shared Screen', 
+                desc: 'Tutor and student work the same live document together, in real time.',
+                delay: 0.1
+              },
+              { 
+                icon: <FileText className="w-8 h-8 text-[#0f4a9b]" />, 
+                title: 'Drafts Reviewed First', 
+                desc: 'Current coursework drafts get feedback before any new content is taught.',
+                delay: 0.2
+              },
+              { 
+                icon: <Target className="w-8 h-8 text-[#0f4a9b]" />, 
+                title: 'Target on Record', 
+                desc: 'Every session opens with the university course and points target visible.',
+                delay: 0.3
+              },
+              { 
+                icon: <Calendar className="w-8 h-8 text-[#0f4a9b]" />, 
+                title: 'The Week Mapped', 
+                desc: 'We agree exactly what your child studies before the next session.',
+                delay: 0.4
+              },
+              { 
+                icon: <PenTool className="w-8 h-8 text-[#0f4a9b]" />, 
+                title: 'Answers, Not Notes', 
+                desc: 'Time goes into writing full answers, not copying tidy revision notes.',
+                delay: 0.5
+              },
+              { 
+                icon: <CheckCircle className="w-8 h-8 text-[#0f4a9b]" />, 
+                title: 'Written Next Steps', 
+                desc: 'Each hour ends with two or three clear actions to complete.',
+                delay: 0.6
+              }
+            ].map((card, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30, rotateX: 10 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: card.delay, type: 'spring', stiffness: 100, damping: 20 }}
+                whileHover={{ 
+                  y: -10, 
+                  scale: 1.02,
+                  rotateY: 4,
+                  rotateX: -4,
+                  boxShadow: '0 25px 50px -12px rgba(15, 74, 155, 0.15), 0 10px 20px -5px rgba(15, 74, 155, 0.1)'
+                }}
+                className="bg-white rounded-[24px] p-8 border border-slate-100/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] relative group cursor-default transform-gpu"
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0f4a9b]/[0.03] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px]" />
+                
+                <div className="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white group-hover:shadow-md transition-all duration-500" style={{ transform: 'translateZ(30px)' }}>
+                  {card.icon}
+                </div>
+                
+                <h3 className="text-[20px] font-bold text-[#0a1f3d] mb-3 group-hover:text-[#0f4a9b] transition-colors" style={{ transform: 'translateZ(20px)' }}>
+                  {card.title}
+                </h3>
+                <p className="text-[15px] text-slate-600 leading-relaxed" style={{ transform: 'translateZ(10px)' }}>
+                  {card.desc}
+                </p>
+                
+                {/* Decorative glowing edge on hover */}
+                <div className="absolute inset-x-8 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[#C7A24A]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
