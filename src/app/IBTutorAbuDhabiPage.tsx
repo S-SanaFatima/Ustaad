@@ -61,7 +61,13 @@ export default function IBTutorAbuDhabiPage() {
           ]),
           serviceSchema('Online IB Tutoring', 'Expert MYP and Diploma tutoring for Abu Dhabi students.'),
           faqSchema(FAQS),
-          reviewSchema(5, 5)
+          reviewSchema('Ustaad - Online IB Tutor Abu Dhabi', [
+            {
+              author: 'Fatima A.',
+              reviewBody: "The sessions transformed how my daughter approached HL Chemistry. Her tutor guided her through the Internal Assessment perfectly, and her predicted points jumped from a 4 to a 6 just in time for university applications.",
+              ratingValue: 5
+            }
+          ])
         ]}
       />
 
