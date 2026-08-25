@@ -633,10 +633,10 @@ export default function IBTutorAbuDhabiPage() {
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed italic">The habits the Diploma assumes but classrooms rarely slow down for.</p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-center max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-5xl mx-auto">
             
             {/* Left Column: Interactive 3D Compass Radar Circle */}
-            <div className="lg:col-span-5 flex justify-center">
+            <div className="lg:col-span-5 flex justify-center w-full">
               <div 
                 className="relative w-[270px] h-[270px] sm:w-[340px] sm:h-[340px] select-none shrink-0"
               >
@@ -730,7 +730,7 @@ export default function IBTutorAbuDhabiPage() {
             </div>
 
             {/* Right Column: Display Panel for Selected Node */}
-            <div className="lg:col-span-7 flex items-center min-h-[220px]">
+            <div className="lg:col-span-7 flex items-center mt-8 lg:mt-0 min-h-[220px]">
               <AnimatePresence mode="wait">
                 {(() => {
                   const activeHabit = JUMP_HABITS[activeRadarIndex];
@@ -780,9 +780,9 @@ export default function IBTutorAbuDhabiPage() {
           </div>
 
           {/* Chronological Timeline Navigation Rail */}
-          <div className="relative max-w-4xl mx-auto mb-12 px-6">
+          <div className="relative max-w-4xl mx-auto mb-10 sm:mb-12 px-2 sm:px-6">
             {/* Background Line Connector */}
-            <div className="absolute top-[22px] left-8 right-8 h-1 bg-slate-200 rounded-full z-0">
+            <div className="absolute top-[20px] sm:top-[22px] left-[36px] right-[36px] h-1 bg-slate-200 rounded-full z-0">
               <motion.div 
                 className="h-full bg-[#C7A24A] rounded-full"
                 animate={{ width: `${(activeTimelineIndex / 5) * 100}%` }}
@@ -803,11 +803,11 @@ export default function IBTutorAbuDhabiPage() {
                       setActiveTimelineIndex(idx);
                       setTimelineResetKey(prev => prev + 1); // Reset autoplay timer so it pauses, then resumes later
                     }}
-                    className="flex flex-col items-center focus:outline-none shrink-0 min-w-[100px]"
+                    className="flex flex-col items-center focus:outline-none shrink-0 min-w-[72px] sm:min-w-[100px]"
                   >
                     {/* Node Circle */}
                     <div 
-                      className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
                         isActive 
                           ? 'bg-[#0f4a9b] border-[#0f4a9b] text-white scale-110 shadow-lg shadow-[#0f4a9b]/25' 
                           : isPassed
@@ -819,12 +819,12 @@ export default function IBTutorAbuDhabiPage() {
                     </div>
 
                     {/* Milestone Labels */}
-                    <span className={`mt-3 text-[11px] font-extrabold uppercase tracking-wider transition-colors duration-300 ${
+                    <span className={`hidden sm:block mt-3 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider transition-colors duration-300 ${
                       isActive ? 'text-[#0f4a9b]' : 'text-slate-400'
                     }`}>
                       {milestone.month}
                     </span>
-                    <span className={`text-[12px] font-bold text-center transition-colors duration-300 mt-0.5 ${
+                    <span className={`mt-1.5 sm:mt-0.5 text-[11px] sm:text-[12px] font-bold text-center transition-colors duration-300 ${
                       isActive ? 'text-[#0a1f3d]' : 'text-slate-500'
                     }`}>
                       {milestone.label}
@@ -939,7 +939,7 @@ export default function IBTutorAbuDhabiPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.22 }}
-                className="bg-[#f8fafc] rounded-3xl border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.02)] p-6 sm:p-8 grid md:grid-cols-12 gap-8 items-center"
+                className="bg-[#f8fafc] rounded-3xl border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.02)] p-6 sm:p-8 grid md:grid-cols-12 gap-6 md:gap-8 items-start"
               >
                 {/* Left detailed info and CTA */}
                 <div className="md:col-span-6 flex flex-col justify-between h-full text-left">
