@@ -500,37 +500,31 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
       
-      {/* 3 WHAT YOU KEEP AFTER THE FREE SESSION */}
-      <section className="py-14 sm:py-16 bg-white border-y border-[#E6EBEE]">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14304D] mb-3">What You Keep After the Free Session</h2>
-          <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic mb-10 max-w-xl mx-auto">Four things that stay with you, whether or not you continue.</p>
-          
-          <div className="max-w-4xl mx-auto mb-10">
-            <img src="/ib-tutor-abu-dhabi-free-session-takeaways.svg" alt="Four things families keep after a free IB session: a starting point, the gap, a route, a held slot." className="w-full h-auto" loading="lazy" />
+            {/* 3 WHAT YOU KEEP AFTER THE FREE SESSION */}
+      <section className="py-20 bg-white border-y border-slate-100">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">What You Keep After the Free Session</h2>
+            <p className="text-slate-500 text-base sm:text-lg leading-relaxed italic">Four things that stay with you, whether or not you continue.</p>
           </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-            <div>
-              <h3 className="font-bold text-[#14304D] mb-1">Honest Starting Point</h3>
-              <p className="text-sm text-[#46535E]">A frank read on where your child actually sits today.</p>
-            </div>
-            <div>
-              <h3 className="font-bold text-[#14304D] mb-1">A Two-Year Route</h3>
-              <p className="text-sm text-[#46535E]">The path from today to final exams sketched, not guessed.</p>
-            </div>
-            <div>
-              <h3 className="font-bold text-[#14304D] mb-1">The Gap in Numbers</h3>
-              <p className="text-sm text-[#46535E]">The distance between current marks and the target, written plainly.</p>
-            </div>
-            <div>
-              <h3 className="font-bold text-[#14304D] mb-1">A Slot Held</h3>
-              <p className="text-sm text-[#46535E]">A weekly Abu Dhabi time reserved, should you choose to continue.</p>
-            </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+            {[
+              { num: '01', title: 'Honest Starting Point', desc: 'A frank read on where your child actually sits today.' },
+              { num: '02', title: 'A Two-Year Route', desc: 'The path from today to final exams sketched, not guessed.' },
+              { num: '03', title: 'The Gap in Numbers', desc: 'The distance between current marks and the target, written plainly.' },
+              { num: '04', title: 'A Slot Held', desc: 'A weekly Abu Dhabi time reserved, should you choose to continue.' }
+            ].map((item, idx) => (
+              <div key={idx} className="relative pl-6 border-l-2 border-slate-100 hover:border-[#0f4a9b] transition-colors duration-300">
+                <span className="block text-4xl font-light text-[#C7A24A] mb-3 select-none">{item.num}</span>
+                <h3 className="font-bold text-[#0a1f3d] text-lg mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-
+      
       {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
       <section className="py-14 sm:py-16 bg-[#F6F8F9] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
