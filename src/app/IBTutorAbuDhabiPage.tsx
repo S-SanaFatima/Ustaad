@@ -708,7 +708,7 @@ export default function IBTutorAbuDhabiPage() {
                       }`}>
                         {sig.icon}
                       </div>
-                      <span className="font-extrabold text-[#0a1f3d] text-base sm:text-lg">{sig.title}</span>
+                      <span className="font-bold text-[#0a1f3d] text-base sm:text-[17px] antialiased [-webkit-font-smoothing:antialiased]">{sig.title}</span>
                     </div>
                     
                     {/* Rotating chevron */}
@@ -722,12 +722,11 @@ export default function IBTutorAbuDhabiPage() {
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
-                        initial={{ opacity: 0, height: 0, rotateX: -60 }}
-                        animate={{ opacity: 1, height: 'auto', rotateX: 0 }}
-                        exit={{ opacity: 0, height: 0, rotateX: -60 }}
-                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        style={{ originY: 0, transformStyle: 'preserve-3d' }}
-                        className="overflow-hidden relative"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                        className="overflow-hidden"
                       >
                         {/* Shading shadow line on the hinge fold */}
                         <div className="absolute top-0 inset-x-0 h-4 bg-gradient-to-b from-black/[0.03] to-transparent pointer-events-none" />
