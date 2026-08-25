@@ -128,6 +128,7 @@ export default function IBTutorAbuDhabiPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
   const [activeOrigamiIndex, setActiveOrigamiIndex] = useState<number | null>(0);
+  const [openBookletIndex, setOpenBookletIndex] = useState<number | null>(null);
 
   return (
     <Layout>
@@ -557,43 +558,76 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
       
-      {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
-      <section className="py-14 sm:py-16 bg-[#F6F8F9] relative overflow-hidden">
+            {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
+      <section className="py-20 bg-slate-50/50 relative overflow-hidden">
+        <GridBackground light />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#0f4a9b]/5 rounded-full blur-[100px] pointer-events-none" />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-8 max-w-2xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14304D] mb-3">Tuition That Bends Around IB Deadlines</h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">Where our timetable moves so IB crunch weeks stay manageable.</p>
+          <div className="text-center mb-14 max-w-2xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">Tuition That Bends Around IB Deadlines</h2>
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed italic">Where our timetable moves so IB crunch weeks stay manageable.</p>
           </div>
 
-          <div className="max-w-4xl mx-auto mb-10">
-            <img src="/ib-tutor-abu-dhabi-academic-year-timeline.svg" alt="A school-year timeline showing when Ustaad IB sessions intensify, lighten or pause for Abu Dhabi families." className="w-full h-auto" loading="lazy" />
-          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            {[
+              { title: "Mock Run-Ups", desc: "Sessions ramp up in the weeks before each school mock.", icon: <Calendar className="w-5 h-5" /> },
+              { title: "Holiday Intensives", desc: "Winter and spring breaks used for focused catch-up blocks.", icon: <Timer className="w-5 h-5" /> },
+              { title: "Coursework Crunches", desc: "Lighter weeks when Extended Essay and IA deadlines land together.", icon: <FileText className="w-5 h-5" /> },
+              { title: "Travel Continuity", desc: "The same tutor keeps sessions running while your family travels abroad.", icon: <ArrowRightLeft className="w-5 h-5" /> },
+              { title: "Ramadan Timing", desc: "Slots move to late-evening or pre-Iftar through the holy month.", icon: <Clock className="w-5 h-5" /> },
+              { title: "Exam-Week Rest", desc: "Sessions pause during the April to May window so students recover.", icon: <CheckCircle className="w-5 h-5" /> },
+            ].map((item, idx) => {
+              const isOpen = openBookletIndex === idx;
+              return (
+                <div
+                  key={idx}
+                  onClick={() => setOpenBookletIndex(isOpen ? null : idx)}
+                  onMouseEnter={() => setOpenBookletIndex(idx)}
+                  onMouseLeave={() => setOpenBookletIndex(null)}
+                  className="relative w-full h-[180px] cursor-pointer select-none"
+                  style={{ perspective: '1200px' }}
+                >
+                  {/* 3D Booklet Container */}
+                  <div 
+                    className="w-full h-full relative transition-transform duration-500 transform-gpu"
+                    style={{ 
+                      transformStyle: 'preserve-3d',
+                    }}
+                  >
+                    {/* Inside Page (Base page container) */}
+                    <div className="absolute inset-0 bg-[#f8fafc] rounded-2xl p-6 border border-slate-100/80 shadow-inner flex flex-col justify-center text-left">
+                      <p className="text-slate-600 text-sm sm:text-[14.5px] leading-relaxed pl-2 font-medium antialiased">
+                        {item.desc}
+                      </p>
+                    </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Mock Run-Ups</h3>
-              <p className="text-sm text-[#46535E]">Sessions ramp up in the weeks before each school mock.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Holiday Intensives</h3>
-              <p className="text-sm text-[#46535E]">Winter and spring breaks used for focused catch-up blocks.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Coursework Crunches</h3>
-              <p className="text-sm text-[#46535E]">Lighter weeks when Extended Essay and IA deadlines land together.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Travel Continuity</h3>
-              <p className="text-sm text-[#46535E]">The same tutor keeps sessions running while your family travels abroad.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Ramadan Timing</h3>
-              <p className="text-sm text-[#46535E]">Slots move to late-evening or pre-Iftar through the holy month.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Exam-Week Rest</h3>
-              <p className="text-sm text-[#46535E]">Sessions pause during the April to May window so students recover.</p>
-            </div>
+                    {/* Folding Cover (Hinged at the left edge) */}
+                    <motion.div 
+                      animate={{ rotateY: isOpen ? -130 : 0 }}
+                      transition={{ type: 'spring', stiffness: 90, damping: 16 }}
+                      style={{ transformOrigin: 'left center', transformStyle: 'preserve-3d' }}
+                      className="absolute inset-0 bg-gradient-to-br from-[#0a1f3d] to-[#0f4a9b] rounded-2xl p-6 shadow-[0_4px_15px_rgba(15,74,155,0.12)] flex flex-col justify-between text-left backface-hidden"
+                    >
+                      {/* Subtle paper fold crease shadow */}
+                      <div className="absolute inset-y-0 left-0 w-2.5 bg-black/10 rounded-l-2xl border-r border-white/5" />
+                      
+                      <div className="flex items-center gap-3 pl-3">
+                        <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-[#C7A24A]">
+                          {item.icon}
+                        </div>
+                        <h3 className="font-extrabold text-white text-base sm:text-lg tracking-wide">{item.title}</h3>
+                      </div>
+
+                      <div className="flex items-center justify-between pl-3 text-white/50 text-xs">
+                        <span className="font-medium">Hover or tap to open</span>
+                        <svg className="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
