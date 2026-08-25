@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useMotionValue, useTransform } from 'motion/re
 import {
   CheckCircle, ChevronDown, Clock, MapPin,
   MessageCircle, Star, Target, Users, ArrowRight,
-  Calculator, BookOpen, Compass, Layers, CheckCircle2,
+  Calculator, BookOpen, Compass, Layers, CheckCircle2, GraduationCap,
   AlertTriangle, MessageSquareQuote, Video, PenTool, ArrowRightLeft,
   Calendar, FileText, Timer
 } from 'lucide-react';
@@ -851,6 +851,91 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
 
-      </Layout>
+      
+      {/* 10 START YOUR IB SUPPORT */}
+      <section className="py-14 sm:py-16 bg-white relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.4 }}
+            className="text-center mb-10 max-w-2xl mx-auto"
+          >
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3">
+              Start Your IB Support
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">
+              Two free ways to begin, both delivered live online.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
+            {/* Free First Lesson Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.4 }}
+              className="bg-white rounded-3xl p-7 shadow-[0_12px_35px_rgba(15,74,155,0.06)] border border-slate-100 flex flex-col justify-between"
+            >
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-[#0f4a9b]/10 flex items-center justify-center mb-5 border border-[#0f4a9b]/20 text-[#0f4a9b]">
+                  <GraduationCap className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-2">Free First Lesson</h3>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6">
+                  Thirty online minutes with a matched IB tutor, at no cost.
+                </p>
+              </div>
+
+              <a
+                href={BOOKING}
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5 text-center"
+                style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}
+              >
+                Book Your Free Trial
+              </a>
+            </motion.div>
+
+            {/* WhatsApp Question Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="bg-white rounded-3xl p-7 shadow-[0_12px_35px_rgba(15,74,155,0.06)] border border-slate-100 flex flex-col justify-between"
+            >
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-[#25D366]/10 flex items-center justify-center mb-5 border border-[#25D366]/20 text-[#25D366]">
+                  <MessageCircle className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-2">WhatsApp a Question</h3>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6">
+                  Send any past-paper question and get a reply in fifteen minutes.
+                </p>
+              </div>
+
+              <a
+                href={WA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ask a question on WhatsApp"
+                className="w-full py-3.5 px-6 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-[14px] flex items-center justify-center gap-2 shadow-md shadow-[#25D366]/20 transition-all hover:-translate-y-0.5"
+              >
+                <MessageCircle className="h-4 w-4" />
+                <span>Ask on WhatsApp</span>
+              </a>
+            </motion.div>
+          </div>
+
+          <p className="text-center text-xs font-semibold text-gray-500 mb-14">
+            First lesson free. Weekend, evening and Ramadan slots. UAE-registered since 2015.
+          </p>
+
+        </div>
+      </section>
+</Layout>
   );
 }
