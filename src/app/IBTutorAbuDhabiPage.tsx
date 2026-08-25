@@ -611,7 +611,7 @@ export default function IBTutorAbuDhabiPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-6">
-            <a href="/ib-maths-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
+            <a href="/maths-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
               <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB Maths Tutor</h3>
               <ul className="space-y-2 text-sm text-[#46535E]">
                 <li>• AA and AI routes</li>
@@ -620,7 +620,7 @@ export default function IBTutorAbuDhabiPage() {
                 <li>• Technique for SL and HL</li>
               </ul>
             </a>
-            <a href="/ib-biology-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
+            <a href="/biology-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
               <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB Biology Tutor</h3>
               <ul className="space-y-2 text-sm text-[#46535E]">
                 <li>• SL and HL syllabus</li>
@@ -629,7 +629,7 @@ export default function IBTutorAbuDhabiPage() {
                 <li>• Extended response questions</li>
               </ul>
             </a>
-            <a href="/ib-physics-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
+            <a href="/physics-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
               <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB Physics Tutor</h3>
               <ul className="space-y-2 text-sm text-[#46535E]">
                 <li>• SL and HL content</li>
@@ -638,7 +638,7 @@ export default function IBTutorAbuDhabiPage() {
                 <li>• Extended written answers</li>
               </ul>
             </a>
-            <a href="/ib-english-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
+            <a href="/english" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
               <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB English Tutor</h3>
               <ul className="space-y-2 text-sm text-[#46535E]">
                 <li>• English A and English B</li>
@@ -647,7 +647,7 @@ export default function IBTutorAbuDhabiPage() {
                 <li>• Higher-level essay writing</li>
               </ul>
             </a>
-            <a href="/ib-chemistry-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
+            <a href="/chemistry-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
               <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB Chemistry Tutor</h3>
               <ul className="space-y-2 text-sm text-[#46535E]">
                 <li>• SL and HL depth</li>
@@ -656,7 +656,7 @@ export default function IBTutorAbuDhabiPage() {
                 <li>• Structured calculation papers</li>
               </ul>
             </a>
-            <a href="/ib-economics-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
+            <a href="/economics" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
               <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB Economics Tutor</h3>
               <ul className="space-y-2 text-sm text-[#46535E]">
                 <li>• SL and HL papers</li>
