@@ -63,6 +63,40 @@ const SIGNALS = [
   }
 ];
 
+
+const JUMP_HABITS = [
+  {
+    title: "Full Working",
+    desc: "Maths answers written line by line, the exact way examiners award marks. No skipped derivations.",
+    icon: <Calculator className="w-5 h-5" />
+  },
+  {
+    title: "Exam Wording",
+    desc: "Subject terms used the exact way IB question papers expect them. Zero mark loss due to generic phrasing.",
+    icon: <BookOpen className="w-5 h-5" />
+  },
+  {
+    title: "Step-By-Step Answers",
+    desc: "Economics and Psychology answers explained step by step, rather than scattered bullet points.",
+    icon: <Compass className="w-5 h-5" />
+  },
+  {
+    title: "Working to Time",
+    desc: "Long answers practiced against the clock, so ideas flow under pressure during active exams.",
+    icon: <Timer className="w-5 h-5" />
+  },
+  {
+    title: "Neat Data",
+    desc: "Science results written up with the correct units, uncertainties, and neat graphical representations.",
+    icon: <Layers className="w-5 h-5" />
+  },
+  {
+    title: "Answering What Is Asked",
+    desc: "Describe, explain, evaluate—answering the command verb first to meet mark schemes head-on.",
+    icon: <CheckCircle className="w-5 h-5" />
+  }
+];
+
 const SUBJECT_TABS = [
   {
     name: "Maths",
@@ -206,6 +240,7 @@ export default function IBTutorAbuDhabiPage() {
   const [activeOrigamiIndex, setActiveOrigamiIndex] = useState<number | null>(0);
   const [openBookletIndex, setOpenBookletIndex] = useState<number | null>(null);
   const [activeSubjectTab, setActiveSubjectTab] = useState(0);
+  const [activeRadarIndex, setActiveRadarIndex] = useState(0);
 
   return (
     <Layout>
@@ -511,131 +546,138 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
       
-            {/* 2 WHERE THE JUMP TO DIPLOMA BITES */}
-      <section className="py-20 bg-slate-50/50 relative overflow-hidden">
-        {/* Subtle background decoration */}
+                  {/* 2 WHERE THE JUMP TO DIPLOMA BITES */}
+      <section className="py-20 bg-white relative overflow-hidden">
         <GridBackground light />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-radial-gradient from-[#0f4a9b]/5 to-transparent rounded-full blur-[120px] pointer-events-none" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10 max-w-2xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">Where the Jump to Diploma Bites</h2>
-              <p className="text-slate-600 text-base sm:text-lg leading-relaxed italic">
-                The habits the Diploma assumes but classrooms rarely slow down for.
-              </p>
-            </motion.div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-14 max-w-2xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">Where the Jump to Diploma Bites</h2>
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed italic">The habits the Diploma assumes but classrooms rarely slow down for.</p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto md:pb-6" style={{ perspective: '1200px' }}>
-            {[
-              { 
-                icon: <Calculator className="w-6 h-6 text-white" />, 
-                title: 'Full Working', 
-                desc: 'Maths answers written line by line, the way examiners award marks.',
-                delay: 0.1
-              },
-              { 
-                icon: <BookOpen className="w-6 h-6 text-white" />, 
-                title: 'Exam Wording', 
-                desc: 'Subject terms used the exact way IB question papers expect them.',
-                delay: 0.2
-              },
-              { 
-                icon: <Compass className="w-6 h-6 text-white" />, 
-                title: 'Step-By-Step Answers', 
-                desc: 'Economics and Psychology answers explained step by step, not scattered points.',
-                delay: 0.3
-              },
-              { 
-                icon: <Timer className="w-6 h-6 text-white" />, 
-                title: 'Working to Time', 
-                desc: 'Long answers practised against the clock before the real paper.',
-                delay: 0.4
-              },
-              { 
-                icon: <Layers className="w-6 h-6 text-white" />, 
-                title: 'Neat Data', 
-                desc: 'Science results written up with the right units and sensible rounding.',
-                delay: 0.5
-              },
-              { 
-                icon: <CheckCircle2 className="w-6 h-6 text-white" />, 
-                title: 'Answering What Is Asked', 
-                desc: 'Describe, explain and compare done exactly as the question asks.',
-                delay: 0.6
-              }
-            ].map((card, i) => {
-              // Stagger every second card down on desktop to break alignment
-              const staggerClass = i % 2 === 1 ? 'md:translate-y-4' : '';
-              
-              return (
-                <TiltCard
-                  key={i}
-                  delay={card.delay}
-                  className={`bg-white rounded-[24px] p-8 border border-slate-100/80 shadow-[0_2px_4px_rgba(0,0,0,0.01),0_20px_40px_rgba(15,74,155,0.03)] relative group cursor-default transform-gpu ${staggerClass}`}
-                >
-                  {/* Subtle hover gradient background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0f4a9b]/[0.02] via-transparent to-transparent rounded-[24px] pointer-events-none" />
+          <div className="grid lg:grid-cols-12 gap-12 items-center max-w-5xl mx-auto">
+            
+            {/* Left Column: Interactive 3D Compass Radar Circle */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div 
+                className="relative w-[270px] h-[270px] sm:w-[340px] sm:h-[340px] [--radius:95px] sm:[--radius:130px] select-none"
+              >
+                {/* Connection lines underneath using absolute SVG */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ overflow: 'visible' }}>
+                  {JUMP_HABITS.map((_, idx) => {
+                    const isActive = activeRadarIndex === idx;
+                    const angleRad = ((idx * 60 - 90) * Math.PI) / 180;
+                    return (
+                      <g key={idx}>
+                        {/* Static connecting line */}
+                        <line
+                          x1="50%"
+                          y1="50%"
+                          x2={`calc(50% + ${Math.cos(angleRad)} * var(--radius))`}
+                          y2={`calc(50% + ${Math.sin(angleRad)} * var(--radius))`}
+                          className={`transition-all duration-500 ${
+                            isActive ? 'stroke-[#C7A24A] stroke-[2px] opacity-100' : 'stroke-slate-200 stroke-[1px] opacity-50'
+                          }`}
+                        />
+                        {/* Glow effect on the active connector line */}
+                        {isActive && (
+                          <line
+                            x1="50%"
+                            y1="50%"
+                            x2={`calc(50% + ${Math.cos(angleRad)} * var(--radius))`}
+                            y2={`calc(50% + ${Math.sin(angleRad)} * var(--radius))`}
+                            className="stroke-[#C7A24A] stroke-[4px] opacity-25 blur-[3px]"
+                          />
+                        )}
+                      </g>
+                    );
+                  })}
+                </svg>
+
+                {/* Central Compass dial */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-white border border-slate-100 shadow-[inset_0_2px_5px_rgba(15,74,155,0.03),0_10px_25px_rgba(15,74,155,0.06)] flex items-center justify-center relative">
+                  {/* Outer ticks */}
+                  <div className="absolute inset-2 border border-dashed border-slate-200/80 rounded-full animate-[spin_50s_linear_infinite]" />
                   
-                  {/* 3D Floating Icon Container */}
-                  <div className="relative mb-6 flex items-center justify-center w-14 h-14" style={{ transform: 'translateZ(35px)' }}>
-                    {/* Shadow puddle */}
-                    <div className="absolute -bottom-1 w-10 h-2 bg-black/10 rounded-full blur-[3px] group-hover:scale-110 group-hover:opacity-75 transition-all duration-300" />
-                    
-                    {/* Icon wrapper with gradient + inner shadow */}
-                    <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#0f4a9b] to-[#1e5bb3] text-white flex items-center justify-center shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
-                      {card.icon}
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-[20px] font-bold text-[#0a1f3d] antialiased [backface-visibility:hidden] [-webkit-font-smoothing:antialiased] mb-3 group-hover:text-[#0f4a9b] transition-colors" >
-                    {card.title}
-                  </h3>
-                  
-                  <p className="text-[14px] sm:text-[15px] text-slate-600 leading-relaxed antialiased [backface-visibility:hidden] [-webkit-font-smoothing:antialiased]" >
-                    {card.desc}
-                  </p>
-                  
-                  {/* Glowing hover line indicator */}
-                  <div className="absolute inset-x-8 bottom-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#C7A24A]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
-                </TiltCard>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-      
-            {/* 3 WHAT YOU KEEP AFTER THE FREE SESSION */}
-      <section className="py-20 bg-white border-y border-slate-100">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16 max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">What You Keep After the Free Session</h2>
-            <p className="text-slate-500 text-base sm:text-lg leading-relaxed italic">Four things that stay with you, whether or not you continue.</p>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-            {[
-              { num: '01', title: 'Honest Starting Point', desc: 'A frank read on where your child actually sits today.' },
-              { num: '02', title: 'A Two-Year Route', desc: 'The path from today to final exams sketched, not guessed.' },
-              { num: '03', title: 'The Gap in Numbers', desc: 'The distance between current marks and the target, written plainly.' },
-              { num: '04', title: 'A Slot Held', desc: 'A weekly Abu Dhabi time reserved, should you choose to continue.' }
-            ].map((item, idx) => (
-              <div key={idx} className="relative pl-6 border-l-2 border-slate-100 hover:border-[#0f4a9b] transition-colors duration-300">
-                <span className="block text-4xl font-light text-[#C7A24A] mb-3 select-none">{item.num}</span>
-                <h3 className="font-bold text-[#0a1f3d] text-lg mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                  {/* Compass pointer */}
+                  <motion.div 
+                    animate={{ rotate: activeRadarIndex * 60 }} 
+                    transition={{ type: 'spring', stiffness: 90, damping: 16 }}
+                    className="absolute w-12 h-12 flex items-center justify-center"
+                  >
+                    <svg className="w-8 h-8 text-[#C7A24A] transform -rotate-90 filter drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M21 12l-18 9v-18z" />
+                    </svg>
+                  </motion.div>
+                </div>
+
+                {/* Circular Nodes */}
+                {JUMP_HABITS.map((item, idx) => {
+                  const isActive = activeRadarIndex === idx;
+                  const angle = idx * 60 - 90;
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveRadarIndex(idx)}
+                      className={`absolute left-1/2 top-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-md border focus:outline-none ${
+                        isActive 
+                          ? 'bg-[#0f4a9b] text-white border-[#0f4a9b] scale-110 shadow-[#0f4a9b]/25 z-20' 
+                          : 'bg-white text-slate-500 border-slate-100 hover:text-[#0f4a9b] hover:border-slate-200 scale-100 hover:scale-105 z-10'
+                      }`}
+                      style={{
+                        transform: `translate(-50%, -50%) rotate(${angle}deg) translate(var(--radius)) rotate(-${angle}deg)`
+                      }}
+                      title={item.title}
+                    >
+                      {item.icon}
+                    </button>
+                  );
+                })}
               </div>
-            ))}
+            </div>
+
+            {/* Right Column: Display Panel for Selected Node */}
+            <div className="lg:col-span-7 flex items-center min-h-[220px]">
+              <AnimatePresence mode="wait">
+                {(() => {
+                  const activeHabit = JUMP_HABITS[activeRadarIndex];
+                  return (
+                    <motion.div
+                      key={activeRadarIndex}
+                      initial={{ opacity: 0, x: 15 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -15 }}
+                      transition={{ duration: 0.25 }}
+                      className="bg-slate-50/70 border border-slate-100 rounded-3xl p-8 sm:p-10 text-left w-full shadow-[0_2px_4px_rgba(0,0,0,0.01),0_15px_30px_rgba(15,74,155,0.02)] relative overflow-hidden"
+                    >
+                      {/* Inside gradient blur for aesthetic depth */}
+                      <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#0f4a9b]/5 rounded-full blur-2xl pointer-events-none" />
+                      
+                      <div className="flex items-center gap-4 mb-5">
+                        <div className="w-12 h-12 rounded-xl bg-[#0f4a9b] text-white flex items-center justify-center shadow-md shadow-[#0f4a9b]/20">
+                          {activeHabit.icon}
+                        </div>
+                        <div>
+                          <div className="text-[11px] text-[#C7A24A] font-extrabold uppercase tracking-wider">CRITICAL HABIT REBUILD</div>
+                          <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d]">{activeHabit.title}</h3>
+                        </div>
+                      </div>
+
+                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed antialiased font-semibold pl-2">
+                        {activeHabit.desc}
+                      </p>
+                    </motion.div>
+                  );
+                })()}
+              </AnimatePresence>
+            </div>
+
           </div>
         </div>
       </section>
-      
-                        {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
+
+      {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
       <section className="py-20 bg-slate-50/50 relative overflow-hidden">
         <GridBackground light />
 
