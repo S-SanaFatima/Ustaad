@@ -294,6 +294,14 @@ export default function IBTutorAbuDhabiPage() {
   const [activeSubjectTab, setActiveSubjectTab] = useState(0);
   const [activeRadarIndex, setActiveRadarIndex] = useState(0);
   const [activeTimelineIndex, setActiveTimelineIndex] = useState(0);
+  const [timelineResetKey, setTimelineResetKey] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTimelineIndex(prev => (prev + 1) % 6);
+    }, 4800); // Auto-rotate every 4.8 seconds
+    return () => clearInterval(interval);
+  }, [timelineResetKey]);
+
   const [autoplayResetKey, setAutoplayResetKey] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -791,7 +799,10 @@ export default function IBTutorAbuDhabiPage() {
                 return (
                   <button
                     key={idx}
-                    onClick={() => setActiveTimelineIndex(idx)}
+                    onClick={() => {
+                      setActiveTimelineIndex(idx);
+                      setTimelineResetKey(prev => prev + 1); // Reset autoplay timer so it pauses, then resumes later
+                    }}
                     className="flex flex-col items-center focus:outline-none shrink-0 min-w-[100px]"
                   >
                     {/* Node Circle */}
