@@ -439,7 +439,7 @@ export default function ALevelIndependentThinkingBlog() {
               The common thread is simple. A grade built from a year of work cannot be crammed the night before. It rewards the teenager who can plan an answer, defend a method and apply an idea to a problem they have not seen before, the exact skill that endless drilling never taught them.
             </p>
 
-            <figure className="my-8">
+            <figure className="my-8 mx-auto max-w-xl">
               <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
                 <img src="/images/blogs/exam-hall-stress.jpg" alt="UAE student looking stressed in an exam hall, highlighting the pressure of traditional timed exams" className="w-full h-auto block" loading="lazy" />
               </div>
@@ -514,7 +514,7 @@ export default function ALevelIndependentThinkingBlog() {
               That opening move is everything. In a Cambridge 9709 mechanics question or a 9701 chemistry synthesis, the marks live in the thinking, and that thinking only begins once a student trusts their own judgement enough to start. This kind of cognitive flexibility is not raw talent. It is a trained habit of starting before you feel ready.
             </p>
 
-            <figure className="my-8">
+            <figure className="my-8 mx-auto max-w-xl">
               <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
                 <img src="/images/blogs/cognitive-overload-diagram.jpg" alt="Cognitive overload diagram showing how a student's working memory gets overwhelmed by memorised past paper methods" className="w-full h-auto block" loading="lazy" />
               </div>
@@ -535,7 +535,7 @@ export default function ALevelIndependentThinkingBlog() {
               When a dependent student sees a question they do not recognise, their first thought is not "what do I know that applies here?", but "I haven't been taught this." They stop trying to solve the problem and instead try to remember the solution. If memory fails, they freeze. This is the ceiling where grades stop improving, no matter how many hours they study.
             </p>
 
-            <figure className="my-8">
+            <figure className="my-8 mx-auto max-w-xl">
               <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
                 <img src="/images/blogs/callout-dependence-vs-confidence.jpg" alt="Illustration comparing locked dependent knowledge to open innovative thinking" className="w-full h-auto block" loading="lazy" />
               </div>
@@ -555,7 +555,7 @@ export default function ALevelIndependentThinkingBlog() {
               At Ustaad, our approach to A-Level tutoring is built around coaching rather than spoon-feeding. A strong tutor uses Socratic questioning, asking the student why they chose a method before confirming if it is right. They let the student make a mistake and trace it back, rather than interrupting to fix it immediately. This builds cognitive resilience, teaching the student that being wrong on the first attempt is part of the process, not a failure.
             </p>
 
-            <figure className="my-8">
+            <figure className="my-8 mx-auto max-w-xl">
               <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
                 <img src="/images/blogs/callout-coaching-vs-spoonfeeding.jpg" alt="Illustration comparing one-way spoon feeding to two-way coaching dialogue" className="w-full h-auto block" loading="lazy" />
               </div>
@@ -596,7 +596,7 @@ export default function ALevelIndependentThinkingBlog() {
               You do not need to teach the syllabus to help. You just need to change how you respond when your child is stuck. These five habits do more than any extra worksheet.
             </p>
 
-            <figure className="my-8">
+            <figure className="my-8 mx-auto max-w-xl">
               <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
                 <img src="/images/blogs/parent-teen-conversation.jpg" alt="UAE parent and teenager having a calm conversation about study habits and managing exam pressure at home" className="w-full h-auto block" loading="lazy" />
               </div>
