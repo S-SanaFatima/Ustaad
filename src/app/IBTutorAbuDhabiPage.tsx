@@ -676,43 +676,71 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
 
-      {/* 7 BETWEEN-SESSION HELP BY MESSAGE */}
-      <section className="py-14 sm:py-16 bg-[#FAFAFA] border-y border-slate-200/80 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1fr_450px] gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A6A63]/10 text-[#1A6A63] text-xs font-bold uppercase tracking-wider mb-4">
-                <MessageCircle className="h-3 w-3" /> STUCK ON TONIGHT'S QUESTION?
+            {/* 7 BETWEEN-SESSION HELP BY MESSAGE */}
+      <section className="py-20 bg-slate-50/50 relative overflow-hidden">
+        {/* Subtle background decoration */}
+        <GridBackground light />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0f4a9b]/5 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
+            
+            {/* Left Info Column */}
+            <div className="text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f4a9b]/5 border border-[#0f4a9b]/12 text-[#0f4a9b] text-xs font-bold mb-6">
+                <MessageCircle className="h-3.5 w-3.5" />
+                STUCK ON TONIGHT'S QUESTION?
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#14304D] mb-4">
+              
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4 leading-tight">
                 Photograph the Problem, Get It Explained Within the Hour
               </h2>
-              <p className="text-base text-[#46535E] leading-relaxed mb-6">
+              
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
                 SL or HL questions across your child's subjects, answered by a specialist tutor.
               </p>
               
-              <div className="flex items-center gap-2 mb-8 text-sm font-semibold text-[#14304D]">
-                <Clock className="w-4 h-4 text-[#C7A24A]" /> Most Abu Dhabi messages answered inside fifteen minutes.
+              <div className="flex items-center gap-3 mb-8 text-sm font-semibold text-[#0a1f3d]">
+                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[#C7A24A]/10 text-[#C7A24A]">
+                  <Clock className="w-4 h-4" />
+                </div>
+                <span>Most Abu Dhabi messages answered inside fifteen minutes.</span>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-full px-8 py-3.5 text-[15px] transition shadow-lg shadow-[#25D366]/25 transform hover:-translate-y-0.5 active:scale-95">
+                <a 
+                  href={WA_URL} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-full px-8 py-4 text-[15px] transition shadow-lg shadow-[#25D366]/20 transform hover:-translate-y-0.5 active:scale-95 duration-300"
+                >
                   <MessageCircle className="w-5 h-5" /> Message a Tutor
                 </a>
-                <p className="text-xs text-gray-500 max-w-[200px] leading-tight">
-                  No account, no card. One clear photo of the question is enough.
+                
+                <p className="text-xs text-slate-500 max-w-[240px] leading-relaxed">
+                  No account, no card. One clear photo of the question is enough to begin.
                 </p>
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[320px]">
-              <img src="/ib-tutor-abu-dhabi-whatsapp-help-mockup.webp" alt="A WhatsApp thread where a Ustaad tutor answers an Abu Dhabi student's IB question with worked steps." className="w-full h-auto drop-shadow-2xl rounded-[2.5rem]" loading="lazy" />
+            {/* Right Mockup Column */}
+            <div className="relative mx-auto w-full max-w-[340px] lg:max-w-none flex justify-center">
+              {/* Soft glowing background under mockup */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#0f4a9b]/5 to-[#25D366]/5 rounded-[3rem] blur-xl transform scale-105 pointer-events-none" />
+              
+              <img 
+                src="/whatsapp-book-private-tutor-ustaad-uae.png" 
+                alt="A WhatsApp thread where a Ustaad tutor answers an Abu Dhabi student's IB question with worked steps." 
+                className="relative z-10 w-full max-w-[280px] h-auto drop-shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:scale-[1.02] transition-transform duration-500 rounded-[2.5rem]" 
+                loading="lazy" 
+              />
             </div>
+            
           </div>
         </div>
       </section>
-
-            {/* 8 ONE ABU DHABI FAMILY'S IB YEAR */}
+      
+      {/* 8 ONE ABU DHABI FAMILY'S IB YEAR */}
       <section className="py-16 sm:py-20 relative overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #060f22 0%, #0a1f3d 50%, #0f4a9b 100%)' }}>
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
