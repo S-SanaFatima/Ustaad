@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useMotionValue, useTransform } from 'motion/re
 import {
   CheckCircle, ChevronDown, Clock, MapPin,
   MessageCircle, Star, Target, Users, ArrowRight,
-  Calculator, BookOpen, Compass, Layers, CheckCircle2, GraduationCap,
+  Calculator, BookOpen, Compass, Layers, CheckCircle2, GraduationCap, Dna, Atom, FlaskConical, LineChart,
   AlertTriangle, MessageSquareQuote, Video, PenTool, ArrowRightLeft,
   Calendar, FileText, Timer
 } from 'lucide-react';
