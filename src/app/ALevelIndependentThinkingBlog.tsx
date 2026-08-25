@@ -460,12 +460,6 @@ export default function ALevelIndependentThinkingBlog() {
               At A-Level, the top marks are not given for repeating a method from memory. They are given for choosing the right method, explaining why it works, and adjusting when the question changes. That is analytical reasoning, and it is a different skill from recall. A student can memorise fifty worked solutions and still freeze when an examiner rewords the question, because they were trained to remember, not to think.
             </p>
 
-            <figure className="my-8">
-              <div className="rounded-2xl overflow-hidden shadow-sm">
-                <img src="/images/blogs/past-papers-vs-independent-thinking.jpg" alt="Comparison between rote learning past papers and developing independent thinking" className="w-full h-auto block" loading="lazy" />
-              </div>
-            </figure>
-
             {/* Comparison Table */}
             <div className="my-6 overflow-x-auto rounded-2xl border border-[#0f4a9b]/20 bg-white shadow-sm">
               <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[540px]">
