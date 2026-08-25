@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, useMotionValue, useTransform } from 'motion/react';
 import {
   CheckCircle, ChevronDown, Clock, MapPin,
   MessageCircle, Star, Target, Users, ArrowRight,
@@ -43,8 +43,59 @@ const GridBackground = ({ light = false }: { light?: boolean }) => (
   </svg>
 );
 
+
+function TiltCard({ children, className, style, delay, ...props }) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-0.5, 0.5], [6, -6]);
+  const rotateY = useTransform(x, [-0.5, 0.5], [-6, 6]);
+
+  function handleMouse(event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = event.clientX - rect.left - width / 2;
+    const mouseY = event.clientY - rect.top - height / 2;
+    x.set(mouseX / width);
+    y.set(mouseY / height);
+  }
+
+  function handleMouseLeave() {
+    x.set(0);
+    y.set(0);
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay }}
+      whileHover={{
+        y: -8,
+        scale: 1.02,
+        boxShadow: '0 30px 60px -15px rgba(15, 74, 155, 0.12), 0 15px 30px -10px rgba(15, 74, 155, 0.08)'
+      }}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+        ...style
+      }}
+      onMouseMove={handleMouse}
+      onMouseLeave={handleMouseLeave}
+      className={className}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export default function IBTutorAbuDhabiPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
 
   return (
     <Layout>
@@ -234,14 +285,14 @@ export default function IBTutorAbuDhabiPage() {
 
       <StatsBar />
 
-      {/* 1 HOW YOUR CHILD'S IB HOUR IS SPENT */}
+            {/* 1 HOW YOUR CHILD'S IB HOUR IS SPENT */}
       <section className="py-20 bg-[#f8fafc] relative overflow-hidden">
         {/* Subtle background decoration */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0f4a9b]/5 rounded-full blur-[100px] pointer-events-none -mt-48 -mr-48" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#C7A24A]/5 rounded-full blur-[100px] pointer-events-none -mb-48 -ml-48" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16 max-w-2xl mx-auto">
+          <div className="text-center mb-10 max-w-2xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -254,123 +305,201 @@ export default function IBTutorAbuDhabiPage() {
             </motion.div>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto" style={{ perspective: '1200px' }}>
+          {/* 3D Carousel Container */}
+          <div className="relative h-[480px] w-full max-w-5xl mx-auto flex flex-col items-center justify-center overflow-hidden">
+            {/* Carousel track */}
+            <div className="relative w-full h-[360px] flex items-center justify-center" style={{ perspective: '1200px', transformStyle: 'preserve-3d' }}>
+              {(() => {
+                const cards = [
+                  { icon: <Video className="w-8 h-8 text-[#0f4a9b]" />, title: 'One Shared Screen', desc: 'Tutor and student work the same live document together, in real time.' },
+                  { icon: <FileText className="w-8 h-8 text-[#0f4a9b]" />, title: 'Drafts Reviewed First', desc: 'Current coursework drafts get feedback before any new content is taught.' },
+                  { icon: <Target className="w-8 h-8 text-[#0f4a9b]" />, title: 'Target on Record', desc: 'Every session opens with the university course and points target visible.' },
+                  { icon: <Calendar className="w-8 h-8 text-[#0f4a9b]" />, title: 'The Week Mapped', desc: 'We agree exactly what your child studies before the next session.' },
+                  { icon: <PenTool className="w-8 h-8 text-[#0f4a9b]" />, title: 'Answers, Not Notes', desc: 'Time goes into writing full answers, not copying tidy revision notes.' },
+                  { icon: <CheckCircle className="w-8 h-8 text-[#0f4a9b]" />, title: 'Written Next Steps', desc: 'Each hour ends with two or three clear actions to complete.' }
+                ];
+                
+                return cards.map((card, i) => {
+                  let offset = i - activeCarouselIndex;
+                  if (offset < -3) offset += 6;
+                  if (offset > 3) offset -= 6;
+                  
+                  const isActive = offset === 0;
+                  const isVisible = Math.abs(offset) <= 2; // only show current, prev, next, and outer edges
+                  
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={false}
+                      animate={{
+                        x: offset * 280,
+                        scale: isActive ? 1 : 0.82,
+                        rotateY: offset * -35,
+                        z: isActive ? 0 : -180,
+                        opacity: isVisible ? (isActive ? 1 : 0.6) : 0,
+                        zIndex: 10 - Math.abs(offset)
+                      }}
+                      transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+                      onClick={() => setActiveCarouselIndex(i)}
+                      className={`absolute w-[280px] sm:w-[320px] bg-white rounded-[24px] p-8 border border-slate-100/80 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] cursor-pointer select-none transform-gpu flex flex-col items-center text-center backface-hidden ${isActive ? 'shadow-[0_20px_50px_-10px_rgba(15,74,155,0.15)]' : ''}`}
+                      style={{ transformStyle: 'preserve-3d' }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#0f4a9b]/[0.02] via-transparent to-transparent rounded-[24px] pointer-events-none" />
+                      
+                      <div className="w-16 h-16 rounded-2xl bg-[#0f4a9b]/5 flex items-center justify-center mb-6" style={{ transform: 'translateZ(30px)' }}>
+                        {card.icon}
+                      </div>
+                      
+                      <h3 className="text-[20px] font-bold text-[#0a1f3d] antialiased [backface-visibility:hidden] [-webkit-font-smoothing:antialiased] mb-3" >
+                        {card.title}
+                      </h3>
+                      
+                      <p className="text-[14px] sm:text-[15px] text-slate-600 leading-relaxed antialiased [backface-visibility:hidden] [-webkit-font-smoothing:antialiased]" >
+                        {card.desc}
+                      </p>
+                      
+                      {isActive && (
+                        <div className="absolute inset-x-8 bottom-0 h-[3px] bg-gradient-to-r from-transparent via-[#C7A24A] to-transparent rounded-full" />
+                      )}
+                    </motion.div>
+                  );
+                });
+              })()}
+            </div>
+            
+            {/* Navigation buttons */}
+            <div className="flex items-center gap-6 mt-4">
+              <button 
+                onClick={() => setActiveCarouselIndex(prev => (prev === 0 ? 5 : prev - 1))}
+                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#0f4a9b] hover:border-[#0f4a9b] hover:shadow-md active:scale-95 transition-all"
+                aria-label="Previous step"
+              >
+                <svg className="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              
+              {/* Indicators */}
+              <div className="flex gap-2">
+                {[0, 1, 2, 3, 4, 5].map((idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveCarouselIndex(idx)}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${idx === activeCarouselIndex ? 'w-6 bg-[#0f4a9b]' : 'w-2.5 bg-slate-200'}`}
+                    aria-label={`Go to step ${idx + 1}`}
+                  />
+                ))}
+              </div>
+              
+              <button 
+                onClick={() => setActiveCarouselIndex(prev => (prev === 5 ? 0 : prev + 1))}
+                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#0f4a9b] hover:border-[#0f4a9b] hover:shadow-md active:scale-95 transition-all"
+                aria-label="Next step"
+              >
+                <svg className="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+            {/* 2 WHERE THE JUMP TO DIPLOMA BITES */}
+      <section className="py-20 bg-slate-50/50 relative overflow-hidden">
+        {/* Subtle background decoration */}
+        <GridBackground light />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-radial-gradient from-[#0f4a9b]/5 to-transparent rounded-full blur-[120px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-10 max-w-2xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">Where the Jump to Diploma Bites</h2>
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed italic">
+                The habits the Diploma assumes but classrooms rarely slow down for.
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto md:pb-6" style={{ perspective: '1200px' }}>
             {[
               { 
-                icon: <Video className="w-8 h-8 text-[#0f4a9b]" />, 
-                title: 'One Shared Screen', 
-                desc: 'Tutor and student work the same live document together, in real time.',
+                icon: <Calculator className="w-6 h-6 text-white" />, 
+                title: 'Full Working', 
+                desc: 'Maths answers written line by line, the way examiners award marks.',
                 delay: 0.1
               },
               { 
-                icon: <FileText className="w-8 h-8 text-[#0f4a9b]" />, 
-                title: 'Drafts Reviewed First', 
-                desc: 'Current coursework drafts get feedback before any new content is taught.',
+                icon: <BookOpen className="w-6 h-6 text-white" />, 
+                title: 'Exam Wording', 
+                desc: 'Subject terms used the exact way IB question papers expect them.',
                 delay: 0.2
               },
               { 
-                icon: <Target className="w-8 h-8 text-[#0f4a9b]" />, 
-                title: 'Target on Record', 
-                desc: 'Every session opens with the university course and points target visible.',
+                icon: <Compass className="w-6 h-6 text-white" />, 
+                title: 'Step-By-Step Answers', 
+                desc: 'Economics and Psychology answers explained step by step, not scattered points.',
                 delay: 0.3
               },
               { 
-                icon: <Calendar className="w-8 h-8 text-[#0f4a9b]" />, 
-                title: 'The Week Mapped', 
-                desc: 'We agree exactly what your child studies before the next session.',
+                icon: <Timer className="w-6 h-6 text-white" />, 
+                title: 'Working to Time', 
+                desc: 'Long answers practised against the clock before the real paper.',
                 delay: 0.4
               },
               { 
-                icon: <PenTool className="w-8 h-8 text-[#0f4a9b]" />, 
-                title: 'Answers, Not Notes', 
-                desc: 'Time goes into writing full answers, not copying tidy revision notes.',
+                icon: <Layers className="w-6 h-6 text-white" />, 
+                title: 'Neat Data', 
+                desc: 'Science results written up with the right units and sensible rounding.',
                 delay: 0.5
               },
               { 
-                icon: <CheckCircle className="w-8 h-8 text-[#0f4a9b]" />, 
-                title: 'Written Next Steps', 
-                desc: 'Each hour ends with two or three clear actions to complete.',
+                icon: <CheckCircle2 className="w-6 h-6 text-white" />, 
+                title: 'Answering What Is Asked', 
+                desc: 'Describe, explain and compare done exactly as the question asks.',
                 delay: 0.6
               }
-            ].map((card, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30, rotateX: 10 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: card.delay, type: 'spring', stiffness: 100, damping: 20 }}
-                whileHover={{ 
-                  y: -10, 
-                  scale: 1.02,
-                  rotateY: 4,
-                  rotateX: -4,
-                  boxShadow: '0 25px 50px -12px rgba(15, 74, 155, 0.15), 0 10px 20px -5px rgba(15, 74, 155, 0.1)'
-                }}
-                className="bg-white rounded-[24px] p-8 border border-slate-100/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] relative group cursor-default transform-gpu"
-                style={{ transformStyle: 'preserve-3d' }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0f4a9b]/[0.03] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px]" />
-                
-                <div className="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white group-hover:shadow-md transition-all duration-500" style={{ transform: 'translateZ(30px)' }}>
-                  {card.icon}
-                </div>
-                
-                <h3 className="text-[20px] font-bold text-[#0a1f3d] mb-3 group-hover:text-[#0f4a9b] transition-colors" style={{ transform: 'translateZ(20px)' }}>
-                  {card.title}
-                </h3>
-                <p className="text-[15px] text-slate-600 leading-relaxed" style={{ transform: 'translateZ(10px)' }}>
-                  {card.desc}
-                </p>
-                
-                {/* Decorative glowing edge on hover */}
-                <div className="absolute inset-x-8 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[#C7A24A]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
-              </motion.div>
-            ))}
+            ].map((card, i) => {
+              // Stagger every second card down on desktop to break alignment
+              const staggerClass = i % 2 === 1 ? 'md:translate-y-4' : '';
+              
+              return (
+                <TiltCard
+                  key={i}
+                  delay={card.delay}
+                  className={`bg-white rounded-[24px] p-8 border border-slate-100/80 shadow-[0_2px_4px_rgba(0,0,0,0.01),0_20px_40px_rgba(15,74,155,0.03)] relative group cursor-default transform-gpu ${staggerClass}`}
+                >
+                  {/* Subtle hover gradient background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0f4a9b]/[0.02] via-transparent to-transparent rounded-[24px] pointer-events-none" />
+                  
+                  {/* 3D Floating Icon Container */}
+                  <div className="relative mb-6 flex items-center justify-center w-14 h-14" style={{ transform: 'translateZ(35px)' }}>
+                    {/* Shadow puddle */}
+                    <div className="absolute -bottom-1 w-10 h-2 bg-black/10 rounded-full blur-[3px] group-hover:scale-110 group-hover:opacity-75 transition-all duration-300" />
+                    
+                    {/* Icon wrapper with gradient + inner shadow */}
+                    <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#0f4a9b] to-[#1e5bb3] text-white flex items-center justify-center shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
+                      {card.icon}
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-[20px] font-bold text-[#0a1f3d] antialiased [backface-visibility:hidden] [-webkit-font-smoothing:antialiased] mb-3 group-hover:text-[#0f4a9b] transition-colors" >
+                    {card.title}
+                  </h3>
+                  
+                  <p className="text-[14px] sm:text-[15px] text-slate-600 leading-relaxed antialiased [backface-visibility:hidden] [-webkit-font-smoothing:antialiased]" >
+                    {card.desc}
+                  </p>
+                  
+                  {/* Glowing hover line indicator */}
+                  <div className="absolute inset-x-8 bottom-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#C7A24A]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
+                </TiltCard>
+              );
+            })}
           </div>
         </div>
       </section>
-
-      {/* 2 WHERE THE JUMP TO DIPLOMA BITES */}
-      <section className="py-14 sm:py-16 bg-[#F6F8F9] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10 max-w-2xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14304D] mb-3">Where the Jump to Diploma Bites</h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">The habits the Diploma assumes but classrooms rarely slow down for.</p>
-          </div>
-
-          <div className="mb-8 max-w-4xl mx-auto">
-            <img src="/ib-tutor-abu-dhabi-diploma-skills-icons.svg" alt="Six icons showing the study skills Ustaad rebuilds for the move from MYP to the Diploma." className="w-full h-auto opacity-90" loading="lazy" />
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Full Working</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">Maths answers written line by line, the way examiners award marks.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Exam Wording</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">Subject terms used the exact way IB question papers expect them.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Step-By-Step Answers</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">Economics and Psychology answers explained step by step, not scattered points.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Working to Time</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">Long answers practised against the clock before the real paper.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Neat Data</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">Science results written up with the right units and sensible rounding.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Answering What Is Asked</h3>
-              <p className="text-sm text-[#46535E] leading-relaxed">Describe, explain and compare done exactly as the question asks.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
       {/* 3 WHAT YOU KEEP AFTER THE FREE SESSION */}
       <section className="py-14 sm:py-16 bg-white border-y border-[#E6EBEE]">
         <div className="max-w-6xl mx-auto px-4 text-center">
