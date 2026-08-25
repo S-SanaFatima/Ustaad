@@ -11,7 +11,7 @@ const BLOG = {
   titleLine2: 'IGCSE vs GCSE: Curriculum Differences UAE Parents Should Know',
   slug: 'igcse-vs-gcse-curriculum-differences-uae',
   description: 'On paper, IGCSE and GCSE look almost identical. In practice, a few real differences can shape your child\'s two years. A UAE educationist explains them in plain words, so you can pick the right fit.',
-  heroImage: '/images/blogs/igcse-vs-gcse-father-son-subject-list.png',
+  heroImage: '/images/blogs/igcse-vs-gcse-father-son-subject-list.webp',
   heroAlt: 'Father and son reviewing GCSE subject choices list and study plans on laptop at home',
   heroCaption: 'On paper, IGCSE and GCSE look almost identical. In practice, a few real differences can shape your child\'s two years.',
   datePublished: '2026-08-21',
@@ -95,8 +95,8 @@ function SectionHeading({ num, id, children }: { num: string; id: string; childr
 function InlineImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
   return (
     <figure className="mx-auto my-6 max-w-xl">
-      <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
-        <img src={src} alt={alt} loading="lazy" className="w-full h-auto block rounded-2xl" />
+      <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_32px_rgba(0,0,0,0.12)] bg-slate-50">
+        <img src={src} alt={alt} loading="lazy" className="w-full aspect-[16/9] object-cover block" />
       </div>
       {caption && (
         <figcaption className="mt-2 text-center text-xs text-gray-500 italic leading-relaxed px-2">{caption}</figcaption>
@@ -235,7 +235,7 @@ export default function IGCSEvsGCSEBlog() {
       "name": "Ustaad UAE",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ustaad.ae/logo.png"
+        "url": "https://ustaad.ae/logo.webp"
       }
     },
     "reviewedBy": {
@@ -340,8 +340,8 @@ export default function IGCSEvsGCSEBlog() {
 
           {/* Hero Image */}
           <motion.figure initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }} className="mb-0">
-            <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_40px_rgba(15,74,155,0.12)]">
-              <img src={BLOG.heroImage} alt={BLOG.heroAlt} fetchPriority="high" className="w-full h-auto block" />
+            <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_40px_rgba(15,74,155,0.12)] bg-slate-50">
+              <img src={BLOG.heroImage} alt={BLOG.heroAlt} fetchPriority="high" className="w-full aspect-[16/9] object-cover block" />
             </div>
             <figcaption className="mt-2 text-center text-xs text-gray-400 italic leading-relaxed px-2">{BLOG.heroCaption}</figcaption>
           </motion.figure>
@@ -563,7 +563,7 @@ export default function IGCSEvsGCSEBlog() {
             <p>Then look at the school itself. The teachers. The support on offer. Pick the place where your child will feel known and pushed in the right way. Get that right, and either course will take them where they need to go.</p>
 
             <InlineImage
-              src="/images/blogs/igcse-vs-gcse-mother-daughter-hd.png"
+              src="/images/blogs/igcse-vs-gcse-mother-daughter-hd.webp"
               alt="Mother and daughter studying together on laptop for British curriculum guidance"
               caption="Choosing between GCSE and IGCSE depends on long-term family plans, subject choices, and target qualifications."
             />
