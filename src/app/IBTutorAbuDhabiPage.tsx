@@ -97,6 +97,58 @@ const JUMP_HABITS = [
   }
 ];
 
+
+const TIMELINE_MILESTONES = [
+  {
+    month: "Sept - Oct",
+    label: "IA & TOK Drafts",
+    scenario: "Coursework Crunches",
+    rigid: "Class pacing keeps moving, leaving students to struggle with complex IA research criteria and TOK essays alone.",
+    flexible: "We temporarily pause normal syllabus tracking to focus entirely on IA draft edits, mathematical explorations, and essay outlines.",
+    icon: <FileText className="w-4 h-4" />
+  },
+  {
+    month: "Nov - Dec",
+    label: "Autumn Mocks",
+    scenario: "Mock Run-Ups",
+    rigid: "Mock exams arrive with unaddressed concept gaps, dragging down predicted grades before key university application reviews.",
+    flexible: "We double-up targeted revision sessions, clear legacy backlogs, and run intensive past-paper drills to lock in high predicted scores.",
+    icon: <GraduationCap className="w-4 h-4" />
+  },
+  {
+    month: "Dec - Jan",
+    label: "Winter Break",
+    scenario: "Holiday Intensives",
+    rigid: "Three weeks of zero academic touchpoints leads to heavy memory fade, creating a massive catch-up burden in January.",
+    flexible: "Structured holiday refreshers consolidate Term 1 material without burnout, keeping the student sharp and ready for Term 2.",
+    icon: <Calendar className="w-4 h-4" />
+  },
+  {
+    month: "Feb - March",
+    label: "Term Travel",
+    scenario: "Travel Continuity",
+    rigid: "Family travel or school trips disrupt scheduled tutoring slots, resetting academic momentum right before final mock review weeks.",
+    flexible: "Lessons switch seamlessly to online whiteboard mode anywhere globally, ensuring absolute schedule continuity and zero gaps.",
+    icon: <Compass className="w-4 h-4" />
+  },
+  {
+    month: "March - April",
+    label: "Ramadan Hours",
+    scenario: "Ramadan Timing",
+    rigid: "Rigid slots conflict with fasting hours, family gatherings, prayer times, and lower energy levels during the afternoon.",
+    flexible: "We shift schedules dynamically to late evening or morning slots, adjusting lesson length to align with the student's energy peak.",
+    icon: <Clock className="w-4 h-4" />
+  },
+  {
+    month: "May",
+    label: "Final Exams",
+    scenario: "Exam-Week Rest",
+    rigid: "Heavy cramming directly before exam papers causes cognitive fatigue, anxiety, and mistakes on core conceptual questions.",
+    flexible: "We wind down heavy lessons, shifting instead to confidence checks, formula reviews, and mental recovery to ensure peak exam-day focus.",
+    icon: <Timer className="w-4 h-4" />
+  }
+];
+
 const SUBJECT_TABS = [
   {
     name: "Maths",
@@ -241,6 +293,7 @@ export default function IBTutorAbuDhabiPage() {
   const [openBookletIndex, setOpenBookletIndex] = useState<number | null>(null);
   const [activeSubjectTab, setActiveSubjectTab] = useState(0);
   const [activeRadarIndex, setActiveRadarIndex] = useState(0);
+  const [activeTimelineIndex, setActiveTimelineIndex] = useState(0);
   const [autoplayResetKey, setAutoplayResetKey] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -708,86 +761,135 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
 
-      {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
-      <section className="py-20 bg-slate-50/50 relative overflow-hidden">
+            {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
+      <section className="py-20 bg-slate-50 relative overflow-hidden">
         <GridBackground light />
-
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-14 max-w-2xl mx-auto">
+          <div className="text-center mb-12 max-w-2xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">Tuition That Bends Around IB Deadlines</h2>
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed italic">Where our timetable moves so IB crunch weeks stay manageable.</p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            {[
-              { title: "Mock Run-Ups", desc: "Sessions ramp up in the weeks before each school mock.", icon: <Calendar className="w-5 h-5" /> },
-              { title: "Holiday Intensives", desc: "Winter and spring breaks used for focused catch-up blocks.", icon: <Timer className="w-5 h-5" /> },
-              { title: "Coursework Crunches", desc: "Lighter weeks when Extended Essay and IA deadlines land together.", icon: <FileText className="w-5 h-5" /> },
-              { title: "Travel Continuity", desc: "The same tutor keeps sessions running while your family travels abroad.", icon: <ArrowRightLeft className="w-5 h-5" /> },
-              { title: "Ramadan Timing", desc: "Slots move to late-evening or pre-Iftar through the holy month.", icon: <Clock className="w-5 h-5" /> },
-              { title: "Exam-Week Rest", desc: "Sessions pause during the April to May window so students recover.", icon: <CheckCircle className="w-5 h-5" /> },
-            ].map((item, idx) => {
-              const isOpen = openBookletIndex === idx;
-              return (
-                <div
-                  key={idx}
-                  onClick={() => setOpenBookletIndex(isOpen ? null : idx)}
-                  onMouseEnter={() => setOpenBookletIndex(idx)}
-                  onMouseLeave={() => setOpenBookletIndex(null)}
-                  className="relative w-full h-[160px] cursor-pointer select-none"
-                  style={{ perspective: '1200px' }}
-                >
-                  {/* 3D Block Container */}
-                  <motion.div 
-                    animate={{ rotateY: isOpen ? 180 : 0 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 16 }}
-                    className="w-full h-full relative"
-                    style={{ transformStyle: 'preserve-3d' }}
+          {/* Chronological Timeline Navigation Rail */}
+          <div className="relative max-w-4xl mx-auto mb-12 px-6">
+            {/* Background Line Connector */}
+            <div className="absolute top-[22px] left-8 right-8 h-1 bg-slate-200 rounded-full z-0">
+              <motion.div 
+                className="h-full bg-[#C7A24A] rounded-full"
+                animate={{ width: `${(activeTimelineIndex / 5) * 100}%` }}
+                transition={{ duration: 0.35 }}
+              />
+            </div>
+
+            {/* Scrollable container for mobile timeline steps */}
+            <div className="flex justify-between items-center relative z-10 overflow-x-auto scrollbar-none pb-4 md:pb-0 gap-4">
+              {TIMELINE_MILESTONES.map((milestone, idx) => {
+                const isActive = activeTimelineIndex === idx;
+                const isPassed = idx < activeTimelineIndex;
+                
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveTimelineIndex(idx)}
+                    className="flex flex-col items-center focus:outline-none shrink-0 min-w-[100px]"
                   >
-                    {/* Front Face of the Block */}
+                    {/* Node Circle */}
                     <div 
-                      className="absolute inset-0 bg-gradient-to-br from-[#0a1f3d] to-[#0f4a9b] rounded-2xl p-6 flex flex-col justify-between border border-white/5 shadow-[0_4px_15px_rgba(15,74,155,0.12)] backface-hidden [-webkit-backface-visibility:hidden]"
-                      style={{ 
-                        transform: 'rotateY(0deg)',
-                        backfaceVisibility: 'hidden',
-                        WebkitBackfaceVisibility: 'hidden'
-                      }}
+                      className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                        isActive 
+                          ? 'bg-[#0f4a9b] border-[#0f4a9b] text-white scale-110 shadow-lg shadow-[#0f4a9b]/25' 
+                          : isPassed
+                            ? 'bg-[#C7A24A] border-[#C7A24A] text-white'
+                            : 'bg-white border-slate-200 text-slate-400 hover:border-slate-300 hover:text-slate-600'
+                      }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#C7A24A]">
-                          {item.icon}
-                        </div>
-                        <h3 className="font-extrabold text-white text-base sm:text-[17px] tracking-wide antialiased [-webkit-font-smoothing:antialiased]">{item.title}</h3>
+                      {milestone.icon}
+                    </div>
+
+                    {/* Milestone Labels */}
+                    <span className={`mt-3 text-[11px] font-extrabold uppercase tracking-wider transition-colors duration-300 ${
+                      isActive ? 'text-[#0f4a9b]' : 'text-slate-400'
+                    }`}>
+                      {milestone.month}
+                    </span>
+                    <span className={`text-[12px] font-bold text-center transition-colors duration-300 mt-0.5 ${
+                      isActive ? 'text-[#0a1f3d]' : 'text-slate-500'
+                    }`}>
+                      {milestone.label}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Before / After Adaptability Comparison Panel */}
+          <div className="max-w-4xl mx-auto">
+            <AnimatePresence mode="wait">
+              {(() => {
+                const current = TIMELINE_MILESTONES[activeTimelineIndex];
+                return (
+                  <motion.div
+                    key={activeTimelineIndex}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.25 }}
+                    className="bg-white rounded-3xl border border-slate-100 shadow-[0_4px_25px_rgba(15,74,155,0.03)] p-6 sm:p-8"
+                  >
+                    {/* Scenario header */}
+                    <div className="flex items-center gap-3 border-b border-slate-100 pb-5 mb-6 text-left">
+                      <div className="w-10 h-10 rounded-xl bg-[#0f4a9b]/5 text-[#0f4a9b] flex items-center justify-center font-bold">
+                        {current.icon}
                       </div>
-                      
-                      <div className="flex items-center justify-between text-white/45 text-[11px] font-bold antialiased [-webkit-font-smoothing:antialiased]">
-                        <span>Hover or tap to flip card</span>
-                        <svg className="w-3.5 h-3.5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
+                      <div>
+                        <div className="text-[10px] text-[#C7A24A] font-extrabold uppercase tracking-widest">SCENARIO FOCUS</div>
+                        <h3 className="text-lg sm:text-xl font-extrabold text-[#0a1f3d]">{current.scenario}</h3>
                       </div>
                     </div>
 
-                    {/* Back Face of the Block */}
-                    <div 
-                      className="absolute inset-0 bg-[#f8fafc] rounded-2xl p-6 border border-slate-100/80 shadow-inner flex flex-col justify-center text-left backface-hidden [-webkit-backface-visibility:hidden]"
-                      style={{ 
-                        transform: 'rotateY(180deg)',
-                        backfaceVisibility: 'hidden',
-                        WebkitBackfaceVisibility: 'hidden'
-                      }}
-                    >
-                      <p className="text-slate-600 text-[14px] sm:text-[15px] leading-relaxed font-semibold pl-2 antialiased [-webkit-font-smoothing:antialiased]">
-                        {item.desc}
-                      </p>
+                    <div className="grid md:grid-cols-2 gap-8 text-left">
+                      {/* Left: Rigid School Calendar (Problem) */}
+                      <div className="bg-slate-50 rounded-2xl p-5 border border-dashed border-slate-200 relative overflow-hidden flex flex-col justify-between">
+                        <div className="absolute top-0 right-0 px-3 py-1 bg-slate-200/60 rounded-bl-xl text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                          Rigid Pace
+                        </div>
+                        <div>
+                          <h4 className="text-slate-700 font-extrabold text-sm uppercase tracking-wide mb-3 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-slate-400" /> Standard Classroom
+                          </h4>
+                          <p className="text-slate-500 text-sm leading-relaxed antialiased">
+                            {current.rigid}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Right: Ustaad's Flexible Schedule (Solution) */}
+                      <div className="bg-[#0f4a9b]/[0.02] rounded-2xl p-5 border border-[#0f4a9b]/10 relative overflow-hidden flex flex-col justify-between shadow-[0_4px_15px_rgba(15,74,155,0.01)]">
+                        <div className="absolute top-0 right-0 px-3 py-1 bg-[#C7A24A] text-white rounded-bl-xl text-[10px] font-bold uppercase tracking-wider">
+                          Ustaad Flex
+                        </div>
+                        <div>
+                          <h4 className="text-[#0a1f3d] font-extrabold text-sm uppercase tracking-wide mb-3 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A]" /> Adaptive Support
+                          </h4>
+                          <p className="text-[#0a1f3d] text-sm leading-relaxed font-semibold antialiased">
+                            {current.flexible}
+                          </p>
+                        </div>
+                      </div>
                     </div>
+
                   </motion.div>
-                </div>
-              );
-            })}
+                );
+              })()}
+            </AnimatePresence>
           </div>
         </div>
       </section>
 
-            {/* 5 ONE TUTOR PER SUBJECT, MATCHED TO YOU */}
+      {/* 5 ONE TUTOR PER SUBJECT, MATCHED TO YOU */}
       <section className="py-16 bg-white relative overflow-hidden">
         <GridBackground light />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
