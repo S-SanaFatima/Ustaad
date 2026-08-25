@@ -561,7 +561,7 @@ export default function IBTutorAbuDhabiPage() {
                   {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
       <section className="py-20 bg-slate-50/50 relative overflow-hidden">
         <GridBackground light />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#0f4a9b]/5 rounded-full blur-[100px] pointer-events-none" />
+        
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-14 max-w-2xl mx-auto">
@@ -707,7 +707,7 @@ export default function IBTutorAbuDhabiPage() {
                   {/* 6 WHEN ABU DHABI PARENTS TEND TO CALL */}
       <section className="py-20 bg-slate-50/50 relative overflow-hidden">
         <GridBackground light />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#0f4a9b]/5 rounded-full blur-[100px] pointer-events-none" />
+        
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-14 max-w-2xl mx-auto">
@@ -798,7 +798,7 @@ export default function IBTutorAbuDhabiPage() {
             className="bg-slate-50/60 rounded-3xl border border-slate-100 shadow-[0_2px_4px_rgba(0,0,0,0.01),0_20px_40px_rgba(15,74,155,0.03)] p-8 sm:p-10 relative overflow-hidden"
           >
             {/* Subtle background decoration inside the card */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#0f4a9b]/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+            
             
             <div className="grid md:grid-cols-12 gap-8 items-center">
               
