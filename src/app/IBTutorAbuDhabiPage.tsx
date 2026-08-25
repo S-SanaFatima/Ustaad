@@ -51,7 +51,7 @@ export default function IBTutorAbuDhabiPage() {
       <SEOHead
         title="IB Tutor Abu Dhabi | Online MYP, SL & HL Tuition"
         description="Private online IB tutoring for Abu Dhabi families. Subject-matched MYP, SL and HL tutors, flexible weekly slots and between-session help. First session free."
-        url="https://ustaad.ae/ib-tutor-abu-dhabi"
+        canonical="/ib-tutor-abu-dhabi"
         schema={[
           cityLocalBusinessSchema('Abu Dhabi', 'IB Tutoring'),
           breadcrumbSchema([
