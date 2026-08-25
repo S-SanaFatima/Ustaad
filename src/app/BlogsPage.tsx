@@ -51,7 +51,7 @@ export const CATEGORY_META = {
 export const BLOGS: BlogPost[] = [
   {
     slug: 'a-level-tutoring-uae-independent-thinking',
-    image: '/images/blogs/hero-tutoring-session.jpg',
+    image: '/images/blogs/hero-tutoring-session.webp',
     alt: 'A-Level tutoring session in the UAE supporting Cambridge, Pearson Edexcel and OxfordAQA students',
     category: 'Psychology of Learning',
     title: 'A-Level Tutoring in the UAE Starts With Independent Thinking',
@@ -63,7 +63,7 @@ export const BLOGS: BlogPost[] = [
   },
   {
     slug: 'igcse-vs-gcse-curriculum-differences-uae',
-    image: '/images/blogs/igcse-vs-gcse-father-son-subject-list.png',
+    image: '/images/blogs/igcse-vs-gcse-father-son-subject-list.webp',
     alt: 'Father and son reviewing GCSE subject choices list and study plans on laptop at home',
     category: 'Parent Guidance',
     title: 'IGCSE vs GCSE: Curriculum Differences UAE Parents Should Know',

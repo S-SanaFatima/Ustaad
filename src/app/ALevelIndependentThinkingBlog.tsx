@@ -11,7 +11,7 @@ const BLOG = {
   titleLine2: 'A-Level Tutoring in the UAE Starts With Independent Thinking',
   slug: 'a-level-tutoring-uae-independent-thinking',
   description: 'UAE A-Level exams move to portfolios and coursework in 2026, so more past papers are not enough. See how independent thinking lifts your teen\'s grades.',
-  heroImage: '/images/blogs/hero-tutoring-session.jpg',
+  heroImage: '/images/blogs/hero-tutoring-session.webp',
   heroAlt: 'A-Level tutoring session in the UAE supporting Cambridge, Pearson Edexcel and OxfordAQA students',
   heroCaption: 'Doing more past papers is not enough for A-Level. See how independent thinking lifts your teenager\'s grades.',
   datePublished: '2026-08-24',
@@ -452,7 +452,7 @@ export default function ALevelIndependentThinkingBlog() {
               The common thread is simple. A grade built from a year of work cannot be crammed the night before. It rewards the teenager who can plan an answer, defend a method and apply an idea to a problem they have not seen before, the exact skill that endless drilling never taught them.
             </p>
 
-            <InlineImage src="/images/blogs/exam-hall-stress.jpg" alt="UAE student looking stressed in an exam hall, highlighting the pressure of traditional timed exams" caption="Traditional timed exams are giving way to portfolios in 2026, meaning last-minute cramming is no longer an option." />
+            <InlineImage src="/images/blogs/exam-hall-stress.webp" alt="UAE student looking stressed in an exam hall, highlighting the pressure of traditional timed exams" caption="Traditional timed exams are giving way to portfolios in 2026, meaning last-minute cramming is no longer an option." />
 
             {/* Section 03 */}
             <SectionHeading num="03" id="why-more-past-papers-stopped-working">Why more past papers stopped working</SectionHeading>
@@ -522,7 +522,7 @@ export default function ALevelIndependentThinkingBlog() {
               That opening move is everything. In a Cambridge 9709 mechanics question or a 9701 chemistry synthesis, the marks live in the thinking, and that thinking only begins once a student trusts their own judgement enough to start. This kind of cognitive flexibility is not raw talent. It is a trained habit of starting before you feel ready.
             </p>
 
-            <InlineImage src="/images/blogs/cognitive-overload-diagram.jpg" alt="Cognitive overload diagram showing how a student's working memory gets overwhelmed by memorised past paper methods" caption="Memorising hundreds of past paper solutions can easily overload a student's working memory when faced with an unfamiliar exam question." />
+            <InlineImage src="/images/blogs/cognitive-overload-diagram.webp" alt="Cognitive overload diagram showing how a student's working memory gets overwhelmed by memorised past paper methods" caption="Memorising hundreds of past paper solutions can easily overload a student's working memory when faced with an unfamiliar exam question." />
 
             {/* Section 05 */}
             <SectionHeading num="05" id="why-some-students-stop-improving">Why some students stop improving</SectionHeading>
@@ -538,7 +538,7 @@ export default function ALevelIndependentThinkingBlog() {
               When a dependent student sees a question they do not recognise, their first thought is not "what do I know that applies here?", but "I haven't been taught this." They stop trying to solve the problem and instead try to remember the solution. If memory fails, they freeze. This is the ceiling where grades stop improving, no matter how many hours they study.
             </p>
 
-            <InlineImage src="/images/blogs/callout-dependence-vs-confidence.jpg" alt="Illustration comparing locked dependent knowledge to open innovative thinking" />
+            <InlineImage src="/images/blogs/callout-dependence-vs-confidence.webp" alt="Illustration comparing locked dependent knowledge to open innovative thinking" />
 
             {/* Section 06 */}
             <SectionHeading num="06" id="how-good-a-level-tutoring-in-the-uae-develops-independent-thinkers">How good A-Level tutoring in the UAE develops independent thinkers</SectionHeading>
@@ -554,7 +554,7 @@ export default function ALevelIndependentThinkingBlog() {
               At Ustaad, our approach to A-Level tutoring is built around coaching rather than spoon-feeding. A strong tutor uses Socratic questioning, asking the student why they chose a method before confirming if it is right. They let the student make a mistake and trace it back, rather than interrupting to fix it immediately. This builds cognitive resilience, teaching the student that being wrong on the first attempt is part of the process, not a failure.
             </p>
 
-            <InlineImage src="/images/blogs/callout-coaching-vs-spoonfeeding.jpg" alt="Illustration comparing one-way spoon feeding to two-way coaching dialogue" />
+            <InlineImage src="/images/blogs/callout-coaching-vs-spoonfeeding.webp" alt="Illustration comparing one-way spoon feeding to two-way coaching dialogue" />
 
             {/* Case Studies Card */}
             <div className="my-6 p-5 bg-[#f8fafd] border border-slate-200 rounded-2xl space-y-4">
@@ -591,7 +591,7 @@ export default function ALevelIndependentThinkingBlog() {
               You do not need to teach the syllabus to help. You just need to change how you respond when your child is stuck. These five habits do more than any extra worksheet.
             </p>
 
-            <InlineImage src="/images/blogs/parent-teen-conversation.jpg" alt="UAE parent and teenager having a calm conversation about study habits and managing exam pressure at home" caption="Parents don't need to know the A-Level syllabus to help; guiding how a student responds to being stuck is far more valuable." />
+            <InlineImage src="/images/blogs/parent-teen-conversation.webp" alt="UAE parent and teenager having a calm conversation about study habits and managing exam pressure at home" caption="Parents don't need to know the A-Level syllabus to help; guiding how a student responds to being stuck is far more valuable." />
 
             <div className="my-6 space-y-3">
               <div className="p-4 bg-white rounded-2xl border border-slate-200 shadow-sm flex items-start gap-3">
