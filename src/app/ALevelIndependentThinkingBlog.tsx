@@ -462,12 +462,6 @@ export default function ALevelIndependentThinkingBlog() {
 
             <figure className="my-8">
               <div className="rounded-2xl overflow-hidden shadow-sm">
-                <img src="/images/blogs/callout-analytical-vs-memorisation.jpg" alt="Split graphic comparing repeating loop of memorization versus the branching paths of analytical reasoning" className="w-full h-auto block" loading="lazy" />
-              </div>
-            </figure>
-
-            <figure className="my-8">
-              <div className="rounded-2xl overflow-hidden shadow-sm">
                 <img src="/images/blogs/past-papers-vs-independent-thinking.jpg" alt="Comparison between rote learning past papers and developing independent thinking" className="w-full h-auto block" loading="lazy" />
               </div>
             </figure>
