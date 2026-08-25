@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { AnimatePresence, motion, useMotionValue, useTransform } from 'motion/react';
 import {
   CheckCircle, ChevronDown, Clock, MapPin,
@@ -241,6 +241,15 @@ export default function IBTutorAbuDhabiPage() {
   const [openBookletIndex, setOpenBookletIndex] = useState<number | null>(null);
   const [activeSubjectTab, setActiveSubjectTab] = useState(0);
   const [activeRadarIndex, setActiveRadarIndex] = useState(0);
+  const [isAutoplayActive, setIsAutoplayActive] = useState(true);
+  useEffect(() => {
+    if (!isAutoplayActive) return;
+    const interval = setInterval(() => {
+      setActiveRadarIndex(prev => (prev + 1) % 6);
+    }, 3800); // auto-rotate every 3.8s
+    return () => clearInterval(interval);
+  }, [isAutoplayActive]);
+
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
@@ -637,7 +646,10 @@ export default function IBTutorAbuDhabiPage() {
                   return (
                     <button
                       key={idx}
-                      onClick={() => setActiveRadarIndex(idx)}
+                      onClick={() => {
+                        setActiveRadarIndex(idx);
+                        setIsAutoplayActive(false);
+                      }}
                       className={`absolute w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-md border focus:outline-none ${
                         isActive 
                           ? 'bg-[#0f4a9b] text-white border-[#0f4a9b] scale-110 shadow-[#0f4a9b]/25 z-20' 
