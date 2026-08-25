@@ -32,6 +32,37 @@ const FAQS = [
   { q: "We only want help for the final stretch before May exams. Is that possible?", a: "Yes. Short, focused blocks are common: two or three sessions a week for the closing weeks, spent only on papers still to be sat. New content teaching stops and every session becomes past-paper practice." }
 ];
 
+const SIGNALS = [
+  {
+    title: "The Slipping Prediction",
+    shortTitle: "Slipping Grade",
+    icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" /></svg>,
+    largeIcon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" /></svg>,
+    desc: "Predicted grades slip below the target on two straight reports."
+  },
+  {
+    title: "Long Nights, Little Progress",
+    shortTitle: "Long Nights",
+    icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+    largeIcon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+    desc: "Hours at the desk, yet the topic list syllabus content barely shrinks."
+  },
+  {
+    title: "Coursework Left Late",
+    shortTitle: "Late Coursework",
+    icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>,
+    largeIcon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>,
+    desc: "TOK and Extended Essay tasks keep sliding down the checklist as mock exams cluster."
+  },
+  {
+    title: "Gone Quiet About It",
+    shortTitle: "Quiet Student",
+    icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>,
+    largeIcon: <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>,
+    desc: "A once-strong subject that never comes up in dinner conversations anymore."
+  }
+];
+
 const GridBackground = ({ light = false }: { light?: boolean }) => (
   <svg className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
     <defs>
@@ -96,6 +127,7 @@ function TiltCard({ children, className, style, delay, ...props }) {
 export default function IBTutorAbuDhabiPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
+  const [activeDialIndex, setActiveDialIndex] = useState(0);
 
   return (
     <Layout>
@@ -640,43 +672,84 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
 
-      {/* 6 WHEN ABU DHABI PARENTS TEND TO CALL */}
-      <section className="py-14 sm:py-16 bg-[#F6F8F9] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-8 max-w-2xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14304D] mb-3">When Abu Dhabi Parents Tend to Call</h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">Four everyday signals families notice before that first phone call.</p>
-          </div>
-          
-          <div className="mb-10 max-w-4xl mx-auto">
-            <img src="/ib-tutor-abu-dhabi-parent-signal-icons.svg" alt="Four everyday signs Abu Dhabi parents notice before booking IB tutoring." className="w-full h-auto" loading="lazy" />
+            {/* 6 WHEN ABU DHABI PARENTS TEND TO CALL */}
+      <section className="py-20 bg-slate-50/50 relative overflow-hidden">
+        <GridBackground light />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#C7A24A]/5 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="mb-14 max-w-2xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">When Abu Dhabi Parents Tend to Call</h2>
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed italic">Four everyday signals families notice before that first phone call.</p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
-            <div className="bg-white p-6 rounded-2xl border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">The Slipping Prediction</h3>
-              <p className="text-sm text-[#46535E]">Predicted grades slip below the target on two straight reports.</p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Long Nights, Little Progress</h3>
-              <p className="text-sm text-[#46535E]">Hours at the desk, yet the topic list barely shrinks.</p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Coursework Left Late</h3>
-              <p className="text-sm text-[#46535E]">TOK and Extended Essay tasks keep sliding down the list.</p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl border border-[#E6EBEE]">
-              <h3 className="font-bold text-[#14304D] mb-2">Gone Quiet About It</h3>
-              <p className="text-sm text-[#46535E]">A once-strong subject that never comes up at dinner now.</p>
+          {/* Display Card for Active Option */}
+          <div className="relative w-full max-w-lg mx-auto h-[280px] sm:h-[260px] flex items-center justify-center mb-10">
+            {/* Glowing backdrop card with double shadows */}
+            <div className="absolute inset-0 bg-white rounded-3xl border border-slate-100/80 shadow-[0_2px_4px_rgba(0,0,0,0.01),0_20px_45px_rgba(15,74,155,0.05)] pointer-events-none" />
+            
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeDialIndex}
+                initial={{ opacity: 0, y: 15, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -15, scale: 0.97 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="p-8 sm:p-10 flex flex-col items-center text-center max-w-md select-none"
+              >
+                <div className="w-16 h-16 rounded-full bg-[#0f4a9b]/5 flex items-center justify-center mb-5 text-[#0f4a9b] shadow-inner">
+                  {SIGNALS[activeDialIndex].largeIcon}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-3">{SIGNALS[activeDialIndex].title}</h3>
+                <p className="text-[14px] sm:text-[15px] text-slate-600 leading-relaxed">{SIGNALS[activeDialIndex].desc}</p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* 3D Dial Control */}
+          <div className="relative w-full max-w-sm mx-auto h-[120px] flex items-center justify-center select-none" style={{ maskImage: 'linear-gradient(to right, transparent, white 20%, white 80%, transparent)' }}>
+            <div className="relative w-full h-full flex items-center justify-center" style={{ perspective: '1000px' }}>
+              <motion.div
+                animate={{ rotateY: activeDialIndex * -90 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 18 }}
+                className="relative w-full h-[60px] flex items-center justify-center"
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {SIGNALS.map((sig, idx) => {
+                  const isSelected = activeDialIndex === idx;
+                  return (
+                    <div
+                      key={idx}
+                      onClick={() => setActiveDialIndex(idx)}
+                      className={`absolute flex items-center justify-center px-4 py-2 border rounded-full font-bold cursor-pointer text-xs sm:text-sm transition-all duration-300 backface-hidden ${
+                        isSelected 
+                          ? 'border-[#C7A24A] bg-[#C7A24A]/10 text-[#C7A24A] shadow-md shadow-[#C7A24A]/10' 
+                          : 'border-slate-200 bg-white text-slate-500 hover:text-[#0f4a9b]'
+                      }`}
+                      style={{
+                        transform: `rotateY(${idx * 90}deg) translateZ(135px)`,
+                        transformStyle: 'preserve-3d',
+                      }}
+                    >
+                      <span className="mr-1.5">{sig.icon}</span>
+                      {sig.shortTitle}
+                    </div>
+                  );
+                })}
+              </motion.div>
             </div>
           </div>
-          <div className="text-center max-w-xl mx-auto">
-            <p className="text-xs text-gray-500">If two or more signals ring true, the free first session is the quickest way to know whether tutoring will help.</p>
+
+          {/* Footnote */}
+          <div className="mt-8 text-center max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+              If two or more signals ring true, the free first session is the quickest way to know whether tutoring will help.
+            </p>
           </div>
         </div>
       </section>
 
-            {/* 7 BETWEEN-SESSION HELP BY MESSAGE */}
+      {/* 7 BETWEEN-SESSION HELP BY MESSAGE */}
       <section className="py-20 bg-slate-50/50 relative overflow-hidden">
         {/* Subtle background decoration */}
         <GridBackground light />
