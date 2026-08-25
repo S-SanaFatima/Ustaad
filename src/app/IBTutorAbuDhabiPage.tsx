@@ -558,10 +558,9 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
       
-                  {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
+                        {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
       <section className="py-20 bg-slate-50/50 relative overflow-hidden">
         <GridBackground light />
-        
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-14 max-w-2xl mx-auto">
@@ -590,35 +589,43 @@ export default function IBTutorAbuDhabiPage() {
                 >
                   {/* 3D Block Container */}
                   <motion.div 
-                    animate={{ rotateX: isOpen ? 90 : 0 }}
+                    animate={{ rotateY: isOpen ? 180 : 0 }}
                     transition={{ type: 'spring', stiffness: 100, damping: 16 }}
-                    className="w-full h-full relative transform-gpu"
+                    className="w-full h-full relative"
                     style={{ transformStyle: 'preserve-3d' }}
                   >
                     {/* Front Face of the Block */}
                     <div 
-                      className="absolute inset-0 bg-gradient-to-br from-[#0a1f3d] to-[#0f4a9b] rounded-2xl p-6 flex flex-col justify-between border border-white/5 shadow-[0_4px_15px_rgba(15,74,155,0.12)] backface-hidden"
-                      style={{ transform: 'translateZ(80px)' }}
+                      className="absolute inset-0 bg-gradient-to-br from-[#0a1f3d] to-[#0f4a9b] rounded-2xl p-6 flex flex-col justify-between border border-white/5 shadow-[0_4px_15px_rgba(15,74,155,0.12)] backface-hidden [-webkit-backface-visibility:hidden]"
+                      style={{ 
+                        transform: 'rotateY(0deg)',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden'
+                      }}
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#C7A24A]">
                           {item.icon}
                         </div>
-                        <h3 className="font-extrabold text-white text-base sm:text-[17px] tracking-wide">{item.title}</h3>
+                        <h3 className="font-extrabold text-white text-base sm:text-[17px] tracking-wide antialiased [-webkit-font-smoothing:antialiased]">{item.title}</h3>
                       </div>
                       
-                      <div className="flex items-center justify-between text-white/45 text-[11px] font-bold">
-                        <span>Hover or tap to roll block</span>
-                        <svg className="w-3.5 h-3.5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 13l-7 7-7-7" /></svg>
+                      <div className="flex items-center justify-between text-white/45 text-[11px] font-bold antialiased [-webkit-font-smoothing:antialiased]">
+                        <span>Hover or tap to flip card</span>
+                        <svg className="w-3.5 h-3.5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
                       </div>
                     </div>
 
-                    {/* Bottom Face of the Block */}
+                    {/* Back Face of the Block */}
                     <div 
-                      className="absolute inset-0 bg-[#f8fafc] rounded-2xl p-6 border border-slate-100/80 shadow-inner flex flex-col justify-center text-left backface-hidden"
-                      style={{ transform: 'rotateX(-90deg) translateZ(80px)' }}
+                      className="absolute inset-0 bg-[#f8fafc] rounded-2xl p-6 border border-slate-100/80 shadow-inner flex flex-col justify-center text-left backface-hidden [-webkit-backface-visibility:hidden]"
+                      style={{ 
+                        transform: 'rotateY(180deg)',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden'
+                      }}
                     >
-                      <p className="text-slate-600 text-[14px] sm:text-[15px] leading-relaxed antialiased font-semibold pl-2">
+                      <p className="text-slate-600 text-[14px] sm:text-[15px] leading-relaxed font-semibold pl-2 antialiased [-webkit-font-smoothing:antialiased]">
                         {item.desc}
                       </p>
                     </div>
