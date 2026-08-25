@@ -93,7 +93,7 @@ export default function IBTutorAbuDhabiPage() {
               <MapPin className="w-3.5 h-3.5 text-[#22b8cd]" /> Serving Abu Dhabi Families
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight tracking-tight text-white">
-              <GradientHeadingText>IB Tutor Abu Dhabi,</GradientHeadingText><br className="hidden sm:block" /> from MYP to Diploma
+              <GradientHeadingText text="IB Tutor Abu Dhabi," /><br className="hidden sm:block" /> from MYP to Diploma
             </h1>
             <p className="text-base sm:text-lg text-white/80 mb-6 max-w-xl font-medium leading-relaxed">
               Private online IB tuition for Abu Dhabi families, matched by subject, level and exam session.
