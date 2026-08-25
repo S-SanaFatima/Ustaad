@@ -558,7 +558,7 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
       
-            {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
+                  {/* 4 TUITION THAT BENDS AROUND IB DEADLINES */}
       <section className="py-20 bg-slate-50/50 relative overflow-hidden">
         <GridBackground light />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#0f4a9b]/5 rounded-full blur-[100px] pointer-events-none" />
@@ -585,46 +585,44 @@ export default function IBTutorAbuDhabiPage() {
                   onClick={() => setOpenBookletIndex(isOpen ? null : idx)}
                   onMouseEnter={() => setOpenBookletIndex(idx)}
                   onMouseLeave={() => setOpenBookletIndex(null)}
-                  className="relative w-full h-[180px] cursor-pointer select-none"
+                  className="relative w-full h-[160px] cursor-pointer select-none"
                   style={{ perspective: '1200px' }}
                 >
-                  {/* 3D Booklet Container */}
-                  <div 
-                    className="w-full h-full relative transition-transform duration-500 transform-gpu"
-                    style={{ 
-                      transformStyle: 'preserve-3d',
-                    }}
+                  {/* 3D Block Container */}
+                  <motion.div 
+                    animate={{ rotateX: isOpen ? 90 : 0 }}
+                    transition={{ type: 'spring', stiffness: 100, damping: 16 }}
+                    className="w-full h-full relative transform-gpu"
+                    style={{ transformStyle: 'preserve-3d' }}
                   >
-                    {/* Inside Page (Base page container) */}
-                    <div className="absolute inset-0 bg-[#f8fafc] rounded-2xl p-6 border border-slate-100/80 shadow-inner flex flex-col justify-center text-left">
-                      <p className="text-slate-600 text-sm sm:text-[14.5px] leading-relaxed pl-2 font-medium antialiased">
+                    {/* Front Face of the Block */}
+                    <div 
+                      className="absolute inset-0 bg-gradient-to-br from-[#0a1f3d] to-[#0f4a9b] rounded-2xl p-6 flex flex-col justify-between border border-white/5 shadow-[0_4px_15px_rgba(15,74,155,0.12)] backface-hidden"
+                      style={{ transform: 'translateZ(80px)' }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#C7A24A]">
+                          {item.icon}
+                        </div>
+                        <h3 className="font-extrabold text-white text-base sm:text-[17px] tracking-wide">{item.title}</h3>
+                      </div>
+                      
+                      <div className="flex items-center justify-between text-white/45 text-[11px] font-bold">
+                        <span>Hover or tap to roll block</span>
+                        <svg className="w-3.5 h-3.5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 13l-7 7-7-7" /></svg>
+                      </div>
+                    </div>
+
+                    {/* Bottom Face of the Block */}
+                    <div 
+                      className="absolute inset-0 bg-[#f8fafc] rounded-2xl p-6 border border-slate-100/80 shadow-inner flex flex-col justify-center text-left backface-hidden"
+                      style={{ transform: 'rotateX(-90deg) translateZ(80px)' }}
+                    >
+                      <p className="text-slate-600 text-[14px] sm:text-[15px] leading-relaxed antialiased font-semibold pl-2">
                         {item.desc}
                       </p>
                     </div>
-
-                    {/* Folding Cover (Hinged at the left edge) */}
-                    <motion.div 
-                      animate={{ rotateY: isOpen ? -130 : 0 }}
-                      transition={{ type: 'spring', stiffness: 90, damping: 16 }}
-                      style={{ transformOrigin: 'left center', transformStyle: 'preserve-3d' }}
-                      className="absolute inset-0 bg-gradient-to-br from-[#0a1f3d] to-[#0f4a9b] rounded-2xl p-6 shadow-[0_4px_15px_rgba(15,74,155,0.12)] flex flex-col justify-between text-left backface-hidden"
-                    >
-                      {/* Subtle paper fold crease shadow */}
-                      <div className="absolute inset-y-0 left-0 w-2.5 bg-black/10 rounded-l-2xl border-r border-white/5" />
-                      
-                      <div className="flex items-center gap-3 pl-3">
-                        <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-[#C7A24A]">
-                          {item.icon}
-                        </div>
-                        <h3 className="font-extrabold text-white text-base sm:text-lg tracking-wide">{item.title}</h3>
-                      </div>
-
-                      <div className="flex items-center justify-between pl-3 text-white/50 text-xs">
-                        <span className="font-medium">Hover or tap to open</span>
-                        <svg className="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
-                      </div>
-                    </motion.div>
-                  </div>
+                  </motion.div>
                 </div>
               );
             })}
