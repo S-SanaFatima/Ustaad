@@ -98,6 +98,19 @@ function Blockquote({ children }: { children: React.ReactNode }) {
   );
 }
 
+function InlineImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+  return (
+    <figure className="mx-auto my-6 max-w-xl">
+      <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
+        <img src={src} alt={alt} loading="lazy" className="w-full h-auto block" />
+      </div>
+      {caption && (
+        <figcaption className="mt-2.5 text-center text-xs text-gray-400 italic leading-relaxed px-2">{caption}</figcaption>
+      )}
+    </figure>
+  );
+}
+
 function TOC({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => void }) {
   return (
     <div className="my-8 rounded-2xl border border-slate-200 bg-[#f8fafd] overflow-hidden transition-all shadow-sm">
@@ -439,12 +452,7 @@ export default function ALevelIndependentThinkingBlog() {
               The common thread is simple. A grade built from a year of work cannot be crammed the night before. It rewards the teenager who can plan an answer, defend a method and apply an idea to a problem they have not seen before, the exact skill that endless drilling never taught them.
             </p>
 
-            <figure className="my-8 mx-auto max-w-xl">
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                <img src="/images/blogs/exam-hall-stress.jpg" alt="UAE student looking stressed in an exam hall, highlighting the pressure of traditional timed exams" className="w-full h-auto block" loading="lazy" />
-              </div>
-              <figcaption className="mt-2 text-center text-xs text-gray-500 italic px-4">Traditional timed exams are giving way to portfolios in 2026, meaning last-minute cramming is no longer an option.</figcaption>
-            </figure>
+            <InlineImage src="/images/blogs/exam-hall-stress.jpg" alt="UAE student looking stressed in an exam hall, highlighting the pressure of traditional timed exams" caption="Traditional timed exams are giving way to portfolios in 2026, meaning last-minute cramming is no longer an option." />
 
             {/* Section 03 */}
             <SectionHeading num="03" id="why-more-past-papers-stopped-working">Why more past papers stopped working</SectionHeading>
@@ -514,12 +522,7 @@ export default function ALevelIndependentThinkingBlog() {
               That opening move is everything. In a Cambridge 9709 mechanics question or a 9701 chemistry synthesis, the marks live in the thinking, and that thinking only begins once a student trusts their own judgement enough to start. This kind of cognitive flexibility is not raw talent. It is a trained habit of starting before you feel ready.
             </p>
 
-            <figure className="my-8 mx-auto max-w-xl">
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                <img src="/images/blogs/cognitive-overload-diagram.jpg" alt="Cognitive overload diagram showing how a student's working memory gets overwhelmed by memorised past paper methods" className="w-full h-auto block" loading="lazy" />
-              </div>
-              <figcaption className="mt-2 text-center text-xs text-gray-500 italic px-4">Memorising hundreds of past paper solutions can easily overload a student's working memory when faced with an unfamiliar exam question.</figcaption>
-            </figure>
+            <InlineImage src="/images/blogs/cognitive-overload-diagram.jpg" alt="Cognitive overload diagram showing how a student's working memory gets overwhelmed by memorised past paper methods" caption="Memorising hundreds of past paper solutions can easily overload a student's working memory when faced with an unfamiliar exam question." />
 
             {/* Section 05 */}
             <SectionHeading num="05" id="why-some-students-stop-improving">Why some students stop improving</SectionHeading>
@@ -535,11 +538,7 @@ export default function ALevelIndependentThinkingBlog() {
               When a dependent student sees a question they do not recognise, their first thought is not "what do I know that applies here?", but "I haven't been taught this." They stop trying to solve the problem and instead try to remember the solution. If memory fails, they freeze. This is the ceiling where grades stop improving, no matter how many hours they study.
             </p>
 
-            <figure className="my-8 mx-auto max-w-xl">
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                <img src="/images/blogs/callout-dependence-vs-confidence.jpg" alt="Illustration comparing locked dependent knowledge to open innovative thinking" className="w-full h-auto block" loading="lazy" />
-              </div>
-            </figure>
+            <InlineImage src="/images/blogs/callout-dependence-vs-confidence.jpg" alt="Illustration comparing locked dependent knowledge to open innovative thinking" />
 
             {/* Section 06 */}
             <SectionHeading num="06" id="how-good-a-level-tutoring-in-the-uae-develops-independent-thinkers">How good A-Level tutoring in the UAE develops independent thinkers</SectionHeading>
@@ -555,11 +554,7 @@ export default function ALevelIndependentThinkingBlog() {
               At Ustaad, our approach to A-Level tutoring is built around coaching rather than spoon-feeding. A strong tutor uses Socratic questioning, asking the student why they chose a method before confirming if it is right. They let the student make a mistake and trace it back, rather than interrupting to fix it immediately. This builds cognitive resilience, teaching the student that being wrong on the first attempt is part of the process, not a failure.
             </p>
 
-            <figure className="my-8 mx-auto max-w-xl">
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                <img src="/images/blogs/callout-coaching-vs-spoonfeeding.jpg" alt="Illustration comparing one-way spoon feeding to two-way coaching dialogue" className="w-full h-auto block" loading="lazy" />
-              </div>
-            </figure>
+            <InlineImage src="/images/blogs/callout-coaching-vs-spoonfeeding.jpg" alt="Illustration comparing one-way spoon feeding to two-way coaching dialogue" />
 
             {/* Case Studies Card */}
             <div className="my-6 p-5 bg-[#f8fafd] border border-slate-200 rounded-2xl space-y-4">
@@ -596,12 +591,7 @@ export default function ALevelIndependentThinkingBlog() {
               You do not need to teach the syllabus to help. You just need to change how you respond when your child is stuck. These five habits do more than any extra worksheet.
             </p>
 
-            <figure className="my-8 mx-auto max-w-xl">
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                <img src="/images/blogs/parent-teen-conversation.jpg" alt="UAE parent and teenager having a calm conversation about study habits and managing exam pressure at home" className="w-full h-auto block" loading="lazy" />
-              </div>
-              <figcaption className="mt-2 text-center text-xs text-gray-500 italic px-4">Parents don't need to know the A-Level syllabus to help; guiding how a student responds to being stuck is far more valuable.</figcaption>
-            </figure>
+            <InlineImage src="/images/blogs/parent-teen-conversation.jpg" alt="UAE parent and teenager having a calm conversation about study habits and managing exam pressure at home" caption="Parents don't need to know the A-Level syllabus to help; guiding how a student responds to being stuck is far more valuable." />
 
             <div className="my-6 space-y-3">
               <div className="p-4 bg-white rounded-2xl border border-slate-200 shadow-sm flex items-start gap-3">
