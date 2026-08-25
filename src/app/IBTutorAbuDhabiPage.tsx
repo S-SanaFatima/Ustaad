@@ -241,14 +241,13 @@ export default function IBTutorAbuDhabiPage() {
   const [openBookletIndex, setOpenBookletIndex] = useState<number | null>(null);
   const [activeSubjectTab, setActiveSubjectTab] = useState(0);
   const [activeRadarIndex, setActiveRadarIndex] = useState(0);
-  const [isAutoplayActive, setIsAutoplayActive] = useState(true);
+  const [autoplayResetKey, setAutoplayResetKey] = useState(0);
   useEffect(() => {
-    if (!isAutoplayActive) return;
     const interval = setInterval(() => {
       setActiveRadarIndex(prev => (prev + 1) % 6);
-    }, 3800); // auto-rotate every 3.8s
+    }, 4500); // auto-rotate every 4.5s
     return () => clearInterval(interval);
-  }, [isAutoplayActive]);
+  }, [autoplayResetKey]);
 
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -648,7 +647,7 @@ export default function IBTutorAbuDhabiPage() {
                       key={idx}
                       onClick={() => {
                         setActiveRadarIndex(idx);
-                        setIsAutoplayActive(false);
+                        setAutoplayResetKey(prev => prev + 1); // Reset the 4.5s autoplay timer so it resumes later
                       }}
                       className={`absolute w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-md border focus:outline-none ${
                         isActive 
