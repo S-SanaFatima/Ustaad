@@ -63,6 +63,82 @@ const SIGNALS = [
   }
 ];
 
+const SUBJECT_TABS = [
+  {
+    name: "Maths",
+    title: "IB Maths Tutor",
+    href: "/maths-tutor-abu-dhabi",
+    icon: <Calculator className="w-4 h-4" />,
+    bullets: [
+      "AA and AI routes",
+      "Non-calculator and calculator papers",
+      "The maths exploration",
+      "Technique for SL and HL"
+    ]
+  },
+  {
+    name: "Biology",
+    title: "IB Biology Tutor",
+    href: "/biology-tutor-abu-dhabi",
+    icon: <Dna className="w-4 h-4" />,
+    bullets: [
+      "SL and HL syllabus",
+      "Applying concepts to data",
+      "The scientific investigation",
+      "Extended response questions"
+    ]
+  },
+  {
+    name: "Physics",
+    title: "IB Physics Tutor",
+    href: "/physics-tutor-abu-dhabi",
+    icon: <Atom className="w-4 h-4" />,
+    bullets: [
+      "SL and HL content",
+      "Data and practical questions",
+      "The scientific investigation",
+      "Extended written answers"
+    ]
+  },
+  {
+    name: "Chemistry",
+    title: "IB Chemistry Tutor",
+    href: "/chemistry-tutor-abu-dhabi",
+    icon: <FlaskConical className="w-4 h-4" />,
+    bullets: [
+      "SL and HL depth",
+      "Reactivity and analysis questions",
+      "The scientific investigation",
+      "Structured calculation papers"
+    ]
+  },
+  {
+    name: "English",
+    title: "IB English Tutor",
+    href: "/english",
+    icon: <BookOpen className="w-4 h-4" />,
+    bullets: [
+      "English A and English B",
+      "Spoken-assessment coaching",
+      "Paper 1 unseen analysis",
+      "Higher-level essay writing"
+    ]
+  },
+  {
+    name: "Economics",
+    title: "IB Economics Tutor",
+    href: "/economics",
+    icon: <LineChart className="w-4 h-4" />,
+    bullets: [
+      "SL and HL papers",
+      "Diagram-led answers",
+      "The commentary portfolio",
+      "Data-response technique"
+    ]
+  }
+];
+
+
 const GridBackground = ({ light = false }: { light?: boolean }) => (
   <svg className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
     <defs>
@@ -129,6 +205,7 @@ export default function IBTutorAbuDhabiPage() {
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
   const [activeOrigamiIndex, setActiveOrigamiIndex] = useState<number | null>(0);
   const [openBookletIndex, setOpenBookletIndex] = useState<number | null>(null);
+  const [activeSubjectTab, setActiveSubjectTab] = useState(0);
 
   return (
     <Layout>
@@ -637,81 +714,97 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
 
-      {/* 5 ONE TUTOR PER SUBJECT, MATCHED TO YOU */}
-      <section className="py-14 sm:py-16 bg-white relative overflow-hidden">
+            {/* 5 ONE TUTOR PER SUBJECT, MATCHED TO YOU */}
+      <section className="py-16 bg-white relative overflow-hidden">
+        <GridBackground light />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-10 max-w-2xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14304D] mb-3">One Tutor Per Subject, Matched to You</h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">Chosen by subject and level; each tutor's focus sits below.</p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">One Tutor Per Subject, Matched to You</h2>
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed italic">Chosen by subject and level; select a subject below to see details.</p>
           </div>
 
-          <div className="mb-8 max-w-4xl mx-auto">
-            <img src="/ib-tutor-abu-dhabi-subject-icons.svg" alt="Six subject icons for the IB subjects Ustaad tutors in Abu Dhabi." className="w-full h-auto opacity-90" loading="lazy" />
+          {/* Horizontal Selector Tabs */}
+          <div className="flex flex-wrap justify-center gap-2.5 max-w-3xl mx-auto mb-8">
+            {SUBJECT_TABS.map((tab, idx) => {
+              const isActive = activeSubjectTab === idx;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setActiveSubjectTab(idx)}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 border ${
+                    isActive 
+                      ? 'bg-[#0f4a9b] text-white border-[#0f4a9b] shadow-md shadow-[#0f4a9b]/25' 
+                      : 'bg-slate-50 text-slate-600 border-slate-100 hover:bg-slate-100/60 hover:text-[#0f4a9b]'
+                  }`}
+                >
+                  {tab.icon}
+                  {tab.name}
+                </button>
+              );
+            })}
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-6">
-            <a href="/maths-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
-              <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB Maths Tutor</h3>
-              <ul className="space-y-2 text-sm text-[#46535E]">
-                <li>• AA and AI routes</li>
-                <li>• Non-calculator and calculator papers</li>
-                <li>• The maths exploration</li>
-                <li>• Technique for SL and HL</li>
-              </ul>
-            </a>
-            <a href="/biology-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
-              <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB Biology Tutor</h3>
-              <ul className="space-y-2 text-sm text-[#46535E]">
-                <li>• SL and HL syllabus</li>
-                <li>• Applying concepts to data</li>
-                <li>• The scientific investigation</li>
-                <li>• Extended response questions</li>
-              </ul>
-            </a>
-            <a href="/physics-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
-              <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB Physics Tutor</h3>
-              <ul className="space-y-2 text-sm text-[#46535E]">
-                <li>• SL and HL content</li>
-                <li>• Data and practical questions</li>
-                <li>• The scientific investigation</li>
-                <li>• Extended written answers</li>
-              </ul>
-            </a>
-            <a href="/english" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
-              <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB English Tutor</h3>
-              <ul className="space-y-2 text-sm text-[#46535E]">
-                <li>• English A and English B</li>
-                <li>• Spoken-assessment coaching</li>
-                <li>• Paper 1 unseen analysis</li>
-                <li>• Higher-level essay writing</li>
-              </ul>
-            </a>
-            <a href="/chemistry-tutor-abu-dhabi" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
-              <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB Chemistry Tutor</h3>
-              <ul className="space-y-2 text-sm text-[#46535E]">
-                <li>• SL and HL depth</li>
-                <li>• Reactivity and analysis questions</li>
-                <li>• The scientific investigation</li>
-                <li>• Structured calculation papers</li>
-              </ul>
-            </a>
-            <a href="/economics" className="bg-[#f8fafc] rounded-3xl p-7 border border-[#E6EBEE] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block">
-              <h3 className="text-xl font-extrabold text-[#14304D] mb-4">IB Economics Tutor</h3>
-              <ul className="space-y-2 text-sm text-[#46535E]">
-                <li>• SL and HL papers</li>
-                <li>• Diagram-led answers</li>
-                <li>• The commentary portfolio</li>
-                <li>• Data-response technique</li>
-              </ul>
-            </a>
+          {/* Active Subject Details Panel */}
+          <div className="max-w-3xl mx-auto mb-8 min-h-[220px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeSubjectTab}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.22 }}
+                className="bg-[#f8fafc] rounded-3xl border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.02)] p-6 sm:p-8 grid md:grid-cols-12 gap-8 items-center"
+              >
+                {/* Left detailed info and CTA */}
+                <div className="md:col-span-6 flex flex-col justify-between h-full text-left">
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0f4a9b]/5 border border-[#0f4a9b]/12 text-[#0f4a9b] text-[11px] font-bold mb-3">
+                      {SUBJECT_TABS[activeSubjectTab].icon} SPECIALIZED IB SUPPORT
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-4">{SUBJECT_TABS[activeSubjectTab].title}</h3>
+                  </div>
+                  
+                  <div className="flex flex-col gap-3">
+                    <a 
+                      href="/contact#form" 
+                      className="inline-flex items-center justify-center bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] text-white font-bold rounded-full px-5 py-3 text-sm hover:brightness-110 hover:shadow-lg hover:shadow-[#C7A24A]/30 transition transform hover:-translate-y-0.5 active:scale-95 duration-300"
+                    >
+                      Book Your Free Trial →
+                    </a>
+                    <a 
+                      href={SUBJECT_TABS[activeSubjectTab].href} 
+                      className="text-xs font-bold text-[#0f4a9b] hover:underline text-center md:text-left"
+                    >
+                      View full syllabus details →
+                    </a>
+                  </div>
+                </div>
+
+                {/* Right list items with checklist */}
+                <div className="md:col-span-6 border-t md:border-t-0 md:border-l border-slate-100 pt-6 md:pt-0 md:pl-8 text-left">
+                  <h4 className="text-[#0a1f3d] font-bold text-xs uppercase tracking-wider mb-4">Focus Areas:</h4>
+                  <ul className="space-y-3">
+                    {SUBJECT_TABS[activeSubjectTab].bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2.5 text-slate-600 text-[14px]">
+                        <svg className="w-4 h-4 text-[#C7A24A] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                        <span className="font-semibold antialiased">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
+
           <div className="text-center">
-            <a href="/ib-curriculum" className="text-sm font-bold text-[#1A6A63] hover:underline">See full subject list and core overview →</a>
+            <a href="/ib-curriculum" className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0f4a9b] hover:underline">
+              See full subject list and core overview <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
 
-                  {/* 6 WHEN ABU DHABI PARENTS TEND TO CALL */}
+      {/* 6 WHEN ABU DHABI PARENTS TEND TO CALL */}
       <section className="py-20 bg-slate-50/50 relative overflow-hidden">
         <GridBackground light />
         
