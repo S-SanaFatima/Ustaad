@@ -712,154 +712,145 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
 
-      {/* 8 ONE ABU DHABI FAMILY'S IB YEAR */}
-      <section className="py-16 sm:py-20 relative overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #060f22 0%, #14304D 50%, #1A6A63 100%)' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-          <MessageSquareQuote className="w-12 h-12 text-white/20 mx-auto mb-6" />
+            {/* 8 ONE ABU DHABI FAMILY'S IB YEAR */}
+      <section className="py-16 sm:py-20 relative overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #060f22 0%, #0a1f3d 50%, #0f4a9b 100%)' }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="flex justify-center mb-6">
-            {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 text-[#f0c96a] fill-current" />)}
-          </div>
-          
-          <p className="text-xl sm:text-2xl lg:text-3xl font-medium leading-relaxed mb-8">
-            "The sessions transformed how my daughter approached HL Chemistry. Her tutor guided her through the Internal Assessment perfectly, and her predicted points jumped from a 4 to a 6 just in time for university applications."
-          </p>
-          
-          <div className="flex items-center justify-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-[#1A6A63] border border-white/20 flex items-center justify-center text-lg font-bold">
-              FA
-            </div>
-            <div className="text-left">
-              <div className="font-bold">Fatima A.</div>
-              <div className="text-sm text-white/70">Al Reem Island, Abu Dhabi · Verified</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 9 BEFORE YOU BOOK: ABU DHABI QUESTIONS */}
-      <section className="py-14 sm:py-16 bg-white border-t border-slate-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14304D] mb-3">Before You Book: Abu Dhabi Questions</h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">Seven scheduling and delivery questions we hear most from local families.</p>
+          <div className="mb-8 text-left">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+              What <span style={{ color: '#f0c96a' }}>Parents Say</span>
+            </h2>
           </div>
 
-          <div className="space-y-3">
-            {FAQS.map((faq, idx) => {
-              const isOpen = openFaq === idx;
-              return (
-                <div key={idx} className={`border ${isOpen ? 'border-[#1A6A63]/30 bg-[#1A6A63]/[0.02]' : 'border-slate-200 bg-white'} rounded-2xl overflow-hidden transition-all duration-300`}>
-                  <button 
-                    onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full flex items-center justify-between p-5 sm:p-6 text-left focus:outline-none"
-                    aria-expanded={isOpen}
-                  >
-                    <span className={`font-bold pr-4 ${isOpen ? 'text-[#1A6A63]' : 'text-[#14304D]'}`}>{faq.q}</span>
-                    <ChevronDown className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#1A6A63]' : 'text-gray-400'}`} />
-                  </button>
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div 
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-5 sm:px-6 pb-6 text-sm text-[#46535E] leading-relaxed border-t border-[#1A6A63]/10 pt-4">
-                          {faq.a}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ALSO FOR ABU DHABI FAMILIES (Internal Linking Grid) */}
-      <section className="py-12 sm:py-16 bg-[#F8FAFC] border-t border-slate-200/80">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl sm:text-2xl font-extrabold text-[#14304D] mb-8 text-center">Related Support Options</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <a href="/ib-curriculum" className="group p-5 bg-white rounded-2xl border border-slate-200 hover:border-[#1A6A63]/30 hover:shadow-md transition block">
-              <h3 className="font-bold text-[#14304D] group-hover:text-[#1A6A63] transition flex justify-between items-center mb-1">
-                IB Programme Hub <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-              </h3>
-              <p className="text-xs text-gray-500">For the full MYP, SL and HL breakdown and Core overview.</p>
-            </a>
-            <a href="/ib-sciences-tutor-abu-dhabi" className="group p-5 bg-white rounded-2xl border border-slate-200 hover:border-[#1A6A63]/30 hover:shadow-md transition block">
-              <h3 className="font-bold text-[#14304D] group-hover:text-[#1A6A63] transition flex justify-between items-center mb-1">
-                IB Sciences Tutor Abu Dhabi <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-              </h3>
-              <p className="text-xs text-gray-500">For Physics, Chemistry, Biology and the scientific investigation.</p>
-            </a>
-            <a href="/myp-tutor-abu-dhabi" className="group p-5 bg-white rounded-2xl border border-slate-200 hover:border-[#1A6A63]/30 hover:shadow-md transition block">
-              <h3 className="font-bold text-[#14304D] group-hover:text-[#1A6A63] transition flex justify-between items-center mb-1">
-                MYP Tutor Abu Dhabi <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-              </h3>
-              <p className="text-xs text-gray-500">For Grades 6 to 10, ahead of the Diploma years.</p>
-            </a>
-            <a href="/ib-maths-tutor-abu-dhabi" className="group p-5 bg-white rounded-2xl border border-slate-200 hover:border-[#1A6A63]/30 hover:shadow-md transition block">
-              <h3 className="font-bold text-[#14304D] group-hover:text-[#1A6A63] transition flex justify-between items-center mb-1">
-                IB Maths Tutor Abu Dhabi <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-              </h3>
-              <p className="text-xs text-gray-500">For AA, AI, the exploration and SL or HL papers.</p>
-            </a>
-            <a href="/ib-english-tutor-abu-dhabi" className="group p-5 bg-white rounded-2xl border border-slate-200 hover:border-[#1A6A63]/30 hover:shadow-md transition block">
-              <h3 className="font-bold text-[#14304D] group-hover:text-[#1A6A63] transition flex justify-between items-center mb-1">
-                IB English Tutor Abu Dhabi <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-              </h3>
-              <p className="text-xs text-gray-500">For English A and B and spoken-assessment technique.</p>
-            </a>
-            <a href="/igcse-tutor-abu-dhabi" className="group p-5 bg-white rounded-2xl border border-slate-200 hover:border-[#1A6A63]/30 hover:shadow-md transition block">
-              <h3 className="font-bold text-[#14304D] group-hover:text-[#1A6A63] transition flex justify-between items-center mb-1">
-                IGCSE Tutor Abu Dhabi <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-              </h3>
-              <p className="text-xs text-gray-500">For Year 10 and 11 in British-curriculum schools.</p>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 10 TWO SIMPLE WAYS TO START */}
-      <section className="py-14 sm:py-16 bg-white relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10 max-w-2xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14304D] mb-3">Two Simple Ways to Start</h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">Both free, both online, neither asking for any commitment.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
-            <div className="bg-[#f8fafc] rounded-3xl p-8 border border-slate-200 flex flex-col items-center text-center">
-              <div className="w-14 h-14 rounded-full bg-[#C7A24A]/10 text-[#C7A24A] flex items-center justify-center mb-5">
-                <Video className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold text-[#14304D] mb-3">A Free First Session</h3>
-              <p className="text-sm text-[#46535E] mb-6">Thirty online minutes with a subject-matched IB tutor, cost-free.</p>
-              <a href={BOOKING} className="mt-auto w-full inline-flex items-center justify-center bg-[#C7A24A] text-white font-bold rounded-xl px-6 py-3.5 text-[15px] hover:bg-[#b59240] transition">
-                Book a Free Session
-              </a>
-            </div>
+          <div className="rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md p-6 sm:p-10 shadow-2xl relative text-left">
+            <div className="text-6xl font-serif text-white/20 absolute top-3 left-6 select-none pointer-events-none">“</div>
             
-            <div className="bg-[#f8fafc] rounded-3xl p-8 border border-slate-200 flex flex-col items-center text-center">
-              <div className="w-14 h-14 rounded-full bg-[#25D366]/10 text-[#25D366] flex items-center justify-center mb-5">
-                <MessageCircle className="w-7 h-7" />
+            <p className="relative z-10 text-white text-base sm:text-lg lg:text-xl font-medium leading-relaxed mb-8 pt-2">
+              "The sessions transformed how my daughter approached HL Chemistry. Her tutor guided her through the Internal Assessment perfectly, and her predicted points jumped from a 4 to a 6 just in time for university applications."
+            </p>
+
+            <div className="flex items-center gap-3.5 relative z-10">
+              <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm shadow-inner shrink-0">
+                FA
               </div>
-              <h3 className="text-xl font-bold text-[#14304D] mb-3">A Question by Message</h3>
-              <p className="text-sm text-[#46535E] mb-6">Send any IB question and get a worked reply quickly.</p>
-              <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="mt-auto w-full inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold rounded-xl px-6 py-3.5 text-[15px] hover:bg-[#20bd5a] transition">
-                <MessageCircle className="w-5 h-5" /> Ask on WhatsApp
-              </a>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-extrabold text-white text-base leading-tight">Fatima A.</span>
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/30">
+                    <CheckCircle className="w-3 h-3 text-emerald-400" /> Verified
+                  </span>
+                </div>
+                <div className="text-blue-200/80 text-xs mt-0.5">Al Reem Island, Abu Dhabi · Verified</div>
+              </div>
             </div>
           </div>
-          <div className="text-center text-xs text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            First session free. Evening, weekend and Ramadan slots. Serving Abu Dhabi families, delivered online across the UAE. Ustaad has operated in the UAE since 2015.
+
+        </div>
+      </section>
+
+            {/* 9 BEFORE YOU BOOK: ABU DHABI QUESTIONS */}
+      <section className="py-14 sm:py-16 bg-white border-t border-slate-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            
+            {/* Left Header Column */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="lg:col-span-5 flex flex-col items-start text-left lg:sticky lg:top-24"
+            >
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f4a9b]/5 border border-[#0f4a9b]/12 text-[#0f4a9b] text-xs font-bold mb-4">
+                <span className="flex items-center justify-center w-4 h-4 rounded-full bg-[#0f4a9b]/10 text-[10px]">?</span>
+                COMMON QUESTIONS
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+                Parents <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Often Ask</span>
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                Honest answers to the IB questions Abu Dhabi parents ask before their first session.
+              </p>
+            </motion.div>
+
+            {/* Right Accordion Column */}
+            <div className="lg:col-span-7 flex flex-col gap-3.5">
+              {FAQS.map((f, i) => {
+                const isOpen = openFaq === i;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                    className="flex flex-col gap-2"
+                  >
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={() => setOpenFaq(isOpen ? null : i)}
+                        className="flex-shrink-0 flex items-center justify-center font-extrabold text-base rounded-full"
+                        style={{
+                          width: 40, height: 40, minWidth: 40, minHeight: 40,
+                          background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)',
+                          color: isOpen ? '#fff' : '#0f4a9b',
+                          transition: 'background 300ms ease, color 300ms ease',
+                          cursor: 'pointer', border: 'none', boxShadow: 'inset 0 0 0 2px #fff',
+                        }}
+                      >
+                        ?
+                      </button>
+
+                      <button
+                        onClick={() => setOpenFaq(isOpen ? null : i)}
+                        aria-expanded={isOpen}
+                        className="flex-1 flex items-center gap-3 text-left rounded-full border bg-white shadow-sm"
+                        style={{ minHeight: '52px', padding: '10px 16px', cursor: 'pointer', borderColor: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.12)' }}
+                      >
+                        <span className="flex-1 font-semibold text-[#0a1f3d] text-[14px] leading-snug">{f.q}</span>
+                        <span
+                          className="flex-shrink-0 flex items-center justify-center"
+                          style={{
+                            width: 32, height: 32, minWidth: 32, minHeight: 32, borderRadius: '50%',
+                            background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)',
+                            color: isOpen ? '#fff' : '#0f4a9b',
+                            transition: 'background 300ms ease, color 300ms ease, transform 300ms cubic-bezier(0.22,1,0.36,1)',
+                            transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                          }}
+                        >
+                          <ChevronDown className="h-4 w-4" />
+                        </span>
+                      </button>
+                    </div>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                          className="ml-[52px] overflow-hidden"
+                        >
+                          <div className="flex items-start gap-3 rounded-2xl border p-4.5 bg-[#f8fafc]" style={{ borderColor: 'rgba(15,74,155,0.15)', boxShadow: '0 4px 16px rgba(15,74,155,0.06)' }}>
+                            <p className="flex-1 text-gray-600 text-[13.5px] leading-relaxed">{f.a}</p>
+                            <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ width: 32, height: 32, minWidth: 32, minHeight: 32, background: '#0f4a9b', color: '#fff' }}>
+                              <MessageCircle className="h-4 w-4" />
+                            </span>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </div>
+
           </div>
         </div>
       </section>
-    </Layout>
+
+      </Layout>
   );
 }
