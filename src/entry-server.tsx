@@ -61,6 +61,7 @@ import BiologyTutorAbuDhabiPage from "./app/BiologyTutorAbuDhabiPage.tsx";
 import IGCSETutorLanding from "./app/IGCSETutorAbuDhabiPage.tsx";
 import GCSETutorLanding from "./app/GCSETutorAbuDhabiPage.tsx";
 import ALevelTutorLanding from "./app/ALevelTutorAbuDhabiPage.tsx";
+import IBTutorAbuDhabiPage from "./app/IBTutorAbuDhabiPage.tsx";
 
 // Component registry - maps component names to actual components
 const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
@@ -74,6 +75,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   APPage,
   AuthorPage,
   BiologyTutorAbuDhabiPage,
+  IBTutorAbuDhabiPage,
   BiologyPage,
   BlogsPage,
   BritishCurriculumPage,
