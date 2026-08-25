@@ -754,67 +754,113 @@ export default function IBTutorAbuDhabiPage() {
         </div>
       </section>
 
-      {/* 7 BETWEEN-SESSION HELP BY MESSAGE */}
-      <section className="py-20 bg-slate-50/50 relative overflow-hidden">
-        {/* Subtle background decoration */}
+            {/* 7 BETWEEN-SESSION HELP BY MESSAGE */}
+      <section className="py-14 sm:py-16 bg-white relative overflow-hidden">
+        {/* Faint grid background layer */}
         <GridBackground light />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0f4a9b]/5 rounded-full blur-[120px] pointer-events-none" />
-
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+          
+          <motion.div 
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.3 }}
+            className="bg-slate-50/60 rounded-3xl border border-slate-100 shadow-[0_2px_4px_rgba(0,0,0,0.01),0_20px_40px_rgba(15,74,155,0.03)] p-8 sm:p-10 relative overflow-hidden"
+          >
+            {/* Subtle background decoration inside the card */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#0f4a9b]/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
             
-            {/* Left Info Column */}
-            <div className="text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f4a9b]/5 border border-[#0f4a9b]/12 text-[#0f4a9b] text-xs font-bold mb-6">
-                <MessageCircle className="h-3.5 w-3.5" />
-                STUCK ON TONIGHT'S QUESTION?
-              </div>
+            <div className="grid md:grid-cols-12 gap-8 items-center">
               
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4 leading-tight">
-                Photograph the Problem, Get It Explained Within the Hour
-              </h2>
-              
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
-                SL or HL questions across your child's subjects, answered by a specialist tutor.
-              </p>
-              
-              <div className="flex items-center gap-3 mb-8 text-sm font-semibold text-[#0a1f3d]">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[#C7A24A]/10 text-[#C7A24A]">
-                  <Clock className="w-4 h-4" />
+              {/* Left text column */}
+              <div className="md:col-span-7 text-left relative z-10">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0f4a9b]/5 border border-[#0f4a9b]/12 text-[#0f4a9b] text-[11px] sm:text-xs font-bold mb-4">
+                  <MessageCircle className="h-3.5 w-3.5" /> STUCK ON TONIGHT'S QUESTION?
                 </div>
-                <span>Most Abu Dhabi messages answered inside fifteen minutes.</span>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                <a 
-                  href={WA_URL} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-full px-8 py-4 text-[15px] transition shadow-lg shadow-[#25D366]/20 transform hover:-translate-y-0.5 active:scale-95 duration-300"
-                >
-                  <MessageCircle className="w-5 h-5" /> Message a Tutor
-                </a>
                 
-                <p className="text-xs text-slate-500 max-w-[240px] leading-relaxed">
-                  No account, no card. One clear photo of the question is enough to begin.
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3 leading-tight">
+                  Photograph the Problem, Get It Explained
+                </h3>
+                
+                <p className="text-slate-600 text-[14px] sm:text-[15px] leading-relaxed mb-6">
+                  SL or HL questions across your child's subjects, answered by a specialist tutor.
                 </p>
+                
+                <div className="flex items-center gap-2 mb-6 text-xs sm:text-sm font-semibold text-[#0a1f3d]">
+                  <Clock className="w-4 h-4 text-[#C7A24A]" /> Answered inside fifteen minutes.
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+                  <a 
+                    href={WA_URL} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-full px-6 py-3 text-sm transition-all shadow-md shadow-[#25D366]/20 transform hover:-translate-y-0.5 active:scale-95 duration-300"
+                  >
+                    <MessageCircle className="w-4 h-4" /> Message a Tutor
+                  </a>
+                  <span className="text-[11px] text-slate-500 leading-tight">No card required. Just a photo.</span>
+                </div>
               </div>
-            </div>
-
-            {/* Right Mockup Column */}
-            <div className="relative mx-auto w-full max-w-[340px] lg:max-w-none flex justify-center">
-              {/* Soft glowing background under mockup */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#0f4a9b]/5 to-[#25D366]/5 rounded-[3rem] blur-xl transform scale-105 pointer-events-none" />
               
-              <img 
-                src="/whatsapp-book-private-tutor-ustaad-uae.png" 
-                alt="A WhatsApp thread where a Ustaad tutor answers an Abu Dhabi student's IB question with worked steps." 
-                className="relative z-10 w-full max-w-[280px] h-auto drop-shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:scale-[1.02] transition-transform duration-500 rounded-[2.5rem]" 
-                loading="lazy" 
-              />
+              {/* Right animated CSS chat column */}
+              <div className="md:col-span-5 flex justify-center relative z-10">
+                <div className="w-full max-w-[260px] h-[200px] rounded-2xl border border-slate-100 bg-[#efeae2] p-4 flex flex-col gap-2.5 overflow-hidden relative shadow-inner text-[11px]">
+                  
+                  {/* Whatsapp Header */}
+                  <div className="absolute top-0 inset-x-0 bg-[#075e54] text-white py-2 px-3 flex items-center gap-2 shadow-xs">
+                    <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center font-bold text-[9px]">U</div>
+                    <div>
+                      <div className="font-extrabold text-[9px] leading-tight">Ustaad Help</div>
+                      <div className="text-[7.5px] text-emerald-200/80 leading-none">Online</div>
+                    </div>
+                  </div>
+                  
+                  {/* Messages container */}
+                  <div className="flex flex-col gap-2 mt-7">
+                    {/* Message 1 (Student) */}
+                    <motion.div 
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.8 }}
+                      className="self-end bg-[#d9fdd3] text-slate-800 p-2 rounded-lg rounded-tr-none shadow-xs max-w-[85%] text-left leading-relaxed"
+                    >
+                      Can someone check my step on this IB Chemistry IA? [Photo]
+                    </motion.div>
+                    
+                    {/* Typing bubble */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ 
+                        opacity: [0, 1, 1, 0],
+                      }}
+                      transition={{ 
+                        repeat: Infinity, 
+                        duration: 2.2, 
+                        times: [0, 0.15, 0.85, 1],
+                        delay: 1.8 
+                      }}
+                      className="self-start bg-white text-slate-400 py-1.5 px-3 rounded-lg rounded-tl-none shadow-xs text-[9px] italic"
+                    >
+                      Tutor is writing...
+                    </motion.div>
+
+                    {/* Message 2 (Tutor reply) */}
+                    <motion.div 
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 4 }}
+                      className="self-start bg-white text-slate-800 p-2 rounded-lg rounded-tl-none shadow-xs max-w-[85%] text-left leading-relaxed"
+                    >
+                      Yes, the oxidation states in step 3 are balanced correctly, but check the coefficient in step 4.
+                    </motion.div>
+                  </div>
+                  
+                </div>
+              </div>
+              
             </div>
-            
-          </div>
+          </motion.div>
+          
         </div>
       </section>
       
