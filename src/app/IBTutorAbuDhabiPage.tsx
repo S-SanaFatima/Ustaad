@@ -72,57 +72,155 @@ export default function IBTutorAbuDhabiPage() {
       />
 
       {/* HERO SECTION */}
-      <section className="relative -mt-16 overflow-hidden bg-[#060f22] flex flex-col items-center justify-center min-h-[85vh] pt-32 pb-20">
-        <GridBackground />
+      <section className="relative -mt-16 overflow-hidden bg-[#060f22] flex flex-col items-center justify-center md:min-h-[75vh]">
+        {/* Background SVG decorative canvas on desktop */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40 md:opacity-100">
           <svg viewBox="0 0 1400 600" preserveAspectRatio="xMaxYMid slice" className="absolute inset-0 w-full h-full" aria-hidden="true">
             <defs>
               <linearGradient id="ibGrowthGrad" x1="0" y1="1" x2="1" y2="0">
-                <stop offset="0%" stopColor="#1A6A63" stopOpacity="0.1" />
-                <stop offset="50%" stopColor="#1A6A63" stopOpacity="0.8" />
+                <stop offset="0%" stopColor="#5fd3e6" stopOpacity="0.1" />
+                <stop offset="50%" stopColor="#5fd3e6" stopOpacity="0.8" />
                 <stop offset="100%" stopColor="#22b8cd" stopOpacity="1" />
               </linearGradient>
+              <linearGradient id="ibHexGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#f0c96a" />
+                <stop offset="100%" stopColor="#C7A24A" />
+              </linearGradient>
+              <radialGradient id="ibHexGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#f0c96a" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="#060f22" stopOpacity="0" />
+              </radialGradient>
+              <filter id="ibglow"><feGaussianBlur stdDeviation="3" /></filter>
+              <marker id="ibarrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="rgba(95,211,230,0.8)" />
+              </marker>
             </defs>
-            <path d="M-100,600 C300,550 500,450 700,300 C900,150 1100,100 1500,50 L1500,600 Z" fill="url(#ibGrowthGrad)" opacity="0.15" />
+
+            {/* Dot Grid */}
+            {(() => {
+              const dots: ReactNode[] = [];
+              for (let x = 40; x < 1400; x += 55) for (let y = 30; y < 600; y += 55)
+                dots.push(<circle key={`d${x}${y}`} cx={x} cy={y} r="1" fill="rgba(255,255,255,0.03)" />);
+              return dots;
+            })()}
+
+            {/* Growth Curve (Kept to far left margin X: 30..240) */}
+            {(() => {
+              const out: ReactNode[] = [];
+              out.push(<path key="curve" d="M 30 500 Q 140 500 240 80" fill="none" stroke="url(#ibGrowthGrad)" strokeWidth="3" filter="url(#ibglow)" />);
+              out.push(<path key="curve2" d="M 30 500 Q 140 500 240 80" fill="none" stroke="url(#ibGrowthGrad)" strokeWidth="1.5" markerEnd="url(#ibarrow)" />);
+              out.push(<line key="xaxis" x1="20" y1="500" x2="280" y2="500" stroke="rgba(95,211,230,0.15)" strokeWidth="1" strokeDasharray="6 6" />);
+              out.push(<line key="yaxis" x1="30" y1="510" x2="30" y2="70" stroke="rgba(95,211,230,0.15)" strokeWidth="1" strokeDasharray="6 6" />);
+              out.push(<text key="lbl_offer" x="140" y="65" fill="rgba(95,211,230,0.8)" fontSize="12" fontFamily="monospace" fontWeight="bold">Target: UCAS Offer</text>);
+              out.push(<text key="lbl_mocks" x="160" y="520" fill="rgba(255,255,255,0.35)" fontSize="11" fontFamily="monospace">Autumn Mocks</text>);
+              out.push(<text key="lbl_start" x="30" y="520" fill="rgba(255,255,255,0.35)" fontSize="11" fontFamily="monospace">Year 12 Start</text>);
+              return out;
+            })()}
+
+            {/* Glowing Hexagon Network (Kept to far right margin HX: 1280) */}
+            {(() => {
+              const out: ReactNode[] = [];
+              const HX = 1280, HY = 240, SIZE = 75;
+              const pts = [];
+              for (let i = 0; i < 6; i++) {
+                const angle_deg = 60 * i - 30;
+                const angle_rad = (Math.PI / 180) * angle_deg;
+                pts.push(`${HX + SIZE * Math.cos(angle_rad)},${HY + SIZE * Math.sin(angle_rad)}`);
+              }
+              out.push(<circle key="hexglow" cx={HX} cy={HY} r={SIZE * 1.5} fill="url(#ibHexGlow)" />);
+              out.push(<polygon key="hex1" points={pts.join(' ')} fill="none" stroke="url(#ibHexGrad)" strokeWidth="2" filter="url(#ibglow)" />);
+              out.push(<polygon key="hex2" points={pts.join(' ')} fill="none" stroke="rgba(240,201,106,0.5)" strokeWidth="1" strokeDasharray="4 4" />);
+              for (let i = 0; i < 3; i++) {
+                out.push(<line key={`cross${i}`} x1={HX + SIZE * Math.cos(((60 * i - 30) * Math.PI) / 180)} y1={HY + SIZE * Math.sin(((60 * i - 30) * Math.PI) / 180)} x2={HX + SIZE * Math.cos(((60 * (i + 3) - 30) * Math.PI) / 180)} y2={HY + SIZE * Math.sin(((60 * (i + 3) - 30) * Math.PI) / 180)} stroke="rgba(240,201,106,0.15)" strokeWidth="1" />);
+              }
+              out.push(<circle key="center" cx={HX} cy={HY} r="24" fill="rgba(240,201,106,0.1)" stroke="#f0c96a" strokeWidth="1.5" />);
+              out.push(<text key="alevel" x={HX} y={HY + 4} textAnchor="middle" fill="#f0c96a" fontSize="13" fontWeight="900" fontFamily="sans-serif">IB</text>);
+              out.push(<text key="t1" x={HX - 110} y={HY - 50} fill="rgba(95,211,230,0.7)" fontSize="11" fontFamily="monospace">IB Math AA</text>);
+              out.push(<text key="t2" x={HX + 65} y={HY - 65} fill="rgba(180,180,255,0.7)" fontSize="11" fontFamily="monospace">IB Math AI</text>);
+              out.push(<text key="t3" x={HX + 75} y={HY + 60} fill="rgba(240,201,106,0.7)" fontSize="11" fontFamily="monospace">IB Physics HL</text>);
+              out.push(<text key="t4" x={HX - 110} y={HY + 75} fill="rgba(95,211,230,0.6)" fontSize="11" fontFamily="monospace">IB Chemistry SL</text>);
+              return out;
+            })()}
           </svg>
         </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          <div className="text-left text-white max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold mb-4 backdrop-blur-sm">
-              <MapPin className="w-3.5 h-3.5 text-[#22b8cd]" /> Serving Abu Dhabi Families
-            </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight tracking-tight text-white">
-              <GradientHeadingText text="IB Tutor Abu Dhabi," /><br className="hidden sm:block" /> from MYP to Diploma
-            </h1>
-            <p className="text-base sm:text-lg text-white/80 mb-6 max-w-xl font-medium leading-relaxed">
-              Private online IB tuition for Abu Dhabi families, matched by subject, level and exam session.
-            </p>
-            <ul className="flex flex-col gap-2.5 mb-8 text-sm sm:text-[15px] font-medium text-white/90">
-              <li className="flex items-center gap-2.5"><CheckCircle2 className="w-5 h-5 text-[#22b8cd] flex-shrink-0" /> MYP Diploma SL & HL</li>
-              <li className="flex items-center gap-2.5"><CheckCircle2 className="w-5 h-5 text-[#22b8cd] flex-shrink-0" /> IA, EE & TOK help</li>
-              <li className="flex items-center gap-2.5"><CheckCircle2 className="w-5 h-5 text-[#22b8cd] flex-shrink-0" /> First Session Free</li>
-            </ul>
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a href={BOOKING} className="w-full sm:w-auto inline-flex items-center justify-center bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] text-white font-bold rounded-full px-8 py-3.5 text-sm sm:text-[15px] hover:brightness-110 shadow-lg shadow-[#C7A24A]/25 transition transform hover:-translate-y-0.5 active:scale-95">
-                Claim a Free IB Session
+
+          {/* Hero Content Box */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+            className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 md:pt-20 md:pb-14 max-w-5xl w-full"
+          >
+
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-3"
+            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}
+          >
+            <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#f0c96a' }} />
+            <span className="text-blue-100/80 text-[11px] sm:text-[12px] font-semibold">Trusted by Abu Dhabi families since 2015</span>
+          </motion.div>
+
+          <motion.h1
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}
+            className="font-extrabold tracking-tight text-white leading-[1.05] mb-3 md:mb-5 text-[clamp(1.7rem,5vw,3.4rem)] max-w-[95%] sm:max-w-none"
+          >
+            Online IB Tutor Abu Dhabi,{' '}
+            <span style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Built for Offers
+            </span>
+          </motion.h1>
+
+          <motion.p
+            variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
+            className="text-blue-100/80 text-[clamp(0.88rem,2vw,1.05rem)] leading-relaxed max-w-2xl mb-6 md:mb-8 px-4 italic font-medium"
+          >
+            Live online IB tutors matched to MYP, SL or HL.
+          </motion.p>
+
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full px-4 mt-2"
+          >
+            <div className="sm:hidden w-full max-w-[340px] flex flex-col items-center gap-2.5 p-3.5 rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)' }}>
+              <a
+                href={BOOKING}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5 text-center"
+                style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}
+              >
+                Book Your Free Trial
               </a>
-              <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold rounded-full px-6 py-3.5 text-sm transition">
-                <MessageCircle className="w-4 h-4 text-[#25D366]" /> or WhatsApp a question from tonight's homework
+              <span className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</span>
+              <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="text-blue-200/90 text-[12px] font-semibold underline flex items-center justify-center gap-1">
+                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" /> WhatsApp Us
               </a>
             </div>
-          </div>
-          
-          <div className="relative mx-auto w-full max-w-[500px] lg:max-w-none">
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#1A6A63]/20 to-[#22b8cd]/20 rounded-[2.5rem] transform rotate-3 scale-105" />
-            <img 
-              src="/images/blogs/ib-tutor-abu-dhabi-online-diploma-session.webp" 
-              alt="Abu Dhabi IB Diploma student in a live online session with a Ustaad tutor annotating an IB past paper." 
-              className="relative z-10 w-full h-auto rounded-[2rem] shadow-2xl border border-white/10 object-cover aspect-[4/3]"
-              loading="eager"
-            />
-          </div>
-        </div>
+
+            <div className="hidden sm:flex items-start justify-center gap-4">
+              <div className="flex flex-col items-center gap-1.5">
+                <a
+                  href={BOOKING}
+                  className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
+                  style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}
+                >
+                  Book Your Free Trial
+                </a>
+                <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
+              </div>
+              <div className="flex flex-col items-center gap-1.5">
+                <a
+                  href={WA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Chat with Ustaad on WhatsApp"
+                  className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"
+                >
+                  <MessageCircle className="w-4 h-4" /> WhatsApp Us
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* TRUST PROOF STRIP */}
