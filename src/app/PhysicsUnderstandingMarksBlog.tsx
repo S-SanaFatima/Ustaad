@@ -484,7 +484,7 @@ export default function PhysicsUnderstandingMarksBlog() {
                 Book Your Free Trial →
               </a>
               <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-white/10 border border-white/20 rounded-full font-bold text-white hover:bg-white/20 transition text-sm">
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md">
                 <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> Ask on WhatsApp
               </a>
             </div>
