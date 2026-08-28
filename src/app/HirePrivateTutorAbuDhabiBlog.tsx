@@ -15,7 +15,7 @@ const BLOG = {
   slug: '10-questions-hiring-private-tutor-abu-dhabi',
   description:
     'Ten practical questions UAE parents should ask before hiring a private tutor in Abu Dhabi, plus a free interview worksheet to compare tutors side by side.',
-  heroImage: '/images/blogs/section1.jpeg',
+  heroImage: '/images/blogs/section1.webp',
   heroAlt: 'Parent and teenager discussing tutoring options at home in Abu Dhabi',
   heroCaption:
     'Choosing a tutor is one of the least visible decisions a parent makes, and often one of the biggest.',
@@ -402,7 +402,7 @@ export default function HirePrivateTutorAbuDhabiBlog() {
 
             <figure className="my-6">
               <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.08)]">
-                <img src="/images/blogs/Gemini_Generated_Image_8aiwwk8aiwwk8aiw.jpeg" alt="Tutor assessing student learning gaps in Abu Dhabi" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/Gemini_Generated_Image_8aiwwk8aiwwk8aiw.webp" alt="Tutor assessing student learning gaps in Abu Dhabi" className="w-full h-auto block" loading="lazy" />
               </div>
               <figcaption className="mt-2 text-center text-xs text-gray-400 italic">A thorough first session checks for hidden learning gaps before regular teaching starts.</figcaption>
             </figure>
@@ -421,7 +421,7 @@ export default function HirePrivateTutorAbuDhabiBlog() {
 
             <figure className="my-6">
               <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.08)]">
-                <img src="/images/blogs/Gemini_Generated_Image_y5w0yyy5w0yyy5w0.jpeg" alt="Private tutor explaining complex concepts with highlighters and study notes" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/Gemini_Generated_Image_y5w0yyy5w0yyy5w0.webp" alt="Private tutor explaining complex concepts with highlighters and study notes" className="w-full h-auto block" loading="lazy" />
               </div>
               <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Great tutors focus on clear explanation, adaptable pace, and student understanding.</figcaption>
             </figure>
@@ -441,7 +441,7 @@ export default function HirePrivateTutorAbuDhabiBlog() {
 
             <figure className="my-6">
               <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.08)]">
-                <img src="/images/blogs/Gemini_Generated_Image_ihgifaihgifaihgi (1).jpeg" alt="Parents reviewing digital progress reports on a tablet with tutor" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/Gemini_Generated_Image_ihgifaihgifaihgi_1.webp" alt="Parents reviewing digital progress reports on a tablet with tutor" className="w-full h-auto block" loading="lazy" />
               </div>
               <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Look for visible evidence of progress: session notes, marked past papers, and goal check-ins.</figcaption>
             </figure>
@@ -471,7 +471,7 @@ export default function HirePrivateTutorAbuDhabiBlog() {
 
             <figure className="my-6">
               <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.08)]">
-                <img src="/images/blogs/Gemini_Generated_Image_y5w0yyy5w0yyy5w0 (1).jpeg" alt="Senior tutor reviewing past papers and mark schemes with student" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/Gemini_Generated_Image_y5w0yyy5w0yyy5w0_1.webp" alt="Senior tutor reviewing past papers and mark schemes with student" className="w-full h-auto block" loading="lazy" />
               </div>
               <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Curriculum fluency with Cambridge, Pearson Edexcel, or IB mark schemes directly influences exam results.</figcaption>
             </figure>
@@ -489,7 +489,7 @@ export default function HirePrivateTutorAbuDhabiBlog() {
 
             <figure className="my-6">
               <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.08)]">
-                <img src="/images/blogs/Gemini_Generated_Image_ihgifaihgifaihgi.jpeg" alt="Student confidently solving problems independently while tutor observes" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/Gemini_Generated_Image_ihgifaihgifaihgi.webp" alt="Student confidently solving problems independently while tutor observes" className="w-full h-auto block" loading="lazy" />
               </div>
               <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Effective tutoring gradually builds independent study habits so the student thrives on their own.</figcaption>
             </figure>

@@ -51,7 +51,7 @@ export const CATEGORY_META = {
 export const BLOGS: BlogPost[] = [
   {
     slug: '10-questions-hiring-private-tutor-abu-dhabi',
-    image: '/images/blogs/section1.jpeg',
+    image: '/images/blogs/section1.webp',
     alt: 'Parent and teenager discussing private tutoring options at home in Abu Dhabi',
     category: 'Parent Guidance',
     title: '10 Honest Questions to Ask Before You Hire a Private Tutor in Abu Dhabi',
