@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: '10-questions-hiring-private-tutor-abu-dhabi',
+    image: '/images/blogs/section1.jpeg',
+    alt: 'Parent and teenager discussing private tutoring options at home in Abu Dhabi',
+    category: 'Parent Guidance',
+    title: '10 Honest Questions to Ask Before You Hire a Private Tutor in Abu Dhabi',
+    description: 'Ten practical questions UAE parents should ask before hiring a tutor, plus a free interview worksheet to compare tutors side by side.',
+    date: '28 Aug 2026',
+    readTime: '13 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'igcse-preparation-past-papers-final-step',
     image: '/images/blogs/igcse-preparation-past-papers-hero.jpg',
     alt: 'UAE parent and IGCSE student reviewing revision plans and past paper preparation at home',

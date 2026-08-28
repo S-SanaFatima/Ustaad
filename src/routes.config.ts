@@ -699,6 +699,18 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Read UAE School Report Card', url: '/blogs/read-uae-school-report-card' }]
   },
   {
+    path: '/blogs/10-questions-hiring-private-tutor-abu-dhabi',
+    component: 'HirePrivateTutorAbuDhabiBlog',
+    seo: {
+      title: '10 Questions Before Hiring a Private Tutor in Abu Dhabi | Ustaad',
+      description: 'Ten practical questions UAE parents should ask before hiring a private tutor in Abu Dhabi, plus a free interview worksheet to compare tutors side by side.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-08-28'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: '10 Questions Before Hiring a Tutor', url: '/blogs/10-questions-hiring-private-tutor-abu-dhabi' }]
+  },
+  {
     path: '/privacy',
     component: 'PrivacyPage',
     seo: {

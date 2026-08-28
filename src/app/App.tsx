@@ -14,7 +14,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Layout, GradientHeadingText, GoldButton, BritishLandmarkWatermark, AmericanLandmarkWatermark, IBWorldWatermark, FinalCTA, StatsBar } from './shared';
 import SEOHead from './shared/SEOHead';
 import BackToSchoolPopup from './shared/BackToSchoolPopup';
-import { localBusinessSchema, breadcrumbSchema, faqSchema, reviewsSchema } from './shared/schemas';
+import { localBusinessSchema, breadcrumbSchema, faqSchema, reviewsSchema, organizationSchema, websiteSchema } from './shared/schemas';
 import AskExpertSection from './AskExpertSection';
 
 const REVIEWS = [
@@ -210,6 +210,8 @@ const homepageSEO = {
   canonical: "/",
   ogImage: "/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp",
   schema: [
+    organizationSchema,
+    websiteSchema,
     localBusinessSchema,
     breadcrumbSchema([{ name: "Home", url: "/" }]),
     faqSchema(FAQ_ITEMS.map(f => ({ q: f.q, a: f.aText }))),
@@ -267,7 +269,7 @@ export default function App() {
               <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
               
               <p className="text-gray-600 text-base lg:text-lg mb-10 leading-relaxed max-w-xl">
-                Private 1-to-1 tutoring across Dubai, Abu Dhabi, and the UAE for IGCSE, GCSE, A-Level, IB, and American curriculum students.
+                Ustaad is a premium private tutoring service in the UAE, offering online 1-to-1 lessons for IGCSE, GCSE, A-Level, IB and American curriculum students.
               </p>
 
               <div className="flex flex-col gap-4 mb-4">
@@ -292,7 +294,7 @@ export default function App() {
             >
               <img
                 src="/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp"
-                alt="Ustaad private tutor guiding a UAE student through a focused 1-to-1 IGCSE and A-Level lesson in Dubai"
+                alt="Private online tutor teaching a UAE student one to one"
                 width={800}
                 height={600}
                 fetchPriority="high"

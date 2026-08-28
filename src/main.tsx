@@ -57,6 +57,7 @@ const loadIGCSEPhysicsFormulasBlog = () => import('./app/IGCSEPhysicsFormulasBlo
 const loadChemistryFadesBlog = () => import('./app/ChemistryFadesBlog');
 const loadEarlySignsChemistryBlog = () => import('./app/EarlySignsChemistryBlog');
 const loadReadSchoolReportCardBlog = () => import('./app/ReadSchoolReportCardBlog');
+const loadHirePrivateTutorAbuDhabiBlog = () => import('./app/HirePrivateTutorAbuDhabiBlog');
 const loadIGCSEvsGCSEBlog = () => import('./app/IGCSEvsGCSEBlog');
 const loadALevelIndependentThinkingBlog = () => import('./app/ALevelIndependentThinkingBlog');
 const loadIGCSEPreparationPastPapersBlog = () => import('./app/IGCSEPreparationPastPapersBlog');
@@ -110,6 +111,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/why-chemistry-fades-from-memory': loadChemistryFadesBlog,
   '/blogs/early-signs-chemistry-help-uae': loadEarlySignsChemistryBlog,
   '/blogs/read-uae-school-report-card': loadReadSchoolReportCardBlog,
+  '/blogs/10-questions-hiring-private-tutor-abu-dhabi': loadHirePrivateTutorAbuDhabiBlog,
   '/blogs/igcse-vs-gcse-curriculum-differences-uae': loadIGCSEvsGCSEBlog,
   '/blogs/a-level-tutoring-uae-independent-thinking': loadALevelIndependentThinkingBlog,
   '/blogs/igcse-preparation-past-papers-final-step': loadIGCSEPreparationPastPapersBlog,
@@ -182,6 +184,7 @@ const IGCSEPhysicsFormulasBlog = lazy(loadIGCSEPhysicsFormulasBlog);
 const ChemistryFadesBlog = lazy(loadChemistryFadesBlog);
 const EarlySignsChemistryBlog = lazy(loadEarlySignsChemistryBlog);
 const ReadSchoolReportCardBlog = lazy(loadReadSchoolReportCardBlog);
+const HirePrivateTutorAbuDhabiBlog = lazy(loadHirePrivateTutorAbuDhabiBlog);
 const IGCSEvsGCSEBlog = lazy(loadIGCSEvsGCSEBlog);
 const ALevelIndependentThinkingBlog = lazy(loadALevelIndependentThinkingBlog);
 const IGCSEPreparationPastPapersBlog = lazy(loadIGCSEPreparationPastPapersBlog);
@@ -279,6 +282,7 @@ function AppRoutes() {
           <Route path="/blogs/why-chemistry-fades-from-memory" element={<ChemistryFadesBlog />} />
           <Route path="/blogs/early-signs-chemistry-help-uae" element={<EarlySignsChemistryBlog />} />
           <Route path="/blogs/read-uae-school-report-card" element={<ReadSchoolReportCardBlog />} />
+          <Route path="/blogs/10-questions-hiring-private-tutor-abu-dhabi" element={<HirePrivateTutorAbuDhabiBlog />} />
           <Route path="/blogs/igcse-vs-gcse-curriculum-differences-uae" element={<IGCSEvsGCSEBlog />} />
           <Route path="/blogs/a-level-tutoring-uae-independent-thinking" element={<ALevelIndependentThinkingBlog />} />
           <Route path="/blogs/igcse-preparation-past-papers-final-step" element={<IGCSEPreparationPastPapersBlog />} />

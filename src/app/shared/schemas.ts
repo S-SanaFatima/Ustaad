@@ -1,5 +1,38 @@
 const BASE_URL = "https://ustaad.ae";
 
+export const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${BASE_URL}/#organization`,
+  "name": "Ustaad",
+  "legalName": "Ustaad Private Tutoring",
+  "url": `${BASE_URL}/`,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${BASE_URL}/favicon-512x512.png`,
+    "width": 512,
+    "height": 512
+  },
+  "description": "Premium private 1-to-1 tutoring across the UAE for IGCSE, GCSE, A-Level, IB and American curriculum students.",
+  "areaServed": "AE",
+  "sameAs": [
+    "https://www.facebook.com/ustaadAE",
+    "https://www.instagram.com/ustaad.ae",
+    "https://www.linkedin.com/company/ustaad-ae"
+  ]
+};
+
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${BASE_URL}/#website`,
+  "name": "Ustaad",
+  "alternateName": "Ustaad Private Tutoring UAE",
+  "url": `${BASE_URL}/`,
+  "publisher": { "@id": `${BASE_URL}/#organization` },
+  "inLanguage": "en-AE"
+};
+
 const OPENING_HOURS = [
   {
     "@type": "OpeningHoursSpecification",
@@ -52,10 +85,10 @@ export const localBusinessSchema = {
   "@type": "LocalBusiness",
   additionalType: "https://schema.org/EducationalOrganization",
   "@id": `${BASE_URL}/#organization`,
-  name: "Ustaad — Private Tutors UAE",
+  name: "Ustaad",
   alternateName: "Ustaad Tutoring",
   url: BASE_URL,
-  logo: `${BASE_URL}/ustaad-logo-updated-white.png`,
+  logo: `${BASE_URL}/favicon-512x512.png`,
   image: `${BASE_URL}/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp`,
   description:
     "Premium private 1-to-1 tutoring across the UAE for IGCSE, GCSE, A-Level, IB, and American curriculum students in Dubai, Abu Dhabi, Sharjah and every Emirate.",

@@ -295,7 +295,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-
+      {/* ── TEAM (below Who We Are) ── */}
+      <TeamSection />
 
       {/* ── WHY WE BUILT USTAAD ONLINE ── */}
       <section className="py-20 bg-[#F4F8FD]">
@@ -640,9 +641,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* ── TEAM ── */}
-      <TeamSection />
 
       {/* ── FAQ ── */}
       <section className="py-8 sm:py-10 lg:py-12 bg-white">

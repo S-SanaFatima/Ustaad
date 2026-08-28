@@ -4,7 +4,7 @@ import {
 } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 
-export default function Footer({ logoAlt = "Ustaad — trusted UAE private tutoring service for British, American and IB students across Dubai, Abu Dhabi and Sharjah" }: { logoAlt?: string } = {}) {
+export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string } = {}) {
   const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
 
   const toggleCity = (cityName: string) => {

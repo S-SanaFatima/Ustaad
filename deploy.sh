@@ -23,3 +23,6 @@ echo ""
 echo "✓ Done."
 echo "  On cPanel server, run:"
 echo "  git fetch origin && git checkout -B deploy-latest origin/deploy-latest && git reset --hard origin/deploy-latest"
+
+echo "▶ Pinging Bing IndexNow API..."
+node scripts/ping-bing.mjs

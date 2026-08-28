@@ -15,6 +15,8 @@
     { "source": "/apply-now/", "destination": "/contact", "permanent": true },
     { "source": "/british", "destination": "/british-curriculum", "permanent": true },
     { "source": "/british/", "destination": "/british-curriculum", "permanent": true },
+    { "source": "/american", "destination": "/american-curriculum", "permanent": true },
+    { "source": "/american/", "destination": "/american-curriculum", "permanent": true },
     { "source": "/sat-emsat", "destination": "/exam-preparation", "permanent": true },
     { "source": "/sat-emsat/", "destination": "/exam-preparation", "permanent": true },
     { "source": "/gcse-cbse", "destination": "/gcse", "permanent": true },

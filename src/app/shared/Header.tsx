@@ -14,7 +14,7 @@ interface HeaderProps {
   logoAlt?: string;
 }
 
-export default function Header({ scrolled = false, logoAlt = "Ustaad logo — premium 1-to-1 private tutoring service across the UAE since 2015" }: HeaderProps) {
+export default function Header({ scrolled = false, logoAlt = "Ustaad logo" }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [desktopOpen, setDesktopOpen] = useState<string | null>(null);

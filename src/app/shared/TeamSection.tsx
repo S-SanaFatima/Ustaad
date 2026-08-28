@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { GradientHeadingText } from './GradientHeadingText';
 
-const AUTO_MS = 2800;
+const AUTO_MS = 4800;
 
 type TeamMember = {
   name: string;
@@ -63,13 +63,15 @@ export default function TeamSection() {
   const [idx, setIdx] = useState(0);
   const [fading, setFading] = useState(false);
   const [barKey, setBarKey] = useState(0);
+  const [paused, setPaused] = useState(false);
   const reducedRef = useRef(false);
+  const pauseTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     reducedRef.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }, []);
 
-  const autoActive = !reducedRef.current;
+  const autoActive = !reducedRef.current && !paused;
 
   const goTo = useCallback((next: number) => {
     const i = ((next % TEAM.length) + TEAM.length) % TEAM.length;
@@ -93,6 +95,25 @@ export default function TeamSection() {
     return () => window.clearTimeout(timer);
   }, [autoActive, idx, goTo]);
 
+  useEffect(() => {
+    return () => {
+      if (pauseTimerRef.current) window.clearTimeout(pauseTimerRef.current);
+    };
+  }, []);
+
+  const handlePause = () => {
+    setPaused(true);
+    if (pauseTimerRef.current) window.clearTimeout(pauseTimerRef.current);
+  };
+
+  const handleResume = () => {
+    if (pauseTimerRef.current) window.clearTimeout(pauseTimerRef.current);
+    pauseTimerRef.current = window.setTimeout(() => {
+      setPaused(false);
+      setBarKey((k) => k + 1);
+    }, 400);
+  };
+
   const member = TEAM[idx];
 
   return (
@@ -109,6 +130,9 @@ export default function TeamSection() {
         .ust-team-playbar {
           transform-origin: left center;
           animation: ustTeamPlaybar ${AUTO_MS}ms linear forwards;
+        }
+        .ust-team-playbar.is-paused {
+          animation-play-state: paused;
         }
         @keyframes ustTeamChipIn {
           from { opacity: 0; transform: translateY(6px); }
@@ -153,15 +177,18 @@ export default function TeamSection() {
           <article
             className="relative rounded-[24px] p-6 sm:p-7 lg:p-8 flex flex-col gap-5 min-h-0 lg:min-h-[380px] overflow-hidden bg-gradient-to-br from-[#0a1f3d] via-[#0d2c58] to-[#0f4a9b] border border-[#0f4a9b]/50 shadow-[0_20px_50px_rgba(15,74,155,0.25)]"
             aria-live="polite"
+            onMouseEnter={handlePause}
+            onMouseLeave={handleResume}
+            onTouchStart={handlePause}
           >
             <div className="absolute top-0 right-0 w-[340px] h-[340px] bg-gradient-to-br from-[#C7A24A]/15 to-transparent rounded-full blur-[80px] pointer-events-none translate-x-1/4 -translate-y-1/4" />
             <div className="absolute bottom-0 left-0 w-[260px] h-[260px] bg-[#0f4a9b]/40 rounded-full blur-[70px] pointer-events-none -translate-x-1/4 translate-y-1/4" />
             <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#C7A24A] via-[#C7A24A]/60 to-transparent" aria-hidden="true" />
 
-            {autoActive && (
+            {!reducedRef.current && (
               <div
                 key={barKey}
-                className="ust-team-playbar absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-[#C7A24A] to-[#f0d080] opacity-95 z-20"
+                className={`ust-team-playbar absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-[#C7A24A] to-[#f0d080] opacity-95 z-20 ${paused ? 'is-paused' : ''}`}
                 aria-hidden="true"
               />
             )}
@@ -182,9 +209,18 @@ export default function TeamSection() {
                   <span className="text-white/40"> / {pad(TEAM.length)}</span>
                 </div>
               </div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-[11px] font-bold uppercase tracking-[0.15em] text-[#f0d080] backdrop-blur-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_8px_rgba(199,162,74,0.8)]" aria-hidden="true" />
-                {member.tag}
+              <div className="flex items-center gap-2">
+                {autoActive && (
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] font-semibold text-white/80 backdrop-blur-sm animate-pulse">
+                    <span className="w-1 h-1 rounded-full bg-[#C7A24A]" aria-hidden="true" />
+                    <span className="sm:hidden">Tap to stay</span>
+                    <span className="hidden sm:inline">Hover to pause</span>
+                  </span>
+                )}
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-[11px] font-bold uppercase tracking-[0.15em] text-[#f0d080] backdrop-blur-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_8px_rgba(199,162,74,0.8)]" aria-hidden="true" />
+                  {member.tag}
+                </div>
               </div>
             </div>
 

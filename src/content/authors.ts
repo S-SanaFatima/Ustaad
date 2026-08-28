@@ -56,6 +56,7 @@ export const AUTHORS: Author[] = [
       { title: '"My Child Only Panics Right Before Exams": What UAE Parents Often Notice Too Late', href: '/blogs/exam-panic-before-exams-uae', role: 'authored' },
       { title: 'Your Child Understands Physics. So Why Are the Marks Still Low?', href: '/blogs/physics-understanding-vs-marks', role: 'authored' },
       { title: 'How to Read a UAE School Report Card Like an Education Counsellor', href: '/blogs/read-uae-school-report-card', role: 'authored' },
+      { title: '10 Honest Questions to Ask Before You Hire a Private Tutor in Abu Dhabi', href: '/blogs/10-questions-hiring-private-tutor-abu-dhabi', role: 'authored' },
     ],
   },
   {
@@ -80,6 +81,7 @@ export const AUTHORS: Author[] = [
       { title: 'Physics Understanding vs Marks', href: '/blogs/physics-understanding-vs-marks', role: 'reviewed' },
       { title: 'Why Students Forget Chemistry So Quickly (And How Parents Can Help)', href: '/blogs/why-chemistry-fades-from-memory', role: 'reviewed' },
       { title: 'How to Read a UAE School Report Card Like an Education Counsellor', href: '/blogs/read-uae-school-report-card', role: 'reviewed' },
+      { title: '10 Honest Questions to Ask Before You Hire a Private Tutor in Abu Dhabi', href: '/blogs/10-questions-hiring-private-tutor-abu-dhabi', role: 'reviewed' },
     ],
   },
   {
