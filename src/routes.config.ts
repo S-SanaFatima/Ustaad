@@ -485,6 +485,18 @@ export const ROUTES: RouteConfig[] = [
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' }, { name: 'A-Level Independent Thinking', url: '/blogs/a-level-tutoring-uae-independent-thinking' }]
   },
+  {
+    path: '/blogs/igcse-preparation-past-papers-final-step',
+    component: 'IGCSEPreparationPastPapersBlog',
+    seo: {
+      title: 'IGCSE Preparation: Past Papers Are the Final Step | Ustaad',
+      description: 'IGCSE preparation is like building a house. See why past papers are the roof, not the foundation, and how to prepare in the right order to lift grades.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-08-27'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic', url: '/blogs/academic-exam-skills' }, { name: 'IGCSE Past Papers', url: '/blogs/igcse-preparation-past-papers-final-step' }]
+  },
 
   // City landings
   {

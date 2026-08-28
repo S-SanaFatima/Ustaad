@@ -26,3 +26,4 @@ export { default as ReadMoreParagraph } from './ReadMoreParagraph';
 export { default as RelatedContent } from './RelatedContent';
 export { default as SEOHead } from './SEOHead';
 export { default as FAQAccordion } from './FAQAccordion';
+export { default as TeamSection } from './TeamSection';

@@ -59,6 +59,7 @@ const loadEarlySignsChemistryBlog = () => import('./app/EarlySignsChemistryBlog'
 const loadReadSchoolReportCardBlog = () => import('./app/ReadSchoolReportCardBlog');
 const loadIGCSEvsGCSEBlog = () => import('./app/IGCSEvsGCSEBlog');
 const loadALevelIndependentThinkingBlog = () => import('./app/ALevelIndependentThinkingBlog');
+const loadIGCSEPreparationPastPapersBlog = () => import('./app/IGCSEPreparationPastPapersBlog');
 const loadBiologyLanding = () => import('./app/BiologyTutorAbuDhabiPage');
 const loadIGCSETutorLanding = () => import('./app/IGCSETutorAbuDhabiPage');
 const loadGCSETutorLanding = () => import('./app/GCSETutorAbuDhabiPage');
@@ -111,6 +112,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/read-uae-school-report-card': loadReadSchoolReportCardBlog,
   '/blogs/igcse-vs-gcse-curriculum-differences-uae': loadIGCSEvsGCSEBlog,
   '/blogs/a-level-tutoring-uae-independent-thinking': loadALevelIndependentThinkingBlog,
+  '/blogs/igcse-preparation-past-papers-final-step': loadIGCSEPreparationPastPapersBlog,
   '/sciences': loadSciencesPage,
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
   '/physics-tutor-abu-dhabi': loadPhysicsLanding,
@@ -182,6 +184,7 @@ const EarlySignsChemistryBlog = lazy(loadEarlySignsChemistryBlog);
 const ReadSchoolReportCardBlog = lazy(loadReadSchoolReportCardBlog);
 const IGCSEvsGCSEBlog = lazy(loadIGCSEvsGCSEBlog);
 const ALevelIndependentThinkingBlog = lazy(loadALevelIndependentThinkingBlog);
+const IGCSEPreparationPastPapersBlog = lazy(loadIGCSEPreparationPastPapersBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
 const GCSETutorLanding = lazy(loadGCSETutorLanding);
@@ -278,6 +281,7 @@ function AppRoutes() {
           <Route path="/blogs/read-uae-school-report-card" element={<ReadSchoolReportCardBlog />} />
           <Route path="/blogs/igcse-vs-gcse-curriculum-differences-uae" element={<IGCSEvsGCSEBlog />} />
           <Route path="/blogs/a-level-tutoring-uae-independent-thinking" element={<ALevelIndependentThinkingBlog />} />
+          <Route path="/blogs/igcse-preparation-past-papers-final-step" element={<IGCSEPreparationPastPapersBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />
           <Route path="/physics-tutor-abu-dhabi"             element={<PhysicsLanding />} />

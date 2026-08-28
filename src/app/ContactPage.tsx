@@ -190,6 +190,7 @@ function PhoneInput({ id, name, selectedCountry, setSelectedCountry, showDropdow
 function ModernContactForm() {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const successRef = useRef<HTMLDivElement>(null);
   const [userType, setUserType] = useState<'parent' | 'student' | null>(null);
   const [formData, setFormData] = useState({
     parentName: '', phone: '', email: '',
@@ -201,6 +202,27 @@ function ModernContactForm() {
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  // Keep the thank-you card in view after submit (desktop + mobile).
+  // The multi-step form is tall; when it collapses, scroll position can sit below the success message.
+  useEffect(() => {
+    if (!isSubmitted) return;
+    const scrollToSuccess = () => {
+      const formSection = document.getElementById('form');
+      const target = formSection ?? successRef.current;
+      if (!target) return;
+      const headerOffset = 96;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    };
+    // Wait a frame so the thank-you UI is painted before measuring.
+    const id = window.requestAnimationFrame(() => {
+      scrollToSuccess();
+      // Second pass for mobile browsers that adjust layout after paint.
+      window.setTimeout(scrollToSuccess, 120);
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [isSubmitted]);
 
   const updateField = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -325,7 +347,7 @@ Requirements: ${formData.requirements || 'None provided'}`,
 
   if (isSubmitted) {
     return (
-      <div className="max-w-xl mx-auto text-center py-4 px-4">
+      <div ref={successRef} className="max-w-xl mx-auto text-center py-4 px-4 scroll-mt-28">
         <div className="bg-white rounded-[24px] shadow-[0_12px_40px_rgba(15,74,155,0.08)] p-8 sm:p-12 overflow-hidden flex flex-col items-center border border-gray-100/80">
           <div className="relative mb-6 mt-2">
             <div className="w-20 h-20 bg-[#0a1f3d] rounded-full flex items-center justify-center relative z-10 shadow-md">
@@ -993,7 +1015,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── CONTACT FORM ── */}
-      <section id="form" className="py-12 bg-[#fdfaf6]">
+      <section id="form" className="py-12 bg-[#fdfaf6] scroll-mt-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <ModernContactForm />
         </div>

@@ -613,9 +613,8 @@ export default function ReadSchoolReportCardBlog() {
             <div className="my-6 space-y-4">
               {/* Resource 1 */}
               <div className="rounded-2xl border border-[#0f4a9b]/15 bg-[#f8fafd] p-5 flex items-start gap-4">
-                <div className="shrink-0 flex flex-col items-center justify-center w-12 h-14 rounded-xl bg-[#0f4a9b]/10 text-[#0f4a9b] font-black text-xl leading-none">
-                  <span>0</span>
-                  <span>1</span>
+                <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-[#0f4a9b]/10 text-[#0f4a9b] font-black text-xl leading-none">
+                  01
                 </div>
                 <div className="flex-1">
                   <h4 className="font-extrabold text-[#0a1f3d] text-base mb-1">The Report Card Decoder</h4>
@@ -628,9 +627,8 @@ export default function ReadSchoolReportCardBlog() {
 
               {/* Resource 2 */}
               <div className="rounded-2xl border border-[#0f4a9b]/15 bg-[#f8fafd] p-5 flex items-start gap-4">
-                <div className="shrink-0 flex flex-col items-center justify-center w-12 h-14 rounded-xl bg-[#0f4a9b]/10 text-[#0f4a9b] font-black text-xl leading-none">
-                  <span>0</span>
-                  <span>2</span>
+                <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-[#0f4a9b]/10 text-[#0f4a9b] font-black text-xl leading-none">
+                  02
                 </div>
                 <div className="flex-1">
                   <h4 className="font-extrabold text-[#0a1f3d] text-base mb-1">The 48-Hour Parent Response Plan</h4>
@@ -643,9 +641,8 @@ export default function ReadSchoolReportCardBlog() {
 
               {/* Resource 3 */}
               <div className="rounded-2xl border border-[#0f4a9b]/15 bg-[#f8fafd] p-5 flex items-start gap-4">
-                <div className="shrink-0 flex flex-col items-center justify-center w-12 h-14 rounded-xl bg-[#0f4a9b]/10 text-[#0f4a9b] font-black text-xl leading-none">
-                  <span>0</span>
-                  <span>3</span>
+                <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-[#0f4a9b]/10 text-[#0f4a9b] font-black text-xl leading-none">
+                  03
                 </div>
                 <div className="flex-1">
                   <h4 className="font-extrabold text-[#0a1f3d] text-base mb-1">Parent-Teacher Meeting Question Template</h4>

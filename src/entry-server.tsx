@@ -38,6 +38,7 @@ import ChemistryFadesBlog from "./app/ChemistryFadesBlog.tsx";
 import EarlySignsChemistryBlog from "./app/EarlySignsChemistryBlog.tsx";
 import ReadSchoolReportCardBlog from "./app/ReadSchoolReportCardBlog.tsx";
 import ALevelIndependentThinkingBlog from "./app/ALevelIndependentThinkingBlog.tsx";
+import IGCSEPreparationPastPapersBlog from "./app/IGCSEPreparationPastPapersBlog.tsx";
 import IGCSEvsGCSEBlog from "./app/IGCSEvsGCSEBlog.tsx";
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
 import MathsPage from "./app/MathsPage.tsx";
@@ -69,6 +70,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   AboutPage,
   ALevelPage,
   ALevelIndependentThinkingBlog,
+  IGCSEPreparationPastPapersBlog,
   AccountingPage,
   AcademicBlogsPage,
   AmericanCurriculumPage,

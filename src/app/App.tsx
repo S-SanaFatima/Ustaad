@@ -8,11 +8,12 @@ import {
   Landmark, Globe, Compass, Rocket, LineChart, Microscope, Settings, 
   Search, UserCheck, HeartHandshake, BarChart3, BookMarked,
   Zap, Target, Calendar, FileCheck, BrainCircuit, ClipboardList, CalendarClock, BookText,
-  ClipboardCheck, Layers, EyeOff, AlertTriangle, Crosshair, UserPlus, FileStack, Gauge, Timer, X
+  ClipboardCheck, Layers, EyeOff, AlertTriangle, Crosshair, UserPlus, FileStack, Gauge, Timer
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Layout, GradientHeadingText, GoldButton, BritishLandmarkWatermark, AmericanLandmarkWatermark, IBWorldWatermark, FinalCTA, StatsBar } from './shared';
 import SEOHead from './shared/SEOHead';
+import BackToSchoolPopup from './shared/BackToSchoolPopup';
 import { localBusinessSchema, breadcrumbSchema, faqSchema, reviewsSchema } from './shared/schemas';
 import AskExpertSection from './AskExpertSection';
 
@@ -216,40 +217,9 @@ const homepageSEO = {
   ],
 };
 
-const WELCOME_CHAT_SLIDES = [
-  {
-    teacherName: "Ms. Layla",
-    teacherRole: "Maths Tutor",
-    initials: "LA",
-    avatarBg: "linear-gradient(135deg, #0e2a47 0%, #174070 100%)",
-    subject: "Maths",
-    question: "Can you help with quadratics?",
-    answer: "Sure! For x² - 5x + 6 = 0, factor as (x-2)(x-3). So x = 2 or x = 3.",
-  },
-  {
-    teacherName: "Mr. Omar",
-    teacherRole: "Physics Tutor",
-    initials: "OM",
-    avatarBg: "linear-gradient(135deg, #103e75 0%, #1d5fa8 100%)",
-    subject: "Physics",
-    question: "Stuck on Newton's second law.",
-    answer: "Happy to help. F = ma. If m = 4 kg and a = 3 m/s², then F = 12 N.",
-  },
-  {
-    teacherName: "Ms. Fatima",
-    teacherRole: "Chemistry Tutor",
-    initials: "FA",
-    avatarBg: "linear-gradient(135deg, #1b6845 0%, #2d8a5e 100%)",
-    subject: "Chemistry",
-    question: "How do I balance H₂ + O₂ → H₂O?",
-    answer: "Balance as 2H₂ + O₂ → 2H₂O. Two H₂ give 4 H atoms; 2 H₂O uses them all.",
-  },
-];
-
 export default function App() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showWelcomePopup, setShowWelcomePopup] = useState(false);
-  const [activeWelcomeSlide, setActiveWelcomeSlide] = useState(0);
   const logosMarqueeRef = useRef<HTMLDivElement>(null);
 
   const toggleFaq = (index: number) => {
@@ -271,142 +241,10 @@ export default function App() {
     setShowWelcomePopup(true);
   }, []);
 
-  useEffect(() => {
-    if (!showWelcomePopup) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [showWelcomePopup]);
-
-  useEffect(() => {
-    if (!showWelcomePopup) return;
-    const timer = setInterval(() => {
-      setActiveWelcomeSlide((prev) => (prev + 1) % WELCOME_CHAT_SLIDES.length);
-    }, 2800);
-    return () => clearInterval(timer);
-  }, [showWelcomePopup]);
-
-  const currentSlide = WELCOME_CHAT_SLIDES[activeWelcomeSlide];
-
   return (
     <Layout>
       <SEOHead {...homepageSEO} />
-      {showWelcomePopup && (
-        <div
-          className="fixed inset-0 z-[9999] bg-[#0e1d3f]/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
-          onClick={() => setShowWelcomePopup(false)}
-        >
-          <div
-            className="relative w-full max-w-[650px] bg-white rounded-[20px] shadow-[0_24px_70px_rgba(10,31,61,0.5)] overflow-visible mx-auto"
-            onClick={e => e.stopPropagation()}
-          >
-            {/* Close button — shifts inward on very small screens to avoid edge clipping */}
-            <button
-              type="button"
-              aria-label="Close welcome popup"
-              onClick={() => setShowWelcomePopup(false)}
-              className="absolute -top-3 -right-1 sm:-top-4 sm:-right-4 z-50 w-8 h-8 rounded-full bg-[#ef4444] border-2 border-white shadow-md flex items-center justify-center text-white hover:bg-[#dc2626] transition-all"
-            >
-              <X className="w-4 h-4" strokeWidth={2.5} />
-            </button>
-
-            {/* Animated Color Gradient Background */}
-            <motion.div 
-              animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-              transition={{ duration: 10, ease: "linear", repeat: Infinity }}
-              style={{ 
-                backgroundSize: "300% 300%",
-                backgroundImage: "linear-gradient(-45deg, #f0f7ff, #fff0f5, #f0fff4, #fff9e6)"
-              }}
-              className="flex flex-col p-5 sm:p-8 rounded-[20px] overflow-hidden relative items-center text-center w-full"
-            >
-
-              {/* Floating 3D Elements */}
-              <motion.div 
-                className="absolute top-4 left-4 sm:top-8 sm:left-8 z-0 flex items-center justify-center p-2 sm:p-3 rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgba(15,74,155,0.12)] scale-75 sm:scale-100"
-                animate={{ y: [0, -15, 0], x: [0, 10, 0], rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
-              >
-                <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-[#0f4a9b]" strokeWidth={1.5} />
-              </motion.div>
-              <motion.div 
-                className="absolute bottom-6 right-4 sm:bottom-10 sm:right-8 z-0 flex items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgba(37,211,102,0.12)] scale-75 sm:scale-100"
-                animate={{ y: [0, 20, 0], x: [0, -15, 0], scale: [1, 1.05, 1] }}
-                transition={{ duration: 7, ease: "easeInOut", repeat: Infinity, delay: 1 }}
-              >
-                <GraduationCap className="w-8 h-8 sm:w-10 sm:h-10 text-[#25D366]" strokeWidth={1.5} />
-              </motion.div>
-              <motion.div 
-                className="absolute top-1/2 right-4 sm:right-12 z-0 flex items-center justify-center p-2 sm:p-2.5 rounded-xl bg-white/40 backdrop-blur-sm border border-white/70 shadow-[0_8px_20px_rgba(199,162,74,0.15)] scale-75 sm:scale-100"
-                animate={{ y: [0, -25, 0] }}
-                transition={{ duration: 5, ease: "easeInOut", repeat: Infinity, delay: 2 }}
-              >
-                <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-[#C7A24A]" strokeWidth={1.5} />
-              </motion.div>
-              <motion.div 
-                className="absolute top-8 right-16 sm:top-12 sm:right-24 z-0 flex items-center justify-center p-2 sm:p-2.5 rounded-xl bg-white/40 backdrop-blur-sm border border-white/60 shadow-lg scale-75 sm:scale-100"
-                animate={{ y: [0, 15, 0], scale: [1, 0.9, 1] }}
-                transition={{ duration: 8, ease: "easeInOut", repeat: Infinity, delay: 1.5 }}
-              >
-                <Atom className="w-4 h-4 sm:w-5 sm:h-5 text-[#ff9a9e]" strokeWidth={1.5} />
-              </motion.div>
-              <motion.div 
-                className="absolute bottom-12 left-4 sm:bottom-16 sm:left-12 z-0 flex items-center justify-center p-2 sm:p-3 rounded-2xl bg-white/40 backdrop-blur-sm border border-white/60 shadow-lg scale-75 sm:scale-100"
-                animate={{ y: [0, -15, 0], x: [0, -10, 0], rotate: [0, -15, 15, 0] }}
-                transition={{ duration: 7.5, ease: "easeInOut", repeat: Infinity, delay: 0.5 }}
-              >
-                <Globe className="w-5 h-5 sm:w-7 sm:h-7 text-[#9c27b0]" strokeWidth={1.5} />
-              </motion.div>
-
-              {/* Content */}
-              <div className="relative z-10 w-full flex flex-col items-center">
-                <div className="inline-flex items-center rounded-full bg-[#f7f1df]/90 backdrop-blur-sm border border-[#eadfbc] px-3 py-1 text-[9px] sm:text-[10px] uppercase tracking-[0.1em] text-[#8a6a2f] font-extrabold shadow-sm mb-3 sm:mb-4">
-                  Stuck on a question? Ask us
-                </div>
-
-                <h3 className="text-xl sm:text-[24px] text-[#0a1f3d] font-serif font-bold mb-2.5 sm:mb-3 leading-[1.25]">
-                  Get a <span className="italic text-[#b8883f]">free written</span> solution in 15 minutes.
-                </h3>
-
-                <p className="text-[#5f6f86] text-[12px] sm:text-[13px] leading-relaxed mb-5 max-w-[480px]">
-                  Send us any homework question your child is stuck on. A UAE subject specialist will reply with a worked solution, completely free.
-                </p>
-
-                <div className="flex flex-col sm:flex-row flex-wrap justify-center items-start sm:items-center gap-2.5 sm:gap-x-5 sm:gap-y-2.5 mb-6 w-full max-w-[480px] mx-auto text-left sm:text-center">
-                  <div className="flex items-center gap-2 text-[12px] text-[#344e72] font-semibold bg-white/40 px-3 py-1.5 rounded-full border border-white/60 shadow-[0_2px_10px_rgba(0,0,0,0.02)] backdrop-blur-sm">
-                    <CheckCircle className="w-4 h-4 text-[#0f4a9b] shrink-0" />
-                    12 min average reply time
-                  </div>
-                  <div className="flex items-center gap-2 text-[12px] text-[#344e72] font-semibold bg-white/40 px-3 py-1.5 rounded-full border border-white/60 shadow-[0_2px_10px_rgba(0,0,0,0.02)] backdrop-blur-sm">
-                    <CheckCircle className="w-4 h-4 text-[#0f4a9b] shrink-0" />
-                    IGCSE, A-Level, IB & American
-                  </div>
-                  <div className="flex items-center gap-2 text-[12px] text-[#344e72] font-semibold bg-white/40 px-3 py-1.5 rounded-full border border-white/60 shadow-[0_2px_10px_rgba(0,0,0,0.02)] backdrop-blur-sm">
-                    <CheckCircle className="w-4 h-4 text-[#0f4a9b] shrink-0" />
-                    Hundreds of questions answered
-                  </div>
-                </div>
-
-                <a
-                  href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20have%20a%20homework%20question%20I%27d%20like%20help%20with."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-[280px] inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1fb858] text-white font-extrabold text-[14px] sm:text-[15px] py-3 sm:py-3.5 transition-all shadow-[0_8px_16px_rgba(37,211,102,0.25)] hover:shadow-[0_12px_20px_rgba(37,211,102,0.35)] hover:-translate-y-0.5"
-                >
-                  <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-                  Ask on WhatsApp
-                </a>
-                
-                <p className="mt-3.5 text-[10px] sm:text-[11px] text-[#9aa5b5] font-medium">
-                  No sign-up. No credit card. Just send your question.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      )}
+      <BackToSchoolPopup open={showWelcomePopup} onClose={() => setShowWelcomePopup(false)} />
       {/* Hero Section */}
       <section className="pt-10 pb-20 lg:pt-20 lg:pb-32 relative overflow-hidden bg-white">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/10 rounded-full blur-[100px] pointer-events-none"></div>

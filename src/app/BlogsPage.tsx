@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'igcse-preparation-past-papers-final-step',
+    image: '/images/blogs/igcse-preparation-past-papers-hero.jpg',
+    alt: 'UAE parent and IGCSE student reviewing revision plans and past paper preparation at home',
+    category: 'Academic',
+    title: 'IGCSE Preparation: Why Past Papers Are the Final Step, Not the First',
+    description: 'IGCSE preparation is like building a house. See why past papers are the roof, not the foundation, and how to prepare in the right order to lift grades.',
+    date: '27 Aug 2026',
+    readTime: '10 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'a-level-tutoring-uae-independent-thinking',
     image: '/images/blogs/hero-tutoring-session.webp',
     alt: 'A-Level tutoring session in the UAE supporting Cambridge, Pearson Edexcel and OxfordAQA students',

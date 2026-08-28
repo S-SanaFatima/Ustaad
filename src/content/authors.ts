@@ -52,6 +52,7 @@ export const AUTHORS: Author[] = [
     photoAlt: 'Nimra Shahzada, Education Counsellor and Student Support Specialist at Ustaad UAE',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
+      { title: 'IGCSE Preparation: Why Past Papers Are the Final Step, Not the First', href: '/blogs/igcse-preparation-past-papers-final-step', role: 'authored' },
       { title: '"My Child Only Panics Right Before Exams": What UAE Parents Often Notice Too Late', href: '/blogs/exam-panic-before-exams-uae', role: 'authored' },
       { title: 'Your Child Understands Physics. So Why Are the Marks Still Low?', href: '/blogs/physics-understanding-vs-marks', role: 'authored' },
       { title: 'How to Read a UAE School Report Card Like an Education Counsellor', href: '/blogs/read-uae-school-report-card', role: 'authored' },
@@ -72,6 +73,7 @@ export const AUTHORS: Author[] = [
     photoAlt: 'Nida Iqbal, MPhil in Education Leadership and Management, editorial reviewer at Ustaad',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
+      { title: 'IGCSE Preparation: Why Past Papers Are the Final Step, Not the First', href: '/blogs/igcse-preparation-past-papers-final-step', role: 'reviewed' },
       { title: 'Exam Panic Before Exams UAE', href: '/blogs/exam-panic-before-exams-uae', role: 'reviewed' },
       { title: 'IGCSE Maths Revision Low Marks', href: '/blogs/igcse-maths-revision-low-marks', role: 'reviewed' },
       { title: 'IGCSE Physics Formulas Exam', href: '/blogs/igcse-physics-formulas-exam', role: 'reviewed' },

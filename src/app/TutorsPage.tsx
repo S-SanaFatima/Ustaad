@@ -80,7 +80,7 @@ export default function TutorsPage() {
               <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-6 sm:mb-10 leading-relaxed max-w-xl">
                 UAE tutors chosen for curriculum fit, subject depth, and clear teaching.
               </p>
-              <HeroCTABlock className="mb-4" trustText="✦ No commitment to continue.">
+              <HeroCTABlock className="mb-4" trustText="✦ No commitment, cancel anytime.">
                 Book Your Free Trial
               </HeroCTABlock>
             </motion.div>

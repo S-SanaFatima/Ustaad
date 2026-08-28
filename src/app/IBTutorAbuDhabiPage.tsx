@@ -7,19 +7,21 @@ import {
   AlertTriangle, MessageSquareQuote, Video, PenTool, ArrowRightLeft,
   Calendar, FileText, Timer
 } from 'lucide-react';
-import { Layout, GoldButton, StatsBar, SchoolsMarquee, GradientHeadingText } from './shared';
+import { Layout, GoldButton, StatsBar, SchoolsMarquee } from './shared';
 import SEOHead from './shared/SEOHead';
-import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, singleReviewSchema, reviewSchema } from './shared/schemas';
+import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, reviewSchema } from './shared/schemas';
 
 const BOOKING = "/contact#form";
 const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27m%20looking%20for%20IB%20tutoring%20support%20in%20Abu%20Dhabi.%20Could%20we%20discuss%20how%20you%20can%20help%20my%20child%3F';
 
 const abuDhabiSchoolLogos = [
-  { name: 'Raha International School', file: 'raha.png', alt: 'Raha International School Abu Dhabi logo', scale: 1.25 },
-  { name: 'British International School Abu Dhabi', file: 'bisad.png', alt: 'BISAD Abu Dhabi logo', scale: 1.25 },
-  { name: 'GEMS American Academy', file: 'gems-american-academy-abu-dhabi.png', alt: 'GEMS American Academy Abu Dhabi logo', scale: 1.25 },
-  { name: 'ACS Abu Dhabi', file: 'acs.png', alt: 'American Community School Abu Dhabi logo', scale: 1.25 },
-  { name: 'Repton School Abu Dhabi', file: 'repton.png', alt: 'Repton School Abu Dhabi logo', scale: 1.25 },
+  { name: 'GEMS World Academy Abu Dhabi', file: 'gems-world-academy-abu-dhabi.png', alt: 'GEMS World Academy Abu Dhabi logo', scale: 1.2 },
+  { name: 'SAMA International School', file: 'sama-international-school.png', alt: 'SAMA International School Abu Dhabi logo', scale: 1.2 },
+  { name: 'The British International School Abu Dhabi', file: 'bisad.png', alt: 'The British International School Abu Dhabi logo, IB programme ages 16 to 18', scale: 1.25 },
+  { name: 'American International School in Abu Dhabi', file: 'aisa-abu-dhabi.png', alt: 'American International School in Abu Dhabi (AISA) logo', scale: 1.2 },
+  { name: 'Aspen Heights British School', file: 'aspen-heights-british-school.png', alt: 'Aspen Heights British School Abu Dhabi logo', scale: 1.55 },
+  { name: 'Emirates National School', file: 'emirates-national-school.png', alt: 'Emirates National Schools Abu Dhabi logo', scale: 1.15 },
+  { name: 'Bateen World Academy', file: 'al-bateen.png', alt: 'Bateen World Academy Abu Dhabi logo', scale: 1.25 },
 ];
 
 const FAQS = [
@@ -286,9 +288,96 @@ function TiltCard({ children, className, style, delay, ...props }) {
   );
 }
 
+function ChatHelpPreview() {
+  const [phase, setPhase] = useState<'student' | 'typing' | 'reply'>('student');
+
+  useEffect(() => {
+    let cancelled = false;
+    const timers: number[] = [];
+    const run = () => {
+      if (cancelled) return;
+      setPhase('student');
+      timers.push(window.setTimeout(() => { if (!cancelled) setPhase('typing'); }, 700));
+      timers.push(window.setTimeout(() => { if (!cancelled) setPhase('reply'); }, 2200));
+      timers.push(window.setTimeout(run, 5200));
+    };
+    run();
+    return () => {
+      cancelled = true;
+      timers.forEach(clearTimeout);
+    };
+  }, []);
+
+  return (
+    <div className="w-full max-w-[260px] h-[200px] rounded-2xl border border-slate-100 bg-[#efeae2] p-4 flex flex-col gap-2.5 overflow-hidden relative shadow-inner text-[11px]">
+      <div className="absolute top-0 inset-x-0 bg-[#075e54] text-white py-2 px-3 flex items-center gap-2 shadow-xs z-10">
+        <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center font-bold text-[9px]">U</div>
+        <div>
+          <div className="font-extrabold text-[9px] leading-tight">Ustaad Help</div>
+          <div className="text-[7.5px] text-emerald-200/80 leading-none">Online</div>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-2 mt-7 relative z-0">
+        <AnimatePresence>
+          {(phase === 'student' || phase === 'typing' || phase === 'reply') && (
+            <motion.div
+              key="student"
+              initial={{ opacity: 0, x: 16 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="self-end bg-[#d9fdd3] text-slate-800 p-2 rounded-lg rounded-tr-none shadow-xs max-w-[85%] text-left leading-relaxed"
+            >
+              Can someone check my step on this IB Chemistry IA? [Photo]
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence mode="wait">
+          {phase === 'typing' && (
+            <motion.div
+              key="typing"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="self-start bg-white text-slate-400 py-1.5 px-3 rounded-lg rounded-tl-none shadow-xs text-[9px] italic flex items-center gap-1"
+            >
+              Tutor is writing
+              <span className="inline-flex gap-0.5 ml-0.5">
+                <span className="w-1 h-1 rounded-full bg-slate-400 animate-pulse" />
+                <span className="w-1 h-1 rounded-full bg-slate-400 animate-pulse [animation-delay:120ms]" />
+                <span className="w-1 h-1 rounded-full bg-slate-400 animate-pulse [animation-delay:240ms]" />
+              </span>
+            </motion.div>
+          )}
+          {phase === 'reply' && (
+            <motion.div
+              key="reply"
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="self-start bg-white text-slate-800 p-2 rounded-lg rounded-tl-none shadow-xs max-w-[85%] text-left leading-relaxed"
+            >
+              Yes, the oxidation states in step 3 are balanced correctly, but check the coefficient in step 4.
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
 export default function IBTutorAbuDhabiPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
+  const [hourCarouselResetKey, setHourCarouselResetKey] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveCarouselIndex(prev => (prev + 1) % 6);
+    }, 2400);
+    return () => clearInterval(interval);
+  }, [hourCarouselResetKey]);
   const [activeOrigamiIndex, setActiveOrigamiIndex] = useState<number | null>(0);
   const [openBookletIndex, setOpenBookletIndex] = useState<number | null>(null);
   const [activeSubjectTab, setActiveSubjectTab] = useState(0);
@@ -306,7 +395,7 @@ export default function IBTutorAbuDhabiPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveRadarIndex(prev => (prev + 1) % 6);
-    }, 4500); // auto-rotate every 4.5s
+    }, 2800); // auto-rotate every 2.8s
     return () => clearInterval(interval);
   }, [autoplayResetKey]);
 
@@ -425,22 +514,30 @@ export default function IBTutorAbuDhabiPage() {
             className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 md:pt-20 md:pb-14 max-w-5xl w-full"
           >
 
+          {/* Hero pill badges — 5 programme tags */}
           <motion.div
             variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-3"
-            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}
+            className="flex flex-wrap items-center justify-center gap-2 mb-5"
           >
-            <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#f0c96a' }} />
-            <span className="text-blue-100/80 text-[11px] sm:text-[12px] font-semibold">Trusted by Abu Dhabi families since 2015</span>
+            {['MYP', 'Diploma', 'SL & HL', 'IA, EE & TOK help', 'First Session Free'].map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-[12px] font-semibold text-blue-100/80"
+                style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}
+              >
+                <span className="w-1 h-1 rounded-full inline-block shrink-0" style={{ background: '#f0c96a' }} />
+                {tag}
+              </span>
+            ))}
           </motion.div>
 
           <motion.h1
             variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}
             className="font-extrabold tracking-tight text-white leading-[1.05] mb-3 md:mb-5 text-[clamp(1.7rem,5vw,3.4rem)] max-w-[95%] sm:max-w-none"
           >
-            Online IB Tutor Abu Dhabi,{' '}
+            IB Tutor Abu Dhabi,{' '}
             <span style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              Built for Offers
+              from MYP to Diploma
             </span>
           </motion.h1>
 
@@ -448,7 +545,7 @@ export default function IBTutorAbuDhabiPage() {
             variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
             className="text-blue-100/80 text-[clamp(0.88rem,2vw,1.05rem)] leading-relaxed max-w-2xl mb-6 md:mb-8 px-4 italic font-medium"
           >
-            Live online IB tutors matched to MYP, SL or HL.
+            Private online IB tuition for Abu Dhabi families, matched by subject, level and exam session.
           </motion.p>
 
           <motion.div
@@ -461,11 +558,11 @@ export default function IBTutorAbuDhabiPage() {
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5 text-center"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}
               >
-                Book Your Free Trial
+                Claim a Free IB Session
               </a>
               <span className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</span>
               <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="text-blue-200/90 text-[12px] font-semibold underline flex items-center justify-center gap-1">
-                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" /> WhatsApp Us
+                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" /> or WhatsApp a question
               </a>
             </div>
 
@@ -476,7 +573,7 @@ export default function IBTutorAbuDhabiPage() {
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
                   style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}
                 >
-                  Book Your Free Trial
+                  Claim a Free IB Session
                 </a>
                 <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
               </div>
@@ -488,7 +585,7 @@ export default function IBTutorAbuDhabiPage() {
                   aria-label="Chat with Ustaad on WhatsApp"
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"
                 >
-                  <MessageCircle className="w-4 h-4" /> WhatsApp Us
+                  <MessageCircle className="w-4 h-4" /> or WhatsApp a question
                 </a>
               </div>
             </div>
@@ -496,16 +593,14 @@ export default function IBTutorAbuDhabiPage() {
         </motion.div>
       </section>
 
-      {/* TRUST PROOF STRIP */}
-      <section className="py-5 bg-[#FAFAFA] border-y border-slate-200/80">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <p className="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed mb-1">
-            Trusted by IB families at Raha, BISAD, ACS and Repton.
-          </p>
-        </div>
-      </section>
 
+      {/* TRUST PROOF — SCHOOL LOGOS */}
       <StatsBar />
+
+      <SchoolsMarquee
+        title="Trusted by IB Families Across Leading Abu Dhabi Schools"
+        logoList={abuDhabiSchoolLogos}
+      />
 
             {/* 1 HOW YOUR CHILD'S IB HOUR IS SPENT */}
       <section className="py-20 bg-[#f8fafc] relative overflow-hidden">
@@ -561,8 +656,11 @@ export default function IBTutorAbuDhabiPage() {
                         opacity: isVisible ? (isActive ? 1 : 0.6) : 0,
                         zIndex: 10 - Math.abs(offset)
                       }}
-                      transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-                      onClick={() => setActiveCarouselIndex(i)}
+                      transition={{ type: 'spring', stiffness: 200, damping: 22 }}
+                      onClick={() => {
+                        setActiveCarouselIndex(i);
+                        setHourCarouselResetKey(prev => prev + 1);
+                      }}
                       className={`absolute w-[280px] sm:w-[320px] bg-white rounded-[24px] p-8 border border-slate-100/80 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] cursor-pointer select-none transform-gpu flex flex-col items-center text-center backface-hidden ${isActive ? 'shadow-[0_20px_50px_-10px_rgba(15,74,155,0.15)]' : ''}`}
                       style={{ transformStyle: 'preserve-3d' }}
                     >
@@ -592,7 +690,10 @@ export default function IBTutorAbuDhabiPage() {
             {/* Navigation buttons */}
             <div className="flex items-center gap-6 mt-4">
               <button 
-                onClick={() => setActiveCarouselIndex(prev => (prev === 0 ? 5 : prev - 1))}
+                onClick={() => {
+                  setActiveCarouselIndex(prev => (prev === 0 ? 5 : prev - 1));
+                  setHourCarouselResetKey(prev => prev + 1);
+                }}
                 className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#0f4a9b] hover:border-[#0f4a9b] hover:shadow-md active:scale-95 transition-all"
                 aria-label="Previous step"
               >
@@ -604,7 +705,10 @@ export default function IBTutorAbuDhabiPage() {
                 {[0, 1, 2, 3, 4, 5].map((idx) => (
                   <button
                     key={idx}
-                    onClick={() => setActiveCarouselIndex(idx)}
+                    onClick={() => {
+                      setActiveCarouselIndex(idx);
+                      setHourCarouselResetKey(prev => prev + 1);
+                    }}
                     className={`h-2.5 rounded-full transition-all duration-300 ${idx === activeCarouselIndex ? 'w-6 bg-[#0f4a9b]' : 'w-2.5 bg-slate-200'}`}
                     aria-label={`Go to step ${idx + 1}`}
                   />
@@ -612,7 +716,10 @@ export default function IBTutorAbuDhabiPage() {
               </div>
               
               <button 
-                onClick={() => setActiveCarouselIndex(prev => (prev === 5 ? 0 : prev + 1))}
+                onClick={() => {
+                  setActiveCarouselIndex(prev => (prev === 5 ? 0 : prev + 1));
+                  setHourCarouselResetKey(prev => prev + 1);
+                }}
                 className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-[#0f4a9b] hover:border-[#0f4a9b] hover:shadow-md active:scale-95 transition-all"
                 aria-label="Next step"
               >
@@ -684,7 +791,7 @@ export default function IBTutorAbuDhabiPage() {
                   {/* Compass pointer arrow */}
                   <motion.div 
                     animate={{ rotate: activeRadarIndex * 60 }} 
-                    transition={{ type: 'spring', stiffness: 90, damping: 16 }}
+                    transition={{ type: 'spring', stiffness: 180, damping: 18 }}
                     className="absolute w-12 h-12 flex items-center justify-center"
                   >
                     <svg className="w-8 h-8 text-[#C7A24A] transform -rotate-90 filter drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
@@ -740,7 +847,7 @@ export default function IBTutorAbuDhabiPage() {
                       initial={{ opacity: 0, x: 15 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -15 }}
-                      transition={{ duration: 0.25 }}
+                      transition={{ duration: 0.15 }}
                       className="bg-slate-50/70 border border-slate-100 rounded-3xl p-8 sm:p-10 text-left w-full shadow-[0_2px_4px_rgba(0,0,0,0.01),0_15px_30px_rgba(15,74,155,0.02)] relative overflow-hidden"
                     >
                       {/* Inside gradient blur for aesthetic depth */}
@@ -766,6 +873,107 @@ export default function IBTutorAbuDhabiPage() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* 3 WHAT YOU KEEP AFTER THE FREE SESSION */}
+      <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F4F8FD] via-white to-[#FFF9EF] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[520px] h-[520px] bg-gradient-to-br from-[#0f4a9b]/10 to-[#0a3a79]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[480px] h-[480px] bg-gradient-to-tr from-[#C7A24A]/12 to-transparent rounded-full blur-[100px] pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.45 }}
+            className="text-center mb-12 max-w-2xl mx-auto"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#C7A24A]/35 bg-[#C7A24A]/10 text-[#A8892A] text-[11px] font-extrabold uppercase tracking-[0.14em] mb-5">
+              After the free session
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">
+              What You Keep After the Free Session
+            </h2>
+            <div className="w-14 h-[3px] mx-auto rounded-full bg-gradient-to-r from-[#C7A24A] to-[#A8892A] mb-5" />
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+              Four things that stay with you, whether or not you continue.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
+            {[
+              {
+                icon: (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                ),
+                title: 'Honest Starting Point',
+                desc: 'A frank read on where your child actually sits today.'
+              },
+              {
+                icon: (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                  </svg>
+                ),
+                title: 'A Two-Year Route',
+                desc: 'The path from today to final exams sketched, not guessed.'
+              },
+              {
+                icon: (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                  </svg>
+                ),
+                title: 'The Gap in Numbers',
+                desc: 'The distance between current marks and the target, written plainly.'
+              },
+              {
+                icon: (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                ),
+                title: 'A Slot Held',
+                desc: 'A weekly Abu Dhabi time reserved, should you choose to continue.'
+              }
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="relative flex items-start gap-4 rounded-2xl p-5 sm:p-6 bg-white border border-[#E5E7EB] shadow-[0_4px_20px_rgba(15,74,155,0.06)] hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] hover:border-[#0f4a9b]/25 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden group"
+              >
+                <div className="absolute top-0 left-5 right-5 h-[2px] bg-gradient-to-r from-transparent via-[#C7A24A]/70 to-transparent opacity-70" />
+                <div className="absolute bottom-3 right-4 text-[42px] font-black text-[#0f4a9b]/[0.06] leading-none pointer-events-none select-none">
+                  {String(idx + 1).padStart(2, '0')}
+                </div>
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center text-white shrink-0 mt-0.5 shadow-[0_8px_20px_rgba(15,74,155,0.25)] group-hover:scale-105 transition-transform">
+                  {item.icon}
+                </div>
+                <div className="relative z-10">
+                  <h3 className="text-[#0a1f3d] font-extrabold text-[15px] sm:text-base mb-1.5">{item.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="text-center mt-10"
+          >
+            <GoldButton href={BOOKING} className="px-8 py-3.5 text-[15px] shadow-[0_0_24px_rgba(199,162,74,0.35)]">
+              Claim Your Free IB Session
+            </GoldButton>
+          </motion.div>
         </div>
       </section>
 
@@ -952,16 +1160,10 @@ export default function IBTutorAbuDhabiPage() {
                   
                   <div className="flex flex-col gap-3">
                     <a 
-                      href="/contact#form" 
+                      href={SUBJECT_TABS[activeSubjectTab].href}
                       className="inline-flex items-center justify-center bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] text-white font-bold rounded-full px-5 py-3 text-sm hover:brightness-110 hover:shadow-lg hover:shadow-[#C7A24A]/30 transition transform hover:-translate-y-0.5 active:scale-95 duration-300"
                     >
-                      Book Your Free Trial →
-                    </a>
-                    <a 
-                      href={SUBJECT_TABS[activeSubjectTab].href} 
-                      className="text-xs font-bold text-[#0f4a9b] hover:underline text-center md:text-left"
-                    >
-                      View full syllabus details →
+                      Syllabus details →
                     </a>
                   </div>
                 </div>
@@ -1099,7 +1301,7 @@ export default function IBTutorAbuDhabiPage() {
                 </h3>
                 
                 <p className="text-slate-600 text-[14px] sm:text-[15px] leading-relaxed mb-6">
-                  SL or HL questions across your child's subjects, answered by a specialist tutor.
+                  SL or HL questions across subjects your child studies, answered by a specialist tutor.
                 </p>
                 
                 <div className="flex items-center gap-2 mb-6 text-xs sm:text-sm font-semibold text-[#0a1f3d]">
@@ -1121,58 +1323,7 @@ export default function IBTutorAbuDhabiPage() {
               
               {/* Right animated CSS chat column */}
               <div className="md:col-span-5 flex justify-center relative z-10">
-                <div className="w-full max-w-[260px] h-[200px] rounded-2xl border border-slate-100 bg-[#efeae2] p-4 flex flex-col gap-2.5 overflow-hidden relative shadow-inner text-[11px]">
-                  
-                  {/* Whatsapp Header */}
-                  <div className="absolute top-0 inset-x-0 bg-[#075e54] text-white py-2 px-3 flex items-center gap-2 shadow-xs">
-                    <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center font-bold text-[9px]">U</div>
-                    <div>
-                      <div className="font-extrabold text-[9px] leading-tight">Ustaad Help</div>
-                      <div className="text-[7.5px] text-emerald-200/80 leading-none">Online</div>
-                    </div>
-                  </div>
-                  
-                  {/* Messages container */}
-                  <div className="flex flex-col gap-2 mt-7">
-                    {/* Message 1 (Student) */}
-                    <motion.div 
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.8 }}
-                      className="self-end bg-[#d9fdd3] text-slate-800 p-2 rounded-lg rounded-tr-none shadow-xs max-w-[85%] text-left leading-relaxed"
-                    >
-                      Can someone check my step on this IB Chemistry IA? [Photo]
-                    </motion.div>
-                    
-                    {/* Typing bubble */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ 
-                        opacity: [0, 1, 1, 0],
-                      }}
-                      transition={{ 
-                        repeat: Infinity, 
-                        duration: 2.2, 
-                        times: [0, 0.15, 0.85, 1],
-                        delay: 1.8 
-                      }}
-                      className="self-start bg-white text-slate-400 py-1.5 px-3 rounded-lg rounded-tl-none shadow-xs text-[9px] italic"
-                    >
-                      Tutor is writing...
-                    </motion.div>
-
-                    {/* Message 2 (Tutor reply) */}
-                    <motion.div 
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 4 }}
-                      className="self-start bg-white text-slate-800 p-2 rounded-lg rounded-tl-none shadow-xs max-w-[85%] text-left leading-relaxed"
-                    >
-                      Yes, the oxidation states in step 3 are balanced correctly, but check the coefficient in step 4.
-                    </motion.div>
-                  </div>
-                  
-                </div>
+                <ChatHelpPreview />
               </div>
               
             </div>
@@ -1399,8 +1550,30 @@ export default function IBTutorAbuDhabiPage() {
             </motion.div>
           </div>
 
+          {/* Related Pages Internal Links */}
+          <div className="max-w-4xl mx-auto mb-10">
+            <p className="text-center text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-5">Related Pages</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
+              {[
+                { label: 'IB Programme Hub', sublabel: 'MYP, SL, HL and Core overview', href: '/ib-curriculum' },
+                { label: 'IB Maths Tutor Abu Dhabi', sublabel: 'AA, AI, the exploration and papers', href: '/maths-tutor-abu-dhabi' },
+                { label: 'IB English Tutor Abu Dhabi', sublabel: 'English A and B, spoken assessment', href: '/english' },
+                { label: 'IGCSE Tutor Abu Dhabi', sublabel: 'Year 10 and 11, British curriculum', href: '/igcse-tutor-abu-dhabi' },
+              ].map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="flex flex-col gap-0.5 p-4 rounded-2xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-[#0f4a9b]/20 hover:shadow-sm transition-all duration-200 group"
+                >
+                  <span className="text-[#0f4a9b] font-bold text-xs group-hover:underline">{link.label}</span>
+                  <span className="text-slate-500 text-[11px] leading-tight">{link.sublabel}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
           <p className="text-center text-xs font-semibold text-gray-500 mb-14">
-            First lesson free. Weekend, evening and Ramadan slots. UAE-registered since 2015.
+            First session free. Evening, weekend and Ramadan slots. Serving Abu Dhabi families, delivered online across the UAE. Ustaad has operated in the UAE since 2015.
           </p>
 
         </div>

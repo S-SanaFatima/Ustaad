@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  Award, Blocks, CheckCircle, FileSearch, GraduationCap, HandHeart, Lightbulb,
+  Award, Blocks, FileSearch, GraduationCap, HandHeart, Lightbulb,
   PenTool, Search, Star, Target, TrendingUp, UserCheck, Users, Calendar,
-  Globe, Clock, Repeat, MapPin, MessageCircle, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Compass, Landmark,
+  Globe, Clock, Repeat, MapPin, MessageCircle, ChevronDown, ChevronUp, Compass, Landmark,
 } from 'lucide-react';
 import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock, FAQAccordion } from './shared';
+import TeamSection from './shared/TeamSection';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, faqSchema } from './shared/schemas';
 
@@ -122,7 +123,6 @@ export default function AboutPage() {
   const [activeStoryTab, setActiveStoryTab] = useState(0);
   const [activeFeatureTab, setActiveFeatureTab] = useState(0);
   const [activeCommunityIndex, setActiveCommunityIndex] = useState(0);
-  const [isReviewsPaused, setIsReviewsPaused] = useState(false);
 
   return (
     <Layout>
@@ -165,7 +165,7 @@ export default function AboutPage() {
               <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-xl">
                 Ustaad helps students build stronger study foundations, work through learning gaps with patience, and move forward with steadier performance across the school year.
               </p>
-              <HeroCTABlock className="mb-4" trustText="✦ No commitment to continue.">
+              <HeroCTABlock className="mb-4" trustText="✦ No commitment, cancel anytime.">
                 Book Your Free Trial
               </HeroCTABlock>
               <p className="text-sm text-gray-500 mt-4">
@@ -641,103 +641,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── WHAT PARENTS SAY ── */}
-      <section id="reviews" className="py-20 bg-[#F7F7F7] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
-              <GradientHeadingText text="What Parents Say" />
-            </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              Real feedback from UAE families who've seen genuine progress and confidence grow.
-            </p>
-          </div>
-
-          {(() => {
-            const reviews = [
-              { name: "Fares Al Kindi", initials: "FK", location: "Abu Dhabi, UAE", text: "I had a great experience with Ustaad. They truly provide some of the Best Tutors in Abu Dhabi. The teaching style is clear, professional, and very supportive." },
-              { name: "Sumayya Alamri", initials: "SA", location: "Abu Dhabi, UAE", text: "I had very good experience with Ustad for my daughter… her math teacher is one of the best tutors I experienced. He explains the concepts very well." },
-              { name: "Wadeema Al M", initials: "WA", location: "Abu Dhabi, UAE", text: "Very good tutoring institute with supportive tutor and clear teaching methods. Would definitely recommend to anyone looking for quality education." },
-              { name: "Humaid Khalaf", initials: "HK", location: "Abu Dhabi, UAE", text: "very good site if you want a good teacher for your studies. The tutors really know how to make difficult topics easy to understand." },
-              { name: "Zayed Al Teneiji", initials: "ZT", location: "Abu Dhabi, UAE", text: "Best tutoring institution in Abu Dhabi. The tutors are extremely knowledgeable and really care about student success in exams." },
-              { name: "Nouf Al Mansouri", initials: "NM", location: "Abu Dhabi, UAE", text: "Being a teacher, I found them as the most professional and organized service provider, they really care and organize lessons as per student learning speed." },
-              { name: "Elyazia Alkaabi", initials: "EA", location: "Abu Dhabi, UAE", text: "He is a very good teacher, he makes the lessons easier to understand and has good ways of getting the information in my mind easily." },
-              { name: "Omar Howwar", initials: "OH", location: "Dubai, UAE", text: "Sincere, encouraging, and passionate for his work. He put sufficient effort to elevate the education and knowledge of my son significantly." },
-              { name: "Mohamed al Hamed", initials: "MH", location: "Abu Dhabi, UAE", text: "Ustaad is the best online institute in Abu Dhabi, they tutored me throughout university and are now consistently tutoring my siblings and cousins." },
-              { name: "James T.", initials: "JT", location: "Dubai, UAE", text: "I started tutoring for A-Level Physics about three months before my exams. My tutor was incredibly patient and broke down complex topics like electromagnetic induction into simple, intuitive steps. I ended up getting an A* which I genuinely didn't think was possible." },
-              { name: "Ahmed Als", initials: "AA", location: "Abu Dhabi, UAE", text: "One of the best math tutors in Abu Dhabi, his teaching method is very focused and effective. He breaks down complex mathematical concepts into simple steps and ensures full understanding." },
-            ];
-            const ReviewCard = ({ r, idx }: { r: typeof reviews[0], idx: string }) => (
-              <div className="shrink-0 bg-white rounded-[12px] border border-[#E5E7EB] p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgba(15,74,155,0.12)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/50 active:shadow-[0_12px_40px_rgba(15,74,155,0.12)] active:-translate-y-1 active:ring-2 active:ring-inset active:ring-[#0f4a9b]/50 transition-all duration-300 flex flex-col w-[350px] sm:w-[400px] whitespace-normal relative">
-                <div className="absolute top-4 right-4 text-[#E5E7EB] opacity-50">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.63-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.768-.695-1.327-.825-.55-.13-1.07-.14-1.54-.03-.16-.94.1-1.955.76-3.02.66-1.066 1.515-1.868 2.558-2.404L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.63-.576.94-1.365.94-2.368h.003z"/></svg>
-                </div>
-                <div className="flex gap-0.5 mb-4">
-                  {[1,2,3,4,5].map(j => <Star key={j} className="h-5 w-5 fill-[url(#goldGradientAbout)]" stroke="none" />)}
-                </div>
-                <p className="text-[#6B7280] text-[15px] leading-relaxed mb-6 flex-grow">"{r.text}"</p>
-                <div className="border-t border-[#E5E7EB] mb-4"></div>
-                <div className="flex items-center justify-between mt-auto">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-[#F97316] to-[#EA580C] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md notranslate" translate="no">
-                      {r.initials}
-                    </div>
-                    <div>
-                      <div className="font-bold text-[#1F3F66] text-sm notranslate" translate="no">{r.name}</div>
-                      <div className="text-xs text-[#9CA3AF] flex items-center gap-1 notranslate" translate="no">
-                        <span className="inline-block w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                        {r.location}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-xs font-semibold" aria-label="Verified review">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#4A7EC7] flex items-center justify-center shadow-sm">
-                      <CheckCircle className="h-3 w-3 text-white" />
-                    </div>
-                    <span className="bg-gradient-to-r from-[#0f4a9b] to-[#4A7EC7] bg-clip-text text-transparent">Verified</span>
-                  </div>
-                </div>
-              </div>
-            );
-            return (
-              <div className="relative w-full overflow-hidden group pb-8">
-                <svg width="0" height="0" className="absolute">
-                  <defs>
-                    <linearGradient id="goldGradientAbout" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#FACC15" />
-                      <stop offset="100%" stopColor="#EAB308" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-
-                {/* Pause status indicator */}
-                <div className="flex justify-center mb-4">
-                  <button 
-                    onClick={() => setIsReviewsPaused(prev => !prev)}
-                    className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-gray-200 text-xs font-semibold text-gray-600 rounded-full shadow-sm hover:bg-gray-50 transition-colors"
-                  >
-                    <span className={`w-2 h-2 rounded-full ${isReviewsPaused ? 'bg-amber-500 animate-pulse' : 'bg-green-500'}`} />
-                    {isReviewsPaused ? 'Paused — Click to resume' : 'Click or hover to pause & read'}
-                  </button>
-                </div>
-
-                <div 
-                  className={`flex shrink-0 animate-marquee-slow gap-6 items-stretch pr-6 py-2 cursor-pointer ${isReviewsPaused ? 'is-paused' : ''}`}
-                  onClick={() => setIsReviewsPaused(prev => !prev)}
-                >
-                  <div className="flex shrink-0 gap-6 items-stretch">
-                    {reviews.map((r, i) => <ReviewCard key={`r1-${i}`} r={r} idx={`r1-${i}`} />)}
-                  </div>
-                  {/* Duplicated list for seamless CSS marquee - aria-hidden="true" prevents screen reader double-reading */}
-                  <div className="flex shrink-0 gap-6 items-stretch" aria-hidden="true">
-                    {reviews.map((r, i) => <ReviewCard key={`r2-${i}`} r={r} idx={`r2-${i}`} />)}
-                  </div>
-                </div>
-              </div>
-            );
-          })()}
-        </div>
-      </section>
+      {/* ── TEAM ── */}
+      <TeamSection />
 
       {/* ── FAQ ── */}
       <section className="py-8 sm:py-10 lg:py-12 bg-white">
@@ -781,31 +686,7 @@ export default function AboutPage() {
           animation: float-delayed 6s ease-in-out infinite;
           animation-delay: -3s;
         }
-        @keyframes marquee-slow {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes marquee-left {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes marquee-right {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0%); }
-        }
-        .animate-marquee-slow {
-          animation: marquee-slow 30s linear infinite;
-        }
-        .animate-marquee-left {
-          animation: marquee-left 45s linear infinite;
-        }
-        .animate-marquee-right {
-          animation: marquee-right 45s linear infinite;
-        }
         @media (prefers-reduced-motion: reduce) {
-          .animate-marquee-slow,
-          .animate-marquee-left,
-          .animate-marquee-right,
           .animate-float,
           .animate-float-delayed {
             animation: none;
