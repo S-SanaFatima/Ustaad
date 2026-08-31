@@ -16,8 +16,8 @@ const BLOG = {
   heroCaption: 'Past papers are the roof of IGCSE preparation — essential, but only after the foundation is set.',
   datePublished: '2026-08-27',
   dateModified: '2026-08-27',
-  author: 'Nimra Shahzada, Content Lead, Ustaad UAE',
-  reviewer: 'Nida Iqbal, MPhil in Education Leadership and Management',
+  author: 'Nimra Shahzada',
+  reviewer: 'Nida Iqbal',
   readTime: '10 min read',
   tags: ['IGCSE preparation', 'IGCSE revision', 'IGCSE past papers', 'Cambridge IGCSE', 'exam technique', 'concept mastery', 'topic practice'],
 };
@@ -62,6 +62,18 @@ const TOC_ITEMS = [
 ];
 
 const RELATED = [
+  {
+    slug: 'gcse-revision-tips-uae-parents',
+    category: 'Parent Guidance',
+    title: 'GCSE & IGCSE Revision Tips for UAE Parents',
+    description: 'The study skills that actually raise grades, and how to support your child without taking over.',
+  },
+  {
+    slug: '10-questions-hiring-private-tutor-abu-dhabi',
+    category: 'Parent Guidance',
+    title: '10 Honest Questions to Ask Before You Hire a Private Tutor in Abu Dhabi',
+    description: 'Ten practical questions UAE parents should ask before hiring a tutor, plus a free interview worksheet.',
+  },
   {
     slug: 'igcse-maths-revision-low-marks',
     category: 'Academic',
@@ -294,7 +306,7 @@ export default function IGCSEPreparationPastPapersBlog() {
       "@type": "Person",
       "name": "Nimra Shahzada",
       "url": "https://ustaad.ae/authors/nimra-shahzada",
-      "jobTitle": "Content Lead",
+      "jobTitle": "Education Counsellor & Student Support Specialist",
       "worksFor": {
         "@type": "Organization",
         "name": "Ustaad UAE"
@@ -312,8 +324,8 @@ export default function IGCSEPreparationPastPapersBlog() {
       "@type": "Person",
       "name": "Nida Iqbal",
       "url": "https://ustaad.ae/authors/nida-iqbal",
-      "jobTitle": "Editorial Reviewer",
-      "description": "MPhil in Education Leadership and Management"
+      "jobTitle": "MPhil in Education Leadership and Management",
+      "description": "Ustaad Editorial"
     }
   };
 
@@ -395,14 +407,17 @@ export default function IGCSEPreparationPastPapersBlog() {
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
                 <div className="leading-relaxed">
                   <div><span className="font-medium">Written by:</span> <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">Nimra Shahzada</a></div>
-                  <div className="text-gray-500 mt-0.5">Content Lead, Ustaad UAE</div>
+                  <div className="text-gray-500 mt-0.5">Education Counsellor &amp; Student Support Specialist | Ustaad UAE</div>
                 </div>
               </div>
               <div className="flex items-start gap-2 text-xs text-gray-600">
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
                 <div className="leading-relaxed">
                   <div><span className="font-medium">Reviewed by:</span> <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">Nida Iqbal</a></div>
-                  <div className="text-gray-500 mt-0.5">MPhil in Education Leadership and Management</div>
+                  <div className="text-gray-500 mt-0.5">
+                    MPhil in Education Leadership and Management ·{' '}
+                    <a href="/editorial" className="text-[#0f4a9b] underline hover:text-[#0a3a79]">Ustaad Editorial</a>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col gap-2.5 text-xs text-gray-500 pt-3 border-t border-slate-100 mt-2">
@@ -663,8 +678,12 @@ export default function IGCSEPreparationPastPapersBlog() {
                     <User className="h-4 w-4 text-[#C7A24A]" />
                     <h4 className="font-bold text-xs sm:text-sm text-[#0a1f3d]">About the Author</h4>
                   </div>
+                  <p className="font-bold text-xs sm:text-sm text-[#0a1f3d] mb-0.5">
+                    <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] underline">Nimra Shahzada</a>
+                  </p>
+                  <p className="text-[10px] text-[#0f4a9b] font-semibold mb-2">Education Counsellor &amp; Student Support Specialist | Ustaad UAE</p>
                   <p className="text-xs text-gray-600 leading-relaxed mb-0">
-                    <a href="/authors/nimra-shahzada" className="font-bold text-[#0f4a9b] underline">Nimra Shahzada</a> is a content lead at Ustaad with a background in psychology. She writes on how students prepare for Cambridge IGCSE and A-Level in the UAE, working closely with the tutors who teach these students.
+                    Nimra writes on how students prepare for Cambridge IGCSE and A-Level in the UAE, working closely with the tutors who teach these students.
                   </p>
                 </div>
 
@@ -673,8 +692,12 @@ export default function IGCSEPreparationPastPapersBlog() {
                     <User className="h-4 w-4 text-[#C7A24A]" />
                     <h4 className="font-bold text-xs sm:text-sm text-[#0a1f3d]">Reviewed by</h4>
                   </div>
+                  <p className="font-bold text-xs sm:text-sm text-[#0a1f3d] mb-0.5">
+                    <a href="/authors/nida-iqbal" className="text-[#0f4a9b] underline">Nida Iqbal</a>
+                  </p>
+                  <p className="text-[10px] text-[#0f4a9b] font-semibold mb-2">MPhil in Education Leadership and Management · Ustaad Editorial</p>
                   <p className="text-xs text-gray-600 leading-relaxed mb-0">
-                    <a href="/authors/nida-iqbal" className="font-bold text-[#0f4a9b] underline">Nida Iqbal</a> holds an MPhil in Education Leadership and Management and reviews Ustaad&apos;s academic guidance for accuracy and curriculum alignment.
+                    Nida reviews Ustaad&apos;s academic guidance for accuracy and curriculum alignment.
                   </p>
                 </div>
               </div>

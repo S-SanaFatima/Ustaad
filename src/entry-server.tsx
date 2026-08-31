@@ -26,6 +26,7 @@ import EnglishPage from "./app/EnglishPage.tsx";
 import ExamPreparationPage from "./app/ExamPreparationPage.tsx";
 import FinancePage from "./app/FinancePage.tsx";
 import GCSEPage from "./app/GCSEPage.tsx";
+import GCSERevisionTipsParentsBlog from "./app/GCSERevisionTipsParentsBlog.tsx";
 import HighSchoolPage from "./app/HighSchoolPage.tsx";
 import HowItWorksPage from "./app/HowItWorksPage.tsx";
 import IBCurriculumPage from "./app/IBCurriculumPage.tsx";
@@ -99,6 +100,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   ExamPreparationPage,
   FinancePage,
   GCSEPage,
+  GCSERevisionTipsParentsBlog,
   HighSchoolPage,
   HowItWorksPage,
   IBCurriculumPage,

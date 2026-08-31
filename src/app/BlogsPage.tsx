@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'gcse-revision-tips-uae-parents',
+    image: '/images/blogs/gcse-revision-tips-hero.jpg',
+    alt: 'A UAE teenager sitting at a home desk in the evening studying for GCSE exams with a parent standing in the doorway watching supportively',
+    category: 'Parent Guidance',
+    title: 'GCSE & IGCSE Revision Tips for UAE Parents',
+    description: 'Practical GCSE and IGCSE revision tips for UAE parents: the study skills that actually raise grades, and how to support your child without taking over.',
+    date: '31 Aug 2026',
+    readTime: '8 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: '10-questions-hiring-private-tutor-abu-dhabi',
     image: '/images/blogs/section1.webp',
     alt: 'Parent and teenager discussing private tutoring options at home in Abu Dhabi',

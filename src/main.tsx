@@ -44,6 +44,7 @@ const loadBlogsPage = () => import('./app/BlogsPage');
 const loadIGCSEBiology6MarkBlog = () => import('./app/IGCSEBiology6MarkBlog');
 const loadIGCSEMathsLowMarksBlog = () => import('./app/IGCSEMathsLowMarksBlog');
 const loadExamPanicBlog = () => import('./app/ExamPanicBlog');
+const loadGCSERevisionTipsParentsBlog = () => import('./app/GCSERevisionTipsParentsBlog');
 const loadMathematicsLanding = () => import('./app/MathematicsLanding');
 const loadPhysicsLanding = () => import('./app/PhysicsLanding');
 const loadChemistryLandingPage = () => import('./app/ChemistryLandingPage');
@@ -115,6 +116,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/igcse-vs-gcse-curriculum-differences-uae': loadIGCSEvsGCSEBlog,
   '/blogs/a-level-tutoring-uae-independent-thinking': loadALevelIndependentThinkingBlog,
   '/blogs/igcse-preparation-past-papers-final-step': loadIGCSEPreparationPastPapersBlog,
+  '/blogs/gcse-revision-tips-uae-parents': loadGCSERevisionTipsParentsBlog,
   '/sciences': loadSciencesPage,
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
   '/physics-tutor-abu-dhabi': loadPhysicsLanding,
@@ -171,6 +173,7 @@ const BlogsPage = lazy(loadBlogsPage);
 const IGCSEBiology6MarkBlog = lazy(loadIGCSEBiology6MarkBlog);
 const IGCSEMathsLowMarksBlog = lazy(loadIGCSEMathsLowMarksBlog);
 const ExamPanicBlog = lazy(loadExamPanicBlog);
+const GCSERevisionTipsParentsBlog = lazy(loadGCSERevisionTipsParentsBlog);
 const MathematicsLanding = lazy(loadMathematicsLanding);
 const PhysicsLanding = lazy(loadPhysicsLanding);
 const ChemistryLandingPage = lazy(loadChemistryLandingPage);
@@ -286,6 +289,7 @@ function AppRoutes() {
           <Route path="/blogs/igcse-vs-gcse-curriculum-differences-uae" element={<IGCSEvsGCSEBlog />} />
           <Route path="/blogs/a-level-tutoring-uae-independent-thinking" element={<ALevelIndependentThinkingBlog />} />
           <Route path="/blogs/igcse-preparation-past-papers-final-step" element={<IGCSEPreparationPastPapersBlog />} />
+          <Route path="/blogs/gcse-revision-tips-uae-parents" element={<GCSERevisionTipsParentsBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />
           <Route path="/physics-tutor-abu-dhabi"             element={<PhysicsLanding />} />

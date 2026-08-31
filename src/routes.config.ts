@@ -497,6 +497,18 @@ export const ROUTES: RouteConfig[] = [
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic', url: '/blogs/academic-exam-skills' }, { name: 'IGCSE Past Papers', url: '/blogs/igcse-preparation-past-papers-final-step' }]
   },
+  {
+    path: '/blogs/gcse-revision-tips-uae-parents',
+    component: 'GCSERevisionTipsParentsBlog',
+    seo: {
+      title: 'GCSE & IGCSE Revision Tips for UAE Parents | Ustaad',
+      description: 'Practical GCSE and IGCSE revision tips for UAE parents: the study skills that actually raise grades, and how to support your child without taking over.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-08-31'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'GCSE Revision Tips', url: '/blogs/gcse-revision-tips-uae-parents' }]
+  },
 
   // City landings
   {

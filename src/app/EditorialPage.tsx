@@ -122,7 +122,9 @@ export default function EditorialPage() {
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white flex items-center justify-center font-bold text-lg shrink-0 notranslate" translate="no">NS</div>
                   <div>
-                    <h3 className="text-xl font-extrabold text-[#0a1f3d]">Nimra Shahzada</h3>
+                    <h3 className="text-xl font-extrabold text-[#0a1f3d]">
+                      <a href="/authors/nimra-shahzada" className="text-[#0a1f3d] hover:text-[#0f4a9b] underline underline-offset-2">Nimra Shahzada</a>
+                    </h3>
                     <p className="text-sm font-semibold text-[#0f4a9b] mb-3">Content Writer, Study and Exam Topics</p>
                     <p className="text-sm text-gray-700 mb-4">Nimra writes about the study problems UAE parents see at home: children who revise for hours but still lose marks, homework that never gets finished, and exam stress that builds before mocks. Her articles turn these common worries into simple steps parents can follow.</p>
                     <div className="flex flex-wrap gap-2 mb-3">
@@ -139,7 +141,9 @@ export default function EditorialPage() {
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white flex items-center justify-center font-bold text-lg shrink-0 notranslate" translate="no">NI</div>
                   <div>
-                    <h3 className="text-xl font-extrabold text-[#0a1f3d]">Nida Iqbal</h3>
+                    <h3 className="text-xl font-extrabold text-[#0a1f3d]">
+                      <a href="/authors/nida-iqbal" className="text-[#0a1f3d] hover:text-[#0f4a9b] underline underline-offset-2">Nida Iqbal</a>
+                    </h3>
                     <p className="text-sm font-semibold text-[#0f4a9b] mb-3">Editorial Reviewer, MPhil in Education Leadership</p>
                     <p className="text-sm text-gray-700 mb-4">Nida checks every article before it is published. She makes sure the advice is correct, easy to understand, and matches how UAE schools teach and test students. She is the named person who approves our content, including the work sent in by teachers who prefer to stay unnamed.</p>
                     <div className="flex flex-wrap gap-2 mb-3">

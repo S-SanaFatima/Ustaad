@@ -6,7 +6,7 @@ import {
   Globe, Clock, Repeat, MapPin, MessageCircle, ChevronDown, ChevronUp, Compass, Landmark,
 } from 'lucide-react';
 import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock, FAQAccordion } from './shared';
-import TeamSection from './shared/TeamSection';
+import TeamSection, { teamPersonSchemas } from './shared/TeamSection';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, faqSchema } from './shared/schemas';
 
@@ -132,7 +132,7 @@ export default function AboutPage() {
         canonical="/about"
         ogImage="/UpdatedImages/experienced-uae-educator-online-tutoring-session.webp"
         preloadHeroImage="/UpdatedImages/experienced-uae-educator-online-tutoring-session.webp"
-        schema={[localBusinessSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "About", url: "/about" }]), faqSchema(aboutSchemaFaqs)]}
+        schema={[localBusinessSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "About", url: "/about" }]), faqSchema(aboutSchemaFaqs), ...teamPersonSchemas]}
       />
       {/* ── HERO ── */}
       <section className="pt-10 pb-20 lg:pt-20 lg:pb-32 relative overflow-hidden bg-gradient-to-br from-[#F4F8FD] via-white to-[#fcfaf5]">

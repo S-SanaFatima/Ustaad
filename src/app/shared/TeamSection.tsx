@@ -1,7 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { getAuthorBySlug } from '../../content/authors';
 import { GradientHeadingText } from './GradientHeadingText';
+import { personSchema } from './schemas';
 
 const AUTO_MS = 4800;
+
+const nimraAuthor = getAuthorBySlug('nimra-shahzada');
+const nidaAuthor = getAuthorBySlug('nida-iqbal');
 
 type TeamMember = {
   name: string;
@@ -10,6 +15,8 @@ type TeamMember = {
   desc: string;
   focus: string[];
   initials: string;
+  profileHref?: string;
+  image?: string;
 };
 
 const TEAM: TeamMember[] = [
@@ -28,6 +35,8 @@ const TEAM: TeamMember[] = [
     desc: 'Reviews tutor performance and ongoing development so standards stay consistent across every session.',
     focus: ['Tutor vetting', 'Ongoing review'],
     initials: 'NI',
+    profileHref: '/authors/nida-iqbal',
+    image: nidaAuthor?.photo,
   },
   {
     name: 'Nimra Shahzada',
@@ -36,6 +45,8 @@ const TEAM: TeamMember[] = [
     desc: "Researches the study and academic challenges UAE students face, and writes clear, practical guidance around them as Ustaad's content lead.",
     focus: ['Student research', 'Editorial writing', 'Curriculum planning'],
     initials: 'NS',
+    profileHref: '/authors/nimra-shahzada',
+    image: nimraAuthor?.photo,
   },
   {
     name: 'Mehwish Masood',
@@ -55,6 +66,43 @@ const TEAM: TeamMember[] = [
   },
 ];
 
+/** Person schema for each leadership profile on the About page */
+export const teamPersonSchemas = TEAM.map((member) =>
+  personSchema({
+    name: member.name,
+    jobTitle: member.role,
+    description: member.desc,
+    ...(member.profileHref && { url: member.profileHref }),
+    ...(member.image && { image: member.image }),
+    ...(member.profileHref && {
+      sameAs: 'https://www.linkedin.com/company/ustaad-ae',
+    }),
+  })
+);
+
+function MemberName({
+  member,
+  className,
+  onClick,
+}: {
+  member: TeamMember;
+  className?: string;
+  onClick?: (e: React.MouseEvent) => void;
+}) {
+  if (!member.profileHref) {
+    return <span className={className}>{member.name}</span>;
+  }
+  return (
+    <a
+      href={member.profileHref}
+      className={className}
+      onClick={onClick}
+    >
+      {member.name}
+    </a>
+  );
+}
+
 function pad(n: number) {
   return String(n).padStart(2, '0');
 }
@@ -65,13 +113,23 @@ export default function TeamSection() {
   const [barKey, setBarKey] = useState(0);
   const [paused, setPaused] = useState(false);
   const reducedRef = useRef(false);
-  const pauseTimerRef = useRef<number | null>(null);
+  const swipeStartX = useRef<number | null>(null);
+  const swipeDx = useRef(0);
+  const swiping = useRef(false);
 
   useEffect(() => {
     reducedRef.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }, []);
 
   const autoActive = !reducedRef.current && !paused;
+
+  const togglePause = () => {
+    setPaused((current) => {
+      const next = !current;
+      if (!next) setBarKey((k) => k + 1);
+      return next;
+    });
+  };
 
   const goTo = useCallback((next: number) => {
     const i = ((next % TEAM.length) + TEAM.length) % TEAM.length;
@@ -95,23 +153,25 @@ export default function TeamSection() {
     return () => window.clearTimeout(timer);
   }, [autoActive, idx, goTo]);
 
-  useEffect(() => {
-    return () => {
-      if (pauseTimerRef.current) window.clearTimeout(pauseTimerRef.current);
-    };
-  }, []);
-
-  const handlePause = () => {
-    setPaused(true);
-    if (pauseTimerRef.current) window.clearTimeout(pauseTimerRef.current);
+  const onCardPointerDown = (e: React.PointerEvent) => {
+    swipeStartX.current = e.clientX;
+    swipeDx.current = 0;
+    swiping.current = true;
   };
 
-  const handleResume = () => {
-    if (pauseTimerRef.current) window.clearTimeout(pauseTimerRef.current);
-    pauseTimerRef.current = window.setTimeout(() => {
-      setPaused(false);
-      setBarKey((k) => k + 1);
-    }, 400);
+  const onCardPointerMove = (e: React.PointerEvent) => {
+    if (!swiping.current || swipeStartX.current === null) return;
+    swipeDx.current = e.clientX - swipeStartX.current;
+  };
+
+  const onCardPointerUp = () => {
+    if (!swiping.current) return;
+    swiping.current = false;
+    if (Math.abs(swipeDx.current) > 48) {
+      goTo(idx + (swipeDx.current < 0 ? 1 : -1));
+    }
+    swipeStartX.current = null;
+    swipeDx.current = 0;
   };
 
   const member = TEAM[idx];
@@ -175,11 +235,12 @@ export default function TeamSection() {
         <div className="grid lg:grid-cols-[1.1fr_0.95fr] gap-5 lg:gap-7 items-stretch">
           {/* Featured navy card */}
           <article
-            className="relative rounded-[24px] p-6 sm:p-7 lg:p-8 flex flex-col gap-5 min-h-0 lg:min-h-[380px] overflow-hidden bg-gradient-to-br from-[#0a1f3d] via-[#0d2c58] to-[#0f4a9b] border border-[#0f4a9b]/50 shadow-[0_20px_50px_rgba(15,74,155,0.25)]"
+            className="relative rounded-[24px] p-6 sm:p-7 lg:p-8 flex flex-col gap-5 min-h-0 lg:min-h-[380px] overflow-hidden bg-gradient-to-br from-[#0a1f3d] via-[#0d2c58] to-[#0f4a9b] border border-[#0f4a9b]/50 shadow-[0_20px_50px_rgba(15,74,155,0.25)] touch-pan-y"
             aria-live="polite"
-            onMouseEnter={handlePause}
-            onMouseLeave={handleResume}
-            onTouchStart={handlePause}
+            onPointerDown={onCardPointerDown}
+            onPointerMove={onCardPointerMove}
+            onPointerUp={onCardPointerUp}
+            onPointerCancel={onCardPointerUp}
           >
             <div className="absolute top-0 right-0 w-[340px] h-[340px] bg-gradient-to-br from-[#C7A24A]/15 to-transparent rounded-full blur-[80px] pointer-events-none translate-x-1/4 -translate-y-1/4" />
             <div className="absolute bottom-0 left-0 w-[260px] h-[260px] bg-[#0f4a9b]/40 rounded-full blur-[70px] pointer-events-none -translate-x-1/4 translate-y-1/4" />
@@ -210,12 +271,22 @@ export default function TeamSection() {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                {autoActive && (
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] font-semibold text-white/80 backdrop-blur-sm animate-pulse">
-                    <span className="w-1 h-1 rounded-full bg-[#C7A24A]" aria-hidden="true" />
-                    <span className="sm:hidden">Tap to stay</span>
-                    <span className="hidden sm:inline">Hover to pause</span>
-                  </span>
+                {!reducedRef.current && (
+                  <button
+                    type="button"
+                    onClick={togglePause}
+                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] font-semibold backdrop-blur-sm transition-colors ${
+                      paused
+                        ? 'bg-[#C7A24A]/20 border-[#C7A24A]/40 text-[#f0d080]'
+                        : 'bg-white/10 border-white/15 text-white/80 animate-pulse'
+                    }`}
+                    aria-pressed={paused}
+                    aria-label={paused ? 'Resume team carousel' : 'Pause team carousel'}
+                  >
+                    <span className={`w-1 h-1 rounded-full ${paused ? 'bg-[#C7A24A]' : 'bg-[#C7A24A]'}`} aria-hidden="true" />
+                    <span className="sm:hidden">{paused ? 'Tap to play' : 'Tap to pause'}</span>
+                    <span className="hidden sm:inline">{paused ? 'Click to play' : 'Click to pause'}</span>
+                  </button>
                 )}
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-[11px] font-bold uppercase tracking-[0.15em] text-[#f0d080] backdrop-blur-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_8px_rgba(199,162,74,0.8)]" aria-hidden="true" />
@@ -233,7 +304,14 @@ export default function TeamSection() {
                 {member.role}
               </p>
               <h3 className="text-[28px] sm:text-3xl lg:text-[38px] font-extrabold text-white leading-[1.06] tracking-tight m-0">
-                {member.name}
+                <MemberName
+                  member={member}
+                  className={
+                    member.profileHref
+                      ? 'text-white hover:text-[#f0d080] underline decoration-[#C7A24A]/40 underline-offset-4 transition-colors'
+                      : 'text-white'
+                  }
+                />
               </h3>
               <p className="text-[14.5px] leading-relaxed text-blue-100/85 m-0 max-w-xl min-h-[4em]">
                 {member.desc}
@@ -251,6 +329,32 @@ export default function TeamSection() {
                   </span>
                 ))}
               </div>
+            </div>
+
+            <div className="relative z-10 flex items-center justify-between gap-3 pt-1 lg:hidden">
+              <button
+                type="button"
+                onClick={() => goTo(idx - 1)}
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/15 text-white hover:bg-white/15 transition-colors"
+                aria-label="Previous team member"
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M15 6l-6 6 6 6" />
+                </svg>
+              </button>
+              <p className="text-[11px] text-white/60 m-0 text-center">
+                Swipe or use arrows · tap list to jump
+              </p>
+              <button
+                type="button"
+                onClick={() => goTo(idx + 1)}
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/15 text-white hover:bg-white/15 transition-colors"
+                aria-label="Next team member"
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              </button>
             </div>
           </article>
 
@@ -283,12 +387,18 @@ export default function TeamSection() {
                 const active = i === idx;
                 return (
                   <li key={m.name} className="m-0">
-                    <button
-                      type="button"
+                    <div
                       role="tab"
+                      tabIndex={active ? 0 : -1}
                       aria-selected={active}
                       aria-current={active ? 'true' : undefined}
                       onClick={() => goTo(i)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          goTo(i);
+                        }
+                      }}
                       className={`group w-full grid grid-cols-[38px_1fr_auto] items-center gap-3 py-3 sm:py-3.5 px-2.5 sm:px-3 rounded-xl text-left transition-all duration-300 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C7A24A] focus-visible:outline-offset-2 ${
                         active
                           ? 'text-[#0a1f3d] bg-gradient-to-r from-[#0f4a9b]/[0.08] via-[#C7A24A]/10 to-transparent ring-1 ring-[#0f4a9b]/15 shadow-sm'
@@ -312,9 +422,15 @@ export default function TeamSection() {
                         >
                           {m.role}
                         </span>
-                        <span className="block text-base sm:text-lg font-extrabold text-current tracking-tight leading-snug truncate">
-                          {m.name}
-                        </span>
+                        <MemberName
+                          member={m}
+                          className={`block text-base sm:text-lg font-extrabold tracking-tight leading-snug truncate ${
+                            m.profileHref
+                              ? 'text-current hover:text-[#0f4a9b] underline decoration-[#0f4a9b]/30 underline-offset-2'
+                              : 'text-current'
+                          }`}
+                          onClick={(e) => e.stopPropagation()}
+                        />
                       </span>
                       <span
                         className={`w-8 h-8 rounded-full grid place-items-center transition-all duration-300 ${
@@ -328,7 +444,7 @@ export default function TeamSection() {
                           <path d="M9 6l6 6-6 6" />
                         </svg>
                       </span>
-                    </button>
+                    </div>
                   </li>
                 );
               })}

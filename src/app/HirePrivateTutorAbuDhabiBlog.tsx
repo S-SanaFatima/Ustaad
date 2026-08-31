@@ -82,6 +82,33 @@ const TOC_ITEMS = [
   { label: 'Frequently Asked Questions', id: 'frequently-asked-questions' },
 ];
 
+const RELATED = [
+  {
+    slug: 'gcse-revision-tips-uae-parents',
+    category: 'Parent Guidance',
+    title: 'GCSE & IGCSE Revision Tips for UAE Parents',
+    description: 'The study skills that actually raise grades, and how to support your child without taking over.',
+  },
+  {
+    slug: 'read-uae-school-report-card',
+    category: 'Parent Guidance',
+    title: 'How to Read a UAE School Report Card Like an Education Counsellor',
+    description: 'Decode grade reports, spot hidden learning gaps early, and build a targeted support strategy.',
+  },
+  {
+    slug: 'igcse-preparation-past-papers-final-step',
+    category: 'Academic',
+    title: 'IGCSE Preparation: Why Past Papers Are the Final Step',
+    description: 'Past papers are the roof of IGCSE preparation — essential, but only after the foundation is set.',
+  },
+  {
+    slug: 'exam-panic-before-exams-uae',
+    category: 'Parent Guidance',
+    title: 'What UAE Parents Miss About Exam Panic Right Before Exams',
+    description: 'Why exam anxiety peaks in the final days before papers — and how parents can help protect working memory.',
+  },
+];
+
 const THEME_GRADIENT = 'linear-gradient(90deg, #0f4a9b 0%, #0a3a79 100%)';
 
 function SectionHeading({ num, id, children }: { num?: string; id: string; children: React.ReactNode }) {
@@ -247,7 +274,7 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             author: {
               name: 'Nimra Shahzada',
               url: '/authors/nimra-shahzada',
-              jobTitle: 'Writer on learning and the psychology of studying',
+              jobTitle: 'Education Counsellor & Student Support Specialist',
               sameAs: 'https://www.linkedin.com/company/ustaad-ae',
               affiliation: 'Ustaad UAE',
             },
@@ -256,6 +283,7 @@ export default function HirePrivateTutorAbuDhabiBlog() {
               url: '/authors/nida-iqbal',
               jobTitle: 'MPhil in Education Leadership and Management',
               sameAs: 'https://www.linkedin.com/company/ustaad-ae',
+              affiliation: 'Ustaad Editorial',
             },
             image: BLOG.heroImage,
           }),
@@ -295,19 +323,26 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             <div className="mb-4 mt-2 space-y-2">
               <div className="flex items-start gap-2 text-xs text-gray-500">
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
-                <span className="leading-relaxed">
-                  <span className="font-medium">Written by:</span>{' '}
-                  <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline">{BLOG.author}</a>
-                  <span className="text-gray-400">, writer on learning and the psychology of studying</span>
-                </span>
+                <div className="leading-relaxed">
+                  <div>
+                    <span className="font-medium">Written by:</span>{' '}
+                    <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline">{BLOG.author}</a>
+                  </div>
+                  <div className="text-gray-400 mt-0.5">Education Counsellor &amp; Student Support Specialist | Ustaad UAE</div>
+                </div>
               </div>
               <div className="flex items-start gap-2 text-xs text-gray-500">
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
-                <span className="leading-relaxed">
-                  <span className="font-medium">Reviewed by:</span>{' '}
-                  <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">{BLOG.reviewer}</a>
-                  <span className="text-gray-400">, MPhil in Education Leadership and Management</span>
-                </span>
+                <div className="leading-relaxed">
+                  <div>
+                    <span className="font-medium">Reviewed by:</span>{' '}
+                    <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">{BLOG.reviewer}</a>
+                  </div>
+                  <div className="text-gray-400 mt-0.5">
+                    MPhil in Education Leadership and Management ·{' '}
+                    <a href="/editorial" className="text-[#0f4a9b] underline">Ustaad Editorial</a>
+                  </div>
+                </div>
               </div>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-400 pt-1">
                 <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
@@ -544,7 +579,7 @@ export default function HirePrivateTutorAbuDhabiBlog() {
 
             <SectionHeading id="bringing-questions-together">Bringing the ten questions together</SectionHeading>
             <p>Notice that only a few of these questions are about subject knowledge. Most are about finding the gap, explaining it clearly, being honest, growing independence, and trust. That is not an accident. The tutors who change a child&apos;s year are rarely the ones with the longest list of degrees. They are the ones who find the real problem, explain it simply, show you the progress, and then gradually step back.</p>
-            <p>Take these questions into your next conversation and let the answers do the work. A careful choice, made slowly, tends to outlast a quick one made under pressure. Your child does not need the most impressive tutor available. They need the right one, chosen with care.</p>
+            <p>Take these questions into your next conversation and let the answers do the work. A careful choice, made slowly, tends to outlast a quick one made under pressure. Your child does not need the most impressive tutor available. They need the right one, chosen with care. If you are also supporting revision at home, our <a href="/blogs/gcse-revision-tips-uae-parents" className="text-[#0f4a9b] font-semibold hover:underline">GCSE and IGCSE revision tips for UAE parents</a> may help you spot whether tutoring is filling a gap or compensating for weak study habits.</p>
 
             <div className="my-6 rounded-2xl border border-[#0f4a9b]/15 bg-[#f8fafd] p-5 text-center">
               <p className="text-sm font-semibold text-[#0a1f3d] mb-2">Ready to compare tutors properly?</p>
@@ -590,17 +625,34 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             <SocialShare url={shareUrl} title={BLOG.title} center />
           </div>
 
+          <div className="mt-7 pt-6 border-t border-slate-200">
+            <h3 className="text-sm font-extrabold text-[#0a1f3d] mb-4 uppercase tracking-wider">Related Articles for UAE Parents</h3>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {RELATED.map((item, i) => (
+                <a key={i} href={`/blogs/${item.slug}`} className="group p-4 bg-slate-50 hover:bg-[#0f4a9b]/[0.03] border border-slate-200 rounded-2xl transition">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#0f4a9b]">{item.category}</span>
+                  <p className="text-sm font-extrabold text-[#0a1f3d] mt-1 mb-1 group-hover:text-[#0f4a9b] transition">{item.title}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed mb-0">{item.description}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+
           <div className="mt-7 grid md:grid-cols-2 gap-3">
             <div className="rounded-2xl border border-[#0f4a9b]/10 bg-gradient-to-br from-white to-[#f4f7fd] p-4">
               <span className="inline-block mb-2 px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#0f4a9b] border border-[#0f4a9b]/15 bg-[#0f4a9b]/5">About the Author</span>
-              <p className="font-extrabold text-[#0a1f3d] text-sm mb-1">Nimra Shahzada</p>
-              <p className="text-[10px] text-[#0f4a9b] font-semibold mb-2">Writer on learning and the psychology of studying</p>
+              <p className="font-extrabold text-[#0a1f3d] text-sm mb-1">
+                <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] hover:underline">Nimra Shahzada</a>
+              </p>
+              <p className="text-[10px] text-[#0f4a9b] font-semibold mb-2">Education Counsellor &amp; Student Support Specialist | Ustaad UAE</p>
               <p className="text-xs text-gray-500 leading-relaxed">Nimra writes our parent-facing guides on learning and the psychology of studying, turning the questions UAE families ask at home into practical steps they can follow.</p>
             </div>
             <div className="rounded-2xl border border-[#0f4a9b]/10 bg-gradient-to-br from-white to-[#f8fafd] p-4">
               <span className="inline-block mb-2 px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#0f4a9b] border border-[#0f4a9b]/15 bg-[#0f4a9b]/5">Reviewed By</span>
-              <p className="font-extrabold text-[#0a1f3d] text-sm mb-1">Nida Iqbal</p>
-              <p className="text-[10px] text-[#0f4a9b] font-semibold mb-2">MPhil in Education Leadership and Management</p>
+              <p className="font-extrabold text-[#0a1f3d] text-sm mb-1">
+                <a href="/authors/nida-iqbal" className="text-[#0f4a9b] hover:underline">Nida Iqbal</a>
+              </p>
+              <p className="text-[10px] text-[#0f4a9b] font-semibold mb-2">MPhil in Education Leadership and Management · Ustaad Editorial</p>
               <p className="text-xs text-gray-500 leading-relaxed">Nida reviews Ustaad&apos;s academic content for accuracy and parent relevance, ensuring guidance reflects sound classroom practice for UAE families.</p>
             </div>
           </div>

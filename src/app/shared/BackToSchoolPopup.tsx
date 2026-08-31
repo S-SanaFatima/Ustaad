@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { GoldButton } from './GoldButton';
-import { Star, ShieldCheck, Users, X } from 'lucide-react';
+import { X, Star, ShieldCheck, Users } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const ENROL_URL = '/contact#form';
-const WA_URL =
-  'https://wa.me/971561249005?text=' +
-  encodeURIComponent('Hi Ustaad, I have a homework question.');
 
 type BackToSchoolPopupProps = {
   open: boolean;
@@ -13,24 +11,17 @@ type BackToSchoolPopupProps = {
 };
 
 export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupProps) {
-  const [entered, setEntered] = useState(false);
-
+  // Prevent background scrolling when open
   useEffect(() => {
-    if (!open) {
-      setEntered(false);
-      return;
-    }
+    if (!open) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    const raf = window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => setEntered(true));
-    });
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.cancelAnimationFrame(raf);
     };
   }, [open]);
 
+  // Handle escape key
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -40,124 +31,154 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
     return () => document.removeEventListener('keydown', onKey);
   }, [open, onClose]);
 
-  if (!open) return null;
-
   return (
-    <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-[#0a1f3d]/60 p-4 backdrop-blur-[6px] sm:p-6"
-      style={{
-        paddingTop: 'max(1rem, env(safe-area-inset-top))',
-        paddingBottom: 'max(1rem, env(safe-area-inset-bottom))',
-        paddingLeft: 'max(1rem, env(safe-area-inset-left))',
-        paddingRight: 'max(1rem, env(safe-area-inset-right))',
-      }}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="ustPopTitle"
-      aria-describedby="ustPopDesc"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
-      }}
-    >
-      <div
-        className={`relative my-auto w-full max-w-[400px] max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain rounded-2xl bg-white shadow-[0_32px_80px_-12px_rgba(10,31,61,0.45)] transition-all duration-500 ease-out ${
-          entered ? 'scale-100 opacity-100' : 'scale-[0.96] opacity-0'
-        }`}
-        role="document"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Header */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-[#0f4a9b] via-[#0a3a79] to-[#072d5e] px-5 pb-10 pt-6 text-center sm:px-6 sm:pb-12 sm:pt-7">
-          <div
-            className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#C7A24A]/10 blur-2xl"
-            aria-hidden="true"
-          />
-          <div
-            className="pointer-events-none absolute -bottom-6 -left-6 h-24 w-24 rounded-full bg-white/5 blur-xl"
-            aria-hidden="true"
-          />
-
-          <button
-            type="button"
-            aria-label="Close promotional popup"
-            onClick={onClose}
-            className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition hover:bg-white/25"
-          >
-            <X className="h-4 w-4" strokeWidth={2.5} />
-          </button>
-
-          <img
-            src="/ustaad-private-tutors-uae-logo.png"
-            alt="Ustaad"
-            width={140}
-            height={36}
-            className="mx-auto h-9 w-auto brightness-0 invert"
-            loading="eager"
-          />
-
-          <p
-            id="ustPopTitle"
-            className="mt-4 inline-flex max-w-[calc(100%-2rem)] flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-[#C7A24A]/40 bg-[#C7A24A]/15 px-3 py-1.5 text-[9px] font-bold uppercase leading-snug tracking-[0.12em] text-[#F5E6C0] sm:mt-5 sm:px-3.5 sm:text-[10px] sm:tracking-[0.16em]"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#C7A24A]" aria-hidden="true" />
-            Back to School · Enrolment Offer
-          </p>
-        </div>
-
-        {/* Offer card — overlaps header */}
-        <div className="relative z-10 -mt-7 mx-3 mb-3 rounded-xl border border-gray-100 bg-white px-4 py-5 text-center shadow-[0_8px_32px_rgba(15,74,155,0.12)] sm:-mt-8 sm:mx-5 sm:mb-4 sm:px-5 sm:py-6">
-          <div className="flex items-baseline justify-center gap-1 leading-none">
-            <span className="text-[clamp(2.75rem,14vw,3.75rem)] font-extrabold tracking-tight text-[#0f4a9b]">
-              10%
-            </span>
-            <span className="text-xl font-bold text-[#C7A24A] sm:text-2xl">OFF</span>
-          </div>
-
-          <p id="ustPopDesc" className="mt-2 text-sm font-semibold text-[#0a1f3d] sm:text-[15px]">
-            Your first enrolment with Ustaad
-          </p>
-          <p className="mt-1.5 text-[11px] text-gray-500 sm:text-xs">
-            First 100 students · Valid till 30 September 2026
-          </p>
-
-          <GoldButton href={ENROL_URL} className="mt-4 w-full py-3 text-sm shadow-[0_8px_24px_rgba(199,162,74,0.35)] sm:mt-5 sm:py-3.5 sm:text-[15px]">
-            Claim my 10% discount
-          </GoldButton>
-
-          <ul className="mt-4 grid grid-cols-3 gap-1.5 border-t border-gray-100 pt-3.5 sm:mt-5 sm:gap-2 sm:pt-4">
-            {[
-              { icon: Star, label: '5.0 Google rating' },
-              { icon: Users, label: 'Matched tutors' },
-              { icon: ShieldCheck, label: 'All curriculums' },
-            ].map(({ icon: Icon, label }) => (
-              <li key={label} className="flex flex-col items-center gap-1">
-                <Icon className="h-4 w-4 text-[#C7A24A]" strokeWidth={2} aria-hidden="true" />
-                <span className="text-[10px] font-medium leading-tight text-gray-500">{label}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* WhatsApp — secondary, understated */}
-        <a
-          href={WA_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-cta="whatsapp"
-          aria-label="Ask a homework question on WhatsApp for a free written solution in 15 minutes"
-          className="flex items-center gap-2.5 border-t border-gray-100 px-4 py-3 text-left transition hover:bg-gray-50 sm:gap-3 sm:px-5 sm:py-3.5"
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0a1f3d]/50 p-4 backdrop-blur-[4px] sm:p-6"
+          onClick={onClose}
         >
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#25D366] text-white">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884" />
-            </svg>
-          </span>
-          <span className="min-w-0 flex-1">
-            <span className="block text-xs font-semibold text-[#0a1f3d]">Got a homework question?</span>
-            <span className="block text-[11px] text-gray-500">Free written solution in 15 minutes</span>
-          </span>
-        </a>
-      </div>
-    </div>
+          {/* Notebook Paper Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, rotate: -2, y: 15 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, rotate: 2, y: 15 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 120 }}
+            className="relative w-[92%] sm:w-full max-w-[360px] md:max-w-[620px] rounded-2xl bg-[#faf9f6] bg-[linear-gradient(rgba(15,74,155,0.04)_1px,transparent_1px)] bg-[size:100%_24px] pl-12 pr-5 py-6 md:pl-14 md:pr-6 md:py-8 shadow-[0_24px_60px_rgba(10,31,61,0.25)] border border-gray-200/50"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Corner curl paper effect (Bottom Right) */}
+            <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none overflow-hidden rounded-br-2xl">
+              <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-gray-200 to-transparent rotate-45 transform origin-bottom-right" />
+              <div className="absolute bottom-0 right-0 w-[22px] h-[22px] bg-[#f0ede6] border-t border-l border-gray-300/60 shadow-[-2px_-2px_4px_rgba(0,0,0,0.06)]" />
+            </div>
+
+            {/* Notebook punched spiral holes (Far Left Margin) */}
+            <div className="absolute left-2 md:left-2.5 top-0 bottom-0 flex flex-col justify-around py-5 pointer-events-none z-20">
+              {Array.from({ length: 9 }).map((_, idx) => (
+                <div key={idx} className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-[#0a1f3d]/70 shadow-[inset_1px_1px_2px_rgba(0,0,0,0.3)]" />
+              ))}
+            </div>
+
+            {/* Red notebook margin line */}
+            <div className="absolute left-8 md:left-10 top-0 bottom-0 w-[1px] bg-red-300/80 pointer-events-none z-10" />
+
+            {/* Close Button - Frosted Glass & Gold */}
+            <motion.button
+              type="button"
+              aria-label="Close promotion dialog"
+              whileHover={{ scale: 1.08, rotate: 90 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={onClose}
+              className="absolute right-3.5 top-3.5 z-50 flex h-7.5 w-7.5 items-center justify-center rounded-full bg-white/60 text-[#C7A24A] border border-[#C7A24A]/30 backdrop-blur-md hover:bg-[#C7A24A]/10 hover:text-[#A8892A] transition duration-200 shadow-sm"
+            >
+              <X className="h-4 w-4" strokeWidth={2.5} />
+            </motion.button>
+
+            {/* Teacher's Approved Grade Stamp */}
+            <div className="absolute top-4 right-14 md:right-16 rotate-[10deg] border-2 border-dashed border-[#C7A24A]/70 rounded-md px-2 py-0.5 md:px-2.5 md:py-0.5 flex flex-col items-center justify-center font-serif text-[#C7A24A] tracking-wider uppercase pointer-events-none select-none bg-[#faf9f6] scale-90 md:scale-100">
+              <span className="text-[9px] font-black leading-none">APPROVED</span>
+              <span className="text-[7px] font-bold leading-none mt-0.5">Ustaad Offer</span>
+            </div>
+
+            {/* Content Container (2-Column Grid on Desktop) */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 mt-4">
+              
+              {/* Left Side (Desktop: Spans 6 Columns) */}
+              <div className="md:col-span-6 flex flex-col justify-center">
+                {/* Ustaad Logo */}
+                <img
+                  src="/ustaad-private-tutors-uae-logo.png"
+                  alt="Ustaad"
+                  width={90}
+                  height={24}
+                  className="h-6 w-auto mb-4 self-start"
+                  loading="eager"
+                />
+
+                {/* Header Tag */}
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#C7A24A]">
+                  Back to School
+                </span>
+
+                {/* Main Highlighted Discount */}
+                <h3 className="text-[38px] md:text-[46px] font-black text-[#0a1f3d] tracking-tight leading-none mt-1">
+                  10% <span className="text-[#C7A24A]">OFF</span>
+                </h3>
+                <p className="text-[10px] font-extrabold text-gray-500 uppercase tracking-widest mt-1">
+                  Your first enrolment
+                </p>
+
+                {/* Lined paper visual spacer */}
+                <div className="h-[24px]" />
+
+                {/* Hand-drawn style Claimed Progress Bar */}
+                <div className="max-w-[220px]">
+                  <div className="flex justify-between text-[8px] font-bold text-gray-400 uppercase tracking-wider mb-1">
+                    <span>Offer Capacity</span>
+                    <span>82/100 claimed</span>
+                  </div>
+                  <div className="h-2 w-full bg-gray-200/60 rounded-full overflow-hidden p-[1px] border border-gray-300/40">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: '82%' }}
+                      transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
+                      className="h-full bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side (Desktop: Spans 6 Columns) */}
+              <div className="md:col-span-6 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-sm font-extrabold text-[#0a1f3d] tracking-tight leading-tight">
+                    Start the academic term right
+                  </h4>
+                  <p id="ustPopDesc" className="text-[11px] text-gray-500 mt-1 leading-relaxed">
+                    Managed 1-to-1 premium tutoring matching your child's curriculum, board, and schedule.
+                  </p>
+                </div>
+
+                {/* highlighted exam box CTA */}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="mt-4"
+                >
+                  <GoldButton 
+                    href={ENROL_URL} 
+                    className="w-full py-3 bg-[#FFE57F] hover:bg-[#FFD54F] border-2 border-dashed border-[#C7A24A] text-[#0a1f3d] text-xs font-black uppercase tracking-widest rounded-lg shadow-sm hover:shadow transition duration-200"
+                  >
+                    Claim my 10% discount
+                  </GoldButton>
+                </motion.div>
+              </div>
+
+            </div>
+
+            {/* Footer / Report Card footer strip (Spans full width) */}
+            <div className="mt-6 border-t border-b border-dashed border-gray-300 py-2.5 grid grid-cols-3 gap-2 text-center text-gray-500 leading-none">
+              <div className="border-r border-gray-200 flex flex-col items-center justify-center">
+                <span className="text-[10px] font-black text-[#0a1f3d]">5.0 Rating</span>
+                <span className="text-[8px] uppercase tracking-wider text-gray-400 font-bold mt-1">Google Reviews</span>
+              </div>
+              <div className="border-r border-gray-200 flex flex-col items-center justify-center">
+                <span className="text-[10px] font-black text-[#0a1f3d]">Match Guarantee</span>
+                <span className="text-[8px] uppercase tracking-wider text-gray-400 font-bold mt-1">Tutor Check</span>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-[10px] font-black text-[#0a1f3d]">All Boards</span>
+                <span className="text-[8px] uppercase tracking-wider text-gray-400 font-bold mt-1">IGCSE, IB & AP</span>
+              </div>
+            </div>
+
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
