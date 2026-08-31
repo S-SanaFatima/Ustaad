@@ -5,20 +5,19 @@ MESSAGE=${1:-"Deploy: update site"}
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 
-echo "▶ Building production site..."
+echo "[1/5] Building production site..."
 if [ -f pnpm-lock.yaml ] && command -v pnpm >/dev/null 2>&1; then
   pnpm install --frozen-lockfile
   pnpm build
-elif [ -f package-lock.json ]; then
+elif [ -f package-lock.json ] && [ ! -d node_modules ]; then
   npm ci
   npm run build
 else
-  npm install
   npm run build
 fi
 
 if [ ! -f dist/client/index.html ]; then
-  echo "✗ Build failed: dist/client/index.html not found."
+  echo "Build failed: dist/client/index.html not found."
   exit 1
 fi
 

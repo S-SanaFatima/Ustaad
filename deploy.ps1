@@ -11,13 +11,17 @@ if ((Test-Path "$Root/pnpm-lock.yaml") -and (Get-Command pnpm -ErrorAction Silen
   pnpm install --frozen-lockfile
   pnpm build
 }
-elseif (Test-Path "$Root/package-lock.json") {
+elseif ((Test-Path "$Root/package-lock.json") -and -not (Test-Path "$Root/node_modules")) {
   npm ci
+  if ($LASTEXITCODE -ne 0) { throw "npm ci failed." }
   npm run build
 }
 else {
-  npm install
   npm run build
+}
+
+if ($LASTEXITCODE -ne 0) {
+  throw "Build failed."
 }
 
 if (-not (Test-Path "$Root/dist/client/index.html")) {
