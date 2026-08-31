@@ -66,14 +66,14 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
             {/* Red notebook margin line */}
             <div className="absolute left-8 md:left-10 top-0 bottom-0 w-[1px] bg-red-300/80 pointer-events-none z-10" />
 
-            {/* Close Button - Frosted Glass & Gold */}
+            {/* Close Button - Frosted Glass & Dark Black */}
             <motion.button
               type="button"
               aria-label="Close promotion dialog"
               whileHover={{ scale: 1.08, rotate: 90 }}
               whileTap={{ scale: 0.95 }}
               onClick={onClose}
-              className="absolute right-3.5 top-3.5 z-50 flex h-7.5 w-7.5 items-center justify-center rounded-full bg-white/60 text-[#C7A24A] border border-[#C7A24A]/30 backdrop-blur-md hover:bg-[#C7A24A]/10 hover:text-[#A8892A] transition duration-200 shadow-sm"
+              className="absolute right-3.5 top-3.5 z-50 flex h-7.5 w-7.5 items-center justify-center rounded-full bg-white/60 text-gray-900 border border-gray-300 backdrop-blur-md hover:bg-gray-100 hover:text-black transition duration-200 shadow-sm"
             >
               <X className="h-4 w-4" strokeWidth={2.5} />
             </motion.button>
@@ -172,7 +172,7 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
               </div>
               <div className="flex flex-col items-center justify-center">
                 <span className="text-[10px] font-black text-[#0a1f3d]">All Boards</span>
-                <span className="text-[8px] uppercase tracking-wider text-gray-400 font-bold mt-1">IGCSE, IB & AP</span>
+                <span className="text-[8px] uppercase tracking-wider text-gray-400 font-bold mt-1">IB, British & American</span>
               </div>
             </div>
 
