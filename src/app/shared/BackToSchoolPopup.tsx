@@ -1,8 +1,43 @@
-import { useEffect } from 'react';
-import { X, Calendar } from 'lucide-react';
+import { useEffect, type CSSProperties } from 'react';
+import {
+  X,
+  Calendar,
+  Star,
+  BookOpen,
+  BadgePercent,
+  Sparkles,
+  ArrowRight,
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const ENROL_URL = '/contact#form';
+
+const SERIF: CSSProperties = { fontFamily: 'Georgia, "Times New Roman", serif' };
+
+const PERKS = [
+  { icon: Star, label: '5.0 Rated', filled: true },
+  { icon: BookOpen, label: 'IGCSE & IB', filled: false },
+  { icon: BadgePercent, label: '10% Off', filled: false },
+] as const;
+
+function HeadingBlock() {
+  return (
+    <div className="min-w-0 w-full text-left">
+      <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#0a1f3d]/55 leading-none md:text-[11px]">
+        Back to
+      </p>
+      <h2
+        className="mt-0.5 text-[1.55rem] font-bold uppercase leading-[0.95] tracking-tight text-[#C7A24A] md:mt-1 md:text-[2.35rem]"
+        style={SERIF}
+      >
+        School
+      </h2>
+      <p className="mt-1.5 text-[12px] font-medium leading-snug text-[#0a1f3d]/75 md:mt-2 md:text-sm">
+        Stronger start. Brighter year.
+      </p>
+    </div>
+  );
+}
 
 type BackToSchoolPopupProps = {
   open: boolean;
@@ -28,117 +63,6 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
     return () => document.removeEventListener('keydown', onKey);
   }, [open, onClose]);
 
-  const logoBlock = (
-    <div className="popup-logo-frame w-full flex justify-start shrink-0">
-      <img
-        src="/ustaad-private-tutors-uae-logo.png"
-        alt="Ustaad"
-        width={110}
-        height={28}
-        className="h-7 w-auto object-contain"
-        loading="eager"
-      />
-    </div>
-  );
-
-  const offerBlock = (
-    <div className="popup-offer-frame flex w-full flex-col items-start text-left">
-      <p className="text-[11px] md:text-xs font-bold uppercase tracking-[0.22em] text-[#0a1f3d] leading-none">
-        Back to
-      </p>
-      <h2
-        id="campaignModalTitle"
-        className="mt-0.5 text-[2.1rem] sm:text-[2.4rem] md:text-[2.8rem] font-black uppercase leading-[0.92] tracking-tight bg-gradient-to-r from-[#D4AF37] via-[#C7A24A] to-[#8C6D1F] bg-clip-text text-transparent"
-        style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-      >
-        School
-      </h2>
-
-      <p className="mt-1.5 text-xs md:text-[13px] text-[#0a1f3d]/80 font-medium">
-        Stronger start. Brighter year.
-      </p>
-
-      <div className="my-2.5 md:my-3 h-0.5 w-12 bg-gradient-to-r from-[#C7A24A] to-[#0a1f3d]/20 rounded-full" aria-hidden="true" />
-
-      <div className="flex flex-wrap items-end justify-start gap-x-2 gap-y-0.5">
-        <span className="text-[11px] md:text-xs font-bold uppercase tracking-[0.16em] text-[#0a1f3d] pb-0.5">
-          Get
-        </span>
-        <span
-          className="text-[2.35rem] md:text-[2.85rem] font-black leading-none bg-gradient-to-b from-[#D4AF37] to-[#9E7C20] bg-clip-text text-transparent"
-          style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-        >
-          10%
-        </span>
-        <span className="text-lg md:text-xl font-black uppercase text-[#0a1f3d] pb-0.5">
-          Off
-        </span>
-      </div>
-
-      <p className="mt-1 text-xs md:text-[13px] text-[#0a1f3d] font-medium">
-        your first enrolment with Ustaad.
-      </p>
-
-      <p className="mt-2 text-[10px] md:text-[11px] font-semibold text-[#0a1f3d]/75 leading-snug">
-        <span className="text-[#C7A24A]">★</span> 5.0 Google Reviews · Matched IGCSE, A-Level &amp; IB tutors
-      </p>
-
-      <a
-        href={ENROL_URL}
-        onClick={onClose}
-        className="popup-cta-btn mt-3.5 md:mt-4 flex w-full md:w-auto md:min-w-[250px] items-center justify-center rounded-xl bg-gradient-to-r from-[#0a1f3d] via-[#0f4a9b] to-[#0a1f3d] hover:brightness-110 border border-[#C7A24A]/50 px-6 py-3.5 text-[11px] md:text-xs font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_10px_25px_rgba(10,31,61,0.3)] transition-all duration-200"
-      >
-        Claim My 10% Discount
-      </a>
-
-      <div className="popup-validity-box mt-3 md:mt-4 flex w-full md:w-auto md:min-w-[250px] items-center gap-2.5 rounded-xl border border-[#C7A24A]/35 bg-gradient-to-r from-[#fdf8ee] via-white to-[#fcf6e8] px-6 py-3.5 shadow-[0_2px_8px_rgba(199,162,74,0.12)]">
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#0a1f3d] text-[#C7A24A] shadow-sm">
-          <Calendar className="h-4 w-4" strokeWidth={2.2} />
-        </div>
-        <div className="text-left leading-tight">
-          <span className="block text-[9px] md:text-[10px] font-bold uppercase tracking-[0.16em] text-[#0a1f3d]/60">
-            Valid until
-          </span>
-          <span
-            className="block text-[11px] md:text-xs font-extrabold uppercase tracking-[0.08em] text-[#0a1f3d]"
-            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-          >
-            30 September 2026
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-
-  const leftColumn = (
-    <div className="popup-left-column flex w-full flex-col gap-4 md:gap-5">
-      {logoBlock}
-      {offerBlock}
-    </div>
-  );
-
-  const studentImageDesktop = (
-    <img
-      src="/images/back-to-school-popup-student.jpg"
-      alt="Student ready for the new school year with Ustaad"
-      className="block h-[102%] w-full max-w-none object-cover object-[78%_15%]"
-      style={{
-        maskImage: 'linear-gradient(to right, transparent 0%, black 16%)',
-        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 16%)',
-      }}
-      loading="eager"
-    />
-  );
-
-  const studentImageMobile = (
-    <img
-      src="/images/back-to-school-popup-student.jpg"
-      alt="Student ready for the new school year with Ustaad"
-      className="absolute inset-x-0 top-5 bottom-0 block w-full object-cover object-[50%_14%] sm:top-6"
-      loading="eager"
-    />
-  );
-
   return (
     <AnimatePresence>
       {open && (
@@ -146,64 +70,152 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#040c1a]/75 p-3 sm:p-4 backdrop-blur-md overflow-y-auto"
+          transition={{ duration: 0.22 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0a1f3d]/65 p-3 backdrop-blur-[6px] overflow-y-auto md:p-4"
           role="dialog"
           aria-modal="true"
-          aria-labelledby="campaignModalTitle"
+          aria-label="Back to School — Get 10% off your first enrolment with Ustaad"
           onClick={onClose}
         >
-          {/* Executive Modal Card with Metallic Corner Accents & Luxury Gradient */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 12 }}
+            initial={{ opacity: 0, scale: 0.97, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.97, y: 8 }}
-            transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-            className="relative w-full max-w-[690px] my-auto overflow-hidden rounded-[24px] bg-gradient-to-br from-white via-[#fcfbfa] to-[#f6f2e8] border border-[#C7A24A]/40 shadow-[0_32px_90px_rgba(10,31,61,0.38)]"
+            exit={{ opacity: 0, scale: 0.98, y: 6 }}
+            transition={{ type: 'spring', damping: 30, stiffness: 320 }}
+            className="relative my-auto w-full max-w-[318px] overflow-hidden rounded-xl bg-white shadow-[0_20px_60px_rgba(10,31,61,0.28)] ring-1 ring-[#0a1f3d]/8 md:max-w-[720px] md:rounded-[1.35rem]"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Executive Corner Edge Designs */}
-            <div className="absolute top-2.5 left-2.5 w-6 h-6 border-t-2 border-l-2 border-[#C7A24A]/70 rounded-tl-md pointer-events-none z-30" />
-            <div className="absolute bottom-2.5 left-2.5 w-6 h-6 border-b-2 border-l-2 border-[#C7A24A]/70 rounded-bl-md pointer-events-none z-30" />
-            <div className="absolute top-2.5 right-2.5 w-6 h-6 border-t-2 border-r-2 border-[#C7A24A]/50 rounded-tr-md pointer-events-none z-30" />
-            <div className="absolute bottom-2.5 right-2.5 w-6 h-6 border-b-2 border-r-2 border-[#C7A24A]/50 rounded-br-md pointer-events-none z-30" />
-
-            {/* Subtle Gold Background Radial Glow */}
-            <div className="absolute top-0 left-0 w-72 h-72 bg-[#C7A24A]/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="h-[2px] w-full bg-gradient-to-r from-[#C7A24A] via-[#E8D5A3] to-[#C7A24A] md:h-[3px]" aria-hidden="true" />
 
             <button
               type="button"
               aria-label="Close dialog"
               onClick={onClose}
-              className="absolute right-3.5 top-3.5 z-50 flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-[#0a1f3d] border border-[#C7A24A]/30 shadow-md hover:bg-[#0a1f3d] hover:text-white transition duration-200"
+              className="absolute right-2.5 top-[calc(0.625rem+2px)] z-20 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-[#0a1f3d]/70 ring-1 ring-[#0a1f3d]/10 shadow-sm transition hover:bg-[#0a1f3d] hover:text-white md:right-4 md:top-[calc(0.875rem+3px)] md:h-8 md:w-8"
             >
-              <X className="h-4 w-4" strokeWidth={2.5} />
+              <X className="h-3.5 w-3.5 md:h-4 md:w-4" strokeWidth={2.25} />
             </button>
 
-            {/* DESKTOP — text + image overlap, no middle gap */}
-            <div className="popup-body-frame hidden md:block relative z-10 min-h-[385px] overflow-hidden bg-gradient-to-br from-white via-[#fcfbfa] to-[#f6f2e8]">
-              <div className="relative z-10 max-w-[54%] py-6 pl-7 pr-2 lg:pl-8 lg:pr-3 flex flex-col justify-center">
-                {leftColumn}
-              </div>
-
-              <div className="absolute -top-px -bottom-px right-0 flex w-[50%] items-center overflow-hidden pointer-events-none lg:w-[48%]">
-                {studentImageDesktop}
-              </div>
-            </div>
-
-            {/* MOBILE — unified stacked frame */}
-            <div className="popup-body-frame md:hidden relative z-10 overflow-hidden bg-gradient-to-br from-white via-[#fcfbfa] to-[#f6f2e8]">
-              <div className="relative h-52 overflow-hidden bg-[#fcfbfa] sm:h-56">
-                {studentImageMobile}
-                <div
-                  className="absolute inset-x-0 bottom-0 h-10 pointer-events-none"
-                  style={{
-                    background: 'linear-gradient(to top, #fcfbfa 0%, rgba(252, 251, 250, 0.75) 50%, transparent 100%)',
-                  }}
+            <div className="grid md:grid-cols-[1fr_260px] lg:grid-cols-[1fr_280px]">
+              <div className="flex flex-col items-start px-4 pb-4 pt-4 text-left md:px-8 md:pb-8 md:pt-6">
+                <img
+                  src="/ustaad-private-tutors-uae-logo.png"
+                  alt="Ustaad"
+                  width={108}
+                  height={28}
+                  className="mb-3 block h-6 w-auto object-contain object-left md:mb-6 md:h-7"
+                  loading="eager"
                 />
+
+                {/* Mobile — integrated hero panel (photo blends into text area) */}
+                <div className="relative mb-3 w-full overflow-hidden rounded-xl border border-[#0a1f3d]/8 bg-gradient-to-br from-white via-[#f8fafc] to-[#eef2f8] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] md:hidden">
+                  <div className="relative flex min-h-[7.5rem]">
+                    <div className="relative z-10 flex flex-1 flex-col justify-center py-3 pl-3 pr-1">
+                      <HeadingBlock />
+                    </div>
+                    <div className="relative w-[6.25rem] shrink-0 overflow-hidden">
+                      <img
+                        src="/images/back-to-school-popup-student.jpg"
+                        alt=""
+                        aria-hidden="true"
+                        className="absolute inset-0 h-full w-full object-cover object-[72%_12%]"
+                        loading="eager"
+                      />
+                      <div className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-10 bg-gradient-to-r from-[#f8fafc] via-[#f8fafc]/90 to-transparent" />
+                      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-6 bg-gradient-to-t from-[#eef2f8]/80 to-transparent" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="hidden w-full md:block">
+                  <HeadingBlock />
+                </div>
+
+                <div className="mt-3 flex w-full flex-wrap gap-1.5 md:mt-5 md:gap-2">
+                  {PERKS.map(({ icon: Icon, label, filled }) => (
+                    <span
+                      key={label}
+                      className="inline-flex items-center gap-1 rounded-md border border-[#0a1f3d]/8 bg-white px-2 py-1 text-[9px] font-semibold text-[#0a1f3d]/80 shadow-sm md:gap-1.5 md:rounded-lg md:px-2.5 md:py-1.5 md:text-[10px]"
+                    >
+                      <Icon
+                        className={`h-3 w-3 text-[#C7A24A] md:h-3.5 md:w-3.5 ${filled ? 'fill-[#C7A24A]' : ''}`}
+                        strokeWidth={2.25}
+                      />
+                      {label}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="my-3 h-px w-8 bg-[#C7A24A]/60 md:my-5 md:w-10" aria-hidden="true" />
+
+                <div className="w-full rounded-lg border border-[#0a1f3d]/8 bg-[#f8fafc] px-3 py-3 text-left md:rounded-xl md:px-5 md:py-4">
+                  <div className="flex items-baseline gap-x-1.5 md:gap-x-2">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#0a1f3d] md:text-[11px]">
+                      Get
+                    </span>
+                    <span
+                      className="text-[1.65rem] font-bold leading-none text-[#C7A24A] md:text-[2.25rem]"
+                      style={SERIF}
+                    >
+                      10%
+                    </span>
+                    <span className="text-base font-bold uppercase leading-none text-[#0a1f3d] md:text-lg">
+                      Off
+                    </span>
+                  </div>
+                  <p className="mt-1.5 text-[12px] font-medium text-[#0a1f3d] md:mt-2 md:text-sm">
+                    your first enrolment with Ustaad.
+                  </p>
+                  <p className="mt-2 flex items-start gap-1 text-[10px] font-medium leading-snug text-[#0a1f3d]/65 md:mt-3 md:gap-1.5 md:text-xs">
+                    <Star className="mt-0.5 h-2.5 w-2.5 shrink-0 fill-[#C7A24A] text-[#C7A24A] md:h-3 md:w-3" strokeWidth={0} />
+                    <span>5.0 Google Reviews · Matched IGCSE, A-Level &amp; IB tutors</span>
+                  </p>
+                </div>
+
+                <a
+                  href={ENROL_URL}
+                  onClick={onClose}
+                  className="group mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg bg-[#0a1f3d] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white shadow-[0_6px_18px_rgba(10,31,61,0.22)] transition hover:bg-[#0f4a9b] active:scale-[0.99] md:mt-4 md:gap-2 md:rounded-xl md:px-5 md:py-3.5 md:text-xs"
+                >
+                  <Sparkles className="h-3 w-3 text-[#C7A24A] md:h-3.5 md:w-3.5" strokeWidth={2.25} />
+                  Claim My 10% Discount
+                  <ArrowRight className="h-3 w-3 transition group-hover:translate-x-0.5 md:h-3.5 md:w-3.5" strokeWidth={2.5} />
+                </a>
+
+                <div className="mt-2.5 flex w-full items-center gap-2.5 rounded-lg border border-[#C7A24A]/20 bg-[#fdfaf3] px-3 py-2.5 text-left md:mt-3 md:gap-3 md:rounded-xl md:px-4 md:py-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#0a1f3d] text-[#C7A24A] md:h-9 md:w-9">
+                    <Calendar className="h-3.5 w-3.5 md:h-4 md:w-4" strokeWidth={2} />
+                  </div>
+                  <div className="min-w-0 text-left">
+                    <p className="text-[8px] font-semibold uppercase tracking-[0.14em] text-[#0a1f3d]/50 md:text-[10px]">
+                      Valid until
+                    </p>
+                    <p
+                      className="mt-0.5 text-[10px] font-bold uppercase tracking-[0.06em] text-[#0a1f3d] md:text-xs"
+                      style={SERIF}
+                    >
+                      30 September 2026
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-4">
-                {leftColumn}
+
+              <div className="relative hidden min-h-full bg-[#eef2f8] md:block">
+                <img
+                  src="/images/back-to-school-popup-student.jpg"
+                  alt="Student ready for the new school year with Ustaad"
+                  className="absolute inset-0 h-full w-full object-cover object-[62%_12%]"
+                  loading="eager"
+                />
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent" />
+                <div
+                  className="absolute bottom-6 right-5 flex h-[4.5rem] w-[4.5rem] flex-col items-center justify-center rounded-full bg-[#0a1f3d] text-center shadow-xl ring-2 ring-[#C7A24A]/60"
+                  aria-hidden="true"
+                >
+                  <BadgePercent className="h-5 w-5 text-[#C7A24A]" strokeWidth={2} />
+                  <span className="text-sm font-black leading-none text-white">10%</span>
+                  <span className="text-[8px] font-bold uppercase tracking-wider text-[#C7A24A]">Off</span>
+                </div>
               </div>
             </div>
           </motion.div>
