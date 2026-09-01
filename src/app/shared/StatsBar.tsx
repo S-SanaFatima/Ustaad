@@ -84,29 +84,80 @@ export default function StatsBar({ customText }: StatsBarProps = {}) {
   }, []);
 
   const stats = [
-    { icon: <GraduationCap className="h-6 w-6 text-white" />, iconBg: "bg-[#22b8cd]", val: `${counts.students || TARGETS.students}+`, label: "Students Taught", valColor: "text-[#1F3F66]", line: "bg-[#22b8cd]" },
-    { icon: <TrendingUp className="h-6 w-6 text-white" />, iconBg: "bg-[#f59e0b]", val: `+1 to +${counts.grade || TARGETS.grade}`, label: "Grade Improvement", valColor: "text-[#C7A24A]", line: "bg-[#f59e0b]" },
-    { icon: <Award className="h-6 w-6 text-white" />, iconBg: "bg-[#ef4444]", val: `${counts.exam || TARGETS.exam}%+`, label: "Exam Success Rate", valColor: "text-[#1F3F66]", line: "bg-[#ef4444]" },
-    { icon: <UserCheck className="h-6 w-6 text-white" />, iconBg: "bg-[#60a5fa]", val: `${counts.satisfaction || TARGETS.satisfaction}%`, label: "Satisfaction Rate", valColor: "text-[#1F3F66]", line: "bg-[#60a5fa]" },
+    {
+      icon: <GraduationCap className="h-6 w-6 text-[#C7A24A]" />,
+      val: `${counts.students || TARGETS.students}+`,
+      label: 'Students Taught',
+      subtext: 'Across UAE Curricula',
+    },
+    {
+      icon: <TrendingUp className="h-6 w-6 text-[#C7A24A]" />,
+      val: `+1 to +${counts.grade || TARGETS.grade}`,
+      label: 'Grade Improvement',
+      subtext: 'Average Grade Jump',
+    },
+    {
+      icon: <Award className="h-6 w-6 text-[#C7A24A]" />,
+      val: `${counts.exam || TARGETS.exam}%+`,
+      label: 'Exam Success Rate',
+      subtext: 'IGCSE, IB & A-Level',
+    },
+    {
+      icon: <UserCheck className="h-6 w-6 text-[#C7A24A]" />,
+      val: `${counts.satisfaction || TARGETS.satisfaction}%`,
+      label: 'Satisfaction Rate',
+      subtext: 'Verified Parent Reviews',
+    },
   ];
 
   return (
-    <div ref={ref} className="relative -mt-6 z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-      <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-[0_15px_40px_rgba(15,74,155,0.12)] border border-white/50 px-6 py-8">
-        {/* Single responsive grid — rendered once in HTML (no mobile/desktop duplication) */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x-2 lg:divide-gray-100 gap-y-4 lg:gap-y-0">
+    <div ref={ref} className="relative -mt-6 z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+      <div className="relative overflow-hidden bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_50px_rgba(10,31,61,0.09)] border border-slate-200/80 px-6 py-7 lg:py-8">
+        
+        {/* Subtle Gold Accent Top Line */}
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#C7A24A] to-transparent opacity-80" />
+
+        {/* 4-Column Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-slate-200/70 gap-y-6 lg:gap-y-0">
           {stats.map((s, i) => (
-            <div key={i} className={`flex flex-col items-center justify-center text-center gap-3 px-4 py-4 lg:py-2${i === 1 ? ' border-r-2 border-gray-100 lg:border-r-0' : ''}`}>
-              <div className={`w-14 h-14 rounded-full ${s.iconBg} flex items-center justify-center shadow-lg`}>{s.icon}</div>
-              <div className={`text-2xl lg:text-3xl font-extrabold notranslate ${s.valColor}`} translate="no">{s.val}</div>
-              <div className="text-xs font-semibold text-[#6B7280] whitespace-nowrap">{s.label}</div>
-              <div className={`w-8 h-[3px] ${s.line} rounded-full`}></div>
+            <div
+              key={i}
+              className={`flex flex-col items-center justify-center text-center gap-2.5 px-3 sm:px-6 py-2 group transition-all duration-300 ${
+                i === 1 ? 'border-r lg:border-r-0 border-slate-200/70' : ''
+              }`}
+            >
+              {/* Luxury Dual-Tone Badge Icon */}
+              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#0a1f3d] to-[#0f3a7a] flex items-center justify-center shadow-md border border-[#C7A24A]/30 transition-transform duration-300 group-hover:scale-105 group-hover:border-[#C7A24A]/60">
+                {s.icon}
+              </div>
+
+              {/* Counter Value */}
+              <div
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] tracking-tight notranslate mt-0.5"
+                translate="no"
+              >
+                {s.val}
+              </div>
+
+              {/* Label & Subtext */}
+              <div>
+                <div className="text-xs sm:text-sm font-extrabold text-[#0a1f3d] tracking-wide">
+                  {s.label}
+                </div>
+                <div className="text-[11px] font-semibold text-gray-400 mt-0.5">
+                  {s.subtext}
+                </div>
+              </div>
+
+              {/* Subtle Gold Accent Line */}
+              <div className="w-6 h-[2px] bg-[#C7A24A]/50 rounded-full mt-1 group-hover:w-10 group-hover:bg-[#C7A24A] transition-all duration-300" />
             </div>
           ))}
         </div>
+
         {customText && (
-          <div className="mt-8 pt-6 border-t border-gray-100">
-            <p className="text-center text-gray-600 text-sm sm:text-base font-medium tracking-wide uppercase">
+          <div className="mt-7 pt-5 border-t border-slate-100">
+            <p className="text-center text-gray-600 text-xs sm:text-sm font-semibold tracking-wider uppercase">
               <span className="bg-gradient-to-r from-[#0a1f3d] to-[#0f4a9b] bg-clip-text text-transparent font-bold">
                 {customText}
               </span>

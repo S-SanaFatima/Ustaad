@@ -329,7 +329,7 @@ export default function GCSERevisionTipsParentsBlog() {
                   </div>
                   <div className="text-gray-400 mt-0.5">
                     MPhil in Education Leadership and Management ·{' '}
-                    <a href="/editorial" className="text-[#0f4a9b] underline">Ustaad Editorial</a>
+                    Ustaad Editorial
                   </div>
                 </div>
               </div>

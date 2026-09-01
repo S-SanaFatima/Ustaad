@@ -314,7 +314,7 @@ export default function ExamPanicBlog() {
                 <span className="leading-relaxed">
                   <span className="font-medium">Reviewed by:</span>{' '}
                   <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">{BLOG.reviewer}</a>
-                  <span className="text-gray-400"> · <a href="/editorial" className="text-[#0f4a9b] underline">Ustaad Editorial</a></span>
+                  <span className="text-gray-400"> · Ustaad Editorial</span>
                 </span>
               </div>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-400 pt-1">

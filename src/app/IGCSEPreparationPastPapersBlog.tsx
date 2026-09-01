@@ -416,7 +416,7 @@ export default function IGCSEPreparationPastPapersBlog() {
                   <div><span className="font-medium">Reviewed by:</span> <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">Nida Iqbal</a></div>
                   <div className="text-gray-500 mt-0.5">
                     MPhil in Education Leadership and Management ·{' '}
-                    <a href="/editorial" className="text-[#0f4a9b] underline hover:text-[#0a3a79]">Ustaad Editorial</a>
+                    Ustaad Editorial
                   </div>
                 </div>
               </div>
@@ -734,13 +734,17 @@ export default function IGCSEPreparationPastPapersBlog() {
               <p className="text-white/80 mb-6 max-w-xl mx-auto text-xs sm:text-sm leading-relaxed">
                 Our UAE education counsellors and <a href="/tutors" className="text-white font-bold underline hover:text-white/90">subject specialist tutors</a> map the foundation, walls, interior and roof of your child&apos;s preparation, then build a clear plan to strengthen the layer holding the grade back.
               </p>
-              <div className="flex justify-center">
+              <div className="flex flex-col sm:flex-row justify-center gap-3">
                 <a
                   href="/contact#form"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl font-extrabold text-white hover:brightness-110 transition text-sm shadow-md border border-white/10"
                   style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
                 >
                   Book Your Free IGCSE Assessment →
+                </a>
+                <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md">
+                  <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> Ask on WhatsApp
                 </a>
               </div>
             </div>

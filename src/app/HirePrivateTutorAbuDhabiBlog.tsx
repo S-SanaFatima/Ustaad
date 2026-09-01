@@ -15,8 +15,8 @@ const BLOG = {
   slug: '10-questions-hiring-private-tutor-abu-dhabi',
   description:
     'Ten practical questions UAE parents should ask before hiring a private tutor in Abu Dhabi, plus a free interview worksheet to compare tutors side by side.',
-  heroImage: '/images/blogs/section1.webp',
-  heroAlt: 'Parent and teenager discussing tutoring options at home in Abu Dhabi',
+  heroImage: '/images/blogs/tutor_vetting_hero.jpg',
+  heroAlt: 'Parent, high school student, and private tutor discussing study progress in Abu Dhabi',
   heroCaption:
     'Choosing a tutor is one of the least visible decisions a parent makes, and often one of the biggest.',
   datePublished: '2026-08-28',
@@ -340,7 +340,7 @@ export default function HirePrivateTutorAbuDhabiBlog() {
                   </div>
                   <div className="text-gray-400 mt-0.5">
                     MPhil in Education Leadership and Management ·{' '}
-                    <a href="/editorial" className="text-[#0f4a9b] underline">Ustaad Editorial</a>
+                    Ustaad Editorial
                   </div>
                 </div>
               </div>
@@ -375,17 +375,92 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             <p>Choosing a private tutor is one of the least visible decisions a parent makes, and often one of the biggest. There is no ceremony to it. You send a few messages, compare a few profiles, and someone new steps into your child&apos;s week. Yet that person will shape how your child feels about a subject, and sometimes about themselves.</p>
             <p>Degrees and years of teaching matter. But they only tell you the surface of what you are choosing. What you are really deciding is who sits beside your child on a hard evening, and whether that hour leaves them calmer or more discouraged. After years of arranging private tutoring in Abu Dhabi for families across the emirate, we have found that the same handful of questions separate a strong match from an expensive mismatch. The ten below help you look past the CV. Some are for the tutor, and some are for you.</p>
 
-            <div className="my-6 rounded-2xl border border-[#0f4a9b]/15 bg-[#f8fafd] p-5">
+            <div className="my-6 rounded-2xl border border-[#0f4a9b]/15 bg-[#f8fafd] p-5 text-center">
               <p className="text-sm font-semibold text-[#0a1f3d] mb-2">Print it and take it with you</p>
               <p className="text-xs text-gray-600 leading-relaxed mb-3">
                 Download the free Parent Tutor Interview Worksheet (PDF) so you can write down each tutor&apos;s answers during a trial session and compare them side by side.
               </p>
-              <a href="/downloads/ustaad-parent-tutor-interview-worksheet.pdf" download target="_blank" rel="noopener noreferrer"
+              <a href="/downloads/ustaad-parent-tutor-interview-worksheet.pdf" download="ustaad-parent-tutor-interview-worksheet.pdf" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white transition hover:brightness-110"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
                 <Download className="h-4 w-4" />
                 Download the worksheet (PDF)
               </a>
+            </div>
+
+            {/* VISUAL PROCESS DIAGRAM: 4-Stage Tutor Vetting Roadmap */}
+            <div className="my-8 rounded-2xl border border-[#0f4a9b]/20 bg-gradient-to-br from-[#f8fafd] to-white p-5 lg:p-6 shadow-sm">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#0f4a9b]/10 text-[#0f4a9b] text-[10px] font-extrabold uppercase tracking-widest">
+                  Visual Roadmap
+                </span>
+                <span className="text-xs font-bold text-[#0a1f3d]">The 4-Phase Tutor Vetting Process</span>
+              </div>
+              <p className="text-xs text-gray-500 mb-5 leading-relaxed">
+                Follow this structured sequence to select a tutor who matches your child&apos;s curriculum, learning style, and academic goals.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                {/* Phase 1 */}
+                <div className="rounded-xl border border-slate-200 bg-white p-3.5 shadow-sm relative overflow-hidden group hover:border-[#0f4a9b]/40 transition">
+                  <div className="w-7 h-7 rounded-lg bg-[#0f4a9b] text-white font-black text-xs grid place-items-center mb-2">
+                    01
+                  </div>
+                  <h4 className="text-xs font-extrabold text-[#0a1f3d] mb-1">Define Real Goal</h4>
+                  <p className="text-[11px] text-gray-500 leading-snug">
+                    Identify whether your child needs gap repair, exam technique, or stretching.
+                  </p>
+                  <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-[#0f4a9b]">
+                    <span>Step 1 of 4</span>
+                    <span>→</span>
+                  </div>
+                </div>
+
+                {/* Phase 2 */}
+                <div className="rounded-xl border border-slate-200 bg-white p-3.5 shadow-sm relative overflow-hidden group hover:border-[#0f4a9b]/40 transition">
+                  <div className="w-7 h-7 rounded-lg bg-[#0f4a9b] text-white font-black text-xs grid place-items-center mb-2">
+                    02
+                  </div>
+                  <h4 className="text-xs font-extrabold text-[#0a1f3d] mb-1">Diagnostic Check</h4>
+                  <p className="text-[11px] text-gray-500 leading-snug">
+                    Audit specific topic gaps and past test errors before teaching begins.
+                  </p>
+                  <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-[#0f4a9b]">
+                    <span>Step 2 of 4</span>
+                    <span>→</span>
+                  </div>
+                </div>
+
+                {/* Phase 3 */}
+                <div className="rounded-xl border border-slate-200 bg-white p-3.5 shadow-sm relative overflow-hidden group hover:border-[#0f4a9b]/40 transition">
+                  <div className="w-7 h-7 rounded-lg bg-[#C7A24A] text-white font-black text-xs grid place-items-center mb-2">
+                    03
+                  </div>
+                  <h4 className="text-xs font-extrabold text-[#0a1f3d] mb-1">Board Alignment</h4>
+                  <p className="text-[11px] text-gray-500 leading-snug">
+                    Verify exact mark scheme mastery (Cambridge, Pearson Edexcel, IB, AP).
+                  </p>
+                  <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-[#A8892A]">
+                    <span>Step 3 of 4</span>
+                    <span>→</span>
+                  </div>
+                </div>
+
+                {/* Phase 4 */}
+                <div className="rounded-xl border border-slate-200 bg-white p-3.5 shadow-sm relative overflow-hidden group hover:border-[#0f4a9b]/40 transition">
+                  <div className="w-7 h-7 rounded-lg bg-[#0a1f3d] text-white font-black text-xs grid place-items-center mb-2">
+                    04
+                  </div>
+                  <h4 className="text-xs font-extrabold text-[#0a1f3d] mb-1">Track &amp; Hand Off</h4>
+                  <p className="text-[11px] text-gray-500 leading-snug">
+                    Require visible progress notes and build independent study habits.
+                  </p>
+                  <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-[#0a1f3d]">
+                    <span>Step 4 of 4</span>
+                    <span>✓</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <h2 className="text-lg font-extrabold text-[#0a1f3d] mt-8 mb-3">Quick answers before you read</h2>
@@ -435,11 +510,53 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             <p>If low marks keep coming back even after revision, the real problem is usually an unfixed gap, something we cover in our post on <a href="/blogs/igcse-maths-revision-low-marks" className="text-[#0f4a9b] font-semibold hover:underline">why IGCSE maths revision sometimes fails to lift marks</a>.</p>
             <ParentTakeaway>If a tutor cannot explain how they will find your child&apos;s real gaps, they are guessing, and you are paying for the guess.</ParentTakeaway>
 
+            {/* VISUAL INFOGRAPHIC: Diagnostic vs. Guesswork Framework */}
+            <div className="my-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+                <span className="text-xs font-extrabold text-[#0a1f3d] uppercase tracking-wider">
+                  Diagnostic Check vs. Guesswork Teaching
+                </span>
+                <span className="text-[10px] font-bold text-[#0f4a9b] bg-[#0f4a9b]/10 px-2.5 py-0.5 rounded-full">
+                  Diagnostic Framework
+                </span>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                {/* Left: Guesswork */}
+                <div className="p-3.5 rounded-xl bg-red-50/70 border border-red-200/70">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-red-500 text-white font-bold text-[10px] grid place-items-center">✕</span>
+                    <span className="text-xs font-bold text-red-900">Guesswork Approach</span>
+                  </div>
+                  <ul className="text-[11px] text-red-700 space-y-1.5 leading-relaxed">
+                    <li>• Starts teaching Chapter 1 without auditing prior knowledge</li>
+                    <li>• Explains topics already understood by the student</li>
+                    <li>• Misses underlying foundational gaps from previous years</li>
+                    <li>• <strong>Result:</strong> Slow progress and repeated exam mistakes</li>
+                  </ul>
+                </div>
+
+                {/* Right: Diagnostic */}
+                <div className="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200/70">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-5 h-5 rounded-full bg-emerald-600 text-white font-bold text-[10px] grid place-items-center">✓</span>
+                    <span className="text-xs font-bold text-emerald-900">Diagnostic Approach</span>
+                  </div>
+                  <ul className="text-[11px] text-emerald-800 space-y-1.5 leading-relaxed">
+                    <li>• Audits exam papers and specific weak topic clusters first</li>
+                    <li>• Targets exact conceptual gaps with surgical precision</li>
+                    <li>• Verifies understanding through active recall questions</li>
+                    <li>• <strong>Result:</strong> Fast confidence recovery and grade jumps</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             <figure className="my-6">
               <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.08)]">
-                <img src="/images/blogs/Gemini_Generated_Image_8aiwwk8aiwwk8aiw.webp" alt="Tutor assessing student learning gaps in Abu Dhabi" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/diagnostic_assessment_sheet.jpg" alt="Academic diagnostic assessment report for IGCSE and A-Level subjects in Abu Dhabi" className="w-full h-auto block" loading="lazy" />
               </div>
-              <figcaption className="mt-2 text-center text-xs text-gray-400 italic">A thorough first session checks for hidden learning gaps before regular teaching starts.</figcaption>
+              <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Academic Diagnostic Report: Auditing specific topic proficiency and learning gaps before tutoring starts.</figcaption>
             </figure>
 
             <SectionHeading num="03" id="qualifications-or-teaching">Am I hiring qualifications, or good teaching?</SectionHeading>
@@ -454,12 +571,33 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             <p>A high mark and real understanding are not the same thing either, a gap we unpack in <a href="/blogs/physics-understanding-vs-marks" className="text-[#0f4a9b] font-semibold hover:underline">why some students understand physics but still lose marks</a>.</p>
             <ParentTakeaway>Hire for the ability to teach clearly, not only for the ability to know deeply. Your child needs the first one far more.</ParentTakeaway>
 
-            <figure className="my-6">
-              <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.08)]">
-                <img src="/images/blogs/Gemini_Generated_Image_y5w0yyy5w0yyy5w0.webp" alt="Private tutor explaining complex concepts with highlighters and study notes" className="w-full h-auto block" loading="lazy" />
+            {/* VISUAL INFOGRAPHIC: Qualifications vs Pedagogical Skill Matrix */}
+            <div className="my-6 rounded-2xl border border-[#C7A24A]/30 bg-[#fdf8ee] p-5 shadow-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-2 h-2 rounded-full bg-[#C7A24A]" />
+                <h4 className="text-xs font-black text-[#0a1f3d] uppercase tracking-wider">
+                  The Pedagogy Matrix: Degrees vs. Teaching Delivery
+                </h4>
               </div>
-              <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Great tutors focus on clear explanation, adaptable pace, and student understanding.</figcaption>
-            </figure>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div className="bg-white p-3.5 rounded-xl border border-slate-200">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-1">Subject Expertise</span>
+                  <p className="font-extrabold text-[#0a1f3d] mb-1">Mastery of Subject Content</p>
+                  <p className="text-gray-500 text-[11px] leading-relaxed">
+                    Knows every formula, equation, and academic term in the syllabus. Necessary foundation, but insufficient on its own.
+                  </p>
+                </div>
+
+                <div className="bg-[#0f4a9b]/5 p-3.5 rounded-xl border border-[#0f4a9b]/30 shadow-sm">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#0f4a9b] block mb-1">Pedagogical Delivery ★</span>
+                  <p className="font-extrabold text-[#0f4a9b] mb-1">Explanatory Skill &amp; Adaptability</p>
+                  <p className="text-gray-600 text-[11px] leading-relaxed">
+                    Simplifies complex concepts, adjusts pacing live, listens to student cues, and builds confidence under pressure.
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <SectionHeading num="04" id="how-will-i-know-working">How will I know the tutoring is working?</SectionHeading>
             <p>Good tutoring gives you proof you can see, not just reassurance you have to trust.</p>
@@ -474,11 +612,12 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             <p>It also helps to read the signals your child&apos;s school already gives you. Our guide to <a href="/blogs/read-uae-school-report-card" className="text-[#0f4a9b] font-semibold hover:underline">making sense of your child&apos;s report card</a> shows what to look for between tutoring updates.</p>
             <ParentTakeaway>Ask for evidence, not adjectives. A tutor who is sure of their method will happily show you the progress.</ParentTakeaway>
 
+            {/* VISUAL DASHBOARD: Digital Progress Tracking */}
             <figure className="my-6">
               <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.08)]">
-                <img src="/images/blogs/Gemini_Generated_Image_ihgifaihgifaihgi_1.webp" alt="Parents reviewing digital progress reports on a tablet with tutor" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/progress_tracking_dashboard.jpg" alt="Interactive student progress tracking dashboard showing subject trajectory and tutor feedback" className="w-full h-auto block" loading="lazy" />
               </div>
-              <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Look for visible evidence of progress: session notes, marked past papers, and goal check-ins.</figcaption>
+              <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Digital Parent Progress Dashboard: Track academic trajectory, mark gains, and weekly tutor notes.</figcaption>
             </figure>
 
             <SectionHeading num="05" id="if-child-still-does-not-get-it">What happens if my child still does not get it?</SectionHeading>
@@ -504,11 +643,12 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             <p>This fluency matters whether you are looking for a <a href="/maths-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">maths tutor</a>, a science tutor, an <a href="/ib-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">IB tutor</a>, or an <a href="/a-level-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">A-Level tutor in Abu Dhabi</a>, and it counts as much for GCSE and IGCSE students as it does for those sitting their final A-Level papers. A good sign is a tutor who asks which board and tier your child is on before you even mention it.</p>
             <ParentTakeaway>Match the tutor to the exam board, not just the subject. That fluency is where marks are won.</ParentTakeaway>
 
+            {/* VISUAL DIAGRAM: Curriculum Board Alignment Infographic */}
             <figure className="my-6">
               <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.08)]">
-                <img src="/images/blogs/Gemini_Generated_Image_y5w0yyy5w0yyy5w0_1.webp" alt="Senior tutor reviewing past papers and mark schemes with student" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/curriculum_board_infographic.jpg" alt="Curriculum board alignment showing Cambridge IGCSE, Pearson Edexcel, IB Diploma, and American AP materials" className="w-full h-auto block" loading="lazy" />
               </div>
-              <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Curriculum fluency with Cambridge, Pearson Edexcel, or IB mark schemes directly influences exam results.</figcaption>
+              <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Exam Board Alignment: Cambridge IGCSE, Pearson Edexcel, IB Diploma, and AP require board-specific mark scheme mastery.</figcaption>
             </figure>
 
             <SectionHeading num="07" id="independence-or-dependence">Will this build independence or dependence?</SectionHeading>
@@ -522,11 +662,12 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             <p>Watch for the opposite. If your child cannot start homework without the tutor beside them, that looks like progress but quietly weakens it. Real learning has to survive on its own once the session ends, which is why we wrote about <a href="/blogs/why-chemistry-fades-from-memory" className="text-[#0f4a9b] font-semibold hover:underline">why chemistry so often fades from memory and how to make it stick</a>.</p>
             <ParentTakeaway>The best tutors work toward their own redundancy. Ask how independence is part of the plan.</ParentTakeaway>
 
+            {/* VISUAL CALLOUT GRAPHIC: Coaching vs Spoonfeeding */}
             <figure className="my-6">
               <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.08)]">
-                <img src="/images/blogs/Gemini_Generated_Image_ihgifaihgifaihgi.webp" alt="Student confidently solving problems independently while tutor observes" className="w-full h-auto block" loading="lazy" />
+                <img src="/images/blogs/callout-coaching-vs-spoonfeeding.webp" alt="Visual comparison showing coaching for independence versus spoonfeeding dependence" className="w-full h-auto block" loading="lazy" />
               </div>
-              <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Effective tutoring gradually builds independent study habits so the student thrives on their own.</figcaption>
+              <figcaption className="mt-2 text-center text-xs text-gray-400 italic">Coaching vs. Spoonfeeding: Great tutoring builds self-sustaining confidence.</figcaption>
             </figure>
 
             <SectionHeading num="08" id="parent-job">What is my job as a parent?</SectionHeading>
@@ -564,32 +705,107 @@ export default function HirePrivateTutorAbuDhabiBlog() {
 
             <SectionHeading id="good-tutor-vs-red-flag">A good tutor vs a red flag, at a glance</SectionHeading>
             <p>If you remember nothing else, remember this contrast. It sums up what the ten questions are really looking for.</p>
-            <div className="my-5 rounded-2xl border border-slate-200 overflow-hidden shadow-sm text-xs lg:text-[13px]">
-              <div className="grid grid-cols-2 bg-[#0a1f3d] text-[10px] font-extrabold uppercase tracking-wider text-white text-center py-2.5">
-                <div>A good tutor</div>
-                <div>A red flag</div>
-              </div>
-              {COMPARISON_ROWS.map((row, i) => (
-                <div key={i} className={`grid grid-cols-2 divide-x divide-slate-200 ${i > 0 ? 'border-t border-slate-200' : ''}`}>
-                  <div className="p-3.5 bg-[#0f4a9b]/5 text-[#0a1f3d] leading-relaxed">{row.good}</div>
-                  <div className="p-3.5 bg-slate-50 text-gray-600 leading-relaxed">{row.flag}</div>
+            
+            {/* VISUAL INFOGRAPHIC: Traffic Light Vetting System */}
+            <div className="my-6 rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-md">
+              <div className="bg-[#0a1f3d] px-5 py-3 flex items-center justify-between text-white">
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#C7A24A] inline-block" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-400 inline-block" />
+                  </div>
+                  <span className="text-xs font-black uppercase tracking-wider text-white ml-2">
+                    Tutor Selection Traffic-Light System
+                  </span>
                 </div>
-              ))}
+                <span className="text-[10px] font-mono text-[#C7A24A] uppercase font-bold">Parent Decision Tool</span>
+              </div>
+
+              <div className="p-4 space-y-3">
+                {COMPARISON_ROWS.map((row, i) => (
+                  <div key={i} className="grid sm:grid-cols-2 gap-2 text-xs">
+                    {/* Green Flag */}
+                    <div className="p-3 rounded-xl bg-emerald-50/80 border border-emerald-200/80 flex items-start gap-2.5">
+                      <span className="shrink-0 w-4 h-4 rounded-full bg-emerald-600 text-white font-bold text-[9px] grid place-items-center mt-0.5">
+                        ✓
+                      </span>
+                      <div>
+                        <span className="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wide block mb-0.5">
+                          Green Flag (High Trust)
+                        </span>
+                        <p className="text-emerald-950 font-medium leading-relaxed">{row.good}</p>
+                      </div>
+                    </div>
+
+                    {/* Red Flag */}
+                    <div className="p-3 rounded-xl bg-red-50/80 border border-red-200/80 flex items-start gap-2.5">
+                      <span className="shrink-0 w-4 h-4 rounded-full bg-red-500 text-white font-bold text-[9px] grid place-items-center mt-0.5">
+                        ✕
+                      </span>
+                      <div>
+                        <span className="text-[10px] font-extrabold text-red-800 uppercase tracking-wide block mb-0.5">
+                          Red Flag (Proceed with Caution)
+                        </span>
+                        <p className="text-red-950 font-medium leading-relaxed">{row.flag}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <SectionHeading id="bringing-questions-together">Bringing the ten questions together</SectionHeading>
             <p>Notice that only a few of these questions are about subject knowledge. Most are about finding the gap, explaining it clearly, being honest, growing independence, and trust. That is not an accident. The tutors who change a child&apos;s year are rarely the ones with the longest list of degrees. They are the ones who find the real problem, explain it simply, show you the progress, and then gradually step back.</p>
             <p>Take these questions into your next conversation and let the answers do the work. A careful choice, made slowly, tends to outlast a quick one made under pressure. Your child does not need the most impressive tutor available. They need the right one, chosen with care. If you are also supporting revision at home, our <a href="/blogs/gcse-revision-tips-uae-parents" className="text-[#0f4a9b] font-semibold hover:underline">GCSE and IGCSE revision tips for UAE parents</a> may help you spot whether tutoring is filling a gap or compensating for weak study habits.</p>
 
-            <div className="my-6 rounded-2xl border border-[#0f4a9b]/15 bg-[#f8fafd] p-5 text-center">
-              <p className="text-sm font-semibold text-[#0a1f3d] mb-2">Ready to compare tutors properly?</p>
-              <p className="text-xs text-gray-600 leading-relaxed mb-3">
-                Download the Parent Tutor Interview Worksheet (PDF), fill one in for each tutor, and let the notes decide for you.
-              </p>
-              <a href="/downloads/ustaad-parent-tutor-interview-worksheet.pdf" download target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold text-[#0f4a9b] hover:underline">
-                <Download className="h-3.5 w-3.5" /> Download the worksheet →
-              </a>
+            {/* VISUAL WORKSHEET MOCKUP PREVIEW */}
+            <div className="my-6 rounded-2xl border-2 border-dashed border-[#C7A24A]/50 bg-gradient-to-br from-[#fdf8ee] to-white p-5 lg:p-6 shadow-sm">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4 pb-3 border-b border-[#C7A24A]/20">
+                <div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#C7A24A]/20 text-[#A8892A] text-[10px] font-extrabold uppercase tracking-widest block mb-1">
+                    Free Printable Resource
+                  </span>
+                  <h4 className="text-sm font-black text-[#0a1f3d]">Parent Tutor Interview Worksheet Preview</h4>
+                </div>
+                <a href="/downloads/ustaad-parent-tutor-interview-worksheet.pdf" download="ustaad-parent-tutor-interview-worksheet.pdf" target="_blank" rel="noopener noreferrer"
+                  className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white shadow-md transition hover:brightness-110"
+                  style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
+                  <Download className="h-3.5 w-3.5" />
+                  Download PDF
+                </a>
+              </div>
+
+              <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm mb-4">
+                <img src="/images/blogs/parent_interview_worksheet.jpg" alt="Printable Parent Tutor Interview Worksheet with checklist and rating fields" className="w-full h-auto block" loading="lazy" />
+              </div>
+
+              {/* Worksheet Form Field Layout Mockup */}
+              <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-3 text-xs shadow-inner">
+                <div className="grid grid-cols-3 gap-2 pb-2 border-b border-slate-100 font-extrabold text-[#0a1f3d] text-[11px]">
+                  <div>Vetting Criteria</div>
+                  <div>Tutor Candidate A</div>
+                  <div>Tutor Candidate B</div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2 text-[11px] text-gray-600 border-b border-slate-100 pb-2">
+                  <div className="font-semibold text-[#0a1f3d]">1. Diagnostic Gap Audit</div>
+                  <div className="bg-slate-50 p-2 rounded text-emerald-700 font-medium">✓ Conducts prior gap quiz</div>
+                  <div className="bg-slate-50 p-2 rounded text-red-600 font-medium">✕ Starts Chapter 1 direct</div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2 text-[11px] text-gray-600 border-b border-slate-100 pb-2">
+                  <div className="font-semibold text-[#0a1f3d]">2. Board Mark Scheme</div>
+                  <div className="bg-slate-50 p-2 rounded text-emerald-700 font-medium">✓ Cambridge 0625 Specialist</div>
+                  <div className="bg-slate-50 p-2 rounded text-amber-700 font-medium">△ Generic Physics Tutor</div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2 text-[11px] text-gray-600">
+                  <div className="font-semibold text-[#0a1f3d]">3. Progress Tracking</div>
+                  <div className="bg-slate-50 p-2 rounded text-emerald-700 font-medium">✓ Weekly written log</div>
+                  <div className="bg-slate-50 p-2 rounded text-red-600 font-medium">✕ Verbal reassurance only</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -602,11 +818,17 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             <p className="text-white/70 mb-5 max-w-lg mx-auto text-xs leading-relaxed">
               Bring these ten questions to that first lesson. If the match is right, you will feel it. If it is not, you have lost nothing but an hour, and learned exactly what to ask next time.
             </p>
-            <a href="/contact#form"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white hover:brightness-110 transition text-sm"
-              style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-              Book Your Free Trial →
-            </a>
+            <div className="flex flex-col sm:flex-row justify-center gap-3">
+              <a href="/contact#form"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm"
+                style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
+                Book Your Free Trial →
+              </a>
+              <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md">
+                <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> Ask on WhatsApp
+              </a>
+            </div>
           </div>
 
           <div id="frequently-asked-questions" className="mt-8 pt-7 border-t border-slate-100 scroll-mt-24">
