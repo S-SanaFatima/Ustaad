@@ -28,6 +28,16 @@ function CoinCard({ item, index }: { item: typeof RESULTS[0], index: number }) {
            className="w-full h-full relative cursor-pointer group"
            onMouseEnter={() => setIsHovered(true)}
            onMouseLeave={() => setIsHovered(false)}
+           onClick={() => setIsHovered((v) => !v)}
+           onKeyDown={(e) => {
+             if (e.key === 'Enter' || e.key === ' ') {
+               e.preventDefault();
+               setIsHovered((v) => !v);
+             }
+           }}
+           role="button"
+           tabIndex={0}
+           aria-label={`Flip ${item.val} coin`}
          >
            <motion.div
              className="w-full h-full relative"
@@ -133,7 +143,9 @@ export function AchievementCoinsSection() {
             transition={{ delay: 0.1 }}
             className="text-blue-100 text-base lg:text-lg font-medium leading-relaxed max-w-2xl mx-auto"
           >
-            Ustaad focuses on improvement that students and parents can visibly notice over time. Hover a coin to reveal the strategy.
+            Ustaad focuses on improvement that students and parents can visibly notice over time.{' '}
+            <span className="md:hidden">Tap a coin to reveal the strategy.</span>
+            <span className="hidden md:inline">Hover a coin to reveal the strategy.</span>
           </motion.p>
         </div>
 

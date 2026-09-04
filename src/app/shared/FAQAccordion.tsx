@@ -69,7 +69,7 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
                 y: isOpen ? 0 : -8 
               }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="ml-[52px] overflow-hidden"
+              className="ml-0 sm:ml-[52px] overflow-hidden"
               style={{ pointerEvents: isOpen ? 'auto' : 'none' }}
               id={`faq-answer-${i}`}
             >

@@ -122,7 +122,7 @@ function ReviewsCarousel() {
 
       {/* Navigation */}
       <div className="flex items-center justify-center gap-3 mt-6">
-        <button onClick={() => go(active - 1)} aria-label="Previous" className="w-8 h-8 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0f4a9b] hover:bg-[#0f4a9b] hover:text-white hover:border-[#0f4a9b] transition-all duration-200">
+        <button onClick={() => go(active - 1)} aria-label="Previous" className="w-11 h-11 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0f4a9b] hover:bg-[#0f4a9b] hover:text-white hover:border-[#0f4a9b] transition-all duration-200">
           <ChevronLeft className="h-4 w-4" />
         </button>
         <div className="flex items-center gap-2">
@@ -135,7 +135,7 @@ function ReviewsCarousel() {
             />
           ))}
         </div>
-        <button onClick={() => go(active + 1)} aria-label="Next" className="w-8 h-8 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0f4a9b] hover:bg-[#0f4a9b] hover:text-white hover:border-[#0f4a9b] transition-all duration-200">
+        <button onClick={() => go(active + 1)} aria-label="Next" className="w-11 h-11 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0f4a9b] hover:bg-[#0f4a9b] hover:text-white hover:border-[#0f4a9b] transition-all duration-200">
           <ChevronRight className="h-4 w-4" />
         </button>
       </div>
@@ -249,10 +249,10 @@ export default function App() {
       <SEOHead {...homepageSEO} />
       <BackToSchoolPopup open={showWelcomePopup} onClose={() => setShowWelcomePopup(false)} />
       {/* Hero Section */}
-      <section className="pt-10 pb-20 lg:pt-20 lg:pb-32 relative overflow-hidden bg-white">
+      <section className="pt-8 pb-12 sm:pt-10 sm:pb-20 lg:pt-20 lg:pb-32 relative overflow-hidden bg-white">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/10 rounded-full blur-[100px] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-20 items-center">
             
             {/* Left Content */}
             <motion.div
@@ -260,22 +260,22 @@ export default function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white text-[#A8892A] text-sm font-bold rounded-full mb-6 border-2 border-[#C7A24A]/60 shadow-[0_0_20px_rgba(199,162,74,0.18)]">
-                <Shield className="h-4 w-4 text-[#C7A24A]" /> Trusted by UAE families since 2015.
+              <div className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-4 sm:mb-6 border-2 border-[#C7A24A]/60 shadow-[0_0_20px_rgba(199,162,74,0.18)]">
+                <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#C7A24A]" /> Trusted by UAE families since 2015.
               </div>
               
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#0a1f3d] mb-4 leading-[1.1] tracking-tight">
+              <h1 className="text-[1.75rem] leading-[1.15] sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#0a1f3d] mb-4 sm:leading-[1.1] tracking-tight">
                 <GradientHeadingText text="Trusted Private Tutors Across the UAE" />
               </h1>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
+              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-5 sm:mb-6" />
               
-              <p className="text-gray-600 text-base lg:text-lg mb-10 leading-relaxed max-w-xl">
+              <p className="text-gray-600 text-[15px] sm:text-base lg:text-lg mb-7 sm:mb-10 leading-relaxed max-w-xl">
                 Ustaad is a premium private tutoring service in the UAE, offering online 1-to-1 lessons for IGCSE, GCSE, A-Level, IB and American curriculum students.
               </p>
 
               <div className="flex flex-col gap-4 mb-4">
                 <div className="flex flex-col sm:flex-row items-start gap-4">
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-2 w-full sm:w-auto">
                     <GoldButton className="w-full sm:w-auto px-8 py-3.5 text-sm hero-cta">
                       Book Your Free Trial
                     </GoldButton>
@@ -291,7 +291,7 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full h-[350px] sm:h-[450px] lg:h-[600px] rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-8 border-white group z-10"
+              className="relative w-full h-[220px] sm:h-[400px] lg:h-[600px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-4 sm:border-8 border-white group z-10"
             >
               <img
                 src="/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp"
@@ -407,8 +407,8 @@ export default function App() {
         <div className="flex w-full overflow-hidden group" ref={logosMarqueeRef}>
           <div className="school-logos-set flex shrink-0 animate-marquee-slower gap-5 items-center py-4 pr-5 min-w-full">
             {SCHOOL_LOGOS.map((logo) => (
-              <div key={logo.file} title={logo.alt.split(' logo')[0]} className="shrink-0 w-[220px] sm:w-[280px] h-[120px] sm:h-[150px] flex items-center justify-center px-4 cursor-default relative transition-all duration-300 hover:scale-110 hover:-translate-y-1">
-                <img src={`/school-logos/${logo.file}`} alt={logo.alt} className="w-full h-full max-h-[100px] sm:max-h-[120px] object-contain filter drop-shadow-sm mix-blend-multiply" loading="lazy" />
+              <div key={logo.file} title={logo.alt.split(' logo')[0]} className="shrink-0 w-[140px] sm:w-[220px] md:w-[280px] h-[80px] sm:h-[120px] md:h-[150px] flex items-center justify-center px-3 sm:px-4 cursor-default relative transition-all duration-300 hover:scale-110 hover:-translate-y-1">
+                <img src={`/school-logos/${logo.file}`} alt={logo.alt} className="w-full h-full max-h-[64px] sm:max-h-[100px] md:max-h-[120px] object-contain filter drop-shadow-sm mix-blend-multiply" loading="lazy" />
               </div>
             ))}
           </div>
@@ -538,7 +538,7 @@ export default function App() {
                       }}
                       aria-hidden={!isOpen}
                     >
-                      <div className="ml-[56px] flex items-start gap-3 rounded-2xl border p-4"
+                      <div className="ml-0 sm:ml-[56px] flex items-start gap-3 rounded-2xl border p-4"
                         style={{ background:'#f8fafc', borderColor:'rgba(15,74,155,0.15)', boxShadow:'0 4px 16px rgba(15,74,155,0.06)' }}>
                         <p className="flex-1 text-gray-600 text-[13px] leading-relaxed">{faq.a}</p>
                         <span style={{ width:32, height:32, background:'#0f4a9b', color:'#fff', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 }}>

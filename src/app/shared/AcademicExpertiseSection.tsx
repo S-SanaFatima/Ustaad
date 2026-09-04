@@ -315,7 +315,7 @@ const SUBJECTS = [
   },
   { 
     title: "Engineering", 
-    desc: "Mechanical, electrical, and civil principles for school and university.", 
+    desc: "Mechanical, electrical & civil engineering basics.", 
     icon: Wrench,
     color: "#c17b2f",
     artifact: EngineeringArtifact,
@@ -323,7 +323,7 @@ const SUBJECTS = [
   },
   { 
     title: "Exam Prep", 
-    desc: "Structured revision, past papers, and exam technique across boards.", 
+    desc: "Past papers, timed practice, and exam technique.", 
     icon: ClipboardCheck,
     color: "#C7A24A",
     artifact: ExamPrepArtifact,

@@ -39,12 +39,21 @@ export default function Header({ scrolled = false, logoAlt = "Ustaad logo" }: He
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [mobileOpen]);
+
   return (
     <header 
       className={`fixed left-0 right-0 transition-all duration-300 ${
         scrolled 
           ? 'top-0' 
-          : 'top-6'
+          : 'top-0 sm:top-6'
       }`}
       style={{ 
         zIndex: 9999,
@@ -150,7 +159,12 @@ export default function Header({ scrolled = false, logoAlt = "Ustaad logo" }: He
                 Book a Tutor
               </a>
             )}
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="p-2 text-gray-700 flex-shrink-0 hover:bg-slate-100 rounded-full transition-colors duration-200">
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
+              className="min-h-11 min-w-11 p-2 text-gray-700 flex-shrink-0 hover:bg-slate-100 rounded-full transition-colors duration-200 flex items-center justify-center"
+            >
               {mobileOpen ? <X className="h-6 w-6 text-[#0f4a9b]" /> : <Menu className="h-6 w-6 text-[#0a1f3d]" />}
             </button>
           </div>
@@ -159,7 +173,7 @@ export default function Header({ scrolled = false, logoAlt = "Ustaad logo" }: He
 
       {/* Mobile Menu, simple block flow with frosted glass premium feel */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-200/50 overflow-y-auto shadow-xl" style={{ maxHeight: 'calc(100vh - 64px)' }}>
+        <div className="lg:hidden bg-white border-t border-slate-200/50 overflow-y-auto overscroll-contain shadow-xl" style={{ maxHeight: 'calc(100dvh - 3.5rem)' }}>
           <nav className="flex flex-col px-4 py-3 pb-8">
             <a href="/about" onClick={() => setMobileOpen(false)} className="flex items-center justify-between text-[#0a1f3d] font-bold py-4 px-3 border-b border-gray-100 text-base">
               {"About"}

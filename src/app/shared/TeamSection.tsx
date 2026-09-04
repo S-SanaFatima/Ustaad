@@ -33,7 +33,7 @@ export const TEAM: TeamMember[] = [
     desc: "Sets Ustaad's academic direction and tutoring standards, and oversees how tutors are selected and reviewed across British, IB, and American curriculums.",
     focus: ['10+ Yrs UAE', 'Curriculum Strategy'],
     initials: 'FZ',
-    image: '/images/team/f-zaman.jpg',
+    image: '/images/team/f-zaman-v2.jpg',
     imageAlt: 'F. Zaman, Founder and Academic Director at Ustaad',
     objectPosition: 'center 14%',
   },
@@ -46,7 +46,7 @@ export const TEAM: TeamMember[] = [
     focus: ['Tutor Vetting', 'Pedagogy Audits'],
     initials: 'NI',
     profileHref: '/authors/nida-iqbal',
-    image: '/images/team/nida-iqbal.jpg',
+    image: '/images/team/nida-iqbal-v2.jpg',
     imageAlt: 'Nida Iqbal, Tutor Quality and Development Lead at Ustaad',
     objectPosition: 'center 16%',
   },
@@ -59,7 +59,7 @@ export const TEAM: TeamMember[] = [
     focus: ['Exam Blueprints', 'Board Criteria'],
     initials: 'NS',
     profileHref: '/authors/nimra-shahzada',
-    image: '/images/team/nimra-shahzada.jpg',
+    image: '/images/team/nimra-shahzada-v2.jpg',
     imageAlt: 'Nimra Shahzada, Content Lead and Academic Consultant at Ustaad',
     objectPosition: 'center 16%',
   },
@@ -71,7 +71,7 @@ export const TEAM: TeamMember[] = [
     desc: 'Manages lesson operations and matches each student with a tutor suited to their board, year group, and learning style.',
     focus: ['Tutor Matching', 'Syllabus Alignment'],
     initials: 'MM',
-    image: '/images/team/mehwish-masood.jpg',
+    image: '/images/team/mehwish-masood-v2.jpg',
     imageAlt: 'Mehwish Masood, Academic Coordinator at Ustaad',
     objectPosition: 'center 16%',
   },
@@ -83,7 +83,7 @@ export const TEAM: TeamMember[] = [
     desc: 'First point of contact for families. Guides parents through consultation, enrolment, and ongoing progress updates.',
     focus: ['Family Liaison', 'Progress Updates'],
     initials: 'MG',
-    image: '/images/team/maheen-gul.jpg',
+    image: '/images/team/maheen-gul-v2.jpg',
     imageAlt: 'Maheen Gul, Head of Admissions and Parent Relations at Ustaad',
     objectPosition: 'center 16%',
   },
@@ -95,7 +95,7 @@ export const TEAM: TeamMember[] = [
     desc: 'Tracks student progress, reviews learning outcomes, and helps identify where additional academic support may be needed.',
     focus: ['Progress Tracking', 'Outcome Reviews'],
     initials: 'IA',
-    image: '/images/team/imran-ahmed.jpg',
+    image: '/images/team/imran-ahmed-v2.jpg',
     imageAlt: 'Imran Ahmed, Student Progress and Outcomes Advisor at Ustaad',
     objectPosition: 'center 14%',
   },
@@ -143,17 +143,17 @@ function FacultyCard({ member, index }: { member: TeamMember; index: number }) {
           {member.tag}
         </span>
         <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-3 sm:left-3.5 sm:right-3.5">
-          <h3 className="text-[13px] sm:text-base font-bold text-white leading-snug tracking-tight">
+          <h3 className="text-sm sm:text-base font-bold text-white leading-snug tracking-tight">
             {member.name}
           </h3>
-          <p className="text-[10px] sm:text-[12px] font-medium text-[#f0d080]/95 mt-0.5 leading-snug line-clamp-2">
+          <p className="text-[11px] sm:text-[12px] font-medium text-[#f0d080]/95 mt-0.5 leading-snug line-clamp-2">
             {member.role}
           </p>
         </div>
       </div>
 
-      <div className="px-2.5 py-2.5 sm:px-3.5 sm:py-3.5 flex-1 flex flex-col">
-        <p className="text-[11px] sm:text-[13px] text-[#3a4f6e] leading-relaxed flex-1 line-clamp-4 sm:line-clamp-none">
+      <div className="px-3 py-3 sm:px-3.5 sm:py-3.5 flex-1 flex flex-col">
+        <p className="text-xs sm:text-[13px] text-[#3a4f6e] leading-relaxed flex-1 line-clamp-4 sm:line-clamp-none">
           {member.oneLiner}
         </p>
         <div className="mt-2.5 pt-2.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1.5">
@@ -301,7 +301,7 @@ export default function TeamSection() {
 
         {/* Faculty grid — smaller cards below */}
         <motion.div
-          className="flex flex-col xs:flex-row sm:flex-row sm:items-center gap-2 sm:gap-3 mb-5"
+          className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-5"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportReplay}
@@ -318,7 +318,7 @@ export default function TeamSection() {
           </span>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-2.5 sm:gap-4">
+        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4">
           {FACULTY.map((member, i) => (
             <FacultyCard key={member.name} member={member} index={i} />
           ))}

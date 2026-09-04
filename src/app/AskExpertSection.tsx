@@ -306,7 +306,7 @@ export default function AskExpertSection() {
                 rel="noopener"
                 aria-label="Ask an expert on WhatsApp — opens WhatsApp with your message pre-filled"
                 onClick={() => { if ((window as any).gtag) (window as any).gtag('event', 'ask_expert_whatsapp_click'); }}
-                className="inline-flex items-center gap-2 font-semibold rounded-xl px-6 py-3.5 text-base text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex w-full sm:w-auto justify-center items-center gap-2 font-semibold rounded-xl px-6 py-3.5 text-base text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
                 style={{ background: '#25d366' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#128c7e'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#25d366'; }}

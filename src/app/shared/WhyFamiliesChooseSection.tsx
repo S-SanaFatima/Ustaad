@@ -109,14 +109,14 @@ export function WhyFamiliesChooseSection() {
           <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-2 sm:px-4 md:px-8 pointer-events-none z-30">
             <button 
               onClick={prevSlide}
-              className="w-8 h-8 md:w-12 md:h-12 bg-white hover:bg-gray-50 border border-gray-200 rounded-full flex items-center justify-center text-[#0f4a9b] transition-all pointer-events-auto hover:scale-110 shadow-[0_4px_10px_rgba(0,0,0,0.08)]"
+              className="w-11 h-11 md:w-12 md:h-12 bg-white hover:bg-gray-50 border border-gray-200 rounded-full flex items-center justify-center text-[#0f4a9b] transition-all pointer-events-auto hover:scale-110 shadow-[0_4px_10px_rgba(0,0,0,0.08)]"
               aria-label="Previous reason"
             >
               <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
             </button>
             <button 
               onClick={nextSlide}
-              className="w-8 h-8 md:w-12 md:h-12 bg-white hover:bg-gray-50 border border-gray-200 rounded-full flex items-center justify-center text-[#0f4a9b] transition-all pointer-events-auto hover:scale-110 shadow-[0_4px_10px_rgba(0,0,0,0.08)]"
+              className="w-11 h-11 md:w-12 md:h-12 bg-white hover:bg-gray-50 border border-gray-200 rounded-full flex items-center justify-center text-[#0f4a9b] transition-all pointer-events-auto hover:scale-110 shadow-[0_4px_10px_rgba(0,0,0,0.08)]"
               aria-label="Next reason"
             >
               <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />

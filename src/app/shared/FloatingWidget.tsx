@@ -129,8 +129,8 @@ export default function FloatingWidget() {
         aria-live="polite"
         style={{
           position: 'fixed',
-          bottom: '24px',
-          right: '24px',
+          bottom: 'max(16px, env(safe-area-inset-bottom, 0px))',
+          right: '16px',
           zIndex: 9990,
           display: 'flex',
           alignItems: 'center',
@@ -205,10 +205,10 @@ export default function FloatingWidget() {
         {/* Collapsed: pill + circle (only shown when not expanded) */}
         {!isExpanded && (
           <>
-            {/* Pill label — all screen sizes */}
+            {/* Pill label — desktop only (avoids crowding Final CTA on phones) */}
             <button
               onClick={handleExpand}
-              className="block"
+              className="hidden md:block"
               style={{ padding: '8px 14px', borderRadius: 24, background: '#ffffff', color: '#0b1f3a', fontSize: 13, fontWeight: 500, boxShadow: '0 4px 12px rgba(11,31,58,0.12)', border: 'none', cursor: 'pointer', whiteSpace: 'nowrap' }}
             >
               Book a free session

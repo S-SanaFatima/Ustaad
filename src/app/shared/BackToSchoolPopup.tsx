@@ -83,7 +83,7 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
               type="button"
               aria-label="Close dialog"
               onClick={onClose}
-              className="absolute right-2.5 top-[calc(0.625rem+2px)] z-20 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-[#0a1f3d]/70 ring-1 ring-[#0a1f3d]/10 shadow-sm transition hover:bg-[#0a1f3d] hover:text-white md:right-4 md:top-[calc(0.875rem+3px)] md:h-8 md:w-8"
+              className="absolute right-2.5 top-[calc(0.625rem+2px)] z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-[#0a1f3d]/70 ring-1 ring-[#0a1f3d]/10 shadow-sm transition hover:bg-[#0a1f3d] hover:text-white md:right-4 md:top-[calc(0.875rem+3px)] md:h-9 md:w-9"
             >
               <X className="h-3.5 w-3.5 md:h-4 md:w-4" strokeWidth={2.25} />
             </button>
@@ -151,7 +151,7 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
                 <a
                   href={ENROL_URL}
                   onClick={onClose}
-                  className="group mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg bg-[#0a1f3d] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white shadow-[0_6px_18px_rgba(10,31,61,0.22)] transition hover:bg-[#0f4a9b] active:scale-[0.99] md:mt-4 md:gap-2 md:rounded-xl md:px-5 md:py-3.5 md:text-xs"
+                  className="group mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg bg-[#0a1f3d] px-4 py-3.5 text-xs font-bold uppercase tracking-[0.1em] text-white shadow-[0_6px_18px_rgba(10,31,61,0.22)] transition hover:bg-[#0f4a9b] active:scale-[0.99] md:mt-4 md:gap-2 md:rounded-xl md:px-5 md:py-3.5 md:text-xs"
                 >
                   Claim My 10% Discount
                 </a>
@@ -160,11 +160,11 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
                     <Calendar className="h-3.5 w-3.5 md:h-4 md:w-4" strokeWidth={2} />
                   </div>
                   <div className="min-w-0 text-left">
-                    <p className="text-[8px] font-semibold uppercase tracking-[0.14em] text-[#0a1f3d]/50 md:text-[10px]">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#0a1f3d]/50 md:text-[10px]">
                       Valid until
                     </p>
                     <p
-                      className="mt-0.5 text-[10px] font-bold uppercase tracking-[0.06em] text-[#0a1f3d] md:text-xs"
+                      className="mt-0.5 text-xs font-bold uppercase tracking-[0.06em] text-[#0a1f3d] md:text-xs"
                       style={SERIF}
                     >
                       30 September 2026

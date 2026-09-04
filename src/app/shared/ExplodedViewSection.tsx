@@ -129,7 +129,7 @@ function ExpandedBookModal({ book, onClose }: { book: (typeof HELP_BOOKS)[number
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-[#0a1f3d]/70 backdrop-blur-sm overflow-y-auto"
+      className="fixed inset-0 z-[10000] flex items-center justify-center p-4 md:p-8 bg-[#0a1f3d]/70 backdrop-blur-sm overflow-y-auto"
       onClick={onClose}
     >
       {/* --- DESKTOP BOOK SPREAD --- */}

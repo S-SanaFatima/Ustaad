@@ -48,7 +48,7 @@ export const AUTHORS: Author[] = [
       'Nimra writes about the study problems UAE parents see at home: children who revise for hours but still lose marks, homework that never gets finished, and exam stress that builds before mocks.',
       'Her articles turn these common worries into simple steps parents can follow.',
     ],
-    photo: '/images/team/nimra-shahzada.jpg',
+    photo: '/images/team/nimra-shahzada-v2.jpg',
     photoAlt: 'Nimra Shahzada, Content Lead and Academic Consultant at Ustaad UAE',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
@@ -71,7 +71,7 @@ export const AUTHORS: Author[] = [
       'Nida checks every article before it is published. She makes sure the advice is correct, easy to understand, and matches how UAE schools teach and test students.',
       'She is the named person who approves our content, including the work sent in by teachers who prefer to stay unnamed.',
     ],
-    photo: '/images/team/nida-iqbal.jpg',
+    photo: '/images/team/nida-iqbal-v2.jpg',
     photoAlt: 'Nida Iqbal, Tutor Quality and Development Lead at Ustaad UAE',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [

@@ -140,17 +140,17 @@ export default function AboutPage() {
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#0f4a9b]/5 to-transparent rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-20 items-center">
 
             {/* Left */}
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-sm font-bold rounded-full mb-6 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
-                <Users className="h-4 w-4" /> About Ustaad
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-4 sm:mb-6 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
+                <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> About Ustaad
               </div>
-              <h1 className="text-4xl lg:text-5xl xl:text-[64px] font-extrabold text-[#0a1f3d] mb-4 leading-[1.1] tracking-tight relative z-10">
+              <h1 className="text-[1.75rem] leading-[1.15] sm:text-4xl lg:text-5xl xl:text-[64px] font-extrabold text-[#0a1f3d] mb-4 sm:leading-[1.1] tracking-tight relative z-10">
                 {/* Ambient SVG Wash */}
                 <motion.div 
-                  className="absolute -inset-12 z-[-1] rounded-full blur-[50px] pointer-events-none"
+                  className="absolute -inset-6 sm:-inset-12 z-[-1] rounded-full blur-[50px] pointer-events-none"
                   style={{ background: 'radial-gradient(circle, rgba(15,74,155,0.12) 0%, rgba(199,162,74,0.08) 100%)' }}
                   animate={{ 
                     x: ['-2%', '2%', '-2%'],
@@ -161,8 +161,8 @@ export default function AboutPage() {
                 />
                 <GradientHeadingText text="Structured Learning. Real Academic Progress." />
               </h1>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
-              <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-xl">
+              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-5 sm:mb-6" />
+              <p className="text-gray-600 text-[15px] sm:text-lg mb-7 sm:mb-10 leading-relaxed max-w-xl">
                 Ustaad helps students build stronger study foundations, work through learning gaps with patience, and move forward with steadier performance across the school year.
               </p>
               <HeroCTABlock className="mb-4">
@@ -177,7 +177,7 @@ export default function AboutPage() {
             {/* Right Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full h-[400px] lg:h-[580px] rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-8 border-white group z-10"
+              className="relative w-full h-[240px] sm:h-[360px] lg:h-[580px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-4 sm:border-8 border-white group z-10"
             >
               <img
                 src="/UpdatedImages/experienced-uae-educator-online-tutoring-session.webp"
@@ -205,14 +205,14 @@ export default function AboutPage() {
           
           {/* Top Option Selector Tabs */}
           <div className="flex justify-center mb-8 sm:mb-14">
-            <div className="inline-flex p-1 sm:p-1.5 bg-[#0a1f3d]/5 backdrop-blur-md rounded-2xl border border-gray-200/80 shadow-sm max-w-full overflow-x-auto no-scrollbar gap-1 sm:gap-1.5 w-full sm:w-auto justify-start sm:justify-center">
+            <div className="inline-flex p-1 sm:p-1.5 bg-[#0a1f3d]/5 backdrop-blur-md rounded-2xl border border-gray-200/80 shadow-sm max-w-full overflow-x-auto no-scrollbar gap-1 sm:gap-1.5 w-full sm:w-auto justify-start sm:justify-center snap-x">
               {storyTabs.map((tab, idx) => {
                 const isActive = activeStoryTab === idx;
                 return (
                   <button
                     key={tab.id}
                     onClick={() => setActiveStoryTab(idx)}
-                    className={`relative px-4 py-2 sm:px-7 sm:py-3.5 rounded-xl font-bold text-xs sm:text-base transition-all duration-300 whitespace-nowrap flex items-center gap-2 flex-1 sm:flex-none justify-center ${
+                    className={`relative px-3 py-2.5 sm:px-7 sm:py-3.5 rounded-xl font-bold text-xs sm:text-base transition-all duration-300 whitespace-nowrap flex items-center gap-2 shrink-0 snap-start justify-center ${
                       isActive 
                         ? 'bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] text-white shadow-[0_8px_20px_rgba(15,74,155,0.25)]' 
                         : 'text-gray-600 hover:text-[#0a1f3d] hover:bg-white/60'
@@ -328,7 +328,7 @@ export default function AboutPage() {
                     <button 
                       key={i} 
                       onClick={() => setActiveFeatureTab(i)}
-                      className={`group text-left px-6 py-5 rounded-[20px] transition-all duration-500 font-semibold text-[17px] border relative overflow-hidden ${
+                      className={`group text-left px-4 py-4 sm:px-6 sm:py-5 rounded-[20px] transition-all duration-500 font-semibold text-base sm:text-[17px] border relative overflow-hidden ${
                         activeFeatureTab === i 
                           ? 'text-white border-transparent shadow-[0_12px_40px_rgba(15,74,155,0.3)] lg:translate-x-3' 
                           : 'bg-white text-gray-500 border-[#E5E7EB] hover:bg-gray-50 hover:text-[#0f4a9b] hover:border-[#0f4a9b]/30'
@@ -347,7 +347,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Right side: Content */}
-                <div className="w-full lg:w-[65%] bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#0a1f3d] bg-[length:200%_auto] animate-gradient-slow rounded-[32px] p-6 lg:p-8 shadow-[0_20px_50px_rgba(15,74,155,0.25)] relative overflow-hidden min-h-[340px] flex flex-col justify-center border border-[#0f4a9b]/50">
+                <div className="w-full lg:w-[65%] bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#0a1f3d] bg-[length:200%_auto] animate-gradient-slow rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 lg:p-8 shadow-[0_20px_50px_rgba(15,74,155,0.25)] relative overflow-hidden min-h-0 sm:min-h-[340px] flex flex-col justify-center border border-[#0f4a9b]/50">
                   <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-[#C7A24A]/10 to-transparent rounded-full blur-[80px] pointer-events-none translate-x-1/4 -translate-y-1/4" />
                   
                   {features.map((f, i) => (
@@ -361,24 +361,24 @@ export default function AboutPage() {
                         zIndex: activeFeatureTab === i ? 10 : 0
                       }}
                       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      className={`absolute inset-6 lg:inset-10 flex flex-col justify-center ${activeFeatureTab === i ? 'pointer-events-auto' : 'pointer-events-none'}`}
+                      className={`${activeFeatureTab === i ? 'relative' : 'hidden'} sm:absolute sm:inset-6 lg:inset-10 flex flex-col justify-center ${activeFeatureTab === i ? 'pointer-events-auto sm:block' : 'pointer-events-none'}`}
                     >
                       {/* Illustration area */}
-                      <div className="w-16 h-16 bg-white/5 backdrop-blur-md rounded-[16px] flex items-center justify-center mb-6 border border-white/10 relative">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/5 backdrop-blur-md rounded-[16px] flex items-center justify-center mb-5 sm:mb-6 border border-white/10 relative">
                         {/* Animated background glow */}
                         <motion.div 
                            animate={{ rotate: 360 }}
                            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                            className="absolute inset-0 rounded-[16px] bg-gradient-to-tr from-[#C7A24A]/40 to-transparent blur-md"
                         />
-                        <div className="w-10 h-10 bg-gradient-to-br from-[#C7A24A] to-[#A8892A] rounded-[10px] flex items-center justify-center shadow-[0_10px_25px_rgba(199,162,74,0.4)] relative z-10">
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-[#C7A24A] to-[#A8892A] rounded-[10px] flex items-center justify-center shadow-[0_10px_25px_rgba(199,162,74,0.4)] relative z-10">
                           {f.icon}
                         </div>
                       </div>
                       
-                      <h3 className="text-[28px] lg:text-[34px] font-bold text-white mb-4 leading-tight tracking-tight">{f.title}</h3>
-                      <div className="w-16 h-[3px] bg-gradient-to-r from-[#C7A24A] to-[#f0d080] mb-6 rounded-full" />
-                      <p className="text-gray-300 text-[17px] leading-relaxed max-w-xl">{f.desc}</p>
+                      <h3 className="text-2xl sm:text-[28px] lg:text-[34px] font-bold text-white mb-3 sm:mb-4 leading-tight tracking-tight">{f.title}</h3>
+                      <div className="w-16 h-[3px] bg-gradient-to-r from-[#C7A24A] to-[#f0d080] mb-4 sm:mb-6 rounded-full" />
+                      <p className="text-gray-300 text-[15px] sm:text-[17px] leading-relaxed max-w-xl">{f.desc}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -420,10 +420,10 @@ export default function AboutPage() {
             {/* Card 1: Abu Dhabi & Al Ain (Starts Stacked Center -> Fans Out Left) */}
             <motion.div 
               variants={{
-                hidden: { opacity: 0, x: "70%", rotate: 0, scale: 0.9, y: 30 },
-                visible: { opacity: 1, x: 0, rotate: -3, scale: 1, y: 16, transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.2 } }
+                hidden: { opacity: 0, y: 28 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.08 } }
               }}
-              className="bg-white rounded-[28px] shadow-[0_20px_50px_rgba(15,74,155,0.12)] border border-gray-100 flex flex-col justify-between overflow-hidden hover:rotate-0 hover:translate-y-0 transition-all duration-400 ease-out group z-10"
+              className="bg-white rounded-[28px] shadow-[0_20px_50px_rgba(15,74,155,0.12)] border border-gray-100 flex flex-col justify-between overflow-hidden transition-shadow duration-300 hover:shadow-[0_24px_55px_rgba(15,74,155,0.16)] group z-10"
             >
               {/* Slanted Header Banner */}
               <div className="py-5 px-6 bg-gradient-to-r from-[#0f4a9b] via-[#0d2c58] to-[#0a1f3d] text-white flex items-center justify-center gap-3 relative overflow-hidden text-center shrink-0">
@@ -457,10 +457,10 @@ export default function AboutPage() {
             {/* Card 2: Dubai (Appears First in Center, Elevates) */}
             <motion.div 
               variants={{
-                hidden: { opacity: 0, y: 50, scale: 0.9 },
-                visible: { opacity: 1, y: 0, scale: 1.05, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } }
+                hidden: { opacity: 0, y: 28 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.16 } }
               }}
-              className="bg-white rounded-[28px] shadow-[0_30px_70px_rgba(199,162,74,0.22)] border-2 border-[#C7A24A]/40 flex flex-col justify-between overflow-hidden lg:-translate-y-2 z-20 hover:scale-108 transition-all duration-400 ease-out group"
+              className="bg-white rounded-[28px] shadow-[0_24px_60px_rgba(199,162,74,0.2)] border-2 border-[#C7A24A]/40 flex flex-col justify-between overflow-hidden transition-shadow duration-300 hover:shadow-[0_28px_65px_rgba(199,162,74,0.28)] group z-20"
             >
               {/* Gold Header Banner */}
               <div className="py-5 px-6 bg-gradient-to-r from-[#C7A24A] via-[#d4af53] to-[#a6863b] text-white flex items-center justify-center gap-3 relative overflow-hidden text-center shrink-0">
@@ -494,10 +494,10 @@ export default function AboutPage() {
             {/* Card 3: Sharjah & Northern Emirates (Starts Stacked Center -> Fans Out Right) */}
             <motion.div 
               variants={{
-                hidden: { opacity: 0, x: "-70%", rotate: 0, scale: 0.9, y: 30 },
-                visible: { opacity: 1, x: 0, rotate: 3, scale: 1, y: 16, transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.35 } }
+                hidden: { opacity: 0, y: 28 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.24 } }
               }}
-              className="bg-white rounded-[28px] shadow-[0_20px_50px_rgba(15,74,155,0.12)] border border-gray-100 flex flex-col justify-between overflow-hidden hover:rotate-0 hover:translate-y-0 transition-all duration-400 ease-out group z-10"
+              className="bg-white rounded-[28px] shadow-[0_20px_50px_rgba(15,74,155,0.12)] border border-gray-100 flex flex-col justify-between overflow-hidden transition-shadow duration-300 hover:shadow-[0_24px_55px_rgba(15,74,155,0.16)] group z-10"
             >
               {/* Slanted Header Banner */}
               <div className="py-5 px-6 bg-gradient-to-r from-[#0a1f3d] via-[#0d2c58] to-[#0f4a9b] text-white flex items-center justify-center gap-3 relative overflow-hidden text-center shrink-0">
@@ -542,8 +542,8 @@ export default function AboutPage() {
 
             <div className="relative bg-gradient-to-br from-[#0a1f3d] via-[#0d2c58] to-[#0f4a9b] rounded-[31px] p-8 sm:p-10 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 overflow-hidden h-full">
 
-              {/* FLOATING SCHOOL & EDUCATION BACKGROUND BADGES */}
-              <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              {/* FLOATING SCHOOL & EDUCATION BACKGROUND BADGES — desktop only */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
                 {/* Floating Graduation Cap (Top Left) */}
                 <div className="absolute top-6 left-12 w-11 h-11 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-[#C7A24A] flex items-center justify-center shadow-lg animate-float-slow opacity-60">
                   <GraduationCap className="w-6 h-6" />
