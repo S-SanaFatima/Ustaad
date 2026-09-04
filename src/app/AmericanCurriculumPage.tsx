@@ -153,7 +153,7 @@ export default function AmericanCurriculumPage() {
             <p className="text-gray-700 text-lg mb-10 leading-relaxed max-w-xl">
               Online tutoring for American Curriculum students across Middle School, High School, and AP courses.
             </p>
-            <HeroCTABlock trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock>
               Book Your Free Trial
             </HeroCTABlock>
           </motion.div>
@@ -201,7 +201,7 @@ export default function AmericanCurriculumPage() {
                     href={card.href}
                     className="inline-flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] text-white text-sm font-bold shadow-[0_4px_14px_rgba(15,74,155,0.25)] hover:shadow-[0_6px_20px_rgba(15,74,155,0.40)] transition-all duration-200 mt-auto"
                   >
-                    {card.cta} <ArrowRight className="h-4 w-4" />
+                    {card.cta}
                   </a>
                 </div>
               </div>
@@ -412,9 +412,7 @@ export default function AmericanCurriculumPage() {
       <FinalCTA
         title="Book Your American Curriculum Tutor"
         subtitle="American Curriculum, your grade."
-        button1Text="Book Your Free Trial"
-        subtext1="Free trial. No commitment."
-      />
+        button1Text="Book Your Free Trial" />
     </Layout>
   );
 }

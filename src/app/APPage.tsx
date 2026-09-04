@@ -127,7 +127,7 @@ export default function APPage() {
             <p className="text-gray-700 text-lg mb-10 leading-relaxed max-w-xl">
               Online tutoring across AP subjects, from coursework through to May exam papers.
             </p>
-            <HeroCTABlock trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock>
               Book Your First AP Lesson
             </HeroCTABlock>
           </motion.div>
@@ -405,9 +405,7 @@ export default function APPage() {
       <FinalCTA
         title="Book An AP Tutor"
         subtitle="Online, matched to AP subject."
-        button1Text="Book Your First AP Lesson"
-        subtext1="First lesson free. No commitment."
-      />
+        button1Text="Book Your First AP Lesson" />
     </Layout>
   );
 }

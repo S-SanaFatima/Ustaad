@@ -123,11 +123,10 @@ export default function SubjectHero({
 
             <div className={`flex flex-col sm:flex-row items-start gap-4 ${compact ? 'mb-2' : 'mb-4'}`}>
               <HeroCTABlock
-                trustText="✦ No Commitment · Cancel Anytime"
                 trustClassName={isDarkHero ? 'text-blue-200' : ''}
                 buttonClassName=""
                 href={primaryCtaHref}
-              >
+             >
                 {primaryCtaText}
               </HeroCTABlock>
               {secondaryCtaHref && secondaryCtaText && (

@@ -72,7 +72,7 @@ export default function IGCSEPage() {
               <a href="/gcse" className="text-[#0f4a9b] font-semibold underline">Read about Ustaad's GCSE tutoring across AQA, OCR, and Pearson Edexcel.</a>{' '}
               Based in Abu Dhabi? <a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">IGCSE tutor Abu Dhabi</a> hub available.
             </p>
-            <HeroCTABlock className="mb-4" trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock className="mb-4">
               Book Your First IGCSE Lesson
             </HeroCTABlock>
           </motion.div>
@@ -616,9 +616,7 @@ export default function IGCSEPage() {
       <FinalCTA
         title="Book an IGCSE Tutor"
         subtitle="Matched in minutes."
-        button1Text="Book Your First IGCSE Lesson"
-        subtext1="Free trial. No commitment."
-      />
+        button1Text="Book Your First IGCSE Lesson" />
 
     </Layout>
   );

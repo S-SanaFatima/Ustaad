@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react';
 import { GoldButton } from './GoldButton';
+import { CTA_SUBTEXT } from './ctaCopy';
 
 interface HeroCTABlockProps {
   children: ReactNode;
-  trustText: ReactNode;
+  trustText?: ReactNode;
   className?: string;
   buttonClassName?: string;
   trustClassName?: string;
@@ -12,7 +13,7 @@ interface HeroCTABlockProps {
 
 export default function HeroCTABlock({
   children,
-  trustText,
+  trustText = CTA_SUBTEXT,
   className = '',
   buttonClassName = '',
   trustClassName = '',

@@ -582,9 +582,12 @@ export default function IGCSEvsGCSEBlog() {
                 In the capital, families can also work with our dedicated <a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">IGCSE tutors in Abu Dhabi</a> and <a href="/gcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">GCSE tutors in Abu Dhabi</a>.
               </p>
               <div className="flex flex-wrap gap-3">
+                <div className="flex flex-col items-start gap-1">
                 <a href="/contact#form" className="px-4 py-2 text-white font-bold rounded-xl text-xs transition shadow-xs hover:brightness-110" style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                  Book Your Free Trial →
+                  Book Your Free Trial
                 </a>
+                <p className="text-xs text-gray-500 font-medium">No commitment. Cancel anytime.</p>
+              </div>
                 <a href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27m%20looking%20for%20curriculum%20guidance%20on%20IGCSE%20vs%20GCSE." target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl text-xs transition flex items-center gap-1.5 shadow-xs">
                   <MessageCircle className="w-3.5 h-3.5 text-white" /> WhatsApp Us
                 </a>
@@ -664,12 +667,15 @@ export default function IGCSEvsGCSEBlog() {
               <p className="text-white/80 mb-6 max-w-xl mx-auto text-xs sm:text-sm leading-relaxed">
                 Our UAE education counsellors and <a href="/tutors" className="text-white font-bold underline hover:text-white/90">subject specialist tutors</a> can help decode subject reports, identify core learning gaps, and build a targeted revision roadmap.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-3">
+              <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-3">
+                <div className="flex flex-col items-center gap-1.5">
                 <a href="/contact#form"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl font-extrabold text-white hover:brightness-110 transition text-sm shadow-md border border-white/10"
                   style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                  Book Your Free Trial →
+                  Book Your Free Trial
                 </a>
+                <p className="text-xs text-white/60 font-medium">No commitment. Cancel anytime.</p>
+              </div>
                 <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md">
                   <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> Ask on WhatsApp

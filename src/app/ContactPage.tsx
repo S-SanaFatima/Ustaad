@@ -1,12 +1,16 @@
 import { useState, useRef, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  ArrowRight, CheckCircle, ChevronRight, Clock, Mail, MapPin, Phone, Send, Sparkles, User, Users, BookOpen, GraduationCap, HelpCircle, MessageSquare,
-  ChevronDown, MessageCircle, Building2
+  CheckCircle, ChevronRight, Clock, Mail, MapPin, Phone, Send, Sparkles, User, Users, BookOpen, GraduationCap, HelpCircle, MessageSquare,
+  ChevronDown, MessageCircle, Building2, PartyPopper,
 } from 'lucide-react';
 import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock } from './shared';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema } from './shared/schemas';
+import { scrollToHash, scrollToHashWhenReady, getFixedHeaderOffset } from '../lib/scrollToHash';
+
+const BACK_TO_SCHOOL_OFFER = 'back-to-school-10';
+const DISCOUNT_OFFER_KEY = 'ustaad_discount_offer';
 
 // Country codes data
 const countryCodes = [
@@ -202,17 +206,40 @@ function ModernContactForm() {
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [hasBackToSchoolDiscount, setHasBackToSchoolDiscount] = useState(false);
+  const [showDiscountWelcome, setShowDiscountWelcome] = useState(false);
+
+  useEffect(() => {
+    const applyOfferFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const fromUrl = params.get('offer') === BACK_TO_SCHOOL_OFFER;
+
+      if (fromUrl) {
+        sessionStorage.setItem(DISCOUNT_OFFER_KEY, BACK_TO_SCHOOL_OFFER);
+        setHasBackToSchoolDiscount(true);
+        setShowDiscountWelcome(true);
+        return;
+      }
+
+      if (sessionStorage.getItem(DISCOUNT_OFFER_KEY) === BACK_TO_SCHOOL_OFFER) {
+        setHasBackToSchoolDiscount(true);
+      }
+    };
+
+    applyOfferFromUrl();
+    window.addEventListener('popstate', applyOfferFromUrl);
+    return () => window.removeEventListener('popstate', applyOfferFromUrl);
+  }, []);
 
   // Keep the thank-you card in view after submit (desktop + mobile).
   // The multi-step form is tall; when it collapses, scroll position can sit below the success message.
   useEffect(() => {
     if (!isSubmitted) return;
     const scrollToSuccess = () => {
-      const formSection = document.getElementById('form');
-      const target = formSection ?? successRef.current;
+      const target = successRef.current;
       if (!target) return;
-      const headerOffset = 96;
-      const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+      const offset = getFixedHeaderOffset() + 12;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
     };
     // Wait a frame so the thank-you UI is painted before measuring.
@@ -280,6 +307,7 @@ function ModernContactForm() {
         subject: formData.subject || 'N/A',
         level: formData.level || 'N/A',
         requirements: formData.requirements || 'None provided',
+        discount_offer: hasBackToSchoolDiscount ? '10% Back to School discount (claimed via popup)' : 'None',
         // Fallbacks for standard EmailJS templates
         user_type: userType === 'parent' ? 'Parent' : 'Student',
         parent_name: formData.parentName || 'N/A',
@@ -298,7 +326,8 @@ Area: ${formData.area || 'N/A'}
 Curriculum: ${formData.curriculum || 'N/A'}
 Subject: ${formData.subject || 'N/A'}
 Grade/Level: ${formData.level || 'N/A'}
-Requirements: ${formData.requirements || 'None provided'}`,
+Requirements: ${formData.requirements || 'None provided'}
+Discount: ${hasBackToSchoolDiscount ? '10% Back to School (claimed via popup)' : 'None'}`,
       };
 
       try {
@@ -412,6 +441,129 @@ Requirements: ${formData.requirements || 'None provided'}`,
 
   return (
     <div className="max-w-3xl mx-auto">
+      {/* Back to School discount welcome */}
+      <AnimatePresence>
+        {showDiscountWelcome && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#040c1a]/70 p-4 backdrop-blur-md"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Your 10% discount is ready"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: 'spring', damping: 22, stiffness: 220 }}
+              className="relative w-full max-w-md max-h-[min(90dvh,640px)] overflow-y-auto rounded-[24px] sm:rounded-[28px] overflow-x-hidden bg-white text-center shadow-[0_32px_90px_rgba(10,31,61,0.5)] border border-[#C7A24A]/40"
+            >
+              {/* Animated Gradient Background */}
+              <motion.div 
+                animate={{ 
+                  backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'] 
+                }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 z-0 bg-[linear-gradient(120deg,#ffffff,#fdf8ee,#ffffff,#f4f0e6)] bg-[length:200%_200%] opacity-80"
+              />
+              
+              <div className="relative z-10 p-5 sm:p-7 md:p-9">
+                {/* Celebratory party poppers */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.6, y: 12 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ type: 'spring', delay: 0.08, damping: 14, stiffness: 160 }}
+                  className="relative mx-auto mb-5 flex h-20 w-full max-w-[200px] items-center justify-center"
+                  aria-hidden="true"
+                >
+                  {/* Soft glow */}
+                  <div className="absolute inset-0 rounded-full bg-[#C7A24A]/15 blur-2xl" />
+
+                  {/* Confetti dots */}
+                  <span className="absolute top-1 left-6 h-2 w-2 rotate-12 rounded-sm bg-[#0f4a9b]" />
+                  <span className="absolute top-3 right-8 h-1.5 w-1.5 rounded-full bg-[#C7A24A]" />
+                  <span className="absolute bottom-4 left-10 h-1.5 w-1.5 rounded-full bg-[#25D366]" />
+                  <span className="absolute bottom-2 right-6 h-2 w-2 -rotate-12 rounded-sm bg-[#f0c96a]" />
+                  <span className="absolute top-8 left-1/2 h-1 w-1 rounded-full bg-[#0f4a9b]/60" />
+
+                  <motion.div
+                    animate={{ rotate: [-8, -14, -8], y: [0, -2, 0] }}
+                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+                    className="relative z-10 -mr-1"
+                  >
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0f4a9b] to-[#0a1f3d] shadow-[0_10px_24px_rgba(15,74,155,0.35)] ring-2 ring-[#C7A24A]/30">
+                      <PartyPopper className="h-7 w-7 text-[#f0d080]" strokeWidth={2} />
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    animate={{ rotate: [8, 14, 8], y: [0, -2, 0] }}
+                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.35 }}
+                    className="relative z-10 -ml-1"
+                  >
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#C7A24A] to-[#9E7C20] shadow-[0_10px_24px_rgba(199,162,74,0.35)] ring-2 ring-white/50">
+                      <PartyPopper className="h-6 w-6 text-white" strokeWidth={2} />
+                    </div>
+                  </motion.div>
+                </motion.div>
+
+                {/* Animated Badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#C7A24A]/10 border border-[#C7A24A]/30 mb-4 shadow-sm">
+                    <Sparkles className="w-3 h-3 text-[#C7A24A] shrink-0" />
+                    <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#0a1f3d]">
+                      Back to School Offer
+                    </span>
+                  </div>
+                </motion.div>
+                
+                <motion.h3 
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="text-[1.65rem] font-extrabold text-[#0a1f3d] mb-2.5 leading-tight"
+                >
+                  Your <span className="bg-gradient-to-r from-[#D4AF37] to-[#9E7C20] bg-clip-text text-transparent">10% discount</span><br/>is applied!
+                </motion.h3>
+                
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-[13px] text-gray-500 mb-7"
+                >
+                  Please share a few details on the next step. Once your form is received, our team will personally reach out with your 10% discount confirmation certificate and matched tutor.
+                </motion.p>
+
+                <motion.button
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ delay: 0.7 }}
+                  type="button"
+                  onClick={() => {
+                    setShowDiscountWelcome(false);
+                    scrollToHash('#form');
+                  }}
+                  className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-[#0a1f3d] via-[#0f4a9b] to-[#0a1f3d] px-5 py-4 text-[13px] font-extrabold text-white shadow-[0_10px_25px_rgba(10,31,61,0.3)] transition-all"
+                >
+                  <div className="absolute inset-0 bg-white/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
+                  <span className="relative flex items-center justify-center tracking-[0.05em] uppercase">
+                    CONTINUE TO FORM
+                  </span>
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Header section (pill, title, subtitle) */}
       <div className="text-center mb-6">
         <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full border border-[#C7A24A]/30 bg-[#C7A24A]/5 mb-6">
@@ -429,7 +581,8 @@ Requirements: ${formData.requirements || 'None provided'}`,
       </div>
 
       {/* Form Card */}
-      <div className="bg-white rounded-[24px] shadow-[0_12px_40px_rgba(15,74,155,0.08)] overflow-hidden">
+      <div id="form" className="bg-white rounded-[24px] shadow-[0_12px_40px_rgba(15,74,155,0.08)] overflow-hidden scroll-mt-28">
+
         {/* Progress Bar & Header */}
         <div className="px-4 sm:px-8 pt-6 sm:pt-8 pb-4">
           <div className="flex justify-between items-end mb-4">
@@ -456,7 +609,7 @@ Requirements: ${formData.requirements || 'None provided'}`,
           {step === 1 && (
             <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }}>
               <h3 className="text-xl font-extrabold text-[#0a1f3d] mb-2">Who is this for?</h3>
-              <p className="text-gray-500 mb-6 text-sm">Select the option that best describes you.</p>
+              <p className="text-gray-500 mb-6 text-sm leading-relaxed">Tell us whether you are booking for your child or for yourself, so we can match the right tutor.</p>
 
               <div className="grid sm:grid-cols-2 gap-5 mb-4">
                 {/* Option: Parent */}
@@ -635,6 +788,8 @@ Requirements: ${formData.requirements || 'None provided'}`,
             <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }}>
               <h3 className="text-2xl font-extrabold text-[#0a1f3d] mb-1">Review your details</h3>
               <p className="text-gray-500 mb-6 text-sm">Double-check everything below. Tap any field to edit before submitting.</p>
+
+
 
               <div className="space-y-3 mb-2">
                 {/* 1. ROLE */}
@@ -850,6 +1005,25 @@ Requirements: ${formData.requirements || 'None provided'}`,
 }
 
 export default function ContactPage() {
+  // Land on the form card (Step 1), not the intro heading above it.
+  useEffect(() => {
+    const scrollToForm = () => {
+      if (window.location.hash === '#form') scrollToHash('#form');
+    };
+
+    if (window.location.hash === '#form') {
+      const cancel = scrollToHashWhenReady('#form');
+      window.addEventListener('hashchange', scrollToForm);
+      return () => {
+        cancel();
+        window.removeEventListener('hashchange', scrollToForm);
+      };
+    }
+
+    window.addEventListener('hashchange', scrollToForm);
+    return () => window.removeEventListener('hashchange', scrollToForm);
+  }, []);
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const contactFaqs = [
     { q: "What should I share before contacting the Ustaad team?", a: "A few details speed things up. Share your child's curriculum (British, American, or IB), the subject they need help with, their grade or year level, and whether they're preparing for regular lessons, revision, or exam preparation. The clearer the picture, the faster we can match the right tutor." },
@@ -887,7 +1061,7 @@ export default function ContactPage() {
               <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-xl">
                 Talk with the Ustaad team about subjects, curricula, tutor matching, lesson schedules, and student learning needs.
               </p>
-              <HeroCTABlock className="mb-4" trustText="✦ No Commitment · Cancel Anytime" href="#form">
+              <HeroCTABlock className="mb-4" href="#form">
                 Speak to an Advisor
               </HeroCTABlock>
             </motion.div>
@@ -971,7 +1145,7 @@ export default function ContactPage() {
                     rel={c.external ? "noopener noreferrer" : undefined}
                     className="mt-auto inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] text-white font-bold rounded-xl text-sm hover:brightness-110 hover:shadow-lg hover:shadow-[#C7A24A]/30 transition-all"
                   >
-                    {c.cta} <ArrowRight className="h-4 w-4" />
+                    {c.cta}
                   </a>
                 )}
               </div>
@@ -1003,10 +1177,6 @@ export default function ContactPage() {
                   </p>
                 </div>
                 
-                {/* Arrow */}
-                <div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gray-50 group-hover:bg-[#0f4a9b] flex items-center justify-center transition-all duration-300 self-center">
-                  <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
-                </div>
               </div>
             </div>
           </a>
@@ -1015,7 +1185,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── CONTACT FORM ── */}
-      <section id="form" className="py-12 bg-[#fdfaf6] scroll-mt-28">
+      <section className="py-12 bg-[#fdfaf6]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <ModernContactForm />
         </div>

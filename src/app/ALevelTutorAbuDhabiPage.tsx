@@ -416,7 +416,7 @@ export default function ALevelTutorAbuDhabiPage() {
               >
                 Book Your Free Trial
               </a>
-              <span className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</span>
+              <span className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</span>
               <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="text-blue-200/90 text-[12px] font-semibold underline flex items-center justify-center gap-1">
                 <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" /> WhatsApp Us
               </a>
@@ -431,7 +431,7 @@ export default function ALevelTutorAbuDhabiPage() {
                 >
                   Book Your Free Trial
                 </a>
-                <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
+                <p className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
                 <a
@@ -1100,7 +1100,6 @@ export default function ALevelTutorAbuDhabiPage() {
                 className="inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gray-50 hover:bg-[#0f4a9b] text-[#0f4a9b] hover:text-white font-bold text-xs sm:text-sm border border-gray-200 transition-all duration-300"
               >
                 <span>View Physics Tutors</span>
-                <ArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>
 
@@ -1137,7 +1136,6 @@ export default function ALevelTutorAbuDhabiPage() {
                 className="inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gray-50 hover:bg-[#0f4a9b] text-[#0f4a9b] hover:text-white font-bold text-xs sm:text-sm border border-gray-200 transition-all duration-300"
               >
                 <span>View Chemistry Tutors</span>
-                <ArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>
 
@@ -1174,7 +1172,6 @@ export default function ALevelTutorAbuDhabiPage() {
                 className="inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gray-50 hover:bg-[#0f4a9b] text-[#0f4a9b] hover:text-white font-bold text-xs sm:text-sm border border-gray-200 transition-all duration-300"
               >
                 <span>View Biology Tutors</span>
-                <ArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>
@@ -1535,7 +1532,6 @@ export default function ALevelTutorAbuDhabiPage() {
                     {card.desc}
                   </p>
                 </div>
-                <ArrowRight className="h-4 w-4 text-[#0f4a9b] shrink-0 group-hover:translate-x-1 transition-transform" />
               </motion.a>
             ))}
           </div>

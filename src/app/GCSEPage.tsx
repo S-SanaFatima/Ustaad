@@ -66,9 +66,11 @@ export default function GCSEPage() {
             </p>
             <p className="text-gray-500 text-sm mb-8 leading-relaxed max-w-xl">
               Studying IGCSE instead?{' '}
-              <a href="/igcse" className="text-[#0f4a9b] font-semibold underline">Read about Ustaad's IGCSE tutoring across Cambridge and Edexcel.</a>
+              <a href="/igcse" className="text-[#0f4a9b] font-semibold underline">Read about Ustaad's IGCSE tutoring across Cambridge and Edexcel.</a>{' '}
+              Based in Dubai? <a href="/gcse-tutor-dubai" className="text-[#0f4a9b] font-semibold underline">GCSE tutor Dubai</a> hub available.{' '}
+              Based in Abu Dhabi? <a href="/gcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">GCSE tutor Abu Dhabi</a> hub available.
             </p>
-            <HeroCTABlock className="mb-4" trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock className="mb-4">
               Book Your First GCSE Lesson
             </HeroCTABlock>
           </motion.div>
@@ -354,22 +356,33 @@ export default function GCSEPage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-12">
             {[
-              { city: "Abu Dhabi",      note: "Capital of the UAE" },
-              { city: "Dubai",          note: "Most populous emirate" },
+              { city: "Abu Dhabi",      note: "Capital of the UAE", href: "/gcse-tutor-abu-dhabi" },
+              { city: "Dubai",          note: "Most populous emirate", href: "/gcse-tutor-dubai" },
               { city: "Sharjah",        note: "Growing GCSE community" },
               { city: "Ajman",          note: "AQA & Edexcel coverage" },
               { city: "Al Ain",         note: "Garden City" },
               { city: "Ras Al Khaimah", note: "Northern Emirates" },
               { city: "Fujairah",       note: "East coast" },
               { city: "Umm Al Quwain", note: "Smallest emirate" },
-            ].map((loc, i) => (
-              <div key={i} className="group relative bg-white/5 hover:bg-white/10 border border-white/8 hover:border-white/20 rounded-2xl px-4 py-4 transition-all duration-200 cursor-default overflow-hidden">
-                <div className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_6px_rgba(199,162,74,0.8)]" />
-                <MapPin className="h-4 w-4 text-[#4a90d9] mb-2.5" strokeWidth={1.5} />
-                <p className="text-white font-bold text-sm leading-tight">{loc.city}</p>
-                <p className="text-white/35 text-[10px] mt-1 leading-snug">{loc.note}</p>
-              </div>
-            ))}
+            ].map((loc, i) => {
+              const inner = (
+                <>
+                  <div className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_6px_rgba(199,162,74,0.8)]" />
+                  <MapPin className="h-4 w-4 text-[#4a90d9] mb-2.5" strokeWidth={1.5} />
+                  <p className="text-white font-bold text-sm leading-tight">{loc.city}</p>
+                  <p className="text-white/35 text-[10px] mt-1 leading-snug">{loc.note}</p>
+                </>
+              );
+              return loc.href ? (
+                <a key={i} href={loc.href} className="group relative bg-white/5 hover:bg-white/10 border border-white/8 hover:border-white/20 rounded-2xl px-4 py-4 transition-all duration-200 overflow-hidden block">
+                  {inner}
+                </a>
+              ) : (
+                <div key={i} className="group relative bg-white/5 hover:bg-white/10 border border-white/8 hover:border-white/20 rounded-2xl px-4 py-4 transition-all duration-200 cursor-default overflow-hidden">
+                  {inner}
+                </div>
+              );
+            })}
           </div>
 
           <div className="bg-white/5 border border-white/8 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
@@ -496,9 +509,7 @@ export default function GCSEPage() {
       <FinalCTA
         title="Book a GCSE Tutor"
         subtitle="AQA, OCR, or Pearson Edexcel. Year 10 or Year 11. Your first lesson is free."
-        button1Text="Book Your First GCSE Lesson"
-        subtext1="Free trial. No commitment."
-      />
+        button1Text="Book Your First GCSE Lesson" />
 
     </Layout>
   );

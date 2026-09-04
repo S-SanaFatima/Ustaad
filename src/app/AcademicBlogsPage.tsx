@@ -79,7 +79,7 @@ export default function AcademicBlogsPage() {
                     </div>
                     
                     <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0f4a9b] group-hover:gap-2 transition-all">
-                      Read <ArrowRight className="h-4 w-4" />
+                      Read
                     </span>
                   </div>
                 </div>
@@ -126,8 +126,6 @@ export default function AcademicBlogsPage() {
         button1Text="Book a Free Trial"
         button2Text="Chat on WhatsApp"
         button2Href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20a%20free%20session%20to%20discuss%20my%20child%27s%20learning%20gaps."
-        subtext1=""
-        subtext2=""
       />
     </Layout>
   );

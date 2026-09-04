@@ -165,7 +165,7 @@ export default function AboutPage() {
               <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-xl">
                 Ustaad helps students build stronger study foundations, work through learning gaps with patience, and move forward with steadier performance across the school year.
               </p>
-              <HeroCTABlock className="mb-4" trustText="✦ No commitment, cancel anytime.">
+              <HeroCTABlock className="mb-4">
                 Book Your Free Trial
               </HeroCTABlock>
               <p className="text-sm text-gray-500 mt-4">

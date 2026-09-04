@@ -365,7 +365,7 @@ export default function GCSETutorAbuDhabiPage() {
                 <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: 'rgba(15,74,155,0.08)' }}><item.Icon className="h-6 w-6 text-[#0f4a9b]" strokeWidth={2} /></div>
                 <h3 className="text-[18px] font-extrabold text-[#0a1f3d] mb-2 leading-snug">{item.title}</h3>
                 <p className="text-[14px] text-[#3a4f6e] leading-relaxed flex-1 mb-4">{item.body}</p>
-                <a href={item.href} className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0f4a9b] hover:text-[#1e5ba8] transition-colors">{item.linkText} <span aria-hidden="true">→</span></a>
+                <a href={item.href} className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0f4a9b] hover:text-[#1e5ba8] transition-colors">{item.linkText}</a>
               </div>
             ))}
           </div>

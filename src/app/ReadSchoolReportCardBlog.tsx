@@ -744,12 +744,15 @@ export default function ReadSchoolReportCardBlog() {
             <p className="text-white/75 mb-5 max-w-lg mx-auto text-sm">
               Our UAE education counsellors and subject specialist tutors can help decode subject reports, identify core learning gaps, and build a targeted revision roadmap.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <a href="/contact#form"
+            <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-3">
+              <div className="flex flex-col items-center gap-1.5">
+                <a href="/contact#form"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white hover:brightness-110 transition text-sm sm:w-auto"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial →
+                Book Your Free Trial
               </a>
+                <p className="text-xs text-white/60 font-medium">No commitment. Cancel anytime.</p>
+              </div>
               <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md sm:w-auto">
                 <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> Ask on WhatsApp

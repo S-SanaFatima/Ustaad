@@ -31,6 +31,7 @@ import HighSchoolPage from "./app/HighSchoolPage.tsx";
 import HowItWorksPage from "./app/HowItWorksPage.tsx";
 import IBCurriculumPage from "./app/IBCurriculumPage.tsx";
 import ExamPanicBlog from "./app/ExamPanicBlog.tsx";
+import UAEExamsReturnBlog from "./app/UAEExamsReturnBlog.tsx";
 import IGCSEMathsLowMarksBlog from "./app/IGCSEMathsLowMarksBlog.tsx";
 import IGCSEBiology6MarkBlog from "./app/IGCSEBiology6MarkBlog.tsx";
 import IGCSEPage from "./app/IGCSEPage.tsx";
@@ -63,6 +64,7 @@ import AuthorPage from "./app/AuthorPage.tsx";
 import BiologyTutorAbuDhabiPage from "./app/BiologyTutorAbuDhabiPage.tsx";
 import IGCSETutorLanding from "./app/IGCSETutorAbuDhabiPage.tsx";
 import GCSETutorLanding from "./app/GCSETutorAbuDhabiPage.tsx";
+import GCSETutorDubaiLanding from "./app/GCSETutorDubaiPage.tsx";
 import ALevelTutorLanding from "./app/ALevelTutorAbuDhabiPage.tsx";
 import IBTutorAbuDhabiPage from "./app/IBTutorAbuDhabiPage.tsx";
 
@@ -106,6 +108,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   IBCurriculumPage,
   ChemistryLandingPage,
   ExamPanicBlog,
+  UAEExamsReturnBlog,
   IGCSEMathsLowMarksBlog,
   IGCSEBiology6MarkBlog,
   IGCSEPhysicsFormulasBlog,
@@ -113,6 +116,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   IGCSEPage,
   IGCSETutorLanding,
   GCSETutorLanding,
+  GCSETutorDubaiLanding,
   ALevelTutorLanding,
   MathematicsLanding,
   MathsPage,

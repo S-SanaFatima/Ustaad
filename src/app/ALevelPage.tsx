@@ -67,7 +67,7 @@ export default function ALevelPage() {
             <p className="text-[#0f4a9b] text-sm font-semibold mb-8">
               Based in Abu Dhabi? See our dedicated <a href="/a-level-tutor-abu-dhabi" className="underline font-bold hover:text-[#0a1f3d]">A-Level Tutor Abu Dhabi</a> page.
             </p>
-            <HeroCTABlock className="mb-4" trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock className="mb-4">
               Book Your First A-Level Lesson
             </HeroCTABlock>
           </motion.div>
@@ -507,9 +507,7 @@ export default function ALevelPage() {
       <FinalCTA
         title="Book an A-Level Tutor"
         subtitle="Your offer, on track."
-        button1Text="Book Your First A-Level Lesson"
-        subtext1="First lesson free. No commitment."
-      />
+        button1Text="Book Your First A-Level Lesson" />
 
     </Layout>
   );

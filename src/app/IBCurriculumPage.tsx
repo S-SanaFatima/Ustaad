@@ -69,7 +69,7 @@ export default function IBCurriculumPage() {
             <p className="text-gray-700 text-lg mb-10 leading-relaxed max-w-xl">
               MYP and Diploma Programme tutoring focused on criteria, academic writing, and independent learning.
             </p>
-            <HeroCTABlock className="mb-4" trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock className="mb-4">
               Book Your First IB Lesson
             </HeroCTABlock>
           </motion.div>
@@ -104,7 +104,7 @@ export default function IBCurriculumPage() {
                   <h3 className="text-xl font-extrabold text-[#0a1f3d] leading-snug group-hover:text-[#0f4a9b] transition-colors duration-200 relative z-10">{m.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed text-justify relative z-10 mb-3">{m.desc}</p>
                   <a href={m.link} className="inline-flex items-center gap-2 text-[#5b3a8a] font-bold text-sm hover:gap-3 transition-all duration-200 relative z-10">
-                    Explore {m.title.split(' ')[0]} <span className="text-lg">→</span>
+                    Explore {m.title.split(' ')[0]}
                   </a>
                 </div>
               ))}
@@ -463,9 +463,7 @@ export default function IBCurriculumPage() {
       <FinalCTA
         title="Book an IB Tutor"
         subtitle="MYP, SL, or HL. Tell us the subject, year group, and current grade target."
-        button1Text="Book Your First IB Lesson"
-        subtext1="First lesson free. No commitment."
-      />
+        button1Text="Book Your First IB Lesson" />
 
     </Layout>
   );

@@ -183,7 +183,7 @@ export default function HowItWorksPage() {
               <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-xl">
                 A calm, patient way of teaching, planned around how UAE students learn across a full school year, not against it.
               </p>
-              <HeroCTABlock className="mb-4" trustText="✦ No Commitment · Cancel Anytime">
+              <HeroCTABlock className="mb-4">
                 Book Your Free Trial
               </HeroCTABlock>
             </motion.div>

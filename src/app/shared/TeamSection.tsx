@@ -1,462 +1,370 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { getAuthorBySlug } from '../../content/authors';
+import { motion } from 'motion/react';
 import { GradientHeadingText } from './GradientHeadingText';
 import { personSchema } from './schemas';
+import {
+  ShieldCheck,
+  BookOpen,
+  Clock,
+  Sparkles,
+  ArrowUpRight,
+  Crown,
+} from 'lucide-react';
 
-const AUTO_MS = 4800;
-
-const nimraAuthor = getAuthorBySlug('nimra-shahzada');
-const nidaAuthor = getAuthorBySlug('nida-iqbal');
-
-type TeamMember = {
+export type TeamMember = {
   name: string;
   role: string;
   tag: string;
   desc: string;
+  oneLiner: string;
   focus: string[];
   initials: string;
   profileHref?: string;
-  image?: string;
+  image: string;
+  imageAlt: string;
+  objectPosition: string;
 };
 
-const TEAM: TeamMember[] = [
+export const TEAM: TeamMember[] = [
   {
     name: 'F. Zaman',
     role: 'Founder & Academic Director',
-    tag: 'Leadership',
-    desc: "Sets Ustaad's academic direction and tutoring standards, and oversees how tutors are selected and reviewed across every subject.",
-    focus: ['Academic direction', 'Tutor standards'],
+    tag: 'Academic Direction',
+    oneLiner: "Sets tutoring standards and curriculum strategy across British, IB, and American boards in the UAE.",
+    desc: "Sets Ustaad's academic direction and tutoring standards, and oversees how tutors are selected and reviewed across British, IB, and American curriculums.",
+    focus: ['10+ Yrs UAE', 'Curriculum Strategy'],
     initials: 'FZ',
+    image: '/images/team/f-zaman.jpg',
+    imageAlt: 'F. Zaman, Founder and Academic Director at Ustaad',
+    objectPosition: 'center 14%',
   },
   {
     name: 'Nida Iqbal',
     role: 'Tutor Quality & Development Lead',
-    tag: 'Quality',
-    desc: 'Reviews tutor performance and ongoing development so standards stay consistent across every session.',
-    focus: ['Tutor vetting', 'Ongoing review'],
+    tag: 'Tutor Quality',
+    oneLiner: "Oversees top 5% tutor vetting, live classroom observations, and pedagogy standards.",
+    desc: 'Oversees tutor selection, classroom observation, and ongoing pedagogy training so academic standards stay consistent.',
+    focus: ['Tutor Vetting', 'Pedagogy Audits'],
     initials: 'NI',
     profileHref: '/authors/nida-iqbal',
-    image: nidaAuthor?.photo,
+    image: '/images/team/nida-iqbal.jpg',
+    imageAlt: 'Nida Iqbal, Tutor Quality and Development Lead at Ustaad',
+    objectPosition: 'center 16%',
   },
   {
     name: 'Nimra Shahzada',
     role: 'Content Lead & Academic Consultant',
-    tag: 'Content',
-    desc: "Researches the study and academic challenges UAE students face, and writes clear, practical guidance around them as Ustaad's content lead.",
-    focus: ['Student research', 'Editorial writing', 'Curriculum planning'],
+    tag: 'Exam Research',
+    oneLiner: "Researches UAE student challenges and authors board-exact revision blueprints and guides.",
+    desc: 'Researches learning challenges faced by UAE students and authors clear revision guides and exam blueprints.',
+    focus: ['Exam Blueprints', 'Board Criteria'],
     initials: 'NS',
     profileHref: '/authors/nimra-shahzada',
-    image: nimraAuthor?.photo,
+    image: '/images/team/nimra-shahzada.jpg',
+    imageAlt: 'Nimra Shahzada, Content Lead and Academic Consultant at Ustaad',
+    objectPosition: 'center 16%',
   },
   {
     name: 'Mehwish Masood',
     role: 'Academic Coordinator',
-    tag: 'Coordination',
-    desc: 'Handles day-to-day academic coordination and matches each student with a tutor suited to their subject and level.',
-    focus: ['Tutor matching', 'Scheduling'],
+    tag: 'Operations',
+    oneLiner: "Matches students with compatible tutors suited to their board, syllabus, and learning style.",
+    desc: 'Manages lesson operations and matches each student with a tutor suited to their board, year group, and learning style.',
+    focus: ['Tutor Matching', 'Syllabus Alignment'],
     initials: 'MM',
+    image: '/images/team/mehwish-masood.jpg',
+    imageAlt: 'Mehwish Masood, Academic Coordinator at Ustaad',
+    objectPosition: 'center 16%',
   },
   {
     name: 'Maheen Gul',
     role: 'Head of Admissions & Parent Relations',
-    tag: 'Admissions',
-    desc: 'First point of contact for parents. Walks families through enrolment and keeps communication clear at every step.',
-    focus: ['Enrolment', 'Parent liaison'],
+    tag: 'Parent Relations',
+    oneLiner: "Dedicated liaison guiding families through consultation, tutor enrolment, and progress reports.",
+    desc: 'First point of contact for families. Guides parents through consultation, enrolment, and ongoing progress updates.',
+    focus: ['Family Liaison', 'Progress Updates'],
     initials: 'MG',
+    image: '/images/team/maheen-gul.jpg',
+    imageAlt: 'Maheen Gul, Head of Admissions and Parent Relations at Ustaad',
+    objectPosition: 'center 16%',
+  },
+  {
+    name: 'Imran Ahmed',
+    role: 'Student Progress & Outcomes Advisor',
+    tag: 'Student Outcomes',
+    oneLiner: 'Tracks student progress, reviews learning outcomes, and flags where extra academic support may be needed.',
+    desc: 'Tracks student progress, reviews learning outcomes, and helps identify where additional academic support may be needed.',
+    focus: ['Progress Tracking', 'Outcome Reviews'],
+    initials: 'IA',
+    image: '/images/team/imran-ahmed.jpg',
+    imageAlt: 'Imran Ahmed, Student Progress and Outcomes Advisor at Ustaad',
+    objectPosition: 'center 14%',
   },
 ];
 
-/** Person schema for each leadership profile on the About page */
+const [FOUNDER, ...FACULTY] = TEAM;
+
 export const teamPersonSchemas = TEAM.map((member) =>
   personSchema({
     name: member.name,
     jobTitle: member.role,
     description: member.desc,
+    image: member.image,
     ...(member.profileHref && { url: member.profileHref }),
-    ...(member.image && { image: member.image }),
     ...(member.profileHref && {
       sameAs: 'https://www.linkedin.com/company/ustaad-ae',
     }),
   })
 );
 
-function MemberName({
-  member,
-  className,
-  onClick,
-}: {
-  member: TeamMember;
-  className?: string;
-  onClick?: (e: React.MouseEvent) => void;
-}) {
-  if (!member.profileHref) {
-    return <span className={className}>{member.name}</span>;
-  }
+const viewportReplay = { once: false, amount: 0.25, margin: '0px 0px -6% 0px' } as const;
+
+function FacultyCard({ member, index }: { member: TeamMember; index: number }) {
   return (
-    <a
-      href={member.profileHref}
-      className={className}
-      onClick={onClick}
+    <motion.article
+      initial={{ opacity: 0, y: 28, scale: 0.97 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={viewportReplay}
+      transition={{ duration: 0.45, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -6 }}
+      className="group relative flex flex-col bg-white rounded-2xl border border-slate-200/90 shadow-[0_6px_22px_rgba(15,74,155,0.05)] overflow-hidden hover:border-[#0f4a9b]/25 hover:shadow-[0_16px_40px_rgba(15,74,155,0.12)] transition-shadow duration-300"
     >
-      {member.name}
-    </a>
+      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#C7A24A]/0 to-transparent group-hover:via-[#C7A24A] transition-all duration-300 z-10" />
+
+      <div className="relative aspect-[4/4.6] sm:aspect-[4/4.4] overflow-hidden bg-[#e8eef8]">
+        <img
+          src={member.image}
+          alt={member.imageAlt}
+          className="w-full h-full object-cover scale-[1.02] group-hover:scale-110 transition-transform duration-700 ease-out"
+          style={{ objectPosition: member.objectPosition }}
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f3d]/85 via-[#0a1f3d]/20 to-transparent" />
+        <span className="absolute top-2.5 left-2.5 max-w-[calc(100%-1.25rem)] truncate px-2 py-0.5 rounded-full bg-white/95 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.06em] text-[#0f4a9b] shadow-sm">
+          {member.tag}
+        </span>
+        <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-3 sm:left-3.5 sm:right-3.5">
+          <h3 className="text-[13px] sm:text-base font-bold text-white leading-snug tracking-tight">
+            {member.name}
+          </h3>
+          <p className="text-[10px] sm:text-[12px] font-medium text-[#f0d080]/95 mt-0.5 leading-snug line-clamp-2">
+            {member.role}
+          </p>
+        </div>
+      </div>
+
+      <div className="px-2.5 py-2.5 sm:px-3.5 sm:py-3.5 flex-1 flex flex-col">
+        <p className="text-[11px] sm:text-[13px] text-[#3a4f6e] leading-relaxed flex-1 line-clamp-4 sm:line-clamp-none">
+          {member.oneLiner}
+        </p>
+        <div className="mt-2.5 pt-2.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1.5">
+          <div className="flex flex-wrap gap-1 min-w-0">
+            {member.focus.slice(0, 1).map((f) => (
+              <span
+                key={f}
+                className="text-[9px] sm:text-[10px] font-semibold text-[#0a1f3d]/70 bg-[#f4f7fc] px-1.5 sm:px-2 py-0.5 rounded-md border border-[#0f4a9b]/8 truncate max-w-full"
+              >
+                {f}
+              </span>
+            ))}
+            {member.focus[1] && (
+              <span className="hidden sm:inline-flex text-[10px] font-semibold text-[#0a1f3d]/70 bg-[#f4f7fc] px-2 py-0.5 rounded-md border border-[#0f4a9b]/8">
+                {member.focus[1]}
+              </span>
+            )}
+          </div>
+          {member.profileHref && (
+            <a
+              href={member.profileHref}
+              className="shrink-0 text-[10px] sm:text-[11px] font-bold text-[#0f4a9b] hover:text-[#C7A24A] transition-colors flex items-center gap-0.5"
+            >
+              Bio <ArrowUpRight className="w-3 h-3" />
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.article>
   );
 }
 
-function pad(n: number) {
-  return String(n).padStart(2, '0');
-}
-
 export default function TeamSection() {
-  const [idx, setIdx] = useState(0);
-  const [fading, setFading] = useState(false);
-  const [barKey, setBarKey] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const reducedRef = useRef(false);
-  const swipeStartX = useRef<number | null>(null);
-  const swipeDx = useRef(0);
-  const swiping = useRef(false);
-
-  useEffect(() => {
-    reducedRef.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  }, []);
-
-  const autoActive = !reducedRef.current && !paused;
-
-  const togglePause = () => {
-    setPaused((current) => {
-      const next = !current;
-      if (!next) setBarKey((k) => k + 1);
-      return next;
-    });
-  };
-
-  const goTo = useCallback((next: number) => {
-    const i = ((next % TEAM.length) + TEAM.length) % TEAM.length;
-
-    if (reducedRef.current) {
-      setIdx(i);
-      return;
-    }
-
-    setFading(true);
-    window.setTimeout(() => {
-      setIdx(i);
-      setFading(false);
-    }, 140);
-  }, []);
-
-  useEffect(() => {
-    if (!autoActive) return;
-    setBarKey((k) => k + 1);
-    const timer = window.setTimeout(() => goTo(idx + 1), AUTO_MS);
-    return () => window.clearTimeout(timer);
-  }, [autoActive, idx, goTo]);
-
-  const onCardPointerDown = (e: React.PointerEvent) => {
-    swipeStartX.current = e.clientX;
-    swipeDx.current = 0;
-    swiping.current = true;
-  };
-
-  const onCardPointerMove = (e: React.PointerEvent) => {
-    if (!swiping.current || swipeStartX.current === null) return;
-    swipeDx.current = e.clientX - swipeStartX.current;
-  };
-
-  const onCardPointerUp = () => {
-    if (!swiping.current) return;
-    swiping.current = false;
-    if (Math.abs(swipeDx.current) > 48) {
-      goTo(idx + (swipeDx.current < 0 ? 1 : -1));
-    }
-    swipeStartX.current = null;
-    swipeDx.current = 0;
-  };
-
-  const member = TEAM[idx];
-
   return (
     <section
       id="team"
-      className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-gradient-to-br from-[#F4F8FD] via-white to-[#fcfaf5]"
+      className="py-16 sm:py-20 relative overflow-hidden bg-gradient-to-b from-[#F4F8FD] via-white to-[#F4F8FD] isolate"
       aria-labelledby="team-heading"
     >
-      <style>{`
-        @keyframes ustTeamPlaybar {
-          from { transform: scaleX(0); }
-          to { transform: scaleX(1); }
-        }
-        .ust-team-playbar {
-          transform-origin: left center;
-          animation: ustTeamPlaybar ${AUTO_MS}ms linear forwards;
-        }
-        .ust-team-playbar.is-paused {
-          animation-play-state: paused;
-        }
-        @keyframes ustTeamChipIn {
-          from { opacity: 0; transform: translateY(6px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .ust-team-chip {
-          animation: ustTeamChipIn .4s cubic-bezier(.2,.7,.2,1) forwards;
-          opacity: 0;
-        }
-        .ust-team-chip:nth-child(1) { animation-delay: .05s; }
-        .ust-team-chip:nth-child(2) { animation-delay: .12s; }
-        .ust-team-chip:nth-child(3) { animation-delay: .2s; }
-        @media (prefers-reduced-motion: reduce) {
-          .ust-team-playbar { animation: none !important; transform: scaleX(0); }
-          .ust-team-chip { animation: none !important; opacity: 1; transform: none; }
-        }
-      `}</style>
-
-      <div className="absolute top-0 right-0 w-[520px] h-[520px] bg-gradient-to-br from-[#0f4a9b]/10 to-[#C7A24A]/5 rounded-full blur-[110px] pointer-events-none translate-x-1/4 -translate-y-1/4" />
-      <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-gradient-to-tr from-[#0f4a9b]/8 to-transparent rounded-full blur-[100px] pointer-events-none -translate-x-1/4 translate-y-1/4" />
+      <div className="absolute inset-0 pointer-events-none opacity-[0.35]" style={{ backgroundImage: 'radial-gradient(rgba(15,74,155,0.06) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+      <div className="absolute -top-24 right-0 w-96 h-96 rounded-full bg-[#C7A24A]/10 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 -left-20 w-80 h-80 rounded-full bg-[#0f4a9b]/8 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="mb-10 lg:mb-14 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-[#C7A24A]/15 to-[#A8892A]/10 text-[#A8892A] text-xs font-bold rounded-full mb-4 border border-[#C7A24A]/25 uppercase tracking-wider shadow-[0_0_15px_rgba(199,162,74,0.12)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A]" aria-hidden="true" />
-            Our people
+        <motion.div
+          className="mb-10 sm:mb-12 max-w-2xl"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportReplay}
+          transition={{ duration: 0.45 }}
+        >
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#C7A24A]/10 text-[#A8892A] text-xs font-extrabold rounded-full mb-3 border border-[#C7A24A]/25 uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-[#C7A24A]" />
+            Academic Leadership
           </div>
           <h2
             id="team-heading"
-            className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0a1f3d] leading-tight mb-4"
+            className="text-3xl sm:text-4xl font-black text-[#0a1f3d] tracking-tight"
           >
-            <GradientHeadingText text="The team behind Ustaad" />
+            <GradientHeadingText text="The Team Behind Ustaad" />
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-5" />
-          <p className="text-gray-600 text-base lg:text-lg leading-relaxed max-w-2xl">
-            Academic expertise, thoughtful coordination and dedicated support behind every tutoring journey.
+          <p className="text-[#3a4f6e] text-[15px] leading-relaxed mt-2.5 tracking-[-0.01em] max-w-xl">
+            Experienced educators and curriculum leads actively overseeing lesson quality and student progress.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-[1.1fr_0.95fr] gap-5 lg:gap-7 items-stretch">
-          {/* Featured navy card */}
-          <article
-            className="relative rounded-[24px] p-6 sm:p-7 lg:p-8 flex flex-col gap-5 min-h-0 lg:min-h-[380px] overflow-hidden bg-gradient-to-br from-[#0a1f3d] via-[#0d2c58] to-[#0f4a9b] border border-[#0f4a9b]/50 shadow-[0_20px_50px_rgba(15,74,155,0.25)] touch-pan-y"
-            aria-live="polite"
-            onPointerDown={onCardPointerDown}
-            onPointerMove={onCardPointerMove}
-            onPointerUp={onCardPointerUp}
-            onPointerCancel={onCardPointerUp}
-          >
-            <div className="absolute top-0 right-0 w-[340px] h-[340px] bg-gradient-to-br from-[#C7A24A]/15 to-transparent rounded-full blur-[80px] pointer-events-none translate-x-1/4 -translate-y-1/4" />
-            <div className="absolute bottom-0 left-0 w-[260px] h-[260px] bg-[#0f4a9b]/40 rounded-full blur-[70px] pointer-events-none -translate-x-1/4 translate-y-1/4" />
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#C7A24A] via-[#C7A24A]/60 to-transparent" aria-hidden="true" />
+        {/* Founder — featured card with balanced portrait */}
+        <motion.article
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportReplay}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="group relative mb-8 sm:mb-10 overflow-hidden rounded-[1.5rem] border border-[#0f4a9b]/12 bg-white shadow-[0_14px_36px_rgba(15,74,155,0.08)]"
+        >
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#C7A24A]/60 to-transparent" />
 
-            {!reducedRef.current && (
-              <div
-                key={barKey}
-                className={`ust-team-playbar absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-[#C7A24A] to-[#f0d080] opacity-95 z-20 ${paused ? 'is-paused' : ''}`}
-                aria-hidden="true"
-              />
-            )}
-
-            <div className="relative z-10 flex items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#C7A24A] to-[#A8892A] text-[#0a1f3d] font-extrabold text-sm grid place-items-center shadow-[0_8px_20px_rgba(199,162,74,0.32)] notranslate" translate="no">
-                  {member.initials}
-                </div>
-                <div className="text-sm font-bold tracking-wide text-white/90">
-                  <span
-                    className={`inline-block min-w-[1.4em] text-[#C7A24A] transition-all duration-300 ${
-                      fading ? '-translate-y-1 opacity-40' : ''
-                    }`}
-                  >
-                    {pad(idx + 1)}
-                  </span>
-                  <span className="text-white/40"> / {pad(TEAM.length)}</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                {!reducedRef.current && (
-                  <button
-                    type="button"
-                    onClick={togglePause}
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] font-semibold backdrop-blur-sm transition-colors ${
-                      paused
-                        ? 'bg-[#C7A24A]/20 border-[#C7A24A]/40 text-[#f0d080]'
-                        : 'bg-white/10 border-white/15 text-white/80 animate-pulse'
-                    }`}
-                    aria-pressed={paused}
-                    aria-label={paused ? 'Resume team carousel' : 'Pause team carousel'}
-                  >
-                    <span className={`w-1 h-1 rounded-full ${paused ? 'bg-[#C7A24A]' : 'bg-[#C7A24A]'}`} aria-hidden="true" />
-                    <span className="sm:hidden">{paused ? 'Tap to play' : 'Tap to pause'}</span>
-                    <span className="hidden sm:inline">{paused ? 'Click to play' : 'Click to pause'}</span>
-                  </button>
-                )}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-[11px] font-bold uppercase tracking-[0.15em] text-[#f0d080] backdrop-blur-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_8px_rgba(199,162,74,0.8)]" aria-hidden="true" />
-                  {member.tag}
-                </div>
-              </div>
-            </div>
-
-            <div
-              className={`relative z-10 flex flex-col gap-3 flex-1 transition-all duration-300 ${
-                fading ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
-              }`}
-            >
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#C7A24A] m-0">
-                {member.role}
-              </p>
-              <h3 className="text-[28px] sm:text-3xl lg:text-[38px] font-extrabold text-white leading-[1.06] tracking-tight m-0">
-                <MemberName
-                  member={member}
-                  className={
-                    member.profileHref
-                      ? 'text-white hover:text-[#f0d080] underline decoration-[#C7A24A]/40 underline-offset-4 transition-colors'
-                      : 'text-white'
-                  }
+          <div className="relative flex flex-col sm:flex-row gap-5 sm:gap-6 p-4 sm:p-5 lg:p-6 items-stretch sm:items-center">
+            <div className="relative mx-auto sm:mx-0 w-full max-w-[200px] sm:max-w-none sm:w-[200px] lg:w-[220px] shrink-0">
+              <div className="relative aspect-[3.4/4] rounded-2xl overflow-hidden bg-[#e8eef8] ring-1 ring-[#0f4a9b]/10 shadow-md">
+                <img
+                  src={FOUNDER.image}
+                  alt={FOUNDER.imageAlt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  style={{ objectPosition: FOUNDER.objectPosition }}
+                  loading="eager"
                 />
-              </h3>
-              <p className="text-[14.5px] leading-relaxed text-blue-100/85 m-0 max-w-xl min-h-[4em]">
-                {member.desc}
-              </p>
-            </div>
-
-            <div className="relative z-10 pt-4 border-t border-white/10">
-              <div className="flex flex-wrap gap-2" aria-label="Focus areas" key={idx}>
-                {member.focus.map((f) => (
-                  <span
-                    key={f}
-                    className="ust-team-chip inline-flex items-center gap-1.5 text-[11px] font-bold tracking-wide text-[#0a1f3d] bg-gradient-to-r from-[#C7A24A] to-[#e0c06a] px-3 py-1.5 rounded-full shadow-[0_4px_12px_rgba(199,162,74,0.25)]"
-                  >
-                    {f}
-                  </span>
-                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f3d]/35 via-transparent to-transparent pointer-events-none" />
+              </div>
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 sm:left-3 sm:translate-x-0 flex flex-wrap justify-center gap-1.5">
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#C7A24A] text-[#0a1f3d] text-[9px] font-extrabold uppercase tracking-[0.1em] shadow-md">
+                  <Crown className="w-3 h-3" />
+                  Founder
+                </span>
               </div>
             </div>
 
-            <div className="relative z-10 flex items-center justify-between gap-3 pt-1 lg:hidden">
-              <button
-                type="button"
-                onClick={() => goTo(idx - 1)}
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/15 text-white hover:bg-white/15 transition-colors"
-                aria-label="Previous team member"
+            <div className="relative flex-1 min-w-0 text-center sm:text-left py-1 sm:py-2 sm:pr-2">
+              <motion.div
+                initial={{ opacity: 0, x: 12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={viewportReplay}
+                transition={{ duration: 0.4, delay: 0.08 }}
               >
-                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M15 6l-6 6 6 6" />
-                </svg>
-              </button>
-              <p className="text-[11px] text-white/60 m-0 text-center">
-                Swipe or use arrows · tap list to jump
-              </p>
-              <button
-                type="button"
-                onClick={() => goTo(idx + 1)}
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/15 text-white hover:bg-white/15 transition-colors"
-                aria-label="Next team member"
-              >
-                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M9 6l6 6-6 6" />
-                </svg>
-              </button>
-            </div>
-          </article>
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
+                  <span className="px-2.5 py-1 rounded-full bg-[#0f4a9b]/8 text-[10px] font-bold uppercase tracking-[0.08em] text-[#0f4a9b] border border-[#0f4a9b]/12">
+                    {FOUNDER.tag}
+                  </span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#C7A24A]">
+                    Leading Ustaad since day one
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold text-[#0a1f3d] tracking-tight leading-tight mb-1">
+                  {FOUNDER.name}
+                </h3>
+                <p className="text-sm font-semibold text-[#0f4a9b] mb-3">
+                  {FOUNDER.role}
+                </p>
+                <p className="text-[13px] sm:text-[14px] text-[#3a4f6e] leading-relaxed mb-4 max-w-2xl mx-auto sm:mx-0">
+                  {FOUNDER.desc}
+                </p>
 
-          {/* Index list panel */}
-          <div className="bg-white/90 backdrop-blur-sm rounded-[24px] border border-[#0f4a9b]/10 shadow-[0_14px_36px_rgba(10,31,61,0.08)] p-3 sm:p-3.5 flex flex-col">
-            <ol
-              className="list-none p-0 m-0 flex flex-col flex-1"
-              role="tablist"
-              aria-label="Team members"
-              onKeyDown={(e) => {
-                if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-                  e.preventDefault();
-                  goTo(idx + 1);
-                }
-                if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-                  e.preventDefault();
-                  goTo(idx - 1);
-                }
-                if (e.key === 'Home') {
-                  e.preventDefault();
-                  goTo(0);
-                }
-                if (e.key === 'End') {
-                  e.preventDefault();
-                  goTo(TEAM.length - 1);
-                }
-              }}
-            >
-              {TEAM.map((m, i) => {
-                const active = i === idx;
-                return (
-                  <li key={m.name} className="m-0">
-                    <div
-                      role="tab"
-                      tabIndex={active ? 0 : -1}
-                      aria-selected={active}
-                      aria-current={active ? 'true' : undefined}
-                      onClick={() => goTo(i)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault();
-                          goTo(i);
-                        }
-                      }}
-                      className={`group w-full grid grid-cols-[38px_1fr_auto] items-center gap-3 py-3 sm:py-3.5 px-2.5 sm:px-3 rounded-xl text-left transition-all duration-300 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C7A24A] focus-visible:outline-offset-2 ${
-                        active
-                          ? 'text-[#0a1f3d] bg-gradient-to-r from-[#0f4a9b]/[0.08] via-[#C7A24A]/10 to-transparent ring-1 ring-[#0f4a9b]/15 shadow-sm'
-                          : 'text-gray-500 hover:text-[#0a1f3d] hover:bg-[#0f4a9b]/[0.04]'
-                      }`}
+                <blockquote className="relative mb-4 max-w-2xl mx-auto sm:mx-0 rounded-xl border border-[#C7A24A]/25 bg-gradient-to-br from-[#fdfaf3] to-[#f8fafd] px-4 py-3.5 sm:px-5 sm:py-4 text-left">
+                  <p className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#C7A24A] mb-2">
+                    Founder Message
+                  </p>
+                  <p className="text-[13px] sm:text-[14px] text-[#0a1f3d] leading-relaxed font-medium italic">
+                    &ldquo;Ustaad was built on a simple belief: the right teacher can change more than a student&apos;s grades, they can build confidence, inspire ambition, and shape a better future.&rdquo;
+                  </p>
+                </blockquote>
+
+                <div className="flex flex-wrap justify-center sm:justify-start gap-2">
+                  {FOUNDER.focus.map((f) => (
+                    <span
+                      key={f}
+                      className="inline-flex items-center text-[11px] font-bold text-[#0a1f3d] bg-[#f4f7fc] px-2.5 py-1 rounded-full border border-[#0f4a9b]/10"
                     >
-                      <span
-                        className={`w-9 h-9 rounded-xl grid place-items-center text-[13px] font-extrabold transition-all ${
-                          active
-                            ? 'bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white shadow-[0_6px_14px_rgba(15,74,155,0.28)]'
-                            : 'bg-[#0f4a9b]/[0.06] text-[#0f4a9b]/70 group-hover:bg-[#0f4a9b]/10'
-                        }`}
-                      >
-                        {pad(i + 1)}
-                      </span>
-                      <span className="min-w-0">
-                        <span
-                          className={`block text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.11em] mb-0.5 transition-colors truncate ${
-                            active ? 'text-[#C7A24A]' : 'text-gray-400'
-                          }`}
-                        >
-                          {m.role}
-                        </span>
-                        <MemberName
-                          member={m}
-                          className={`block text-base sm:text-lg font-extrabold tracking-tight leading-snug truncate ${
-                            m.profileHref
-                              ? 'text-current hover:text-[#0f4a9b] underline decoration-[#0f4a9b]/30 underline-offset-2'
-                              : 'text-current'
-                          }`}
-                          onClick={(e) => e.stopPropagation()}
-                        />
-                      </span>
-                      <span
-                        className={`w-8 h-8 rounded-full grid place-items-center transition-all duration-300 ${
-                          active
-                            ? 'opacity-100 bg-[#C7A24A]/15 text-[#A8892A]'
-                            : 'opacity-0 group-hover:opacity-60 text-gray-400'
-                        }`}
-                        aria-hidden="true"
-                      >
-                        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M9 6l6 6-6 6" />
-                        </svg>
-                      </span>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-            <div className="flex items-center justify-between mt-2 pt-3 px-2 border-t border-[#0a1f3d]/[0.06] text-xs tracking-wide text-gray-400">
-              <span>
-                Ustaad leadership · <em className="not-italic font-bold text-[#0f4a9b]">five roles</em>
-              </span>
-              <span className="font-semibold text-[#C7A24A]">Since 2015</span>
+                      {f}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             </div>
           </div>
+        </motion.article>
+
+        {/* Faculty grid — smaller cards below */}
+        <motion.div
+          className="flex flex-col xs:flex-row sm:flex-row sm:items-center gap-2 sm:gap-3 mb-5"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportReplay}
+          transition={{ duration: 0.4 }}
+        >
+          <div className="flex items-center gap-3 min-w-0 flex-1">
+            <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] text-[#0a1f3d]/55 shrink-0">
+              Faculty &amp; academic team
+            </h3>
+            <div className="hidden sm:block flex-1 h-px bg-gradient-to-r from-slate-200 to-transparent" />
+          </div>
+          <span className="self-start text-[11px] font-bold text-[#0f4a9b]/70 bg-[#0f4a9b]/5 px-2.5 py-1 rounded-full border border-[#0f4a9b]/10">
+            {FACULTY.length} members
+          </span>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-2.5 sm:gap-4">
+          {FACULTY.map((member, i) => (
+            <FacultyCard key={member.name} member={member} index={i} />
+          ))}
         </div>
+
+        {/* Trust strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportReplay}
+          transition={{ duration: 0.5 }}
+          className="mt-10 rounded-2xl p-5 sm:p-6 shadow-[0_12px_32px_rgba(15,74,155,0.18)]"
+          style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0d2c58 45%, #0f4a9b 100%)' }}
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10 text-left">
+            <div className="flex items-center gap-3.5 pt-2 sm:pt-0 sm:px-3 first:pt-0">
+              <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-5 h-5 text-[#f0d080]" />
+              </div>
+              <div>
+                <p className="text-[13px] font-semibold text-white tracking-tight">Top 5% Tutor Acceptance</p>
+                <p className="text-[12px] text-blue-100/70 leading-snug mt-0.5">Rigorous 3-tier vetting &amp; live lessons</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5 pt-4 sm:pt-0 sm:px-3">
+              <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
+                <BookOpen className="w-5 h-5 text-[#f0d080]" />
+              </div>
+              <div>
+                <p className="text-[13px] font-semibold text-white tracking-tight">Curriculum Specialists Only</p>
+                <p className="text-[12px] text-blue-100/70 leading-snug mt-0.5">Board-exact Cambridge, IB &amp; AP tutors</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5 pt-4 sm:pt-0 sm:px-3">
+              <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
+                <Clock className="w-5 h-5 text-[#f0d080]" />
+              </div>
+              <div>
+                <p className="text-[13px] font-semibold text-white tracking-tight">Continuous Quality Audits</p>
+                <p className="text-[12px] text-blue-100/70 leading-snug mt-0.5">Ongoing reviews by academic directors</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { GoldButton } from './GoldButton';
 import { GradientHeadingText } from './GradientHeadingText';
+import { CTA_SUBTEXT } from './ctaCopy';
 
 interface FinalCTAProps {
   title?: string;
@@ -20,7 +21,7 @@ export default function FinalCTA({
   subtitleNode,
   button1Text = "Start Your First Session Today",
   button1Href = "/contact#form",
-  subtext1 = "Free Trial • No Commitment",
+  subtext1 = CTA_SUBTEXT,
   button2Text,
   button2Href = "https://wa.me/971561249005",
   subtext2,

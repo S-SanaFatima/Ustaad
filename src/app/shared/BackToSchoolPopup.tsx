@@ -3,36 +3,28 @@ import {
   X,
   Calendar,
   Star,
-  BookOpen,
   BadgePercent,
-  Sparkles,
-  ArrowRight,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-const ENROL_URL = '/contact#form';
+const ENROL_URL = '/contact?offer=back-to-school-10#form';
 
 const SERIF: CSSProperties = { fontFamily: 'Georgia, "Times New Roman", serif' };
 
-const PERKS = [
-  { icon: Star, label: '5.0 Rated', filled: true },
-  { icon: BookOpen, label: 'IGCSE & IB', filled: false },
-  { icon: BadgePercent, label: '10% Off', filled: false },
-] as const;
-
+const PERKS = [] as const;
 function HeadingBlock() {
   return (
     <div className="min-w-0 w-full text-left">
-      <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#0a1f3d]/55 leading-none md:text-[11px]">
+      <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#0a1f3d]/60 leading-none md:text-[14px]">
         Back to
       </p>
       <h2
-        className="mt-0.5 text-[1.55rem] font-bold uppercase leading-[0.95] tracking-tight text-[#C7A24A] md:mt-1 md:text-[2.35rem]"
+        className="mt-1 text-[2.25rem] font-black uppercase leading-[0.92] tracking-tight bg-gradient-to-r from-[#D4AF37] via-[#C7A24A] to-[#9E7C20] bg-clip-text text-transparent md:mt-2 md:text-[3.5rem]"
         style={SERIF}
       >
         School
       </h2>
-      <p className="mt-1.5 text-[12px] font-medium leading-snug text-[#0a1f3d]/75 md:mt-2 md:text-sm">
+      <p className="mt-1.5 text-[13px] font-semibold leading-snug text-[#0a1f3d]/80 md:mt-3 md:text-base">
         Stronger start. Brighter year.
       </p>
     </div>
@@ -131,22 +123,7 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
                   <HeadingBlock />
                 </div>
 
-                <div className="mt-3 flex w-full flex-wrap gap-1.5 md:mt-5 md:gap-2">
-                  {PERKS.map(({ icon: Icon, label, filled }) => (
-                    <span
-                      key={label}
-                      className="inline-flex items-center gap-1 rounded-md border border-[#0a1f3d]/8 bg-white px-2 py-1 text-[9px] font-semibold text-[#0a1f3d]/80 shadow-sm md:gap-1.5 md:rounded-lg md:px-2.5 md:py-1.5 md:text-[10px]"
-                    >
-                      <Icon
-                        className={`h-3 w-3 text-[#C7A24A] md:h-3.5 md:w-3.5 ${filled ? 'fill-[#C7A24A]' : ''}`}
-                        strokeWidth={2.25}
-                      />
-                      {label}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="my-3 h-px w-8 bg-[#C7A24A]/60 md:my-5 md:w-10" aria-hidden="true" />
+                <div className="my-4 h-[2px] w-12 rounded-full bg-gradient-to-r from-[#C7A24A] to-transparent md:my-6 md:w-16" aria-hidden="true" />
 
                 <div className="w-full rounded-lg border border-[#0a1f3d]/8 bg-[#f8fafc] px-3 py-3 text-left md:rounded-xl md:px-5 md:py-4">
                   <div className="flex items-baseline gap-x-1.5 md:gap-x-2">
@@ -168,22 +145,18 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
                   </p>
                   <p className="mt-2 flex items-start gap-1 text-[10px] font-medium leading-snug text-[#0a1f3d]/65 md:mt-3 md:gap-1.5 md:text-xs">
                     <Star className="mt-0.5 h-2.5 w-2.5 shrink-0 fill-[#C7A24A] text-[#C7A24A] md:h-3 md:w-3" strokeWidth={0} />
-                    <span>5.0 Google Reviews · Matched IGCSE, A-Level &amp; IB tutors</span>
-                  </p>
-                </div>
+                    <span>5.0 Google Reviews</span>
+                  </p>                </div>
 
                 <a
                   href={ENROL_URL}
                   onClick={onClose}
                   className="group mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg bg-[#0a1f3d] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white shadow-[0_6px_18px_rgba(10,31,61,0.22)] transition hover:bg-[#0f4a9b] active:scale-[0.99] md:mt-4 md:gap-2 md:rounded-xl md:px-5 md:py-3.5 md:text-xs"
                 >
-                  <Sparkles className="h-3 w-3 text-[#C7A24A] md:h-3.5 md:w-3.5" strokeWidth={2.25} />
                   Claim My 10% Discount
-                  <ArrowRight className="h-3 w-3 transition group-hover:translate-x-0.5 md:h-3.5 md:w-3.5" strokeWidth={2.5} />
                 </a>
 
-                <div className="mt-2.5 flex w-full items-center gap-2.5 rounded-lg border border-[#C7A24A]/20 bg-[#fdfaf3] px-3 py-2.5 text-left md:mt-3 md:gap-3 md:rounded-xl md:px-4 md:py-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#0a1f3d] text-[#C7A24A] md:h-9 md:w-9">
+                <div className="mt-2.5 flex w-full items-center gap-2.5 rounded-lg border border-[#C7A24A]/20 bg-[#fdfaf3] px-3 py-2.5 text-left md:mt-3 md:gap-3 md:rounded-xl md:px-4 md:py-3">                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#0a1f3d] text-[#C7A24A] md:h-9 md:w-9">
                     <Calendar className="h-3.5 w-3.5 md:h-4 md:w-4" strokeWidth={2} />
                   </div>
                   <div className="min-w-0 text-left">

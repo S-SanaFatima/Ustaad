@@ -100,7 +100,7 @@ export default function StatsBar({ customText }: StatsBarProps = {}) {
       icon: <Award className="h-6 w-6 text-[#C7A24A]" />,
       val: `${counts.exam || TARGETS.exam}%+`,
       label: 'Exam Success Rate',
-      subtext: 'IGCSE, IB & A-Level',
+      subtext: 'Full Curriculum & Exam Boards',
     },
     {
       icon: <UserCheck className="h-6 w-6 text-[#C7A24A]" />,

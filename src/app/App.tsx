@@ -2,20 +2,21 @@ import { useState, useRef, useEffect } from 'react';
 import { 
   Star, GraduationCap, Award, BookOpen, CheckCircle,
   MessageCircle, ChevronDown, ChevronLeft, ChevronRight, HelpCircle, TrendingUp, Clock,
-  Shield, Brain, ArrowRight, Library, Building,
-  Atom, Calculator, FlaskConical, Dna, Briefcase, Lightbulb, DollarSign,
+  Shield, Brain, Library, Building,
+  Atom, Calculator, FlaskConical, Dna, Briefcase, Lightbulb, Wrench,
   Sigma, ShieldCheck, Leaf, PenTool,
   Landmark, Globe, Compass, Rocket, LineChart, Microscope, Settings, 
   Search, UserCheck, HeartHandshake, BarChart3, BookMarked,
   Zap, Target, Calendar, FileCheck, BrainCircuit, ClipboardList, CalendarClock, BookText,
-  ClipboardCheck, Layers, EyeOff, AlertTriangle, Crosshair, UserPlus, FileStack, Gauge, Timer
+  ClipboardCheck, Layers, EyeOff, AlertTriangle, Crosshair, UserPlus, FileStack, Gauge, Timer, ArrowRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Layout, GradientHeadingText, GoldButton, BritishLandmarkWatermark, AmericanLandmarkWatermark, IBWorldWatermark, FinalCTA, StatsBar } from './shared';
+import { Layout, GradientHeadingText, GoldButton, BritishLandmarkWatermark, AmericanLandmarkWatermark, IBWorldWatermark, FinalCTA, StatsBar, CTA_SUBTEXT } from './shared';
 import SEOHead from './shared/SEOHead';
 import BackToSchoolPopup from './shared/BackToSchoolPopup';
 import { localBusinessSchema, breadcrumbSchema, faqSchema, reviewsSchema, organizationSchema, websiteSchema } from './shared/schemas';
 import AskExpertSection from './AskExpertSection';
+import { ExplodedViewSection, AchievementCoinsSection, HowUstaadWorksSection, WhyFamiliesChooseSection, StudentStruggleSection, AcademicExpertiseSection } from './shared';
 
 const REVIEWS = [
   { name: "Fares Al Kindi",    initials: "FK", location: "Abu Dhabi, UAE", text: "I had a great experience with Ustaad. They truly provide some of the Best Tutors in Abu Dhabi. The teaching style is clear, professional, and very supportive." },
@@ -89,25 +90,25 @@ function ReviewsCarousel() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="bg-white rounded-xl p-6 lg:p-7 border border-gray-100 shadow-[0_4px_24px_rgba(15,74,155,0.09)] relative overflow-hidden"
+              className="bg-white rounded-2xl p-6 lg:p-7 border border-gray-100 shadow-[0_6px_28px_rgba(15,74,155,0.08)] hover:shadow-[0_16px_40px_rgba(15,74,155,0.14)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
             >
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A]" />
               <div className="flex items-start justify-between mb-3">
-                <div className="text-[52px] leading-[0.75] font-serif text-[#0f4a9b]/10 select-none">"</div>
-                <div className="flex gap-0.5 mt-1">
+                <div className="text-[52px] leading-[0.75] font-serif text-[#0f4a9b]/10 group-hover:text-[#0f4a9b]/20 transition-colors select-none">"</div>
+                <div className="flex gap-0.5 mt-1 group-hover:scale-105 transition-transform duration-200">
                   {[1,2,3,4,5].map(j => <Star key={j} className="h-4 w-4 fill-[#C7A24A] text-[#C7A24A]" />)}
                 </div>
               </div>
-              <p className="text-[#374151] text-[15px] lg:text-base leading-[1.8] mb-5">"{REVIEWS[active].text}"</p>
+              <p className="text-[#374151] group-hover:text-[#111827] transition-colors duration-200 text-[15px] lg:text-base leading-[1.8] mb-5">"{REVIEWS[active].text}"</p>
               <div className="border-t border-gray-100 mb-4" />
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-gradient-to-br from-[#0f4a9b] to-[#1e5ba8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-[0_2px_8px_rgba(15,74,155,0.28)] notranslate flex-shrink-0" translate="no">
+                <div className="w-9 h-9 bg-gradient-to-br from-[#0f4a9b] to-[#1e5ba8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-[0_2px_8px_rgba(15,74,155,0.28)] group-hover:scale-110 transition-transform duration-300 notranslate flex-shrink-0" translate="no">
                   {REVIEWS[active].initials}
                 </div>
                 <div>
-                  <div className="font-extrabold text-[#0a1f3d] text-sm notranslate" translate="no">{REVIEWS[active].name}</div>
+                  <div className="font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-200 text-sm notranslate" translate="no">{REVIEWS[active].name}</div>
                   <div className="text-xs text-gray-400 flex items-center gap-1.5 mt-0.5 notranslate" translate="no">
-                    <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full inline-block" />
+                    <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full inline-block animate-pulse" />
                     {REVIEWS[active].location}
                   </div>
                 </div>
@@ -278,7 +279,7 @@ export default function App() {
                     <GoldButton className="w-full sm:w-auto px-8 py-3.5 text-sm hero-cta">
                       Book Your Free Trial
                     </GoldButton>
-                    <p className="text-xs text-gray-400 font-medium text-center sm:text-left tracking-wide">✦ No Commitment · Cancel Anytime</p>
+                    <p className="text-xs text-gray-400 font-medium text-center sm:text-left tracking-wide">{CTA_SUBTEXT}</p>
                   </div>
                 </div>
 
@@ -310,96 +311,11 @@ export default function App() {
       {/* ── STATS BAR (below hero, above Why Students Struggle) ── */}
       <StatsBar />
 
-      {/* Why Students Struggle (Vertical Cards) */}
-      <section className="py-20 bg-[#F4F8FD]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
-              <GradientHeadingText text="Why Students Struggle" />
-            </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              Many students work hard, but still feel unsure where things are going wrong.
-            </p>
-          </div>
+      {/* Why Students Struggle (3D Examination Clipboards) */}
+      <StudentStruggleSection />
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                icon: <Brain className="h-7 w-7 text-[#0f4a9b]" strokeWidth={2} />,
-                title: "Confusion",
-                desc: "They follow lessons in class, but struggle to apply concepts independently.",
-              },
-              {
-                icon: <EyeOff className="h-7 w-7 text-[#0f4a9b]" strokeWidth={2} />,
-                title: "Unfocused Revision",
-                desc: "They study for hours without knowing which topics need more attention.",
-              },
-              {
-                icon: <AlertTriangle className="h-7 w-7 text-[#0f4a9b]" strokeWidth={2} />,
-                title: "Academic Pressure",
-                desc: "After repeated academic pressure and setbacks, the subject starts feeling heavier.",
-              }
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="group bg-white rounded-[20px] border border-[#E5E7EB] p-6 flex flex-col items-start text-left shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/50 transition-all duration-300 relative overflow-hidden"
-              >
-                <div className="w-14 h-14 bg-[#E2E8F0] rounded-2xl flex items-center justify-center mb-5 group-hover:bg-[#0f4a9b]/10 group-hover:scale-110 transition-all duration-300">
-                  <div className="group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
-                </div>
-                <h3 className="text-xl font-extrabold text-[#1F3F66] mb-3">{item.title}</h3>
-                <p className="text-[#6B7280] text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How Ustaad Helps (White Background) */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
-              <GradientHeadingText text="How Ustaad Helps" />
-            </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              With the right guidance, difficult topics start feeling more manageable.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                icon: <Lightbulb className="h-7 w-7 text-[#0f4a9b]" strokeWidth={2} />,
-                title: "Learning Feels Easier",
-                desc: "In private sessions, tutors explain concepts clearly without rushing weak areas.",
-              },
-              {
-                icon: <ClipboardList className="h-7 w-7 text-[#0f4a9b]" strokeWidth={2} />,
-                title: "Guided Practice",
-                desc: "We walk students through past papers, exam revision, and exam techniques.",
-              },
-              {
-                icon: <TrendingUp className="h-7 w-7 text-[#0f4a9b]" strokeWidth={2} />,
-                title: "Tangible Improvement",
-                desc: "With time, students begin approaching difficult topics with greater ease.",
-              }
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-[20px] border border-[#E5E7EB] p-6 flex flex-col items-start text-left shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/50 transition-all duration-300 relative overflow-hidden group"
-              >
-                <div className="w-14 h-14 bg-[#E2E8F0] rounded-2xl flex items-center justify-center mb-5 group-hover:bg-[#0f4a9b]/10 group-hover:scale-110 transition-all duration-300">
-                  <div className="group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
-                </div>
-                <h3 className="text-xl font-extrabold text-[#1F3F66] mb-3">{item.title}</h3>
-                <p className="text-[#6B7280] text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
+      {/* How Ustaad Helps (Exploded View Assembly) */}
+      <ExplodedViewSection />
 
       {/* Curriculum We Specialize in */}
       <section id="curriculum" className="py-20 bg-[#F7FAFE] overflow-hidden">
@@ -435,54 +351,46 @@ export default function App() {
                 href: "/ib-curriculum",
               }
             ].map((curr, i) => (
-              <a href={curr.href} key={i} className="relative bg-white rounded-[20px] border border-[#E5E7EB] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/50 transition-all flex flex-col group min-h-[260px] overflow-hidden">
-                {/* Watermarked icon background - 0.60 for British/American, IB has 0.50 for 0.30 final */}
-                <div className="absolute right-2 bottom-2 w-28 h-28 opacity-[0.60] pointer-events-none text-[#0f4a9b]">
+              <motion.a
+                href={curr.href}
+                key={i}
+                initial={{ opacity: 0, y: 35, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.55, delay: i * 0.16, ease: [0.22, 1, 0.36, 1] }}
+                className="relative bg-white rounded-2xl border border-gray-200/80 p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_22px_50px_rgba(15,74,155,0.14)] hover:border-[#0f4a9b]/40 hover:-translate-y-2 transition-all duration-300 flex flex-col group min-h-[260px] overflow-hidden"
+              >
+                {/* Watermarked icon background with smooth hover scale */}
+                <div className="absolute right-2 bottom-2 w-28 h-28 opacity-[0.60] group-hover:opacity-85 group-hover:scale-110 transition-all duration-500 pointer-events-none text-[#0f4a9b]">
                   {curr.watermark}
                 </div>
                 
-                <div className="w-11 h-11 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-xl flex items-center justify-center mb-4 z-10 group-hover:scale-110 transition-transform duration-300">
-                  <div className="group-hover:scale-110 transition-transform duration-300">{curr.icon}</div>
+                <div className="w-11 h-11 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-xl flex items-center justify-center mb-4 z-10 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-md">
+                  <div>{curr.icon}</div>
                 </div>
-                <h3 className="text-lg font-extrabold text-[#1F3F66] mb-2 leading-tight z-10">{curr.title}</h3>
+                <h3 className="text-lg font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-200 mb-2 leading-tight z-10">
+                  {curr.title}
+                </h3>
                 
-                {/* Gold divider line below heading */}
-                <div className="w-10 h-[2px] bg-[#C7A24A] mb-3"></div>
+                {/* Gold divider line that expands smoothly on card hover */}
+                <div className="w-10 h-[2px] bg-[#C7A24A] mb-3 group-hover:w-16 transition-all duration-300" />
                 
-                <p className="text-[#6B7280] text-sm leading-relaxed z-10 flex-1">{curr.desc}</p>
-                <div className="flex items-center gap-3 mt-6 z-10">
-                  <span className="text-sm font-bold text-[#1F3F66] group-hover:text-[#0f4a9b] transition-colors">Explore Curriculum</span>
-                  <span className="w-8 h-8 rounded-full border border-[#E5E7EB] bg-white flex items-center justify-center group-hover:border-[#0f4a9b] group-hover:text-[#0f4a9b] transition-colors text-[#1F3F66]">
-                    <ArrowRight className="h-3.5 w-3.5" />
+                <p className="text-[#6B7280] group-hover:text-[#374151] transition-colors duration-200 text-sm leading-relaxed z-10 flex-1">
+                  {curr.desc}
+                </p>
+                <div className="mt-6 z-10">
+                  <span className="text-sm font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors flex items-center gap-1.5">
+                    <span>Explore Curriculum</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300 text-[#0f4a9b]" />
                   </span>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
           <div className="flex justify-center mt-10">
             <GoldButton href="/curriculum" className="px-10 py-4 text-base shadow-[0_0_20px_rgba(199,162,74,0.35)]">
               View Curriculum Details
             </GoldButton>
-          </div>
-
-          {/* Quick-link chips for specific pathways */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-8 max-w-4xl mx-auto">
-            {[
-              { label: "Middle School", href: "/middle-school" },
-              { label: "Diploma Programme (HL)", href: "/dp-hl" },
-              { label: "High School", href: "/high-school" },
-              { label: "Exam Preparation", href: "/exam-preparation" },
-              { label: "A-Level", href: "/a-level" },
-            ].map((chip) => (
-              <a
-                key={chip.href}
-                href={chip.href}
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-white rounded-full border border-blue-100 text-xs sm:text-sm font-semibold text-[#0f4a9b] hover:bg-[#0f4a9b] hover:text-white shadow-sm hover:shadow-md transition-all duration-200"
-              >
-                <span>{chip.label}</span>
-                <ArrowRight className="h-3.5 w-3.5 opacity-60" />
-              </a>
-            ))}
           </div>
         </div>
       </section>
@@ -507,95 +415,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* Academic Expertise (Subjects) EXACT Design requested with relevant watermarks */}
-      <section id="subjects" className="py-20 bg-[#F4F8FD]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-[40px] font-extrabold text-[#0a1f3d] mb-4 tracking-tight">
-              <GradientHeadingText text="Academic Expertise" />
-            </h2>
-            <p className="text-gray-600 text-base lg:text-lg font-medium">
-              Ustaad offers expert support across the subjects students often find most challenging.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto mb-10">
-            {[
-              { 
-                title: "Mathematics", 
-                desc: "Building logical thinking through mathematics.", 
-                icon: <Calculator className="h-6 w-6 text-white" strokeWidth={2.5} />,
-                watermark: <Calculator className="h-20 w-20 text-[#0f4a9b]" strokeWidth={1.5} />,
-                href: "/maths",
-              },
-              { 
-                title: "Physics", 
-                desc: "Exploring motion, energy, and the world around us.", 
-                icon: <Atom className="h-6 w-6 text-white" strokeWidth={2.5} />,
-                watermark: <Atom className="h-20 w-20 text-[#0f4a9b]" strokeWidth={1.5} />,
-                href: "/physics",
-              },
-              { 
-                title: "Chemistry", 
-                desc: "Making complex chemical ideas easier to understand.", 
-                icon: <FlaskConical className="h-6 w-6 text-white" strokeWidth={2.5} />,
-                watermark: <FlaskConical className="h-20 w-20 text-[#0f4a9b]" strokeWidth={1.5} />,
-                href: "/chemistry",
-              },
-              { 
-                title: "Biology", 
-                desc: "Exploring how living systems grow and function.", 
-                icon: <Leaf className="h-6 w-6 text-white" strokeWidth={2.5} />,
-                watermark: <Leaf className="h-20 w-20 text-[#0f4a9b]" strokeWidth={1.5} />,
-                href: "/biology",
-              },
-              { 
-                title: "Sciences", 
-                desc: "Combined scientific principles for Middle School and GCSE.", 
-                icon: <BookOpen className="h-6 w-6 text-white" strokeWidth={2.5} />,
-                watermark: <BookOpen className="h-20 w-20 text-[#0f4a9b]" strokeWidth={1.5} />,
-                href: "/sciences",
-              },
-              { 
-                title: "Finance", 
-                desc: "Financial management, accounting principles, and valuation.", 
-                icon: <DollarSign className="h-6 w-6 text-white" strokeWidth={2.5} />,
-                watermark: <DollarSign className="h-20 w-20 text-[#0f4a9b]" strokeWidth={1.5} />,
-                href: "/finance",
-              },
-            ].map((subj, i) => (
-              <a href={subj.href} key={i} className="relative bg-white rounded-[20px] border border-[#E5E7EB] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/50 transition-all flex flex-col cursor-pointer group overflow-hidden min-h-[260px]">
-                {/* Watermarked icon background */}
-                <div className="absolute right-2 bottom-2 w-24 h-24 opacity-[0.30] pointer-events-none text-[#0f4a9b]">
-                  {subj.watermark}
-                </div>
-                
-                <div className="w-12 h-12 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-2xl flex items-center justify-center mb-4 z-10 group-hover:scale-110 transition-transform duration-300">
-                  <div className="group-hover:scale-110 transition-transform duration-300">{subj.icon}</div>
-                </div>
-                <h3 className="text-xl font-extrabold text-[#1F3F66] mb-2 relative z-10">{subj.title}</h3>
-                
-                {/* Gold divider line below heading */}
-                <div className="w-10 h-[2px] bg-[#C7A24A] mb-3"></div>
-                
-                <p className="text-[#6B7280] text-sm leading-relaxed relative z-10 flex-1">{subj.desc}</p>
-                <div className="mt-6 z-10 flex items-center gap-3">
-                  <span className="text-sm font-bold text-[#1F3F66] group-hover:text-[#0f4a9b] transition-colors">Explore Subject</span>
-                  <span className="w-9 h-9 rounded-full border border-[#E5E7EB] bg-white flex items-center justify-center group-hover:border-[#0f4a9b] group-hover:text-[#0f4a9b] transition-colors text-[#1F3F66]">
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-
-          <div className="flex justify-center mt-6">
-            <GoldButton href="/subjects" className="px-10 py-4 text-base shadow-[0_0_20px_rgba(199,162,74,0.35)]">
-              View All Subjects
-            </GoldButton>
-          </div>
-        </div>
-      </section>
+      {/* Academic Expertise (Subjects with Bespoke Interactive Artifacts) */}
+      <AcademicExpertiseSection />
 
       {/* ── Ask an Expert (B1) ── */}
       <AskExpertSection />
@@ -606,122 +427,17 @@ export default function App() {
       </div>
 
       {/* How Ustaad Works */}
-      <section id="how" className="py-20 bg-[#F4F8FD]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
-              <GradientHeadingText text="How Ustaad Works" />
-            </h2>
-            <p className="text-gray-600 text-base lg:text-lg">A simple process that helps students study with more direction.</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10 lg:gap-16 relative max-w-5xl mx-auto">
-            <div className="hidden md:block absolute top-10 left-[20%] right-[20%] h-[2px] bg-gradient-to-r from-transparent via-[#0f4a9b]/20 to-transparent z-0"></div>
-            
-            {[
-              {
-                step: "Step 1",
-                title: "Understand the Gap",
-                desc: "Our tutors identify where the student is struggling and what's causing it.",
-                icon: <Search className="h-9 w-9 text-[#0f4a9b]" strokeWidth={2} />
-              },
-              {
-                step: "Step 2",
-                title: "Learn with Purpose",
-                desc: "Tutors design lessons around the student's pace and curriculum.",
-                icon: <ClipboardCheck className="h-9 w-9 text-[#0f4a9b]" strokeWidth={2} />
-              },
-              {
-                step: "Step 3",
-                title: "Consistent Progress",
-                desc: "Students usually advance once things start making more sense.",
-                icon: <TrendingUp className="h-9 w-9 text-[#0f4a9b]" strokeWidth={2} />
-              }
-            ].map((step, i) => (
-              <div key={i} className="relative z-10 flex flex-col items-center text-center">
-                {/* Circular Icon Container with white shadow stroke */}
-                <div className="w-20 h-20 bg-[#EAF2FB] rounded-full flex items-center justify-center mb-4 shadow-[0_0_0_4px_white,0_4px_15px_rgba(0,0,0,0.08)]">
-                  {step.icon}
-                </div>
-                {/* Step Label - Black */}
-                <span className="text-black font-bold text-sm mb-2">{step.step}</span>
-                {/* Title */}
-                <h3 className="text-xl font-extrabold text-[#1F3F66] mb-2">{step.title}</h3>
-                {/* Description */}
-                <p className="text-[#6B7280] text-sm leading-relaxed max-w-xs">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HowUstaadWorksSection />
 
       {/* ── Divider ── */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-px bg-gradient-to-r from-transparent via-[#0f4a9b]/30 to-transparent" />
       </div>
 
-      {/* Why Families Choose Ustaad (Vertical Layout Enforced with Watermarks) */}
-      <section id="why" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
-              <GradientHeadingText text="Why Families Choose Ustaad" />
-            </h2>
-            <p className="text-gray-600 text-base lg:text-lg">Ustaad goes beyond tutoring by offering academic guidance built around solid basics, confidence, and measurable progress.</p>
-          </div>
+      {/* Why Families Choose Ustaad (Sticky Scroll Layout) */}
+      <WhyFamiliesChooseSection />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16 max-w-6xl mx-auto">
-            {[
-              { title: "Focus from the Start", desc: "We understand what needs attention and how to improve it.", icon: <Crosshair className="h-10 w-10 text-[#0f4a9b]" strokeWidth={2} /> },
-              { title: "Carefully Matched Tutors", desc: "Tutors are selected based on the student's learning needs and curriculum.", icon: <UserPlus className="h-10 w-10 text-[#0f4a9b]" strokeWidth={2} /> },
-              { title: "Stronger Study Habits", desc: "Students make progress through lessons designed to develop academic habits over time.", icon: <BarChart3 className="h-10 w-10 text-[#0f4a9b]" strokeWidth={2} /> },
-              { title: "Weekly Past Paper Practice", desc: "Exam practice sessions help students improve accuracy, timing, and readiness.", icon: <FileStack className="h-10 w-10 text-[#0f4a9b]" strokeWidth={2} /> },
-              { title: "Focused Exam Preparation", desc: "Revision sessions are planned before exams to strengthen concepts and refresh topics.", icon: <Target className="h-10 w-10 text-[#0f4a9b]" strokeWidth={2} /> },
-              { title: "Flexible Around School Life", desc: "Lessons are scheduled in a way that fits the student's routine.", icon: <Clock className="h-10 w-10 text-[#0f4a9b]" strokeWidth={2} /> }
-            ].map((trust, i) => (
-              <div key={i} className="bg-white rounded-[20px] border border-[#E5E7EB] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/50 transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden group">
-                {/* Blue gradient top indicator line */}
-                <div className="absolute top-0 left-5 right-5 h-[2px] bg-gradient-to-r from-transparent via-[#0f4a9b] to-transparent opacity-40"></div>
-                {/* 3D Multi-tone Icon - No Background */}
-                <div className="mb-6 mt-2 group-hover:scale-110 transition-transform duration-300">
-                  {trust.icon}
-                </div>
-                <h3 className="text-lg font-extrabold text-[#1F3F66] mb-2">{trust.title}</h3>
-                <p className="text-[#6B7280] text-sm leading-relaxed">{trust.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Real Progress. Proven Results. */}
-      <section className="py-20 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-extrabold mb-4">
-              Real Progress. Steady Results.
-            </h2>
-            <p className="text-blue-100 text-base lg:text-lg">Ustaad focuses on improvement that students and parents can visibly notice over time.</p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16 max-w-6xl mx-auto">
-            {[
-              { val: "Grade Improvement", title: "A progressive approach that helps students improve step by step.", icon: <Gauge className="h-8 w-8 text-white" strokeWidth={2} /> },
-              { val: "Better Exam Readiness", title: "Regular revision and practice build familiarity with exam structure and timings.", icon: <Timer className="h-8 w-8 text-white" strokeWidth={2} /> },
-              { val: "Greater Exam Comfort", title: "Timed exam practice helps students feel prepared for difficult questions.", icon: <Award className="h-8 w-8 text-white" strokeWidth={2} /> },
-              { val: "Solid Understanding", title: "Each lesson helps students build better retention over time.", icon: <BookMarked className="h-8 w-8 text-white" strokeWidth={2} /> }
-            ].map((res, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-[24px] p-8 flex flex-col items-start text-left backdrop-blur-sm hover:bg-white/10 transition-colors">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#C7A24A] to-[#A8892A] rounded-2xl flex items-center justify-center text-white mb-6 shadow-[0_0_20px_rgba(199,162,74,0.4)]">
-                  {res.icon}
-                </div>
-                <div className="text-2xl font-extrabold text-white mb-3">{res.val}</div>
-                <p className="text-blue-100 text-base leading-relaxed">{res.title}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AchievementCoinsSection />
 
       {/* What Parents Say */}
       <section id="reviews" className="py-14 bg-[#F7F7F7]">
@@ -772,7 +488,7 @@ export default function App() {
               className="inline-flex items-center justify-center font-bold rounded-xl px-8 py-4 text-base transition hover:brightness-110 shadow-[0_8px_16px_rgba(15,74,155,0.25)] hover:shadow-[0_12px_20px_rgba(15,74,155,0.35)] hover:-translate-y-0.5"
               style={{ background: '#0f4a9b', color: '#ffffff', textDecoration: 'none' }}
             >
-              Explore All Articles From Ustaad UAE →
+              Explore All Articles From Ustaad UAE
             </a>
           </div>
           <p className="mt-4 text-sm text-gray-400">New articles published regularly by our editorial team.</p>
@@ -805,10 +521,10 @@ export default function App() {
                         style={{ width:40, height:40, background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', color: isOpen ? '#fff' : '#0f4a9b', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontWeight:'bold', fontSize:'18px', border:'none', cursor:'pointer' }}>?</button>
                       <button onClick={() => toggleFaq(i)}
                         aria-expanded={isOpen}
-                        className="flex-1 flex items-center gap-3 text-left rounded-full border"
+                        className="flex-1 flex items-center gap-3 text-left rounded-full border group hover:border-[#0f4a9b]/30 hover:bg-blue-50/20 transition-all duration-200"
                         style={{ minHeight:'48px', padding:'8px 14px', borderColor: isOpen ? 'rgba(15,74,155,0.25)' : 'rgba(15,74,155,0.1)', background: isOpen ? 'rgba(15,74,155,0.04)' : 'transparent', cursor:'pointer' }}>
-                        <span className="flex-1 font-semibold text-[#0a1f3d] text-[14px] leading-snug">{faq.q}</span>
-                        <span style={{ width:32, height:32, borderRadius:'50%', background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition:'transform 0.2s' }}>
+                        <span className="flex-1 font-semibold text-[#0a1f3d] group-hover:text-[#0f4a9b] text-[14px] leading-snug transition-colors duration-200">{faq.q}</span>
+                        <span className="group-hover:scale-105 transition-transform duration-200" style={{ width:32, height:32, borderRadius:'50%', background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition:'transform 0.2s' }}>
                           <ChevronDown className="h-3.5 w-3.5" style={{ color: isOpen ? '#fff' : '#0f4a9b' }} />
                         </span>
                       </button>

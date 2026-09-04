@@ -111,7 +111,7 @@ export default function MiddleSchoolPage() {
             <p className="text-gray-700 text-lg mb-10 leading-relaxed max-w-xl">
               Online tutoring for Grades 6 to 8 across core subjects, focused on study habits and academic foundations.
             </p>
-            <HeroCTABlock trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock>
               Book Your First Middle School Lesson
             </HeroCTABlock>
           </motion.div>
@@ -392,9 +392,7 @@ export default function MiddleSchoolPage() {
       <FinalCTA
         title="Book A Middle School Tutor"
         subtitle="Middle School, your grade."
-        button1Text="Book Your First Middle School Lesson"
-        subtext1="Free trial. No commitment."
-      />
+        button1Text="Book Your First Middle School Lesson" />
     </Layout>
   );
 }

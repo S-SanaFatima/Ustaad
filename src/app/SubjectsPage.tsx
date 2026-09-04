@@ -34,7 +34,7 @@ export default function SubjectsPage() {
               <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-xl">
                 Subject-focused 1-to-1 tutoring across IGCSE, GCSE, A-Level, IB, and AP, developed for real exam and coursework demands.
               </p>
-              <HeroCTABlock className="mb-4" trustText="✦ No Commitment · Cancel Anytime">
+              <HeroCTABlock className="mb-4">
                 Book Your Free Trial
               </HeroCTABlock>
             </motion.div>
@@ -91,7 +91,7 @@ export default function SubjectsPage() {
                   <div className="w-10 h-[2px] bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3 z-10" />
                   <p className="text-xs text-[#0a1f3d] font-semibold leading-relaxed z-10">{s.skills}</p>
                   <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-xs font-bold z-10 bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8] bg-clip-text text-transparent group-hover:gap-2.5 transition-all duration-200">
-                    {s.cta} <ArrowRight className="h-3 w-3 text-[#0f4a9b]" />
+                    {s.cta}
                   </span>
                 </a>
               ))}
@@ -121,7 +121,7 @@ export default function SubjectsPage() {
                   <div className="w-10 h-[2px] bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3 z-10" />
                   <p className="text-xs text-[#0a1f3d] font-semibold leading-relaxed z-10">{s.skills}</p>
                   <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-xs font-bold z-10 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] bg-clip-text text-transparent group-hover:gap-2.5 transition-all duration-200">
-                    {s.cta} <ArrowRight className="h-3 w-3 text-[#C7A24A]" />
+                    {s.cta}
                   </span>
                 </a>
               ))}
@@ -150,7 +150,7 @@ export default function SubjectsPage() {
                   <div className="w-10 h-[2px] bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3 z-10" />
                   <p className="text-xs text-[#0a1f3d] font-semibold leading-relaxed z-10">{s.skills}</p>
                   <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-xs font-bold z-10 bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8] bg-clip-text text-transparent group-hover:gap-2.5 transition-all duration-200">
-                    {s.cta} <ArrowRight className="h-3 w-3 text-[#0f4a9b]" />
+                    {s.cta}
                   </span>
                 </a>
               ))}

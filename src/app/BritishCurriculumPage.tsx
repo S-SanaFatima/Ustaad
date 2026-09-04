@@ -191,7 +191,7 @@ export default function BritishCurriculumPage() {
             <p className="text-gray-700 text-lg mb-10 leading-relaxed max-w-xl">
               One-to-one tutoring shaped around the academic standards, examination demands, and long-term expectations of the British Curriculum.
             </p>
-            <HeroCTABlock className="mb-4" trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock className="mb-4">
               Book Your Free Trial
             </HeroCTABlock>
           </motion.div>
@@ -565,9 +565,7 @@ export default function BritishCurriculumPage() {
       <FinalCTA
         title="Find Your British Curriculum Tutor"
         subtitle="Matched in minutes."
-        button1Text="Book Your Free Trial"
-        subtext1="Free trial. No commitment. IGCSE, GCSE, and A-Level supported."
-      />
+        button1Text="Book Your Free Trial" />
 
     </Layout>
   );

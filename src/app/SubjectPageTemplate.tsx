@@ -1,8 +1,9 @@
 import { useState, Fragment } from 'react';
 import type { ReactNode } from 'react';
-import { MessageCircle, ArrowRight, ChevronDown, GraduationCap, TrendingUp, Award, UserCheck, HelpCircle } from 'lucide-react';
+import { MessageCircle, ChevronDown, GraduationCap, TrendingUp, Award, UserCheck, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared';
+import { CTA_SUBTEXT } from './shared/ctaCopy';
 import SEOHead from './shared/SEOHead';
 import RelatedContent from './shared/RelatedContent';
 
@@ -72,7 +73,7 @@ export default function SubjectPageTemplate(p: SubjectPageProps) {
                 <GoldButton className="px-7 py-3 text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]">
                   {p.heroCTAText ?? 'Book Your Free Trial'}
                 </GoldButton>
-                <p className="text-xs text-gray-400 font-medium tracking-wide">{p.heroCTAMicrocopy ?? '✦ No Commitment  ·  Cancel Anytime'}</p>
+                <p className="text-xs text-gray-400 font-medium tracking-wide">{CTA_SUBTEXT}</p>
               </div>
               <div className="flex flex-wrap justify-center gap-3 sm:gap-5 items-center text-gray-400 font-extrabold text-sm sm:text-base tracking-widest uppercase">
                 {(p.heroBadges || ["Cambridge", "Edexcel", "AQA", "IB", "AP"]).map((badge, i, arr) => (
@@ -160,9 +161,8 @@ export default function SubjectPageTemplate(p: SubjectPageProps) {
             <div className="bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/8 border border-[#0f4a9b]/10 rounded-[32px] p-10 text-center max-w-3xl mx-auto">
               <p className="text-sm font-bold text-[#0f4a9b] uppercase tracking-widest mb-3">Ready to experience this?</p>
               <h3 className="text-2xl font-extrabold text-[#0a1f3d] mb-8">{p.softCtaHeading}</h3>
-              <a href="/contact#form" className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] text-white font-extrabold text-sm px-8 py-4 tracking-wide shadow-[0_4px_24px_rgba(199,162,74,0.35)] hover:shadow-[0_8px_32px_rgba(199,162,74,0.55)] hover:brightness-110 transition-all hover:-translate-y-0.5 active:scale-95">
+              <a href="/contact#form" className="inline-flex items-center justify-center rounded-full bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] text-white font-extrabold text-sm px-8 py-4 tracking-wide shadow-[0_4px_24px_rgba(199,162,74,0.35)] hover:shadow-[0_8px_32px_rgba(199,162,74,0.55)] hover:brightness-110 transition-all hover:-translate-y-0.5 active:scale-95">
                 Start Your First Session
-                <span className="w-7 h-7 bg-white/25 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-white/35 transition-colors"><ArrowRight className="h-4 w-4" /></span>
               </a>
             </div>
           </div>
@@ -324,7 +324,7 @@ export default function SubjectPageTemplate(p: SubjectPageProps) {
         title={p.finalCtaTitle ?? "Better Results Start Here"}
         subtitle={p.finalCtaSubtitle ?? "Book your free trial session today."}
         button1Text={p.finalCtaButton ?? "Start Your First Session"}
-        subtext1={p.finalCtaSubtext}
+        subtext1={CTA_SUBTEXT}
       />
 
     </Layout>

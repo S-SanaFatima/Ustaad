@@ -44,6 +44,7 @@ const loadBlogsPage = () => import('./app/BlogsPage');
 const loadIGCSEBiology6MarkBlog = () => import('./app/IGCSEBiology6MarkBlog');
 const loadIGCSEMathsLowMarksBlog = () => import('./app/IGCSEMathsLowMarksBlog');
 const loadExamPanicBlog = () => import('./app/ExamPanicBlog');
+const loadUAEExamsReturnBlog = () => import('./app/UAEExamsReturnBlog');
 const loadGCSERevisionTipsParentsBlog = () => import('./app/GCSERevisionTipsParentsBlog');
 const loadMathematicsLanding = () => import('./app/MathematicsLanding');
 const loadPhysicsLanding = () => import('./app/PhysicsLanding');
@@ -65,6 +66,7 @@ const loadIGCSEPreparationPastPapersBlog = () => import('./app/IGCSEPreparationP
 const loadBiologyLanding = () => import('./app/BiologyTutorAbuDhabiPage');
 const loadIGCSETutorLanding = () => import('./app/IGCSETutorAbuDhabiPage');
 const loadGCSETutorLanding = () => import('./app/GCSETutorAbuDhabiPage');
+const loadGCSETutorDubaiLanding = () => import('./app/GCSETutorDubaiPage');
 const loadALevelTutorLanding = () => import('./app/ALevelTutorAbuDhabiPage');
 const loadIBTutorLanding = () => import('./app/IBTutorAbuDhabiPage');
 const loadAcademicBlogsPage = () => import('./app/AcademicBlogsPage');
@@ -107,6 +109,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions': loadIGCSEBiology6MarkBlog,
   '/blogs/igcse-maths-revision-low-marks': loadIGCSEMathsLowMarksBlog,
   '/blogs/exam-panic-before-exams-uae': loadExamPanicBlog,
+  '/blogs/uae-exams-return-students-never-sat-one': loadUAEExamsReturnBlog,
   '/blogs/physics-understanding-vs-marks': loadPhysicsUnderstandingMarksBlog,
   '/blogs/igcse-physics-formulas-exam': loadIGCSEPhysicsFormulasBlog,
   '/blogs/why-chemistry-fades-from-memory': loadChemistryFadesBlog,
@@ -124,6 +127,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/biology-tutor-abu-dhabi': loadBiologyLanding,
   '/igcse-tutor-abu-dhabi': loadIGCSETutorLanding,
   '/gcse-tutor-abu-dhabi': loadGCSETutorLanding,
+  '/gcse-tutor-dubai': loadGCSETutorDubaiLanding,
   '/a-level-tutor-abu-dhabi': loadALevelTutorLanding,
   '/ib-tutor-abu-dhabi': loadIBTutorLanding,
   '/editorial': loadEditorialPage,
@@ -173,6 +177,7 @@ const BlogsPage = lazy(loadBlogsPage);
 const IGCSEBiology6MarkBlog = lazy(loadIGCSEBiology6MarkBlog);
 const IGCSEMathsLowMarksBlog = lazy(loadIGCSEMathsLowMarksBlog);
 const ExamPanicBlog = lazy(loadExamPanicBlog);
+const UAEExamsReturnBlog = lazy(loadUAEExamsReturnBlog);
 const GCSERevisionTipsParentsBlog = lazy(loadGCSERevisionTipsParentsBlog);
 const MathematicsLanding = lazy(loadMathematicsLanding);
 const PhysicsLanding = lazy(loadPhysicsLanding);
@@ -194,6 +199,7 @@ const IGCSEPreparationPastPapersBlog = lazy(loadIGCSEPreparationPastPapersBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
 const GCSETutorLanding = lazy(loadGCSETutorLanding);
+const GCSETutorDubaiLanding = lazy(loadGCSETutorDubaiLanding);
 const ALevelTutorLanding = lazy(loadALevelTutorLanding);
 const IBTutorLanding = lazy(loadIBTutorLanding);
 const AcademicBlogsPage = lazy(loadAcademicBlogsPage);
@@ -280,6 +286,7 @@ function AppRoutes() {
           <Route path="/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions"element={<IGCSEBiology6MarkBlog />} />
           <Route path="/blogs/igcse-maths-revision-low-marks"element={<IGCSEMathsLowMarksBlog />} />
           <Route path="/blogs/exam-panic-before-exams-uae"   element={<ExamPanicBlog />} />
+          <Route path="/blogs/uae-exams-return-students-never-sat-one" element={<UAEExamsReturnBlog />} />
           <Route path="/blogs/physics-understanding-vs-marks" element={<PhysicsUnderstandingMarksBlog />} />
           <Route path="/blogs/igcse-physics-formulas-exam"  element={<IGCSEPhysicsFormulasBlog />} />
           <Route path="/blogs/why-chemistry-fades-from-memory" element={<ChemistryFadesBlog />} />
@@ -297,6 +304,7 @@ function AppRoutes() {
           <Route path="/biology-tutor-abu-dhabi"             element={<BiologyLanding />} />
           <Route path="/igcse-tutor-abu-dhabi"               element={<IGCSETutorLanding />} />
           <Route path="/gcse-tutor-abu-dhabi"                element={<GCSETutorLanding />} />
+          <Route path="/gcse-tutor-dubai"                     element={<GCSETutorDubaiLanding />} />
           <Route path="/a-level-tutor-abu-dhabi"             element={<ALevelTutorLanding />} />
           <Route path="/ib-tutor-abu-dhabi"                  element={<IBTutorLanding />} />
           <Route path="/editorial"                           element={<EditorialPage />} />

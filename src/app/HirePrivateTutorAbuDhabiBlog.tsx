@@ -84,16 +84,16 @@ const TOC_ITEMS = [
 
 const RELATED = [
   {
+    slug: 'uae-exams-return-students-never-sat-one',
+    category: 'Psychology of Learning',
+    title: 'Exams Are Back in the UAE. What Changes for Your Child',
+    description: 'After portfolio grading, what changes for students who have never sat a real paper, and how parents can help.',
+  },
+  {
     slug: 'gcse-revision-tips-uae-parents',
     category: 'Parent Guidance',
     title: 'GCSE & IGCSE Revision Tips for UAE Parents',
     description: 'The study skills that actually raise grades, and how to support your child without taking over.',
-  },
-  {
-    slug: 'read-uae-school-report-card',
-    category: 'Parent Guidance',
-    title: 'How to Read a UAE School Report Card Like an Education Counsellor',
-    description: 'Decode grade reports, spot hidden learning gaps early, and build a targeted support strategy.',
   },
   {
     slug: 'igcse-preparation-past-papers-final-step',
@@ -818,12 +818,15 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             <p className="text-white/70 mb-5 max-w-lg mx-auto text-xs leading-relaxed">
               Bring these ten questions to that first lesson. If the match is right, you will feel it. If it is not, you have lost nothing but an hour, and learned exactly what to ask next time.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <a href="/contact#form"
+            <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-3">
+              <div className="flex flex-col items-center gap-1.5">
+                <a href="/contact#form"
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial →
+                Book Your Free Trial
               </a>
+                <p className="text-xs text-white/60 font-medium">No commitment. Cancel anytime.</p>
+              </div>
               <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md">
                 <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> Ask on WhatsApp

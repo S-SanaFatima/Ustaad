@@ -331,7 +331,7 @@ const data: SubjectPageProps = {
   finalCtaTitle:    "Book A Science Tutor",
   finalCtaSubtitle: "Middle School Science, your grade.",
   finalCtaButton:   "Book Your First Science Lesson",
-  finalCtaSubtext:  "Free trial. No commitment.",
+  finalCtaSubtext:  "No commitment. Cancel anytime.",
 
   floatingIcon: <FlaskConical className="h-4 w-4" />,
   seo: {

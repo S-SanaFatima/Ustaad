@@ -80,7 +80,7 @@ export default function TutorsPage() {
               <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-6 sm:mb-10 leading-relaxed max-w-xl">
                 UAE tutors chosen for curriculum fit, subject depth, and clear teaching.
               </p>
-              <HeroCTABlock className="mb-4" trustText="✦ No commitment, cancel anytime.">
+              <HeroCTABlock className="mb-4">
                 Book Your Free Trial
               </HeroCTABlock>
             </motion.div>
@@ -135,7 +135,7 @@ export default function TutorsPage() {
                 badge: "IGCSE • GCSE • A-Level",
                 title: "British Curriculum Tutors",
                 desc: "Tutoring for IGCSE, GCSE, and A-Level subjects, focused on school topics, revision, and exam preparation.",
-                cta: "View Curriculum →",
+                cta: "View Curriculum",
                 ctaHref: "/british-curriculum",
                 discover: "Request a Tutor Match",
                 discoverIcon: <Landmark className="h-4 w-4 text-[#0f4a9b]" />,
@@ -161,7 +161,7 @@ export default function TutorsPage() {
                 badge: "School Support • AP • SAT",
                 title: "American Curriculum Tutors",
                 desc: "Tutoring for AP and school-level subjects, matched to classroom work, assignments, and assessments.",
-                cta: "View Curriculum →",
+                cta: "View Curriculum",
                 ctaHref: "/american-curriculum",
                 discover: "Request a Tutor Match",
                 discoverIcon: <Flag className="h-4 w-4 text-[#0f4a9b]" />,
@@ -175,7 +175,7 @@ export default function TutorsPage() {
                 badge: "MYP • SL • HL",
                 title: "IB Curriculum Tutors",
                 desc: "Tutoring for IB MYP and Diploma Programme subjects, shaped to coursework, subject demands, and exams.",
-                cta: "View Curriculum →",
+                cta: "View Curriculum",
                 ctaHref: "/ib-curriculum",
                 discover: "Request a Tutor Match",
                 discoverIcon: <Globe className="h-4 w-4 text-[#0f4a9b]" />,

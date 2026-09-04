@@ -68,7 +68,7 @@ export default function MYPPage() {
             <p className="text-gray-700 text-lg mb-10 leading-relaxed max-w-xl">
               Grades 6 to 10 tutoring focused on criteria, ATL skills, and conceptual depth.
             </p>
-            <HeroCTABlock className="mb-4" trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock className="mb-4">
               Book Your First MYP Lesson
             </HeroCTABlock>
           </motion.div>
@@ -458,9 +458,7 @@ export default function MYPPage() {
       <FinalCTA
         title="Book an MYP Tutor"
         subtitle="Criteria mastered, marks up."
-        button1Text="Book Your First MYP Lesson"
-        subtext1="First lesson free. No commitment."
-      />
+        button1Text="Book Your First MYP Lesson" />
 
     </Layout>
   );

@@ -102,7 +102,7 @@ export default function TeachingApproach({
         {footerLinkText && footerLinkHref && (
           <div className="text-center mt-10">
             <a href={footerLinkHref} className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-full border border-[#E5E7EB] shadow-sm hover:shadow-md hover:border-[#0f4a9b]/30 transition-all text-sm font-bold text-[#0f4a9b]">
-              {footerLinkText} →
+              {footerLinkText}
             </a>
           </div>
         )}

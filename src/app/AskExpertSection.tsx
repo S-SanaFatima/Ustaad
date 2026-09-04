@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { CheckCircle } from 'lucide-react';
-import { GradientHeadingText } from './shared';
+import { TypewriterHeadingText } from './shared';
 
 const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20my%20first%2030-minute%20session%20with%20a%20subject%20and%20curriculum-fit%20tutor.';
 
@@ -212,18 +212,29 @@ const askExpertServiceSchema = {
 export default function AskExpertSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const viewFiredRef = useRef(false);
+  const inViewRef = useRef(false);
+  const [animCycle, setAnimCycle] = useState(0);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !viewFiredRef.current) {
-          viewFiredRef.current = true;
-          if ((window as any).gtag) (window as any).gtag('event', 'ask_expert_section_view');
+        if (entry.isIntersecting) {
+          if (!inViewRef.current) {
+            setAnimCycle((cycle) => cycle + 1);
+          }
+          inViewRef.current = true;
+
+          if (!viewFiredRef.current) {
+            viewFiredRef.current = true;
+            if ((window as any).gtag) (window as any).gtag('event', 'ask_expert_section_view');
+          }
+        } else {
+          inViewRef.current = false;
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.25 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -251,11 +262,21 @@ export default function AskExpertSection() {
               id="ask-expert-heading"
               className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-4"
             >
-              <GradientHeadingText text="Get a Free Written Solution in 15 Minutes" />
+              <TypewriterHeadingText
+                key={`ask-heading-${animCycle}`}
+                text="Get a Free Written Solution in 15 Minutes"
+              />
             </h2>
 
             <p className="text-[#6B7280] text-base lg:text-lg leading-relaxed mb-8 max-w-[520px]">
-              Send us any homework question your child is stuck on. A UAE subject specialist replies with a worked solution, free.
+              <TypewriterHeadingText
+                key={`ask-desc-${animCycle}`}
+                text="Send us any homework question your child is stuck on. A UAE subject specialist replies with a worked solution, free."
+                highlightLastWord={false}
+                charDelay={0.018}
+                delay={0.35}
+                className="inline"
+              />
             </p>
 
             <ul className="list-none p-0 m-0 mb-8 flex flex-col gap-3">
@@ -264,9 +285,16 @@ export default function AskExpertSection() {
                 'IGCSE, A-Level, IB, and American curriculum specialists',
                 'Questions answered every week by our team',
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-sm text-[#333]">
+                <li key={item} className="flex items-center gap-3 text-sm text-[#333]">
                   <CheckCircle className="h-5 w-5 text-[#0f4a9b] shrink-0" strokeWidth={2} />
-                  {item}
+                  <TypewriterHeadingText
+                    key={`ask-bullet-${animCycle}-${i}`}
+                    text={item}
+                    highlightLastWord={false}
+                    charDelay={0.022}
+                    delay={0.9 + i * 0.35}
+                    className="inline"
+                  />
                 </li>
               ))}
             </ul>

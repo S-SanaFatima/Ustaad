@@ -158,7 +158,7 @@ export default function CurriculumPage() {
               </h1>
               <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
               <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-xl">Every curriculum has its own style of teaching, so we guide students in the way they already learn at school.</p>
-              <HeroCTABlock className="mb-4" trustText="✦ No Commitment · Cancel Anytime">
+              <HeroCTABlock className="mb-4">
                 Book Your Free Trial
               </HeroCTABlock>
             </motion.div>
@@ -403,7 +403,6 @@ export default function CurriculumPage() {
           </div>
           <a href="/subjects" className="inline-flex items-center gap-2 bg-white text-[#0f4a9b] font-bold px-6 py-3 rounded-full shadow-lg hover:bg-white/90 flex-shrink-0 relative z-10">
             Explore our full subject list
-            <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </div>
@@ -521,7 +520,6 @@ export default function CurriculumPage() {
         title="Find Your Child's Tutor"
         subtitle="Get support that fits your child's curriculum and learning style."
         button1Text="Start Your First Session Today"
-        subtext1="Free Trial • No Commitment"
         subtext2="Stuck? Send it, we'll explain it."
       />
 

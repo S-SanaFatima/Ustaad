@@ -106,7 +106,7 @@ export default function HighSchoolPage() {
             <p className="text-gray-700 text-lg mb-10 leading-relaxed max-w-xl">
               Online tutoring for Grades 9 to 12 American Curriculum students, focused on course grades and university preparation.
             </p>
-            <HeroCTABlock trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock>
               Book Your First High School Lesson
             </HeroCTABlock>
           </motion.div>
@@ -385,9 +385,7 @@ export default function HighSchoolPage() {
       <FinalCTA
         title="Book A High School Tutor"
         subtitle="Online, matched to your school."
-        button1Text="Book Your First High School Lesson"
-        subtext1="Free trial. No commitment."
-      />
+        button1Text="Book Your First High School Lesson" />
     </Layout>
   );
 }

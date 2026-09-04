@@ -536,7 +536,7 @@ export default function IGCSETutorAbuDhabiPage() {
               </a>
               <span className="text-blue-200/50 text-[11px] -my-1">or</span>
               <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
-              <p className="text-blue-200/50 text-[11px] mt-1">✦ No Commitment · Cancel Anytime</p>
+              <p className="text-blue-200/50 text-[11px] mt-1">No commitment. Cancel anytime.</p>
             </div>
 
             <div className="hidden sm:flex items-start justify-center gap-4">
@@ -546,7 +546,7 @@ export default function IGCSETutorAbuDhabiPage() {
                   style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}>
                   Book Your Free Trial
                 </a>
-                <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
+                <p className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
                 <a href={WA_URL} className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
@@ -733,7 +733,7 @@ export default function IGCSETutorAbuDhabiPage() {
                 <h3 className="text-[18px] font-extrabold text-[#0a1f3d] mb-2 leading-snug">{item.title}</h3>
                 <p className="text-[14px] text-[#3a4f6e] leading-relaxed flex-1 mb-4">{item.body}</p>
                 <a href={item.href} className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0f4a9b] hover:text-[#1e5ba8] transition-colors">
-                  {item.linkText} <span aria-hidden="true">→</span>
+                  {item.linkText}
                 </a>
               </div>
             ))}
@@ -1091,7 +1091,6 @@ export default function IGCSETutorAbuDhabiPage() {
         subtitle="No commitment. Weekend and evening slots. UAE-registered since 2015."
         button1Text="Book Free Diagnostic"
         button2Text="Ask Question on WhatsApp"
-        subtext1="Thirty focused minutes with an IGCSE tutor, plus a written summary of your child's exam-readiness."
         subtext2="Send any IGCSE past-paper question; a tutor replies within 15 minutes with a worked solution."
       />
 
@@ -1143,7 +1142,7 @@ export default function IGCSETutorAbuDhabiPage() {
                   <p className="text-xs text-gray-600 leading-relaxed mb-3">{card.desc}</p>
                 </div>
                 <div className="text-xs font-bold text-[#0f4a9b] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  View Page →
+                  View Page
                 </div>
               </a>
             ))}

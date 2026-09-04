@@ -452,12 +452,13 @@ export default function IGCSEPhysicsFormulasBlog() {
 
             <p>Year 10 is where students decide whether to develop patience or rely on shortcuts. The ones who do well in IGCSE Physics are rarely the fastest. They are the ones who spend the first minute reading, sketching and thinking before writing. By mock season, that habit is their biggest advantage.</p>
 
-            <div className="my-5 flex justify-center">
+            <div className="my-5 flex flex-col items-center gap-1.5">
               <a href="/contact#form"
                 className="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-white text-sm hover:brightness-110 transition"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial →
+                Book Your Free Trial
               </a>
+              <p className="text-xs text-gray-500 font-medium">No commitment. Cancel anytime.</p>
             </div>
 
           </div>
@@ -511,12 +512,15 @@ export default function IGCSEPhysicsFormulasBlog() {
             <p className="text-white/75 mb-5 max-w-lg mx-auto text-sm">
               Ustaad supports IGCSE Physics students across the UAE through diagnostic, concept-led learning aligned to Cambridge IGCSE Physics (0625) and Edexcel IGCSE Physics (4PH1).
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <a href="/contact#form"
+            <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-3">
+              <div className="flex flex-col items-center gap-1.5">
+                <a href="/contact#form"
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial →
+                Book Your Free Trial
               </a>
+                <p className="text-xs text-white/60 font-medium">No commitment. Cancel anytime.</p>
+              </div>
               <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md">
                 <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> Ask on WhatsApp

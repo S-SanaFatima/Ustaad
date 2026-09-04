@@ -1377,7 +1377,7 @@ export default function BiologyLanding() {
 
           <div className="mt-8 flex justify-center">
             <a href="/tutors" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-[#0a1f3d] transition-all bg-[#f0c96a] hover:bg-[#e0b95a] shadow-md">
-              Meet Our Tutors <ArrowRight className="h-4 w-4" />
+              Meet Our Tutors
             </a>
           </div>
         </div>
@@ -1403,7 +1403,7 @@ export default function BiologyLanding() {
                 </div>
                 <div className="mt-4">
                   <a href={b.link} className="text-xs font-bold text-[#0f4a9b] hover:underline inline-flex items-center gap-1">
-                    Explore curriculum <ArrowRight className="w-3 h-3" />
+                    Explore curriculum
                   </a>
                 </div>
               </div>
@@ -1688,7 +1688,7 @@ export default function BiologyLanding() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-[16px] font-extrabold text-[#0a1f3d] mb-1 flex items-center gap-1.5 group-hover:text-[#0f4a9b] transition-colors">
-                    Physics Tutor Abu Dhabi <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
+                    Physics Tutor Abu Dhabi
                   </h3>
                   <p className="text-[13px] text-gray-600 leading-relaxed">For formulas, derivations, diagrams, mechanics and circuit calculations.</p>
                 </div>
@@ -1705,7 +1705,7 @@ export default function BiologyLanding() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-[16px] font-extrabold text-[#0a1f3d] mb-1 flex items-center gap-1.5 group-hover:text-[#0f4a9b] transition-colors">
-                    Chemistry Tutor Abu Dhabi <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
+                    Chemistry Tutor Abu Dhabi
                   </h3>
                   <p className="text-[13px] text-gray-600 leading-relaxed">For mole calculations, equation balancing, organic reaction routes and past papers.</p>
                 </div>
@@ -1722,7 +1722,7 @@ export default function BiologyLanding() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-[16px] font-extrabold text-[#0a1f3d] mb-1 flex items-center gap-1.5 group-hover:text-[#0f4a9b] transition-colors">
-                    Maths Tutor Abu Dhabi <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
+                    Maths Tutor Abu Dhabi
                   </h3>
                   <p className="text-[13px] text-gray-600 leading-relaxed">For algebra fluency, past-paper drilling, and IGCSE 0580 or IB Maths AA and AI support.</p>
                 </div>
@@ -1746,7 +1746,6 @@ export default function BiologyLanding() {
         button1Text="Book Your Free Trial"
         button1Href={BOOKING}
         button2Text="Ask Your Question"
-        subtext1="Free Trial • No Commitment"
         subtext2="Stuck on a topic? Send it across."
       />
 

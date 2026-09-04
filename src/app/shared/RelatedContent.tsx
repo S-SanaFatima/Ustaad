@@ -1,5 +1,3 @@
-import { ArrowRight } from 'lucide-react';
-
 export type RelatedLink = { label: string; href: string; note?: string };
 
 type Props = {
@@ -24,7 +22,6 @@ export default function RelatedContent({ subjects = [], curricula = [], breadcru
                 {subjects.map((s) => (
                   <li key={s.href}>
                     <a href={s.href} className="group flex items-start gap-2 text-[#0f4a9b] font-semibold hover:underline">
-                      <ArrowRight className="h-4 w-4 mt-0.5 shrink-0 opacity-60 group-hover:opacity-100" />
                       <span>
                         {s.label}
                         {s.note && <span className="block text-xs font-medium text-gray-500 no-underline">{s.note}</span>}
@@ -44,7 +41,6 @@ export default function RelatedContent({ subjects = [], curricula = [], breadcru
                 {curricula.map((c) => (
                   <li key={c.href}>
                     <a href={c.href} className="group flex items-start gap-2 text-[#0f4a9b] font-semibold hover:underline">
-                      <ArrowRight className="h-4 w-4 mt-0.5 shrink-0 opacity-60 group-hover:opacity-100" />
                       <span>
                         {c.label}
                         {c.note && <span className="block text-xs font-medium text-gray-500">{c.note}</span>}

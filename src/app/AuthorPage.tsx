@@ -81,9 +81,20 @@ export default function AuthorPage() {
 
       <section className="pt-16 pb-12 lg:pt-24 lg:pb-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-[220px_1fr] gap-10 items-start">
-            <div className="w-full aspect-square rounded-2xl border border-slate-100 shadow-sm bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white flex items-center justify-center font-bold text-[5rem] notranslate shrink-0" translate="no">
-              {author.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()}
+          <div className="grid md:grid-cols-[220px_1fr] gap-8 md:gap-10 items-start">
+            <div className="w-full max-w-[220px] mx-auto md:mx-0 aspect-square rounded-2xl border border-slate-100 shadow-sm overflow-hidden bg-[#e8eef8] shrink-0">
+              {author.photo ? (
+                <img
+                  src={author.photo}
+                  alt={author.photoAlt}
+                  className="w-full h-full object-cover object-[center_20%]"
+                  loading="eager"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white flex items-center justify-center font-bold text-[5rem] notranslate" translate="no">
+                  {author.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()}
+                </div>
+              )}
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-[#0f4a9b] mb-2">Ustaad Editorial</p>

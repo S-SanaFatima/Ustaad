@@ -81,13 +81,8 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
     },
     {
       city: 'Dubai',
-      cityHref: '/tutors?city=dubai',
       tutors: [
-        { label: 'IGCSE Tutors Dubai', href: '/tutors?city=dubai&curriculum=igcse' },
-        { label: 'Maths Tutors Dubai', href: '/tutors?city=dubai&subject=maths' },
-        { label: 'Physics Tutors Dubai', href: '/tutors?city=dubai&subject=physics' },
-        { label: 'Chemistry Tutors Dubai', href: '/tutors?city=dubai&subject=chemistry' },
-        { label: 'Biology Tutors Dubai', href: '/tutors?city=dubai&subject=biology' },
+        { label: 'GCSE Tutor Dubai', href: '/gcse-tutor-dubai' },
       ],
     },
     {
@@ -191,48 +186,44 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
           <div>
             <h3 className="font-bold text-sm mb-4 tracking-wide text-white uppercase border-b border-white/20 pb-2">{"Tutors Near Me"}</h3>
             <div className="space-y-0.5">
+              {cityTutors.map(({ city, cityHref, tutors }) => {
+                const isExpandable = tutors.length > 0 && (city === 'Abu Dhabi' || city === 'Dubai');
+                if (isExpandable) {
+                  const isOpen = !!openCities[city];
+                  return (
+                    <div key={city} className="mb-1">
+                      <button
+                        type="button"
+                        onClick={() => toggleCity(city)}
+                        className="w-full flex items-center justify-between text-xs font-semibold text-blue-200 hover:text-white transition py-1.5 text-left group"
+                        aria-expanded={isOpen}
+                        aria-label={`Toggle ${city} tutors`}
+                      >
+                        <span>{city}</span>
+                        <ChevronDown
+                          className={`h-3 w-3 text-blue-300/70 group-hover:text-white transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                      {isOpen && (
+                        <ul className="mt-0.5 mb-2 ml-2 pl-2 border-l border-white/15 space-y-0.5">
+                          {tutors.map((t) => (
+                            <li key={t.label}>
+                              <a
+                                href={t.href}
+                                className="flex items-center gap-1.5 text-[11px] font-medium text-blue-200/80 hover:text-white transition py-1 leading-snug group/item"
+                              >
+                                <span className="w-1 h-1 rounded-full bg-blue-400/40 group-hover/item:bg-white/60 transition flex-shrink-0" />
+                                {t.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  );
+                }
 
-              {/* Abu Dhabi — accordion with subject sub-links */}
-              {(() => {
-                const abuDhabi = cityTutors.find(c => c.city === 'Abu Dhabi')!;
-                const isOpen = !!openCities['Abu Dhabi'];
                 return (
-                  <div className="mb-1">
-                    <button
-                      type="button"
-                      onClick={() => toggleCity('Abu Dhabi')}
-                      className="w-full flex items-center justify-between text-xs font-semibold text-blue-200 hover:text-white transition py-1.5 text-left group"
-                      aria-expanded={isOpen}
-                      aria-label="Toggle Abu Dhabi tutors"
-                    >
-                      <span>Abu Dhabi</span>
-                      <ChevronDown
-                        className={`h-3 w-3 text-blue-300/70 group-hover:text-white transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-                      />
-                    </button>
-                    {isOpen && (
-                      <ul className="mt-0.5 mb-2 ml-2 pl-2 border-l border-white/15 space-y-0.5">
-                        {abuDhabi.tutors.map((t) => (
-                          <li key={t.label}>
-                            <a
-                              href={t.href}
-                              className="flex items-center gap-1.5 text-[11px] font-medium text-blue-200/80 hover:text-white transition py-1 leading-snug group/item"
-                            >
-                              <span className="w-1 h-1 rounded-full bg-blue-400/40 group-hover/item:bg-white/60 transition flex-shrink-0" />
-                              {t.label}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                );
-              })()}
-
-              {/* All other cities — plain links, no dropdown */}
-              {cityTutors
-                .filter(c => c.city !== 'Abu Dhabi')
-                .map(({ city, cityHref }) => (
                   <div key={city} className="py-1.5">
                     <a
                       href={cityHref}
@@ -241,8 +232,8 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
                       {city}
                     </a>
                   </div>
-                ))}
-
+                );
+              })}
             </div>
           </div>
 

@@ -560,7 +560,7 @@ export default function IBTutorAbuDhabiPage() {
               >
                 Claim a Free IB Session
               </a>
-              <span className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</span>
+              <span className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</span>
               <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="text-blue-200/90 text-[12px] font-semibold underline flex items-center justify-center gap-1">
                 <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" /> or WhatsApp a question
               </a>
@@ -575,7 +575,7 @@ export default function IBTutorAbuDhabiPage() {
                 >
                   Claim a Free IB Session
                 </a>
-                <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
+                <p className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
                 <a
@@ -1186,7 +1186,7 @@ export default function IBTutorAbuDhabiPage() {
 
           <div className="text-center">
             <a href="/ib-curriculum" className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0f4a9b] hover:underline">
-              See full subject list and core overview <ArrowRight className="h-4 w-4" />
+              See full subject list and core overview
             </a>
           </div>
         </div>

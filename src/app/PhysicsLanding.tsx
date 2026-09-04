@@ -733,7 +733,7 @@ export default function PhysicsLanding() {
               </a>
               <span className="text-blue-200/50 text-[11px] -my-1">or</span>
               <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
-              <p className="text-blue-200/50 text-[11px] mt-1">✦ No Commitment · Cancel Anytime</p>
+              <p className="text-blue-200/50 text-[11px] mt-1">No commitment. Cancel anytime.</p>
             </div>
 
             <div className="hidden sm:flex items-start justify-center gap-4">
@@ -743,7 +743,7 @@ export default function PhysicsLanding() {
                   style={{ background:'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow:'0 4px 18px rgba(15,74,155,0.55)' }}>
                   Book Your Free Trial
                 </a>
-                <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
+                <p className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
                 <a href={WA_URL} className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
@@ -835,7 +835,7 @@ export default function PhysicsLanding() {
                   <a href={c.link.href}
                     className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-1 rounded-full whitespace-nowrap transition-all hover:brightness-110"
                     style={{ color: '#93c5fd', background: 'rgba(15,74,155,0.3)', border: '1px solid rgba(110,168,255,0.2)' }}>
-                    <ArrowRight className="h-2.5 w-2.5 shrink-0" />{c.link.label}
+                    {c.link.label}
                   </a>
                 </div>
               </div>
@@ -1022,7 +1022,7 @@ export default function PhysicsLanding() {
             <a href="/tutors"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5"
               style={{ background: 'linear-gradient(135deg,#0f4a9b,#1e5ba8)', boxShadow: '0 4px 16px rgba(15,74,155,0.3)' }}>
-              Meet Our Tutors <ArrowRight className="h-4 w-4" />
+              Meet Our Tutors
             </a>
           </div>
         </div>
@@ -1150,7 +1150,7 @@ export default function PhysicsLanding() {
           </p>
           <div className="flex justify-center">
             <GoldButton href={BOOKING} className="px-6 py-3 text-sm">
-              Book Diagnostic Trial <ArrowRight className="h-4 w-4 inline ml-1" />
+              Book Diagnostic Trial
             </GoldButton>
           </div>
         </div>
@@ -1299,7 +1299,6 @@ export default function PhysicsLanding() {
         button1Text="Book Your Free Trial"
         button1Href={BOOKING}
         button2Text="Ask Your Question"
-        subtext1="Free Trial • No Commitment"
         subtext2="Stuck on a topic? Send it across."
       />
 
@@ -1324,7 +1323,7 @@ export default function PhysicsLanding() {
               </div>
               <div className="flex-1">
                 <h3 className="text-[16px] font-extrabold text-[#0a1f3d] mb-1 flex items-center gap-1.5 group-hover:text-[#0f4a9b] transition-colors">
-                  Maths Tutor Abu Dhabi <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
+                  Maths Tutor Abu Dhabi
                 </h3>
                 <p className="text-[13px] text-gray-600 leading-relaxed">
                   For algebra, fractions, IGCSE Paper 4, IB Maths AA/AI, and the same calm topic-rooted approach.

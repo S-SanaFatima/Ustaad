@@ -372,7 +372,6 @@ const physicsRelatedReading = (
           </div>
           <div className="mt-4 flex items-center text-sm font-bold text-[#0f4a9b] gap-2">
             <span>Read Article</span>
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </div>
         </a>
         <a href="/blogs/physics-understanding-vs-marks" className="group bg-[#f8fafc] border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-[#0f4a9b]/30 transition-all flex flex-col justify-between">
@@ -383,7 +382,6 @@ const physicsRelatedReading = (
           </div>
           <div className="mt-4 flex items-center text-sm font-bold text-[#0f4a9b] gap-2">
             <span>Read Article</span>
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </div>
         </a>
       </div>

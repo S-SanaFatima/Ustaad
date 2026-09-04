@@ -68,7 +68,7 @@ export default function DPSLPage() {
             <p className="text-gray-700 text-lg mb-10 leading-relaxed max-w-xl">
               DP SL tutoring focused on Internal Assessments, six-subject balance, and the May exam papers.
             </p>
-            <HeroCTABlock className="mb-4" trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock className="mb-4">
               Book Your First DP SL Lesson
             </HeroCTABlock>
           </motion.div>
@@ -355,9 +355,7 @@ export default function DPSLPage() {
       <FinalCTA
         title="Book a DP SL Tutor"
         subtitle="Steady performance, every subject."
-        button1Text="Book Your First DP SL Lesson"
-        subtext1="First lesson free. No commitment."
-      />
+        button1Text="Book Your First DP SL Lesson" />
 
     </Layout>
   );

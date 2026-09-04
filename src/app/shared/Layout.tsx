@@ -11,6 +11,7 @@ import Header from './Header';
 import Footer from './Footer';
 import FloatingWidget from './FloatingWidget';
 import { observeGoogleTranslateFields, patchGoogleTranslateFields } from '../../lib/googleTranslate';
+import { scrollToHashWhenReady } from '../../lib/scrollToHash';
 
 interface LayoutProps {
   children: ReactNode;
@@ -37,14 +38,9 @@ export default function Layout({ children, floatingCTAs, headerLogoAlt, footerLo
     }
     const hash = window.location.hash;
     if (hash) {
-      // Delay slightly so the target element is rendered before scrolling
-      setTimeout(() => {
-        const el = document.querySelector(hash);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      window.scrollTo(0, 0);
+      return scrollToHashWhenReady(hash);
     }
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {

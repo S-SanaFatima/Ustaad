@@ -462,6 +462,23 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Exam Panic UAE', url: '/blogs/exam-panic-before-exams-uae' }]
   },
   {
+    path: '/blogs/uae-exams-return-students-never-sat-one',
+    component: 'UAEExamsReturnBlog',
+    seo: {
+      title: 'Exams Are Back in the UAE. What Changes for Your Child | Ustaad',
+      description: 'UAE exams are returning after a year of portfolio grading. Here is what changes for students who have never sat a real paper, and how parents can help.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-09-03'
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blogs' },
+      { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' },
+      { name: 'UAE Exams Return', url: '/blogs/uae-exams-return-students-never-sat-one' },
+    ]
+  },
+  {
     path: '/blogs/igcse-vs-gcse-curriculum-differences-uae',
     component: 'IGCSEvsGCSEBlog',
     seo: {
@@ -587,6 +604,17 @@ export const ROUTES: RouteConfig[] = [
       changefreq: 'monthly'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'GCSE Tutor Abu Dhabi', url: '/gcse-tutor-abu-dhabi' }]
+  },
+  {
+    path: '/gcse-tutor-dubai',
+    component: 'GCSETutorDubaiLanding',
+    seo: {
+      title: 'GCSE Tutor Dubai | AQA, Edexcel & OCR | Ustaad',
+      description: 'Expert online GCSE tutors in Dubai. AQA, Edexcel & OCR specialists. Private 1-to-1, recorded lessons, free trial. Trusted UAE families since 2015.',
+      priority: 0.90,
+      changefreq: 'monthly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'GCSE', url: '/gcse' }, { name: 'GCSE Tutor Dubai', url: '/gcse-tutor-dubai' }]
   },
   {
     path: '/a-level-tutor-abu-dhabi',

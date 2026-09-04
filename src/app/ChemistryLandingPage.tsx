@@ -487,22 +487,22 @@ export default function ChemistryLandingPage() {
               <h3 className="text-xl font-extrabold text-[#0a1f3d] mb-2">Related Subjects</h3>
               <p className="text-sm text-gray-500 mb-6">Explore neighbouring subjects families often book alongside this page.</p>
               <ul className="space-y-4">
-                <li><a href="/maths-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> Maths Tutor Abu Dhabi</a></li>
-                <li><a href="/physics-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> Physics Tutor Abu Dhabi</a></li>
-                <li><a href="/biology-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> Biology Tutor Abu Dhabi</a></li>
-                <li><a href="/chemistry" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> Chemistry subject hub</a></li>
-                <li><a href="/sciences" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> Sciences overview</a></li>
+                <li><a href="/maths-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> Maths Tutor Abu Dhabi</a></li>
+                <li><a href="/physics-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> Physics Tutor Abu Dhabi</a></li>
+                <li><a href="/biology-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> Biology Tutor Abu Dhabi</a></li>
+                <li><a href="/chemistry" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> Chemistry subject hub</a></li>
+                <li><a href="/sciences" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> Sciences overview</a></li>
               </ul>
             </div>
             <div>
               <h3 className="text-xl font-extrabold text-[#0a1f3d] mb-2">Related Curricula</h3>
               <p className="text-sm text-gray-500 mb-6">Match tutoring to the board and pathway your school follows.</p>
               <ul className="space-y-4">
-                <li><a href="/igcse" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> IGCSE</a></li>
-                <li><a href="/a-level" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> A-Level</a></li>
-                <li><a href="/ib-curriculum" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> IB Curriculum</a></li>
-                <li><a href="/british-curriculum" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> British Curriculum</a></li>
-                <li><a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4 text-gray-300" /> IGCSE Tutor Abu Dhabi</a></li>
+                <li><a href="/igcse" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> IGCSE</a></li>
+                <li><a href="/a-level" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> A-Level</a></li>
+                <li><a href="/ib-curriculum" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> IB Curriculum</a></li>
+                <li><a href="/british-curriculum" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> British Curriculum</a></li>
+                <li><a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> IGCSE Tutor Abu Dhabi</a></li>
               </ul>
             </div>
           </div>

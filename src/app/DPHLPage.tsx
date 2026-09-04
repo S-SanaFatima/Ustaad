@@ -68,7 +68,7 @@ export default function DPHLPage() {
             <p className="text-gray-700 text-lg mb-10 leading-relaxed max-w-xl">
               DP HL tutoring focused on AHL topics, synthesis, evaluation, and university preparation.
             </p>
-            <HeroCTABlock className="mb-4" trustText="✦ First lesson free. No commitment.">
+            <HeroCTABlock className="mb-4">
               Book Your First DP HL Lesson
             </HeroCTABlock>
           </motion.div>
@@ -383,9 +383,7 @@ export default function DPHLPage() {
       <FinalCTA
         title="Book a DP HL Tutor"
         subtitle="Six HL subjects, two years."
-        button1Text="Book Your First DP HL Lesson"
-        subtext1="First lesson free. No commitment."
-      />
+        button1Text="Book Your First DP HL Lesson" />
 
     </Layout>
   );
