@@ -1,0 +1,4 @@
+---
+deployment:
+  tasks:
+    - echo "Ustaad site files are served from this repository root."
