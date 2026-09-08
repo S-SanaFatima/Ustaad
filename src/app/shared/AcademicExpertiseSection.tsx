@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Calculator, Atom, FlaskConical, Leaf, Wrench, ClipboardCheck, ArrowRight } from 'lucide-react';
+import { Calculator, Atom, FlaskConical, Leaf, Wrench, ClipboardCheck, ArrowRight, ChevronDown } from 'lucide-react';
 import { GradientHeadingText } from './GradientHeadingText';
 import { GoldButton } from './GoldButton';
 
@@ -332,6 +332,8 @@ const SUBJECTS = [
 ] as const;
 
 export function AcademicExpertiseSection() {
+  const [expandedMobile, setExpandedMobile] = useState(false);
+
   return (
     <section id="subjects" className="py-16 lg:py-24 bg-[#F4F8FD] relative overflow-hidden isolate">
       {/* Background Subtle Grid Pattern */}
@@ -348,11 +350,12 @@ export function AcademicExpertiseSection() {
           </p>
         </div>
 
-        {/* 6 Subject Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-10">
+        {/* 6 Subject Cards Grid (Mobile shows 2 initially + See More dropdown, Desktop shows all 6) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-6 sm:mb-10">
           {SUBJECTS.map((subj, i) => {
             const Icon = subj.icon;
             const Artifact = subj.artifact;
+            const isHiddenOnMobile = !expandedMobile && i >= 2;
 
             return (
               <motion.a
@@ -361,8 +364,10 @@ export function AcademicExpertiseSection() {
                 initial={{ opacity: 0, y: 35, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.55, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                className="relative bg-white rounded-2xl border border-gray-200/80 p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(15,74,155,0.14)] hover:border-[#0f4a9b]/50 hover:-translate-y-2 transition-all duration-300 flex flex-col cursor-pointer group overflow-hidden"
+                transition={{ duration: 0.55, delay: (i % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className={`relative bg-white rounded-2xl border border-gray-200/80 p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(15,74,155,0.14)] hover:border-[#0f4a9b]/50 hover:-translate-y-2 transition-all duration-300 flex-col cursor-pointer group overflow-hidden ${
+                  isHiddenOnMobile ? 'hidden sm:flex' : 'flex'
+                }`}
               >
                 {/* Header: Subject Icon & Title */}
                 <div className="flex items-center gap-3.5 mb-3">
@@ -405,8 +410,25 @@ export function AcademicExpertiseSection() {
           })}
         </div>
 
+        {/* Mobile See More / Dropdown Trigger (visible on mobile only) */}
+        <div className="sm:hidden flex justify-center mb-8">
+          <button
+            type="button"
+            onClick={() => setExpandedMobile((prev) => !prev)}
+            className="group flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-white text-[#0f4a9b] border border-[#0f4a9b]/25 shadow-sm active:scale-95 transition-all duration-200 cursor-pointer"
+            aria-expanded={expandedMobile}
+          >
+            <span>{expandedMobile ? 'Show Fewer Subjects' : `See More Subjects (${SUBJECTS.length - 2})`}</span>
+            <ChevronDown
+              className={`w-4 h-4 text-[#C7A24A] transition-transform duration-300 ${
+                expandedMobile ? 'rotate-180' : ''
+              }`}
+            />
+          </button>
+        </div>
+
         {/* View All Subjects CTA Button */}
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-4 sm:mt-8">
           <GoldButton href="/subjects" className="px-10 py-4 text-base shadow-[0_0_20px_rgba(199,162,74,0.35)]">
             View All Subjects
           </GoldButton>

@@ -1,6 +1,6 @@
 /** Offset for fixed site header (TrustBar + Header). */
 export function getFixedHeaderOffset(): number {
-  return window.innerWidth >= 1024 ? 88 : 80;
+  return window.innerWidth >= 1024 ? 92 : 84;
 }
 
 export function scrollToHash(hash?: string, behavior: ScrollBehavior = 'smooth'): boolean {

@@ -32,6 +32,7 @@ import HowItWorksPage from "./app/HowItWorksPage.tsx";
 import IBCurriculumPage from "./app/IBCurriculumPage.tsx";
 import ExamPanicBlog from "./app/ExamPanicBlog.tsx";
 import UAEExamsReturnBlog from "./app/UAEExamsReturnBlog.tsx";
+import ExamStaminaBlog from "./app/ExamStaminaBlog.tsx";
 import IGCSEMathsLowMarksBlog from "./app/IGCSEMathsLowMarksBlog.tsx";
 import IGCSEBiology6MarkBlog from "./app/IGCSEBiology6MarkBlog.tsx";
 import IGCSEPage from "./app/IGCSEPage.tsx";
@@ -109,6 +110,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   ChemistryLandingPage,
   ExamPanicBlog,
   UAEExamsReturnBlog,
+  ExamStaminaBlog,
   IGCSEMathsLowMarksBlog,
   IGCSEBiology6MarkBlog,
   IGCSEPhysicsFormulasBlog,

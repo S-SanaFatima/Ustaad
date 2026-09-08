@@ -174,8 +174,8 @@ function ParentTakeaway({ children }: { children: React.ReactNode }) {
 function InlineImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
   return (
     <figure className="mx-auto my-6 max-w-xl">
-      <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
-        <img src={src} alt={alt} loading="lazy" className="w-full h-auto block" />
+      <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_32px_rgba(0,0,0,0.12)] aspect-[16/9] bg-slate-100">
+        <img src={src} alt={alt} width={1376} height={774} loading="lazy" className="w-full h-full object-cover block" />
       </div>
       {caption && (
         <figcaption className="mt-2.5 text-center text-xs text-gray-400 italic leading-relaxed px-2">{caption}</figcaption>
@@ -296,6 +296,7 @@ export default function UAEExamsReturnBlog() {
         description={BLOG.description}
         canonical={canonical}
         ogImage={BLOG.heroImage}
+        preloadHeroImage={BLOG.heroImage}
         author={BLOG.author}
         placename="United Arab Emirates"
         ogType="article"
@@ -305,7 +306,7 @@ export default function UAEExamsReturnBlog() {
             { name: 'Home', url: '/' },
             { name: 'Blog', url: '/blogs' },
             { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' },
-            { name: BLOG.title, url: canonical },
+            { name: 'UAE Exams Return', url: canonical },
           ]),
           articleSchema({
             title: BLOG.title,
@@ -331,17 +332,27 @@ export default function UAEExamsReturnBlog() {
         ]}
       />
 
-      <div className="bg-[#f8fafd] border-b border-slate-100">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center gap-1.5 text-xs text-gray-400">
-          <a href="/" className="hover:text-[#0f4a9b] transition flex items-center gap-1"><Home className="h-3 w-3" /> Home</a>
-          <ChevronRightIcon className="h-3 w-3" />
-          <a href="/blogs" className="hover:text-[#0f4a9b] transition">Blog</a>
-          <ChevronRightIcon className="h-3 w-3" />
-          <a href="/blogs/psychology-of-learning" className="hover:text-[#0f4a9b] transition truncate max-w-[150px]">Psychology of Learning</a>
-          <ChevronRightIcon className="h-3 w-3" />
-          <span className="text-[#0f4a9b] font-semibold truncate max-w-[150px]">UAE Exams Return</span>
-        </div>
-      </div>
+      <nav aria-label="Breadcrumb" className="bg-[#f8fafd] border-b border-slate-100">
+        <ol className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center gap-1.5 text-xs text-gray-400 list-none m-0">
+          <li>
+            <a href="/" className="hover:text-[#0f4a9b] transition flex items-center gap-1">
+              <Home className="h-3 w-3" /> Home
+            </a>
+          </li>
+          <li aria-hidden="true"><ChevronRightIcon className="h-3 w-3" /></li>
+          <li>
+            <a href="/blogs" className="hover:text-[#0f4a9b] transition">Blog</a>
+          </li>
+          <li aria-hidden="true"><ChevronRightIcon className="h-3 w-3" /></li>
+          <li>
+            <a href="/blogs/psychology-of-learning" className="hover:text-[#0f4a9b] transition truncate max-w-[150px]">Psychology of Learning</a>
+          </li>
+          <li aria-hidden="true"><ChevronRightIcon className="h-3 w-3" /></li>
+          <li className="text-[#0f4a9b] font-semibold truncate max-w-[150px]" aria-current="page">
+            UAE Exams Return
+          </li>
+        </ol>
+      </nav>
 
       <section className="pt-7 pb-0 bg-white">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -398,8 +409,8 @@ export default function UAEExamsReturnBlog() {
           </motion.div>
 
           <motion.figure initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }} className="mb-0">
-            <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_40px_rgba(15,74,155,0.12)]">
-              <img src={BLOG.heroImage} alt={BLOG.heroAlt} fetchPriority="high" className="w-full h-auto block" />
+            <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_40px_rgba(15,74,155,0.12)] aspect-[16/9] bg-slate-100">
+              <img src={BLOG.heroImage} alt={BLOG.heroAlt} width={1376} height={774} fetchPriority="high" className="w-full h-full object-cover block" />
             </div>
             <figcaption className="mt-2.5 text-center text-xs text-gray-400 italic leading-relaxed px-2">{BLOG.heroCaption}</figcaption>
           </motion.figure>

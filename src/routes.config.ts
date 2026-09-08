@@ -462,6 +462,23 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Exam Panic UAE', url: '/blogs/exam-panic-before-exams-uae' }]
   },
   {
+    path: '/blogs/exam-stamina-uae-students',
+    component: 'ExamStaminaBlog',
+    seo: {
+      title: "Exam Stamina: Why Your Child Can't Sit the Full Paper | Ustaad",
+      description: 'Your child revises for hours but fades halfway through a paper. Exam stamina is the missing skill, and here is how to build it before exams start.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-09-07'
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blogs' },
+      { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' },
+      { name: 'Exam Stamina', url: '/blogs/exam-stamina-uae-students' },
+    ]
+  },
+  {
     path: '/blogs/uae-exams-return-students-never-sat-one',
     component: 'UAEExamsReturnBlog',
     seo: {

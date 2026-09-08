@@ -9,7 +9,7 @@
     "build:client": "vite build --outDir dist/client --ssrManifest",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx",
     "build:spa": "vite build",
-    "audit": "node audit.mjs"
+    "audit": "node scripts/audit-site.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",

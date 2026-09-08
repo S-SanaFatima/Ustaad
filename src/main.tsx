@@ -45,6 +45,7 @@ const loadIGCSEBiology6MarkBlog = () => import('./app/IGCSEBiology6MarkBlog');
 const loadIGCSEMathsLowMarksBlog = () => import('./app/IGCSEMathsLowMarksBlog');
 const loadExamPanicBlog = () => import('./app/ExamPanicBlog');
 const loadUAEExamsReturnBlog = () => import('./app/UAEExamsReturnBlog');
+const loadExamStaminaBlog = () => import('./app/ExamStaminaBlog');
 const loadGCSERevisionTipsParentsBlog = () => import('./app/GCSERevisionTipsParentsBlog');
 const loadMathematicsLanding = () => import('./app/MathematicsLanding');
 const loadPhysicsLanding = () => import('./app/PhysicsLanding');
@@ -110,6 +111,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/igcse-maths-revision-low-marks': loadIGCSEMathsLowMarksBlog,
   '/blogs/exam-panic-before-exams-uae': loadExamPanicBlog,
   '/blogs/uae-exams-return-students-never-sat-one': loadUAEExamsReturnBlog,
+  '/blogs/exam-stamina-uae-students': loadExamStaminaBlog,
   '/blogs/physics-understanding-vs-marks': loadPhysicsUnderstandingMarksBlog,
   '/blogs/igcse-physics-formulas-exam': loadIGCSEPhysicsFormulasBlog,
   '/blogs/why-chemistry-fades-from-memory': loadChemistryFadesBlog,
@@ -178,6 +180,7 @@ const IGCSEBiology6MarkBlog = lazy(loadIGCSEBiology6MarkBlog);
 const IGCSEMathsLowMarksBlog = lazy(loadIGCSEMathsLowMarksBlog);
 const ExamPanicBlog = lazy(loadExamPanicBlog);
 const UAEExamsReturnBlog = lazy(loadUAEExamsReturnBlog);
+const ExamStaminaBlog = lazy(loadExamStaminaBlog);
 const GCSERevisionTipsParentsBlog = lazy(loadGCSERevisionTipsParentsBlog);
 const MathematicsLanding = lazy(loadMathematicsLanding);
 const PhysicsLanding = lazy(loadPhysicsLanding);
@@ -287,6 +290,7 @@ function AppRoutes() {
           <Route path="/blogs/igcse-maths-revision-low-marks"element={<IGCSEMathsLowMarksBlog />} />
           <Route path="/blogs/exam-panic-before-exams-uae"   element={<ExamPanicBlog />} />
           <Route path="/blogs/uae-exams-return-students-never-sat-one" element={<UAEExamsReturnBlog />} />
+          <Route path="/blogs/exam-stamina-uae-students"      element={<ExamStaminaBlog />} />
           <Route path="/blogs/physics-understanding-vs-marks" element={<PhysicsUnderstandingMarksBlog />} />
           <Route path="/blogs/igcse-physics-formulas-exam"  element={<IGCSEPhysicsFormulasBlog />} />
           <Route path="/blogs/why-chemistry-fades-from-memory" element={<ChemistryFadesBlog />} />

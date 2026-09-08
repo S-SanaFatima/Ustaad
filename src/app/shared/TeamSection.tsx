@@ -1,4 +1,5 @@
-import { motion } from 'motion/react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { GradientHeadingText } from './GradientHeadingText';
 import { personSchema } from './schemas';
 import {
@@ -8,6 +9,8 @@ import {
   Sparkles,
   ArrowUpRight,
   Crown,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 
 export type TeamMember = {
@@ -118,75 +121,19 @@ export const teamPersonSchemas = TEAM.map((member) =>
 
 const viewportReplay = { once: false, amount: 0.25, margin: '0px 0px -6% 0px' } as const;
 
-function FacultyCard({ member, index }: { member: TeamMember; index: number }) {
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 28, scale: 0.97 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={viewportReplay}
-      transition={{ duration: 0.45, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -6 }}
-      className="group relative flex flex-col bg-white rounded-2xl border border-slate-200/90 shadow-[0_6px_22px_rgba(15,74,155,0.05)] overflow-hidden hover:border-[#0f4a9b]/25 hover:shadow-[0_16px_40px_rgba(15,74,155,0.12)] transition-shadow duration-300"
-    >
-      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#C7A24A]/0 to-transparent group-hover:via-[#C7A24A] transition-all duration-300 z-10" />
-
-      <div className="relative aspect-[4/4.6] sm:aspect-[4/4.4] overflow-hidden bg-[#e8eef8]">
-        <img
-          src={member.image}
-          alt={member.imageAlt}
-          className="w-full h-full object-cover scale-[1.02] group-hover:scale-110 transition-transform duration-700 ease-out"
-          style={{ objectPosition: member.objectPosition }}
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f3d]/85 via-[#0a1f3d]/20 to-transparent" />
-        <span className="absolute top-2.5 left-2.5 max-w-[calc(100%-1.25rem)] truncate px-2 py-0.5 rounded-full bg-white/95 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.06em] text-[#0f4a9b] shadow-sm">
-          {member.tag}
-        </span>
-        <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-3 sm:left-3.5 sm:right-3.5">
-          <h3 className="text-sm sm:text-base font-bold text-white leading-snug tracking-tight">
-            {member.name}
-          </h3>
-          <p className="text-[11px] sm:text-[12px] font-medium text-[#f0d080]/95 mt-0.5 leading-snug line-clamp-2">
-            {member.role}
-          </p>
-        </div>
-      </div>
-
-      <div className="px-3 py-3 sm:px-3.5 sm:py-3.5 flex-1 flex flex-col">
-        <p className="text-xs sm:text-[13px] text-[#3a4f6e] leading-relaxed flex-1 line-clamp-4 sm:line-clamp-none">
-          {member.oneLiner}
-        </p>
-        <div className="mt-2.5 pt-2.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1.5">
-          <div className="flex flex-wrap gap-1 min-w-0">
-            {member.focus.slice(0, 1).map((f) => (
-              <span
-                key={f}
-                className="text-[9px] sm:text-[10px] font-semibold text-[#0a1f3d]/70 bg-[#f4f7fc] px-1.5 sm:px-2 py-0.5 rounded-md border border-[#0f4a9b]/8 truncate max-w-full"
-              >
-                {f}
-              </span>
-            ))}
-            {member.focus[1] && (
-              <span className="hidden sm:inline-flex text-[10px] font-semibold text-[#0a1f3d]/70 bg-[#f4f7fc] px-2 py-0.5 rounded-md border border-[#0f4a9b]/8">
-                {member.focus[1]}
-              </span>
-            )}
-          </div>
-          {member.profileHref && (
-            <a
-              href={member.profileHref}
-              className="shrink-0 text-[10px] sm:text-[11px] font-bold text-[#0f4a9b] hover:text-[#C7A24A] transition-colors flex items-center gap-0.5"
-            >
-              Bio <ArrowUpRight className="w-3 h-3" />
-            </a>
-          )}
-        </div>
-      </div>
-    </motion.article>
-  );
-}
-
 export default function TeamSection() {
+  const [activeFaculty, setActiveFaculty] = useState(0);
+
+  const handlePrev = () => {
+    setActiveFaculty((prev) => (prev > 0 ? prev - 1 : FACULTY.length - 1));
+  };
+
+  const handleNext = () => {
+    setActiveFaculty((prev) => (prev < FACULTY.length - 1 ? prev + 1 : 0));
+  };
+
+  const currentFaculty = FACULTY[activeFaculty];
+
   return (
     <section
       id="team"
@@ -197,9 +144,9 @@ export default function TeamSection() {
       <div className="absolute -top-24 right-0 w-96 h-96 rounded-full bg-[#C7A24A]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-20 -left-20 w-80 h-80 rounded-full bg-[#0f4a9b]/8 blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          className="mb-10 sm:mb-12 max-w-2xl"
+          className="mb-8 sm:mb-10 max-w-2xl"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportReplay}
@@ -220,19 +167,20 @@ export default function TeamSection() {
           </p>
         </motion.div>
 
-        {/* Founder — featured card with balanced portrait */}
+        {/* TOP: One Big Card of Founder */}
         <motion.article
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportReplay}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative mb-8 sm:mb-10 overflow-hidden rounded-[1.5rem] border border-[#0f4a9b]/12 bg-white shadow-[0_14px_36px_rgba(15,74,155,0.08)]"
+          className="group relative mb-8 sm:mb-10 overflow-hidden rounded-[1.75rem] border border-[#0f4a9b]/15 bg-white shadow-[0_16px_44px_rgba(15,74,155,0.07)]"
         >
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#C7A24A]/60 to-transparent" />
+          <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-[#C7A24A] via-[#A8892A] to-[#C7A24A]" />
 
-          <div className="relative flex flex-col sm:flex-row gap-5 sm:gap-6 p-4 sm:p-5 lg:p-6 items-stretch sm:items-center">
-            <div className="relative mx-auto sm:mx-0 w-full max-w-[200px] sm:max-w-none sm:w-[200px] lg:w-[220px] shrink-0">
-              <div className="relative aspect-[3.4/4] rounded-2xl overflow-hidden bg-[#e8eef8] ring-1 ring-[#0f4a9b]/10 shadow-md">
+          <div className="relative flex flex-col sm:flex-row gap-5 sm:gap-7 lg:gap-8 p-5 sm:p-7 lg:p-8 items-center sm:items-start">
+            {/* Founder Portrait */}
+            <div className="relative mx-auto sm:mx-0 w-32 sm:w-40 lg:w-44 shrink-0">
+              <div className="relative aspect-[3.4/4] rounded-2xl overflow-hidden bg-[#e8eef8] ring-2 ring-[#C7A24A]/35 shadow-lg">
                 <img
                   src={FOUNDER.image}
                   alt={FOUNDER.imageAlt}
@@ -240,88 +188,203 @@ export default function TeamSection() {
                   style={{ objectPosition: FOUNDER.objectPosition }}
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f3d]/35 via-transparent to-transparent pointer-events-none" />
-              </div>
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 sm:left-3 sm:translate-x-0 flex flex-wrap justify-center gap-1.5">
-                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#C7A24A] text-[#0a1f3d] text-[9px] font-extrabold uppercase tracking-[0.1em] shadow-md">
-                  <Crown className="w-3 h-3" />
-                  Founder
-                </span>
               </div>
             </div>
 
-            <div className="relative flex-1 min-w-0 text-center sm:text-left py-1 sm:py-2 sm:pr-2">
-              <motion.div
-                initial={{ opacity: 0, x: 12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={viewportReplay}
-                transition={{ duration: 0.4, delay: 0.08 }}
-              >
-                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
-                  <span className="px-2.5 py-1 rounded-full bg-[#0f4a9b]/8 text-[10px] font-bold uppercase tracking-[0.08em] text-[#0f4a9b] border border-[#0f4a9b]/12">
-                    {FOUNDER.tag}
-                  </span>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#C7A24A]">
-                    Leading Ustaad since day one
-                  </span>
-                </div>
-                <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold text-[#0a1f3d] tracking-tight leading-tight mb-1">
-                  {FOUNDER.name}
-                </h3>
-                <p className="text-sm font-semibold text-[#0f4a9b] mb-3">
-                  {FOUNDER.role}
-                </p>
-                <p className="text-[13px] sm:text-[14px] text-[#3a4f6e] leading-relaxed mb-4 max-w-2xl mx-auto sm:mx-0">
-                  {FOUNDER.desc}
-                </p>
+            {/* Founder Content */}
+            <div className="relative flex-1 min-w-0 text-center sm:text-left">
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#C7A24A] text-[#0a1f3d] text-[10px] font-extrabold uppercase tracking-[0.1em] shadow-sm">
+                  <Crown className="w-3 h-3" />
+                  Founder
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-[#0f4a9b]/8 text-[10px] font-bold uppercase tracking-[0.08em] text-[#0f4a9b] border border-[#0f4a9b]/12">
+                  {FOUNDER.tag}
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#C7A24A]">
+                  Leading Ustaad since day one
+                </span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] tracking-tight leading-tight mb-1">
+                {FOUNDER.name}
+              </h3>
+              <p className="text-sm sm:text-base font-semibold text-[#0f4a9b] mb-2.5">
+                {FOUNDER.role}
+              </p>
+              <p className="text-[13px] sm:text-[14px] text-[#3a4f6e] leading-relaxed mb-3.5 max-w-2xl mx-auto sm:mx-0">
+                {FOUNDER.desc}
+              </p>
 
-                <blockquote className="relative mb-4 max-w-2xl mx-auto sm:mx-0 rounded-xl border border-[#C7A24A]/25 bg-gradient-to-br from-[#fdfaf3] to-[#f8fafd] px-4 py-3.5 sm:px-5 sm:py-4 text-left">
-                  <p className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#C7A24A] mb-2">
-                    Founder Message
-                  </p>
-                  <p className="text-[13px] sm:text-[14px] text-[#0a1f3d] leading-relaxed font-medium italic">
-                    &ldquo;Ustaad was built on a simple belief: the right teacher can change more than a student&apos;s grades, they can build confidence, inspire ambition, and shape a better future.&rdquo;
-                  </p>
-                </blockquote>
+              <blockquote className="relative mb-3.5 max-w-2xl mx-auto sm:mx-0 rounded-xl border border-[#C7A24A]/30 bg-gradient-to-br from-[#fdfaf3] to-[#f8fafd] px-4 py-3 sm:px-5 sm:py-3.5 text-left">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#C7A24A] mb-1 flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3 text-[#C7A24A]" /> Founder Message
+                </p>
+                <p className="text-[13px] sm:text-[14px] text-[#0a1f3d] leading-relaxed font-medium italic">
+                  &ldquo;Ustaad was built on a simple belief: the right teacher can change more than a student&apos;s grades, they can build confidence, inspire ambition, and shape a better future.&rdquo;
+                </p>
+              </blockquote>
 
-                <div className="flex flex-wrap justify-center sm:justify-start gap-2">
-                  {FOUNDER.focus.map((f) => (
-                    <span
-                      key={f}
-                      className="inline-flex items-center text-[11px] font-bold text-[#0a1f3d] bg-[#f4f7fc] px-2.5 py-1 rounded-full border border-[#0f4a9b]/10"
-                    >
-                      {f}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
+              <div className="flex flex-wrap justify-center sm:justify-start gap-1.5">
+                {FOUNDER.focus.map((f) => (
+                  <span
+                    key={f}
+                    className="inline-flex items-center text-[10px] sm:text-[11px] font-bold text-[#0a1f3d] bg-[#f4f7fc] px-2.5 py-1 rounded-md border border-[#0f4a9b]/10"
+                  >
+                    {f}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </motion.article>
 
-        {/* Faculty grid — smaller cards below */}
-        <motion.div
-          className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-5"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={viewportReplay}
-          transition={{ duration: 0.4 }}
-        >
-          <div className="flex items-center gap-3 min-w-0 flex-1">
-            <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] text-[#0a1f3d]/55 shrink-0">
-              Faculty &amp; academic team
-            </h3>
-            <div className="hidden sm:block flex-1 h-px bg-gradient-to-r from-slate-200 to-transparent" />
-          </div>
-          <span className="self-start text-[11px] font-bold text-[#0f4a9b]/70 bg-[#0f4a9b]/5 px-2.5 py-1 rounded-full border border-[#0f4a9b]/10">
-            {FACULTY.length} members
-          </span>
-        </motion.div>
+        {/* BELOW: One Single Card of Faculty with Interactive Next/Prev */}
+        <div className="relative">
+          {/* Section Subheader & Tab Pills */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] text-[#0a1f3d]/75">
+                  Faculty &amp; Academic Team
+                </h3>
+                <span className="text-[10px] font-bold text-[#0f4a9b] bg-[#0f4a9b]/8 px-2 py-0.5 rounded-full border border-[#0f4a9b]/12">
+                  Member {activeFaculty + 1} of {FACULTY.length}
+                </span>
+              </div>
+            </div>
 
-        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4">
-          {FACULTY.map((member, i) => (
-            <FacultyCard key={member.name} member={member} index={i} />
-          ))}
+            {/* Quick-Select Faculty Pills */}
+            <div className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-1 max-w-full">
+              {FACULTY.map((member, idx) => {
+                const isActive = activeFaculty === idx;
+                return (
+                  <button
+                    key={member.name}
+                    onClick={() => setActiveFaculty(idx)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                      isActive
+                        ? 'bg-[#0f4a9b] text-white shadow-md'
+                        : 'bg-white border border-slate-200 text-[#0a1f3d]/70 hover:bg-slate-50'
+                    }`}
+                  >
+                    <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-[#C7A24A]' : 'bg-gray-300'}`} />
+                    <span>{member.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Single Active Faculty Card */}
+          <div className="relative">
+            <AnimatePresence mode="wait">
+              <motion.article
+                key={activeFaculty}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.28, ease: "easeOut" }}
+                className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200 bg-white shadow-[0_12px_36px_rgba(15,74,155,0.06)] p-5 sm:p-7"
+              >
+                <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#C7A24A] to-transparent" />
+
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-7">
+                  {/* Portrait */}
+                  <div className="relative w-28 h-28 sm:w-36 sm:h-36 shrink-0 rounded-2xl overflow-hidden bg-[#e8eef8] ring-1 ring-slate-200 shadow-md">
+                    <img
+                      src={currentFaculty.image}
+                      alt={currentFaculty.imageAlt}
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: currentFaculty.objectPosition }}
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* Details */}
+                  <div className="flex-1 min-w-0 text-center sm:text-left">
+                    <div className="flex flex-wrap items-center justify-center sm:justify-between gap-2 mb-1.5">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#0f4a9b]/8 text-[10px] font-bold uppercase tracking-wider text-[#0f4a9b] border border-[#0f4a9b]/12">
+                        {currentFaculty.tag}
+                      </span>
+                      {currentFaculty.profileHref && (
+                        <a
+                          href={currentFaculty.profileHref}
+                          className="text-xs font-bold text-[#0f4a9b] hover:text-[#C7A24A] transition-colors inline-flex items-center gap-1"
+                        >
+                          View Full Profile <ArrowUpRight className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                    </div>
+
+                    <h4 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] tracking-tight leading-tight">
+                      {currentFaculty.name}
+                    </h4>
+                    <p className="text-xs sm:text-sm font-semibold text-[#0f4a9b] mt-0.5 mb-2.5">
+                      {currentFaculty.role}
+                    </p>
+
+                    <p className="text-xs sm:text-sm text-[#3a4f6e] leading-relaxed mb-3">
+                      {currentFaculty.desc}
+                    </p>
+
+                    <div className="p-3 bg-[#f8fafd] rounded-xl border border-slate-100 mb-3 text-left">
+                      <p className="text-[11px] sm:text-xs text-[#0a1f3d]/90 font-medium leading-relaxed">
+                        <strong className="text-[#0f4a9b]">Academic Focus:</strong> {currentFaculty.oneLiner}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5">
+                      {currentFaculty.focus.map((f) => (
+                        <span
+                          key={f}
+                          className="text-[10px] sm:text-[11px] font-bold text-[#0a1f3d] bg-[#f4f7fc] px-2.5 py-1 rounded-md border border-[#0f4a9b]/10"
+                        >
+                          {f}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.article>
+            </AnimatePresence>
+
+            {/* Navigation Controls: Previous, Indicators, Next */}
+            <div className="flex items-center justify-between mt-4 sm:mt-5 gap-3">
+              <button
+                onClick={handlePrev}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-slate-200 bg-white text-[#0a1f3d] text-xs sm:text-sm font-bold shadow-sm hover:border-[#0f4a9b]/30 hover:bg-slate-50 transition-all active:scale-95"
+                aria-label="Previous faculty member"
+              >
+                <ChevronLeft className="w-4 h-4 text-[#0f4a9b]" />
+                <span>Previous</span>
+              </button>
+
+              {/* Progress Dots */}
+              <div className="flex items-center gap-1.5">
+                {FACULTY.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveFaculty(idx)}
+                    className={`h-2 transition-all duration-300 rounded-full ${
+                      activeFaculty === idx
+                        ? 'w-6 bg-[#0f4a9b]'
+                        : 'w-2 bg-slate-300 hover:bg-slate-400'
+                    }`}
+                    aria-label={`Go to faculty member ${idx + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={handleNext}
+                className="inline-flex items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all active:scale-95"
+                aria-label="Next faculty member"
+              >
+                <span>Next Member</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Trust strip */}

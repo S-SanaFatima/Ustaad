@@ -85,25 +85,25 @@ export default function StatsBar({ customText }: StatsBarProps = {}) {
 
   const stats = [
     {
-      icon: <GraduationCap className="h-6 w-6 text-[#C7A24A]" />,
+      icon: GraduationCap,
       val: `${counts.students || TARGETS.students}+`,
       label: 'Students Taught',
       subtext: 'Across UAE Curricula',
     },
     {
-      icon: <TrendingUp className="h-6 w-6 text-[#C7A24A]" />,
+      icon: TrendingUp,
       val: `+1 to +${counts.grade || TARGETS.grade}`,
       label: 'Grade Improvement',
       subtext: 'Average Grade Jump',
     },
     {
-      icon: <Award className="h-6 w-6 text-[#C7A24A]" />,
+      icon: Award,
       val: `${counts.exam || TARGETS.exam}%+`,
       label: 'Exam Success Rate',
       subtext: 'Full Curriculum & Exam Boards',
     },
     {
-      icon: <UserCheck className="h-6 w-6 text-[#C7A24A]" />,
+      icon: UserCheck,
       val: `${counts.satisfaction || TARGETS.satisfaction}%`,
       label: 'Satisfaction Rate',
       subtext: 'Verified Parent Reviews',
@@ -112,52 +112,55 @@ export default function StatsBar({ customText }: StatsBarProps = {}) {
 
   return (
     <div ref={ref} className="relative -mt-6 z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-      <div className="relative overflow-hidden bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_50px_rgba(10,31,61,0.09)] border border-slate-200/80 px-6 py-7 lg:py-8">
+      <div className="relative overflow-hidden bg-white rounded-2xl shadow-[0_10px_35px_rgba(15,74,155,0.07)] border border-slate-200 px-4 sm:px-6 py-6 lg:py-7">
         
         {/* Subtle Gold Accent Top Line */}
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#C7A24A] to-transparent opacity-80" />
+        <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#C7A24A] to-transparent" />
 
         {/* 4-Column Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-slate-200/70 gap-y-6 lg:gap-y-0">
-          {stats.map((s, i) => (
-            <div
-              key={i}
-              className={`flex flex-col items-center justify-center text-center gap-2.5 px-3 sm:px-6 py-2 group transition-all duration-300 ${
-                i === 1 ? 'border-r lg:border-r-0 border-slate-200/70' : ''
-              }`}
-            >
-              {/* Luxury Dual-Tone Badge Icon */}
-              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#0a1f3d] to-[#0f3a7a] flex items-center justify-center shadow-md border border-[#C7A24A]/30 transition-transform duration-300 group-hover:scale-105 group-hover:border-[#C7A24A]/60">
-                {s.icon}
-              </div>
-
-              {/* Counter Value */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 lg:divide-x divide-slate-100">
+          {stats.map((s, i) => {
+            const Icon = s.icon;
+            return (
               <div
-                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] tracking-tight notranslate mt-0.5"
-                translate="no"
+                key={i}
+                className={`flex flex-col items-center justify-center text-center px-3 sm:px-5 py-3 group transition-all duration-200 ${
+                  i === 1 ? 'border-r sm:border-r-0 lg:border-r-0 border-slate-100' : ''
+                }`}
               >
-                {s.val}
-              </div>
-
-              {/* Label & Subtext */}
-              <div>
-                <div className="text-xs sm:text-sm font-extrabold text-[#0a1f3d] tracking-wide">
-                  {s.label}
+                {/* Refined Icon Pod */}
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#0f4a9b]/8 text-[#0f4a9b] flex items-center justify-center mb-2.5 border border-[#0f4a9b]/15 group-hover:bg-[#0f4a9b] group-hover:text-[#f5d77f] group-hover:border-[#C7A24A]/50 transition-all duration-300 shadow-2xs">
+                  <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-105" strokeWidth={2} />
                 </div>
-                <div className="text-[11px] font-semibold text-gray-400 mt-0.5">
-                  {s.subtext}
-                </div>
-              </div>
 
-              {/* Subtle Gold Accent Line */}
-              <div className="w-6 h-[2px] bg-[#C7A24A]/50 rounded-full mt-1 group-hover:w-10 group-hover:bg-[#C7A24A] transition-all duration-300" />
-            </div>
-          ))}
+                {/* Counter Value: Balanced proportional size, refined vibrant sapphire color */}
+                <div
+                  className="text-xl sm:text-2xl lg:text-[26px] font-black text-[#0f4a9b] tracking-tight notranslate leading-none mb-1.5"
+                  translate="no"
+                >
+                  {s.val}
+                </div>
+
+                {/* Label & Subtext */}
+                <div className="space-y-0.5">
+                  <div className="text-xs sm:text-[13px] font-bold text-[#0a1f3d] tracking-tight leading-tight">
+                    {s.label}
+                  </div>
+                  <div className="text-[11px] font-medium text-slate-500 leading-tight">
+                    {s.subtext}
+                  </div>
+                </div>
+
+                {/* Micro Gold Accent Dot on Hover */}
+                <div className="w-1 h-1 rounded-full bg-[#C7A24A]/30 mt-2 group-hover:w-5 group-hover:bg-[#C7A24A] transition-all duration-300" />
+              </div>
+            );
+          })}
         </div>
 
         {customText && (
-          <div className="mt-7 pt-5 border-t border-slate-100">
-            <p className="text-center text-gray-600 text-xs sm:text-sm font-semibold tracking-wider uppercase">
+          <div className="mt-5 pt-4 border-t border-slate-100">
+            <p className="text-center text-slate-600 text-xs sm:text-sm font-semibold tracking-wider uppercase">
               <span className="bg-gradient-to-r from-[#0a1f3d] to-[#0f4a9b] bg-clip-text text-transparent font-bold">
                 {customText}
               </span>

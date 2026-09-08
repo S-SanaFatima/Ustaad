@@ -135,7 +135,7 @@ export default function AboutPage() {
         schema={[localBusinessSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "About", url: "/about" }]), faqSchema(aboutSchemaFaqs), ...teamPersonSchemas]}
       />
       {/* ── HERO ── */}
-      <section className="pt-10 pb-20 lg:pt-20 lg:pb-32 relative overflow-hidden bg-gradient-to-br from-[#F4F8FD] via-white to-[#fcfaf5]">
+      <section className="pt-8 pb-10 sm:pt-12 sm:pb-16 lg:pt-20 lg:pb-24 relative overflow-hidden bg-gradient-to-br from-[#F4F8FD] via-white to-[#fcfaf5]">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[#0f4a9b]/10 to-[#C7A24A]/5 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/4" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#0f4a9b]/5 to-transparent rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
         
@@ -176,28 +176,28 @@ export default function AboutPage() {
 
             {/* Right Image */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full h-[240px] sm:h-[360px] lg:h-[580px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-4 sm:border-8 border-white group z-10"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[480px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_16px_48px_rgba(15,74,155,0.12)] border-4 sm:border-8 border-white group z-10"
             >
               <img
                 src="/UpdatedImages/experienced-uae-educator-online-tutoring-session.webp"
                 srcSet="/UpdatedImages/experienced-uae-educator-online-tutoring-session.webp 1x, /UpdatedImages/experienced-uae-educator-online-tutoring-session.jpeg 2x"
                 alt="Experienced Ustaad educator leading an online tutoring session for a UAE student across Dubai and Abu Dhabi"
-                width={1200}
-                height={800}
+                width={4372}
+                height={6558}
                 fetchPriority="high"
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                className="w-full h-full object-cover object-[center_38%] group-hover:scale-105 transition duration-700 block"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f4a9b]/40 via-transparent to-transparent" />
             </motion.div>
 
           </div>
         </div>
       </section>
 
-      <div className="mt-10">
-        <StatsBar />
-      </div>
+      {/* ── STATS BAR ── */}
+      <StatsBar />
 
       {/* ── MERGED STORY SECTION (Tabbed Scrollytelling) ── */}
       <section className="py-16 sm:py-20 bg-gray-50 relative overflow-hidden">
@@ -205,7 +205,7 @@ export default function AboutPage() {
           
           {/* Top Option Selector Tabs */}
           <div className="flex justify-center mb-8 sm:mb-14">
-            <div className="inline-flex p-1 sm:p-1.5 bg-[#0a1f3d]/5 backdrop-blur-md rounded-2xl border border-gray-200/80 shadow-sm max-w-full overflow-x-auto no-scrollbar gap-1 sm:gap-1.5 w-full sm:w-auto justify-start sm:justify-center snap-x">
+            <div className="inline-flex p-1 sm:p-1.5 bg-slate-100 rounded-2xl border border-gray-200 shadow-sm max-w-full overflow-x-auto no-scrollbar gap-1 sm:gap-1.5 w-full sm:w-auto justify-start sm:justify-center snap-x">
               {storyTabs.map((tab, idx) => {
                 const isActive = activeStoryTab === idx;
                 return (
@@ -250,12 +250,12 @@ export default function AboutPage() {
                 <img 
                   src={storyTabs[activeStoryTab].image} 
                   alt={storyTabs[activeStoryTab].imageAlt} 
-                  className="w-full h-[240px] sm:h-[440px] object-cover group-hover:scale-105 transition duration-700" 
+                  className="w-full aspect-[16/10] sm:aspect-auto sm:h-[440px] object-cover group-hover:scale-105 transition duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f3d]/50 via-transparent to-transparent" />
                 
                 {/* Floating Stat Badge */}
-                <div className="absolute bottom-4 left-4 right-4 sm:right-auto bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-xl border border-gray-100 block">
+                <div className="absolute bottom-4 left-4 right-4 sm:right-auto bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-xl border border-gray-200 block">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-xl flex items-center justify-center text-white shadow-md flex-shrink-0">
                       {(() => {

@@ -92,9 +92,9 @@ export default function Layout({ children, floatingCTAs, headerLogoAlt, footerLo
   }, []);
 
   return (
-    <div className={`min-h-screen bg-[#f8fafc] font-sans text-gray-900 overflow-x-hidden selection:bg-blue-100 transition-padding duration-300 ${scrolled ? 'pt-14 lg:pt-16' : 'pt-20 lg:pt-[88px]'}`}>
+    <div className={`min-h-screen bg-[#f8fafc] font-sans text-gray-900 overflow-x-hidden selection:bg-blue-100 transition-padding duration-300 ${scrolled ? 'pt-14 lg:pt-16' : 'pt-[84px] lg:pt-[92px]'}`}>
       {/* Transparent container to allow premium frosted-glass blur scrolling */}
-      <div className="fixed top-0 left-0 right-0 z-[9998] bg-transparent pointer-events-none" style={{ height: scrolled ? '64px' : '88px' }} />
+      <div className="fixed top-0 left-0 right-0 z-[9998] bg-transparent pointer-events-none" style={{ height: scrolled ? '64px' : '92px' }} />
       <TrustBar scrolled={scrolled} />
       <Header scrolled={scrolled} logoAlt={headerLogoAlt} />
       <motion.main

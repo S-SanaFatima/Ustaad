@@ -230,7 +230,7 @@ function ChallengesAccordion({ challenges }: { challenges: Challenge[] }) {
                 {isOpen && (
                   <motion.div key="content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }} className="overflow-hidden">
                     <div className="ml-[52px] mt-1">
-                      <div className="rounded-2xl px-4 py-3" style={{ background: 'linear-gradient(135deg, rgba(15,74,155,0.06) 0%, rgba(30,91,168,0.03) 100%)', border: '1px solid rgba(15,74,155,0.12)', backdropFilter: 'blur(8px)' }}>
+                      <div className="rounded-2xl px-4 py-3" style={{ background: '#f4f7fc', border: '1px solid rgba(15,74,155,0.14)' }}>
                         <p className="text-[13px] text-[#3a4f6e] leading-relaxed">{c.problem}</p>
                       </div>
                     </div>
@@ -285,15 +285,6 @@ export default function GCSETutorDubaiPage() {
 
       {/* ── HERO ── */}
       <section className="relative -mt-16 overflow-hidden bg-[#060f22] flex flex-col items-center justify-center md:min-h-[75vh]">
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <img
-            src="/UpdatedImages/gcse-tutor-abu-dhabi-online-year-11-session.webp"
-            alt="Online GCSE tutor in Dubai teaching a Year 11 student in a live 1-to-1 video lesson"
-            className="w-full h-full object-cover opacity-40 md:opacity-25 mix-blend-screen"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#060f22]/60 via-[#060f22]/30 to-[#060f22]" />
-        </div>
-
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40 md:opacity-100">
           <svg viewBox="0 0 1400 600" preserveAspectRatio="xMaxYMid slice" className="absolute inset-0 w-full h-full" aria-hidden="true">
             <defs>
@@ -339,22 +330,23 @@ export default function GCSETutorDubaiPage() {
                 pts.push(`${HX + SIZE * Math.cos(angle_rad)},${HY + SIZE * Math.sin(angle_rad)}`);
               }
               return (
-                <>
-                  <circle cx={HX} cy={HY} r={SIZE * 1.5} fill="url(#dubaiHexGlow)" />
-                  <polygon points={pts.join(' ')} fill="none" stroke="url(#dubaiHexGrad)" strokeWidth="2" filter="url(#dubaiPglow)" />
-                  <polygon points={pts.join(' ')} fill="none" stroke="rgba(240,201,106,0.5)" strokeWidth="1" strokeDasharray="4 4" />
-                  <circle cx={HX} cy={HY} r="25" fill="rgba(240,201,106,0.1)" stroke="#f0c96a" strokeWidth="1.5" />
-                  <text x={HX} y={HY + 6} textAnchor="middle" fill="#f0c96a" fontSize="18" fontWeight="900" fontFamily="sans-serif">GCSE</text>
-                  <text x={HX - 140} y={HY - 60} fill="rgba(95,211,230,0.7)" fontSize="12" fontFamily="monospace">AQA 8464</text>
-                  <text x={HX + 90} y={HY - 80} fill="rgba(180,180,255,0.7)" fontSize="12" fontFamily="monospace">E = mc²</text>
-                  <text x={HX + 120} y={HY + 70} fill="rgba(240,201,106,0.7)" fontSize="12" fontFamily="monospace">Edexcel 1MA1</text>
-                </>
+              <>
+                <circle cx={HX} cy={HY} r={SIZE * 1.5} fill="url(#dubaiHexGlow)" />
+                <polygon points={pts.join(' ')} fill="none" stroke="url(#dubaiHexGrad)" strokeWidth="2" filter="url(#dubaiPglow)" />
+                <polygon points={pts.join(' ')} fill="none" stroke="rgba(240,201,106,0.5)" strokeWidth="1" strokeDasharray="4 4" />
+                <circle cx={HX} cy={HY} r="25" fill="rgba(240,201,106,0.1)" stroke="#f0c96a" strokeWidth="1.5" />
+                <text x={HX} y={HY + 6} textAnchor="middle" fill="#f0c96a" fontSize="18" fontWeight="900" fontFamily="sans-serif">GCSE</text>
+                <text x={HX - 140} y={HY - 60} fill="rgba(95,211,230,0.7)" fontSize="12" fontFamily="monospace">AQA 8464</text>
+                <text x={HX + 90} y={HY - 80} fill="rgba(180,180,255,0.7)" fontSize="12" fontFamily="monospace">E = mc²</text>
+                <text x={HX + 120} y={HY + 70} fill="rgba(240,201,106,0.7)" fontSize="12" fontFamily="monospace">Edexcel 1MA1</text>
+              </>
               );
             })()}
           </svg>
         </div>
 
         <motion.div initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }} className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 md:pt-20 md:pb-14 max-w-5xl w-full">
+
           <motion.div variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-2.5" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}>
             <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#f0c96a' }} />
             <span className="text-blue-100/80 text-[11px] sm:text-[12px] font-semibold tracking-wide">ONLINE GCSE TUITION · DUBAI</span>
@@ -370,7 +362,7 @@ export default function GCSETutorDubaiPage() {
           </motion.p>
 
           <motion.div variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } }} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full px-4 mt-2">
-            <div className="sm:hidden w-full max-w-[340px] flex flex-col items-center gap-2.5 p-3.5 rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)' }}>
+            <div className="sm:hidden w-full max-w-[340px] flex flex-col items-center gap-2.5 p-3.5 rounded-2xl" style={{ background: '#0a1932', border: '1px solid rgba(255,255,255,0.15)' }}>
               <a
                 href={BOOKING}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5 text-center"
@@ -689,7 +681,7 @@ export default function GCSETutorDubaiPage() {
                       "A real tutor answering your child's exact question, live.",
                       'A specialist steadies the wobble weeks before the mock.',
                     ].map((item, i) => (
-                      <li key={item} className="flex items-start gap-3 rounded-xl bg-white/8 border border-white/10 px-3.5 py-3 backdrop-blur-sm">
+                      <li key={item} className="flex items-start gap-3 rounded-xl bg-[#13284d] border border-white/12 px-3.5 py-3">
                         <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#C7A24A]/20 text-[10px] font-bold text-[#f0c96a] border border-[#C7A24A]/30">
                           {i + 1}
                         </span>
@@ -781,7 +773,7 @@ export default function GCSETutorDubaiPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             {[
-              { Icon: Calculator, title: 'Maths', tag: 'Algebra · Trig · Vectors', href: '/maths', body: 'Foundation and Higher, calculator and non-calculator.' },
+              { Icon: Calculator, title: 'Maths', tag: 'Algebraic Fractions · Trigonometry · Vectors', href: '/maths', body: 'Foundation and Higher, calculator and non-calculator.' },
               { Icon: BookOpen, title: 'English', tag: 'Poetry · Analysis · Writing', href: '/english', body: 'Language and Literature, from unseen texts to essays.' },
               { Icon: Atom, title: 'Physics', tag: 'Forces · Electricity · Waves', href: '/physics', body: 'Combined or Triple Science route.' },
               { Icon: FlaskConical, title: 'Chemistry', tag: 'Bonding · Organic · Rates', href: '/chemistry', body: 'Combined or Triple Science route.' },
@@ -793,6 +785,7 @@ export default function GCSETutorDubaiPage() {
               <motion.a
                 key={i}
                 href={item.href}
+                aria-label={`${item.title} — ${item.tag}`}
                 initial={{ opacity: 0, y: 30, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-40px' }}
@@ -816,9 +809,11 @@ export default function GCSETutorDubaiPage() {
                   <item.Icon className="h-5 w-5" strokeWidth={2.2} />
                 </div>
 
-                {/* Subject Title */}
-                <h3 className="text-[17px] font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors mb-1.5 leading-snug">
-                  {item.title}
+                {/* Subject Title with em-dash separator */}
+                <h3 className="text-[17px] font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors mb-1.5 leading-snug flex items-center gap-1.5">
+                  <span>{item.title}</span>
+                  <span aria-hidden="true" className="text-gray-300 font-normal select-none">—</span>
+                  <span className="sr-only"> — </span>
                 </h3>
 
                 {/* Topic Breakdown Pill in Ustaad Brand Blue */}

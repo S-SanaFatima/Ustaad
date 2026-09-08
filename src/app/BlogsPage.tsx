@@ -1,4 +1,4 @@
-import { BookOpen, Brain, ShieldAlert, Sparkles, FileText, Clock, ArrowRight } from 'lucide-react';
+import { BookOpen, Brain, ShieldAlert, Sparkles, FileText } from 'lucide-react';
 import { Layout, FinalCTA, GradientHeadingText } from './shared';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema } from './shared/schemas';
@@ -49,6 +49,18 @@ export const CATEGORY_META = {
 };
 
 export const BLOGS: BlogPost[] = [
+  {
+    slug: 'exam-stamina-uae-students',
+    image: '/images/blogs/exam-stamina-uae-students-hero.jpg',
+    alt: 'Focused British and IB curriculum high school student in an international school exam hall working through a timed past paper against a countdown timer',
+    category: 'Academic',
+    title: "Exam Stamina: Why Your Child Can't Sit the Full Paper",
+    description: 'Your child revises for hours but fades halfway through a paper. Exam stamina is the missing skill, and here is how to build it before exams start.',
+    date: '7 Sep 2026',
+    readTime: '10 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
   {
     slug: 'uae-exams-return-students-never-sat-one',
     image: '/images/blogs/uae-exam-hall-return.webp',
@@ -337,44 +349,6 @@ export default function BlogsPage() {
               </div>
             </a>
 
-          </div>
-
-          {/* Latest articles — so new posts are visible without opening a stream first */}
-          <div className="text-left mb-8">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] font-serif mb-2">Latest articles</h2>
-            <p className="text-slate-500 text-sm sm:text-base mb-8">Recently published guides for UAE families.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {BLOGS.filter((b) => b.featured).slice(0, 6).map((blog) => (
-                <a
-                  key={blog.slug}
-                  href={`/blogs/${blog.slug}`}
-                  className="group flex flex-col bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 overflow-hidden h-full text-left"
-                >
-                  <div className="relative h-40 overflow-hidden">
-                    <img src={blog.image} alt={blog.alt || blog.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f3d]/70 via-transparent to-transparent" />
-                    <span className="absolute bottom-3 left-3 inline-flex items-center px-2.5 py-1 bg-white/20 text-white text-[10px] font-bold tracking-widest uppercase rounded-full backdrop-blur-md border border-white/20">
-                      {blog.category}
-                    </span>
-                  </div>
-                  <div className="p-5 flex flex-col flex-grow">
-                    <h3 className="text-base font-bold text-[#0a1f3d] mb-2 group-hover:text-[#0f4a9b] transition-colors leading-snug">
-                      {blog.title}
-                    </h3>
-                    <p className="text-slate-500 text-sm leading-relaxed mb-4 flex-grow line-clamp-2">{blog.description}</p>
-                    <div className="flex items-center justify-between text-[11px] text-slate-400 font-medium pt-3 border-t border-slate-100">
-                      <span>{blog.date}</span>
-                      <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{blog.readTime}</span>
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-            <div className="mt-8 flex justify-center">
-              <a href="/blogs/psychology-of-learning" className="inline-flex items-center gap-2 text-sm font-bold text-[#0f4a9b] hover:gap-3 transition-all">
-                Browse Psychology of Learning <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
           </div>
 
           {/* Revision Companion Section */}

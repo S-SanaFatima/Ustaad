@@ -53,7 +53,7 @@ export default function Header({ scrolled = false, logoAlt = "Ustaad logo" }: He
       className={`fixed left-0 right-0 transition-all duration-300 ${
         scrolled 
           ? 'top-0' 
-          : 'top-0 sm:top-6'
+          : 'top-7'
       }`}
       style={{ 
         zIndex: 9999,

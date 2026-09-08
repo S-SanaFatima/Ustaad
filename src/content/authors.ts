@@ -52,6 +52,7 @@ export const AUTHORS: Author[] = [
     photoAlt: 'Nimra Shahzada, Content Lead and Academic Consultant at Ustaad UAE',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
+      { title: "Exam Stamina: Why Your Child Can't Sit the Full Paper", href: '/blogs/exam-stamina-uae-students', role: 'authored' },
       { title: 'Exams Are Back in the UAE. What Changes for Your Child', href: '/blogs/uae-exams-return-students-never-sat-one', role: 'authored' },
       { title: 'IGCSE Preparation: Why Past Papers Are the Final Step, Not the First', href: '/blogs/igcse-preparation-past-papers-final-step', role: 'authored' },
       { title: '"My Child Only Panics Right Before Exams": What UAE Parents Often Notice Too Late', href: '/blogs/exam-panic-before-exams-uae', role: 'authored' },
@@ -75,6 +76,7 @@ export const AUTHORS: Author[] = [
     photoAlt: 'Nida Iqbal, Tutor Quality and Development Lead at Ustaad UAE',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
+      { title: "Exam Stamina: Why Your Child Can't Sit the Full Paper", href: '/blogs/exam-stamina-uae-students', role: 'reviewed' },
       { title: 'Exams Are Back in the UAE. What Changes for Your Child', href: '/blogs/uae-exams-return-students-never-sat-one', role: 'reviewed' },
       { title: 'IGCSE Preparation: Why Past Papers Are the Final Step, Not the First', href: '/blogs/igcse-preparation-past-papers-final-step', role: 'reviewed' },
       { title: 'Exam Panic Before Exams UAE', href: '/blogs/exam-panic-before-exams-uae', role: 'reviewed' },

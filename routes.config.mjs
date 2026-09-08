@@ -54,6 +54,7 @@ export const ROUTES = [
   { path: '/blogs/parent-guidance', component: 'ParentGuidanceBlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-08-13' },
   { path: '/blogs/exam-panic-before-exams-uae', component: 'ExamPanicBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-23' },
   { path: '/blogs/uae-exams-return-students-never-sat-one', component: 'UAEExamsReturnBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-03' },
+  { path: '/blogs/exam-stamina-uae-students', component: 'ExamStaminaBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-07' },
   { path: '/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions', component: 'IGCSEBiology6MarkBlog', priority: 0.7, changefreq: 'monthly', lastmod: '2026-07-01' },
   { path: '/blogs/igcse-maths-revision-low-marks', component: 'IGCSEMathsLowMarksBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-16' },
   { path: '/blogs/physics-understanding-vs-marks', component: 'PhysicsUnderstandingMarksBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-07-07' },
