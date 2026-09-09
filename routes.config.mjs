@@ -77,6 +77,7 @@ export const ROUTES = [
   { path: '/igcse-tutor-abu-dhabi', component: 'IGCSETutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/gcse-tutor-abu-dhabi', component: 'GCSETutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-12' },
   { path: '/gcse-tutor-dubai', component: 'GCSETutorDubaiLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-02' },
+  { path: '/igcse-tutor-dubai', component: 'IgcseTutorDubaiLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-09' },
   { path: '/a-level-tutor-abu-dhabi', component: 'ALevelTutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-19' },
 
   { path: '/privacy', component: 'PrivacyPage', priority: 0.3, changefreq: 'yearly', lastmod: '2026-07-11' },

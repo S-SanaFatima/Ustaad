@@ -83,6 +83,7 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
       city: 'Dubai',
       tutors: [
         { label: 'GCSE Tutor Dubai', href: '/gcse-tutor-dubai' },
+        { label: 'IGCSE Tutor Dubai', href: '/igcse-tutor-dubai' },
       ],
     },
     {
@@ -156,7 +157,7 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 lg:gap-8 mb-12 items-start">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
-            <img src="/ustaad-private-tutors-uae-logo.png" alt={logoAlt} className="h-12 object-contain mb-4 brightness-0 invert" />
+            <img src="/ustaad-private-tutors-uae-logo.png" srcSet="/ustaad-private-tutors-uae-logo.png 300w" sizes="190px" alt={logoAlt} className="h-12 object-contain mb-4 brightness-0 invert" />
             <p className="text-blue-200 text-xs leading-relaxed font-medium">
               Premium private tutoring across the UAE since 2015. Expert 1-to-1 tutoring for British, American, and IB curriculum students in Dubai, Abu Dhabi, Sharjah and every Emirate.
             </p>
@@ -299,9 +300,9 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
                   <div className="text-[10px] text-blue-300">Student Support</div>
                 </div>
               </a>
-              <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition group">
+              <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer" aria-label="Book your free trial session with Ustaad on WhatsApp" className="flex items-center gap-3 hover:text-white transition group">
                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#C7A24A] transition-colors shrink-0">
-                  <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="Chat with Ustaad on WhatsApp" className="h-4 w-4" />
+                  <img src="/whatsapp-book-private-tutor-ustaad-uae.png" srcSet="/whatsapp-book-private-tutor-ustaad-uae.png 32w" sizes="16px" alt="Chat with Ustaad on WhatsApp" className="h-4 w-4" />
                 </div>
                 <div>
                   <div className="text-white font-bold notranslate" translate="no">+971 56 124 9005</div>

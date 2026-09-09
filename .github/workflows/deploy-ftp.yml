@@ -1,0 +1,47 @@
+name: Deploy to cPanel via FTP
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # allow manual run from GitHub Actions tab
+
+concurrency:
+  group: deploy-ftp
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          test -f dist/client/index.html
+          echo "Built $(find dist/client -type f | wc -l) files"
+
+      # Requires GitHub secrets: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+      # Optional secret: FTP_SERVER_DIR (default /public_html/)
+      - name: Upload to FTP (public_html)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/client/
+          server-dir: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}
+          dangerous-clean-slate: false

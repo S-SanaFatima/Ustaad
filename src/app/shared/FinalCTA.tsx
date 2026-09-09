@@ -51,6 +51,7 @@ export default function FinalCTA({
                 href={button2Href} 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                aria-label={button2Text ? `${button2Text} on WhatsApp` : "Chat with Ustaad on WhatsApp"}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1fb858] text-white font-extrabold text-base py-4 px-10 transition-all shadow-[0_8px_16px_rgba(37,211,102,0.25)] hover:shadow-[0_12px_20px_rgba(37,211,102,0.35)] hover:-translate-y-0.5"
               >
                 {button2Text}

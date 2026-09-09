@@ -92,6 +92,8 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
               <div className="flex flex-col items-start px-4 pb-4 pt-4 text-left md:px-8 md:pb-8 md:pt-6">
                 <img
                   src="/ustaad-private-tutors-uae-logo.png"
+                  srcSet="/ustaad-private-tutors-uae-logo.png 300w"
+                  sizes="108px"
                   alt="Ustaad"
                   width={108}
                   height={28}
@@ -108,8 +110,9 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
                     <div className="relative w-[6.25rem] shrink-0 overflow-hidden">
                       <img
                         src="/images/back-to-school-popup-student.jpg"
-                        alt=""
-                        aria-hidden="true"
+                        srcSet="/images/back-to-school-popup-student.jpg 600w"
+                        sizes="100px"
+                        alt="Student learning with tutor"
                         className="absolute inset-0 h-full w-full object-cover object-[72%_12%]"
                         loading="eager"
                       />
@@ -176,6 +179,8 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
               <div className="relative hidden min-h-full bg-[#eef2f8] md:block">
                 <img
                   src="/images/back-to-school-popup-student.jpg"
+                  srcSet="/images/back-to-school-popup-student.jpg 600w"
+                  sizes="(max-width: 1024px) 260px, 280px"
                   alt="Student ready for the new school year with Ustaad"
                   className="absolute inset-0 h-full w-full object-cover object-[62%_12%]"
                   loading="eager"

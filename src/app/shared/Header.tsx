@@ -66,7 +66,7 @@ export default function Header({ scrolled = false, logoAlt = "Ustaad logo" }: He
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 lg:h-16">
-          <a href="/"><img src="/ustaad-private-tutors-uae-logo.png" alt={logoAlt} className="h-8 lg:h-10 object-contain" /></a>
+          <a href="/"><img src="/ustaad-private-tutors-uae-logo.png" srcSet="/ustaad-private-tutors-uae-logo.png 300w" sizes="(max-width: 1024px) 120px, 160px" alt={logoAlt} className="h-8 lg:h-10 object-contain" /></a>
 
           {/* Desktop Navigation & Actions Block with center-aligned LanguageSwitcher */}
           <div className="hidden lg:flex items-center gap-5 xl:gap-6">

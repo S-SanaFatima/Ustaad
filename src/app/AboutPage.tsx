@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  Award, Blocks, FileSearch, GraduationCap, HandHeart, Lightbulb,
+  Award, Blocks, FileSearch, GraduationCap, HandHeart, Lightbulb, Home,
   PenTool, Search, Star, Target, TrendingUp, UserCheck, Users, Calendar,
   Globe, Clock, Repeat, MapPin, MessageCircle, ChevronDown, ChevronUp, Compass, Landmark,
 } from 'lucide-react';
@@ -123,6 +123,7 @@ export default function AboutPage() {
   const [activeStoryTab, setActiveStoryTab] = useState(0);
   const [activeFeatureTab, setActiveFeatureTab] = useState(0);
   const [activeCommunityIndex, setActiveCommunityIndex] = useState(0);
+  const [isMobileExpanded, setIsMobileExpanded] = useState(false);
 
   return (
     <Layout>
@@ -140,6 +141,26 @@ export default function AboutPage() {
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#0f4a9b]/5 to-transparent rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Visible Breadcrumb UI */}
+          <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6" itemScope itemType="https://schema.org/BreadcrumbList">
+            <ol className="flex items-center gap-1.5 text-xs font-semibold text-gray-500">
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <a itemProp="item" href="/" className="hover:text-[#0f4a9b] transition-colors flex items-center gap-1.5 text-gray-600">
+                  <Home className="w-3.5 h-3.5 text-[#0f4a9b]" />
+                  <span itemProp="name">Home</span>
+                </a>
+                <meta itemProp="position" content="1" />
+              </li>
+              <li className="text-gray-400">/</li>
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-[#0a1f3d] font-bold" aria-current="page">
+                <span itemProp="name">About</span>
+                <link itemProp="item" href="https://ustaad.ae/about" />
+                <meta itemProp="position" content="2" />
+              </li>
+            </ol>
+          </nav>
+
           <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-20 items-center">
 
             {/* Left */}
@@ -183,7 +204,8 @@ export default function AboutPage() {
             >
               <img
                 src="/UpdatedImages/experienced-uae-educator-online-tutoring-session.webp"
-                srcSet="/UpdatedImages/experienced-uae-educator-online-tutoring-session.webp 1x, /UpdatedImages/experienced-uae-educator-online-tutoring-session.jpeg 2x"
+                srcSet="/UpdatedImages/experienced-uae-educator-online-tutoring-session.webp 1200w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                 alt="Experienced Ustaad educator leading an online tutoring session for a UAE student across Dubai and Abu Dhabi"
                 width={4372}
                 height={6558}
@@ -211,7 +233,10 @@ export default function AboutPage() {
                 return (
                   <button
                     key={tab.id}
-                    onClick={() => setActiveStoryTab(idx)}
+                    onClick={() => {
+                      setActiveStoryTab(idx);
+                      setIsMobileExpanded(false);
+                    }}
                     className={`relative px-3 py-2.5 sm:px-7 sm:py-3.5 rounded-xl font-bold text-xs sm:text-base transition-all duration-300 whitespace-nowrap flex items-center gap-2 shrink-0 snap-start justify-center ${
                       isActive 
                         ? 'bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] text-white shadow-[0_8px_20px_rgba(15,74,155,0.25)]' 
@@ -249,6 +274,8 @@ export default function AboutPage() {
               <div className="relative rounded-[20px] sm:rounded-[28px] overflow-hidden shadow-[0_15px_40px_rgba(15,74,155,0.12)] border-2 sm:border-4 border-gray-100 group order-2 lg:order-1">
                 <img 
                   src={storyTabs[activeStoryTab].image} 
+                  srcSet={`${storyTabs[activeStoryTab].image} 1200w`}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                   alt={storyTabs[activeStoryTab].imageAlt} 
                   className="w-full aspect-[16/10] sm:aspect-auto sm:h-[440px] object-cover group-hover:scale-105 transition duration-700" 
                 />
@@ -281,12 +308,26 @@ export default function AboutPage() {
                 </h2>
                 
                 <div className="space-y-3 sm:space-y-4">
-                  {storyTabs[activeStoryTab].paragraphs.map((pText, pIdx) => (
-                    <p key={pIdx} className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                      {pText}
-                    </p>
-                  ))}
+                  {storyTabs[activeStoryTab].paragraphs.map((pText, pIdx) => {
+                    const isHiddenOnMobile = pIdx > 0 && !isMobileExpanded;
+                    return (
+                      <p key={pIdx} className={`text-gray-600 text-sm sm:text-base leading-relaxed ${isHiddenOnMobile ? 'hidden sm:block' : 'block'}`}>
+                        {pText}
+                      </p>
+                    );
+                  })}
                 </div>
+
+                {/* Mobile Read More / Read Less Toggle */}
+                {storyTabs[activeStoryTab].paragraphs.length > 1 && (
+                  <button 
+                    onClick={() => setIsMobileExpanded(!isMobileExpanded)}
+                    className="sm:hidden mt-3.5 inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#0f4a9b]/5 hover:bg-[#0f4a9b]/10 text-[#0f4a9b] rounded-lg font-bold text-xs border border-[#0f4a9b]/15 transition-colors"
+                  >
+                    <span>{isMobileExpanded ? 'Read Less' : 'Read More'}</span>
+                    {isMobileExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                  </button>
+                )}
               </div>
 
             </motion.div>

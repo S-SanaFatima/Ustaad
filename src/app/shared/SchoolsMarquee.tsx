@@ -1,7 +1,5 @@
 import { ReactNode } from 'react';
 
-export const PARTNER_SCHOOLS = ['BCA','GCIA','ACS','CIS','CAD','GAAA','GWAA','RIS','YASM','MAMO','BWA','ARIS','ADPS','LISA','BCAL','AAES','AAAS','UASA','BISA'];
-
 export interface SchoolLogoItem {
   name: string;
   file: string;
@@ -9,24 +7,42 @@ export interface SchoolLogoItem {
   scale?: number;
 }
 
-export const FEATURED_SCHOOL_LOGOS: SchoolLogoItem[] = [
+export const DUBAI_SCHOOL_LOGOS: SchoolLogoItem[] = [
+  { name: 'Dubai College', file: 'dubai-college.png' },
+  { name: 'Repton School Dubai', file: 'repton-dubai.png' },
+  { name: 'Nord Anglia International School Dubai', file: 'nord-anglia-dubai.png' },
+  { name: 'JESS Dubai', file: 'jess.png' },
+  { name: 'Brighton College Dubai', file: 'brighton-college-dubai.png' },
+  { name: 'Hartland International School Dubai', file: 'hartland-international-school.png' },
+  { name: 'Horizon International School Dubai', file: 'horizon-international-school.png' },
+  { name: 'Durham School Dubai', file: 'durham-school-dubai.png' },
+  { name: 'Sunmarke School Dubai', file: 'sunmarke.png' },
+  { name: 'Deira International School Dubai', file: 'deira.png' },
+  { name: 'Royal Grammar School Guildford Dubai', file: 'rgs.png' },
+  { name: 'Safa Community School Dubai', file: 'safa.png' },
+  { name: 'GEMS World Academy Dubai', file: 'gems-world-academy.png', scale: 0.72 },
+  { name: 'GEMS Wellington International School Dubai', file: 'gems-wis.png', scale: 0.85 },
+  { name: 'Victory Heights Primary School Dubai', file: 'victory_heights.png' },
+  { name: 'Dwight School Dubai', file: 'dwight.png' },
+];
+
+export const ABU_DHABI_SCHOOL_LOGOS: SchoolLogoItem[] = [
   { name: 'The British International School Abu Dhabi', file: 'bisad.png' },
   { name: 'Cranleigh Abu Dhabi', file: 'cranleigh.png' },
-  { name: 'Nord Anglia International School', file: 'nord-anglia.png' },
-  { name: 'Repton Dubai', file: 'repton.png' },
-  { name: 'Brighton College Dubai', file: 'brighton.png' },
-  { name: 'Al Basma British School', file: 'albasma.png' },
-  { name: 'Raha International School', file: 'raha.png' },
-  { name: 'Dubai College', file: 'dubai.png' },
-  { name: 'Royal Grammar School Guildford Dubai', file: 'rgs.png' },
-  { name: 'Amity International School', file: 'amity.png' },
-  { name: 'Merryland International School', file: 'merryland.png' },
-  { name: 'Al Basma British School', file: 'al-basma.png' },
-  { name: 'Belvedere International School', file: 'belvedere.png' },
-  { name: 'JESS Dubai', file: 'jess.png' },
-  { name: 'Sunmarke School', file: 'sunmarke.png' },
-  { name: 'Deira International School', file: 'deira.png' },
-  { name: 'Creative British School', file: 'creative-british.png' },
+  { name: 'Al Basma British School Abu Dhabi', file: 'albasma.png' },
+  { name: 'Raha International School Abu Dhabi', file: 'raha.png' },
+  { name: 'Amity International School Abu Dhabi', file: 'amity.png' },
+  { name: 'Merryland International School Abu Dhabi', file: 'merryland.png' },
+  { name: 'Belvedere International School Abu Dhabi', file: 'belvedere.png' },
+  { name: 'Creative British School Abu Dhabi', file: 'creative-british.png' },
+  { name: 'American International School Abu Dhabi', file: 'aisa-abu-dhabi.png' },
+  { name: 'Al Yasmina Academy Abu Dhabi', file: 'al-yasmina-academy-abu-dhabi.png' },
+  { name: 'British School Al Khubairat Abu Dhabi', file: 'british-school-al-khubairat-abu-dhabi.png' },
+];
+
+export const FEATURED_SCHOOL_LOGOS: SchoolLogoItem[] = [
+  ...DUBAI_SCHOOL_LOGOS,
+  ...ABU_DHABI_SCHOOL_LOGOS,
 ];
 
 interface SchoolsMarqueeProps {
@@ -45,6 +61,8 @@ const SchoolLogoCard = ({ logo }: { logo: SchoolLogoItem }) => (
   >
     <img
       src={`/school-logos/${logo.file}`}
+      srcSet={`/school-logos/${logo.file} 280w`}
+      sizes="(max-width: 640px) 180px, 240px"
       alt={logo.alt || `${logo.name} logo`}
       style={{ transform: logo.scale ? `scale(${logo.scale})` : undefined }}
       className="w-full h-full max-h-[85px] sm:max-h-[100px] object-contain filter drop-shadow-sm mix-blend-multiply"
@@ -68,7 +86,7 @@ const SchoolLogoCard = ({ logo }: { logo: SchoolLogoItem }) => (
 export default function SchoolsMarquee({
   header,
   title,
-  logoList = FEATURED_SCHOOL_LOGOS,
+  logoList = DUBAI_SCHOOL_LOGOS,
 }: SchoolsMarqueeProps) {
   return (
     <section className="py-8 sm:py-10 lg:py-12 relative overflow-hidden bg-gradient-to-r from-slate-50 via-blue-50/30 to-slate-50 border-y border-slate-100">
@@ -79,7 +97,7 @@ export default function SchoolsMarquee({
               Partner Schools & Communities
             </div>
             <h2 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d]">
-              {title || "Trusted by Students Across Leading Abu Dhabi Schools"}
+              {title || "Trusted by Families Across Leading UAE Partner Institutions"}
             </h2>
           </div>
         )}
@@ -112,4 +130,5 @@ export default function SchoolsMarquee({
     </section>
   );
 }
+
 

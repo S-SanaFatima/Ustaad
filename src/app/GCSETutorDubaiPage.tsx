@@ -6,7 +6,7 @@ import {
   MapPin, Atom, Dna, Briefcase, LineChart, ClipboardList, X, Users, ShieldCheck,
   Clock, TrendingUp, Target, ArrowRight, Laptop,
 } from 'lucide-react';
-import { Layout, StatsBar, SchoolsMarquee, type SchoolLogoItem } from './shared';
+import { Layout, StatsBar, SchoolsMarquee, DUBAI_SCHOOL_LOGOS, type SchoolLogoItem } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, reviewSchema } from './shared/schemas';
 
@@ -285,8 +285,10 @@ export default function GCSETutorDubaiPage() {
 
       {/* ── HERO ── */}
       <section className="relative -mt-16 overflow-hidden bg-[#060f22] flex flex-col items-center justify-center md:min-h-[75vh]">
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40 md:opacity-100">
-          <svg viewBox="0 0 1400 600" preserveAspectRatio="xMaxYMid slice" className="absolute inset-0 w-full h-full" aria-hidden="true">
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+          
+          {/* Desktop SVG graphics positioned cleanly at margins */}
+          <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full hidden md:block" aria-hidden="true">
             <defs>
               <linearGradient id="dubaiGrowthGrad" x1="0" y1="1" x2="1" y2="0">
                 <stop offset="0%" stopColor="#5fd3e6" stopOpacity="0.1" />
@@ -313,17 +315,21 @@ export default function GCSETutorDubaiPage() {
                   dots.push(<circle key={`d${x}${y}`} cx={x} cy={y} r="1" fill="rgba(255,255,255,0.03)" />);
               return dots;
             })()}
-            <path d="M 50 450 Q 300 450 600 150" fill="none" stroke="url(#dubaiGrowthGrad)" strokeWidth="3" filter="url(#dubaiPglow)" />
-            <path d="M 50 450 Q 300 450 600 150" fill="none" stroke="url(#dubaiGrowthGrad)" strokeWidth="1.5" markerEnd="url(#dubaiArrow)" />
-            <line x1="40" y1="450" x2="650" y2="450" stroke="rgba(95,211,230,0.15)" strokeWidth="1" strokeDasharray="6 6" />
-            <line x1="50" y1="460" x2="50" y2="100" stroke="rgba(95,211,230,0.15)" strokeWidth="1" strokeDasharray="6 6" />
-            <text x="590" y="130" fill="rgba(95,211,230,0.8)" fontSize="14" fontFamily="monospace" fontWeight="bold">Target: Grade 7+</text>
-            <text x="600" y="470" fill="rgba(255,255,255,0.4)" fontSize="12" fontFamily="monospace">Exam Week</text>
-            <text x="60" y="470" fill="rgba(255,255,255,0.4)" fontSize="12" fontFamily="monospace">Current</text>
+
+            {/* Left growth trajectory line & label */}
+            <path d="M 40 480 Q 200 460 360 140" fill="none" stroke="url(#dubaiGrowthGrad)" strokeWidth="3" filter="url(#dubaiPglow)" />
+            <path d="M 40 480 Q 200 460 360 140" fill="none" stroke="url(#dubaiGrowthGrad)" strokeWidth="1.5" markerEnd="url(#dubaiArrow)" />
+            <line x1="30" y1="480" x2="380" y2="480" stroke="rgba(95,211,230,0.15)" strokeWidth="1" strokeDasharray="6 6" />
+            <line x1="40" y1="490" x2="40" y2="100" stroke="rgba(95,211,230,0.15)" strokeWidth="1" strokeDasharray="6 6" />
+            <text x="350" y="115" fill="rgba(95,211,230,0.85)" fontSize="13" fontFamily="monospace" fontWeight="bold">Target: Grade 7+</text>
+            <text x="350" y="500" fill="rgba(255,255,255,0.4)" fontSize="11" fontFamily="monospace">Exam Week</text>
+            <text x="45" y="500" fill="rgba(255,255,255,0.4)" fontSize="11" fontFamily="monospace">Current</text>
+
+            {/* Right GCSE Hexagon badge — pushed to far right X=1270 */}
             {(() => {
-              const HX = 1100;
-              const HY = 250;
-              const SIZE = 90;
+              const HX = 1270;
+              const HY = 240;
+              const SIZE = 80;
               const pts = [];
               for (let i = 0; i < 6; i++) {
                 const angle_rad = (Math.PI / 180) * (60 * i - 30);
@@ -335,43 +341,49 @@ export default function GCSETutorDubaiPage() {
                 <polygon points={pts.join(' ')} fill="none" stroke="url(#dubaiHexGrad)" strokeWidth="2" filter="url(#dubaiPglow)" />
                 <polygon points={pts.join(' ')} fill="none" stroke="rgba(240,201,106,0.5)" strokeWidth="1" strokeDasharray="4 4" />
                 <circle cx={HX} cy={HY} r="25" fill="rgba(240,201,106,0.1)" stroke="#f0c96a" strokeWidth="1.5" />
-                <text x={HX} y={HY + 6} textAnchor="middle" fill="#f0c96a" fontSize="18" fontWeight="900" fontFamily="sans-serif">GCSE</text>
-                <text x={HX - 140} y={HY - 60} fill="rgba(95,211,230,0.7)" fontSize="12" fontFamily="monospace">AQA 8464</text>
-                <text x={HX + 90} y={HY - 80} fill="rgba(180,180,255,0.7)" fontSize="12" fontFamily="monospace">E = mc²</text>
-                <text x={HX + 120} y={HY + 70} fill="rgba(240,201,106,0.7)" fontSize="12" fontFamily="monospace">Edexcel 1MA1</text>
+                <text x={HX} y={HY + 6} textAnchor="middle" fill="#f0c96a" fontSize="16" fontWeight="900" fontFamily="sans-serif">GCSE</text>
+                <text x={HX - 100} y={HY - 65} fill="rgba(95,211,230,0.7)" fontSize="11" fontFamily="monospace">AQA 8464</text>
+                <text x={HX + 45} y={HY - 75} fill="rgba(180,180,255,0.7)" fontSize="11" fontFamily="monospace">E = mc²</text>
+                <text x={HX + 60} y={HY + 75} fill="rgba(240,201,106,0.7)" fontSize="11" fontFamily="monospace">Edexcel 1MA1</text>
               </>
               );
             })()}
           </svg>
+
+          {/* Clean ambient background glowing accents on mobile */}
+          <div className="md:hidden absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[#0f4a9b]/25 rounded-full blur-[100px]" />
+            <div className="absolute top-1/2 right-0 w-[200px] h-[200px] bg-[#C7A24A]/15 rounded-full blur-[80px]" />
+          </div>
         </div>
 
         <motion.div initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }} className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 md:pt-20 md:pb-14 max-w-5xl w-full">
 
-          <motion.div variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-2.5" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}>
+          <motion.div variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-3" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}>
             <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#f0c96a' }} />
-            <span className="text-blue-100/80 text-[11px] sm:text-[12px] font-semibold tracking-wide">ONLINE GCSE TUITION · DUBAI</span>
+            <span className="text-blue-100/90 text-[11px] sm:text-[12px] font-semibold tracking-wide">ONLINE GCSE TUITION · DUBAI</span>
           </motion.div>
 
-          <motion.h1 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }} className="font-extrabold tracking-tight text-white leading-[1.05] mb-3 md:mb-5 text-[clamp(1.5rem,5vw,3.4rem)] max-w-[90%] sm:max-w-none">
+          <motion.h1 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }} className="font-extrabold tracking-tight text-white leading-[1.08] mb-3 md:mb-5 text-[28px] sm:text-4xl md:text-5xl lg:text-[54px] max-w-[95%] sm:max-w-none">
             GCSE Tutors in Dubai{' '}
-            <span style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Who Lift Grades</span>
+            <span className="block sm:inline" style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Who Elevate Grades</span>
           </motion.h1>
 
-          <motion.p variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }} className="text-blue-100/80 text-[clamp(0.88rem,2vw,1.02rem)] leading-relaxed max-w-2xl mb-6 md:mb-8 px-4 italic">
-            One-to-one with AQA, Edexcel and OCR specialists. First lesson free.
+          <motion.p variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }} className="text-blue-100/80 text-sm sm:text-base md:text-[17px] leading-relaxed max-w-2xl mb-6 md:mb-8 px-2 italic">
+            One-to-one tutoring with AQA, Edexcel and OCR specialists. First lesson free.
           </motion.p>
 
-          <motion.div variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } }} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full px-4 mt-2">
-            <div className="sm:hidden w-full max-w-[340px] flex flex-col items-center gap-2.5 p-3.5 rounded-2xl" style={{ background: '#0a1932', border: '1px solid rgba(255,255,255,0.15)' }}>
+          <motion.div variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } }} className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 w-full max-w-md sm:max-w-none px-4">
+            <div className="sm:hidden w-full flex flex-col items-center gap-3">
               <a
                 href={BOOKING}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5 text-center"
-                style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[15px] text-white transition-all hover:-translate-y-0.5 text-center active:scale-[0.98]"
+                style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 6px 20px rgba(15,74,155,0.45)' }}
               >
                 Book Your Free Trial
               </a>
-              <span className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</span>
-              <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
+              <span className="text-blue-200/60 text-[11px]">✦ No Commitment · Cancel Anytime</span>
+              <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20 active:scale-[0.98]">
                 <MessageCircle className="w-4 h-4" /> WhatsApp Us
               </a>
             </div>
@@ -408,7 +420,7 @@ export default function GCSETutorDubaiPage() {
       {/* ── SECTION 03: DUBAI SCHOOLS MARQUEE ── */}
       <SchoolsMarquee
         title="Trusted by GCSE Students Across Leading Dubai Schools"
-        logoList={DUBAI_GCSE_SCHOOL_LOGOS}
+        logoList={DUBAI_SCHOOL_LOGOS}
       />
 
       {/* ── YEAR 11 SQUEEZE ── */}

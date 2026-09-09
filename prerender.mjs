@@ -85,6 +85,9 @@ async function prerender() {
 
     page = page.replace('<div id="root"></div>', `<div id="root">${cleanedHtml}</div>`);
 
+    // Standardize React camelCase attributes (srcSet -> srcset, hrefLang -> hreflang) to standard HTML5 lowercase
+    page = page.replace(/\bsrcSet=/g, 'srcset=').replace(/\bhrefLang=/g, 'hreflang=');
+
     const outPath = url === '/'
       ? path.resolve(clientDir, 'index.html')
       : path.resolve(clientDir, url.slice(1), 'index.html');

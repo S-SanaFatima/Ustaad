@@ -44,7 +44,7 @@ function ClosedBookCard({ book, index, onClick }: { book: (typeof HELP_BOOKS)[nu
     >
       <div 
         style={{ perspective: '1200px' }} 
-        className="relative w-[155px] h-[225px] sm:w-[170px] sm:h-[245px] lg:w-[185px] lg:h-[265px] mx-auto cursor-pointer group"
+        className="relative w-[104px] h-[155px] sm:w-[170px] sm:h-[245px] lg:w-[185px] lg:h-[265px] mx-auto cursor-pointer group"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={onClick}
@@ -61,55 +61,55 @@ function ClosedBookCard({ book, index, onClick }: { book: (typeof HELP_BOOKS)[nu
         >
           {/* Back Cover */}
           <div 
-            className="absolute inset-0 rounded-r-2xl shadow-xl origin-left"
-            style={{ backgroundColor: book.color, transform: 'translateZ(-22px)' }}
+            className="absolute inset-0 rounded-r-xl sm:rounded-r-2xl shadow-xl origin-left"
+            style={{ backgroundColor: book.color, transform: 'translateZ(-14px)' }}
           />
           
           {/* Pages block for thickness */}
           <div 
-            className="absolute inset-y-1 right-1 left-0 bg-[#f4f4f4] rounded-r-xl border border-gray-200/50"
-            style={{ transform: 'translateZ(-11px)' }}
+            className="absolute inset-y-1 right-1 left-0 bg-[#f4f4f4] rounded-r-lg sm:rounded-r-xl border border-gray-200/50"
+            style={{ transform: 'translateZ(-7px)' }}
           />
 
           {/* Spine */}
           <div 
-            className="absolute left-0 top-0 bottom-0 w-[22px] origin-right flex items-center justify-center"
+            className="absolute left-0 top-0 bottom-0 w-[14px] sm:w-[22px] origin-right flex items-center justify-center"
             style={{ 
               backgroundColor: book.color, 
               transform: 'translateX(-100%) rotateY(-90deg)',
               filter: 'brightness(0.75)'
             }}
           >
-             <span className="text-white/50 text-[8px] font-bold uppercase tracking-widest -rotate-90 whitespace-nowrap">
+             <span className="text-white/50 text-[6px] sm:text-[8px] font-bold uppercase tracking-widest -rotate-90 whitespace-nowrap">
                {book.label}
              </span>
           </div>
 
           {/* Front Cover */}
           <motion.div 
-            className="absolute inset-0 rounded-r-2xl shadow-lg origin-left flex flex-col p-1.5 border-l-4 border-black/30"
+            className="absolute inset-0 rounded-r-xl sm:rounded-r-2xl shadow-lg origin-left flex flex-col p-1 sm:p-1.5 border-l-2 sm:border-l-4 border-black/30"
             style={{ backgroundColor: book.color, transformStyle: 'preserve-3d' }}
             animate={{ rotateY: isHovered ? -18 : 0 }} // Cover cracks open slightly!
           >
             <div 
-              className="w-full h-full p-3 flex flex-col items-center justify-center text-center backface-hidden bg-gradient-to-br from-white/20 to-transparent rounded-r-xl border border-white/20 relative overflow-hidden"
+              className="w-full h-full p-1.5 sm:p-3 flex flex-col items-center justify-center text-center backface-hidden bg-gradient-to-br from-white/20 to-transparent rounded-r-lg sm:rounded-r-xl border border-white/20 relative overflow-hidden"
               style={{ backfaceVisibility: 'hidden' }}
             >
                {/* Decorative inner border */}
-               <div className="absolute inset-1.5 border border-white/10 rounded-lg pointer-events-none" />
+               <div className="absolute inset-1 sm:inset-1.5 border border-white/10 rounded-md sm:rounded-lg pointer-events-none" />
 
-               <Icon className="w-8 h-8 sm:w-9 sm:h-9 text-white mb-3 opacity-95 drop-shadow-md relative z-10" />
-               <h4 className="text-white font-extrabold text-base sm:text-lg leading-snug px-1 relative z-10">{book.title}</h4>
+               <Icon className="w-5 h-5 sm:w-9 sm:h-9 text-white mb-1.5 sm:mb-3 opacity-95 drop-shadow-md relative z-10" />
+               <h4 className="text-white font-extrabold text-[11px] sm:text-lg leading-tight sm:leading-snug px-0.5 sm:px-1 relative z-10">{book.title}</h4>
                
-               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/15 group-hover:bg-white/25 transition-colors px-3 py-1 rounded-full backdrop-blur-md border border-white/30 whitespace-nowrap flex items-center gap-1.5 z-10">
-                 <BookOpen className="w-3 h-3 text-white" />
-                 <span className="text-white text-[8px] font-bold uppercase tracking-[0.15em]">Read</span>
+               <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 bg-white/15 group-hover:bg-white/25 transition-colors px-2 py-0.5 sm:px-3 sm:py-1 rounded-full backdrop-blur-md border border-white/30 whitespace-nowrap flex items-center gap-1 sm:gap-1.5 z-10">
+                 <BookOpen className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
+                 <span className="text-white text-[7px] sm:text-[8px] font-bold uppercase tracking-[0.1em] sm:tracking-[0.15em]">Read</span>
                </div>
             </div>
             
             {/* Inside Front Cover (Visible when cracked open) */}
             <div 
-              className="absolute inset-0 bg-[#fdfdfc] rounded-r-2xl border border-gray-200"
+              className="absolute inset-0 bg-[#fdfdfc] rounded-r-xl sm:rounded-r-2xl border border-gray-200"
               style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}
             >
                <div className="absolute inset-0 opacity-5 bg-[linear-gradient(rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[size:100%_20px]" />
@@ -155,7 +155,7 @@ function ExpandedBookModal({ book, onClose }: { book: (typeof HELP_BOOKS)[number
            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black/20 to-transparent pointer-events-none mix-blend-multiply" />
            
            <Icon className="w-10 h-10 text-white mb-6 opacity-90 drop-shadow-sm" />
-           <h2 className="text-3xl font-extrabold text-white mb-4 leading-tight drop-shadow-sm">{book.title}</h2>
+           <h3 className="text-3xl font-extrabold text-white mb-4 leading-tight drop-shadow-sm">{book.title}</h3>
            <p className="text-white/90 text-sm leading-relaxed font-medium">{book.desc}</p>
         </div>
 
@@ -199,7 +199,7 @@ function ExpandedBookModal({ book, onClose }: { book: (typeof HELP_BOOKS)[number
           </button>
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
           <Icon className="w-8 h-8 mb-4 drop-shadow-md relative z-10" />
-          <h2 className="text-2xl font-black mb-3 relative z-10 leading-tight">{book.title}</h2>
+          <h3 className="text-2xl font-black mb-3 relative z-10 leading-tight">{book.title}</h3>
           <p className="text-white/90 text-sm font-medium leading-relaxed relative z-10">{book.desc}</p>
         </div>
         <div className="p-6 bg-[#fdfdfc]">
@@ -224,20 +224,20 @@ export function ExplodedViewSection() {
   const [activeBook, setActiveBook] = useState<typeof HELP_BOOKS[number] | null>(null);
 
   return (
-    <section className="relative py-14 lg:py-20 bg-[#f8fafc] overflow-hidden">
+    <section className="relative py-8 sm:py-14 lg:py-20 bg-[#f8fafc] overflow-hidden">
       {/* Decorative Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(15,74,155,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,74,155,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
       
       {/* Radial glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-[#0f4a9b]/5 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-10 lg:mb-14 max-w-3xl mx-auto">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-6 sm:mb-10 lg:mb-14 max-w-3xl mx-auto">
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl lg:text-4xl font-black text-[#0a1f3d] mb-3 tracking-tight"
+            className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0a1f3d] mb-1.5 sm:mb-3 tracking-tight"
           >
             <GradientHeadingText text="How Ustaad Helps" />
           </motion.h2>
@@ -246,14 +246,14 @@ export function ExplodedViewSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-500 text-base lg:text-lg font-medium"
+            className="text-gray-500 text-xs sm:text-base lg:text-lg font-medium"
           >
             With the right guidance, difficult topics start feeling more manageable.
           </motion.p>
         </div>
 
         {/* 3 Books Grid */}
-        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-[800px] mx-auto">
+        <div className="grid grid-cols-3 gap-2 sm:gap-8 lg:gap-10 max-w-[800px] mx-auto justify-items-center">
           {HELP_BOOKS.map((book, i) => (
             <ClosedBookCard 
               key={book.title} 

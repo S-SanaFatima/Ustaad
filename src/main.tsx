@@ -68,6 +68,7 @@ const loadBiologyLanding = () => import('./app/BiologyTutorAbuDhabiPage');
 const loadIGCSETutorLanding = () => import('./app/IGCSETutorAbuDhabiPage');
 const loadGCSETutorLanding = () => import('./app/GCSETutorAbuDhabiPage');
 const loadGCSETutorDubaiLanding = () => import('./app/GCSETutorDubaiPage');
+const loadIgcseTutorDubaiLanding = () => import('./app/IgcseTutorDubaiPage');
 const loadALevelTutorLanding = () => import('./app/ALevelTutorAbuDhabiPage');
 const loadIBTutorLanding = () => import('./app/IBTutorAbuDhabiPage');
 const loadAcademicBlogsPage = () => import('./app/AcademicBlogsPage');
@@ -130,6 +131,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/igcse-tutor-abu-dhabi': loadIGCSETutorLanding,
   '/gcse-tutor-abu-dhabi': loadGCSETutorLanding,
   '/gcse-tutor-dubai': loadGCSETutorDubaiLanding,
+  '/igcse-tutor-dubai': loadIgcseTutorDubaiLanding,
   '/a-level-tutor-abu-dhabi': loadALevelTutorLanding,
   '/ib-tutor-abu-dhabi': loadIBTutorLanding,
   '/editorial': loadEditorialPage,
@@ -203,6 +205,7 @@ const BiologyLanding = lazy(loadBiologyLanding);
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
 const GCSETutorLanding = lazy(loadGCSETutorLanding);
 const GCSETutorDubaiLanding = lazy(loadGCSETutorDubaiLanding);
+const IgcseTutorDubaiLanding = lazy(loadIgcseTutorDubaiLanding);
 const ALevelTutorLanding = lazy(loadALevelTutorLanding);
 const IBTutorLanding = lazy(loadIBTutorLanding);
 const AcademicBlogsPage = lazy(loadAcademicBlogsPage);
@@ -309,6 +312,7 @@ function AppRoutes() {
           <Route path="/igcse-tutor-abu-dhabi"               element={<IGCSETutorLanding />} />
           <Route path="/gcse-tutor-abu-dhabi"                element={<GCSETutorLanding />} />
           <Route path="/gcse-tutor-dubai"                     element={<GCSETutorDubaiLanding />} />
+          <Route path="/igcse-tutor-dubai"                    element={<IgcseTutorDubaiLanding />} />
           <Route path="/a-level-tutor-abu-dhabi"             element={<ALevelTutorLanding />} />
           <Route path="/ib-tutor-abu-dhabi"                  element={<IBTutorLanding />} />
           <Route path="/editorial"                           element={<EditorialPage />} />

@@ -66,6 +66,7 @@ import BiologyTutorAbuDhabiPage from "./app/BiologyTutorAbuDhabiPage.tsx";
 import IGCSETutorLanding from "./app/IGCSETutorAbuDhabiPage.tsx";
 import GCSETutorLanding from "./app/GCSETutorAbuDhabiPage.tsx";
 import GCSETutorDubaiLanding from "./app/GCSETutorDubaiPage.tsx";
+import IgcseTutorDubaiLanding from "./app/IgcseTutorDubaiPage.tsx";
 import ALevelTutorLanding from "./app/ALevelTutorAbuDhabiPage.tsx";
 import IBTutorAbuDhabiPage from "./app/IBTutorAbuDhabiPage.tsx";
 
@@ -119,6 +120,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   IGCSETutorLanding,
   GCSETutorLanding,
   GCSETutorDubaiLanding,
+  IgcseTutorDubaiLanding,
   ALevelTutorLanding,
   MathematicsLanding,
   MathsPage,

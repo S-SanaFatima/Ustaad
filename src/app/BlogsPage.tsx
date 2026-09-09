@@ -53,7 +53,7 @@ export const BLOGS: BlogPost[] = [
     slug: 'exam-stamina-uae-students',
     image: '/images/blogs/exam-stamina-uae-students-hero.jpg',
     alt: 'Focused British and IB curriculum high school student in an international school exam hall working through a timed past paper against a countdown timer',
-    category: 'Academic',
+    category: 'Psychology of Learning',
     title: "Exam Stamina: Why Your Child Can't Sit the Full Paper",
     description: 'Your child revises for hours but fades halfway through a paper. Exam stamina is the missing skill, and here is how to build it before exams start.',
     date: '7 Sep 2026',

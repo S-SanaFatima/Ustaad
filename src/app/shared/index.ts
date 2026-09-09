@@ -5,7 +5,7 @@ export { default as Footer } from './Footer';
 export { default as FinalCTA } from './FinalCTA';
 export { default as GoogleReviewCard } from './GoogleReviewCard';
 export { default as StatsBar } from './StatsBar';
-export { default as SchoolsMarquee, PARTNER_SCHOOLS } from './SchoolsMarquee';
+export { default as SchoolsMarquee, DUBAI_SCHOOL_LOGOS, ABU_DHABI_SCHOOL_LOGOS, FEATURED_SCHOOL_LOGOS } from './SchoolsMarquee';
 export { GoldButton } from './GoldButton';
 export { GradientHeadingText } from './GradientHeadingText';
 export { TypewriterHeadingText } from './TypewriterHeadingText';

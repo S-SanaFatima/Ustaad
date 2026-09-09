@@ -6,7 +6,7 @@ import { GradientHeadingText } from './GradientHeadingText';
 /* ── 1. Circular Neural Ring Gauge (Confusion) — Automatic continuous motion ── */
 function NeuralDial() {
   return (
-    <div className="relative w-28 h-28 flex items-center justify-center my-2 select-none">
+    <div className="relative w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center my-1 sm:my-2 select-none">
       {/* Outer Dial Calibration Ring */}
       <svg viewBox="0 0 120 120" className="w-full h-full -rotate-90">
         <circle
@@ -41,7 +41,7 @@ function NeuralDial() {
 
       {/* Rotating Synapse Ring */}
       <motion.div
-        className="absolute inset-2 rounded-full border border-dashed border-[#0f4a9b]/30"
+        className="absolute inset-1.5 sm:inset-2 rounded-full border border-dashed border-[#0f4a9b]/30"
         animate={{ rotate: 360 }}
         transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
       />
@@ -52,17 +52,17 @@ function NeuralDial() {
         animate={{ rotate: -360 }}
         transition={{ duration: 9, repeat: Infinity, ease: 'linear' }}
       >
-        <div className="w-2.5 h-2.5 rounded-full bg-[#0f4a9b] shadow-[0_0_8px_#0f4a9b] translate-x-[42px]" />
+        <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#0f4a9b] shadow-[0_0_8px_#0f4a9b] translate-x-[30px] sm:translate-x-[42px]" />
       </motion.div>
 
       {/* Center Brain Icon Stage */}
-      <div className="absolute w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-[0_8px_20px_rgba(15,74,155,0.22)]">
-        <Brain className="w-7 h-7 text-white" strokeWidth={2.2} />
+      <div className="absolute w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] flex items-center justify-center shadow-[0_4px_12px_rgba(15,74,155,0.22)]">
+        <Brain className="w-5 h-5 sm:w-7 sm:h-7 text-white" strokeWidth={2.2} />
       </div>
 
       {/* Live Readout Badge */}
-      <div className="absolute -bottom-2.5 bg-white border border-[#0f4a9b]/25 px-2.5 py-0.5 rounded-full shadow-sm">
-        <span className="text-[9px] font-black text-[#0f4a9b] tracking-wider uppercase">
+      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white border border-[#0f4a9b]/30 px-2 sm:px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap z-20">
+        <span className="text-[8px] sm:text-[9px] font-black text-[#0f4a9b] tracking-wider uppercase">
           CALIBRATING
         </span>
       </div>
@@ -73,7 +73,7 @@ function NeuralDial() {
 /* ── 2. Radar Scanner Sweep Dial (Unfocused Revision) — Automatic continuous motion ── */
 function RadarDial() {
   return (
-    <div className="relative w-28 h-28 flex items-center justify-center my-2 select-none">
+    <div className="relative w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center my-1 sm:my-2 select-none">
       {/* Concentric Radar Target Grid */}
       <svg viewBox="0 0 120 120" className="w-full h-full">
         <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" strokeWidth="1.5" />
@@ -96,24 +96,24 @@ function RadarDial() {
 
       {/* Detected Blindspot Blips (pulsing automatically) */}
       <motion.div
-        className="absolute top-6 right-7 w-2 h-2 rounded-full bg-[#c17b2f] shadow-[0_0_8px_#c17b2f]"
+        className="absolute top-4 right-5 sm:top-6 sm:right-7 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#c17b2f] shadow-[0_0_8px_#c17b2f]"
         animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.2, 0.8] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-7 left-7 w-1.5 h-1.5 rounded-full bg-[#c17b2f]/70"
+        className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7 w-1.5 h-1.5 rounded-full bg-[#c17b2f]/70"
         animate={{ opacity: [1, 0.2, 1] }}
         transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       {/* Center Radar Icon Stage */}
-      <div className="absolute w-14 h-14 rounded-2xl bg-gradient-to-br from-[#c17b2f] to-[#8c5418] flex items-center justify-center shadow-[0_8px_20px_rgba(193,123,47,0.22)]">
-        <EyeOff className="w-7 h-7 text-white" strokeWidth={2.2} />
+      <div className="absolute w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#c17b2f] to-[#8c5418] flex items-center justify-center shadow-[0_4px_12px_rgba(193,123,47,0.22)]">
+        <EyeOff className="w-5 h-5 sm:w-7 sm:h-7 text-white" strokeWidth={2.2} />
       </div>
 
       {/* Live Readout Badge */}
-      <div className="absolute -bottom-2.5 bg-white border border-[#c17b2f]/30 px-2.5 py-0.5 rounded-full shadow-sm">
-        <span className="text-[9px] font-black text-[#c17b2f] tracking-wider uppercase">
+      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white border border-[#c17b2f]/30 px-2 sm:px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap z-20">
+        <span className="text-[8px] sm:text-[9px] font-black text-[#c17b2f] tracking-wider uppercase">
           SCANNING
         </span>
       </div>
@@ -124,7 +124,7 @@ function RadarDial() {
 /* ── 3. Precision Tension Gauge Dial (Academic Pressure) — Needle automatically moves ── */
 function PressureGauge() {
   return (
-    <div className="relative w-28 h-28 flex items-center justify-center my-2 select-none">
+    <div className="relative w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center my-1 sm:my-2 select-none">
       {/* Semi-circular Speedometer/Manometer Arc */}
       <svg viewBox="0 0 120 120" className="w-full h-full">
         {/* Background Arc */}
@@ -180,17 +180,17 @@ function PressureGauge() {
           ease: 'easeInOut',
         }}
       >
-        <div className="w-1.5 h-9 bg-gradient-to-t from-transparent via-[#dc2626] to-[#dc2626] rounded-full -translate-y-7 shadow-sm" />
+        <div className="w-1 h-6 sm:w-1.5 sm:h-9 bg-gradient-to-t from-transparent via-[#dc2626] to-[#dc2626] rounded-full -translate-y-5 sm:-translate-y-7 shadow-sm" />
       </motion.div>
 
       {/* Center Icon Stage */}
-      <div className="absolute w-14 h-14 rounded-2xl bg-gradient-to-br from-[#dc2626] to-[#991b1b] flex items-center justify-center shadow-[0_8px_20px_rgba(220,38,38,0.22)]">
-        <AlertTriangle className="w-7 h-7 text-white" strokeWidth={2.2} />
+      <div className="absolute w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#dc2626] to-[#991b1b] flex items-center justify-center shadow-[0_4px_12px_rgba(220,38,38,0.22)]">
+        <AlertTriangle className="w-5 h-5 sm:w-7 sm:h-7 text-white" strokeWidth={2.2} />
       </div>
 
       {/* Live Readout Badge */}
-      <div className="absolute -bottom-2.5 bg-white border border-[#dc2626]/30 px-2.5 py-0.5 rounded-full shadow-sm">
-        <span className="text-[9px] font-black text-[#dc2626] tracking-wider uppercase">
+      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white border border-[#dc2626]/30 px-2 sm:px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap z-20">
+        <span className="text-[8px] sm:text-[9px] font-black text-[#dc2626] tracking-wider uppercase">
           LOAD: ACTIVE
         </span>
       </div>
@@ -232,8 +232,8 @@ function DashboardInstrumentCard({ item, index }: { item: typeof STRUGGLES_DATA[
       className="flex flex-col items-center justify-center w-full isolate"
     >
       {/* Stationary card with smooth hover lift and font transitions */}
-      <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[315px] select-none group cursor-pointer">
-        <div className="relative bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 border border-gray-100 shadow-[0_8px_24px_rgba(15,74,155,0.06)] group-hover:shadow-[0_18px_40px_rgba(15,74,155,0.12)] group-hover:-translate-y-1.5 group-hover:border-[#0f4a9b]/30 transition-all duration-300 flex flex-col items-center text-center overflow-hidden">
+      <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[315px] select-none group cursor-pointer h-full">
+        <div className="relative bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-7 border border-gray-100 shadow-[0_8px_24px_rgba(15,74,155,0.06)] group-hover:shadow-[0_18px_40px_rgba(15,74,155,0.12)] group-hover:-translate-y-1.5 group-hover:border-[#0f4a9b]/30 transition-all duration-300 flex flex-col items-center text-center overflow-hidden h-full">
           {/* Subtle Top Accent Indicator Bar */}
           <div
             className="absolute top-0 left-0 right-0 h-1 group-hover:h-1.5 transition-all duration-300"
@@ -246,12 +246,12 @@ function DashboardInstrumentCard({ item, index }: { item: typeof STRUGGLES_DATA[
           </div>
 
           {/* Title with font hover color transition */}
-          <h3 className="text-lg sm:text-xl font-black text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-200 mt-4 mb-2 tracking-tight">
+          <h3 className="text-xs sm:text-xl font-black text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-200 mt-4 mb-1.5 sm:mb-2 tracking-tight">
             {item.title}
           </h3>
 
           {/* Exact Description */}
-          <p className="text-gray-600 group-hover:text-gray-700 text-xs sm:text-[13px] leading-relaxed transition-colors duration-200">
+          <p className="text-gray-600 group-hover:text-gray-700 text-[10px] sm:text-[13px] leading-tight sm:leading-relaxed transition-colors duration-200">
             {item.desc}
           </p>
         </div>
@@ -262,23 +262,23 @@ function DashboardInstrumentCard({ item, index }: { item: typeof STRUGGLES_DATA[
 
 export function StudentStruggleSection() {
   return (
-    <section className="py-14 lg:py-20 bg-[#F4F8FD] relative overflow-hidden isolate">
+    <section className="py-8 sm:py-14 lg:py-20 bg-[#F4F8FD] relative overflow-hidden isolate">
       {/* Background Subtle Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(15,74,155,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,74,155,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-10 lg:mb-14 max-w-3xl mx-auto">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-3">
+        <div className="text-center mb-6 sm:mb-10 lg:mb-14 max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-1.5 sm:mb-3">
             <GradientHeadingText text="Why Students Struggle" />
           </h2>
-          <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
+          <p className="text-gray-600 text-xs sm:text-base lg:text-lg leading-relaxed">
             Many students work hard, but still feel unsure where things are going wrong.
           </p>
         </div>
 
         {/* 3D Dashboard Dials Grid */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
+        <div className="grid grid-cols-3 gap-2 sm:gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
           {STRUGGLES_DATA.map((item, i) => (
             <DashboardInstrumentCard key={item.title} item={item} index={i} />
           ))}

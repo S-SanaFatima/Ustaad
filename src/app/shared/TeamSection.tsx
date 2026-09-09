@@ -160,7 +160,7 @@ export default function TeamSection() {
             id="team-heading"
             className="text-3xl sm:text-4xl font-black text-[#0a1f3d] tracking-tight"
           >
-            <GradientHeadingText text="The Team Behind Ustaad" />
+            <GradientHeadingText text="Our Academic and Operations Team" />
           </h2>
           <p className="text-[#3a4f6e] text-[15px] leading-relaxed mt-2.5 tracking-[-0.01em] max-w-xl">
             Experienced educators and curriculum leads actively overseeing lesson quality and student progress.
@@ -183,6 +183,8 @@ export default function TeamSection() {
               <div className="relative aspect-[3.4/4] rounded-2xl overflow-hidden bg-[#e8eef8] ring-2 ring-[#C7A24A]/35 shadow-lg">
                 <img
                   src={FOUNDER.image}
+                  srcSet={`${FOUNDER.image} 300w`}
+                  sizes="(max-width: 640px) 128px, 176px"
                   alt={FOUNDER.imageAlt}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   style={{ objectPosition: FOUNDER.objectPosition }}
@@ -245,7 +247,7 @@ export default function TeamSection() {
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] text-[#0a1f3d]/75">
-                  Faculty &amp; Academic Team
+                  Our Academic and Operations Team
                 </h3>
                 <span className="text-[10px] font-bold text-[#0f4a9b] bg-[#0f4a9b]/8 px-2 py-0.5 rounded-full border border-[#0f4a9b]/12">
                   Member {activeFaculty + 1} of {FACULTY.length}
@@ -293,6 +295,8 @@ export default function TeamSection() {
                   <div className="relative w-28 h-28 sm:w-36 sm:h-36 shrink-0 rounded-2xl overflow-hidden bg-[#e8eef8] ring-1 ring-slate-200 shadow-md">
                     <img
                       src={currentFaculty.image}
+                      srcSet={`${currentFaculty.image} 300w`}
+                      sizes="(max-width: 640px) 112px, 144px"
                       alt={currentFaculty.imageAlt}
                       className="w-full h-full object-cover"
                       style={{ objectPosition: currentFaculty.objectPosition }}

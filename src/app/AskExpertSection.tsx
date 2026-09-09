@@ -247,8 +247,6 @@ export default function AskExpertSection() {
       aria-labelledby="ask-expert-heading"
       className="py-20 bg-white"
     >
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(askExpertServiceSchema) }} />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-12 lg:gap-16 items-center">
 

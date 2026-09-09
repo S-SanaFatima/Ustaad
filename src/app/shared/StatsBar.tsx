@@ -128,9 +128,9 @@ export default function StatsBar({ customText }: StatsBarProps = {}) {
                   i === 1 ? 'border-r sm:border-r-0 lg:border-r-0 border-slate-100' : ''
                 }`}
               >
-                {/* Refined Icon Pod */}
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#0f4a9b]/8 text-[#0f4a9b] flex items-center justify-center mb-2.5 border border-[#0f4a9b]/15 group-hover:bg-[#0f4a9b] group-hover:text-[#f5d77f] group-hover:border-[#C7A24A]/50 transition-all duration-300 shadow-2xs">
-                  <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-105" strokeWidth={2} />
+                {/* Permanent Dark Blue Icon Pod */}
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#0a1f3d] text-[#f5d77f] flex items-center justify-center mb-2.5 border border-[#C7A24A]/50 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                  <Icon className="w-5 h-5" strokeWidth={2} />
                 </div>
 
                 {/* Counter Value: Balanced proportional size, refined vibrant sapphire color */}
@@ -151,8 +151,8 @@ export default function StatsBar({ customText }: StatsBarProps = {}) {
                   </div>
                 </div>
 
-                {/* Micro Gold Accent Dot on Hover */}
-                <div className="w-1 h-1 rounded-full bg-[#C7A24A]/30 mt-2 group-hover:w-5 group-hover:bg-[#C7A24A] transition-all duration-300" />
+                {/* Permanent Gold Accent Line */}
+                <div className="w-5 h-1 rounded-full bg-[#C7A24A] mt-2 transition-all duration-300" />
               </div>
             );
           })}

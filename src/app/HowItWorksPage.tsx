@@ -1,12 +1,50 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  Award, BookOpen, Calendar, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Crosshair, Eye, Globe, GraduationCap, HelpCircle, Layers, Map, MessageCircle, MessageSquare,
+  Award, BookOpen, Calendar, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Crosshair, Eye, Globe, GraduationCap, HelpCircle, Home, Layers, Map, MessageCircle, MessageSquare,
   RotateCw, Search, ShieldCheck, Sparkles, Star, TrendingUp, UserCheck, X, Zap,
 } from 'lucide-react';
 import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock} from './shared';
 import SEOHead from './shared/SEOHead';
-import { localBusinessSchema, breadcrumbSchema, faqSchema } from './shared/schemas';
+import { localBusinessSchema, breadcrumbSchema, faqSchema, organizationSchema, websiteSchema } from './shared/schemas';
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How Ustaad Private 1-to-1 Tutoring Works in the UAE",
+  description: "A step-by-step guide to starting personalized private tutoring with Ustaad, from diagnostic gap assessment to ongoing progress tracking.",
+  totalTime: "PT30M",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "1. Diagnostic Gap Assessment & Consultation",
+      text: "We review your child's current subject level, exam board syllabus, upcoming mocks, and specific learning gaps.",
+      url: "https://ustaad.ae/how-it-works#step-1"
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "2. Curriculum-Matched Tutor Selection",
+      text: "We match your child with a verified subject specialist experienced in their exact board (Cambridge, Edexcel, AQA, IB, AP).",
+      url: "https://ustaad.ae/how-it-works#step-2"
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "3. Personalized 1-to-1 Online Lessons",
+      text: "Interactive live sessions focused on concept clarity, worked past paper practice, and exam technique.",
+      url: "https://ustaad.ae/how-it-works#step-3"
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "4. Continuous Progress Tracking & Reports",
+      text: "Regular feedback, performance monitoring, and tailored plan adjustments ahead of mock and final exams.",
+      url: "https://ustaad.ae/how-it-works#step-4"
+    }
+  ]
+};
 
 const howItWorksSchemaFaqs = [
   { q: "How long does it usually take to see results?", a: "Most families start to notice steadier homework and calmer revision within the first term, with stronger exam performance often following over the school year." },
@@ -543,10 +581,200 @@ function PairingFrameworkSection() {
   );
 }
 
+function TutorScreeningSection() {
+  return (
+    <section className="py-14 sm:py-20 bg-gradient-to-br from-[#061529] via-[#0a1f3d] to-[#0d2a52] text-white relative overflow-hidden isolate border-y border-[#C7A24A]/30">
+      {/* Background ambient lighting */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C7A24A]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#0f4a9b]/20 rounded-full blur-[140px] pointer-events-none" />
+      <div 
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(199,162,74,0.15) 1px, transparent 1px)',
+          backgroundSize: '28px 28px'
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Visual Card Container */}
+          <div className="flex flex-col items-center lg:items-start">
+            <div className="relative w-full max-w-lg bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl border border-white/15 rounded-3xl p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
+              
+              {/* Top Badge: Under Review / Live Sign-off */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C7A24A]/15 border border-[#C7A24A]/40 text-[#f5d77f] rounded-full text-xs font-bold tracking-wider uppercase">
+                  <span className="w-2 h-2 rounded-full bg-[#C7A24A] animate-pulse" />
+                  Under Review
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-widest text-slate-300 bg-white/10 px-2.5 py-1 rounded-md border border-white/15">
+                  How Ustaad Screens Tutors
+                </span>
+              </div>
+
+              {/* Tutor Sample Profile Card */}
+              <div className="bg-white rounded-2xl p-5 text-gray-900 shadow-xl border border-gray-100 mb-6 transform transition hover:-translate-y-1">
+                <div className="flex items-center gap-4 mb-3.5">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0a1f3d] to-[#0f4a9b] text-[#f5d77f] font-black text-xl flex items-center justify-center border-2 border-[#C7A24A]/50 shadow-md shrink-0">
+                    LK
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-extrabold text-[#0a1f3d] flex items-center gap-1.5">
+                      Leila K.
+                      <ShieldCheck className="w-4 h-4 text-[#0f4a9b]" />
+                    </h3>
+                    <p className="text-xs font-bold text-gray-500">
+                      IGCSE Maths · 11 yrs experience
+                    </p>
+                  </div>
+                </div>
+
+                {/* Qualification Badges */}
+                <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-100">
+                  <span className="px-2.5 py-1 bg-slate-100 text-[#0a1f3d] font-extrabold text-[11px] rounded-lg border border-slate-200">
+                    Cambridge
+                  </span>
+                  <span className="px-2.5 py-1 bg-slate-100 text-[#0a1f3d] font-extrabold text-[11px] rounded-lg border border-slate-200">
+                    Edexcel
+                  </span>
+                  <span className="px-2.5 py-1 bg-[#0f4a9b]/10 text-[#0f4a9b] font-extrabold text-[11px] rounded-lg border border-[#0f4a9b]/20">
+                    Ex-Head of Dept
+                  </span>
+                </div>
+              </div>
+
+              {/* Sub-label: Personally Signed Off By */}
+              <div className="relative text-center mb-6">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-white/15" />
+                </div>
+                <span className="relative px-4 bg-[#081a33] text-[11px] font-black tracking-widest text-[#f5d77f] uppercase">
+                  PERSONALLY SIGNED OFF BY
+                </span>
+              </div>
+
+              {/* Sign-off Approver Avatars */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-col items-center text-center p-3 rounded-2xl bg-white/5 border border-white/10">
+                  <div className="relative mb-2">
+                    <img 
+                      src="/images/team/f-zaman-v2.jpg" 
+                      srcSet="/images/team/f-zaman-v2.jpg 300w"
+                      sizes="64px"
+                      alt="F. Zaman" 
+                      className="w-16 h-16 rounded-full object-cover object-[center_14%] border-2 border-[#C7A24A] shadow-md"
+                    />
+                    <span className="absolute -bottom-1 -right-1 bg-emerald-500 text-white rounded-full p-0.5 shadow-sm">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                  <h4 className="text-xs font-black text-white">F. Zaman</h4>
+                  <p className="text-[10px] font-extrabold text-[#f5d77f] uppercase tracking-wider mt-0.5">
+                    FOUNDER & ACADEMIC DIRECTOR
+                  </p>
+                  <span className="mt-2 px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold rounded-full border border-emerald-500/30">
+                    Approved
+                  </span>
+                </div>
+
+                <div className="flex flex-col items-center text-center p-3 rounded-2xl bg-white/5 border border-white/10">
+                  <div className="relative mb-2">
+                    <img 
+                      src="/images/team/nida-iqbal-v2.jpg" 
+                      srcSet="/images/team/nida-iqbal-v2.jpg 300w"
+                      sizes="64px"
+                      alt="Nida Iqbal" 
+                      className="w-16 h-16 rounded-full object-cover object-[center_16%] border-2 border-[#C7A24A] shadow-md"
+                    />
+                    <span className="absolute -bottom-1 -right-1 bg-emerald-500 text-white rounded-full p-0.5 shadow-sm">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                  <h4 className="text-xs font-black text-white">Nida Iqbal</h4>
+                  <p className="text-[10px] font-extrabold text-[#f5d77f] uppercase tracking-wider mt-0.5">
+                    TUTOR QUALITY & DEVELOPMENT LEAD
+                  </p>
+                  <span className="mt-2 px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold rounded-full border border-emerald-500/30">
+                    Approved
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Right Text Column */}
+          <div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#C7A24A]/15 border border-[#C7A24A]/30 text-[#f5d77f] text-xs font-bold rounded-full mb-4 tracking-wider uppercase">
+              <ShieldCheck className="w-4 h-4 text-[#C7A24A]" />
+              HOW USTAAD SCREENS TUTORS
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6 tracking-tight">
+              Every tutor.{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5d77f] via-[#C7A24A] to-[#f5d77f]">
+                Personally screened.
+              </span>
+            </h2>
+
+            <p className="text-slate-200 text-base sm:text-lg leading-relaxed mb-8">
+              Every tutor is reviewed by our named team before your child ever meets them. No anonymous checks. No marketplace shortcuts. Two real people put their name behind each approval.
+            </p>
+
+            <div className="space-y-4 mb-8">
+              <div className="flex items-start gap-3.5">
+                <div className="w-6 h-6 rounded-full bg-[#C7A24A]/20 border border-[#C7A24A]/50 text-[#f5d77f] flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#f5d77f]" />
+                </div>
+                <p className="text-slate-200 text-sm sm:text-base font-semibold">
+                  Personally signed off by our Founder and Quality Lead
+                </p>
+              </div>
+
+              <div className="flex items-start gap-3.5">
+                <div className="w-6 h-6 rounded-full bg-[#C7A24A]/20 border border-[#C7A24A]/50 text-[#f5d77f] flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#f5d77f]" />
+                </div>
+                <p className="text-slate-200 text-sm sm:text-base font-semibold">
+                  Matched to your child's exact curriculum, board and school
+                </p>
+              </div>
+
+              <div className="flex items-start gap-3.5">
+                <div className="w-6 h-6 rounded-full bg-[#C7A24A]/20 border border-[#C7A24A]/50 text-[#f5d77f] flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#f5d77f]" />
+                </div>
+                <p className="text-slate-200 text-sm sm:text-base font-semibold">
+                  Complimentary first session. No card, no commitment.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <a
+                href="/contact#form"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-gradient-to-r from-[#f5d77f] via-[#C7A24A] to-[#A8892A] text-[#0a1f3d] font-black rounded-xl px-7 py-4 text-base hover:brightness-110 transition shadow-lg shadow-[#C7A24A]/20 transform hover:-translate-y-0.5"
+              >
+                Book a Free Trial →
+              </a>
+              <span className="text-xs text-slate-300 font-medium">
+                Reply in <strong className="text-[#f5d77f]">12 minutes</strong> on WhatsApp
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function DiagnosticLens3D({ isHovered, size = 'md' }: { isHovered: boolean; size?: 'sm' | 'md' | 'lg' }) {
   const isLg = size === 'lg';
-  const sizeClasses = isLg ? 'w-36 h-36 sm:w-40 sm:h-40' : 'w-20 h-20 sm:w-22 sm:h-22';
-  const iconSize = isLg ? 'w-12 h-12' : 'w-7 h-7';
+  const isSm = size === 'sm';
+  const sizeClasses = isLg ? 'w-36 h-36 sm:w-40 sm:h-40' : isSm ? 'w-11 h-11' : 'w-20 h-20 sm:w-22 sm:h-22';
+  const iconSize = isLg ? 'w-12 h-12' : isSm ? 'w-4 h-4' : 'w-7 h-7';
 
   return (
     <div style={{ perspective: '1000px' }} className={`relative ${sizeClasses} flex items-center justify-center`}>
@@ -581,7 +809,7 @@ function DiagnosticLens3D({ isHovered, size = 'md' }: { isHovered: boolean; size
 
         {/* Front Face: Precision Optic Lens */}
         <div
-          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-2 border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex items-center justify-center overflow-hidden"
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex items-center justify-center overflow-hidden"
           style={{ transform: 'translateZ(2px)' }}
         >
           {/* Outer Golden Calibrated Ring */}
@@ -607,8 +835,9 @@ function DiagnosticLens3D({ isHovered, size = 'md' }: { isHovered: boolean; size
 
 function Mini3DBook({ isHovered, size = 'md' }: { isHovered: boolean; size?: 'sm' | 'md' | 'lg' }) {
   const isLg = size === 'lg';
-  const sizeClasses = isLg ? 'w-36 h-36 sm:w-40 sm:h-40' : 'w-20 h-20 sm:w-22 sm:h-22';
-  const iconSize = isLg ? 'w-12 h-12' : 'w-7 h-7';
+  const isSm = size === 'sm';
+  const sizeClasses = isLg ? 'w-36 h-36 sm:w-40 sm:h-40' : isSm ? 'w-11 h-11' : 'w-20 h-20 sm:w-22 sm:h-22';
+  const iconSize = isLg ? 'w-12 h-12' : isSm ? 'w-4 h-4' : 'w-7 h-7';
 
   return (
     <div style={{ perspective: '1000px' }} className={`relative ${sizeClasses} flex items-center justify-center`}>
@@ -643,7 +872,7 @@ function Mini3DBook({ isHovered, size = 'md' }: { isHovered: boolean; size?: 'sm
 
         {/* Front Face: Core Knowledge Book Medallion */}
         <div
-          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-2 border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex items-center justify-center overflow-hidden"
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex items-center justify-center overflow-hidden"
           style={{ transform: 'translateZ(2px)' }}
         >
           {/* Outer Golden Calibrated Ring */}
@@ -675,8 +904,9 @@ function Mini3DBook({ isHovered, size = 'md' }: { isHovered: boolean; size?: 'sm
 
 function PracticePaper3D({ isHovered, size = 'md' }: { isHovered: boolean; size?: 'sm' | 'md' | 'lg' }) {
   const isLg = size === 'lg';
-  const sizeClasses = isLg ? 'w-36 h-36 sm:w-40 sm:h-40' : 'w-20 h-20 sm:w-22 sm:h-22';
-  const iconSize = isLg ? 'w-12 h-12' : 'w-7 h-7';
+  const isSm = size === 'sm';
+  const sizeClasses = isLg ? 'w-36 h-36 sm:w-40 sm:h-40' : isSm ? 'w-11 h-11' : 'w-20 h-20 sm:w-22 sm:h-22';
+  const iconSize = isLg ? 'w-12 h-12' : isSm ? 'w-4 h-4' : 'w-7 h-7';
 
   return (
     <div style={{ perspective: '1000px' }} className={`relative ${sizeClasses} flex items-center justify-center`}>
@@ -711,7 +941,7 @@ function PracticePaper3D({ isHovered, size = 'md' }: { isHovered: boolean; size?
 
         {/* Front Face: Practice Exam Cycle Medallion */}
         <div
-          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-2 border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex items-center justify-center overflow-hidden"
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex items-center justify-center overflow-hidden"
           style={{ transform: 'translateZ(2px)' }}
         >
           {/* Outer Golden Calibrated Ring */}
@@ -746,8 +976,9 @@ function PracticePaper3D({ isHovered, size = 'md' }: { isHovered: boolean; size?
 
 function IndependentGrowth3D({ isHovered, size = 'md' }: { isHovered: boolean; size?: 'sm' | 'md' | 'lg' }) {
   const isLg = size === 'lg';
-  const sizeClasses = isLg ? 'w-36 h-36 sm:w-40 sm:h-40' : 'w-20 h-20 sm:w-22 sm:h-22';
-  const iconSize = isLg ? 'w-12 h-12' : 'w-7 h-7';
+  const isSm = size === 'sm';
+  const sizeClasses = isLg ? 'w-36 h-36 sm:w-40 sm:h-40' : isSm ? 'w-11 h-11' : 'w-20 h-20 sm:w-22 sm:h-22';
+  const iconSize = isLg ? 'w-12 h-12' : isSm ? 'w-4 h-4' : 'w-7 h-7';
 
   return (
     <div style={{ perspective: '1000px' }} className={`relative ${sizeClasses} flex items-center justify-center`}>
@@ -782,18 +1013,18 @@ function IndependentGrowth3D({ isHovered, size = 'md' }: { isHovered: boolean; s
 
         {/* Front Face: Mastery Pedestal with Rising Gold Pillars */}
         <div
-          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-2 border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex flex-col items-center justify-center overflow-hidden"
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex flex-col items-center justify-center overflow-hidden"
           style={{ transform: 'translateZ(2px)' }}
         >
           {/* Inner Dashed Ring */}
           <div className="absolute inset-1.5 rounded-full border border-dashed border-[#C7A24A]/40 pointer-events-none" />
 
           {/* 3D Ascending Pillar Bars */}
-          <div className="absolute inset-x-6 bottom-3 flex items-end justify-center gap-1 opacity-40 pointer-events-none">
-            <div className="w-2 h-3 bg-white/80 rounded-t-sm" />
-            <div className="w-2 h-5 bg-white/80 rounded-t-sm" />
-            <div className="w-2 h-7 bg-white/80 rounded-t-sm" />
-            <div className="w-2 h-10 bg-[#f5d77f] rounded-t-sm" />
+          <div className="absolute inset-x-4 sm:inset-x-6 bottom-2 sm:bottom-3 flex items-end justify-center gap-0.5 sm:gap-1 opacity-40 pointer-events-none">
+            <div className="w-1.5 sm:w-2 h-2 sm:h-3 bg-white/80 rounded-t-xs sm:rounded-t-sm" />
+            <div className="w-1.5 sm:w-2 h-3.5 sm:h-5 bg-white/80 rounded-t-xs sm:rounded-t-sm" />
+            <div className="w-1.5 sm:w-2 h-5 sm:h-7 bg-white/80 rounded-t-xs sm:rounded-t-sm" />
+            <div className="w-1.5 sm:w-2 h-7 sm:h-10 bg-[#f5d77f] rounded-t-xs sm:rounded-t-sm" />
           </div>
 
           {/* Leaping Golden Arrow */}
@@ -817,26 +1048,30 @@ function IndependentGrowth3D({ isHovered, size = 'md' }: { isHovered: boolean; s
 const METHOD_STEPS = [
   {
     step: "STEP 01",
-    title: "Getting to Know the Student",
-    desc: "The tutor learns your child's current level, the topics they find tricky, and their school's pace.",
+    title: "Diagnostic Gap Assessment & Consultation",
+    desc: "We begin with a detailed conversation about your child's current subject performance, exam board syllabus (Cambridge, Edexcel, AQA, IB, AP), upcoming school assessments, and specific learning hurdles.",
+    details: "During the initial assessment, our academic team reviews recent school report cards, past test papers, and specific topics where your child feels unconfident. This enables us to pinpoint whether difficulty stems from foundational gaps, pacing issues, or exam technique.",
     Component: DiagnosticLens3D,
   },
   {
     step: "STEP 02",
-    title: "Strong Basics First",
-    desc: "If something in the basics needs attention, that comes first before moving on to harder topics.",
+    title: "Curriculum & Board-Exact Tutor Matching",
+    desc: "We match your child with a verified subject specialist who has deep, firsthand experience teaching their exact curriculum board and year group across the UAE.",
+    details: "Tutor matching at Ustaad is based on curriculum specialization first. A student preparing for Edexcel IGCSE Chemistry is matched with a tutor who knows Edexcel mark schemes inside out, ensuring lesson examples mirror actual exam expectations.",
     Component: Mini3DBook,
   },
   {
     step: "STEP 03",
-    title: "Question Practice",
-    desc: "With basics in place, your child works through past papers and exam-style questions with the tutor.",
+    title: "Targeted 1-to-1 Live Online Sessions",
+    desc: "Sessions focus on active concept building, step-by-step problem solving, and worked past paper practice using interactive whiteboards and direct live feedback.",
+    details: "Lessons are designed around your child's active participation. Tutors break down complex multi-mark questions, model clear working out, and guide students through past papers to build confidence under exam conditions.",
     Component: PracticePaper3D,
   },
   {
     step: "STEP 04",
-    title: "Working More Independently",
-    desc: "As your child gains confidence, lessons shift toward more independent practice and the tutor steps back.",
+    title: "Independent Growth & Continuous Progress Tracking",
+    desc: "As understanding deepens, students transition to independent question solving, supported by monthly academic progress reviews and parent check-ins.",
+    details: "We track progress throughout the school year. Parents receive regular lesson summaries and milestone reports, allowing us to adjust session frequency ahead of mock exams or major school assessments.",
     Component: IndependentGrowth3D,
   },
 ];
@@ -862,43 +1097,48 @@ function MethodStepCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
-      className="relative group bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-sm hover:shadow-xl hover:border-[#0f4a9b]/35 hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center cursor-pointer overflow-hidden min-h-[290px] sm:min-h-[310px] justify-between"
+      className="relative group bg-white rounded-xl sm:rounded-2xl border border-slate-200/90 p-2 sm:p-6 shadow-sm hover:shadow-xl hover:border-[#0f4a9b]/35 hover:-translate-y-1 sm:hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center cursor-pointer overflow-hidden justify-between h-full min-h-[165px] sm:min-h-[310px]"
     >
       {/* Top Gold Accent Bar */}
       <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#C7A24A]/0 to-transparent group-hover:via-[#C7A24A] transition-all duration-300" />
 
       {/* Step Pill Header */}
-      <div className="w-full flex items-center justify-between mb-2">
-        <span className="text-[11px] font-black uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/10 px-2.5 py-1 rounded-full border border-[#0f4a9b]/20 group-hover:bg-[#0f4a9b] group-hover:text-white group-hover:border-[#0f4a9b] transition-all duration-300">
+      <div className="w-full flex items-center justify-center sm:justify-between mb-1 sm:mb-2">
+        <span className="text-[7px] sm:text-[11px] font-black uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/10 px-1 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-[#0f4a9b]/20 group-hover:bg-[#0f4a9b] group-hover:text-white group-hover:border-[#0f4a9b] transition-all duration-300 whitespace-nowrap">
           {item.step}
         </span>
-        <span className="text-[10px] font-bold text-slate-400 group-hover:text-[#C7A24A] transition-colors flex items-center gap-0.5">
+        <span className="hidden sm:flex text-[10px] font-bold text-slate-400 group-hover:text-[#C7A24A] transition-colors items-center gap-0.5">
           Tap to view <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
         </span>
       </div>
 
       {/* Prominent 3D Object Hero Stage */}
-      <div className="relative my-2 sm:my-3 w-full h-24 sm:h-28 flex items-center justify-center">
+      <div className="relative my-1 sm:my-3 w-full h-12 sm:h-28 flex items-center justify-center">
         {/* Subtle pedestal glow ring */}
-        <div className="absolute w-20 sm:w-24 h-5 rounded-full bg-gradient-to-r from-transparent via-[#0f4a9b]/10 to-transparent bottom-0 pointer-events-none group-hover:via-[#C7A24A]/30 transition-all duration-300" />
-        <IconComp isHovered={isHovered} size="md" />
+        <div className="absolute w-12 sm:w-24 h-3 sm:h-5 rounded-full bg-gradient-to-r from-transparent via-[#0f4a9b]/10 to-transparent bottom-0 pointer-events-none group-hover:via-[#C7A24A]/30 transition-all duration-300" />
+        <div className="sm:hidden">
+          <IconComp isHovered={isHovered} size="sm" />
+        </div>
+        <div className="hidden sm:block">
+          <IconComp isHovered={isHovered} size="md" />
+        </div>
       </div>
 
       {/* Title */}
-      <h3 className="text-base sm:text-lg font-extrabold text-[#0a1f3d] mb-2 leading-snug group-hover:text-[#0f4a9b] transition-colors duration-300">
+      <h3 className="text-[10px] sm:text-lg font-extrabold text-[#0a1f3d] mb-1 sm:mb-2 leading-tight sm:leading-snug group-hover:text-[#0f4a9b] transition-colors duration-300">
         {item.title}
       </h3>
 
       {/* Action Trigger */}
-      <div className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-[#0f4a9b] bg-slate-50 group-hover:bg-[#0f4a9b]/10 px-3.5 py-1.5 rounded-full border border-slate-200/80 group-hover:border-[#0f4a9b]/30 transition-all duration-300">
-        <span>Read details</span>
-        <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+      <div className="mt-1 inline-flex items-center gap-0.5 sm:gap-1.5 text-[7px] sm:text-xs font-bold text-[#0f4a9b] bg-slate-50 group-hover:bg-[#0f4a9b]/10 px-1.5 py-0.5 sm:px-3.5 sm:py-1.5 rounded-full border border-slate-200/80 group-hover:border-[#0f4a9b]/30 transition-all duration-300 whitespace-nowrap">
+        <span>Details</span>
+        <ChevronRight className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 group-hover:translate-x-0.5 transition-transform" />
       </div>
 
       {/* Clean Step Number Watermark in Background */}
       <div
         aria-hidden
-        className="absolute right-3 bottom-0 text-5xl font-black text-slate-100/60 select-none pointer-events-none group-hover:text-[#0f4a9b]/10 transition-colors duration-300"
+        className="absolute right-1 sm:right-3 bottom-0 text-xl sm:text-5xl font-black text-slate-100/60 select-none pointer-events-none group-hover:text-[#0f4a9b]/10 transition-colors duration-300"
       >
         0{index + 1}
       </div>
@@ -1195,11 +1435,38 @@ export default function HowItWorksPage() {
 
   return (
     <Layout>
-      <SEOHead title="How It Works | Ustaad Private Tutoring Process UAE" description="Discover how Ustaad's 1-to-1 private tutoring works. Diagnostic assessment, personalised plan, curriculum-aligned sessions, and tracked progress. Book your free trial today." canonical="/how-it-works" ogImage="/UpdatedImages/how-ustaad-private-tutoring-works-uae-families.webp" schema={[localBusinessSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "How It Works", url: "/how-it-works" }]), faqSchema(howItWorksSchemaFaqs)]} />
+      <SEOHead 
+        title="How It Works | Ustaad Private Tutoring Process UAE" 
+        description="Discover how Ustaad's 1-to-1 private tutoring works. Diagnostic assessment, personalised plan, curriculum-aligned sessions, and tracked progress. Book your free trial today." 
+        canonical="/how-it-works" 
+        ogImage="/UpdatedImages/how-ustaad-private-tutoring-works-uae-families.webp" 
+        preloadHeroImage="/UpdatedImages/how-ustaad-private-tutoring-works-uae-families.webp"
+        schema={[organizationSchema, websiteSchema, localBusinessSchema, howToSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "How It Works", url: "/how-it-works" }]), faqSchema(howItWorksSchemaFaqs)]} 
+      />
       {/* ── HERO ── */}
-      <section className="pt-10 pb-16 lg:pt-20 lg:pb-20 relative overflow-hidden bg-white">
+      <section className="pt-8 pb-14 lg:pt-16 lg:pb-20 relative overflow-hidden bg-white">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Visible Breadcrumb UI */}
+          <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6" itemScope itemType="https://schema.org/BreadcrumbList">
+            <ol className="flex items-center gap-1.5 text-xs font-semibold text-gray-500">
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <a itemProp="item" href="/" className="hover:text-[#0f4a9b] transition-colors flex items-center gap-1.5 text-gray-600">
+                  <Home className="w-3.5 h-3.5 text-[#0f4a9b]" />
+                  <span itemProp="name">Home</span>
+                </a>
+                <meta itemProp="position" content="1" />
+              </li>
+              <li className="text-gray-400">/</li>
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-[#0a1f3d] font-bold" aria-current="page">
+                <span itemProp="name">How It Works</span>
+                <link itemProp="item" href="https://ustaad.ae/how-it-works" />
+                <meta itemProp="position" content="2" />
+              </li>
+            </ol>
+          </nav>
+
           <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
 
             {/* Left */}
@@ -1226,9 +1493,11 @@ export default function HowItWorksPage() {
             >
               <img
                 src="/UpdatedImages/how-ustaad-private-tutoring-works-uae-families.webp"
+                srcSet="/UpdatedImages/how-ustaad-private-tutoring-works-uae-families.webp 1200w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                 alt="Ustaad student in a structured one-to-one private tutoring session tailored to their curriculum and learning pace in the UAE"
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
-                width={1200} height={800} fetchPriority="high" />
+                className="w-full h-full object-cover group-hover:scale-105 transition duration-700 block"
+                width={1200} height={800} loading="eager" fetchPriority="high" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f4a9b]/40 via-transparent to-transparent" />
             </motion.div>
 
@@ -1239,16 +1508,16 @@ export default function HowItWorksPage() {
       <StatsBar />
 
       {/* ── THE 4-STEP PROCESS ── */}
-      <section className="py-16 lg:py-20 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-sm font-bold rounded-full mb-4 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
+      <section className="py-8 sm:py-16 lg:py-20 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="text-center mb-6 sm:mb-12 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-2 sm:mb-4 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
               Our Approach
             </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-3">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-1.5 sm:mb-3">
               <GradientHeadingText text="The Ustaad Method" />
             </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
+            <p className="text-gray-600 text-xs sm:text-base lg:text-lg leading-relaxed">
               Here is how teaching takes shape with each student.
             </p>
           </div>
@@ -1270,7 +1539,7 @@ export default function HowItWorksPage() {
               />
             </div>
 
-            <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="relative z-10 grid grid-cols-4 gap-1.5 sm:gap-6">
               {METHOD_STEPS.map((step, i) => (
                 <MethodStepCard
                   key={step.step}
@@ -1344,9 +1613,14 @@ export default function HowItWorksPage() {
 
                           <div className="w-12 h-1 bg-[#C7A24A] rounded-full mb-4" />
 
-                          <p className="text-gray-700 text-base sm:text-lg leading-relaxed font-medium mb-6">
+                          <p className="text-gray-700 text-base sm:text-lg leading-relaxed font-medium mb-3">
                             {step.desc}
                           </p>
+                          {step.details && (
+                            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                              {step.details}
+                            </p>
+                          )}
 
                           {/* Navigation & Done Actions */}
                           <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-100">
@@ -1405,7 +1679,13 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* ── LESSON FLOW SHOWCASE ── */}
+      {/* ── 2. OUR 4-STAGE TUTOR PAIRING FRAMEWORK ── */}
+      <PairingFrameworkSection />
+
+      {/* ── 3. EVERY TUTOR. PERSONALLY SCREENED. ── */}
+      <TutorScreeningSection />
+
+      {/* ── 4. HOW ONLINE LESSONS ARE MANAGED ── */}
       <LessonFlowSection />
 
       {/* ── Divider ── */}
@@ -1413,10 +1693,10 @@ export default function HowItWorksPage() {
         <div className="h-px bg-gradient-to-r from-transparent via-[#0f4a9b]/30 to-transparent" />
       </div>
 
-      {/* ── TUTORING ACROSS EVERY EMIRATE ── */}
+      {/* ── 5. TUTORING ACROSS EVERY EMIRATE ── */}
       <EmiratesSection />
 
-      {/* ── FAQ ── */}
+      {/* ── 6. FREQUENTLY ASKED QUESTIONS ── */}
       <section id="faqs" className="py-8 lg:py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[0.9fr_1.6fr] gap-12 lg:gap-16 items-center">
@@ -1464,14 +1744,13 @@ export default function HowItWorksPage() {
           </div>
         </div>
       </section>
-      {/* ── 4-STAGE MATCHING FRAMEWORK ── */}
-      <PairingFrameworkSection />
 
       <FinalCTA
         title="Start with a Short Conversation"
         subtitle="A first call lets us hear what your child needs, before any lessons are arranged."
         button1Text="Start Your First Session"
-        button2Text="Ask Your Question"
+        button2Text="Ask Your Question on WhatsApp"
+        button2Href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20have%20a%20question%20about%20how%20tutoring%20works."
       />
 
     </Layout>

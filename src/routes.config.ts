@@ -474,7 +474,7 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [
       { name: 'Home', url: '/' },
       { name: 'Blog', url: '/blogs' },
-      { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' },
+      { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' },
       { name: 'Exam Stamina', url: '/blogs/exam-stamina-uae-students' },
     ]
   },
@@ -632,6 +632,17 @@ export const ROUTES: RouteConfig[] = [
       changefreq: 'monthly'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'GCSE', url: '/gcse' }, { name: 'GCSE Tutor Dubai', url: '/gcse-tutor-dubai' }]
+  },
+  {
+    path: '/igcse-tutor-dubai',
+    component: 'IgcseTutorDubaiLanding',
+    seo: {
+      title: 'IGCSE Tutor Dubai | Cambridge & Edexcel Specialists | Ustaad',
+      description: 'Expert online IGCSE tutors in Dubai for Cambridge and Edexcel. Private 1-to-1 tutoring for Mathematics, Sciences, English and Business. Book a free trial today.',
+      priority: 0.90,
+      changefreq: 'monthly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IGCSE', url: '/igcse' }, { name: 'IGCSE Tutor Dubai', url: '/igcse-tutor-dubai' }]
   },
   {
     path: '/a-level-tutor-abu-dhabi',

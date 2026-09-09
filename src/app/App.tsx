@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { 
-  Star, GraduationCap, Award, BookOpen, CheckCircle,
+  Star, GraduationCap, Award, BookOpen, CheckCircle, Home,
   MessageCircle, ChevronDown, ChevronLeft, ChevronRight, HelpCircle, TrendingUp, Clock,
   Shield, Brain, Library, Building,
   Atom, Calculator, FlaskConical, Dna, Briefcase, Lightbulb, Wrench,
@@ -14,7 +14,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Layout, GradientHeadingText, GoldButton, BritishLandmarkWatermark, AmericanLandmarkWatermark, IBWorldWatermark, FinalCTA, StatsBar, CTA_SUBTEXT } from './shared';
 import SEOHead from './shared/SEOHead';
 import BackToSchoolPopup from './shared/BackToSchoolPopup';
-import { localBusinessSchema, breadcrumbSchema, faqSchema, reviewsSchema, organizationSchema, websiteSchema } from './shared/schemas';
+import { localBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, reviewsSchema, organizationSchema, websiteSchema } from './shared/schemas';
 import AskExpertSection from './AskExpertSection';
 import { ExplodedViewSection, AchievementCoinsSection, HowUstaadWorksSection, WhyFamiliesChooseSection, StudentStruggleSection, AcademicExpertiseSection } from './shared';
 
@@ -214,6 +214,7 @@ const homepageSEO = {
     organizationSchema,
     websiteSchema,
     localBusinessSchema,
+    serviceSchema("Private Tutoring & Homework Support UAE", "Trusted private tutors in the UAE for IGCSE, A-Level, IB, and American curriculum students with 1-to-1 online lessons and free worked homework solutions.", "/"),
     breadcrumbSchema([{ name: "Home", url: "/" }]),
     faqSchema(FAQ_ITEMS.map(f => ({ q: f.q, a: f.aText }))),
     ...reviewsSchema,
@@ -249,9 +250,23 @@ export default function App() {
       <SEOHead {...homepageSEO} />
       <BackToSchoolPopup open={showWelcomePopup} onClose={() => setShowWelcomePopup(false)} />
       {/* Hero Section */}
-      <section className="pt-8 pb-12 sm:pt-10 sm:pb-20 lg:pt-20 lg:pb-32 relative overflow-hidden bg-white">
+      <section className="pt-6 pb-12 sm:pt-8 sm:pb-20 lg:pt-16 lg:pb-32 relative overflow-hidden bg-white">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/10 rounded-full blur-[100px] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Visible Breadcrumb UI */}
+          <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6" itemScope itemType="https://schema.org/BreadcrumbList">
+            <ol className="flex items-center gap-1.5 text-xs font-semibold text-gray-500">
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <a itemProp="item" href="/" className="hover:text-[#0f4a9b] transition-colors flex items-center gap-1.5 text-[#0a1f3d] font-bold">
+                  <Home className="w-3.5 h-3.5 text-[#0f4a9b]" />
+                  <span itemProp="name">Home</span>
+                </a>
+                <meta itemProp="position" content="1" />
+              </li>
+            </ol>
+          </nav>
+
           <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-20 items-center">
             
             {/* Left Content */}
@@ -295,6 +310,8 @@ export default function App() {
             >
               <img
                 src="/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp"
+                srcSet="/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp 800w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px"
                 alt="Private online tutor teaching a UAE student one to one"
                 width={800}
                 height={600}
@@ -408,7 +425,7 @@ export default function App() {
           <div className="school-logos-set flex shrink-0 animate-marquee-slower gap-5 items-center py-4 pr-5 min-w-full">
             {SCHOOL_LOGOS.map((logo) => (
               <div key={logo.file} title={logo.alt.split(' logo')[0]} className="shrink-0 w-[140px] sm:w-[220px] md:w-[280px] h-[80px] sm:h-[120px] md:h-[150px] flex items-center justify-center px-3 sm:px-4 cursor-default relative transition-all duration-300 hover:scale-110 hover:-translate-y-1">
-                <img src={`/school-logos/${logo.file}`} alt={logo.alt} className="w-full h-full max-h-[64px] sm:max-h-[100px] md:max-h-[120px] object-contain filter drop-shadow-sm mix-blend-multiply" loading="lazy" />
+                <img src={`/school-logos/${logo.file}`} srcSet={`/school-logos/${logo.file} 280w`} sizes="(max-width: 640px) 140px, (max-width: 768px) 220px, 280px" alt={logo.alt} className="w-full h-full max-h-[64px] sm:max-h-[100px] md:max-h-[120px] object-contain filter drop-shadow-sm mix-blend-multiply" loading="lazy" />
               </div>
             ))}
           </div>
