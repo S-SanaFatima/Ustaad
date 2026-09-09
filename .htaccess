@@ -1,0 +1,120 @@
+# ==============================================================================
+# USTAAD.AE PRODUCTION APACHE CONFIGURATION (.htaccess)
+# ==============================================================================
+
+# Disable directory browsing for security
+Options -Indexes
+
+# ------------------------------------------------------------------------------
+# 1. MIME TYPES
+# ------------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType application/javascript .js .mjs
+  AddType text/css .css
+  AddType image/png .png
+  AddType image/jpeg .jpg .jpeg
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+  AddType image/x-icon .ico
+  AddType application/xml .xml
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 2. GZIP / DEFLATE COMPRESSION
+# ------------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 3. SECURITY & CACHING HEADERS
+# ------------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  # HSTS — 2 years, subdomains, preload-eligible
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  
+  # Content Security Policy — Includes EmailJS, Google Analytics, Google Translate, Fonts & Assets
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://translate.googleapis.com https://translate-pa.googleapis.com; frame-src https://translate.googleapis.com https://translate.google.com; frame-ancestors 'none';"
+
+  # HTML Pages Caching Strategy
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+    Header set Content-Type "text/html; charset=utf-8"
+  </FilesMatch>
+
+  # Immutable Asset Caching (JS, CSS, Images)
+  <FilesMatch "\.(js|mjs|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(png|jpg|jpeg|webp|svg|ico|gif)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+
+  # CORS for Fonts & SVG assets
+  <FilesMatch "\.(ttf|otf|eot|woff|woff2|svg)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+
+  # XML Sitemap Header
+  <FilesMatch "sitemap\.xml$">
+    Header set Content-Type "application/xml; charset=utf-8"
+  </FilesMatch>
+</IfModule>
+
+# Custom 404 page (HTTP status remains 404)
+ErrorDocument 404 /404.html
+
+# Stop Apache auto-redirecting /about → /about/ before custom rules run
+DirectorySlash Off
+
+# ------------------------------------------------------------------------------
+# 4. REWRITE RULES (HTTPS, NON-WWW, LEGACY REDIRECTS & CLEAN URLS)
+# ------------------------------------------------------------------------------
+RewriteEngine On
+RewriteBase /
+
+# --- Canonical Host & HTTPS Protocol (Single 301 Hop to https://ustaad.ae) ---
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
+RewriteRule ^(.*)$ https://ustaad.ae/$1 [R=301,L]
+
+# --- Legacy & Alias 301 Redirects ---
+RewriteRule ^apply-now/?$ /contact [R=301,L]
+RewriteRule ^british/?$ /british-curriculum [R=301,L]
+RewriteRule ^sat-emsat/?$ /exam-preparation [R=301,L]
+RewriteRule ^gcse-cbse/?$ /gcse [R=301,L]
+RewriteRule ^mathematics/?$ /maths [R=301,L]
+RewriteRule ^mathtestlanding/?$ /maths-tutor-abu-dhabi [R=301,L]
+RewriteRule ^uae-guide/?$ /blogs [R=301,L]
+RewriteRule ^faqs/?$ /#faqs [R=301,L,NE]
+
+# --- WordPress-era Legacy Debris → HTTP 410 Gone ---
+RewriteRule ^author(/.*)?$ - [G,L]
+RewriteRule ^category(/.*)?$ - [G,L]
+RewriteRule ^elementor-hf(/.*)?$ - [G,L]
+RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}(/.*)?$ - [G,L]
+
+# Legacy Asset Redirect
+RewriteRule ^School%20logos/(.*)$ /school-logos/$1 [R=301,L]
+
+# Real Files (JS, CSS, Images, direct .html) → Serve as-is
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Strip Trailing Slashes when a prerendered page exists
+RewriteCond %{THE_REQUEST} \s/+([^?\s]*?)/\s [NC]
+RewriteCond %{DOCUMENT_ROOT}/%1/index.html -f
+RewriteRule ^ /%1 [R=301,L]
+
+# Clean URL → Internal rewrite to prerendered /path/index.html
+RewriteCond %{REQUEST_URI} ^/(.+?)/?$
+RewriteCond %{DOCUMENT_ROOT}/%1/index.html -f
+RewriteRule ^ %1/index.html [L]
+
+# Unknown paths → Real HTTP 404 (handled by ErrorDocument 404 above)
+# Note: /authors/* are real prerendered pages (not WordPress /author/*)

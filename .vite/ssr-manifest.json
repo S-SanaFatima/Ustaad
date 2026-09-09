@@ -1,0 +1,1589 @@
+{
+  "\u0000/Users/hassan/Ustaad/node_modules/invariant/browser.js?commonjs-es-import": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react-dom/cjs/react-dom-client.production.js?commonjs-exports": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react-dom/cjs/react-dom.production.js?commonjs-exports": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react-dom/client.js?commonjs-es-import": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react-dom/client.js?commonjs-module": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react-dom/index.js?commonjs-module": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react-fast-compare/index.js?commonjs-es-import": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react/cjs/react-jsx-runtime.production.js?commonjs-exports": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react/cjs/react.production.js?commonjs-exports": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react/index.js?commonjs-es-import": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react/index.js?commonjs-module": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react/jsx-runtime.js?commonjs-es-import": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/react/jsx-runtime.js?commonjs-module": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/scheduler/cjs/scheduler.production.js?commonjs-exports": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/scheduler/index.js?commonjs-module": [],
+  "\u0000/Users/hassan/Ustaad/node_modules/shallowequal/index.js?commonjs-es-import": [],
+  "\u0000commonjsHelpers.js": [],
+  "\u0000vite/modulepreload-polyfill.js": [],
+  "\u0000vite/preload-helper.js": [],
+  "index.html": [],
+  "index.html?html-proxy&inline-css&index=0.css": [],
+  "node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/components/AnimatePresence/utils.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/LazyContext.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/MotionContext/create.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/MotionContext/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/PresenceContext.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/events/add-pointer-event.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/events/event-info.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/drag/VisualElementDragControls.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/drag/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/drag/utils/constraints.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/focus.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/hover.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/pan/PanSession.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/pan/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/gestures/press.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/animation/exit.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/animation/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/animations.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/definitions.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/drag.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/gestures.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/layout.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/load-features.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/viewport/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/features/viewport/observers.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/utils/symbol.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/motion/utils/valid-prop.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/components/create-proxy.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/components/motion/feature-bundle.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/dom/use-render.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/dom/utils/filter-props.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/dom/utils/is-svg-component.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/html/use-html-visual-state.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/html/use-props.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/svg/lowercase-elements.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/svg/use-props.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/svg/use-svg-visual-state.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/distance.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/get-context-window.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/is-browser.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/is-ref-object.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/reduced-motion/use-reduced-motion.mjs": [
+    "/assets/use-reduced-motion-DwfZ1h0M.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/use-constant.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/invariant/browser.js": [],
+  "node_modules/lucide-react/dist/esm/Icon.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/createLucideIcon.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/defaultAttributes.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/activity.js": [
+    "/assets/activity-5_k7L3sh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/align-left.js": [
+    "/assets/align-left-bnWyZRIb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/arrow-left.js": [
+    "/assets/arrow-left-BknXfuyu.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/arrow-right-left.js": [
+    "/assets/arrow-right-left-DRxcOhG-.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/arrow-right.js": [
+    "/assets/arrow-right-D518qruW.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/arrow-up-right.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/atom.js": [
+    "/assets/atom-D-3rs2Ma.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/award.js": [
+    "/assets/graduation-cap-DlE4DxFz.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/badge-check.js": [
+    "/assets/badge-check-BKOM-7Pm.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/badge-percent.js": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/banknote.js": [
+    "/assets/SubjectsPage-uTh4D_hl.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/book-marked.js": [
+    "/assets/book-marked-BhcqYJnF.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/book-open.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/brackets.js": [
+    "/assets/MathematicsLanding-C_3OVfiN.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/brain-circuit.js": [
+    "/assets/brain-circuit-BA_i13yK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/brain.js": [
+    "/assets/brain-lM1g-Xue.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/briefcase.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/bug.js": [
+    "/assets/BiologyPage-BT-xJVDg.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/building-2.js": [
+    "/assets/building-2-BZTZ7noZ.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/calculator.js": [
+    "/assets/calculator-CeRPNV9b.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/calendar-check.js": [
+    "/assets/SubjectsPage-uTh4D_hl.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/calendar.js": [
+    "/assets/calendar-CgSEA7LH.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chart-column.js": [
+    "/assets/chart-column-3rG9DbfN.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chart-line.js": [
+    "/assets/chart-line-7C25dt_9.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chart-no-axes-column.js": [
+    "/assets/chart-no-axes-column-CWStmaji.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chevron-down.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chevron-left.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chevron-right.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chevron-up.js": [
+    "/assets/chevron-up-DGY__IAV.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/circle-check-big.js": [
+    "/assets/circle-check-big-BPZAOQDu.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/circle-check.js": [
+    "/assets/circle-check-DGy4E-08.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/circle-help.js": [
+    "/assets/circle-help-BuCJrDAe.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/circle-x.js": [
+    "/assets/IGCSEPage-Cy96F5Ek.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/clipboard-check.js": [
+    "/assets/clipboard-check-70q9xarl.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/clipboard-list.js": [
+    "/assets/clipboard-list-BT04ye0Q.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/clock.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/cog.js": [
+    "/assets/EngineeringPage-D-lMDz3A.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/compass.js": [
+    "/assets/compass-CzzWt4Us.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/cpu.js": [
+    "/assets/cpu-BjckYKWN.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/credit-card.js": [
+    "/assets/FinancePage-BxDWnoVB.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/crosshair.js": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/crown.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/dice-5.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/dna.js": [
+    "/assets/dna-CuqWyfD8.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/dollar-sign.js": [
+    "/assets/dollar-sign-Eg_ke1Ah.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/download.js": [
+    "/assets/download-ZFoCTG9W.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/dumbbell.js": [
+    "/assets/ExamStaminaBlog-DmwAZmit.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/eye-off.js": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/eye.js": [
+    "/assets/eye-BjfkcvVE.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/facebook.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/file-check.js": [
+    "/assets/EditorialPage-De5OEjlz.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/file-digit.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/file-pen.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/file-search.js": [
+    "/assets/file-search-D_oMjXnY.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/file-stack.js": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/file-text.js": [
+    "/assets/file-text-_9rsq10q.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/flag.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/flame.js": [
+    "/assets/flame-yDl_pnNw.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/flask-conical.js": [
+    "/assets/flask-conical-Cwxa-eD1.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/footprints.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/funnel.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/gauge.js": [
+    "/assets/gauge-B1r3b44s.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/git-branch.js": [
+    "/assets/git-branch-DWDujWuP.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/git-compare-arrows.js": [
+    "/assets/ChemistryPage-BPMHZ_yt.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/globe.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/graduation-cap.js": [
+    "/assets/graduation-cap-DlE4DxFz.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/grid-3x3.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/hammer.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/hard-hat.js": [
+    "/assets/SubjectsPage-uTh4D_hl.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/hash.js": [
+    "/assets/hash-TOzY7YD7.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/headphones.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/heart.js": [
+    "/assets/BiologyPage-BT-xJVDg.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/house.js": [
+    "/assets/house-Cw-0MPwh.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/infinity.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/instagram.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/landmark.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/laptop.js": [
+    "/assets/GCSETutorDubaiPage-DOxBdG74.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/layers.js": [
+    "/assets/layers-U94_HSq0.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/leaf.js": [
+    "/assets/leaf-VpCNYzIK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/library-big.js": [
+    "/assets/CurriculumPage-CN-z0Zif.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/library.js": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/lightbulb.js": [
+    "/assets/lightbulb-BJgJ4-gd.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/link-2.js": [
+    "/assets/link-2-ByML_ePb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/linkedin.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/list-checks.js": [
+    "/assets/AccountingPage-C1JZeg3S.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/list.js": [
+    "/assets/message-square-quote-EL4zSmIK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/mail.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/map-pin.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/megaphone.js": [
+    "/assets/BusinessPage-DZUhI_C8.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/menu.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/message-circle-question.js": [
+    "/assets/CurriculumPage-CN-z0Zif.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/message-circle.js": [
+    "/assets/message-circle-D_IbpHAr.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/message-square-quote.js": [
+    "/assets/message-square-quote-EL4zSmIK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/message-square.js": [
+    "/assets/message-square-D1sU8El8.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/microscope.js": [
+    "/assets/microscope-BNRmC2ka.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/network.js": [
+    "/assets/network-fdhJ2A1I.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/notebook-pen.js": [
+    "/assets/SubjectsPage-uTh4D_hl.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/orbit.js": [
+    "/assets/CurriculumPage-CN-z0Zif.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/party-popper.js": [
+    "/assets/ContactPage-JLbxDbYG.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/pen-line.js": [
+    "/assets/pen-line-CYNXhGku.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/pen-tool.js": [
+    "/assets/pen-tool-DggHt69S.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/phone.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/plug.js": [
+    "/assets/PhysicsPage-BPLvO03E.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/quote.js": [
+    "/assets/EditorialPage-De5OEjlz.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/receipt.js": [
+    "/assets/SubjectsPage-uTh4D_hl.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/refresh-cw.js": [
+    "/assets/BiologyPage-BT-xJVDg.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/repeat.js": [
+    "/assets/AboutPage-D-gMeZBY.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/rotate-ccw.js": [
+    "/assets/BiologyPage-BT-xJVDg.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/rotate-cw.js": [
+    "/assets/rotate-cw-D4V9Fz6Y.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/route.js": [
+    "/assets/route-DCWt7_C0.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/scale.js": [
+    "/assets/scale-fLyLlHSX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/scan-search.js": [
+    "/assets/PhysicsLanding-B8zEVR1n.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/school.js": [
+    "/assets/CurriculumPage-CN-z0Zif.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/scroll-text.js": [
+    "/assets/SubjectsPage-uTh4D_hl.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/search.js": [
+    "/assets/search-4UJkMfup.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/send.js": [
+    "/assets/ContactPage-JLbxDbYG.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/settings.js": [
+    "/assets/settings-PwuZOE3M.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/shapes.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/shield-alert.js": [
+    "/assets/BlogsPage-3MqU4yv1.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/shield-check.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/shield.js": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/shuffle.js": [
+    "/assets/StatisticsPage-CreF9X1G.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/sigma.js": [
+    "/assets/sigma-DSZ5zwJn.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/sliders-horizontal.js": [
+    "/assets/SubjectsPage-uTh4D_hl.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/sparkles.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/split.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/square-check-big.js": [
+    "/assets/BusinessPage-DZUhI_C8.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/square-function.js": [
+    "/assets/square-function-BjXRuu1C.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/star.js": [
+    "/assets/star-DqmHncIH.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/tag.js": [
+    "/assets/BiologyPage-BT-xJVDg.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/target.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/thermometer.js": [
+    "/assets/PhysicsLanding-B8zEVR1n.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/timer.js": [
+    "/assets/timer-BQmmmkx7.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/trending-down.js": [
+    "/assets/trending-down-vgoHaImd.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/trending-up.js": [
+    "/assets/StatsBar-zF8Zaizj.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/triangle-alert.js": [
+    "/assets/triangle-alert-CziQ_4EX.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/triangle.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/trophy.js": [
+    "/assets/trophy-DPzgD67G.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/twitter.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/user-check.js": [
+    "/assets/StatsBar-zF8Zaizj.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/user-plus.js": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/user.js": [
+    "/assets/user-CiO3KL-_.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/users.js": [
+    "/assets/users-SUbynzE7.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/variable.js": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/video.js": [
+    "/assets/video-CkIyOs6E.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/wallet.js": [
+    "/assets/FinancePage-BxDWnoVB.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/waves.js": [
+    "/assets/waves-65RKeYQ6.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/wrench.js": [
+    "/assets/wrench-DODW8elz.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/x.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/zap.js": [
+    "/assets/zap-vVDEtlmp.js"
+  ],
+  "node_modules/lucide-react/dist/esm/shared/src/utils.js": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/AsyncMotionValueAnimation.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/JSAnimation.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/NativeAnimationExtended.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/animate/single-value.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/drivers/frame.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/inertia.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/keyframes.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/spring.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/utils/calc-duration.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/utils/create-generator-easing.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/utils/is-generator.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/generators/utils/velocity.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/interfaces/motion-value.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/interfaces/visual-element-target.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/interfaces/visual-element-variant.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/interfaces/visual-element.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/DOMKeyframesResolver.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/KeyframesResolver.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/get-final.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/offsets/default.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/offsets/fill.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/offsets/time.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/utils/fill-wildcards.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/utils/is-none.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/utils/make-none-animatable.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/keyframes/utils/unit-conversion.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/optimized-appear/data-id.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/optimized-appear/get-appear-id.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/WithPromise.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/calc-child-stagger.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/can-animate.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/css-variables-conversion.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/default-transitions.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/get-value-transition.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/is-animatable.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/is-css-variable.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/is-transition-defined.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/make-animation-instant.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/replace-transition-type.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/utils/resolve-transition.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/easing/cubic-bezier.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/easing/map-easing.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/easing/supported.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/start-waapi-animation.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/supports/waapi.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/utils/accelerated-values.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/utils/apply-generator.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/utils/is-browser-color.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/utils/linear.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/animation/waapi/utils/unsupported-easing.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/events/add-dom-event.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/batcher.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/frame.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/microtask.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/order.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/render-step.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/frameloop/sync-time.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/drag/state/is-active.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/drag/state/set-active.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/hover.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/press/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/press/utils/is-keyboard-accessible.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/press/utils/keyboard.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/press/utils/state.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/utils/is-node-or-child.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/utils/is-primary-pointer.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/gestures/utils/setup.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/animation/mix-values.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/conversion.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/copy.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/delta-apply.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/delta-calc.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/delta-remove.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/models.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/geometry/utils.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/node/DocumentProjectionNode.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/node/HTMLProjectionNode.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/node/create-projection-node.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/node/state.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/shared/stack.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/styles/scale-border-radius.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/styles/scale-box-shadow.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/styles/scale-correction.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/styles/transform.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/utils/compare-by-depth.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/utils/each-axis.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/utils/flat-tree.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/utils/has-transform.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/projection/utils/measure.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/Feature.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/VisualElement.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/dom/DOMVisualElement.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/dom/is-css-var.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/dom/parse-transform.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/dom/style-set.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/dom/utils/camel-to-dash.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/html/HTMLVisualElement.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/html/utils/build-styles.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/html/utils/build-transform.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/html/utils/render.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/html/utils/scrape-motion-values.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/store.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/SVGVisualElement.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/build-attrs.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/camel-case-attrs.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/is-svg-tag.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/path.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/render.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/svg/utils/scrape-motion-values.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/animation-state.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/get-variant-context.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/is-animation-controls.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/is-controlling-variants.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/is-forced-motion-value.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/is-keyframes-target.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/is-variant-label.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/keys-position.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/keys-transform.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/motion-values.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/reduced-motion/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/reduced-motion/state.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/resolve-dynamic-variants.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/resolve-variants.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/setters.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/shallow-compare.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/render/utils/variant-props.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/resize/handle-element.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/resize/handle-window.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/resize/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/border-radius.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/delay.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/interpolate.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/is-html-element.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/is-svg-element.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/is-svg-svg-element.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/color.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/complex.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/immediate.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/number.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/mix/visibility.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/resolve-elements.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/supports/flags.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/supports/linear-easing.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/supports/memo.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/utils/supports/scroll-timeline.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/auto.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/hex.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/hsla-to-rgba.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/hsla.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/rgba.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/color/utils.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/complex/filter.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/complex/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/complex/mask.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/dimensions.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/int.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/maps/defaults.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/maps/number.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/maps/transform.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/numbers/index.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/numbers/units.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/test.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/animatable-none.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/color-regex.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/find.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/float-regex.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/get-as-type.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/is-nullish.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/sanitize.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/types/utils/single-color-regex.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/utils/is-motion-value.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/utils/resolve-motion-value.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/will-change/add-will-change.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-dom/dist/es/value/will-change/is.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/array.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/clamp.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/anticipate.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/back.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/circ.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/cubic-bezier.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/ease.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/modifiers/mirror.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/modifiers/reverse.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/utils/is-bezier-definition.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/utils/is-easing-array.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/easing/utils/map.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/errors.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/global-config.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/is-numerical-string.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/is-object.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/is-zero-value-string.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/memo.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/noop.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/pipe.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/progress.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/subscription-manager.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/time-conversion.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/motion-utils/dist/es/velocity-per-second.mjs": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "node_modules/react-dom/cjs/react-dom-client.production.js": [],
+  "node_modules/react-dom/cjs/react-dom.production.js": [],
+  "node_modules/react-dom/client.js": [],
+  "node_modules/react-dom/index.js": [],
+  "node_modules/react-fast-compare/index.js": [],
+  "node_modules/react-helmet-async/lib/index.esm.js": [],
+  "node_modules/react-router/dist/development/chunk-JZWAC4HX.mjs": [],
+  "node_modules/react/cjs/react-jsx-runtime.production.js": [],
+  "node_modules/react/cjs/react.production.js": [],
+  "node_modules/react/index.js": [],
+  "node_modules/react/jsx-runtime.js": [],
+  "node_modules/scheduler/cjs/scheduler.production.js": [],
+  "node_modules/scheduler/index.js": [],
+  "node_modules/shallowequal/index.js": [],
+  "src/app/ALevelIndependentThinkingBlog.tsx": [
+    "/assets/ALevelIndependentThinkingBlog-BZ4yNvv-.js"
+  ],
+  "src/app/ALevelPage.tsx": [
+    "/assets/ALevelPage-B6HsZWE2.js"
+  ],
+  "src/app/ALevelTutorAbuDhabiPage.tsx": [
+    "/assets/ALevelTutorAbuDhabiPage-DIUns1cr.js"
+  ],
+  "src/app/APPage.tsx": [
+    "/assets/APPage-C85Sxrbr.js"
+  ],
+  "src/app/AboutPage.tsx": [
+    "/assets/AboutPage-D-gMeZBY.js"
+  ],
+  "src/app/AcademicBlogsPage.tsx": [
+    "/assets/AcademicBlogsPage-DfUFF7SC.js"
+  ],
+  "src/app/AccountingPage.tsx": [
+    "/assets/AccountingPage-C1JZeg3S.js"
+  ],
+  "src/app/AmericanCurriculumPage.tsx": [
+    "/assets/AmericanCurriculumPage-DViFNdnL.js"
+  ],
+  "src/app/App.tsx": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "src/app/AskExpertSection.tsx": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "src/app/AuthorPage.tsx": [
+    "/assets/AuthorPage-CaINVY9V.js"
+  ],
+  "src/app/BiologyPage.tsx": [
+    "/assets/BiologyPage-BT-xJVDg.js"
+  ],
+  "src/app/BiologyTutorAbuDhabiPage.tsx": [
+    "/assets/BiologyTutorAbuDhabiPage-CSF-rT65.js"
+  ],
+  "src/app/BlogsPage.tsx": [
+    "/assets/BlogsPage-3MqU4yv1.js"
+  ],
+  "src/app/BritishCurriculumPage.tsx": [
+    "/assets/BritishCurriculumPage-D7EI5acv.js"
+  ],
+  "src/app/BusinessPage.tsx": [
+    "/assets/BusinessPage-DZUhI_C8.js"
+  ],
+  "src/app/ChemistryFadesBlog.tsx": [
+    "/assets/ChemistryFadesBlog-IanwUWkw.js"
+  ],
+  "src/app/ChemistryLandingPage.tsx": [
+    "/assets/ChemistryLandingPage-BfaB-oNh.js"
+  ],
+  "src/app/ChemistryPage.tsx": [
+    "/assets/ChemistryPage-BPMHZ_yt.js"
+  ],
+  "src/app/ContactPage.tsx": [
+    "/assets/ContactPage-JLbxDbYG.js"
+  ],
+  "src/app/CurriculumPage.tsx": [
+    "/assets/CurriculumPage-CN-z0Zif.js"
+  ],
+  "src/app/DPHLPage.tsx": [
+    "/assets/DPHLPage-DjPjDNWc.js"
+  ],
+  "src/app/DPSLPage.tsx": [
+    "/assets/DPSLPage-DgqNYkyT.js"
+  ],
+  "src/app/EarlySignsChemistryBlog.tsx": [
+    "/assets/EarlySignsChemistryBlog-azyd9k0p.js"
+  ],
+  "src/app/EconomicsPage.tsx": [
+    "/assets/EconomicsPage-DJ_khP-w.js"
+  ],
+  "src/app/EditorialPage.tsx": [
+    "/assets/EditorialPage-De5OEjlz.js"
+  ],
+  "src/app/EngineeringPage.tsx": [
+    "/assets/EngineeringPage-D-lMDz3A.js"
+  ],
+  "src/app/EnglishPage.tsx": [
+    "/assets/EnglishPage-B_QUoCJY.js"
+  ],
+  "src/app/ExamPanicBlog.tsx": [
+    "/assets/ExamPanicBlog-ZyfuvCvM.js"
+  ],
+  "src/app/ExamPreparationPage.tsx": [
+    "/assets/ExamPreparationPage-ByASKe6N.js"
+  ],
+  "src/app/ExamStaminaBlog.tsx": [
+    "/assets/ExamStaminaBlog-DmwAZmit.js"
+  ],
+  "src/app/FinancePage.tsx": [
+    "/assets/FinancePage-BxDWnoVB.js"
+  ],
+  "src/app/GCSEPage.tsx": [
+    "/assets/GCSEPage-etuQ1a-D.js"
+  ],
+  "src/app/GCSERevisionTipsParentsBlog.tsx": [
+    "/assets/GCSERevisionTipsParentsBlog-DSVHhHr_.js"
+  ],
+  "src/app/GCSETutorAbuDhabiPage.tsx": [
+    "/assets/GCSETutorAbuDhabiPage-spra1H27.js"
+  ],
+  "src/app/GCSETutorDubaiPage.tsx": [
+    "/assets/GCSETutorDubaiPage-DOxBdG74.js"
+  ],
+  "src/app/HighSchoolPage.tsx": [
+    "/assets/HighSchoolPage-_aGV7bnH.js"
+  ],
+  "src/app/HirePrivateTutorAbuDhabiBlog.tsx": [
+    "/assets/HirePrivateTutorAbuDhabiBlog-Bb5lTVhk.js"
+  ],
+  "src/app/HowItWorksPage.tsx": [
+    "/assets/HowItWorksPage-Conoy8wm.js"
+  ],
+  "src/app/IBCurriculumPage.tsx": [
+    "/assets/IBCurriculumPage-VObh9Nu6.js"
+  ],
+  "src/app/IBTutorAbuDhabiPage.tsx": [
+    "/assets/IBTutorAbuDhabiPage-D_KcPCv9.js"
+  ],
+  "src/app/IGCSEBiology6MarkBlog.tsx": [
+    "/assets/IGCSEBiology6MarkBlog-Dxo0kA6Q.js"
+  ],
+  "src/app/IGCSEMathsLowMarksBlog.tsx": [
+    "/assets/IGCSEMathsLowMarksBlog-CV7kQ1PJ.js"
+  ],
+  "src/app/IGCSEPage.tsx": [
+    "/assets/IGCSEPage-Cy96F5Ek.js"
+  ],
+  "src/app/IGCSEPhysicsFormulasBlog.tsx": [
+    "/assets/IGCSEPhysicsFormulasBlog-D2tm52Dd.js"
+  ],
+  "src/app/IGCSEPreparationPastPapersBlog.tsx": [
+    "/assets/IGCSEPreparationPastPapersBlog-D4oluie-.js"
+  ],
+  "src/app/IGCSETutorAbuDhabiPage.tsx": [
+    "/assets/IGCSETutorAbuDhabiPage-CnQeSnQ2.js"
+  ],
+  "src/app/IGCSEvsGCSEBlog.tsx": [
+    "/assets/IGCSEvsGCSEBlog-D7qN2lOX.js"
+  ],
+  "src/app/IgcseTutorDubaiPage.tsx": [
+    "/assets/IgcseTutorDubaiPage-DraUIrE_.js"
+  ],
+  "src/app/MYPPage.tsx": [
+    "/assets/MYPPage-BkbLbpRl.js"
+  ],
+  "src/app/MathematicsLanding.tsx": [
+    "/assets/MathematicsLanding-C_3OVfiN.js"
+  ],
+  "src/app/MathsPage.tsx": [
+    "/assets/MathsPage-DSBFSN-P.js"
+  ],
+  "src/app/MiddleSchoolPage.tsx": [
+    "/assets/MiddleSchoolPage-Dy5Ef5ii.js"
+  ],
+  "src/app/ParentGuidanceBlogsPage.tsx": [
+    "/assets/ParentGuidanceBlogsPage-9XCrft4P.js"
+  ],
+  "src/app/PhysicsLanding.tsx": [
+    "/assets/PhysicsLanding-B8zEVR1n.js"
+  ],
+  "src/app/PhysicsPage.tsx": [
+    "/assets/PhysicsPage-BPLvO03E.js"
+  ],
+  "src/app/PhysicsUnderstandingMarksBlog.tsx": [
+    "/assets/PhysicsUnderstandingMarksBlog-B0Ay0Ubg.js"
+  ],
+  "src/app/PrivacyPage.tsx": [
+    "/assets/PrivacyPage-Cv7-YQCG.js"
+  ],
+  "src/app/PsychologyBlogsPage.tsx": [
+    "/assets/PsychologyBlogsPage-CpnnVZJv.js"
+  ],
+  "src/app/ReadSchoolReportCardBlog.tsx": [
+    "/assets/ReadSchoolReportCardBlog-COjil9qT.js"
+  ],
+  "src/app/SciencesPage.tsx": [
+    "/assets/SciencesPage-CMH4A1D4.js"
+  ],
+  "src/app/StatisticsPage.tsx": [
+    "/assets/StatisticsPage-CreF9X1G.js"
+  ],
+  "src/app/SubjectPageTemplate.tsx": [
+    "/assets/SubjectPageTemplate-CvfTYrPr.js"
+  ],
+  "src/app/SubjectsPage.tsx": [
+    "/assets/SubjectsPage-uTh4D_hl.js"
+  ],
+  "src/app/TermsPage.tsx": [
+    "/assets/TermsPage-Crl6z7-U.js"
+  ],
+  "src/app/TutorsPage.tsx": [
+    "/assets/TutorsPage-COhyt5if.js"
+  ],
+  "src/app/UAEExamsReturnBlog.tsx": [
+    "/assets/UAEExamsReturnBlog-Bj7SvgxO.js"
+  ],
+  "src/app/shared/AcademicExpertiseSection.tsx": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "src/app/shared/AchievementCoinsSection.tsx": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "src/app/shared/BackToSchoolPopup.tsx": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "src/app/shared/ExplodedViewSection.tsx": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "src/app/shared/FAQAccordion.tsx": [
+    "/assets/FAQAccordion-CzGnarhH.js"
+  ],
+  "src/app/shared/FinalCTA.tsx": [
+    "/assets/FinalCTA-CQsJWeh8.js"
+  ],
+  "src/app/shared/FloatingWidget.tsx": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/app/shared/Footer.tsx": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/app/shared/GoldButton.tsx": [
+    "/assets/GoldButton-Dbm4fkbS.js"
+  ],
+  "src/app/shared/GradientHeadingText.tsx": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/app/shared/Header.tsx": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/app/shared/HeroCTABlock.tsx": [
+    "/assets/HeroCTABlock-DxlylQZS.js"
+  ],
+  "src/app/shared/HowUstaadWorksSection.tsx": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "src/app/shared/LanguageSwitcher.tsx": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/app/shared/Layout.tsx": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/app/shared/ReadMoreParagraph.tsx": [
+    "/assets/ReadMoreParagraph-BHl7AZNy.js"
+  ],
+  "src/app/shared/RelatedContent.tsx": [
+    "/assets/RelatedContent-DYyknKGu.js"
+  ],
+  "src/app/shared/SEOHead.tsx": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/app/shared/SchoolsMarquee.tsx": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/app/shared/StatsBar.tsx": [
+    "/assets/StatsBar-zF8Zaizj.js"
+  ],
+  "src/app/shared/StudentStruggleSection.tsx": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "src/app/shared/TeamSection.tsx": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/app/shared/TrustBar.tsx": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/app/shared/TypewriterHeadingText.tsx": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "src/app/shared/Watermarks.tsx": [
+    "/assets/Watermarks-DN69FDyA.js"
+  ],
+  "src/app/shared/WhyFamiliesChooseSection.tsx": [
+    "/assets/App-D1ZOWVDb.js"
+  ],
+  "src/app/shared/ctaCopy.ts": [
+    "/assets/ctaCopy-40xufLC9.js"
+  ],
+  "src/app/shared/schemas.ts": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/content/authors.ts": [
+    "/assets/AuthorPage-CaINVY9V.js"
+  ],
+  "src/lib/googleTranslate.ts": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/lib/scrollToHash.ts": [
+    "/assets/TeamSection-CxV2U7kK.js"
+  ],
+  "src/main.tsx": [],
+  "src/styles/fonts.css": [],
+  "src/styles/index.css": []
+}
