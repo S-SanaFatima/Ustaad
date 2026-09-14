@@ -50,6 +50,31 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'mock-exams-uae-not-what-they-were',
+    image: '/images/blogs/mock-exam-uae-hero.jpg',
+    alt: 'UAE student sitting a mock exam under timed conditions, Ustaad UAE',
+    category: 'Academic',
+    title: 'Mock Exams Are Not What They Were Last Year: What UAE Parents Need to Know',
+    description: "Mock exam results now feed predicted grades and formal school records across many UAE curricula. Here's what changed since the exam-cancellation years, and how to read a mock report correctly.",
+    date: '14 Sep 2026',
+    readTime: '8 min read',
+    author: 'Ustaad UAE Editorial Team',
+    featured: true,
+  },
+  {
+    slug: 'private-tutoring-uae-parent-guide',
+
+    image: '/images/blogs/parent-child-tutoring-timetable-hero.jpg',
+    alt: 'A UAE parent and their child compare a tutoring timetable at the kitchen table',
+    category: 'Parent Guidance',
+    title: 'Private Tutoring in the UAE: A Complete Parent Guide',
+    description: 'Is private tutoring legal in the UAE? What does it cost, and how do you choose the right tutor? This complete parent guide covers KHDA and ADEK rules, 2026 pricing, and vetting.',
+    date: '11 Sep 2026',
+    readTime: '9 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'exam-stamina-uae-students',
     image: '/images/blogs/exam-stamina-uae-students-hero.jpg',
     alt: 'Focused British and IB curriculum high school student in an international school exam hall working through a timed past paper against a countdown timer',
@@ -258,7 +283,7 @@ export default function BlogsPage() {
       />
 
       {/* ─── HERO & STREAMS ─────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50/50 to-white pt-24 pb-20 lg:pt-32 lg:pb-28">
+      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50/50 to-white pt-8 pb-10 sm:pt-10 sm:pb-12 lg:pt-12 lg:pb-14">
         
         {/* Subtle Background Elements */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-100/40 to-transparent rounded-full blur-[100px] -z-10 pointer-events-none"></div>
@@ -267,24 +292,24 @@ export default function BlogsPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           
           {/* Typography */}
-          <div className="flex justify-center mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-[#0f4a9b] text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase border border-slate-100 shadow-sm">
-              <FileText className="w-4 h-4" />
+          <div className="flex justify-center mb-4 sm:mb-5">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-[#0f4a9b] text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase border border-slate-100 shadow-sm">
+              <FileText className="w-3.5 h-3.5" />
               Ustaad Publications
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8 font-serif">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight leading-[1.1] mb-3 sm:mb-4 font-serif">
             <GradientHeadingText text="The Ustaad Blog" />
           </h1>
 
-          <div className="text-slate-600 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto mb-20 font-medium">
-            <p className="mb-4">Calm, practical guidance for UAE families, written or reviewed by teachers, mentors and counsellors who work with students here.</p>
+          <div className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-10 font-medium">
+            <p className="mb-2">Calm, practical guidance for UAE families, written or reviewed by teachers, mentors and counsellors who work with students here.</p>
             <p>Choose a stream to begin.</p>
           </div>
 
           {/* 3 White Elegant Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-left mb-12 sm:mb-16">
             
             {/* Card 1: Academic */}
             <a 

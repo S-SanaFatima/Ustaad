@@ -51,7 +51,7 @@ export default function TutorsPage() {
     <Layout>
       <SEOHead title="Private Tutors in Dubai & UAE — IGCSE, A-Level, IB & AP | Ustaad" description="Meet Ustaad's curriculum-specialist private tutors in Dubai, Abu Dhabi and across the UAE. Expert 1-to-1 tutoring for IGCSE, GCSE, A-Level, IB (MYP/SL/HL) and AP. Free trial, no commitment." canonical="/tutors" ogImage="/UpdatedImages/tutor-page.webp" schema={[localBusinessSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Tutors", url: "/tutors" }]), faqSchema(tutorsSchemaFaqs)]} />
       {/* ── HERO ── */}
-      <section className="pt-8 pb-14 sm:pt-12 sm:pb-20 lg:pt-20 lg:pb-32 relative overflow-hidden bg-gradient-to-br from-[#F4F8FD] via-white to-[#fcfaf5]">
+      <section className="min-h-[calc(100dvh-84px)] lg:min-h-[calc(100dvh-92px)] flex items-center relative overflow-hidden bg-gradient-to-br from-[#F4F8FD] via-white to-[#fcfaf5] py-8 sm:py-10 lg:py-12">
         {/* Animated Radial Ambient Glow Orbs */}
         <motion.div 
           animate={{ scale: [1, 1.1, 1], opacity: [0.6, 0.8, 0.6] }}
@@ -66,18 +66,18 @@ export default function TutorsPage() {
         {/* Subtle Ambient Dots Pattern */}
         <div className="absolute inset-0 z-0 opacity-[0.035] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #0f4a9b 1px, transparent 0)', backgroundSize: '36px 36px' }} />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 sm:gap-12 lg:gap-20 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14 xl:gap-16 items-center">
 
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-xs sm:text-sm font-bold rounded-full mb-4 sm:mb-6 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.15)]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-xs sm:text-sm font-bold rounded-full mb-3.5 sm:mb-4 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.15)]">
                 <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> {cityName ? `Private Tutors in ${cityName}` : 'Our Tutors'}
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[64px] font-extrabold text-[#0a1f3d] mb-3 sm:mb-4 leading-[1.15] sm:leading-[1.1] tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f3d] mb-3 sm:mb-4 leading-[1.15] tracking-tight">
                 <GradientHeadingText text={cityName ? `Expert Tutors in ${cityName}` : 'Learn from the Right Tutor'} />
               </h1>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-4 sm:mb-6" />
-              <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-6 sm:mb-10 leading-relaxed max-w-xl">
+              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3.5 sm:mb-5" />
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-5 sm:mb-7 leading-relaxed max-w-xl">
                 UAE tutors chosen for curriculum fit, subject depth, and clear teaching.
               </p>
               <HeroCTABlock className="mb-4">
@@ -87,7 +87,7 @@ export default function TutorsPage() {
 
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full h-[260px] sm:h-[380px] lg:h-[600px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-4 sm:border-8 border-white group z-10"
+              className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[420px] xl:h-[460px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-4 sm:border-8 border-white group z-10"
             >
               <img
                 src="/UpdatedImages/tutor-page.webp"
@@ -120,7 +120,7 @@ export default function TutorsPage() {
           </div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto overflow-x-auto md:overflow-visible pb-4 md:pb-0 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {[
               {
                 flag: (
@@ -181,7 +181,7 @@ export default function TutorsPage() {
                 discoverIcon: <Globe className="h-4 w-4 text-[#0f4a9b]" />,
               },
             ].map((c, i) => (
-              <div key={i} className="relative bg-white border border-[#E5E7EB] rounded-2xl p-5 flex flex-col shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(199,162,74,0.18)] hover:border-[#C7A24A]/60 transition-all overflow-hidden group">
+              <div key={i} className="w-[82vw] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white border border-[#E5E7EB] rounded-2xl p-5 flex flex-col shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(199,162,74,0.18)] hover:border-[#C7A24A]/60 transition-all overflow-hidden group">
                 {/* Golden top bar */}
                 <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-[#C7A24A] to-transparent" />
                 {c.flag}
@@ -204,6 +204,9 @@ export default function TutorsPage() {
           </div>
         </div>
       </section>
+
+      {/* ── MEET A FEW OF OUR SCREENED TUTORS ── */}
+      <MeetTutorsSection />
 
       {/* ── HOW WE SELECT OUR TUTORS (3D Card Dealer Showcase - Clean White & Gradient Theme) ── */}
       <section className="py-16 sm:py-24 bg-gradient-to-b from-blue-50/50 via-white to-gray-50 relative overflow-hidden">
@@ -689,5 +692,372 @@ export default function TutorsPage() {
         }
       `}</style>
     </Layout>
+  );
+}
+
+function MeetTutorsSection() {
+  return (
+    <section className="py-8 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-[#F8F5EF] to-white relative overflow-hidden" id="tutorsSection">
+      {/* Background Subtle Ambient Glows */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#0f4a9b]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#C7A24A]/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header */}
+        <div className="max-w-3xl mx-auto text-center mb-5 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-2 sm:mb-4 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
+            <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#C7A24A]" /> Our Tutors
+          </div>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f3d] mb-2 sm:mb-4 tracking-tight">
+            <GradientHeadingText text="Meet a Few of Our Screened Tutors" />
+          </h2>
+          <p className="text-gray-600 text-xs sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
+            Every Ustaad tutor is reviewed and signed off by our named team before your child meets them. Tap a card for the full profile.
+          </p>
+        </div>
+
+        {/* 3-Bullet Trust Strip (Desktop / Tablet) */}
+        <div className="hidden sm:grid sm:grid-cols-3 gap-3.5 sm:gap-5 max-w-4xl mx-auto mb-12 sm:mb-14">
+          <div className="flex items-center gap-3 bg-white p-3.5 sm:p-4 rounded-xl border border-[#0b3d80]/10 shadow-[0_4px_14px_rgba(11,61,128,0.04)]">
+            <div className="w-9 h-9 rounded-lg flex-shrink-0 bg-gradient-to-br from-[#C7A24A] to-[#A8892A] grid place-items-center text-white shadow-sm">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <path d="M2 6.5 L5 9.5 L10 3" />
+              </svg>
+            </div>
+            <span className="text-xs sm:text-sm font-semibold text-[#0a1f3d] leading-snug">
+              Personally screened by our named team
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 bg-white p-3.5 sm:p-4 rounded-xl border border-[#0b3d80]/10 shadow-[0_4px_14px_rgba(11,61,128,0.04)]">
+            <div className="w-9 h-9 rounded-lg flex-shrink-0 bg-gradient-to-br from-[#C7A24A] to-[#A8892A] grid place-items-center text-white shadow-sm">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <path d="M2 6l2 2 6-6" />
+              </svg>
+            </div>
+            <span className="text-xs sm:text-sm font-semibold text-[#0a1f3d] leading-snug">
+              Matched to your child's board and school
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 bg-white p-3.5 sm:p-4 rounded-xl border border-[#0b3d80]/10 shadow-[0_4px_14px_rgba(11,61,128,0.04)]">
+            <div className="w-9 h-9 rounded-lg flex-shrink-0 bg-gradient-to-br from-[#C7A24A] to-[#A8892A] grid place-items-center text-white shadow-sm">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <path d="M2 6l2 2 6-6" />
+              </svg>
+            </div>
+            <span className="text-xs sm:text-sm font-semibold text-[#0a1f3d] leading-snug">
+              Free 30-minute trial. No card required.
+            </span>
+          </div>
+        </div>
+
+        {/* Mobile Trust Strip (Compact 1-line badges) */}
+        <div className="sm:hidden flex flex-wrap items-center justify-center gap-1.5 mb-5">
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white text-[#0a1f3d] text-[10px] font-bold border border-[#0b3d80]/10 shadow-xs">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5 text-[#C7A24A]">
+              <path d="M2 6.5 L5 9.5 L10 3" />
+            </svg>
+            Personally screened
+          </span>
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white text-[#0a1f3d] text-[10px] font-bold border border-[#0b3d80]/10 shadow-xs">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5 text-[#C7A24A]">
+              <path d="M2 6l2 2 6-6" />
+            </svg>
+            Board matched
+          </span>
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white text-[#0a1f3d] text-[10px] font-bold border border-[#0b3d80]/10 shadow-xs">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5 text-[#C7A24A]">
+              <path d="M2 6l2 2 6-6" />
+            </svg>
+            Free 30-min trial
+          </span>
+        </div>
+
+        {/* TUTOR CARDS: Mobile Horizontal Swipe Carousel & Desktop Grid */}
+        <div className="flex sm:grid sm:grid-cols-2 gap-5 sm:gap-7 max-w-[960px] mx-auto overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-3 sm:pb-0 px-2 sm:px-0 -mx-2 sm:mx-auto [&::-webkit-scrollbar]:hidden [scrollbar-width:none]">
+          
+          {/* FAHAD KHAN */}
+          <article className="w-[85vw] max-w-[340px] sm:w-full sm:max-w-none flex-shrink-0 sm:flex-shrink snap-center group bg-white rounded-2xl overflow-hidden border border-[#0b3d80]/10 shadow-[0_12px_36px_rgba(11,61,128,0.06)] hover:shadow-[0_20px_45px_rgba(11,61,128,0.14)] hover:border-[#C7A24A]/60 transition-all duration-300 flex flex-col hover:-translate-y-1">
+            {/* Photo Section */}
+            <div className="relative h-52 sm:h-64 overflow-hidden bg-gradient-to-br from-[#0e448c] to-[#082d61]">
+              <img
+                src="/images/tutors/fahad-khan-cover.jpg"
+                alt="Fahad Khan, Maths tutor at Ustaad"
+                loading="lazy"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#082d61]/40 via-transparent to-transparent opacity-30 group-hover:opacity-10 transition-opacity duration-300" />
+              
+              {/* Ustaad Screened Badge */}
+              <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#C7A24A] to-[#A8892A] text-white text-[10px] font-extrabold tracking-wider uppercase shadow-sm">
+                <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5">
+                  <path d="M2 6.5 L5 9.5 L10 3" />
+                </svg>
+                Ustaad Screened
+              </span>
+
+              {/* Available Chip */}
+              <span className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#0a1f3d] text-[10px] font-bold shadow-sm">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22C55E] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#22C55E]" />
+                </span>
+                Available now
+              </span>
+            </div>
+
+            {/* Body */}
+            <div className="p-4 sm:p-5 flex flex-col flex-1">
+              <h3 className="text-lg sm:text-xl font-extrabold text-[#0a1f3d] leading-snug mb-0.5">
+                Fahad Khan
+              </h3>
+              <div className="text-[11px] uppercase tracking-wider text-[#0b3d80] font-bold mb-3">
+                Maths Teacher
+              </div>
+
+              {/* Meta Grid */}
+              <div className="grid grid-cols-2 gap-2 sm:gap-2.5 py-2.5 border-y border-[#0b3d80]/10 mb-3.5">
+                <div>
+                  <div className="text-[9px] uppercase tracking-wider text-gray-400 font-extrabold mb-0.5">
+                    Experience
+                  </div>
+                  <div className="text-xs sm:text-[13px] font-bold text-[#0a1f3d]">
+                    10+ Years
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[9px] uppercase tracking-wider text-gray-400 font-extrabold mb-0.5">
+                    Qualification
+                  </div>
+                  <div className="text-xs sm:text-[13px] font-bold text-[#0a1f3d]">
+                    BS Maths &amp; B.Ed
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[9px] uppercase tracking-wider text-gray-400 font-extrabold mb-0.5">
+                    Curricula
+                  </div>
+                  <div className="text-xs sm:text-[13px] font-bold text-[#0a1f3d]">
+                    IGCSE, GCSE, A-Level
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[9px] uppercase tracking-wider text-gray-400 font-extrabold mb-0.5">
+                    Availability
+                  </div>
+                  <div className="text-xs sm:text-[13px] font-bold text-[#0a1f3d]">
+                    Weekday eves + weekends
+                  </div>
+                </div>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-1 mb-4">
+                <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#F8F5EF] border border-[#0b3d80]/10 text-[#0b3d80]">
+                  Mathematics
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#F8F5EF] border border-[#0b3d80]/10 text-[#0b3d80]">
+                  Cambridge
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#F8F5EF] border border-[#0b3d80]/10 text-[#0b3d80]">
+                  Edexcel
+                </span>
+              </div>
+
+              {/* CTA */}
+              <a
+                href="/tutors/fahad-khan"
+                className="mt-auto flex items-center justify-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#0b3d80] to-[#0e448c] text-white font-bold text-xs sm:text-[13px] transition-all duration-300 group-hover:from-[#C7A24A] group-hover:to-[#A8892A] group-hover:text-white shadow-sm text-center"
+              >
+                <span>View Full Profile</span>
+              </a>
+            </div>
+          </article>
+
+          {/* TABRAIZ KHAN */}
+          <article className="w-[85vw] max-w-[340px] sm:w-full sm:max-w-none flex-shrink-0 sm:flex-shrink snap-center group bg-white rounded-2xl overflow-hidden border border-[#0b3d80]/10 shadow-[0_12px_36px_rgba(11,61,128,0.06)] hover:shadow-[0_20px_45px_rgba(11,61,128,0.14)] hover:border-[#C7A24A]/60 transition-all duration-300 flex flex-col hover:-translate-y-1">
+            {/* Photo Section */}
+            <div className="relative h-52 sm:h-64 overflow-hidden bg-gradient-to-br from-[#0e448c] to-[#082d61]">
+              <img
+                src="/images/tutors/tabraiz-khan-cover.jpg"
+                alt="Tabraiz Khan, Cambridge Certified Maths, Physics and Statistics tutor at Ustaad"
+                loading="lazy"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#082d61]/40 via-transparent to-transparent opacity-30 group-hover:opacity-10 transition-opacity duration-300" />
+              
+              {/* Ustaad Screened Badge */}
+              <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#C7A24A] to-[#A8892A] text-white text-[10px] font-extrabold tracking-wider uppercase shadow-sm">
+                <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5">
+                  <path d="M2 6.5 L5 9.5 L10 3" />
+                </svg>
+                Ustaad Screened
+              </span>
+
+              {/* Available Chip */}
+              <span className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#0a1f3d] text-[10px] font-bold shadow-sm">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22C55E] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#22C55E]" />
+                </span>
+                Available now
+              </span>
+            </div>
+
+            {/* Body */}
+            <div className="p-4 sm:p-5 flex flex-col flex-1">
+              <h3 className="text-lg sm:text-xl font-extrabold text-[#0a1f3d] leading-snug mb-0.5">
+                Tabraiz Khan
+              </h3>
+              <div className="text-[11px] uppercase tracking-wider text-[#0b3d80] font-bold mb-3">
+                Maths, Physics &amp; Statistics
+              </div>
+
+              {/* Meta Grid */}
+              <div className="grid grid-cols-2 gap-2 sm:gap-2.5 py-2.5 border-y border-[#0b3d80]/10 mb-3.5">
+                <div>
+                  <div className="text-[9px] uppercase tracking-wider text-gray-400 font-extrabold mb-0.5">
+                    Experience
+                  </div>
+                  <div className="text-xs sm:text-[13px] font-bold text-[#0a1f3d]">
+                    9 Years
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[9px] uppercase tracking-wider text-gray-400 font-extrabold mb-0.5">
+                    Qualification
+                  </div>
+                  <div className="text-xs sm:text-[13px] font-bold text-[#0a1f3d]">
+                    Master in Statistics
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[9px] uppercase tracking-wider text-gray-400 font-extrabold mb-0.5">
+                    Curricula
+                  </div>
+                  <div className="text-xs sm:text-[13px] font-bold text-[#0a1f3d]">
+                    IGCSE, GCSE, A-Level, IB, American
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[9px] uppercase tracking-wider text-gray-400 font-extrabold mb-0.5">
+                    Certification
+                  </div>
+                  <div className="text-xs sm:text-[13px] font-bold text-[#0a1f3d]">
+                    Cambridge Certified
+                  </div>
+                </div>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-1 mb-4">
+                <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#F8F5EF] border border-[#0b3d80]/10 text-[#0b3d80]">
+                  Mathematics
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#F8F5EF] border border-[#0b3d80]/10 text-[#0b3d80]">
+                  Physics
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#F8F5EF] border border-[#0b3d80]/10 text-[#0b3d80]">
+                  Statistics
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#F8F5EF] border border-[#0b3d80]/10 text-[#0b3d80]">
+                  IB HL
+                </span>
+              </div>
+
+              {/* CTA */}
+              <a
+                href="/tutors/tabraiz-khan"
+                className="mt-auto flex items-center justify-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#0b3d80] to-[#0e448c] text-white font-bold text-xs sm:text-[13px] transition-all duration-300 group-hover:from-[#C7A24A] group-hover:to-[#A8892A] group-hover:text-white shadow-sm text-center"
+              >
+                <span>View Full Profile</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+        
+        {/* Mobile Swipe Indicator */}
+        <div className="sm:hidden flex items-center justify-center gap-1.5 mt-2.5 text-[11px] text-gray-500 font-medium">
+          <span>Swipe cards to view tutors</span>
+        </div>
+
+        {/* GET MATCHED BLOCK (Ustaad Royal Logo Blue Theme) */}
+        <div className="mt-14 sm:mt-18 max-w-[980px] mx-auto rounded-3xl p-7 sm:p-10 lg:p-12 text-[#F8F5EF] relative overflow-hidden shadow-[0_25px_60px_rgba(11,61,128,0.25)] border border-[#C7A24A]/30"
+          style={{
+            background: 'radial-gradient(500px 300px at 90% 10%, rgba(199,162,74,0.22), transparent 60%), linear-gradient(135deg, #0e448c 0%, #0b3d80 50%, #082d61 100%)'
+          }}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-10 items-center relative z-10">
+            
+            {/* Left Column: Heading & CTAs */}
+            <div>
+              <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white leading-tight mb-3">
+                Don't see the right fit?{' '}
+                <span className="text-[#C7A24A]">Get matched.</span>
+              </h3>
+              <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-6 max-w-xl">
+                The public list is small on purpose. Behind the scenes we hold a screened pool across every Ustaad curriculum and subject. Tell us what your child needs. We shortlist the fit.
+              </p>
+              
+              <div className="flex flex-wrap items-center gap-3">
+                <a
+                  href="/contact#form"
+                  className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-extrabold text-sm text-white bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] shadow-[0_8px_20px_rgba(199,162,74,0.35)] hover:brightness-110 hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
+                >
+                  <span>Get Matched with a Tutor</span>
+                </a>
+
+                <a
+                  href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20be%20matched%20with%20a%20tutor."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-xl font-bold text-sm text-white bg-[#25D366] hover:bg-[#20ba5a] shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488"/>
+                  </svg>
+                  <span>Message on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: 3 Steps */}
+            <div className="flex flex-col gap-3.5 border-t lg:border-t-0 lg:border-l border-white/15 pt-6 lg:pt-0 lg:pl-8">
+              <div className="flex items-start gap-3 text-sm leading-relaxed">
+                <span className="w-7 h-7 rounded-full flex-shrink-0 bg-[#C7A24A]/20 text-[#C7A24A] border border-[#C7A24A]/40 grid place-items-center font-extrabold text-xs mt-0.5">
+                  1
+                </span>
+                <span className="text-white/90">
+                  <strong className="text-white font-semibold">Send a short brief.</strong> Year, board, subject, where they're stuck.
+                </span>
+              </div>
+
+              <div className="flex items-start gap-3 text-sm leading-relaxed">
+                <span className="w-7 h-7 rounded-full flex-shrink-0 bg-[#C7A24A]/20 text-[#C7A24A] border border-[#C7A24A]/40 grid place-items-center font-extrabold text-xs mt-0.5">
+                  2
+                </span>
+                <span className="text-white/90">
+                  <strong className="text-white font-semibold">We shortlist a tutor.</strong> From our screened pool, matched to school and pace.
+                </span>
+              </div>
+
+              <div className="flex items-start gap-3 text-sm leading-relaxed">
+                <span className="w-7 h-7 rounded-full flex-shrink-0 bg-[#C7A24A]/20 text-[#C7A24A] border border-[#C7A24A]/40 grid place-items-center font-extrabold text-xs mt-0.5">
+                  3
+                </span>
+                <span className="text-white/90">
+                  <strong className="text-white font-semibold">Free 30-min trial.</strong> Continue only if it clicks. Switch anytime, at no cost.
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
   );
 }

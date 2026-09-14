@@ -55,27 +55,27 @@ export default function SubjectPageTemplate(p: SubjectPageProps) {
     <Layout>
       {p.seo && <SEOHead title={p.seo.title} description={p.seo.description} canonical={p.seo.canonical} schema={p.seo.schema} />}
       {/* ── HERO ── */}
-      <section className="pt-10 pb-20 lg:pt-20 lg:pb-32 relative overflow-hidden bg-white">
+      <section className="min-h-[calc(100dvh-84px)] lg:min-h-[calc(100dvh-92px)] flex items-center relative overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-sm font-bold rounded-full mb-6 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.15)]">
+              <div className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-xs sm:text-sm font-bold rounded-full mb-3.5 sm:mb-4 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.15)]">
                 {p.badgeIcon} {p.heroBadgeLabel ?? 'Subject Expert'}
               </div>
-              <h1 className="text-4xl lg:text-5xl xl:text-[64px] font-extrabold text-[#0a1f3d] mb-4 leading-[1.1] tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f3d] mb-3 sm:mb-4 leading-[1.15] tracking-tight">
                 <GradientHeadingText text={p.heroTitle} />
               </h1>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6 mx-auto" />
-              <p className="text-[#0a1f3d] text-xl lg:text-2xl font-bold mb-4">{p.heroSubtitle}</p>
-              <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-2xl mx-auto">{p.heroDesc}</p>
-              <div className="flex flex-col items-center gap-2 mb-12">
+              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3.5 sm:mb-5 mx-auto" />
+              <p className="text-[#0a1f3d] text-lg lg:text-xl font-bold mb-3">{p.heroSubtitle}</p>
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-5 sm:mb-7 leading-relaxed max-w-2xl mx-auto">{p.heroDesc}</p>
+              <div className="flex flex-col items-center gap-2 mb-6 sm:mb-8">
                 <GoldButton className="px-7 py-3 text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]">
                   {p.heroCTAText ?? 'Book Your Free Trial'}
                 </GoldButton>
                 <p className="text-xs text-gray-400 font-medium tracking-wide">{CTA_SUBTEXT}</p>
               </div>
-              <div className="flex flex-wrap justify-center gap-3 sm:gap-5 items-center text-gray-400 font-extrabold text-sm sm:text-base tracking-widest uppercase">
+              <div className="flex flex-wrap justify-center gap-3 sm:gap-5 items-center text-gray-400 font-extrabold text-xs sm:text-sm tracking-widest uppercase">
                 {(p.heroBadges || ["Cambridge", "Edexcel", "AQA", "IB", "AP"]).map((badge, i, arr) => (
                   <Fragment key={i}>
                     <span>{badge}</span>

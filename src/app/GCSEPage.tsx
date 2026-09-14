@@ -31,7 +31,7 @@ export default function GCSEPage() {
     >
       <SEOHead
         title="GCSE Tutors UAE | AQA, OCR, Pearson Edexcel | Ustaad"
-        description="One-to-one GCSE tutoring for AQA, OCR, and Pearson Edexcel students in Years 10 and 11 across the UAE. First lesson free."
+        description="One-to-one GCSE tutoring for AQA, OCR, and Pearson Edexcel students in Years 10 and 11 across the UAE."
         canonical="/gcse"
         ogImage="/UpdatedImages/year-11-gcse-foundation-tier-aqa-maths-ocr-combined-science-tutor-uae.webp"
         schema={[
@@ -508,7 +508,7 @@ export default function GCSEPage() {
       {/* ── FINAL CTA ── */}
       <FinalCTA
         title="Book a GCSE Tutor"
-        subtitle="AQA, OCR, or Pearson Edexcel. Year 10 or Year 11. Your first lesson is free."
+        subtitle="AQA, OCR, or Pearson Edexcel. Year 10 or Year 11. Tailored one-to-one curriculum support."
         button1Text="Book Your First GCSE Lesson" />
 
     </Layout>

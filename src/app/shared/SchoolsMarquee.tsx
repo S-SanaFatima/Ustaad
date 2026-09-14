@@ -93,11 +93,8 @@ export default function SchoolsMarquee({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {header || (
           <div className="text-center mb-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-2">
-              Partner Schools & Communities
-            </div>
             <h2 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d]">
-              {title || "Trusted by Families Across Leading UAE Partner Institutions"}
+              {title || "Trusted by Families Across Leading UAE Schools"}
             </h2>
           </div>
         )}

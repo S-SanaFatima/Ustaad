@@ -82,7 +82,7 @@ const customStrugglesSection = (
               <div className="flex gap-2 flex-wrap mt-1">
                 {branch.links.map((link, j) => (
                   <a key={j} href={link.href} className="inline-flex items-center gap-1 text-[11px] font-bold text-[#0f4a9b] bg-[#f0f5ff] hover:bg-[#e0ecff] px-2.5 py-1 rounded-full transition-colors duration-200">
-                    → <span>{link.label}</span>
+                    <span>{link.label}</span>
                   </a>
                 ))}
               </div>

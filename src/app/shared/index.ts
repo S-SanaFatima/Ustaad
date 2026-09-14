@@ -36,3 +36,6 @@ export * from './HowUstaadWorksSection';
 export * from './WhyFamiliesChooseSection';
 export * from './StudentStruggleSection';
 export * from './AcademicExpertiseSection';
+export { WhatsAppIcon } from './WhatsAppIcon';
+
+

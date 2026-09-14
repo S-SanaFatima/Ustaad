@@ -33,7 +33,7 @@ export default function IGCSEPage() {
     >
       <SEOHead
         title="IGCSE Tutors UAE | Cambridge and Edexcel | Ustaad"
-        description="One-to-one IGCSE tutoring for Cambridge and Edexcel students in Years 9 to 11 across the UAE. First lesson free."
+        description="One-to-one IGCSE tutoring for Cambridge and Edexcel students in Years 9 to 11 across the UAE."
         canonical="/igcse"
         ogImage="/UpdatedImages/year-10-igcse-cambridge-0580-edexcel-4ma1-mathematics-tutor-uae.webp"
         schema={[
@@ -70,7 +70,7 @@ export default function IGCSEPage() {
             <p className="text-gray-500 text-sm mb-8 leading-relaxed max-w-xl">
               Studying GCSE instead?{' '}
               <a href="/gcse" className="text-[#0f4a9b] font-semibold underline">Read about Ustaad's GCSE tutoring across AQA, OCR, and Pearson Edexcel.</a>{' '}
-              Based in Abu Dhabi? <a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">IGCSE tutor Abu Dhabi</a> hub available.
+              Based in Dubai or Abu Dhabi? <a href="/igcse-tutor-dubai" className="text-[#0f4a9b] font-semibold underline">IGCSE tutor Dubai</a> and <a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">Abu Dhabi</a> hubs available.
             </p>
             <HeroCTABlock className="mb-4">
               Book Your First IGCSE Lesson
@@ -470,25 +470,40 @@ export default function IGCSEPage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-12">
             {[
-              { city: "Abu Dhabi",      note: "Capital · Anchor for ADEK schools" },
-              { city: "Dubai",          note: "Most populous · All boards" },
+              { city: "Abu Dhabi",      note: "Capital · Anchor for ADEK schools", href: "/igcse-tutor-abu-dhabi" },
+              { city: "Dubai",          note: "Most populous · All boards", href: "/igcse-tutor-dubai" },
               { city: "Sharjah",        note: "Growing IGCSE community" },
               { city: "Ajman",          note: "Cambridge & Edexcel" },
               { city: "Al Ain",         note: "Cambridge focused" },
               { city: "Ras Al Khaimah", note: "Northern Emirates" },
               { city: "Fujairah",       note: "East coast" },
               { city: "Umm Al Quwain", note: "Smallest emirate" },
-            ].map((loc, i) => (
-              <div
-                key={i}
-                className="group relative bg-white/5 hover:bg-white/10 border border-white/8 hover:border-white/20 rounded-2xl px-4 py-4 transition-all duration-200 cursor-default overflow-hidden"
-              >
-                <div className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_6px_rgba(199,162,74,0.8)]" />
-                <MapPin className="h-4 w-4 text-[#4a90d9] mb-2.5" strokeWidth={1.5} />
-                <p className="text-white font-bold text-sm leading-tight">{loc.city}</p>
-                <p className="text-white/35 text-[10px] mt-1 leading-snug">{loc.note}</p>
-              </div>
-            ))}
+            ].map((loc, i) => {
+              const inner = (
+                <>
+                  <div className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_6px_rgba(199,162,74,0.8)]" />
+                  <MapPin className="h-4 w-4 text-[#4a90d9] mb-2.5" strokeWidth={1.5} />
+                  <p className="text-white font-bold text-sm leading-tight">{loc.city}</p>
+                  <p className="text-white/35 text-[10px] mt-1 leading-snug">{loc.note}</p>
+                </>
+              );
+              return loc.href ? (
+                <a
+                  key={i}
+                  href={loc.href}
+                  className="group relative bg-white/5 hover:bg-white/10 border border-white/8 hover:border-[#C7A24A]/40 rounded-2xl px-4 py-4 transition-all duration-200 block overflow-hidden"
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div
+                  key={i}
+                  className="group relative bg-white/5 hover:bg-white/10 border border-white/8 hover:border-white/20 rounded-2xl px-4 py-4 transition-all duration-200 cursor-default overflow-hidden"
+                >
+                  {inner}
+                </div>
+              );
+            })}
           </div>
 
           <div className="bg-white/5 border border-white/8 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">

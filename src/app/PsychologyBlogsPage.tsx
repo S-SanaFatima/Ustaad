@@ -17,25 +17,25 @@ export default function PsychologyBlogsPage() {
         canonical={meta.slug}
       />
 
-      <div className="bg-[#f8faff] min-h-screen pt-24 pb-20">
+      <div className="bg-[#f8faff] min-h-screen pt-8 pb-12 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header */}
-          <div className="mb-12">
-            <a href="/blogs" className="inline-flex items-center gap-2 text-sm font-bold text-[#0f4a9b] hover:text-[#2563eb] mb-8 transition-colors">
+          <div className="mb-8 sm:mb-10">
+            <a href="/blogs" className="inline-flex items-center gap-2 text-sm font-bold text-[#0f4a9b] hover:text-[#2563eb] mb-4 sm:mb-6 transition-colors">
               <ArrowLeft className="h-4 w-4" /> All streams
             </a>
             
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-1 h-6 bg-[#0f4a9b]"></div>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-1 h-5 bg-[#0f4a9b]"></div>
               <span className="text-xs font-bold tracking-widest text-[#0f4a9b] uppercase">STREAM 2</span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-extrabold text-[#0a1f3d] font-serif mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0a1f3d] font-serif mb-3 sm:mb-4">
               {meta.title}
             </h1>
             
-            <p className="text-slate-600 text-lg max-w-3xl leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base lg:text-lg max-w-3xl leading-relaxed">
               {meta.description}
             </p>
           </div>

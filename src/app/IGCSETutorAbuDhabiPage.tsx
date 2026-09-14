@@ -372,17 +372,6 @@ export default function IGCSETutorAbuDhabiPage() {
 
       {/* ── SECTION 01: HERO CANVAS (Centered layout matching Physics page) ── */}
       <section className="relative -mt-16 overflow-hidden bg-[#060f22] flex flex-col items-center justify-center md:min-h-[75vh]">
-
-        {/* ── Background image overlay (no humans, sleek dark academic tech graphic) ── */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <img
-            src="/UpdatedImages/igcse-study-hero.jpg"
-            alt="IGCSE Abu Dhabi Academic Study Background"
-            className="w-full h-full object-cover opacity-25 mix-blend-screen"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#060f22]/70 via-[#060f22]/40 to-[#060f22]" />
-        </div>
-
         {/* ── Background SVG canvas on desktop ── */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block">
           <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice"

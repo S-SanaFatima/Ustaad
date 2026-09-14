@@ -1163,7 +1163,7 @@ export default function IBTutorAbuDhabiPage() {
                       href={SUBJECT_TABS[activeSubjectTab].href}
                       className="inline-flex items-center justify-center bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] text-white font-bold rounded-full px-5 py-3 text-sm hover:brightness-110 hover:shadow-lg hover:shadow-[#C7A24A]/30 transition transform hover:-translate-y-0.5 active:scale-95 duration-300"
                     >
-                      Syllabus details →
+                      Syllabus details
                     </a>
                   </div>
                 </div>

@@ -16,7 +16,7 @@ const BLOG = {
   titleLine2: "Why Your Child Can't Sit the Full Paper",
   slug: 'exam-stamina-uae-students',
   description:
-    'Your child revises for hours but fades halfway through a paper. Exam stamina is the missing skill, and here is how to build it before exams start.',
+    'Your child studies for hours but fades halfway through a paper. Exam stamina is the missing skill, and here is how to build it before exams start.',
   heroImage: '/images/blogs/exam-stamina-uae-students-hero.jpg',
   heroAlt: 'Focused British and IB curriculum high school student in an international school exam hall working through a timed past paper against a countdown timer',
   heroCaption: 'Exam stamina is not content recall. It is the trained cognitive capacity to maintain full cognitive accuracy across ninety minutes to three hours under strict time constraints.',
@@ -32,7 +32,7 @@ const BLOG = {
     'Concentration During Exams',
     'Timed Past Papers',
     'Exam Endurance',
-    'Revision Under Timed Conditions',
+    'Studying Under Timed Conditions',
     'Working Memory Exam',
     'IGCSE Exam Skills',
     'A-Level Exam Technique',
@@ -45,8 +45,8 @@ const FAQS = [
     a: 'With consistent, progressive practice, most students can expand their cognitive endurance to full paper length over 6 to 8 weeks. The secret is progressive overload: beginning 15 minutes below their current wall and lengthening the session by 10 to 15 minutes each week.',
   },
   {
-    q: "My child revises for hours every day. Why isn't that building stamina?",
-    a: 'Because standard home revision is fragmented. Even when a student spends three hours at their desk, they typically study in 15 to 20-minute bursts broken up by snacks, notifications, note re-reading, or checking answers. This trains the brain to anticipate constant micro-breaks, which is the exact opposite of what a 2 to 3-hour unbroken exam paper demands.',
+    q: "My child studies for hours every day. Why isn't that building stamina?",
+    a: 'Because standard home study is fragmented. Even when a student spends three hours at their desk, they typically study in 15 to 20 minute bursts broken up by snacks, notifications, note review, or checking answers. This trains the brain to anticipate constant micro breaks, which is the exact opposite of what a 2 to 3 hour unbroken exam paper demands.',
   },
   {
     q: 'Is exam stamina really separate from subject knowledge?',
@@ -54,15 +54,15 @@ const FAQS = [
   },
   {
     q: 'What is the single most impactful change parents can make at home?',
-    a: 'Remove the smartphone completely from the room during revision blocks and transition from passive re-reading to closed-book, timed output. These two changes immediately force the brain to sustain uninterrupted focus without the micro-resets that undermine endurance.',
+    a: 'Remove the smartphone completely from the room during study sessions and transition from passive review to closed book, timed output. These two changes immediately force the brain to sustain uninterrupted focus without the micro resets that undermine endurance.',
   },
   {
     q: 'How do timed past papers specifically train exam endurance?',
-    a: 'A timed past paper is the only rehearsal tool that forces concurrent execution: reading dense text, managing the clock, retrieving facts from memory, performing multi-step calculations, and writing legibly. Doing this against an unbroken timer conditions the nervous system to handle prolonged cognitive load.',
+    a: 'A timed past paper is the only rehearsal tool that forces concurrent execution: reading dense text, managing the clock, retrieving facts from memory, performing multistep calculations, and writing legibly. Doing this against an unbroken timer conditions the nervous system to handle prolonged cognitive load.',
   },
   {
-    q: 'Should younger students in Year 9 or 10 practice exam stamina?',
-    a: 'Yes. While they should not be subjected to punishing three-hour drills, introducing regular 45-to-60-minute unbroken, phone-free problem-solving sessions builds the baseline stamina needed when GCSE and IGCSE exam years begin.',
+    q: 'Should younger students in Year 9 or 10 practise exam stamina?',
+    a: 'Yes. While they should not be subjected to punishing three hour drills, introducing regular 45 to 60 minute unbroken, phone free problem-solving sessions builds the baseline stamina needed when GCSE and IGCSE exam years begin.',
   },
 ];
 
@@ -76,7 +76,7 @@ const QUICK_ANSWERS = [
   {
     n: '02',
     q: 'Why does my child fade halfway through?',
-    a: 'Unbroken concentration is a cognitive skill. Fragmented revision builds sprint capability, leaving working memory exhausted when an exam demands a continuous marathon.',
+    a: 'Unbroken concentration is a cognitive skill. Fragmented studying builds sprint capability, leaving working memory exhausted when an exam demands a continuous marathon.',
     id: 'the-cognitive-cost',
   },
   {
@@ -88,13 +88,13 @@ const QUICK_ANSWERS = [
   {
     n: '04',
     q: 'Can exam endurance be trained quickly?',
-    a: 'Yes. Much like cardiovascular fitness, stamina responds directly to systematic progressive overload over a 6 to 8-week cycle of timed past paper blocks.',
+    a: 'Yes. Much like cardiovascular fitness, stamina responds directly to systematic progressive overload over a 6 to 8 week cycle of timed past paper blocks.',
     id: 'step-by-step-protocol',
   },
   {
     n: '05',
-    q: 'What test-day tactics protect concentration?',
-    a: 'Strategic question ordering, banking early marks, zero late-night cramming, and intentional 10-second posture/breathing resets between major exam sections.',
+    q: 'What test day tactics protect concentration?',
+    a: 'Strategic question ordering, banking early marks, zero late-night cramming, and intentional 10 second posture and breathing resets between major exam sections.',
     id: 'test-day-tactics',
   },
 ];
@@ -104,9 +104,9 @@ const TOC_ITEMS = [
   { label: 'What Exam Stamina Actually Is', id: 'what-exam-stamina-is' },
   { label: 'The Cognitive Cost: Working Memory Depletion', id: 'the-cognitive-cost' },
   { label: 'Diagnosing the Stamina Fade at Home', id: 'diagnosing-the-fade' },
-  { label: 'Why Typical Revision Undermines Endurance', id: 'why-revision-fails' },
-  { label: 'Step-by-Step Progressive Stamina Protocol', id: 'step-by-step-protocol' },
-  { label: 'In-Exam Tactical Resets at the 75-Minute Mark', id: 'test-day-tactics' },
+  { label: 'Why Typical Study Habits Undermine Endurance', id: 'why-revision-fails' },
+  { label: 'Step by Step Progressive Stamina Protocol', id: 'step-by-step-protocol' },
+  { label: 'In Exam Tactical Resets at the 75 Minute Mark', id: 'test-day-tactics' },
   { label: 'High Stamina vs. Stamina Deficit at a Glance', id: 'comparison-matrix' },
   { label: 'Bringing It Together: Predictable Exam Endurance', id: 'bringing-it-together' },
   { label: 'Frequently Asked Questions', id: 'frequently-asked-questions' },
@@ -456,56 +456,56 @@ export default function ExamStaminaBlog() {
         </div>
       </section>
 
-      {/* Main Article Body */}
+      {/* Main      {/* Article body */}
       <article className="pb-8 bg-white">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-gray-700 text-sm lg:text-[15px] leading-[1.8] [&_p]:text-justify [&_p]:mb-3.5">
 
             <p>
-              Here is a recurring puzzle that blindsides hundreds of families in <a href="/gcse-tutor-dubai" className="text-[#0f4a9b] font-semibold hover:underline">Dubai</a> and <a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">Abu Dhabi</a> every exam season: A teenager spends four solid hours in their bedroom revising. They can define every term at the dinner table. They solve individual textbook questions without hesitation.
+              Here is a recurring puzzle that blindsides hundreds of families across Dubai and Abu Dhabi every exam season: A teenager spends four solid hours in their bedroom studying. They can define every term at the dinner table and solve individual textbook questions without hesitation.
             </p>
             <p>
-              Then, they sit a full mock paper for <a href="/igcse" className="text-[#0f4a9b] font-semibold hover:underline">IGCSE</a>, GCSE, IB Diploma, or <a href="/a-level" className="text-[#0f4a9b] font-semibold hover:underline">A-Level</a>, and somewhere around the 65-minute mark, their performance visibly crumbles. The handwriting loosens. Calculated answers miss final units. Multi-step methods skip vital working marks. The final two 6-mark questions are rushed, skeletal, or abandoned entirely.
+              Then, they sit a full mock paper for IGCSE, GCSE, IB, or A-Level, and somewhere around the 65-minute mark, their performance visibly crumbles. The handwriting loosens, calculated answers miss final units, and multistep working is abandoned.
             </p>
             <p>
-              The instinctive reaction for both parent and student is to assume a <em>knowledge problem</em>—that they simply need to revise the content more thoroughly. Or worse, parents dismiss it as careless laziness.
+              The instinctive reaction for both parent and student is to assume a <em>knowledge problem</em>: that they simply need to review the content more thoroughly. Or worse, parents dismiss it as careless laziness.
             </p>
             <p>
-              In our tutoring rooms and across <a href="/blogs/psychology-of-learning" className="text-[#0f4a9b] font-semibold hover:underline">our Psychology of Learning stream</a>, we see that it is almost never a lack of intelligence. What you are witnessing is a student running completely out of a very specific cognitive capacity: <strong>exam stamina</strong>.
+              In our tutoring rooms and across <a href="/blogs/psychology-of-learning" className="text-[#0f4a9b] font-semibold hover:underline">our Psychology of Learning stream</a>, we see that it is almost never a lack of intelligence. What you are witnessing is a student running out of a specific cognitive capacity: <strong>exam stamina</strong>.
             </p>
 
             {/* Quick Impact Stats */}
-            <div className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 items-stretch">
+            <div className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 items-stretch">
               <div className="p-3 sm:p-3.5 rounded-2xl border border-[#0f4a9b]/12 bg-[#f4f7fc] text-center flex flex-col justify-between min-h-[104px] sm:min-h-[110px]">
-                <div className="text-base sm:text-lg font-black text-[#0f4a9b] tracking-tight whitespace-nowrap">
-                  2–3 hours
+                <div className="text-sm sm:text-base lg:text-[17px] font-black text-[#0f4a9b] tracking-tight leading-tight">
+                  2 to 3 hours
                 </div>
                 <div className="text-[11px] text-gray-500 font-semibold leading-snug mt-1.5">
                   Typical UAE exam paper length
                 </div>
               </div>
               <div className="p-3 sm:p-3.5 rounded-2xl border border-[#0f4a9b]/12 bg-[#f4f7fc] text-center flex flex-col justify-between min-h-[104px] sm:min-h-[110px]">
-                <div className="text-base sm:text-lg font-black text-[#0f4a9b] tracking-tight whitespace-nowrap">
-                  90–180 min
+                <div className="text-sm sm:text-base lg:text-[17px] font-black text-[#0f4a9b] tracking-tight leading-tight">
+                  90 to 180 min
                 </div>
                 <div className="text-[11px] text-gray-500 font-semibold leading-snug mt-1.5">
                   Continuous focus required per paper
                 </div>
               </div>
               <div className="p-3 sm:p-3.5 rounded-2xl border border-[#C7A24A]/30 bg-[#fdf9ee] text-center flex flex-col justify-between min-h-[104px] sm:min-h-[110px]">
-                <div className="text-base sm:text-lg font-black text-[#A8892A] tracking-tight whitespace-nowrap">
-                  6–8 weeks
+                <div className="text-sm sm:text-base lg:text-[17px] font-black text-[#A8892A] tracking-tight leading-tight">
+                  6 to 8 weeks
                 </div>
                 <div className="text-[11px] text-gray-500 font-semibold leading-snug mt-1.5">
                   Recommended stamina training window
                 </div>
               </div>
               <div className="p-3 sm:p-3.5 rounded-2xl border border-emerald-500/20 bg-emerald-50/60 text-center flex flex-col justify-between min-h-[104px] sm:min-h-[110px]">
-                <div className="text-base sm:text-lg font-black text-emerald-700 tracking-tight whitespace-nowrap">
+                <div className="text-sm sm:text-base lg:text-[17px] font-black text-emerald-700 tracking-tight leading-tight">
                   1 phone in room
                 </div>
                 <div className="text-[11px] text-gray-500 font-semibold leading-snug mt-1.5">
-                  Measurably reduces working memory (Ward et al., 2017)
+                  Measurably reduces working memory
                 </div>
               </div>
             </div>
@@ -537,13 +537,13 @@ export default function ExamStaminaBlog() {
             {/* Section 01 */}
             <SectionHeading num="01" id="what-exam-stamina-is">What exam stamina actually is (and why it is not a knowledge problem)</SectionHeading>
             <p>
-              Consider the difference between a person who jogs 2 kilometres twice a week and an athlete training for a 21-kilometre half marathon. Both people know how to run. Their mechanics are identical. But if you place the recreational runner on a marathon course, they will hit a wall long before the finish line. They are not lazy or undisciplined; they simply have never conditioned their muscles to sustain output for that duration.
+              Consider the difference between a person who jogs 2 kilometres twice a week and an athlete training for a 21 kilometre half marathon. Both people know how to run. Their mechanics are identical. But if you place the recreational runner on a marathon course, they will hit a wall long before the finish line. They are not lazy or undisciplined; they simply have never conditioned their muscles to sustain output for that duration.
             </p>
             <p>
-              <strong>Exam stamina</strong> is the cognitive equivalent of that marathon endurance. An official GCSE, IGCSE, or A-Level paper does not just test whether information exists in the brain. It tests whether that information can be retrieved, synthesised, and transcribed under strict timed conditions for 90 to 180 continuous minutes without a pause. In British curriculum and IB schools across the UAE, students face an even sharper shock if they have never experienced external examination halls, as explored in our report on <a href="/blogs/uae-exams-return-students-never-sat-one" className="text-[#0f4a9b] font-semibold hover:underline">why exams returning challenges students who never sat external papers</a>.
+              <strong>Exam stamina</strong> is the cognitive equivalent of marathon endurance. An official examination paper does not just test whether information exists in the brain. It tests whether that information can be retrieved, synthesised, and transcribed under strict timed conditions for 90 to 180 continuous minutes without a pause. In British curriculum and IB schools across the UAE, students face a significant shock if they have never experienced external examination halls, as explored in our guide on <a href="/blogs/uae-exams-return-students-never-sat-one" className="text-[#0f4a9b] font-semibold hover:underline">why exams returning challenges students who never sat external papers</a>.
             </p>
             <p>
-              Holding continuous vigilance across 12 to 24 dense pages demands immense mental energy. If an adolescent has only ever practised in 20-minute bursts, their brain will inevitably signal mental exhaustion long before the invigilator calls time.
+              Holding continuous vigilance across 12 to 24 dense pages demands immense mental energy. If an adolescent has only ever practised in 20 minute bursts, their brain will inevitably signal mental exhaustion long before the invigilator calls time.
             </p>
 
             <ParentTakeaway>
@@ -553,11 +553,11 @@ export default function ExamStaminaBlog() {
             <InlineImage
               src="/images/blogs/uae-student-timed-past-paper-stamina.jpg"
               alt="UAE student sitting a timed past paper at home with a countdown clock"
-              caption="True exam stamina cannot be built through passive reading. It requires structured, closed-book timed past paper drills with zero digital interruptions."
+              caption="True exam stamina cannot be built through passive reading. It requires structured, closed book timed past paper drills with zero digital interruptions."
             />
 
             {/* Section 02 */}
-            <SectionHeading num="02" id="the-cognitive-cost">The cognitive cost: working memory depletion in a 2-hour paper</SectionHeading>
+            <SectionHeading num="02" id="the-cognitive-cost">The cognitive cost: working memory depletion in a 2 hour paper</SectionHeading>
             <p>
               To understand why capable students hit a wall, you must look at how the human brain processes an exam paper. Unlike long-term memory (which stores rules, formulas, and vocabulary), <strong>working memory</strong> is the conscious workbench where active problem-solving occurs.
             </p>
@@ -567,30 +567,30 @@ export default function ExamStaminaBlog() {
 
             <BulletList
               items={[
-                <><strong>Deciphering dense command words:</strong> Parsing what an examiner actually wants in multi-part questions, such as the extended response requirements analyzed in our guide on <a href="/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions" className="text-[#0f4a9b] font-semibold hover:underline">why IGCSE Biology students lose marks on 6-mark questions</a>.</>,
-                <><strong>Suppression of exam anxiety:</strong> Keeping distracting thoughts about grade boundaries or time limits from overwhelming executive focus, an issue we see in teenagers who develop <a href="/blogs/exam-panic-before-exams-uae" className="text-[#0f4a9b] font-semibold hover:underline">exam panic right before major tests</a>.</>,
+                <><strong>Deciphering dense command words:</strong> Parsing what an examiner actually wants in multipart questions, such as the extended response requirements analysed in our guide on <a href="/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions" className="text-[#0f4a9b] font-semibold hover:underline">why IGCSE Biology students lose marks on 6-mark questions</a>.</>,
+                <><strong>Suppression of exam anxiety:</strong> Keeping distracting thoughts about time limits from overwhelming executive focus, as detailed in our guide on <a href="/blogs/exam-panic-before-exams-uae" className="text-[#0f4a9b] font-semibold hover:underline">exam panic right before major tests</a>.</>,
                 <><strong>Motor endurance and transcription:</strong> Sustaining clear, legible handwriting across thousands of words so examiners can award method marks without ambiguity.</>,
-                <><strong>Multi-step error checking:</strong> Verifying negative signs in algebraic proofs, applying equations without losing units in Physics (see how physics formulas fail under pressure), and tracking stoichiometric ratios in Chemistry.</>,
+                <><strong>Multistep error checking:</strong> Verifying negative signs in algebraic proofs, applying equations without dropping units in Physics, and tracking stoichiometric ratios in Chemistry.</>,
               ]}
             />
 
             <p>
-              Working memory is fueled by glucose and neural vigilance. When a student enters hour two without prior endurance conditioning, <strong>cognitive fatigue</strong> takes over. The brain instinctively searches for energy-saving shortcuts. It skips reading the last sentence of a prompt. It writes one-sentence answers to five-mark questions. It stops double-checking calculations.
+              Working memory is fuelled by glucose and neural vigilance. When a student enters hour two without prior endurance conditioning, <strong>cognitive fatigue</strong> takes over. The brain instinctively searches for energy-saving shortcuts. It skips reading the last sentence of a prompt. It writes one-sentence answers to five-mark questions. It stops double checking calculations.
             </p>
 
             {/* Section 03 */}
             <SectionHeading num="03" id="diagnosing-the-fade">How to diagnose the stamina fade at home (the downward mark slope)</SectionHeading>
             <p>
-              Parents often ask our academic tutors and <a href="/physics-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">Physics tutoring in Abu Dhabi</a> team: <em>&quot;How do I know if my child has a stamina gap versus a revision gap?&quot;</em>
+              Parents often ask our team: <em>&quot;How do I know if my child has a stamina gap versus a study gap?&quot;</em>
             </p>
             <p>
-              The answer lies in the <strong>shape of their mark curve</strong> across a timed paper. When our educators review a completed mock against the official mark scheme, we often uncover the exact disconnect discussed in our article on <a href="/blogs/physics-understanding-vs-marks" className="text-[#0f4a9b] font-semibold hover:underline">why understanding a subject does not automatically convert into exam marks</a>. We track mark retention from front to back:
+              The answer lies in the <strong>shape of their mark curve</strong> across a timed paper. When reviewing a completed mock against the official mark scheme, we often uncover the disconnect discussed in our article on <a href="/blogs/physics-understanding-vs-marks" className="text-[#0f4a9b] font-semibold hover:underline">why understanding a subject does not automatically convert into exam marks</a>. We track mark retention from front to back:
             </p>
 
             <InlineImage
               src="/images/blogs/exam-mark-scheme-stamina-analysis.jpg"
               alt="Official GCSE mathematics past paper being graded against an examiner mark scheme showing mark drops in later questions"
-              caption="Diagnosing stamina: In fatigue-affected papers, early foundational questions score near 90%, but multi-step questions in the final 30% of the paper show catastrophic mark drops."
+              caption="Diagnosing stamina: In fatigue affected papers, early foundational questions score near 90%, but multistep questions in the final 30% of the paper show catastrophic mark drops."
             />
 
             {/* Diagnostic Table */}
@@ -620,7 +620,7 @@ export default function ExamStaminaBlog() {
                     <tr>
                       <td className="p-3 sm:p-3.5 font-bold text-[#0a1f3d]">Middle third of the paper</td>
                       <td className="p-3 sm:p-3.5 text-amber-700 font-semibold">65% to 75%; slight rushing, handwriting shifts</td>
-                      <td className="p-3 sm:p-3.5 text-red-600 font-semibold">Consistent 40–50% error rate across topics</td>
+                      <td className="p-3 sm:p-3.5 text-red-600 font-semibold">Consistent 40% to 50% error rate across topics</td>
                     </tr>
                     <tr>
                       <td className="p-3 sm:p-3.5 font-bold text-[#0a1f3d]">Final third of the paper</td>
@@ -638,7 +638,7 @@ export default function ExamStaminaBlog() {
             </div>
 
             <p>
-              If your child&apos;s marks slope downwards like a ski ramp, reteaching them the topic of Question 18 will not solve the problem. They knew the concept at 4:00 PM; they failed it at 5:15 PM because their mental endurance expired. Spotting this early is crucial—much like learning how to read a UAE school report card like an education counsellor before term-end grades lock in.
+              If your child&apos;s marks slope downward like a ski ramp, reteaching them the topic of Question 18 will not solve the problem. They knew the concept at 4:00 PM; they failed it at 5:15 PM because their mental endurance expired. Spotting this early is crucial, much like learning <a href="/blogs/read-uae-school-report-card" className="text-[#0f4a9b] font-semibold hover:underline">how to read a UAE school report card like an education counsellor</a> before term end grades lock in.
             </p>
 
             <ParentTakeaway>
@@ -646,36 +646,33 @@ export default function ExamStaminaBlog() {
             </ParentTakeaway>
 
             {/* Section 04 */}
-            <SectionHeading num="04" id="why-revision-fails">Why typical home revision actively sabotages exam endurance</SectionHeading>
+            <SectionHeading num="04" id="why-revision-fails">Why typical home study actively sabotages exam endurance</SectionHeading>
             <p>
-              Here is the difficult paradox: the conventional way teenagers revise at home actually trains their brains to become <em>less</em> capable of sitting a full paper.
+              Here is the difficult paradox: the conventional way teenagers study at home actually trains their brains to become <em>less</em> capable of sitting a full paper.
             </p>
             <p>
-              Observe an average Year 11 or Year 13 student studying on a weekend. They sit with a textbook, flashcards, or a laptop. Every twelve minutes, they take a micro-break: glancing at a message notification, replaying an educational video, grabbing water, or listening to music. Even when they spend three hours at their desk, they are operating in micro-sprints of 15 to 20 minutes separated by cognitive relief.
+              Observe an average Year 11 or Year 13 student studying on a weekend. They sit with a textbook, flashcards, or a laptop. Every twelve minutes, they take a micro break: glancing at a message notification, replaying an educational video, grabbing water, or listening to music. Even when they spend three hours at their desk, they are operating in micro sprints of 15 to 20 minutes separated by cognitive relief.
             </p>
             <p>
               This conditions the neurological threshold to expect rest whenever friction appears. Then, we place them in a silent exam hall with an invigilator pacing the aisles, no phones, no music, and demand two continuous hours of high-stakes analytical output.
             </p>
             <p>
-              In our analysis of <a href="/blogs/igcse-maths-revision-low-marks" className="text-[#0f4a9b] font-semibold hover:underline">why hours of revision so often fail to yield marks</a>, this mismatch between study style and test conditions is the single most common culprit. As highlighted in our guides on <a href="/blogs/igcse-preparation-past-papers-final-step" className="text-[#0f4a9b] font-semibold hover:underline">why past papers are the critical final step in exam preparation</a> and our essential GCSE revision tips for UAE parents, unstructured studying conditions teenagers for short bursts—leaving them completely unprepared when a full exam demands continuous cognitive output.
+              In our analysis of study habits, this mismatch between home study and test conditions is the single most common culprit. As highlighted in our guide on <a href="/blogs/igcse-preparation-past-papers-final-step" className="text-[#0f4a9b] font-semibold hover:underline">why past papers are the critical final step in exam preparation</a>, unstructured studying conditions teenagers for short bursts, leaving them unprepared when a full exam demands continuous cognitive output.
             </p>
 
             {/* Section 05 */}
-            <SectionHeading num="05" id="step-by-step-protocol">The step-by-step progressive overload stamina protocol (Weeks 1 to 8)</SectionHeading>
+            <SectionHeading num="05" id="step-by-step-protocol">The step by step progressive overload stamina protocol (Weeks 1 to 8)</SectionHeading>
             <p>
               Because exam stamina is a cognitive capacity, it must be developed using the same principle used in athletic conditioning: <strong>progressive overload</strong>.
             </p>
             <p>
-              You do not train for a marathon by running 42 kilometres on day one. If you force an endurance-depleted student to sit a grueling 3-hour paper cold, they will crash, panic, and internalize the false belief that they &quot;can&apos;t do it.&quot;
-            </p>
-            <p>
-              Instead, build endurance systematically across a 6 to 8-week cycle using this structured protocol:
+              You do not train for a marathon by running 42 kilometres on day one. If you force a fatigued student to sit a grueling 3 hour paper cold, they will crash, panic, and internalise the false belief that they &quot;can&apos;t do it.&quot;
             </p>
 
             <InlineImage
               src="/images/blogs/uae-parent-teen-stamina-routine.jpg"
-              alt="UAE father and teenage student reviewing an organized weekly timed study planner together at home"
-              caption="Progressive overload ladder: Starting with achievable 40-minute unbroken blocks and advancing incrementally builds rock-solid confidence before official school mocks arrive."
+              alt="UAE father and teenage student reviewing an organised weekly timed study planner together at home"
+              caption="Progressive overload ladder: Starting with achievable 40 minute unbroken blocks and advancing incrementally builds rock-solid confidence before official school mocks arrive."
             />
 
             {/* Progressive Ladder Table */}
@@ -685,15 +682,15 @@ export default function ExamStaminaBlog() {
                   <Target className="h-4 w-4 text-[#C7A24A]" />
                   <span className="text-xs font-extrabold tracking-wider uppercase">Progressive Overload Ladder</span>
                 </div>
-                <span className="text-[11px] font-medium text-white/80">6–8 Week Stamina Conditioning</span>
+                <span className="text-[11px] font-medium text-white/80">6 to 8 Week Stamina Conditioning</span>
               </div>
               <div className="p-4 sm:p-5 space-y-4">
                 <div className="flex items-start gap-3.5 pb-3.5 border-b border-slate-100">
                   <span className="w-8 h-8 rounded-full bg-[#0f4a9b]/10 text-[#0f4a9b] font-black text-xs flex items-center justify-center shrink-0">01</span>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 flex-wrap mb-1">
-                      <h4 className="text-sm font-extrabold text-[#0a1f3d]">Phase 1: The 40-Minute Anchor (Baseline Unbroken Focus)</h4>
-                      <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#0f4a9b]/8 text-[#0f4a9b] border border-[#0f4a9b]/15 shrink-0">Weeks 1–2</span>
+                      <h4 className="text-sm font-extrabold text-[#0a1f3d]">Phase 1: The 40 Minute Anchor (Baseline Unbroken Focus)</h4>
+                      <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#0f4a9b]/8 text-[#0f4a9b] border border-[#0f4a9b]/15 shrink-0">Weeks 1 to 2</span>
                     </div>
                     <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">
                       Single subject. Zero phones in the room. A short question set (e.g., 5 to 7 medium-difficulty questions) worked against a ticking countdown clock. The goal is zero pauses, establish rhythm, and end on a feeling of mastery.
@@ -705,11 +702,11 @@ export default function ExamStaminaBlog() {
                   <span className="w-8 h-8 rounded-full bg-[#0f4a9b]/10 text-[#0f4a9b] font-black text-xs flex items-center justify-center shrink-0">02</span>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 flex-wrap mb-1">
-                      <h4 className="text-sm font-extrabold text-[#0a1f3d]">Phase 2: The 60-Minute Threshold (Section Endurance)</h4>
-                      <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#0f4a9b]/8 text-[#0f4a9b] border border-[#0f4a9b]/15 shrink-0">Weeks 3–4</span>
+                      <h4 className="text-sm font-extrabold text-[#0a1f3d]">Phase 2: The 60 Minute Threshold (Section Endurance)</h4>
+                      <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#0f4a9b]/8 text-[#0f4a9b] border border-[#0f4a9b]/15 shrink-0">Weeks 3 to 4</span>
                     </div>
                     <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">
-                      Transition from loose questions to an authentic <strong>Section A or Paper 1</strong>. Introduce mark-scheme constraints: exactly 1 minute per mark. Teach the student to recognise the 45-minute fatigue wobble without quitting.
+                      Transition from loose questions to an authentic <strong>Section A or Paper 1</strong>. Introduce mark scheme constraints: exactly 1 minute per mark. Teach the student to recognise the 45 minute fatigue wobble without quitting.
                     </p>
                   </div>
                 </div>
@@ -718,11 +715,11 @@ export default function ExamStaminaBlog() {
                   <span className="w-8 h-8 rounded-full bg-[#0f4a9b]/10 text-[#0f4a9b] font-black text-xs flex items-center justify-center shrink-0">03</span>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 flex-wrap mb-1">
-                      <h4 className="text-sm font-extrabold text-[#0a1f3d]">Phase 3: The 90-Minute Full Component</h4>
-                      <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#0f4a9b]/8 text-[#0f4a9b] border border-[#0f4a9b]/15 shrink-0">Weeks 5–6</span>
+                      <h4 className="text-sm font-extrabold text-[#0a1f3d]">Phase 3: The 90 Minute Full Component</h4>
+                      <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#0f4a9b]/8 text-[#0f4a9b] border border-[#0f4a9b]/15 shrink-0">Weeks 5 to 6</span>
                     </div>
                     <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">
-                      Sit a complete 90-minute paper under full examination silence. Grade the paper immediately afterward with an examiner mark scheme. Log exactly which question numbers suffered from rushed arithmetic or shortened prose.
+                      Sit a complete 90 minute paper under full examination silence. Grade the paper immediately afterward with an examiner mark scheme. Log exactly which question numbers suffered from rushed arithmetic or shortened prose.
                     </p>
                   </div>
                 </div>
@@ -732,22 +729,22 @@ export default function ExamStaminaBlog() {
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 flex-wrap mb-1">
                       <h4 className="text-sm font-extrabold text-[#0a1f3d]">Phase 4: Full Paper &amp; Dual-Session Rehearsal</h4>
-                      <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#C7A24A]/20 text-[#A8892A] border border-[#C7A24A]/30 shrink-0">Weeks 7–8+</span>
+                      <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#C7A24A]/20 text-[#A8892A] border border-[#C7A24A]/30 shrink-0">Weeks 7 to 8+</span>
                     </div>
                     <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">
-                      Rehearse authentic 2-hour or 2.5-hour papers. Once every fortnight, simulate a <em>Double Exam Day</em> (e.g., Morning <a href="/maths-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">GCSE Maths</a> Paper 1 followed by Afternoon <a href="/chemistry" className="text-[#0f4a9b] font-semibold hover:underline">Chemistry</a> Paper 2 with a 90-minute break between) to eliminate real-timetable shock. For senior students, this mirrors the sustained analytical endurance demanded by <a href="/blogs/a-level-tutoring-uae-independent-thinking" className="text-[#0f4a9b] font-semibold hover:underline">A-Level independent thinking</a>.
+                      Rehearse authentic 2 hour or 2.5 hour papers. Once every two weeks, simulate a <em>Double Exam Day</em> (e.g., Morning Maths Paper 1 followed by Afternoon Chemistry Paper 2 with a 90 minute break between) to eliminate exam schedule shock. For senior students, this mirrors the sustained analytical endurance demanded by <a href="/blogs/a-level-tutoring-uae-independent-thinking" className="text-[#0f4a9b] font-semibold hover:underline">A-Level independent thinking</a>.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <NarrativeBox title="The Three Non-Negotiable Rules of Stamina Training">
+            <NarrativeBox title="The Three Essential Rules of Stamina Training">
               <p>
-                <strong>Rule 1: The phone leaves the room entirely.</strong> Not on silent, not face down on the desk. Research from the University of Texas (Ward et al., 2017) found that a smartphone visible on the desk measurably reduced working memory scores, even when the phone was powered off.
+                <strong>Rule 1: The phone leaves the room entirely.</strong> Not on silent, not face down on the desk. Research from the University of Texas found that a smartphone visible on the desk measurably reduced working memory scores, even when the phone was powered off.
               </p>
               <p>
-                <strong>Rule 2: Every session must require active production.</strong> Reading revision guides builds zero endurance. Endurance is built exclusively through output under time: writing solutions, deriving equations, and formulating essays.
+                <strong>Rule 2: Every session must require active production.</strong> Reading study guides builds zero endurance. Endurance is built exclusively through output under time: writing solutions, deriving equations, and formulating essays.
               </p>
               <p>
                 <strong>Rule 3: Protect deep recovery between drills.</strong> Cognitive capacity regenerates during sleep and active rest. Piling four hours of cramming immediately after a timed paper erodes the very neural recovery needed for endurance to expand.
@@ -755,24 +752,24 @@ export default function ExamStaminaBlog() {
             </NarrativeBox>
 
             {/* Section 06 */}
-            <SectionHeading num="06" id="test-day-tactics">In-exam tactical resets: what to do when the wall hits at 75 minutes</SectionHeading>
+            <SectionHeading num="06" id="test-day-tactics">In exam tactical resets: what to do when the wall hits at 75 minutes</SectionHeading>
             <p>
               Conditioning builds the engine. But what should a student do on the actual morning of an exam when fatigue inevitably threatens their working memory?
             </p>
             <p>
-              Our examination coaches teach students five high-impact in-hall tactics:
+              Our examination coaches teach students five high impact exam tactics:
             </p>
 
             <BulletList
               items={[
                 <>
-                  <strong className="text-[#0a1f3d]">The 10-Second Tactical Micro-Reset:</strong> At the 60 or 75-minute mark, when thoughts start fuzzing, put the pen down on the desk. Lean back, roll the shoulders, close the eyes, and take three slow nasal breaths. It costs ten seconds; it resets executive function and prevents the frantic rushing that loses 8 marks on the next page.
+                  <strong className="text-[#0a1f3d]">The 10 Second Tactical Reset:</strong> At the 60 or 75 minute mark, when thoughts start fuzzing, put the pen down on the desk. Lean back, roll the shoulders, close the eyes, and take three slow nasal breaths. It costs ten seconds; it resets executive function and prevents the frantic rushing that loses 8 marks on the next page.
                 </>,
                 <>
                   <strong className="text-[#0a1f3d]">Strategic Mark Banking (Question Sequencing):</strong> Never spend the first 30 minutes grinding against a high-friction question that drains working memory. Scan the paper during reading time, bank high-confidence marks first, and save difficult unstructured questions for when momentum is secure.
                 </>,
                 <>
-                  <strong className="text-[#0a1f3d]">Pre-Exam Glucose Stabilization:</strong> A massive sugar boost (energy drinks, chocolate bars) triggers an insulin spike that leads to an acute cognitive crash around minute 50. Complex carbohydrates, protein, and proper hydration maintain steady cerebral blood flow.
+                  <strong className="text-[#0a1f3d]">Pre Exam Glucose Stabilisation:</strong> A massive sugar boost (energy drinks, chocolate bars) triggers an insulin spike that leads to an acute cognitive crash around minute 50. Complex carbohydrates, protein, and proper hydration maintain steady cerebral blood flow.
                 </>,
                 <>
                   <strong className="text-[#0a1f3d]">The Working Memory &quot;Brain Dump&quot;:</strong> As soon as the invigilator says you may begin, jot down easily forgotten formulas, trigonometric ratios, or citation acronyms on the blank margin of the paper. This offloads working memory so it is not taxed trying to retain static numbers while calculating.
@@ -801,7 +798,7 @@ export default function ExamStaminaBlog() {
                     <tr>
                       <th className="p-3.5 font-bold">Observation Dimension</th>
                       <th className="p-3.5 font-bold text-emerald-700">High Stamina Student</th>
-                      <th className="p-3.5 font-bold text-red-700">Stamina-Deficient Student</th>
+                      <th className="p-3.5 font-bold text-red-700">Stamina Deficient Student</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-gray-600">
@@ -822,7 +819,7 @@ export default function ExamStaminaBlog() {
                     </tr>
                     <tr>
                       <td className="p-3.5 font-bold text-[#0a1f3d]">Final 15 Minutes</td>
-                      <td className="p-3.5 text-emerald-700">Calm error-checking and unit verification</td>
+                      <td className="p-3.5 text-emerald-700">Calm error checking and unit verification</td>
                       <td className="p-3.5 text-red-600">Staring blankly at the wall or closing the booklet early</td>
                     </tr>
                     <tr>
@@ -841,10 +838,10 @@ export default function ExamStaminaBlog() {
               When a capable teenager repeatedly fades halfway through their mock exams, the emotional fallout is corrosive. They begin to believe they are &quot;bad at exams&quot; or that all their hard work is useless. Parents grow anxious, piling on more pressure or booking indiscriminate reteaching sessions that fail to address the true root cause.
             </p>
             <p>
-              As <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold hover:underline">Nimra Shahzada</a> highlights across our educational guides, recognizing that this is an <strong>endurance deficit</strong> completely changes the emotional equation. It removes the shame. There is nothing defective about your child&apos;s mind; their engine simply has not been conditioned for the distance yet.
+              As Nimra Shahzada highlights across our educational guides, recognising that this is an <strong>endurance deficit</strong> completely changes the emotional equation. It removes the shame. There is nothing defective about your child&apos;s mind; their engine simply has not been conditioned for the distance yet.
             </p>
             <p>
-              And unlike elusive talent or subject intuition, stamina responds to structured training faster and more predictably than almost any other exam skill. Through targeted <a href="/exam-preparation" className="text-[#0f4a9b] font-semibold hover:underline">exam preparation</a> and understanding how structured 1-on-1 tutoring works, a student who begins progressive overload six to eight weeks before their real papers will walk into the examination hall knowing exactly what the 90th minute feels like—and having the trained mental reserves to push through it with composure.
+              And unlike elusive talent or subject intuition, stamina responds to structured training faster and more predictably than almost any other exam skill. Through targeted <a href="/exam-preparation" className="text-[#0f4a9b] font-semibold hover:underline">exam preparation</a>, a student who begins progressive overload six to eight weeks before their real papers will walk into the examination hall knowing exactly what the 90th minute feels like, and having the trained mental reserves to push through it with composure.
             </p>
 
             <ParentTakeaway>
@@ -886,7 +883,7 @@ export default function ExamStaminaBlog() {
                 </p>
                 <p className="text-[11px] text-[#0f4a9b] font-semibold mb-2 leading-snug">{BLOG.authorRole}</p>
                 <p className="text-xs text-gray-500 leading-relaxed">
-                  Nimra writes parent-facing guides on learning psychology, study skills, and exam craft for Ustaad UAE. She turns common study worries into small, doable steps families can use at home.
+                  Nimra writes guides for parents on learning psychology, study skills, and exam craft for Ustaad UAE. She turns common study worries into small, doable steps families can use at home.
                 </p>
               </div>
               <div className="rounded-2xl border border-[#C7A24A]/15 bg-gradient-to-br from-white to-[#fdf9f0] p-4 sm:p-5">
@@ -921,7 +918,7 @@ export default function ExamStaminaBlog() {
                 See where your child&apos;s exam stamina really breaks down
               </h3>
               <p className="text-sm text-white/80 leading-relaxed mb-6 max-w-lg mx-auto">
-                A 1-to-1 diagnostic session with an Ustaad curriculum specialist runs your child through an official board-specific timed section to map their exact fatigue point and build a personalised progressive training ladder.
+                A one-to-one diagnostic session with an Ustaad curriculum specialist runs your child through an official board specific timed section to map their exact fatigue point and build a personalised progressive training ladder.
               </p>
               <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
                 <a

@@ -395,10 +395,9 @@ export function AcademicExpertiseSection() {
                   <Artifact />
                 </div>
 
-                {/* Footer Link with animated sliding arrow */}
-                <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-200">
+                {/* Footer Link */}
+                <div className="mt-4 pt-3 border-t border-gray-100 flex items-center text-xs font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-200">
                   <span>Explore {subj.title}</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-2 transition-transform duration-300 text-[#0f4a9b]" />
                 </div>
               </motion.a>
             );

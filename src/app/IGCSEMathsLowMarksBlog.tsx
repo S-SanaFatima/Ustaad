@@ -61,12 +61,12 @@ const RELATED = [
   {
     category: 'IGCSE Maths',
     title: 'My Child Only Panics Right Before Exams: What Is Actually Happening?',
-    description: 'A closer look at why exam anxiety peaks in the final days before an IGCSE paper — and what parents can do before it becomes a bigger problem.',
+    description: 'A closer look at why exam anxiety peaks in the final days before an IGCSE paper, and what parents can do before it becomes a bigger problem.',
   },
   {
     category: 'Study Strategy',
     title: 'Why Past Papers Alone Are Not Enough for IGCSE Maths Revision',
-    description: 'Past papers are useful — but only when used correctly. Here is what most students miss when they rely on them as their primary revision tool.',
+    description: 'Past papers are useful, but only when used correctly. Here is what most students miss when they rely on them as their primary revision tool.',
   },
 ];
 
@@ -363,7 +363,7 @@ export default function IGCSEMathsLowMarksBlog() {
             </div>
           </motion.div>
 
-          {/* Hero image — no cropping, white border stroke */}
+          {/* Hero image: no cropping, white border stroke */}
           <motion.figure initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }} className="mb-0">
             <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_40px_rgba(15,74,155,0.12)]">
               <img src={BLOG.heroImage} alt={BLOG.heroAlt} fetchPriority="high" className="w-full h-auto block" />
@@ -407,7 +407,7 @@ export default function IGCSEMathsLowMarksBlog() {
             <SectionHeading num="02" id="a-simple-equation-that-explains-the-entire-problem">A Simple Equation That Explains the Entire Problem</SectionHeading>
             <p>Here is a real classroom observation that explains the issue very clearly.</p>
             <p>A student is shown the equation:</p>
-            <EquationBlock label="Slope–Intercept Form">y = mx + b</EquationBlock>
+            <EquationBlock label="Slope-Intercept Form">y = mx + b</EquationBlock>
             <p>They answer confidently.</p>
             <BulletList items={[<><strong>m</strong> is the gradient</>, <><strong>b</strong> is the y-intercept</>]} />
             <p>When the equation appears as:</p>
@@ -416,7 +416,7 @@ export default function IGCSEMathsLowMarksBlog() {
             <BulletList items={['gradient = 2', 'intercept = 3']} />
             <p>That part feels easy.</p>
             <p>Then the same concept appears differently:</p>
-            <EquationBlock label="Same Line — Rewritten">2x + y = 3</EquationBlock>
+            <EquationBlock label="Same Line: Rewritten">2x + y = 3</EquationBlock>
             <p>And suddenly confusion begins.</p>
             <p>Many students glance at this and immediately assume the gradient is 2 because their mind connects the term "2x" to familiar practice questions.</p>
             <p>But the equation first needs rearranging:</p>

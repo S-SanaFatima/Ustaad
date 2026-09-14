@@ -370,7 +370,7 @@ export default function GCSETutorDubaiPage() {
           </motion.h1>
 
           <motion.p variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }} className="text-blue-100/80 text-sm sm:text-base md:text-[17px] leading-relaxed max-w-2xl mb-6 md:mb-8 px-2 italic">
-            One-to-one tutoring with AQA, Edexcel and OCR specialists. First lesson free.
+            One-to-one tutoring with AQA, Edexcel and OCR specialists.
           </motion.p>
 
           <motion.div variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } }} className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 w-full max-w-md sm:max-w-none px-4">
@@ -838,10 +838,9 @@ export default function GCSETutorDubaiPage() {
                   {item.body}
                 </p>
 
-                {/* Bottom Action Strip with sliding arrow */}
-                <div className="mt-4 pt-3.5 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors">
+                {/* Bottom Action Strip */}
+                <div className="mt-4 pt-3.5 border-t border-gray-100 flex items-center text-xs font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors">
                   <span>Explore {item.title}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#0f4a9b] group-hover:translate-x-1.5 transition-transform duration-300" />
                 </div>
               </motion.a>
             ))}
@@ -864,9 +863,6 @@ export default function GCSETutorDubaiPage() {
                 <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#C7A24A]/15 text-[#A8892A] border border-[#C7A24A]/30 uppercase tracking-wider">High Impact</span>
               </div>
               <p className="text-[13px] text-gray-600 leading-relaxed">Past papers, timing drills and mark-scheme practice for mocks and final exams.</p>
-            </div>
-            <div className="w-9 h-9 rounded-full bg-white border border-[#0f4a9b]/15 flex items-center justify-center group-hover:bg-[#0f4a9b] group-hover:text-white transition-all shrink-0">
-              <ArrowRight className="w-4 h-4 text-[#0f4a9b] group-hover:text-white group-hover:translate-x-0.5 transition-all" />
             </div>
           </motion.a>
         </div>

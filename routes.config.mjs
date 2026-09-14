@@ -7,6 +7,8 @@ export const ROUTES = [
   { path: '/about', component: 'AboutPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/contact', component: 'ContactPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/tutors', component: 'TutorsPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-07-28' },
+  { path: '/tutors/tabraiz-khan', component: 'TutorProfilePage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-09-10' },
+  { path: '/tutors/fahad-khan', component: 'TutorProfilePage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-09-10' },
   { path: '/subjects', component: 'SubjectsPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/how-it-works', component: 'HowItWorksPage', priority: 0.7, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/editorial', component: 'EditorialPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-07-28' },
@@ -63,10 +65,13 @@ export const ROUTES = [
   { path: '/blogs/early-signs-chemistry-help-uae', component: 'EarlySignsChemistryBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/blogs/read-uae-school-report-card', component: 'ReadSchoolReportCardBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-10' },
   { path: '/blogs/10-questions-hiring-private-tutor-abu-dhabi', component: 'HirePrivateTutorAbuDhabiBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-28' },
+  { path: '/blogs/private-tutoring-uae-parent-guide', component: 'PrivateTutoringParentGuideBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-11' },
   { path: '/blogs/igcse-vs-gcse-curriculum-differences-uae', component: 'IGCSEvsGCSEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-21' },
   { path: '/blogs/a-level-tutoring-uae-independent-thinking', component: 'ALevelIndependentThinkingBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-24' },
   { path: '/blogs/igcse-preparation-past-papers-final-step', component: 'IGCSEPreparationPastPapersBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-27' },
   { path: '/blogs/gcse-revision-tips-uae-parents', component: 'GCSERevisionTipsParentsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-31' },
+  { path: '/blogs/mock-exams-uae-not-what-they-were', component: 'MockExamsUAEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-14' },
+
 
   // City × subject landings
   { path: '/maths-tutor-abu-dhabi', component: 'MathematicsLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
@@ -80,8 +85,8 @@ export const ROUTES = [
   { path: '/igcse-tutor-dubai', component: 'IgcseTutorDubaiLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-09' },
   { path: '/a-level-tutor-abu-dhabi', component: 'ALevelTutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-19' },
 
-  { path: '/privacy', component: 'PrivacyPage', priority: 0.3, changefreq: 'yearly', lastmod: '2026-07-11' },
-  { path: '/terms', component: 'TermsPage', priority: 0.3, changefreq: 'yearly', lastmod: '2026-07-11' },
+  { path: '/privacy', component: 'PrivacyPage', priority: 0.3, changefreq: 'monthly', lastmod: '2026-09-11' },
+  { path: '/terms', component: 'TermsPage', priority: 0.3, changefreq: 'monthly', lastmod: '2026-09-11' },
 ];
 
 // Generate sitemap XML from routes — noindex / redirected duplicates excluded

@@ -4,6 +4,7 @@
 :root {
   --font-sans: ui-sans-serif, system-ui, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-display: ui-sans-serif, system-ui, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
 }
 
 html {

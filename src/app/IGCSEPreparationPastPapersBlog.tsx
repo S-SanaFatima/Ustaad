@@ -13,7 +13,7 @@ const BLOG = {
   description: 'IGCSE preparation is like building a house. See why past papers are the roof, not the foundation, and how to prepare in the right order to lift grades.',
   heroImage: '/images/blogs/igcse-preparation-past-papers-hero.jpg',
   heroAlt: 'UAE parent and IGCSE student reviewing revision plans and past paper preparation at home',
-  heroCaption: 'Past papers are the roof of IGCSE preparation — essential, but only after the foundation is set.',
+  heroCaption: 'Past papers are the roof of IGCSE preparation, essential, but only after the foundation is set.',
   datePublished: '2026-08-27',
   dateModified: '2026-08-27',
   author: 'Nimra Shahzada',
@@ -524,7 +524,7 @@ export default function IGCSEPreparationPastPapersBlog() {
             <SectionHeading num="04" id="the-interior-the-skills-no-one-lists">The interior: the skills no one lists</SectionHeading>
 
             <Blockquote>
-              <strong>THE INTERIOR:</strong> Exam skills are almost never written in a textbook, which is exactly why they are so often missed — and why marks get left on the table.
+              <strong>THE INTERIOR:</strong> Exam skills are almost never written in a textbook, which is exactly why they are so often missed, and why marks get left on the table.
             </Blockquote>
 
             <p>

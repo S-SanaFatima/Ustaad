@@ -150,11 +150,8 @@ function DossierCard({ item, index }: { item: CurriculumData; index: number }) {
 
           {/* Bottom Card Footer */}
           <div className="relative z-10 pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#0f4a9b]">
-            <span className="inline-flex items-center gap-1">
+            <span className="inline-flex items-center">
               View Detailed Dossier
-            </span>
-            <span className="w-7 h-7 rounded-full bg-[#0f4a9b]/10 flex items-center justify-center text-[#0f4a9b] group-hover:bg-[#0f4a9b] group-hover:text-white transition-colors">
-              <ArrowRight className="w-3.5 h-3.5" />
             </span>
           </div>
         </div>
@@ -239,10 +236,9 @@ function DossierCard({ item, index }: { item: CurriculumData; index: number }) {
             <a
               href={item.href}
               onClick={(e) => e.stopPropagation()}
-              className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#C7A24A] via-[#d4af37] to-[#A8892A] text-[#0a1f3d] text-xs font-black uppercase tracking-wider shadow-[0_4px_16px_rgba(199,162,74,0.3)] hover:brightness-110 active:scale-[0.98] transition-all"
+              className="w-full inline-flex items-center justify-center py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#C7A24A] via-[#d4af37] to-[#A8892A] text-[#0a1f3d] text-xs font-black uppercase tracking-wider shadow-[0_4px_16px_rgba(199,162,74,0.3)] hover:brightness-110 active:scale-[0.98] transition-all"
             >
               <span>Explore {item.title.replace(' Curriculum', '')} Details</span>
-              <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  Award, Blocks, FileSearch, GraduationCap, HandHeart, Lightbulb, Home,
+  Award, Blocks, FileSearch, GraduationCap, HandHeart, Lightbulb,
   PenTool, Search, Star, Target, TrendingUp, UserCheck, Users, Calendar,
   Globe, Clock, Repeat, MapPin, MessageCircle, ChevronDown, ChevronUp, Compass, Landmark,
 } from 'lucide-react';
@@ -136,39 +136,19 @@ export default function AboutPage() {
         schema={[localBusinessSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "About", url: "/about" }]), faqSchema(aboutSchemaFaqs), ...teamPersonSchemas]}
       />
       {/* ── HERO ── */}
-      <section className="pt-8 pb-10 sm:pt-12 sm:pb-16 lg:pt-20 lg:pb-24 relative overflow-hidden bg-gradient-to-br from-[#F4F8FD] via-white to-[#fcfaf5]">
+      <section className="min-h-[calc(100dvh-84px)] lg:min-h-[calc(100dvh-92px)] flex items-center relative overflow-hidden bg-gradient-to-br from-[#F4F8FD] via-white to-[#fcfaf5] py-8 sm:py-10 lg:py-12">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[#0f4a9b]/10 to-[#C7A24A]/5 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/4" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#0f4a9b]/5 to-transparent rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Visible Breadcrumb UI */}
-          <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6" itemScope itemType="https://schema.org/BreadcrumbList">
-            <ol className="flex items-center gap-1.5 text-xs font-semibold text-gray-500">
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <a itemProp="item" href="/" className="hover:text-[#0f4a9b] transition-colors flex items-center gap-1.5 text-gray-600">
-                  <Home className="w-3.5 h-3.5 text-[#0f4a9b]" />
-                  <span itemProp="name">Home</span>
-                </a>
-                <meta itemProp="position" content="1" />
-              </li>
-              <li className="text-gray-400">/</li>
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-[#0a1f3d] font-bold" aria-current="page">
-                <span itemProp="name">About</span>
-                <link itemProp="item" href="https://ustaad.ae/about" />
-                <meta itemProp="position" content="2" />
-              </li>
-            </ol>
-          </nav>
-
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-20 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14 xl:gap-16 items-center">
 
             {/* Left */}
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-4 sm:mb-6 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-3.5 sm:mb-4 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
                 <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> About Ustaad
               </div>
-              <h1 className="text-[1.75rem] leading-[1.15] sm:text-4xl lg:text-5xl xl:text-[64px] font-extrabold text-[#0a1f3d] mb-4 sm:leading-[1.1] tracking-tight relative z-10">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f3d] mb-3 sm:mb-4 leading-[1.15] tracking-tight relative z-10">
                 {/* Ambient SVG Wash */}
                 <motion.div 
                   className="absolute -inset-6 sm:-inset-12 z-[-1] rounded-full blur-[50px] pointer-events-none"
@@ -182,14 +162,14 @@ export default function AboutPage() {
                 />
                 <GradientHeadingText text="Structured Learning. Real Academic Progress." />
               </h1>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-5 sm:mb-6" />
-              <p className="text-gray-600 text-[15px] sm:text-lg mb-7 sm:mb-10 leading-relaxed max-w-xl">
+              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3.5 sm:mb-5" />
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-5 sm:mb-7 leading-relaxed max-w-xl">
                 Ustaad helps students build stronger study foundations, work through learning gaps with patience, and move forward with steadier performance across the school year.
               </p>
               <HeroCTABlock className="mb-4">
                 Book Your Free Trial
               </HeroCTABlock>
-              <p className="text-sm text-gray-500 mt-4">
+              <p className="text-xs sm:text-sm text-gray-500 mt-3">
                 <a href="/editorial" className="text-[#0f4a9b] font-semibold underline">Meet the editorial team</a>
                 {' '}behind Ustaad’s parent guides and study articles.
               </p>
@@ -200,7 +180,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[480px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_16px_48px_rgba(15,74,155,0.12)] border-4 sm:border-8 border-white group z-10"
+              className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[420px] xl:h-[460px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_16px_48px_rgba(15,74,155,0.12)] border-4 sm:border-8 border-white group z-10"
             >
               <img
                 src="/UpdatedImages/experienced-uae-educator-online-tutoring-session.webp"
@@ -277,22 +257,22 @@ export default function AboutPage() {
                   srcSet={`${storyTabs[activeStoryTab].image} 1200w`}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                   alt={storyTabs[activeStoryTab].imageAlt} 
-                  className="w-full aspect-[16/10] sm:aspect-auto sm:h-[440px] object-cover group-hover:scale-105 transition duration-700" 
+                  className="w-full aspect-[4/3] sm:aspect-auto sm:h-[440px] object-cover group-hover:scale-105 transition duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f3d]/50 via-transparent to-transparent" />
                 
                 {/* Floating Stat Badge */}
-                <div className="absolute bottom-4 left-4 right-4 sm:right-auto bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-xl border border-gray-200 block">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-xl flex items-center justify-center text-white shadow-md flex-shrink-0">
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 max-w-max bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl px-2.5 py-1.5 sm:p-4 shadow-lg sm:shadow-xl border border-gray-100 sm:border-gray-200 block">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-7 h-7 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0088cc] to-[#0a3a79] rounded-lg sm:rounded-xl flex items-center justify-center text-white shadow-xs sm:shadow-md flex-shrink-0">
                       {(() => {
                         const StatIcon = storyTabs[activeStoryTab].stat.icon;
-                        return <StatIcon className="h-4 w-4 sm:h-5 sm:w-5" />;
+                        return <StatIcon className="h-3.5 w-3.5 sm:h-5 sm:w-5" />;
                       })()}
                     </div>
                     <div>
-                      <div className="text-lg sm:text-xl font-extrabold text-[#0a1f3d]">{storyTabs[activeStoryTab].stat.number}</div>
-                      <div className="text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wide">{storyTabs[activeStoryTab].stat.label}</div>
+                      <div className="text-xs sm:text-xl font-extrabold text-[#0a1f3d] leading-none mb-0.5">{storyTabs[activeStoryTab].stat.number}</div>
+                      <div className="text-[9px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wide leading-none">{storyTabs[activeStoryTab].stat.label}</div>
                     </div>
                   </div>
                 </div>
@@ -574,44 +554,44 @@ export default function AboutPage() {
       </section>
 
       {/* ── ASK YOUR QUESTIONS ── */}
-      <section className="py-12 lg:py-16 bg-gray-50 relative overflow-hidden flex justify-center">
-        <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="relative rounded-[32px] p-px overflow-hidden shadow-[0_25px_60px_rgba(15,74,155,0.18)] group transition-shadow duration-500">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gray-50 relative overflow-hidden flex justify-center">
+        <div className="max-w-5xl w-full mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+          <div className="relative rounded-[24px] sm:rounded-[32px] p-px overflow-hidden shadow-[0_20px_50px_rgba(15,74,155,0.18)] group transition-shadow duration-500">
             
             {/* Spinning Border Highlight */}
             <div className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#0a1f3d_0%,#C7A24A_50%,#0f4a9b_100%)] animate-[spin_6s_linear_infinite] opacity-40 group-hover:opacity-80 transition-opacity duration-500" />
 
-            <div className="relative bg-gradient-to-br from-[#0a1f3d] via-[#0d2c58] to-[#0f4a9b] rounded-[31px] p-8 sm:p-10 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 overflow-hidden h-full">
+            <div className="relative bg-gradient-to-br from-[#0a1f3d] via-[#0d2c58] to-[#0f4a9b] rounded-[23px] sm:rounded-[31px] p-5 sm:p-10 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-5 md:gap-10 overflow-hidden h-full">
 
-              {/* FLOATING SCHOOL & EDUCATION BACKGROUND BADGES — desktop only */}
-              <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
+              {/* FLOATING SCHOOL & EDUCATION BACKGROUND BADGES — visible & animated on mobile + desktop */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden block">
                 {/* Floating Graduation Cap (Top Left) */}
-                <div className="absolute top-6 left-12 w-11 h-11 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-[#C7A24A] flex items-center justify-center shadow-lg animate-float-slow opacity-60">
-                  <GraduationCap className="w-6 h-6" />
+                <div className="absolute top-2.5 left-2.5 sm:top-6 sm:left-12 w-7 h-7 sm:w-11 sm:h-11 rounded-lg sm:rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-[#C7A24A] flex items-center justify-center shadow-lg animate-float-slow opacity-60">
+                  <GraduationCap className="w-3.5 h-3.5 sm:w-6 sm:h-6" />
                 </div>
 
                 {/* Floating Book / Pen (Top Center) */}
-                <div className="absolute top-4 left-[45%] w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-blue-300 flex items-center justify-center shadow-lg animate-float-drift animate-float-delay-1 opacity-50">
+                <div className="hidden sm:flex absolute top-4 left-[45%] w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-blue-300 items-center justify-center shadow-lg animate-float-drift animate-float-delay-1 opacity-50">
                   <PenTool className="w-5 h-5" />
                 </div>
 
                 {/* Floating Star (Top Right) */}
-                <div className="absolute top-8 right-24 w-9 h-9 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-amber-300 flex items-center justify-center shadow-lg animate-float-slow animate-float-delay-2 opacity-60">
-                  <Star className="w-5 h-5 fill-amber-300" />
+                <div className="absolute top-2.5 right-2.5 sm:top-8 sm:right-24 w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-amber-300 flex items-center justify-center shadow-lg animate-float-slow animate-float-delay-2 opacity-60">
+                  <Star className="w-3.5 h-3.5 sm:w-5 sm:h-5 fill-amber-300" />
                 </div>
 
                 {/* Floating Award (Bottom Left) */}
-                <div className="absolute bottom-6 left-28 w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-emerald-300 flex items-center justify-center shadow-lg animate-float-drift animate-float-delay-3 opacity-50">
-                  <Award className="w-5 h-5" />
+                <div className="absolute bottom-2.5 left-2.5 sm:bottom-6 sm:left-28 w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-emerald-300 flex items-center justify-center shadow-lg animate-float-drift animate-float-delay-3 opacity-50">
+                  <Award className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                 </div>
 
                 {/* Floating Target (Bottom Right) */}
-                <div className="absolute bottom-5 right-40 w-11 h-11 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-[#C7A24A] flex items-center justify-center shadow-lg animate-float-slow animate-float-delay-1 opacity-60">
-                  <Target className="w-6 h-6" />
+                <div className="absolute bottom-2.5 right-2.5 sm:bottom-5 sm:right-40 w-7 h-7 sm:w-11 sm:h-11 rounded-lg sm:rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-[#C7A24A] flex items-center justify-center shadow-lg animate-float-slow animate-float-delay-1 opacity-60">
+                  <Target className="w-3.5 h-3.5 sm:w-6 sm:h-6" />
                 </div>
 
                 {/* Floating Lightbulb (Bottom Center) */}
-                <div className="absolute bottom-4 left-[55%] w-9 h-9 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-yellow-300 flex items-center justify-center shadow-lg animate-float-drift opacity-40">
+                <div className="hidden sm:flex absolute bottom-4 left-[55%] w-9 h-9 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-yellow-300 items-center justify-center shadow-lg animate-float-drift opacity-40">
                   <Lightbulb className="w-5 h-5" />
                 </div>
               </div>
@@ -625,23 +605,23 @@ export default function AboutPage() {
                 <div className="relative group/time cursor-default">
                   <div className="absolute -inset-1 bg-gradient-to-r from-[#C7A24A] to-[#25D366] rounded-[24px] blur opacity-30 group-hover/time:opacity-60 transition duration-500" />
                   
-                  <div className="relative flex flex-col items-center justify-center gap-3 rounded-[22px] border border-white/15 bg-white/10 backdrop-blur-xl px-7 py-8 shadow-[0_20px_50px_rgba(0,0,0,0.3)] min-w-[150px] transition-transform duration-500 hover:-translate-y-1">
+                  <div className="relative flex flex-col items-center justify-center gap-2 sm:gap-3 rounded-[18px] sm:rounded-[22px] border border-white/15 bg-white/10 backdrop-blur-xl px-4 py-3.5 sm:px-7 sm:py-8 shadow-[0_20px_50px_rgba(0,0,0,0.3)] min-w-[120px] sm:min-w-[150px] transition-transform duration-500 hover:-translate-y-1">
                     
                     {/* Live Online Badge */}
-                    <div className="absolute -top-3 flex items-center justify-center bg-[#25D366] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-lg shadow-green-500/30 z-20">
+                    <div className="absolute -top-2.5 sm:-top-3 flex items-center justify-center bg-[#25D366] text-white text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-lg shadow-green-500/30 z-20">
                       <div className="w-1.5 h-1.5 bg-white rounded-full mr-1.5 animate-pulse" />
                       ~15m Reply
                     </div>
 
-                    <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-white/20 to-white/5 border border-white/20 flex items-center justify-center text-white mb-1 shadow-inner p-3">
-                      <Clock className="h-6 w-6 text-white" strokeWidth={2.5} />
+                    <div className="w-9 h-9 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-gradient-to-br from-white/20 to-white/5 border border-white/20 flex items-center justify-center text-white mb-0.5 sm:mb-1 shadow-inner p-2 sm:p-3">
+                      <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-white" strokeWidth={2.5} />
                     </div>
                     
                     <div className="flex flex-col items-center justify-center text-center">
-                      <span className="text-4xl font-black text-white tracking-tight leading-none mb-1 drop-shadow-md">
+                      <span className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-none mb-0.5 sm:mb-1 drop-shadow-md">
                         15
                       </span>
-                      <span className="text-xs font-bold text-[#C7A24A] uppercase tracking-widest">
+                      <span className="text-[10px] sm:text-xs font-bold text-[#C7A24A] uppercase tracking-widest">
                         Minutes
                       </span>
                     </div>
@@ -651,10 +631,10 @@ export default function AboutPage() {
 
               {/* Middle: Content */}
               <div className="flex-1 text-center md:text-left relative z-20 max-w-lg">
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-tight leading-tight">
+                <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-2 sm:mb-3 tracking-tight leading-tight">
                   Have a Quick <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C7A24A] via-[#f3d994] to-[#C7A24A]">Question?</span>
                 </h2>
-                <p className="text-blue-100/90 text-base sm:text-lg leading-relaxed font-light">
+                <p className="text-blue-100/90 text-xs sm:text-base lg:text-lg leading-relaxed font-light">
                   Through our <span className="font-semibold text-white">Ask Your Questions</span> feature, students can send questions directly to tutors and typically receive teaching support or worked solutions within <span className="font-semibold text-[#C7A24A]">around 15 minutes</span>.
                 </p>
               </div>
@@ -669,11 +649,11 @@ export default function AboutPage() {
                   className="group/wa relative block"
                 >
                   <div className="absolute inset-0 bg-[#25D366] rounded-full blur-[18px] opacity-40 group-hover/wa:opacity-80 group-hover/wa:blur-[25px] transition-all duration-300" />
-                  <div className="relative flex items-center justify-center gap-2.5 px-8 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full font-bold text-lg shadow-[0_10px_25px_rgba(37,211,102,0.35)] transition-all duration-300 transform group-hover/wa:scale-[1.04] group-hover/wa:-translate-y-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                  <div className="relative flex items-center justify-center gap-2 px-5 py-2.5 sm:px-8 sm:py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full font-bold text-sm sm:text-base shadow-[0_10px_25px_rgba(37,211,102,0.35)] transition-all duration-300 transform group-hover/wa:scale-[1.04] group-hover/wa:-translate-y-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" className="sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="currentColor" stroke="none">
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
                     </svg>
-                    Chat on WhatsApp
+                    <span>Chat on WhatsApp</span>
                   </div>
                 </a>
               </div>

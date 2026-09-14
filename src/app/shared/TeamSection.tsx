@@ -36,9 +36,9 @@ export const TEAM: TeamMember[] = [
     desc: "Sets Ustaad's academic direction and tutoring standards, and oversees how tutors are selected and reviewed across British, IB, and American curriculums.",
     focus: ['10+ Yrs UAE', 'Curriculum Strategy'],
     initials: 'FZ',
-    image: '/images/team/f-zaman-v2.jpg',
+    image: '/images/team/f-zaman-v3.jpg',
     imageAlt: 'F. Zaman, Founder and Academic Director at Ustaad',
-    objectPosition: 'center 14%',
+    objectPosition: 'center top',
   },
   {
     name: 'Nida Iqbal',
@@ -246,10 +246,10 @@ export default function TeamSection() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.12em] text-[#0a1f3d]/75">
+                <h3 className="text-[10px] sm:text-xs font-bold sm:font-extrabold uppercase tracking-wider sm:tracking-[0.12em] text-[#0a1f3d]/75">
                   Our Academic and Operations Team
                 </h3>
-                <span className="text-[10px] font-bold text-[#0f4a9b] bg-[#0f4a9b]/8 px-2 py-0.5 rounded-full border border-[#0f4a9b]/12">
+                <span className="text-[9px] sm:text-[10px] font-bold text-[#0f4a9b] bg-[#0f4a9b]/8 px-1.5 sm:px-2 py-0.5 rounded-full border border-[#0f4a9b]/12 shrink-0">
                   Member {activeFaculty + 1} of {FACULTY.length}
                 </span>
               </div>
@@ -313,9 +313,9 @@ export default function TeamSection() {
                       {currentFaculty.profileHref && (
                         <a
                           href={currentFaculty.profileHref}
-                          className="text-xs font-bold text-[#0f4a9b] hover:text-[#C7A24A] transition-colors inline-flex items-center gap-1"
+                          className="text-xs font-bold text-[#0f4a9b] hover:text-[#C7A24A] transition-colors inline-flex items-center"
                         >
-                          View Full Profile <ArrowUpRight className="w-3.5 h-3.5" />
+                          View Full Profile
                         </a>
                       )}
                     </div>

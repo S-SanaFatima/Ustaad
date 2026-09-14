@@ -40,7 +40,7 @@ export default function SubjectHero({
   secondaryCtaText
 }: SubjectHeroProps) {
   return (
-    <section className={`relative flex items-center overflow-hidden ${compact ? 'min-h-[540px] lg:min-h-[620px]' : 'min-h-[600px] lg:min-h-[700px]'}`}>
+    <section className={`relative flex items-center overflow-hidden ${compact ? 'min-h-[460px] lg:min-h-[520px]' : 'min-h-[calc(100dvh-84px)] lg:min-h-[calc(100dvh-92px)]'}`}>
       {/* Background Image with Gradient Overlay */}
       <div className="absolute inset-0">
         <img
@@ -92,17 +92,17 @@ export default function SubjectHero({
       )}
 
       {/* Content */}
-      <div className={`relative z-10 w-full ${compact ? 'py-14 lg:py-16' : 'py-20'}`}>
+      <div className={`relative z-10 w-full ${compact ? 'py-8 sm:py-10 lg:py-12' : 'py-10 sm:py-12 lg:py-16'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={compact ? 'max-w-3xl' : 'max-w-2xl'}>
             {/* Premium Badge */}
-            <div className={`inline-flex items-center justify-center gap-2 px-4 py-2 bg-white text-[#A8892A] text-sm font-bold rounded-full mb-6 border-2 border-[#C7A24A]/60 shadow-[0_0_20px_rgba(199,162,74,0.18)] ${
+            <div className={`inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 bg-white text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-3.5 sm:mb-4 border-2 border-[#C7A24A]/60 shadow-[0_0_20px_rgba(199,162,74,0.18)] ${
               isDarkHero ? 'bg-white/10 border-white/20 text-white' : ''
             }`}>
-              <Shield className="h-4 w-4 text-[#C7A24A]" /> Trusted by 200+ Abu Dhabi families since 2015
+              <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#C7A24A]" /> Trusted by 200+ Abu Dhabi families since 2015
             </div>
 
-            <h1 className={`text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.1] transition-all ${compact ? 'mb-4' : 'mb-6'}`}>
+            <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.15] transition-all mb-3 sm:mb-4`}>
               <span className={isDarkHero ? 'text-white drop-shadow-lg' : 'text-[#0a1f3d]'}>
                 {title}{' '}
               </span>
@@ -113,15 +113,15 @@ export default function SubjectHero({
               </span>
             </h1>
 
-            <div className={`w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full ${compact ? 'mb-4' : 'mb-6'}`}></div>
+            <div className={`w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3.5 sm:mb-5`}></div>
 
-            <div className={`leading-relaxed transition-all ${compact ? 'text-base lg:text-lg mb-6 max-w-2xl' : 'text-lg lg:text-xl mb-10 max-w-xl'} ${
+            <div className={`leading-relaxed transition-all text-sm sm:text-base lg:text-lg mb-5 sm:mb-7 max-w-xl ${
               isDarkHero ? 'text-blue-100 drop-shadow-md' : 'text-gray-600'
             }`}>
               {descriptionNode ?? description}{curriculum ? ` ${curriculum}, serving students across the UAE.` : ''}
             </div>
 
-            <div className={`flex flex-col sm:flex-row items-start gap-4 ${compact ? 'mb-2' : 'mb-4'}`}>
+            <div className={`flex flex-col sm:flex-row items-start gap-4 mb-2`}>
               <HeroCTABlock
                 trustClassName={isDarkHero ? 'text-blue-200' : ''}
                 buttonClassName=""
@@ -141,7 +141,7 @@ export default function SubjectHero({
               )}
             </div>
 
-</div>
+          </div>
         </div>
       </div>
 

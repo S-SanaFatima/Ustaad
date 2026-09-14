@@ -9,7 +9,10 @@ import {
   BookOpen, FlaskConical,
   Route as RouteIcon, Brain, Target, Eye, Star, Atom, MessageCircle,
 } from 'lucide-react';
-import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared';
+
+import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee, WhatsAppIcon } from './shared';
+
+
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, courseSchema } from './shared/schemas';
 import RelatedContent from './shared/RelatedContent';
@@ -289,7 +292,7 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
           </h2>
           <p className="text-gray-500 text-[15px] max-w-2xl mx-auto leading-relaxed">
             Three quiet steps from weak topics to confident independent maths work.{' '}
-            <a href="/how-it-works" className="font-semibold" style={{ color: '#0f4a9b' }}>See how it works →</a>
+            <a href="/how-it-works" className="font-semibold" style={{ color: '#0f4a9b' }}>See how it works</a>
           </p>
         </div>
 
@@ -775,7 +778,7 @@ export default function MathematicsLanding() {
                 Book Your Free Trial
               </a>
               <span className="text-blue-200/50 text-[11px] -my-1">or</span>
-              <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
+              <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><WhatsAppIcon className="w-4 h-4" /> WhatsApp Us</a>
               <p className="text-blue-200/50 text-[11px] mt-1">No commitment. Cancel anytime.</p>
             </div>
 
@@ -791,7 +794,7 @@ export default function MathematicsLanding() {
               </div>
               <div className="flex flex-col items-center gap-1.5">
                 <a href={WA_URL} className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
-                  <MessageCircle className="w-4 h-4" /> WhatsApp Us
+                  <WhatsAppIcon className="w-4 h-4" /> WhatsApp Us
                 </a>
               </div>
             </div>

@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  CheckCircle, ChevronRight, Clock, Mail, MapPin, Phone, Send, Sparkles, User, Users, BookOpen, GraduationCap, HelpCircle, MessageSquare,
-  ChevronDown, MessageCircle, Building2, PartyPopper,
+  CheckCircle, ChevronRight, Clock, Mail, MapPin, Phone, Send, Sparkles, User, Users, BookOpen, GraduationCap,
+  ChevronDown, MessageCircle, PartyPopper,
 } from 'lucide-react';
-import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock } from './shared';
+import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock, FAQAccordion, WhatsAppIcon } from './shared';
+
+
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema } from './shared/schemas';
 import { scrollToHash, scrollToHashWhenReady, getFixedHeaderOffset } from '../lib/scrollToHash';
@@ -551,7 +553,7 @@ Discount: ${hasBackToSchoolDiscount ? '10% Back to School (claimed via popup)' :
                     setShowDiscountWelcome(false);
                     scrollToHash('#form');
                   }}
-                  className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-[#0a1f3d] via-[#0f4a9b] to-[#0a1f3d] px-5 py-4 text-[13px] font-extrabold text-white shadow-[0_10px_25px_rgba(10,31,61,0.3)] transition-all"
+                  className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-[#0b3d80] via-[#0f4a9b] to-[#0b3d80] px-5 py-4 text-[13px] font-extrabold text-white shadow-[0_10px_25px_rgba(11,61,128,0.3)] transition-all"
                 >
                   <div className="absolute inset-0 bg-white/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
                   <span className="relative flex items-center justify-center tracking-[0.05em] uppercase">
@@ -586,7 +588,7 @@ Discount: ${hasBackToSchoolDiscount ? '10% Back to School (claimed via popup)' :
         {/* Progress Bar & Header */}
         <div className="px-3 sm:px-8 pt-3 sm:pt-8 pb-1.5 sm:pb-4">
           <div className="flex justify-between items-end mb-1.5 sm:mb-4">
-            <span className="text-[#0a1f3d] font-bold text-xs sm:text-sm">Step {step} of 5</span>
+            <span className="text-[#0b3d80] font-bold text-xs sm:text-sm">Step {step} of 5</span>
             <span className="text-[#C7A24A] font-bold text-xs sm:text-sm">{progress}% Complete</span>
           </div>
           {/* Progress bar line */}
@@ -596,11 +598,11 @@ Discount: ${hasBackToSchoolDiscount ? '10% Back to School (claimed via popup)' :
 
           {/* Tabs */}
           <div className="flex justify-between items-center text-[9px] sm:text-xs font-semibold text-gray-400 mb-1 sm:mb-2 px-1">
-            <span className={step >= 1 ? "text-[#0a1f3d]" : ""}>Role</span>
-            <span className={step >= 2 ? "text-[#0a1f3d]" : ""}>Details</span>
-            <span className={step >= 3 ? "text-[#0a1f3d]" : ""}>Academic</span>
-            <span className={step >= 4 ? "text-[#0a1f3d]" : ""}>Requirements</span>
-            <span className={step >= 5 ? "text-[#0a1f3d]" : ""}>Review</span>
+            <span className={step >= 1 ? "text-[#0b3d80] font-bold" : ""}>Role</span>
+            <span className={step >= 2 ? "text-[#0b3d80] font-bold" : ""}>Details</span>
+            <span className={step >= 3 ? "text-[#0b3d80] font-bold" : ""}>Academic</span>
+            <span className={step >= 4 ? "text-[#0b3d80] font-bold" : ""}>Requirements</span>
+            <span className={step >= 5 ? "text-[#0b3d80] font-bold" : ""}>Review</span>
           </div>
         </div>
 
@@ -623,9 +625,9 @@ Discount: ${hasBackToSchoolDiscount ? '10% Back to School (claimed via popup)' :
                   }`}
                 >
                   <div className={`w-7 h-7 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mb-1.5 sm:mb-4 transition-colors ${
-                    userType === 'parent' ? 'bg-[#0a1f3d]' : 'bg-[#eff5ff] group-hover:bg-[#e4efff]'
+                    userType === 'parent' ? 'bg-[#0b3d80]' : 'bg-[#eff5ff] group-hover:bg-[#e4efff]'
                   }`}>
-                    <Users className={`h-3.5 w-3.5 sm:h-6 sm:w-6 ${userType === 'parent' ? 'text-white' : 'text-[#0a1f3d]'}`} />
+                    <Users className={`h-3.5 w-3.5 sm:h-6 sm:w-6 ${userType === 'parent' ? 'text-white' : 'text-[#0b3d80]'}`} />
                   </div>
                   <h4 className="text-xs sm:text-lg font-bold text-[#0a1f3d] mb-0.5 sm:mb-1">I'm a Parent</h4>
                   <p className="text-gray-500 text-[10px] sm:text-sm leading-tight">Looking for my child</p>
@@ -642,9 +644,9 @@ Discount: ${hasBackToSchoolDiscount ? '10% Back to School (claimed via popup)' :
                   }`}
                 >
                   <div className={`w-7 h-7 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mb-1.5 sm:mb-4 transition-colors ${
-                    userType === 'student' ? 'bg-[#0a1f3d]' : 'bg-[#eff5ff] group-hover:bg-[#e4efff]'
+                    userType === 'student' ? 'bg-[#0b3d80]' : 'bg-[#eff5ff] group-hover:bg-[#e4efff]'
                   }`}>
-                    <GraduationCap className={`h-3.5 w-3.5 sm:h-6 sm:w-6 ${userType === 'student' ? 'text-white' : 'text-[#0a1f3d]'}`} />
+                    <GraduationCap className={`h-3.5 w-3.5 sm:h-6 sm:w-6 ${userType === 'student' ? 'text-white' : 'text-[#0b3d80]'}`} />
                   </div>
                   <h4 className="text-xs sm:text-lg font-bold text-[#0a1f3d] mb-0.5 sm:mb-1">I'm a Student</h4>
                   <p className="text-gray-500 text-[10px] sm:text-sm leading-tight">Looking for myself</p>
@@ -983,7 +985,7 @@ Discount: ${hasBackToSchoolDiscount ? '10% Back to School (claimed via popup)' :
               <button 
                 type="button"
                 onClick={prevStep}
-                className="flex-1 sm:flex-initial px-4 py-2 sm:px-6 sm:py-2.5 bg-white text-[#0a1f3d] font-bold text-xs sm:text-sm rounded-xl flex items-center justify-center border border-gray-200 hover:bg-gray-50 transition-colors"
+                className="flex-1 sm:flex-initial px-4 py-2 sm:px-6 sm:py-2.5 bg-white text-[#0b3d80] font-bold text-xs sm:text-sm rounded-xl flex items-center justify-center border border-gray-200 hover:bg-blue-50/50 hover:border-[#0b3d80]/30 transition-colors"
               >
                 Back
               </button>
@@ -992,13 +994,300 @@ Discount: ${hasBackToSchoolDiscount ? '10% Back to School (claimed via popup)' :
               type="button"
               onClick={handleNext}
               disabled={isSubmitting}
-              className={`flex-1 sm:flex-initial px-5 py-2 sm:px-8 sm:py-2.5 bg-[#0a1f3d] text-white font-bold text-xs sm:text-sm rounded-xl flex items-center justify-center gap-1.5 sm:gap-2 hover:bg-[#0f4a9b] transition-colors shadow-lg shadow-[#0a1f3d]/20 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+              className={`flex-1 sm:flex-initial px-5 py-2 sm:px-8 sm:py-2.5 bg-[#0b3d80] text-white font-bold text-xs sm:text-sm rounded-xl flex items-center justify-center gap-1.5 sm:gap-2 hover:bg-[#09326b] transition-colors shadow-lg shadow-[#0b3d80]/25 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
               {step === 5 ? (isSubmitting ? 'Submitting...' : 'Submit Request') : (step === 4 ? 'Review' : 'Continue')}
               {step === 5 ? <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
             </button>
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+const WAYPOINTS = [
+  {
+    num: '01',
+    label: 'Waypoint // 01',
+    icon: Users,
+    iconBg: 'from-[#0a1f3d] to-[#0b3d80]',
+    accentColor: '#0b3d80',
+    title: 'Trusted by 2,500+ Families Across Dubai, Abu Dhabi, Sharjah & Al Ain',
+    desc: 'Our dedicated tutoring team supports students across British (IGCSE, GCSE, A-Level), IB (MYP, DP SL/HL), and American (AP, SAT) curricula. All enquiries receive a response within 15 minutes during working hours.',
+  },
+  {
+    num: '02',
+    label: 'Waypoint // 02',
+    icon: MapPin,
+    iconBg: 'from-[#7A5E10] via-[#A8892A] to-[#C7A24A]',
+    accentColor: '#C7A24A',
+    title: 'Comprehensive Private Tutoring Across All UAE Emirates',
+    desc: 'Our online tutoring platform connects families in Abu Dhabi, Dubai, Sharjah, and Al Ain with vetted subject specialists for one-on-one sessions. Book your 30-minute free trial session today to get started.',
+  },
+  {
+    num: '03',
+    label: 'Waypoint // 03',
+    icon: CheckCircle,
+    iconBg: 'from-[#065f46] via-[#059669] to-[#10b981]',
+    accentColor: '#059669',
+    title: 'Tailored Academic Tutoring for Exam Prep & Top Grades',
+    desc: 'Whether you require short-term exam prep, intensive mock revision, or weekly academic tutoring, Ustaad pairs your child with top-rated private tutors across Dubai and Abu Dhabi for lasting academic success.',
+  },
+];
+
+function Support3DFlipPodCard({
+  isFlipped,
+  onToggle,
+  frontAccentColor,
+  frontGlowColor,
+  frontGradientBg,
+  frontBorderClass,
+  frontBadge,
+  frontBadgeIcon,
+  frontOrb,
+  frontTitle,
+  frontSubtitle,
+  frontActionHref,
+  frontActionText,
+  frontActionClass,
+  backAccentColor,
+  backGlowColor,
+  backGradientBg,
+  backBorderClass,
+  backHeaderBadge,
+  backTitle,
+  backDesc,
+  backFeatures,
+  backFootnote,
+  backActionHref,
+  backActionText,
+  backActionClass,
+}: {
+  isFlipped: boolean;
+  onToggle: () => void;
+  frontAccentColor: string;
+  frontGlowColor: string;
+  frontGradientBg: string;
+  frontBorderClass: string;
+  frontBadge: string;
+  frontBadgeIcon?: ReactNode;
+  frontOrb: ReactNode;
+  frontTitle: string;
+  frontSubtitle: string;
+  frontActionHref: string;
+  frontActionText: string;
+  frontActionClass: string;
+  backAccentColor: string;
+  backGlowColor: string;
+  backGradientBg: string;
+  backBorderClass: string;
+  backHeaderBadge: ReactNode;
+  backTitle: string;
+  backDesc: string;
+  backFeatures: string[];
+  backFootnote?: ReactNode;
+  backActionHref: string;
+  backActionText: string;
+  backActionClass: string;
+}) {
+  return (
+    <div className="relative w-full [perspective:1400px] min-h-[340px] sm:min-h-[410px]">
+      <motion.div
+        animate={{
+          rotateY: isFlipped ? 180 : 0,
+        }}
+        transition={{
+          duration: 0.65,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+        className="relative w-full h-full [transform-style:preserve-3d] min-h-[340px] sm:min-h-[410px]"
+      >
+        {/* ── FRONT FACE (BIG 3D HERO OBJECT) ── */}
+        <div
+          style={{
+            background: frontGradientBg,
+            backfaceVisibility: 'hidden',
+          }}
+          className={`absolute inset-0 rounded-2xl sm:rounded-[24px] p-2.5 sm:p-6 flex flex-col justify-between items-center text-center shadow-[0_18px_45px_-15px_rgba(0,0,0,0.5)] border transition-all duration-300 overflow-hidden ${frontBorderClass}`}
+        >
+          {/* Top Neon Accent Line */}
+          <div
+            className="absolute -top-px left-6 sm:left-12 right-6 sm:right-12 h-[2px]"
+            style={{ background: `linear-gradient(90deg, transparent, ${frontAccentColor}, transparent)` }}
+          />
+          {/* Ambient Glow */}
+          <div
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-44 sm:w-56 h-44 sm:h-56 rounded-full blur-[65px] opacity-40"
+            style={{ backgroundColor: frontGlowColor }}
+          />
+
+          {/* Top Status Header with Details Flip Trigger */}
+          <div className="relative z-10 w-full flex items-center justify-between gap-1">
+            <div className="inline-flex items-center gap-1 sm:gap-1.5 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-black/40 border border-white/15 backdrop-blur-md shrink-0">
+              <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: frontAccentColor }} />
+              <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-wider text-white/90 whitespace-nowrap">{frontBadge}</span>
+            </div>
+            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+              <div className="hidden sm:flex items-center">{frontBadgeIcon}</div>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onToggle();
+                }}
+                className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-white/15 hover:bg-white/25 active:scale-95 border border-white/25 text-[7.5px] sm:text-[10px] font-black uppercase tracking-wider text-white backdrop-blur-md transition-all cursor-pointer shrink-0"
+                title="View Full Details"
+              >
+                <span>Info ⤺</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Big Center 3D Floating Hero Object */}
+          <div 
+            onClick={onToggle}
+            className="relative z-10 my-auto flex flex-col items-center justify-center py-1 sm:py-2 cursor-pointer group"
+          >
+            {frontOrb}
+            <h3 className="mt-2 sm:mt-3 text-lg sm:text-2xl lg:text-[26px] font-black text-white tracking-tight leading-tight">
+              {frontTitle}
+            </h3>
+            <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-white/80 font-medium max-w-xs line-clamp-2 sm:line-clamp-none">
+              {frontSubtitle}
+            </p>
+          </div>
+
+          {/* Bottom Direct Action Button (Direct Call or Direct WhatsApp Redirect) */}
+          <a
+            href={frontActionHref}
+            target={frontActionHref.startsWith('http') ? '_blank' : undefined}
+            rel={frontActionHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+            onClick={(e) => e.stopPropagation()}
+            className={`relative z-10 w-full py-2.5 sm:py-3 px-3 sm:px-5 rounded-xl sm:rounded-2xl shadow-md backdrop-blur-md flex items-center justify-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs lg:text-sm font-extrabold uppercase tracking-wider transition-all duration-300 group cursor-pointer active:scale-[0.98] ${frontActionClass}`}
+          >
+            <span>{frontActionText}</span>
+            <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+
+        {/* ── BACK FACE (DETAILED CARD WITH CALL/CHAT DETAILS) ── */}
+        <div
+          style={{
+            background: backGradientBg,
+            backfaceVisibility: 'hidden',
+            transform: 'rotateY(180deg)',
+          }}
+          className={`absolute inset-0 rounded-2xl sm:rounded-[24px] p-2.5 sm:p-6 flex flex-col justify-between shadow-[0_18px_45px_-15px_rgba(0,0,0,0.5)] border transition-all duration-300 overflow-hidden text-left ${backBorderClass}`}
+        >
+          {/* Top Neon Accent Line */}
+          <div
+            className="absolute -top-px left-6 sm:left-12 right-6 sm:right-12 h-[2px]"
+            style={{ background: `linear-gradient(90deg, transparent, ${backAccentColor}, transparent)` }}
+          />
+          {/* Ambient Glow */}
+          <div
+            className="pointer-events-none absolute -bottom-16 -right-16 w-40 sm:w-48 h-40 sm:h-48 rounded-full blur-[60px] opacity-30"
+            style={{ backgroundColor: backGlowColor }}
+          />
+
+          {/* Top Bar with Flip Back Button & Badge */}
+          <div className="relative z-10 flex items-center justify-between gap-1">
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggle();
+              }}
+              className="inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-[8px] sm:text-[10px] font-black uppercase tracking-wider text-white/90 backdrop-blur-md transition-colors cursor-pointer shrink-0"
+            >
+              <span>⤺ 3D View</span>
+            </button>
+            {backHeaderBadge}
+          </div>
+
+          {/* Main Content */}
+          <div className="relative z-10 my-auto py-1">
+            <h3 className="text-lg sm:text-2xl lg:text-[26px] font-black text-white tracking-tight leading-tight mb-1 sm:mb-1.5">
+              {backTitle}
+            </h3>
+            <p className="text-white/85 text-[10px] sm:text-xs leading-relaxed mb-2 sm:mb-3 line-clamp-2 sm:line-clamp-none">
+              {backDesc}
+            </p>
+
+            {/* 4 Feature Items */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+              {backFeatures.map((item) => (
+                <div key={item} className="flex items-center gap-1.5 p-1 sm:p-2 rounded-lg bg-white/10 border border-white/15">
+                  <CheckCircle className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" style={{ color: backAccentColor }} />
+                  <span className="text-[9px] sm:text-xs text-white/90 font-semibold truncate">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom Footnote & Direct Action Button */}
+          <div className="relative z-10 flex flex-col gap-2 mt-auto">
+            {backFootnote}
+            <a
+              href={backActionHref}
+              target={backActionHref.startsWith('http') ? '_blank' : undefined}
+              rel={backActionHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+              onClick={(e) => e.stopPropagation()}
+              className={`w-full py-2.5 sm:py-3 px-3 sm:px-5 rounded-xl sm:rounded-2xl font-black text-[10px] sm:text-xs lg:text-sm uppercase tracking-wider flex items-center justify-center gap-1.5 sm:gap-2 transition-all shadow-md active:scale-[0.98] ${backActionClass}`}
+            >
+              <span className="truncate">{backActionText}</span>
+              <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+// 3D Animated Audio Waveform Visualizer Bar Component (Concept 2)
+function AudioWaveVisualizer() {
+  const bars = [16, 32, 48, 24, 40, 56, 28, 44, 20, 36, 52, 26, 18];
+  return (
+    <div className="flex items-center gap-1 sm:gap-1.5 h-6 sm:h-7 px-1.5 sm:px-2.5 py-0.5 rounded-lg bg-black/40 border border-[#C7A24A]/30 backdrop-blur-md shadow-[0_4px_15px_rgba(199,162,74,0.15)]">
+      <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A] mr-0.5 shrink-0" />
+      <span className="text-[8px] sm:text-[10px] font-mono font-black text-[#F5D77F] uppercase tracking-wider mr-0.5 hidden sm:inline-block">LIVE VOX</span>
+      <div className="flex items-center gap-[2px] h-full">
+        {bars.slice(0, 6).map((h, i) => (
+          <motion.span
+            key={i}
+            animate={{
+              height: [`${Math.max(18, h * 0.35)}%`, `${h}%`, `${Math.max(22, h * 0.7)}%`],
+            }}
+            transition={{
+              duration: 0.6 + (i % 4) * 0.18,
+              repeat: Infinity,
+              repeatType: 'reverse',
+              ease: 'easeInOut',
+              delay: i * 0.07,
+            }}
+            className="w-[2px] sm:w-[2.5px] rounded-full bg-gradient-to-t from-[#C7A24A] via-[#F5D77F] to-white"
+            style={{ minHeight: '3px' }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// 3D Quantum Particle Ray Conduit Component (Concept 2)
+function QuantumParticleRays() {
+  return (
+    <div className="flex items-center gap-1 sm:gap-1.5 h-6 sm:h-7 px-1.5 sm:px-2.5 py-0.5 rounded-lg bg-black/40 border border-emerald-400/35 backdrop-blur-md shadow-[0_4px_15px_rgba(16,185,129,0.15)]">
+      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-0.5 shrink-0" />
+      <span className="text-[8px] sm:text-[10px] font-mono font-black text-emerald-300 uppercase tracking-wider mr-0.5 hidden sm:inline-block">OPTIC 10G</span>
+      <div className="relative w-8 sm:w-16 h-1.5 bg-emerald-950/70 rounded-full overflow-hidden border border-emerald-500/30">
+        <motion.div
+          animate={{ x: ['-100%', '200%'] }}
+          transition={{ duration: 1.3, repeat: Infinity, ease: 'linear' }}
+          className="absolute top-0 bottom-0 w-3 sm:w-7 bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_8px_#34d399]"
+        />
       </div>
     </div>
   );
@@ -1024,7 +1313,30 @@ export default function ContactPage() {
     return () => window.removeEventListener('hashchange', scrollToForm);
   }, []);
 
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [flippedPhone, setFlippedPhone] = useState(false);
+  const [flippedWhatsApp, setFlippedWhatsApp] = useState(false);
+  const [activeWaypoint, setActiveWaypoint] = useState(0);
+  const waypointTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const resetWaypointTimer = () => {
+    if (waypointTimerRef.current) clearInterval(waypointTimerRef.current);
+    waypointTimerRef.current = setInterval(() => {
+      setActiveWaypoint((prev) => (prev + 1) % WAYPOINTS.length);
+    }, 4000);
+  };
+
+  useEffect(() => {
+    resetWaypointTimer();
+    return () => {
+      if (waypointTimerRef.current) clearInterval(waypointTimerRef.current);
+    };
+  }, []);
+
+  const handleWaypointSelect = (idx: number) => {
+    setActiveWaypoint(idx);
+    resetWaypointTimer();
+  };
+
   const contactFaqs = [
     { q: "What should I share before contacting the Ustaad team?", a: "A few details speed things up. Share your child's curriculum (British, American, or IB), the subject they need help with, their grade or year level, and whether they're preparing for regular lessons, revision, or exam preparation. The clearer the picture, the faster we can match the right tutor." },
     { q: "Which curricula and subjects does Ustaad cover?", a: "We support British, American, and IB students across the UAE. Subjects include Mathematics, Physics, Chemistry, Biology, Business, and English. For a full breakdown, see our curriculum overview and subject pages." },
@@ -1046,20 +1358,20 @@ export default function ContactPage() {
         schema={[localBusinessSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Contact", url: "/contact" }])]}
       />
       {/* ── 01. HERO SECTION ── */}
-      <section className="pt-10 pb-12 lg:pt-20 lg:pb-16 relative overflow-hidden bg-gradient-to-b from-slate-50/80 via-white to-slate-50/50">
+      <section className="min-h-[calc(100dvh-84px)] lg:min-h-[calc(100dvh-92px)] flex items-center relative overflow-hidden bg-gradient-to-b from-slate-50/80 via-white to-slate-50/50 py-8 sm:py-10 lg:py-12">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#C7A24A]/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14 xl:gap-16 items-center">
 
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-sm font-bold rounded-full mb-6 border border-[#0f4a9b]/20 shadow-sm">
-                <Phone className="h-4 w-4" /> Contact Us
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-xs sm:text-sm font-bold rounded-full mb-3.5 sm:mb-4 border border-[#0f4a9b]/20 shadow-sm">
+                <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Contact Us
               </div>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#0a1f3d] mb-4 leading-[1.1] tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f3d] mb-3 sm:mb-4 leading-[1.15] tracking-tight">
                 <GradientHeadingText text="Speak With the Ustaad Team" />
               </h1>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
-              <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-xl">
+              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3.5 sm:mb-5" />
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-5 sm:mb-7 leading-relaxed max-w-xl">
                 Talk with the Ustaad team about subjects, curricula, tutor matching, lesson schedules, and student learning needs.
               </p>
               <HeroCTABlock className="mb-4" href="#form">
@@ -1071,7 +1383,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, scale: 0.95 }} 
               animate={{ opacity: 1, scale: 1 }} 
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-8 border-white group z-10"
+              className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[420px] xl:h-[460px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-4 sm:border-8 border-white group z-10"
             >
               <img
                 src="/UpdatedImages/contact-ustaad-private-tutors-book-free-trial-uae.webp"
@@ -1101,8 +1413,8 @@ export default function ContactPage() {
             {[
               {
                 title: "WhatsApp",
-                desc: "Book a free trial lesson \u2022 Quick replies",
-                icon: <MessageCircle className="h-4 w-4 sm:h-6 sm:w-6 text-[#25D366]" />,
+                desc: "Book a free trial lesson • Quick replies",
+                icon: <WhatsAppIcon className="h-4 w-4 sm:h-6 sm:w-6 text-[#25D366]" />,
                 iconBg: "bg-emerald-50/80 border border-emerald-100 text-[#25D366]",
                 cta: "Chat on WhatsApp",
                 href: "https://wa.me/971561249005",
@@ -1110,7 +1422,7 @@ export default function ContactPage() {
               },
               {
                 title: "Call Us",
-                desc: "Parent support \u2022 General enquiries",
+                desc: "Parent support • General enquiries",
                 icon: <Phone className="h-4 w-4 sm:h-6 sm:w-6 text-[#0f4a9b]" />,
                 iconBg: "bg-blue-50/80 border border-blue-100 text-[#0f4a9b]",
                 cta: "Call Now",
@@ -1119,7 +1431,7 @@ export default function ContactPage() {
               },
               {
                 title: "Email",
-                desc: "Careers \u2022 Documents \u2022 Detailed requests",
+                desc: "Careers • Documents • Detailed requests",
                 icon: <Mail className="h-4 w-4 sm:h-6 sm:w-6 text-[#0f4a9b]" />,
                 iconBg: "bg-sky-50/80 border border-sky-100 text-[#0f4a9b]",
                 cta: "Send Email",
@@ -1176,7 +1488,7 @@ export default function ContactPage() {
             <div className="bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(15,74,155,0.06)] hover:shadow-[0_8px_30px_rgba(37,211,102,0.15)] hover:border-[#25D366]/40 transition-all duration-300 p-4 sm:p-5">
               <div className="flex items-center gap-3 sm:gap-4">
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300 self-center">
-                  <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 text-[#25D366]" />
+                  <WhatsAppIcon className="h-5 w-5 sm:h-6 sm:w-6 text-[#25D366]" />
                 </div>
                 
                 <div className="flex-1 min-w-0 self-center">
@@ -1203,284 +1515,461 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── 04. SUPPORT LINE + WHATSAPP ── */}
-      <section className="py-14 lg:py-18 bg-gradient-to-br from-[#0f4a9b] via-[#0a3a79] to-[#061e40] text-white relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* ── 04. SUPPORT LINE + WHATSAPP (CONCEPT 2: 3D AUDIO & FREQUENCY DECK) ── */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-[#f8fafc] to-[#f1f5f9] text-[#0a1f3d] border-y border-slate-200/70 relative overflow-hidden [perspective:1400px]">
+        {/* Ambient Holographic Glow Orbs */}
+        <div className="absolute -top-24 left-1/4 w-[480px] h-[300px] bg-[#0f4a9b]/5 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute -bottom-24 right-1/4 w-[480px] h-[300px] bg-[#10b981]/5 rounded-full blur-[130px] pointer-events-none" />
+        
+        {/* Subtle 3D Geometric Floor Grid */}
+        <div 
+          className="absolute inset-0 opacity-[0.035] pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(#0f4a9b 1px, transparent 1px), linear-gradient(90deg, #0f4a9b 1px, transparent 1px)`,
+            backgroundSize: '36px 36px',
+            transform: 'rotateX(54deg) scale(1.35)',
+            transformOrigin: 'top center'
+          }}
+        />
 
-          <div className="flex items-center gap-3 mb-8">
-            <div className="h-px flex-1 bg-white/20" />
-            <span className="text-white/60 text-xs font-extrabold uppercase tracking-widest">Support Options</span>
-            <div className="h-px flex-1 bg-white/20" />
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+
+          {/* Clean Prominent Section Heading */}
+          <div className="text-center mb-6 sm:mb-9 max-w-xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0a1f3d] tracking-tight">
+              Support Options
+            </h2>
+            <p className="mt-2 text-gray-600 text-xs sm:text-sm leading-relaxed">
+              Reach out directly by phone or WhatsApp for real-time academic guidance.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6">
 
-            {/* Card 1: Support Line */}
-            <motion.a 
-              whileHover={{ y: -4 }}
-              href="tel:8009005" 
-              className="group relative overflow-hidden rounded-2xl bg-white/10 border border-white/15 hover:bg-white/15 active:scale-[0.99] transition-all duration-300 p-7 flex flex-col justify-between gap-5"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-white" strokeWidth={2} />
-                </div>
-                <div>
-                  <p className="text-white/60 text-[10px] font-extrabold uppercase tracking-widest">Toll-Free</p>
-                  <p className="text-white text-sm font-extrabold">Ustaad Support Line</p>
-                </div>
-              </div>
-
-              <div>
-                <p className="text-white text-3xl lg:text-4xl font-extrabold tracking-tight">800 9005</p>
-                <p className="text-blue-100/75 text-sm mt-2 leading-relaxed">A direct line for parents and students who'd rather talk things through.</p>
-              </div>
-
-              <div className="flex flex-col gap-2.5">
-                {["Parent Care", "Student Help", "Academic Advice", "Premium Support"].map((item) => (
-                  <div key={item} className="flex items-center gap-2.5">
-                    <CheckCircle className="h-4 w-4 text-[#C7A24A] shrink-0" />
-                    <span className="text-sm text-white/85 font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-2 text-blue-200/60 text-xs mt-auto pt-3 border-t border-white/10">
-                <Clock className="w-3.5 h-3.5 shrink-0" />
-                <span>Saturday to Thursday · 9:00 AM to 9:00 PM · Friday on request</span>
-              </div>
-            </motion.a>
-
-            {/* Card 2: WhatsApp */}
-            <motion.a
-              whileHover={{ y: -4 }}
-              href="https://wa.me/971561249005"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-2xl hover:brightness-105 active:scale-[0.99] transition-all duration-300 p-7 flex flex-col justify-between gap-5"
-              style={{ background: "linear-gradient(135deg, #075E54 0%, #128C7E 55%, #25D366 100%)" }}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
-                    <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="Chat with Ustaad on WhatsApp" className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-white/60 text-[10px] font-extrabold uppercase tracking-widest">Instant Support</p>
-                    <p className="text-white text-sm font-extrabold">WhatsApp</p>
+            {/* Pod 1: Big 3D Golden Audio Beacon & Flip Card */}
+            <Support3DFlipPodCard
+              isFlipped={flippedPhone}
+              onToggle={() => setFlippedPhone(prev => !prev)}
+              frontAccentColor="#C7A24A"
+              frontGlowColor="#1e5ba8"
+              frontGradientBg="linear-gradient(145deg, #1e5ba8 0%, #0f4a9b 55%, #093166 100%)"
+              frontBorderClass="border-blue-400/40 hover:border-blue-300/80 shadow-[0_15px_40px_rgba(15,74,155,0.3)]"
+              frontBadge="Toll-Free UAE"
+              frontBadgeIcon={<AudioWaveVisualizer />}
+              frontOrb={
+                <div className="relative flex items-center justify-center my-1.5 sm:my-2.5 group-hover:scale-105 transition-transform duration-300">
+                  <div className="relative w-14 h-14 sm:w-18 sm:h-18 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#FFF0B3] via-[#D4AF37] to-[#785910] flex items-center justify-center shadow-[0_10px_25px_rgba(212,175,55,0.4)] border border-white/60">
+                    <div className="absolute inset-1 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-transparent via-white/30 to-transparent pointer-events-none" />
+                    <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-[#0a1f3d] filter drop-shadow" strokeWidth={2.5} />
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5 bg-[#C7A24A] px-2.5 py-1 rounded-full shrink-0 shadow-sm">
-                  <Sparkles className="w-3 h-3 text-white" />
-                  <span className="text-white text-[10px] font-extrabold uppercase tracking-wide">Premium</span>
+              }
+              frontTitle="800 9005"
+              frontSubtitle="Direct line for parents & students · Tap to call"
+              frontActionHref="tel:8009005"
+              frontActionText="Call 800 9005"
+              frontActionClass="bg-gradient-to-r from-[#F5D77F] via-[#C7A24A] to-[#A8892A] text-[#0a1f3d] hover:brightness-110 shadow-[0_6px_20px_rgba(199,162,74,0.3)]"
+              backAccentColor="#C7A24A"
+              backGlowColor="#1e5ba8"
+              backGradientBg="linear-gradient(145deg, #185299 0%, #0d3f84 60%, #072654 100%)"
+              backBorderClass="border-blue-400/40"
+              backHeaderBadge={
+                <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-400/30">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span className="text-[8px] sm:text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Live Support</span>
                 </div>
-              </div>
+              }
+              backTitle="800 9005"
+              backDesc="Direct line for parents and students who'd rather talk things through."
+              backFeatures={["Parent Care", "Student Help", "Academic Advice", "Premium Support"]}
+              backFootnote={
+                <div className="flex items-center gap-1.5 text-blue-200/70 text-[9px] sm:text-[11px] pt-1.5 border-t border-white/10">
+                  <Clock className="w-3.5 h-3.5 shrink-0 text-[#C7A24A]" />
+                  <span className="truncate">Sat-Thu · 9:00 AM - 9:00 PM</span>
+                </div>
+              }
+              backActionHref="tel:8009005"
+              backActionText="Call 800 9005"
+              backActionClass="bg-gradient-to-r from-[#F5D77F] via-[#C7A24A] to-[#A8892A] text-[#0a1f3d] hover:brightness-110 shadow-[0_6px_20px_rgba(199,162,74,0.3)]"
+            />
 
-              <div>
-                <p className="text-white text-3xl lg:text-4xl font-extrabold tracking-tight">Instant Reply</p>
-                <p className="text-white/80 text-sm mt-2 leading-relaxed">Replies within minutes for lesson inquiries and academic support.</p>
-              </div>
-
-              <div className="flex flex-col gap-2.5">
-                {["Trial Lessons", "Scheduling", "Quick Replies", "Academic Support"].map((item) => (
-                  <div key={item} className="flex items-center gap-2.5">
-                    <CheckCircle className="h-4 w-4 text-white/90 shrink-0" />
-                    <span className="text-sm text-white/85 font-medium">{item}</span>
+            {/* Pod 2: Big 3D Emerald Quantum Capsule & Flip Card */}
+            <Support3DFlipPodCard
+              isFlipped={flippedWhatsApp}
+              onToggle={() => setFlippedWhatsApp(prev => !prev)}
+              frontAccentColor="#25D366"
+              frontGlowColor="#10b981"
+              frontGradientBg="linear-gradient(145deg, #0d8a52 0%, #056e3f 55%, #034828 100%)"
+              frontBorderClass="border-emerald-400/40 hover:border-emerald-300/80 shadow-[0_15px_40px_rgba(5,110,63,0.3)]"
+              frontBadge="Instant 15m"
+              frontBadgeIcon={<QuantumParticleRays />}
+              frontOrb={
+                <div className="relative flex items-center justify-center my-1.5 sm:my-2.5 group-hover:scale-105 transition-transform duration-300">
+                  <div className="relative w-14 h-14 sm:w-18 sm:h-18 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#6EE7B7] via-[#059669] to-[#044736] flex items-center justify-center shadow-[0_10px_25px_rgba(16,185,129,0.4)] border border-white/60">
+                    <div className="absolute inset-1 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-transparent via-white/30 to-transparent pointer-events-none" />
+                    <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="w-7 h-7 sm:w-9 sm:h-9 object-contain filter drop-shadow" />
                   </div>
-                ))}
-              </div>
-
-              <div className="mt-auto flex items-center justify-between bg-white/15 border border-white/20 rounded-xl px-4 py-3 group-hover:bg-white/25 transition-colors duration-300">
-                <span className="text-white font-bold text-sm">Start a conversation</span>
-                <ChevronRight className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
-              </div>
-            </motion.a>
+                </div>
+              }
+              frontTitle="Instant Reply"
+              frontSubtitle="WhatsApp Desk · Tap to chat on WhatsApp"
+              frontActionHref="https://wa.me/971561249005"
+              frontActionText="WhatsApp Chat"
+              frontActionClass="bg-[#25D366] hover:bg-[#20ba59] text-white shadow-[0_6px_20px_rgba(37,211,102,0.3)]"
+              backAccentColor="#25D366"
+              backGlowColor="#10b981"
+              backGradientBg="linear-gradient(145deg, #0b7a48 0%, #045a33 60%, #02381f 100%)"
+              backBorderClass="border-emerald-400/40"
+              backHeaderBadge={
+                <div className="flex items-center gap-1 bg-gradient-to-r from-[#D4AF37] to-[#C7A24A] px-2.5 py-0.5 rounded-full shadow-sm">
+                  <Sparkles className="w-2.5 h-2.5 text-white" />
+                  <span className="text-white text-[8px] sm:text-[10px] font-black uppercase tracking-wide">Premium</span>
+                </div>
+              }
+              backTitle="Instant Reply"
+              backDesc="Replies within minutes for lesson inquiries and academic support."
+              backFeatures={["Trial Lessons", "Scheduling", "Quick Replies", "Academic Support"]}
+              backActionHref="https://wa.me/971561249005"
+              backActionText="WhatsApp Chat"
+              backActionClass="bg-[#25D366] hover:bg-[#20ba59] text-white shadow-[0_6px_20px_rgba(37,211,102,0.3)]"
+            />
 
           </div>
         </div>
       </section>
+      {/* ── 05. 3D HOLOGRAPHIC TRACK & ASSISTANCE WAYPOINTS SECTION ── */}
+      <section className="py-12 sm:py-20 lg:py-28 bg-gradient-to-b from-[#f8fafd] via-[#edf3fc] to-[#f4f7fb] border-t border-slate-200/80 relative overflow-hidden [perspective:1400px]">
+        {/* Holographic Ambient Glow Orbs */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[420px] bg-gradient-to-r from-[#0b3d80]/10 via-[#C7A24A]/10 to-[#0a3a79]/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#0b3d80]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-20 left-10 w-80 h-80 bg-[#C7A24A]/5 rounded-full blur-[90px] pointer-events-none" />
 
-      {/* ── 05. FAQ ACCORDION ── */}
-      <section id="faqs" className="py-14 sm:py-18 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[0.9fr_1.6fr] gap-12 lg:gap-16 items-start">
-            <div className="flex flex-col items-start text-left lg:sticky lg:top-28">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f4a9b]/10 text-[#0f4a9b] text-xs font-extrabold rounded-full mb-4 border border-[#0f4a9b]/20">
-                <HelpCircle className="h-3.5 w-3.5" />
-                <span className="uppercase tracking-wider text-[11px]">Common Questions</span>
+        {/* 3D Holographic Floor Grid Line Texture */}
+        <div 
+          className="absolute inset-0 opacity-[0.035] pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(#0b3d80 1px, transparent 1px), linear-gradient(90deg, #0b3d80 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
+            transform: 'rotateX(50deg) scale(1.4)',
+            transformOrigin: 'top center'
+          }}
+        />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Main Section Header & 3D Glass HUD Intro */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-3xl mx-auto text-center mb-10 sm:mb-16"
+          >
+
+
+            <h2 className="text-xl sm:text-3xl lg:text-4xl font-black text-[#0a1f3d] mb-4 sm:mb-6 tracking-tight">
+              Fast, Friendly Assistance for UAE Families
+            </h2>
+
+            {/* 3D Glass Blue Container */}
+            <div className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-9 bg-gradient-to-br from-[#0a1f3d] via-[#0b3d80] to-[#0a1f3d] text-white shadow-[0_20px_50px_-15px_rgba(11,61,128,0.3)] border border-white/20 text-left sm:text-center transition-all duration-300">
+              <div className="absolute -top-px left-8 sm:left-12 right-8 sm:right-12 h-[2px] bg-gradient-to-r from-transparent via-[#C7A24A]/70 to-transparent" />
+              
+              <p className="text-white/90 text-xs sm:text-[15px] leading-relaxed">
+                Our academic advisory team is available Sunday through Saturday to assist parents and students across Dubai, Abu Dhabi, Sharjah, Al Ain, Ras Al Khaimah, Fujairah, and Umm Al Quwain. Whether you have questions regarding tutor availability, specific exam board specifications (Cambridge 0580/0625/0620, Edexcel 4MA1/4PH1/4CH1, IB DP SL/HL, or AP Calculus), or lesson scheduling, we respond quickly to ensure your child receives timely academic support.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* ── MOBILE 3D HOLOGRAPHIC TRACK VIEW (Covers ONE Compact Section) ── */}
+          <div className="lg:hidden mb-8">
+            {/* Mobile 3D Holographic Track Conduit */}
+            <div className="relative mb-6">
+              {/* SVG Connecting Track Line */}
+              <div className="absolute top-[24px] left-[15%] right-[15%] h-6 pointer-events-none z-0">
+                <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 300 20" fill="none">
+                  <defs>
+                    <linearGradient id="mobHoloTrackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#0b3d80" stopOpacity="0.25" />
+                      <stop offset="50%" stopColor="#C7A24A" stopOpacity="0.75" />
+                      <stop offset="100%" stopColor="#0b3d80" stopOpacity="0.25" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Dotted Holographic Track */}
+                  <path
+                    d="M 0 10 Q 75 4 150 10 T 300 10"
+                    stroke="url(#mobHoloTrackGrad)"
+                    strokeWidth="2"
+                    strokeDasharray="4 4"
+                  />
+
+                  {/* Synchronized Traveling Ribbon Energy Beam */}
+                  <motion.path
+                    key={activeWaypoint}
+                    d="M 0 10 Q 75 4 150 10 T 300 10"
+                    stroke={WAYPOINTS[activeWaypoint].accentColor}
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                    initial={{
+                      pathOffset: activeWaypoint === 0 ? 0 : activeWaypoint === 1 ? 0.45 : 0.85,
+                      pathLength: 0.22,
+                      opacity: 0.7,
+                    }}
+                    animate={{
+                      pathOffset: activeWaypoint === 0 ? 0.45 : activeWaypoint === 1 ? 0.85 : 0,
+                      opacity: [0.7, 1, 0.7],
+                    }}
+                    transition={{ duration: 4.0, ease: 'easeInOut' }}
+                    filter={`drop-shadow(0 0 6px ${WAYPOINTS[activeWaypoint].accentColor})`}
+                  />
+                </svg>
               </div>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-[1.15] mb-3">
+
+              {/* 3 Interactive Hologram Waypoint Buttons */}
+              <div className="flex items-center justify-between px-2 relative z-10">
+                {WAYPOINTS.map((wp, idx) => {
+                  const Icon = wp.icon;
+                  const isActive = activeWaypoint === idx;
+                  return (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => handleWaypointSelect(idx)}
+                      className="flex flex-col items-center focus:outline-none group transition-transform"
+                    >
+                      <div className="relative flex items-center justify-center">
+                        {isActive && (
+                          <span
+                            className="animate-ping absolute inline-flex h-11 w-11 rounded-2xl opacity-30"
+                            style={{ backgroundColor: wp.accentColor }}
+                          />
+                        )}
+                        <div
+                          className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${wp.iconBg} text-white flex items-center justify-center shadow-md border-2 transition-all duration-300 ${
+                            isActive
+                              ? 'scale-110 border-white shadow-lg ring-4 ring-[#0b3d80]/15'
+                              : 'opacity-70 border-white/60 scale-95'
+                          }`}
+                        >
+                          <Icon className="w-5 h-5 text-white" />
+                        </div>
+                      </div>
+                      <span
+                        className={`mt-2 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full border transition-all ${
+                          isActive
+                            ? 'bg-[#0b3d80] text-white border-[#0b3d80]'
+                            : 'bg-white/85 text-gray-500 border-slate-200'
+                        }`}
+                      >
+                        Node {wp.num}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Active Waypoint 3D Card (Single Animated Deck on Mobile) */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeWaypoint}
+                initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full bg-white/95 backdrop-blur-xl rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-[0_12px_35px_rgba(11,61,128,0.08)] text-left min-h-[175px] flex flex-col justify-between"
+              >
+                {/* Auto-cycle Progress Line across top of card */}
+                <div className="w-full h-0.5 bg-slate-100 rounded-full mb-4 overflow-hidden">
+                  <motion.div
+                    key={`prog-${activeWaypoint}`}
+                    initial={{ width: '0%' }}
+                    animate={{ width: '100%' }}
+                    transition={{ duration: 4.0, ease: 'linear' }}
+                    className="h-full rounded-full"
+                    style={{ backgroundColor: WAYPOINTS[activeWaypoint].accentColor }}
+                  />
+                </div>
+
+                <div className="flex items-center justify-between mb-3">
+                  <span
+                    className="text-[10px] font-black uppercase tracking-[0.16em] px-2.5 py-0.5 rounded-full border"
+                    style={{
+                      color: WAYPOINTS[activeWaypoint].accentColor,
+                      backgroundColor: `${WAYPOINTS[activeWaypoint].accentColor}12`,
+                      borderColor: `${WAYPOINTS[activeWaypoint].accentColor}25`,
+                    }}
+                  >
+                    {WAYPOINTS[activeWaypoint].label}
+                  </span>
+                  <div className="flex gap-1.5">
+                    {WAYPOINTS.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        type="button"
+                        onClick={() => handleWaypointSelect(dotIdx)}
+                        className={`h-1.5 rounded-full transition-all ${
+                          activeWaypoint === dotIdx ? 'w-5' : 'w-1.5 bg-slate-200'
+                        }`}
+                        style={{
+                          backgroundColor: activeWaypoint === dotIdx ? WAYPOINTS[activeWaypoint].accentColor : undefined,
+                        }}
+                        aria-label={`Go to waypoint ${dotIdx + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <h3 className="font-black text-[#0a1f3d] text-base mb-2 leading-snug">
+                  {WAYPOINTS[activeWaypoint].title}
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed mb-0">
+                  {WAYPOINTS[activeWaypoint].desc}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* ── DESKTOP 3D HOLOGRAPHIC ENERGY TRACK & 3 WAYPOINTS ── */}
+          <div className="hidden lg:block relative mb-4">
+
+            {/* Desktop 3D Holographic Ribbon Track (SVG Connected Path) */}
+            <div className="absolute top-[28px] left-[16%] right-[16%] h-8 pointer-events-none z-0">
+              <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 700 24" fill="none">
+                <defs>
+                  <linearGradient id="hologramTrackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#0b3d80" stopOpacity="0.2" />
+                    <stop offset="50%" stopColor="#C7A24A" stopOpacity="0.7" />
+                    <stop offset="100%" stopColor="#0b3d80" stopOpacity="0.2" />
+                  </linearGradient>
+                  <linearGradient id="hologramPulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#0b3d80" />
+                    <stop offset="50%" stopColor="#C7A24A" />
+                    <stop offset="100%" stopColor="#25D366" />
+                  </linearGradient>
+                </defs>
+
+                {/* Base Holographic Track Line */}
+                <path
+                  d="M 0 12 Q 175 2 350 12 T 700 12"
+                  stroke="url(#hologramTrackGrad)"
+                  strokeWidth="2.5"
+                  strokeDasharray="6 6"
+                />
+
+                {/* Animated Traveling Energy Beam */}
+                <motion.path
+                  d="M 0 12 Q 175 2 350 12 T 700 12"
+                  stroke="url(#hologramPulseGrad)"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  initial={{ pathOffset: 0, pathLength: 0.25 }}
+                  animate={{ pathOffset: [0, 1] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: 'linear' }}
+                  filter="drop-shadow(0 0 6px rgba(199,162,74,0.6))"
+                />
+              </svg>
+            </div>
+
+            {/* 3 Holographic Waypoints Grid */}
+            <div className="grid lg:grid-cols-3 gap-8 relative z-10">
+              {WAYPOINTS.map((wp, idx) => {
+                const Icon = wp.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 35 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    whileHover={{ y: -8, transition: { duration: 0.25 } }}
+                    className="group relative flex flex-col items-center text-center h-full"
+                  >
+                    {/* 3D Pulsing Holographic Beacon Node */}
+                    <div className="relative top-0 flex flex-col items-center mb-6">
+                      <div className="relative flex items-center justify-center">
+                        <span
+                          className="animate-ping absolute inline-flex h-12 w-12 rounded-2xl opacity-20"
+                          style={{ backgroundColor: wp.accentColor }}
+                        />
+                        <div className={`w-13 h-13 rounded-2xl bg-gradient-to-br ${wp.iconBg} text-white flex items-center justify-center shadow-[0_10px_25px_rgba(11,61,128,0.25)] border-2 border-white transition-transform duration-300 group-hover:scale-110`}>
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                      </div>
+                      <span
+                        className="inline-block mt-2.5 text-[9px] font-black uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-full border"
+                        style={{
+                          color: wp.accentColor,
+                          backgroundColor: `${wp.accentColor}15`,
+                          borderColor: `${wp.accentColor}30`,
+                        }}
+                      >
+                        {wp.label}
+                      </span>
+                    </div>
+
+                    {/* 3D Floating Glass Deck */}
+                    <div className="w-full h-full bg-white/90 backdrop-blur-xl rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-[0_10px_30px_rgba(11,61,128,0.06)] group-hover:shadow-[0_20px_45px_rgba(11,61,128,0.12)] group-hover:border-[#0b3d80]/40 transition-all duration-300 flex-1 flex flex-col justify-start">
+                      <div>
+                        <h3 className="font-black text-[#0a1f3d] text-base mb-2.5 leading-snug group-hover:text-[#0b3d80] transition-colors min-h-[44px] flex items-center justify-center">
+                          {wp.title}
+                        </h3>
+                        <p className="text-xs text-gray-500 leading-relaxed">
+                          {wp.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 06. FAQ ACCORDION ── */}
+      <section id="faqs" className="py-12 sm:py-16 bg-white border-t border-slate-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[0.9fr_1.6fr] gap-12 lg:gap-16 items-center">
+            {/* Left: Heading */}
+            <div className="flex flex-col items-center justify-center text-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-sm font-bold rounded-full mb-4 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.1)]">
+                <MessageCircle className="h-4 w-4" /> FAQ
+              </div>
+              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-[1.15] mb-2">
                 Frequently Asked{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Questions</span>
               </h2>
-              <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              <p className="text-gray-600 text-[15px] leading-relaxed mb-4">
                 Answers to common questions from parents and students.
               </p>
-              
               <a
                 href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20have%20a%20question%20about%20tutoring."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-extrabold text-[#0f4a9b] hover:text-[#0a1f3d] transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0f4a9b] hover:text-[#0a1f3d] transition-colors"
               >
                 <span>Have a different question? Ask on WhatsApp</span>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-3.5 h-3.5" />
               </a>
             </div>
-
-            <div className="flex flex-col gap-3">
-              {contactFaqs.map((faq, i) => {
-                const isOpen = openFaq === i;
-                return (
-                  <div key={i} className="flex flex-col rounded-2xl border border-gray-200/80 bg-white overflow-hidden transition-all duration-300 shadow-xs">
-                    <button 
-                      type="button"
-                      onClick={() => setOpenFaq(isOpen ? null : i)}
-                      className={`w-full p-4 sm:p-5 flex items-center justify-between text-left gap-4 transition-colors cursor-pointer ${
-                        isOpen ? 'bg-[#f8fafe] font-bold' : 'hover:bg-gray-50/60'
-                      }`}
-                    >
-                      <span className="font-extrabold text-[#0a1f3d] text-sm sm:text-base leading-snug">{faq.q}</span>
-                      <span className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                        isOpen ? 'bg-[#0f4a9b] text-white rotate-180' : 'bg-gray-100 text-gray-500'
-                      }`}>
-                        <ChevronDown className="w-4 h-4" />
-                      </span>
-                    </button>
-
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25, ease: 'easeInOut' }}
-                          className="overflow-hidden"
-                        >
-                          <div className="p-4 sm:p-5 pt-0 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100 bg-[#f8fafe]">
-                            {faq.a}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
+            {/* Right: Accordion */}
+            <div>
+              <FAQAccordion faqs={contactFaqs} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 06. FINAL CALL TO ACTION ── */}
+      {/* ── 07. FINAL CALL TO ACTION ── */}
       <FinalCTA
         title="Start Your Learning Journey"
         subtitle="Connect with us and get matched with the right tutor."
         button1Text="Speak to an Advisor"
         button1Href="#form"
       />
-
-      {/* ── 07. REDESIGNED UAE ASSISTANCE & SEO TRUST SECTION (LAST SECTION) ── */}
-      <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 to-slate-100/70 border-t border-gray-200/70 relative overflow-hidden">
-        {/* Subtle background blur accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-gradient-to-r from-[#0f4a9b]/5 via-[#C7A24A]/5 to-[#0a3a79]/5 rounded-full blur-[120px] pointer-events-none" />
-
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Main Section Header & Intro */}
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f4a9b]/10 text-[#0f4a9b] text-xs font-extrabold uppercase tracking-widest mb-4 border border-[#0f4a9b]/20">
-              <Building2 className="w-3.5 h-3.5" />
-              <span>UAE Academic Assistance</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
-              Fast, Friendly Assistance for UAE Families
-            </h2>
-            <div className="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed bg-white p-6 sm:p-8 rounded-2xl border border-gray-200/80 shadow-sm text-left sm:text-center">
-              <p>
-                Our academic advisory team is available Sunday through Saturday to assist parents and students across Dubai, Abu Dhabi, Sharjah, Al Ain, Ras Al Khaimah, Fujairah, and Umm Al Quwain. Whether you have questions regarding tutor availability, specific exam board specifications (Cambridge 0580/0625/0620, Edexcel 4MA1/4PH1/4CH1, IB DP SL/HL, or AP Calculus), or lesson scheduling, we respond quickly to ensure your child receives timely academic support.
-              </p>
-              <p className="pt-2 font-medium text-[#0f4a9b]">
-                For urgent matching requests or immediate lesson bookings, contact us directly on WhatsApp for real-time guidance from our UAE tutoring coordinators.
-              </p>
-            </div>
-          </div>
-
-          {/* 3 Structured Feature Cards */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            
-            {/* Card 1 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="bg-white rounded-2xl p-6 border border-gray-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0f4a9b] mb-4">
-                  <Users className="w-5 h-5" />
-                </div>
-                <h3 className="font-extrabold text-[#0a1f3d] text-base mb-2">
-                  Trusted by 2,500+ Families Across Dubai, Abu Dhabi, Sharjah & Al Ain
-                </h3>
-                <p className="text-xs text-gray-500 leading-relaxed">
-                  Our dedicated tutoring team supports students in British (IGCSE, GCSE, A-Level), IB (MYP, DP SL/HL), and American (AP, SAT) curricula. All enquiries receive a response within 15 minutes during working hours.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="bg-white rounded-2xl p-6 border border-gray-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-[#C7A24A] mb-4">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <h3 className="font-extrabold text-[#0a1f3d] text-base mb-2">
-                  Comprehensive Private Tutoring Across All UAE Emirates
-                </h3>
-                <p className="text-xs text-gray-500 leading-relaxed">
-                  Our online tutoring platform connects students in Abu Dhabi (Al Reem Island, Khalifa City, Al Raha, Yas Island), Dubai (Downtown, Marina, Jumeirah, Arabian Ranches), Sharjah, and Al Ain with specialist educators. Book your 30-minute free trial session today to get started.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="bg-white rounded-2xl p-6 border border-gray-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mb-4">
-                  <CheckCircle className="w-5 h-5" />
-                </div>
-                <h3 className="font-extrabold text-[#0a1f3d] text-base mb-2">
-                  Tailored Academic Tutoring
-                </h3>
-                <p className="text-xs text-gray-500 leading-relaxed">
-                  Whether you require short-term exam prep, intensive mock revision, or weekly academic tutoring, Ustaad pairs your child with top-rated private tutors across Dubai and Abu Dhabi.
-                </p>
-              </div>
-            </motion.div>
-
-          </div>
-
-        </div>
-
-        {/* Bottom Assurance Banner */}
-        <div className="text-center text-xs font-semibold text-gray-500 py-3.5 bg-slate-100 border-t border-gray-200 flex items-center justify-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
-          <span>Friendly Academic Consultation Guaranteed · Response within 15 mins during UAE office hours.</span>
-        </div>
-      </section>
 
     </Layout>
   );

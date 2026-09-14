@@ -264,7 +264,7 @@ export default function EarlySignsChemistryBlog() {
                 <span className="leading-relaxed">
                   <span className="font-medium">Written by:</span>{' '}
                   <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline">{BLOG.author}</a>
-                  <span className="text-gray-400"> — Education Counsellor & Student Support Specialist, Ustaad UAE</span>
+                  <span className="text-gray-400">, Education Counsellor & Student Support Specialist, Ustaad UAE</span>
                 </span>
               </div>
               <div className="flex items-start gap-2 text-xs text-gray-500">
@@ -272,7 +272,7 @@ export default function EarlySignsChemistryBlog() {
                 <span className="leading-relaxed">
                   <span className="font-medium">Reviewed by:</span>{' '}
                   <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">{BLOG.reviewer}</a>
-                  <span className="text-gray-400"> — MPhil in Education Leadership and Management</span>
+                  <span className="text-gray-400">, MPhil in Education Leadership and Management</span>
                 </span>
               </div>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-400 pt-1">

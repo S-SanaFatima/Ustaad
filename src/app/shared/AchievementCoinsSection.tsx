@@ -10,7 +10,7 @@ const RESULTS = [
 ];
 
 function CoinCard({ item, index }: { item: typeof RESULTS[0], index: number }) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
   const Icon = item.icon;
 
   return (
@@ -19,20 +19,30 @@ function CoinCard({ item, index }: { item: typeof RESULTS[0], index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.6, delay: index * 0.15 }}
-      className="flex flex-col items-center justify-center w-full max-w-[140px] sm:max-w-[240px] lg:max-w-[255px] mx-auto isolate"
+      className="flex flex-col items-center justify-center w-full max-w-[140px] sm:max-w-[240px] lg:max-w-[255px] mx-auto isolate select-none"
     >
        {/* Clip 3D transforms so they cannot widen the page */}
        <div className="w-full aspect-square relative overflow-hidden rounded-full p-2 sm:p-3.5 [contain:paint]">
          <div 
-           style={{ perspective: '1200px' }} 
+           style={{ perspective: '1200px', touchAction: 'manipulation' }} 
            className="w-full h-full relative cursor-pointer group"
-           onMouseEnter={() => setIsHovered(true)}
-           onMouseLeave={() => setIsHovered(false)}
-           onClick={() => setIsHovered((v) => !v)}
+           onPointerEnter={(e) => {
+             if (e.pointerType === 'mouse') {
+               setIsFlipped(true);
+             }
+           }}
+           onPointerLeave={(e) => {
+             if (e.pointerType === 'mouse') {
+               setIsFlipped(false);
+             }
+           }}
+           onClick={() => {
+             setIsFlipped((v) => !v);
+           }}
            onKeyDown={(e) => {
              if (e.key === 'Enter' || e.key === ' ') {
                e.preventDefault();
-               setIsHovered((v) => !v);
+               setIsFlipped((v) => !v);
              }
            }}
            role="button"
@@ -43,14 +53,14 @@ function CoinCard({ item, index }: { item: typeof RESULTS[0], index: number }) {
              className="w-full h-full relative"
              style={{ transformStyle: 'preserve-3d' }}
              animate={{ 
-               rotateY: isHovered ? 180 : 0, 
-               y: isHovered ? -8 : [0, -8, 0],
-               scale: isHovered ? 1.03 : 1
+               rotateY: isFlipped ? 180 : 0, 
+               y: isFlipped ? -8 : [0, -8, 0],
+               scale: isFlipped ? 1.03 : 1
              }}
              transition={{ 
                rotateY: { type: 'spring', damping: 22, stiffness: 140 },
                scale: { type: 'spring', damping: 20 },
-               y: isHovered 
+               y: isFlipped 
                  ? { type: 'spring', damping: 20 } 
                  : { duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.4 }
              }}
@@ -143,18 +153,31 @@ export function AchievementCoinsSection() {
             transition={{ delay: 0.1 }}
             className="text-blue-100 text-xs sm:text-base lg:text-lg font-medium leading-relaxed max-w-2xl mx-auto"
           >
-            Ustaad focuses on improvement that students and parents can visibly notice over time.{' '}
-            <span className="md:hidden">Tap a coin to reveal the strategy.</span>
-            <span className="hidden md:inline">Hover a coin to reveal the strategy.</span>
+            Ustaad focuses on improvement that students and parents can visibly notice over time.
           </motion.p>
         </div>
 
         {/* 3D Coins Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8 max-w-6xl mx-auto pb-4 sm:pb-8 overflow-hidden justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8 max-w-6xl mx-auto pb-2 sm:pb-4 overflow-hidden justify-items-center">
           {RESULTS.map((item, i) => (
             <CoinCard key={i} item={item} index={i} />
           ))}
         </div>
+
+        {/* Hint Below Coins */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="flex items-center justify-center mt-3 sm:mt-6"
+        >
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-sm shadow-sm text-blue-100 text-[11px] sm:text-xs font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A] animate-pulse" />
+            <span className="md:hidden">Tap a coin to reveal the strategy</span>
+            <span className="hidden md:inline">Hover a coin to reveal the strategy</span>
+          </span>
+        </motion.div>
         
       </div>
     </section>

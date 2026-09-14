@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import {
   X, BookOpen, GraduationCap, Calculator, Atom, Globe,
-  CheckCircle, MessageCircle,
+  CheckCircle,
 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { WhatsAppIcon } from './WhatsAppIcon';
+
 
 const WA_URL =
   'https://wa.me/971561249005?text=' +
@@ -139,8 +141,9 @@ export default function WelcomePopup({ open, onClose }: WelcomePopupProps) {
               onClick={onClose}
               className="w-full sm:w-[280px] inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1fb858] text-white font-extrabold text-[14px] sm:text-[15px] py-3 sm:py-3.5 transition-all shadow-[0_8px_16px_rgba(37,211,102,0.25)] hover:shadow-[0_12px_20px_rgba(37,211,102,0.35)] hover:-translate-y-0.5"
             >
-              <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+              <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               Ask on WhatsApp
+
             </a>
 
             <p className="mt-3.5 text-[10px] sm:text-[11px] text-[#9aa5b5] font-medium">

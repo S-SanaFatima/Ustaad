@@ -61,7 +61,7 @@ function NeuralDial() {
       </div>
 
       {/* Live Readout Badge */}
-      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white border border-[#0f4a9b]/30 px-2 sm:px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap z-20">
+      <div className="absolute -bottom-2.5 sm:-bottom-3 left-1/2 -translate-x-1/2 bg-white border border-[#0f4a9b]/30 px-2 sm:px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap z-20 min-w-[76px] sm:min-w-[92px] flex items-center justify-center">
         <span className="text-[8px] sm:text-[9px] font-black text-[#0f4a9b] tracking-wider uppercase">
           CALIBRATING
         </span>
@@ -112,7 +112,7 @@ function RadarDial() {
       </div>
 
       {/* Live Readout Badge */}
-      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white border border-[#c17b2f]/30 px-2 sm:px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap z-20">
+      <div className="absolute -bottom-2.5 sm:-bottom-3 left-1/2 -translate-x-1/2 bg-white border border-[#c17b2f]/30 px-2 sm:px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap z-20 min-w-[76px] sm:min-w-[92px] flex items-center justify-center">
         <span className="text-[8px] sm:text-[9px] font-black text-[#c17b2f] tracking-wider uppercase">
           SCANNING
         </span>
@@ -189,7 +189,7 @@ function PressureGauge() {
       </div>
 
       {/* Live Readout Badge */}
-      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white border border-[#dc2626]/30 px-2 sm:px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap z-20">
+      <div className="absolute -bottom-2.5 sm:-bottom-3 left-1/2 -translate-x-1/2 bg-white border border-[#dc2626]/30 px-2 sm:px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap z-20 min-w-[76px] sm:min-w-[92px] flex items-center justify-center">
         <span className="text-[8px] sm:text-[9px] font-black text-[#dc2626] tracking-wider uppercase">
           LOAD: ACTIVE
         </span>
@@ -198,25 +198,25 @@ function PressureGauge() {
   );
 }
 
-/* ── Fixed Card Component (No movement/tilt on hover, completely stable) ── */
+/* ── Fixed Card Component (No movement/tilt on hover, completely stable & balanced) ── */
 const STRUGGLES_DATA = [
   {
     dial: NeuralDial,
     accentColor: '#0f4a9b',
-    title: 'Confusion',
-    desc: 'They follow lessons in class, but struggle to apply concepts independently.',
+    title: 'Concept Confusion',
+    desc: 'They follow lessons in class, but struggle to apply concepts on their own.',
   },
   {
     dial: RadarDial,
     accentColor: '#c17b2f',
     title: 'Unfocused Revision',
-    desc: 'They study for hours without knowing which topics need more attention.',
+    desc: 'They spend hours studying, but still feel unsure which topics need work.',
   },
   {
     dial: PressureGauge,
     accentColor: '#dc2626',
     title: 'Academic Pressure',
-    desc: 'After repeated academic pressure and setbacks, the subject starts feeling heavier.',
+    desc: 'After repeated setbacks and exam stress, the subject starts feeling heavy.',
   },
 ] as const;
 
@@ -229,11 +229,11 @@ function DashboardInstrumentCard({ item, index }: { item: typeof STRUGGLES_DATA[
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5, delay: index * 0.14, ease: 'easeOut' }}
-      className="flex flex-col items-center justify-center w-full isolate"
+      className="flex flex-col h-full w-full isolate"
     >
       {/* Stationary card with smooth hover lift and font transitions */}
-      <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[315px] select-none group cursor-pointer h-full">
-        <div className="relative bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-7 border border-gray-100 shadow-[0_8px_24px_rgba(15,74,155,0.06)] group-hover:shadow-[0_18px_40px_rgba(15,74,155,0.12)] group-hover:-translate-y-1.5 group-hover:border-[#0f4a9b]/30 transition-all duration-300 flex flex-col items-center text-center overflow-hidden h-full">
+      <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[315px] select-none group cursor-pointer h-full mx-auto flex flex-col">
+        <div className="relative bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-6 lg:p-7 border border-gray-100 shadow-[0_8px_24px_rgba(15,74,155,0.06)] group-hover:shadow-[0_18px_40px_rgba(15,74,155,0.12)] group-hover:-translate-y-1.5 group-hover:border-[#0f4a9b]/30 transition-all duration-300 flex flex-col items-center text-center overflow-hidden h-full">
           {/* Subtle Top Accent Indicator Bar */}
           <div
             className="absolute top-0 left-0 right-0 h-1 group-hover:h-1.5 transition-all duration-300"
@@ -241,19 +241,23 @@ function DashboardInstrumentCard({ item, index }: { item: typeof STRUGGLES_DATA[
           />
 
           {/* Automatic Animated Diagnostic Dial with subtle hover scale */}
-          <div className="group-hover:scale-105 transition-transform duration-300">
+          <div className="w-full flex items-center justify-center pt-1 pb-2 sm:py-2 group-hover:scale-105 transition-transform duration-300">
             <DialComponent />
           </div>
 
-          {/* Title with font hover color transition */}
-          <h3 className="text-xs sm:text-xl font-black text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-200 mt-4 mb-1.5 sm:mb-2 tracking-tight">
-            {item.title}
-          </h3>
+          {/* Title Container with guaranteed equal height & alignment across all 3 cards */}
+          <div className="w-full min-h-[2rem] sm:min-h-[3rem] flex items-center justify-center mt-3 sm:mt-4 mb-1.5 sm:mb-2">
+            <h3 className="text-xs sm:text-lg lg:text-xl font-black text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-200 tracking-tight leading-tight">
+              {item.title}
+            </h3>
+          </div>
 
-          {/* Exact Description */}
-          <p className="text-gray-600 group-hover:text-gray-700 text-[10px] sm:text-[13px] leading-tight sm:leading-relaxed transition-colors duration-200">
-            {item.desc}
-          </p>
+          {/* Description Container with guaranteed equal height & alignment */}
+          <div className="w-full flex-1 flex items-start justify-center">
+            <p className="text-gray-600 group-hover:text-gray-700 text-[10px] sm:text-[13px] leading-snug sm:leading-relaxed transition-colors duration-200">
+              {item.desc}
+            </p>
+          </div>
         </div>
       </div>
     </motion.div>

@@ -69,7 +69,7 @@ const RELATED = [
     slug: 'igcse-preparation-past-papers-final-step',
     category: 'Academic',
     title: 'IGCSE Preparation: Why Past Papers Are the Final Step',
-    description: 'Past papers are the roof of IGCSE preparation — essential, but only after the foundation is set.',
+    description: 'Past papers are the roof of IGCSE preparation, essential, but only after the foundation is set.',
   },
   {
     slug: '10-questions-hiring-private-tutor-abu-dhabi',
@@ -81,7 +81,7 @@ const RELATED = [
     slug: 'exam-panic-before-exams-uae',
     category: 'Parent Guidance',
     title: 'What UAE Parents Miss About Exam Panic Right Before Exams',
-    description: 'Why exam anxiety peaks in the final days before papers — and how parents can help protect working memory.',
+    description: 'Why exam anxiety peaks in the final days before papers, and how parents can help protect working memory.',
   },
   {
     slug: 'igcse-maths-revision-low-marks',

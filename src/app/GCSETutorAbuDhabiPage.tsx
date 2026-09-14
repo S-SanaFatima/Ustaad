@@ -102,7 +102,7 @@ export default function GCSETutorAbuDhabiPage() {
     <Layout>
       <SEOHead
         title="Online GCSE Tutor Abu Dhabi | AQA, OCR, Edexcel"
-        description="Live online GCSE tutors for Abu Dhabi families. AQA, OCR and Pearson Edexcel. Foundation and Higher tier support in Years 10 and 11. First lesson free."
+        description="Live online GCSE tutors for Abu Dhabi families. AQA, OCR and Pearson Edexcel. Foundation and Higher tier support in Years 10 and 11."
         canonical="/gcse-tutor-abu-dhabi"
         ogImage="/UpdatedImages/gcse-tutor-abu-dhabi-online-year-11-session.webp"
         placename="Abu Dhabi, UAE"
@@ -115,11 +115,6 @@ export default function GCSETutorAbuDhabiPage() {
 
       {/* ── SECTION 01: HERO CANVAS ── */}
       <section className="relative -mt-16 overflow-hidden bg-[#060f22] flex flex-col items-center justify-center md:min-h-[75vh]">
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <img src="/UpdatedImages/gcse-tutor-abu-dhabi-online-year-11-session.webp" alt="Abu Dhabi Year 11 student in a live online GCSE session with a Ustaad tutor working through an AQA past paper." className="w-full h-full object-cover opacity-40 md:opacity-25 mix-blend-screen" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#060f22]/60 via-[#060f22]/30 to-[#060f22]" />
-        </div>
-
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40 md:opacity-100">
           <svg viewBox="0 0 1400 600" preserveAspectRatio="xMaxYMid slice" className="absolute inset-0 w-full h-full" aria-hidden="true">
             <defs>
@@ -221,7 +216,7 @@ export default function GCSETutorAbuDhabiPage() {
           </motion.p>
           
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {['Year 10', 'Year 11', 'Foundation & Higher', 'First Lesson Free'].map(tag => (
+            {['Year 10', 'Year 11', 'Foundation & Higher', '1-on-1 Online'].map(tag => (
               <span key={tag} className="px-3 py-1.5 rounded-full text-[11px] font-bold text-white/80" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}>{tag}</span>
             ))}
           </div>
@@ -494,7 +489,7 @@ export default function GCSETutorAbuDhabiPage() {
               <a href={WA_URL} target="_blank" rel="noopener" className="w-full bg-[#25D366] hover:bg-[#20b958] text-white py-3 rounded-xl font-bold transition flex items-center justify-center gap-2"><MessageCircle className="w-4 h-4" /> Message Us</a>
             </div>
           </div>
-          <p className="text-center text-[13px] text-gray-500 font-medium mb-10">First lesson free. Weekend, evening and Ramadan slots. UAE-registered since 2015.</p>
+          <p className="text-center text-[13px] text-gray-500 font-medium mb-10">Weekend, evening and Ramadan slots. UAE-registered since 2015.</p>
           
           <div className="bg-[#f4f7fc] rounded-3xl p-6 sm:p-8 border border-gray-100">
             <h4 className="text-[15px] font-bold text-[#0a1f3d] mb-6 border-b border-gray-200 pb-4">Related pages</h4>

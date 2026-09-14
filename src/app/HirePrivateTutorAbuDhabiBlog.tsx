@@ -99,13 +99,13 @@ const RELATED = [
     slug: 'igcse-preparation-past-papers-final-step',
     category: 'Academic',
     title: 'IGCSE Preparation: Why Past Papers Are the Final Step',
-    description: 'Past papers are the roof of IGCSE preparation — essential, but only after the foundation is set.',
+    description: 'Past papers are the roof of IGCSE preparation, essential, but only after the foundation is set.',
   },
   {
     slug: 'exam-panic-before-exams-uae',
     category: 'Parent Guidance',
     title: 'What UAE Parents Miss About Exam Panic Right Before Exams',
-    description: 'Why exam anxiety peaks in the final days before papers — and how parents can help protect working memory.',
+    description: 'Why exam anxiety peaks in the final days before papers, and how parents can help protect working memory.',
   },
 ];
 
@@ -412,7 +412,6 @@ export default function HirePrivateTutorAbuDhabiBlog() {
                   </p>
                   <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-[#0f4a9b]">
                     <span>Step 1 of 4</span>
-                    <span>→</span>
                   </div>
                 </div>
 
@@ -427,7 +426,6 @@ export default function HirePrivateTutorAbuDhabiBlog() {
                   </p>
                   <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-[#0f4a9b]">
                     <span>Step 2 of 4</span>
-                    <span>→</span>
                   </div>
                 </div>
 
@@ -442,7 +440,6 @@ export default function HirePrivateTutorAbuDhabiBlog() {
                   </p>
                   <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-[#A8892A]">
                     <span>Step 3 of 4</span>
-                    <span>→</span>
                   </div>
                 </div>
 

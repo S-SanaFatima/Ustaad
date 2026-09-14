@@ -382,7 +382,7 @@ export default function MYPPage() {
             {[
               { city: "Abu Dhabi", note: "Khalifa City · Saadiyat · Yas" },
               { city: "Dubai", note: "Dubai Hills · Ranches · Palm" },
-              { city: "Sharjah", note: "MYP partner schools" },
+              { city: "Sharjah", note: "IB World Schools" },
               { city: "Ajman", note: "IB MYP schools" },
               { city: "Al Ain", note: "Garden City" },
               { city: "Ras Al Khaimah", note: "Northern Emirates" },

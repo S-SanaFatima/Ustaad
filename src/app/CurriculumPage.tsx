@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react';
 import type { ReactNode } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  ArrowRight, BarChart3, BookOpen, BrainCircuit, CheckCircle, ChevronDown,
+  ArrowRight, BarChart3, BookOpen, BrainCircuit, Building2, CheckCircle, ChevronDown,
   Flag, GraduationCap, HelpCircle, Layers, LibraryBig, MapPin, MessageCircle, MessageCircleQuestion,
   Orbit, PenLine, School, Sparkles,
 } from 'lucide-react';
@@ -142,22 +142,22 @@ export default function CurriculumPage() {
     <Layout>
       <SEOHead title="Curriculum Tutoring UAE | British, IB & American | Ustaad" description="Curriculum-specific online tutoring across the UAE for British, American & IB students. 1-to-1 lessons matched to Cambridge, Edexcel & IB assessments." canonical="/curriculum" ogImage="/UpdatedImages/igcse-ib-a-level-all-curriculum-tutoring-uae.webp" schema={[localBusinessSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Curriculum", url: "/curriculum" }]), faqSchema(faqItems.map(({ question, answer }) => ({ q: question, a: answer })))]} />
       {/* ── HERO ── */}
-      <section className="pt-10 pb-20 lg:pt-20 lg:pb-32 relative overflow-hidden bg-white">
+      <section className="min-h-[calc(100dvh-84px)] lg:min-h-[calc(100dvh-92px)] flex items-center relative overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14 xl:gap-16 items-center">
 
             {/* Left */}
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-sm font-bold rounded-full mb-6 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
-                <Sparkles className="h-4 w-4" /> Tailored Academic Support
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-3.5 sm:mb-4 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
+                <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Tailored Academic Support
               </div>
-              <h1 className="text-4xl lg:text-5xl xl:text-[64px] font-extrabold text-[#0a1f3d] mb-4 leading-[1.1] tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f3d] mb-3 sm:mb-4 leading-[1.15] tracking-tight">
                 <GradientHeadingText text="Every Curriculum." />
                 <span className="block">One Standard.</span>
               </h1>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
-              <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-xl">Every curriculum has its own style of teaching, so we guide students in the way they already learn at school.</p>
+              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3.5 sm:mb-5" />
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-5 sm:mb-7 leading-relaxed max-w-xl">Every curriculum has its own style of teaching, so we guide students in the way they already learn at school.</p>
               <HeroCTABlock className="mb-4">
                 Book Your Free Trial
               </HeroCTABlock>
@@ -166,7 +166,7 @@ export default function CurriculumPage() {
             {/* Right Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full h-[400px] lg:h-[600px] rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-8 border-white group z-10"
+              className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[420px] xl:h-[460px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-4 sm:border-8 border-white group z-10"
             >
               <img
                 src="/UpdatedImages/igcse-ib-a-level-all-curriculum-tutoring-uae.webp"
@@ -186,83 +186,83 @@ export default function CurriculumPage() {
       <StatsBar />
 
       {/* ── CURRICULUM CARDS ── */}
-      <section id="curricula" className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
+      <section id="curricula" className="py-8 sm:py-10 lg:py-12 bg-gray-50 flex flex-col justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="text-center mb-6 sm:mb-8 max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-2 sm:mb-3">
               <GradientHeadingText text="Find Your Child's Curriculum" />
             </h2>
-            <p className="text-gray-600 text-base lg:text-lg">British, American, and IB students all study differently. Choose your child's curriculum below to see how our support fits their learning style.</p>
+            <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed">British, American, and IB students all study differently. Choose your child's curriculum below to see how our support fits their learning style.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-full mx-auto mb-8 px-1 sm:px-0">
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 max-w-full mx-auto mb-2 px-4 sm:px-0 -mx-4 sm:mx-0 overflow-x-auto md:overflow-visible pb-3 md:pb-0 pt-1 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden items-stretch">
 
             {/* British Curriculum */}
-            <div className="relative bg-white rounded-[24px] px-4 py-10 sm:p-8 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/40 transition-all duration-300 flex flex-col cursor-pointer group overflow-hidden" style={{ minHeight: 380 }}>
-              <div className="w-14 h-14 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-2xl flex items-center justify-center mb-5 shadow-[0_0_20px_rgba(15,74,155,0.35)] z-10 text-white flex-shrink-0">
-                <LibraryBig className="h-6 w-6" />
+            <div className="w-[82vw] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/40 transition-all duration-300 flex flex-col cursor-pointer group overflow-hidden">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-xl flex items-center justify-center mb-3.5 shadow-[0_0_15px_rgba(15,74,155,0.3)] z-10 text-white flex-shrink-0">
+                <LibraryBig className="h-5 w-5" />
               </div>
-              <a href="/british-curriculum" className="text-xl font-extrabold text-[#0a1f3d] mb-2 leading-tight z-10 hover:text-[#0f4a9b] transition-colors">British Curriculum</a>
-              <div className="inline-flex items-center px-3 py-1 bg-[#0f4a9b]/5 text-[#0f4a9b] text-xs font-bold rounded-lg border border-[#0f4a9b]/10 w-max mb-4 z-10">IGCSE · GCSE · A-Level</div>
-              <p className="text-gray-600 text-sm leading-relaxed mb-3 z-10">Lessons matched to how British exam boards mark and reward answers.</p>
-              <div className="w-8 h-[2px] bg-[#C7A24A] mb-3 z-10" />
-              <p className="text-gray-600 text-xs mb-5 z-10">Cambridge · Edexcel · AQA</p>
-              <div className="flex flex-col gap-4 mt-auto z-10">
-                <a href="/british-curriculum" className="w-full py-3.5 text-sm font-bold text-[#0a1f3d] border-2 border-gray-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-colors text-center">View Curriculum</a>
-                <GoldButton className="w-full py-3.5 text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]" href="/contact?intent=trial&source=curriculum-british">Book Your Free Trial</GoldButton>
+              <a href="/british-curriculum" className="text-lg sm:text-xl font-extrabold text-[#0a1f3d] mb-1.5 leading-tight z-10 hover:text-[#0f4a9b] transition-colors">British Curriculum</a>
+              <div className="inline-flex items-center px-2.5 py-0.5 bg-[#0f4a9b]/5 text-[#0f4a9b] text-[11px] font-bold rounded-md border border-[#0f4a9b]/10 w-max mb-2.5 z-10">IGCSE · GCSE · A-Level</div>
+              <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-2 z-10">Lessons matched to how British exam boards mark and reward answers.</p>
+              <div className="w-8 h-[2px] bg-[#C7A24A] mb-2 z-10" />
+              <p className="text-gray-500 text-[11px] sm:text-xs mb-4 z-10">Cambridge · Edexcel · AQA</p>
+              <div className="flex flex-col gap-2 mt-auto z-10">
+                <a href="/british-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] border-2 border-gray-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-colors text-center">View Curriculum</a>
+                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]" href="/contact?intent=trial&source=curriculum-british">Book Your Free Trial</GoldButton>
               </div>
-              <div className="absolute right-4 bottom-4 pointer-events-none select-none">
-                <BritishLandmarkWatermark className="h-28 w-28 text-[#0f4a9b]/15 transition-transform group-hover:scale-110" />
+              <div className="absolute right-3 bottom-3 pointer-events-none select-none">
+                <BritishLandmarkWatermark className="h-20 w-20 sm:h-24 sm:w-24 text-[#0f4a9b]/10 transition-transform group-hover:scale-110" />
               </div>
             </div>
 
             {/* American Curriculum */}
-            <div className="relative bg-white rounded-[24px] px-4 py-10 sm:p-8 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/40 transition-all duration-300 flex flex-col cursor-pointer group overflow-hidden" style={{ minHeight: 380 }}>
-              <div className="w-14 h-14 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-2xl flex items-center justify-center mb-5 shadow-[0_0_20px_rgba(15,74,155,0.35)] z-10 text-white flex-shrink-0">
-                <Flag className="h-6 w-6" />
+            <div className="w-[82vw] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/40 transition-all duration-300 flex flex-col cursor-pointer group overflow-hidden">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-xl flex items-center justify-center mb-3.5 shadow-[0_0_15px_rgba(15,74,155,0.3)] z-10 text-white flex-shrink-0">
+                <Flag className="h-5 w-5" />
               </div>
-              <a href="/american-curriculum" className="text-xl font-extrabold text-[#0a1f3d] mb-2 leading-tight z-10 hover:text-[#0f4a9b] transition-colors">American Curriculum</a>
-              <div className="inline-flex items-center px-3 py-1 bg-[#0f4a9b]/5 text-[#0f4a9b] text-xs font-bold rounded-lg border border-[#0f4a9b]/10 w-max mb-4 z-10">Grade 6-12 · AP · SAT</div>
-              <p className="text-gray-600 text-sm leading-relaxed mb-3 z-10">Tutoring that mirrors US coursework alongside AP and SAT prep work.</p>
-              <div className="w-8 h-[2px] bg-[#C7A24A] mb-3 z-10" />
-              <p className="text-gray-600 text-xs mb-5 z-10">College Board · AP · SAT</p>
-              <div className="flex flex-col gap-4 mt-auto z-10">
-                <a href="/american-curriculum" className="w-full py-3.5 text-sm font-bold text-[#0a1f3d] border-2 border-gray-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-colors text-center">View Curriculum</a>
-                <GoldButton className="w-full py-3.5 text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]" href="/contact?intent=trial&source=curriculum-american">Book Your Free Trial</GoldButton>
+              <a href="/american-curriculum" className="text-lg sm:text-xl font-extrabold text-[#0a1f3d] mb-1.5 leading-tight z-10 hover:text-[#0f4a9b] transition-colors">American Curriculum</a>
+              <div className="inline-flex items-center px-2.5 py-0.5 bg-[#0f4a9b]/5 text-[#0f4a9b] text-[11px] font-bold rounded-md border border-[#0f4a9b]/10 w-max mb-2.5 z-10">Grade 6-12 · AP · SAT</div>
+              <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-2 z-10">Tutoring that mirrors US coursework alongside AP and SAT prep work.</p>
+              <div className="w-8 h-[2px] bg-[#C7A24A] mb-2 z-10" />
+              <p className="text-gray-500 text-[11px] sm:text-xs mb-4 z-10">College Board · AP · SAT</p>
+              <div className="flex flex-col gap-2 mt-auto z-10">
+                <a href="/american-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] border-2 border-gray-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-colors text-center">View Curriculum</a>
+                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]" href="/contact?intent=trial&source=curriculum-american">Book Your Free Trial</GoldButton>
               </div>
-              <div className="absolute right-4 bottom-4 pointer-events-none select-none">
-                <AmericanLandmarkWatermark className="h-28 w-28 text-[#0f4a9b]/15 transition-transform group-hover:scale-110" />
+              <div className="absolute right-3 bottom-3 pointer-events-none select-none">
+                <AmericanLandmarkWatermark className="h-20 w-20 sm:h-24 sm:w-24 text-[#0f4a9b]/10 transition-transform group-hover:scale-110" />
               </div>
             </div>
 
             {/* IB Curriculum */}
-            <div className="relative bg-white rounded-[24px] px-4 py-10 sm:p-8 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/40 transition-all duration-300 flex flex-col cursor-pointer group overflow-hidden" style={{ minHeight: 380 }}>
-              <div className="w-14 h-14 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-2xl flex items-center justify-center mb-5 shadow-[0_0_20px_rgba(15,74,155,0.35)] z-10 text-white flex-shrink-0">
-                <Orbit className="h-6 w-6" />
+            <div className="w-[82vw] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/40 transition-all duration-300 flex flex-col cursor-pointer group overflow-hidden">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-xl flex items-center justify-center mb-3.5 shadow-[0_0_15px_rgba(15,74,155,0.3)] z-10 text-white flex-shrink-0">
+                <Orbit className="h-5 w-5" />
               </div>
-              <a href="/ib-curriculum" className="text-xl font-extrabold text-[#0a1f3d] mb-2 leading-tight z-10 hover:text-[#0f4a9b] transition-colors">IB Curriculum</a>
-              <div className="inline-flex items-center px-3 py-1 bg-[#0f4a9b]/5 text-[#0f4a9b] text-xs font-bold rounded-lg border border-[#0f4a9b]/10 w-max mb-4 z-10">MYP · DP · SL & HL</div>
-              <p className="text-gray-600 text-sm leading-relaxed mb-3 z-10">Tuition that handles analytical depth and the real academic pressure of IB.</p>
-              <div className="w-8 h-[2px] bg-[#C7A24A] mb-3 z-10" />
-              <p className="text-gray-600 text-xs mb-5 z-10">IB MYP · IB Diploma Programme</p>
-              <div className="flex flex-col gap-4 mt-auto z-10">
-                <a href="/ib-curriculum" className="w-full py-3.5 text-sm font-bold text-[#0a1f3d] border-2 border-gray-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-colors text-center">View Curriculum</a>
-                <GoldButton className="w-full py-3.5 text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]" href="/contact?intent=trial&source=curriculum-ib">Book Your Free Trial</GoldButton>
+              <a href="/ib-curriculum" className="text-lg sm:text-xl font-extrabold text-[#0a1f3d] mb-1.5 leading-tight z-10 hover:text-[#0f4a9b] transition-colors">IB Curriculum</a>
+              <div className="inline-flex items-center px-2.5 py-0.5 bg-[#0f4a9b]/5 text-[#0f4a9b] text-[11px] font-bold rounded-md border border-[#0f4a9b]/10 w-max mb-2.5 z-10">MYP · DP · SL & HL</div>
+              <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-2 z-10">Tuition that handles analytical depth and the real academic pressure of IB.</p>
+              <div className="w-8 h-[2px] bg-[#C7A24A] mb-2 z-10" />
+              <p className="text-gray-500 text-[11px] sm:text-xs mb-4 z-10">IB MYP · IB Diploma Programme</p>
+              <div className="flex flex-col gap-2 mt-auto z-10">
+                <a href="/ib-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] border-2 border-gray-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-colors text-center">View Curriculum</a>
+                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]" href="/contact?intent=trial&source=curriculum-ib">Book Your Free Trial</GoldButton>
               </div>
-              <div className="absolute right-4 bottom-4 pointer-events-none select-none">
-                <IBWorldWatermark className="h-28 w-28 text-[#0f4a9b]/15 transition-transform group-hover:scale-110" />
+              <div className="absolute right-3 bottom-3 pointer-events-none select-none">
+                <IBWorldWatermark className="h-20 w-20 sm:h-24 sm:w-24 text-[#0f4a9b]/10 transition-transform group-hover:scale-110" />
               </div>
             </div>
 
             {/* Find the Right Fit */}
-            <div className="relative bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-[24px] p-5 sm:p-8 border border-[#E5E7EB]/30 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-white/40 transition-all duration-300 flex flex-col justify-center items-center text-center overflow-hidden cursor-pointer group" style={{ minHeight: 380 }}>
-              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-br from-[#C7A24A]/20 to-[#A8892A]/10 rounded-full blur-[60px] pointer-events-none" />
-              <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-6 shadow-inner z-10 border border-white/20">
-                <MessageCircleQuestion className="h-10 w-10 text-[#C7A24A]" strokeWidth={2} />
+            <div className="w-[82vw] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-[#E5E7EB]/30 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-white/40 transition-all duration-300 flex flex-col justify-center items-center text-center overflow-hidden cursor-pointer group">
+              <div className="absolute top-0 right-0 w-[240px] h-[240px] bg-gradient-to-br from-[#C7A24A]/20 to-[#A8892A]/10 rounded-full blur-[50px] pointer-events-none" />
+              <div className="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-3 shadow-inner z-10 border border-white/20">
+                <MessageCircleQuestion className="h-7 w-7 text-[#C7A24A]" strokeWidth={2} />
               </div>
-              <h3 className="text-2xl font-extrabold text-white mb-3 z-10">How Can We Help You?</h3>
-              <p className="text-blue-100 text-sm leading-relaxed mb-8 z-10 max-w-[240px]">Tell us your needs, we'll guide you from here.</p>
-              <GoldButton className="w-full py-4 text-sm shadow-[0_0_20px_rgba(199,162,74,0.4)] z-10" href="/contact#form">
+              <h3 className="text-lg sm:text-xl font-extrabold text-white mb-1.5 z-10">How Can We Help You?</h3>
+              <p className="text-blue-100 text-xs sm:text-[13px] leading-relaxed mb-4 z-10 max-w-[200px]">Tell us your needs, we'll guide you from here.</p>
+              <GoldButton className="w-full py-3 sm:py-3.5 text-xs sm:text-sm shadow-[0_0_20px_rgba(199,162,74,0.4)] z-10" href="/contact#form">
                 Get Started
               </GoldButton>
             </div>
@@ -272,58 +272,58 @@ export default function CurriculumPage() {
       </section>
 
       {/* ── ACADEMIC STAGES ── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-sm font-bold rounded-full mb-5 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
+      <section className="py-8 sm:py-10 lg:py-12 bg-white flex flex-col justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="text-center mb-6 sm:mb-8 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-3 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
               <GraduationCap className="h-4 w-4" /> Who We Teach
             </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-2 sm:mb-3">
               <GradientHeadingText text="Academic Stages Across Each Curriculum" />
             </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
+            <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed">
               Clear academic progression from foundation years to advanced examination stages.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-6xl mx-auto px-4 sm:px-0">
+          <div className="flex md:grid md:grid-cols-3 gap-5 lg:gap-7 max-w-6xl mx-auto w-full overflow-x-auto md:overflow-visible pb-3 md:pb-0 pt-1 -mx-4 px-4 md:mx-auto md:px-0 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden items-stretch">
             {academicStages.map((curriculum) => (
               <div
                 key={curriculum.title}
-                className="relative bg-white rounded-[28px] p-6 sm:p-7 border border-[#E8EDF5] shadow-[0_8px_40px_rgba(15,74,155,0.08)] hover:shadow-[0_24px_60px_rgba(15,74,155,0.14)] hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
+                className="w-[82vw] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-[#E8EDF5] shadow-[0_8px_40px_rgba(15,74,155,0.08)] hover:shadow-[0_24px_60px_rgba(15,74,155,0.14)] hover:-translate-y-1 transition-all duration-300 overflow-hidden group flex flex-col"
               >
                 {/* Subtle top glow accent */}
                 <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-[#0f4a9b]/20 to-transparent" />
 
                 {/* Header */}
-                <div className="flex items-center gap-4 mb-7">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white flex items-center justify-center shadow-[0_8px_24px_rgba(15,74,155,0.35)] flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <div className="flex items-center gap-3.5 mb-4 sm:mb-5">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white flex items-center justify-center shadow-[0_6px_18px_rgba(15,74,155,0.3)] flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
                     {curriculum.icon}
                   </div>
                   <div>
-                    <p className="text-[19px] font-extrabold text-[#0a1f3d] leading-tight">{curriculum.title}</p>
-                    <p className="text-[10px] font-bold text-[#0f4a9b]/50 uppercase tracking-[0.15em] mt-1">{curriculum.subtitle.replace(/\s*\|\s*/g, ' • ')}</p>
+                    <p className="text-base sm:text-lg font-extrabold text-[#0a1f3d] leading-tight">{curriculum.title}</p>
+                    <p className="text-[10px] font-bold text-[#0f4a9b]/50 uppercase tracking-[0.15em] mt-0.5">{curriculum.subtitle.replace(/\s*\|\s*/g, ' • ')}</p>
                   </div>
                 </div>
 
                 {/* Vertical stage list */}
-                <div className="space-y-0">
+                <div className="space-y-0 mt-auto">
                   {curriculum.stages.map((stage, idx) => {
                     const isLast = idx === curriculum.stages.length - 1;
                     return (
-                      <div key={`${curriculum.title}-${stage.label}`} className="flex gap-3">
+                      <div key={`${curriculum.title}-${stage.label}`} className="flex gap-2.5 sm:gap-3">
                         {/* Dot + connecting line */}
-                        <div className="flex flex-col items-center flex-shrink-0 pt-[26px]">
-                          <div className="w-3 h-3 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] shadow-[0_0_8px_rgba(15,74,155,0.45)] flex-shrink-0 flex items-center justify-center">
+                        <div className="flex flex-col items-center flex-shrink-0 pt-[22px]">
+                          <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] shadow-[0_0_6px_rgba(15,74,155,0.45)] flex-shrink-0 flex items-center justify-center">
                             <div className="w-1 h-1 rounded-full bg-white/70" />
                           </div>
-                          {!isLast && <div className="w-px flex-1 bg-gradient-to-b from-[#0f4a9b]/25 to-transparent mt-1.5 mb-1.5" />}
+                          {!isLast && <div className="w-px flex-1 bg-gradient-to-b from-[#0f4a9b]/25 to-transparent mt-1 mb-1" />}
                         </div>
                         {/* Stage row */}
-                        <div className={`flex-1 ${isLast ? 'pb-0' : 'pb-2.5'}`}>
-                          <div className="bg-[#f6f9fd] border border-[#0f4a9b]/[0.06] rounded-2xl px-4 py-3.5">
-                            <p className="text-sm font-extrabold text-[#0a1f3d] leading-snug">{stage.label}</p>
-                            <p className="text-xs text-[#0f4a9b]/60 font-semibold mt-0.5">{stage.detail}</p>
+                        <div className={`flex-1 ${isLast ? 'pb-0' : 'pb-2'}`}>
+                          <div className="bg-[#f6f9fd] border border-[#0f4a9b]/[0.06] rounded-xl px-3.5 py-2.5">
+                            <p className="text-xs sm:text-[13px] font-extrabold text-[#0a1f3d] leading-snug">{stage.label}</p>
+                            <p className="text-[11px] text-[#0f4a9b]/60 font-semibold mt-0.5">{stage.detail}</p>
                           </div>
                         </div>
                       </div>
@@ -337,22 +337,46 @@ export default function CurriculumPage() {
       </section>
 
       {/* ── OUR TEACHING APPROACH ── */}
-      <section className="py-20 bg-[#f8fafc]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4 text-center">
+      <section className="py-8 sm:py-12 lg:py-16 bg-[#f8fafc] flex flex-col justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="text-center mb-6 sm:mb-8 lg:mb-10 max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-2 sm:mb-3 text-center">
               <GradientHeadingText text="Our Teaching Approach Across Each Curriculum" />
             </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed text-center">Lessons follow how each curriculum assesses students, not a copy-paste method applied across every board.</p>
+            <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed text-center">Lessons follow how each curriculum assesses students, not a copy-paste method applied across every board.</p>
           </div>
 
-          <div className="grid lg:grid-cols-[320px_1fr] gap-10 items-stretch">
-            <div className="bg-white rounded-[32px] p-6 shadow-[0_20px_60px_rgba(15,74,155,0.08)] flex flex-col gap-4">
+          {/* Mobile Pill Tabs (Clean Horizontal Segmented Switcher) */}
+          <div className="flex lg:hidden bg-slate-200/80 p-1.5 rounded-2xl gap-1.5 mb-4 overflow-x-auto no-scrollbar">
+            {teachingApproach.map((item) => {
+              const isActive = activeApproach === item.key;
+              return (
+                <button
+                  key={item.key}
+                  onClick={() => setActiveApproach(item.key)}
+                  className={`flex-1 min-w-[95px] py-2 px-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 select-none ${
+                    isActive
+                      ? 'bg-[#0f4a9b] text-white shadow-md shadow-[#0f4a9b]/25'
+                      : 'text-[#0a1f3d] hover:bg-white/60'
+                  }`}
+                >
+                  <span className={`w-3.5 h-3.5 flex items-center justify-center ${isActive ? 'text-white' : 'text-[#0f4a9b]'}`}>
+                    {item.icon}
+                  </span>
+                  <span className="truncate">{item.title.replace(' Curriculum', '')}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="grid lg:grid-cols-[320px_1fr] gap-6 lg:gap-8 items-stretch">
+            {/* Desktop Vertical Sidebar Selector */}
+            <div className="hidden lg:flex bg-white rounded-[32px] p-6 shadow-[0_20px_60px_rgba(15,74,155,0.08)] flex-col gap-4">
               {teachingApproach.map((item) => (
                 <button
                   key={item.key}
                   onClick={() => setActiveApproach(item.key)}
-                  className={`w-full text-left rounded-[24px] px-5 py-5 border transition-all flex items-center gap-4 ${activeApproach === item.key ? 'border-[#0f4a9b] bg-[#eff5ff] shadow-[0_15px_35px_rgba(15,74,155,0.15)]' : 'border-[#E5E7EB] bg-white hover:border-[#0f4a9b]/40'}`}
+                  className={`w-full text-left rounded-[24px] px-5 py-4 sm:py-5 border transition-all flex items-center gap-4 ${activeApproach === item.key ? 'border-[#0f4a9b] bg-[#eff5ff] shadow-[0_15px_35px_rgba(15,74,155,0.15)]' : 'border-[#E5E7EB] bg-white hover:border-[#0f4a9b]/40'}`}
                 >
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${activeApproach === item.key ? 'bg-[#0f4a9b] text-white' : 'bg-[#f2f4f7] text-[#0f4a9b]' }`}>
                     {item.icon}
@@ -365,25 +389,26 @@ export default function CurriculumPage() {
               ))}
             </div>
 
-            <div className="relative rounded-[32px] overflow-hidden bg-gradient-to-br from-[#0f2f63] via-[#0a3a79] to-[#06214b] text-white p-10 shadow-[0_30px_80px_rgba(6,33,75,0.35)]">
+            {/* Content Display Card */}
+            <div className="relative rounded-2xl sm:rounded-[32px] overflow-hidden bg-gradient-to-br from-[#0f2f63] via-[#0a3a79] to-[#06214b] text-white p-5 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(6,33,75,0.3)]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.1),transparent),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent)]" />
               <div className="relative z-10 flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-sm font-semibold text-white/70 tracking-wide">{activeApproachContent.subtitle}</p>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold mt-2">{activeApproachContent.title}</h3>
+                  <p className="text-xs sm:text-sm font-semibold text-white/70 tracking-wide">{activeApproachContent.subtitle}</p>
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold mt-1 sm:mt-2">{activeApproachContent.title}</h3>
                 </div>
-                <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center text-white/70 flex-shrink-0 mt-1">
+                <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-white/30 flex items-center justify-center text-white/70 flex-shrink-0">
                   {activeApproachContent.icon}
                 </div>
               </div>
-              <div className="relative z-10 mt-8">
-                <ul className="space-y-5">
+              <div className="relative z-10 mt-5 sm:mt-7">
+                <ul className="space-y-3 sm:space-y-4">
                   {activeApproachContent.bullets.map((point, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="mt-1">
-                        <CheckCircle className="h-4 w-4 text-[#facc15]" />
+                    <li key={idx} className="flex items-start gap-2.5 sm:gap-3">
+                      <span className="mt-0.5 sm:mt-1 flex-shrink-0">
+                        <CheckCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#facc15]" />
                       </span>
-                      <p className="text-base leading-relaxed text-white/90 text-justify">{point}</p>
+                      <p className="text-xs sm:text-sm lg:text-base leading-relaxed text-white/90">{point}</p>
                     </li>
                   ))}
                 </ul>
@@ -401,48 +426,296 @@ export default function CurriculumPage() {
             <p className="text-lg font-extrabold mb-1">Want to know which subjects your child can study with Ustaad?</p>
             <p className="text-sm text-white/75">Explore every subject we teach across British, American, and IB curricula.</p>
           </div>
-          <a href="/subjects" className="inline-flex items-center gap-2 bg-white text-[#0f4a9b] font-bold px-6 py-3 rounded-full shadow-lg hover:bg-white/90 flex-shrink-0 relative z-10">
+          <GoldButton href="/subjects" className="px-7 py-3.5 text-sm shadow-[0_0_20px_rgba(199,162,74,0.35)] flex-shrink-0 relative z-10">
             Explore our full subject list
-          </a>
+          </GoldButton>
         </div>
       </div>
 
-      {/* ── CURRICULUM SUPPORT ── */}
-      <section className="py-20 bg-gradient-to-b from-[#081a3f] via-[#04112b] to-[#010814] text-white mt-16 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 20% 20%, rgba(15,74,155,0.5), transparent 55%)' }} />
+      {/* ── CURRICULUM SUPPORT ACROSS THE UAE (Compact One-Screen Desktop Section) ── */}
+      <section className="py-8 sm:py-10 lg:py-12 bg-gradient-to-b from-[#f8fafd] via-white to-[#f4f7fb] text-[#0a1f3d] relative overflow-hidden border-t border-slate-100 [perspective:1200px]">
+        {/* Subtle Ambient Depth Lighting */}
+        <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-[#0f4a9b]/5 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 right-1/4 w-[350px] h-[350px] bg-[#C7A24A]/8 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(15,74,155,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(15,74,155,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-50" />
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl lg:text-4xl font-extrabold">Curriculum Support Across the UAE</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-[#facc15] to-[#f97316] mx-auto mt-4" />
+          
+          {/* Header */}
+          <div className="text-center mb-6 sm:mb-8 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 text-[#0f4a9b] text-[11px] font-black uppercase tracking-wider mb-2 shadow-xs">
+              <MapPin className="h-3.5 w-3.5 text-[#0f4a9b]" /> Nationwide Coverage Network
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-[#0a1f3d] mb-1.5 tracking-tight">
+              Curriculum Support <span className="text-[#0f4a9b]">Across the UAE</span>
+            </h2>
+            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto">
+              Tailored 1-to-1 British, American, and IB curriculum tutoring for leading schools and families across every emirate.
+            </p>
           </div>
 
-          <div className="bg-white/5 border border-white/15 rounded-[32px] p-8 sm:p-10 shadow-[0_40px_90px_rgba(0,0,0,0.4)]">
-            <div className="flex flex-col items-center text-center mb-8">
-              <div className="w-16 h-16 rounded-full bg-white/10 border border-white/30 flex items-center justify-center mb-5">
-                <MapPin className="h-8 w-8 text-[#facc15]" />
+          {/* Compact 3D Animated White Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 max-w-6xl mx-auto items-stretch mb-5">
+            
+            {/* 3D Card 1: Emirates */}
+            <div className="relative [perspective:1000px] group">
+              <div 
+                className="relative bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-5.5 flex flex-col justify-between transition-all duration-300 group-hover:border-[#C7A24A]/60 group-hover:shadow-[0_18px_40px_rgba(199,162,74,0.14)] group-hover:-translate-y-1.5 h-full shadow-[0_10px_28px_rgba(15,74,155,0.05)] overflow-hidden"
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {/* Subtle Hover Gradient Flare */}
+                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_0%,rgba(199,162,74,0.1)_0%,transparent_70%)]" />
+
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#C7A24A] to-[#987820] text-white flex items-center justify-center shadow-md shadow-[#C7A24A]/25 group-hover:scale-110 transition-transform duration-300">
+                      <MapPin className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="text-[10.5px] font-black text-[#8a6b18] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#C7A24A]/12 border border-[#C7A24A]/25">
+                      Emirates
+                    </span>
+                  </div>
+
+                  <h3 className="text-base sm:text-[17px] font-black text-[#0a1f3d] mb-1 tracking-tight">
+                    Major Emirates Covered
+                  </h3>
+                  <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                    Specialist online and in-person private tutors matched to local UAE school sessions.
+                  </p>
+                </div>
+
+                {/* Scrolling Horizontal Tracks (Emirates) */}
+                <div 
+                  className="pt-3 border-t border-slate-100 space-y-1.5 overflow-hidden"
+                  style={{
+                    maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+                  }}
+                >
+                  {/* Row 1: Scrolling Left */}
+                  <div className="overflow-hidden py-0.5">
+                    <motion.div
+                      className="flex gap-1.5 w-max"
+                      animate={{ x: ['0%', '-50%'] }}
+                      transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+                    >
+                      {[
+                        'Dubai', 'Abu Dhabi', 'Sharjah', 'Al Ain',
+                        'Dubai', 'Abu Dhabi', 'Sharjah', 'Al Ain',
+                      ].map((item, idx) => (
+                        <a
+                          key={idx}
+                          href="/tutors"
+                          className="px-2.5 py-1 rounded-lg bg-[#fdf9ee] hover:bg-[#C7A24A] hover:text-white text-[#8a6b18] text-[11px] sm:text-xs font-bold transition-all border border-[#C7A24A]/30 whitespace-nowrap shrink-0 shadow-2xs"
+                        >
+                          {item}
+                        </a>
+                      ))}
+                    </motion.div>
+                  </div>
+
+                  {/* Row 2: Scrolling Right */}
+                  <div className="overflow-hidden py-0.5">
+                    <motion.div
+                      className="flex gap-1.5 w-max"
+                      animate={{ x: ['-50%', '0%'] }}
+                      transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                    >
+                      {[
+                        'Ajman', 'Ras Al Khaimah', 'Fujairah', 'Wider UAE',
+                        'Ajman', 'Ras Al Khaimah', 'Fujairah', 'Wider UAE',
+                      ].map((item, idx) => (
+                        <a
+                          key={idx}
+                          href="/tutors"
+                          className="px-2.5 py-1 rounded-lg bg-slate-50 hover:bg-[#0f4a9b] hover:text-white text-slate-700 text-[11px] sm:text-xs font-bold transition-all border border-slate-200 whitespace-nowrap shrink-0 shadow-2xs"
+                        >
+                          {item}
+                        </a>
+                      ))}
+                    </motion.div>
+                  </div>
+                </div>
               </div>
- <p className="text-base sm:text-lg text-white/80 max-w-3xl leading-relaxed">
-                Ustaad provides British curriculum tutoring, American curriculum tutoring, and IB tutoring across <a href="/tutors" className="text-[#facc15] font-semibold underline">Dubai</a>, <a href="/tutors" className="text-[#facc15] font-semibold underline">Abu Dhabi</a>, <a href="/tutors" className="text-[#facc15] font-semibold underline">Al Ain</a>, <a href="/tutors" className="text-[#facc15] font-semibold underline">Sharjah</a>, and the wider <a href="/tutors" className="text-[#facc15] font-semibold underline">UAE</a>. Our tutors support students from leading UAE schools including <a href="/tutors" className="text-[#93c5fd] font-semibold underline">Cranleigh</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">Brighton College</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">Repton</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">GEMS Wellington</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">Raha International</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">GEMS American Academy</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">Dubai International Academy</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">Yasmina British Academy</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">The British School Al Khubairat</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">GEMS Cambridge International</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">Yasmina American School</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">ACS Abu Dhabi</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">ATHS</a>, <a href="/tutors" className="text-[#93c5fd] font-semibold underline">ATS</a>, and <a href="/tutors" className="text-[#93c5fd] font-semibold underline">STS</a>.
+            </div>
+
+            {/* 3D Card 2: Top Schools */}
+            <div className="relative [perspective:1000px] group">
+              <div 
+                className="relative bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-5.5 flex flex-col justify-between transition-all duration-300 group-hover:border-[#0f4a9b]/50 group-hover:shadow-[0_18px_40px_rgba(15,74,155,0.14)] group-hover:-translate-y-1.5 h-full shadow-[0_10px_28px_rgba(15,74,155,0.05)] overflow-hidden"
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {/* Subtle Hover Gradient Flare */}
+                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_0%,rgba(15,74,155,0.08)_0%,transparent_70%)]" />
+
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white flex items-center justify-center shadow-md shadow-[#0f4a9b]/25 group-hover:scale-110 transition-transform duration-300">
+                      <GraduationCap className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="text-[10.5px] font-black text-[#0f4a9b] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#0f4a9b]/10 border border-[#0f4a9b]/20">
+                      Top Schools
+                    </span>
+                  </div>
+
+                  <h3 className="text-base sm:text-[17px] font-black text-[#0a1f3d] mb-1 tracking-tight">
+                    Premier Schools Supported
+                  </h3>
+                  <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                    Mentorship for students across premier British, American, and IB curriculum schools.
+                  </p>
+                </div>
+
+                {/* Scrolling Horizontal Tracks (Schools) */}
+                <div 
+                  className="pt-3 border-t border-slate-100 space-y-1.5 overflow-hidden"
+                  style={{
+                    maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+                  }}
+                >
+                  {/* Row 1: Scrolling Left */}
+                  <div className="overflow-hidden py-0.5">
+                    <motion.div
+                      className="flex gap-1.5 w-max"
+                      animate={{ x: ['0%', '-50%'] }}
+                      transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+                    >
+                      {[
+                        'Cranleigh', 'Brighton College', 'Repton', 'GEMS Wellington', 'Raha Int.', 'GEMS American',
+                        'Cranleigh', 'Brighton College', 'Repton', 'GEMS Wellington', 'Raha Int.', 'GEMS American',
+                      ].map((school, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2.5 py-1 rounded-lg bg-[#f0f4fa] text-[#0f4a9b] text-[11px] sm:text-xs font-semibold border border-[#0f4a9b]/15 whitespace-nowrap shrink-0 shadow-2xs hover:bg-[#0f4a9b] hover:text-white transition-colors"
+                        >
+                          {school}
+                        </span>
+                      ))}
+                    </motion.div>
+                  </div>
+
+                  {/* Row 2: Scrolling Right */}
+                  <div className="overflow-hidden py-0.5">
+                    <motion.div
+                      className="flex gap-1.5 w-max"
+                      animate={{ x: ['-50%', '0%'] }}
+                      transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
+                    >
+                      {[
+                        'Dubai Int. Academy', 'Yasmina British', 'BSAK', 'ACS Abu Dhabi', 'ATHS', 'STS',
+                        'Dubai Int. Academy', 'Yasmina British', 'BSAK', 'ACS Abu Dhabi', 'ATHS', 'STS',
+                      ].map((school, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2.5 py-1 rounded-lg bg-[#f0f4fa] text-[#0f4a9b] text-[11px] sm:text-xs font-semibold border border-[#0f4a9b]/15 whitespace-nowrap shrink-0 shadow-2xs hover:bg-[#0f4a9b] hover:text-white transition-colors"
+                        >
+                          {school}
+                        </span>
+                      ))}
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 3D Card 3: Communities */}
+            <div className="relative [perspective:1000px] group">
+              <div 
+                className="relative bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-5.5 flex flex-col justify-between transition-all duration-300 group-hover:border-emerald-500/50 group-hover:shadow-[0_18px_40px_rgba(16,185,129,0.14)] group-hover:-translate-y-1.5 h-full shadow-[0_10px_28px_rgba(15,74,155,0.05)] overflow-hidden"
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {/* Subtle Hover Gradient Flare */}
+                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.08)_0%,transparent_70%)]" />
+
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white flex items-center justify-center shadow-md shadow-emerald-600/25 group-hover:scale-110 transition-transform duration-300">
+                      <Building2 className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="text-[10.5px] font-black text-emerald-800 uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200">
+                      Communities
+                    </span>
+                  </div>
+
+                  <h3 className="text-base sm:text-[17px] font-black text-[#0a1f3d] mb-1 tracking-tight">
+                    Key Residential Areas
+                  </h3>
+                  <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                    Flexible after-school schedules structured for students in key family communities.
+                  </p>
+                </div>
+
+                {/* Scrolling Horizontal Tracks (Communities) */}
+                <div 
+                  className="pt-3 border-t border-slate-100 space-y-1.5 overflow-hidden"
+                  style={{
+                    maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+                  }}
+                >
+                  {/* Row 1: Scrolling Left */}
+                  <div className="overflow-hidden py-0.5">
+                    <motion.div
+                      className="flex gap-1.5 w-max"
+                      animate={{ x: ['0%', '-50%'] }}
+                      transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+                    >
+                      {[
+                        'Saadiyat Island', 'Al Raha Beach', 'Dubai Hills', 'Al Barsha', 'Damac Hills', 'Mirdif',
+                        'Saadiyat Island', 'Al Raha Beach', 'Dubai Hills', 'Al Barsha', 'Damac Hills', 'Mirdif',
+                      ].map((area, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2.5 py-1 rounded-lg bg-emerald-50/80 text-emerald-900 text-[11px] sm:text-xs font-semibold border border-emerald-500/20 whitespace-nowrap shrink-0 shadow-2xs hover:bg-emerald-600 hover:text-white transition-colors"
+                        >
+                          {area}
+                        </span>
+                      ))}
+                    </motion.div>
+                  </div>
+
+                  {/* Row 2: Scrolling Right */}
+                  <div className="overflow-hidden py-0.5">
+                    <motion.div
+                      className="flex gap-1.5 w-max"
+                      animate={{ x: ['-50%', '0%'] }}
+                      transition={{ duration: 27, repeat: Infinity, ease: 'linear' }}
+                    >
+                      {[
+                        'Al Khalidiyah', 'Silicon Oasis', 'Al Falah', 'Al Shamkha', 'Al Reef', 'Al Jimi',
+                        'Al Khalidiyah', 'Silicon Oasis', 'Al Falah', 'Al Shamkha', 'Al Reef', 'Al Jimi',
+                      ].map((area, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2.5 py-1 rounded-lg bg-emerald-50/80 text-emerald-900 text-[11px] sm:text-xs font-semibold border border-emerald-500/20 whitespace-nowrap shrink-0 shadow-2xs hover:bg-emerald-600 hover:text-white transition-colors"
+                        >
+                          {area}
+                        </span>
+                      ))}
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Compact Trust & Action Strip */}
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-3.5 sm:p-4 max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 shadow-[0_6px_20px_rgba(15,74,155,0.04)]">
+            <div className="flex items-center gap-3 text-left w-full sm:w-auto">
+              <div className="w-8 h-8 rounded-xl bg-[#0f4a9b]/10 border border-[#0f4a9b]/20 flex items-center justify-center flex-shrink-0">
+                <Sparkles className="h-4 w-4 text-[#0f4a9b]" />
+              </div>
+              <p className="text-xs sm:text-[13px] text-gray-700 font-medium leading-relaxed">
+                Syllabus-matched tuition for <span className="text-[#0a1f3d] font-bold">Cambridge · Edexcel · AQA · IB DP/MYP · AP</span> across the UAE.
               </p>
             </div>
-            <div className="w-16 h-[2px] bg-gradient-to-r from-[#facc15] to-[#f97316] mx-auto mb-8 rounded-full" />
-            <div className="flex flex-wrap gap-2.5 max-w-4xl mx-auto justify-start sm:justify-center">
-              {[
-                "Al Khalidiyah", "Al Raha Beach", "Saadiyat Island",
-                "Al Falah", "Al Shamkha", "Al Reef",
-                "Dubai Hills", "Al Barsha", "Mirdif",
-                "Silicon Oasis", "Nad Al Sheba", "Damac Hills",
-                "Al Jimi", "Zakher", "Al Towayya",
-              ].map((area) => (
-                <span
-                  key={area}
-                  className="flex-1 min-w-[100px] sm:flex-none sm:min-w-0 flex items-center justify-center text-center px-4 py-2 bg-white/10 text-white/90 text-xs font-semibold rounded-full border border-white/20 hover:bg-white/20 hover:text-white transition-colors cursor-default backdrop-blur-md shadow-sm min-h-[36px] sm:min-h-0"
-                >
-                  {area}
-                </span>
-              ))}
-            </div>
+            <GoldButton href="/contact#form" className="w-full sm:w-auto px-5 py-2.5 text-xs shadow-xs flex-shrink-0 font-bold justify-center text-center">
+              Book a Free Trial Session
+            </GoldButton>
           </div>
+
         </div>
       </section>
 
@@ -520,7 +793,6 @@ export default function CurriculumPage() {
         title="Find Your Child's Tutor"
         subtitle="Get support that fits your child's curriculum and learning style."
         button1Text="Start Your First Session Today"
-        subtext2="Stuck? Send it, we'll explain it."
       />
 
     </Layout>

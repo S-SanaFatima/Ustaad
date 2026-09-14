@@ -157,7 +157,7 @@ export default function BritishCurriculumPage() {
     <Layout>
       <SEOHead
         title="British Curriculum Tutors UAE | IGCSE & A-Level | Ustaad"
-        description="One-to-one tutoring shaped around the academic standards, examination demands, and long-term expectations of the British Curriculum. First lesson free."
+        description="One-to-one tutoring shaped around the academic standards, examination demands, and long-term expectations of the British Curriculum."
         canonical="/british-curriculum"
         ogImage="/UpdatedImages/year-11-igcse-cambridge-edexcel-exam-paper-tutor-ras-al-khaimah.webp"
         schema={[

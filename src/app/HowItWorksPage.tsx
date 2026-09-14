@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  Award, BookOpen, Calendar, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Crosshair, Eye, Globe, GraduationCap, HelpCircle, Home, Layers, Map, MessageCircle, MessageSquare,
+  Award, BookOpen, Calendar, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Crosshair, Eye, Globe, GraduationCap, HelpCircle, Layers, Map, MessageCircle, MessageSquare,
   RotateCw, Search, ShieldCheck, Sparkles, Star, TrendingUp, UserCheck, X, Zap,
 } from 'lucide-react';
 import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock} from './shared';
@@ -82,16 +82,23 @@ const emiratesData = [
   },
   {
     id: 2,
-    title: "Online, So Distance Isn't an Issue",
-    shortTitle: "Online",
-    badge: "Digital Classroom",
+    title: "Ustaad's 1-to-1 Digital Classroom",
+    shortTitle: "Ustaad Live",
+    badge: "The Ustaad Method",
     meta: "Direct 1-to-1",
-    desc: "All lessons happen live online, so a tutor's location never affects who your child is matched with.",
+    desc: "Every lesson is delivered live 1-to-1 by a vetted Ustaad subject specialist, combining syllabus-mapped interactive whiteboards, exam-board past papers, and personal diagnostic feedback.",
     icon: BookOpen,
-    details: ["Live 1-to-1 sessions", "Any device, anywhere", "Best-fit tutor matching", "No commute needed", "Full-year continuity"],
-    detailLabel: "How it's delivered",
-    highlightText: "High-engagement interactive whiteboard, screen sharing, audio clarity, and dedicated session notes.",
+    details: [
+      "Vetted subject specialists",
+      "Cambridge, Edexcel & IB focus",
+      "Interactive whiteboard markup",
+      "Session notes & recordings",
+      "Diagnostic progress tracking",
+    ],
+    detailLabel: "The Ustaad standard",
+    highlightText: "Real-time past paper dissection, mark scheme breakdown, and structured lesson notes shared directly with parents.",
   },
+
 ];
 
 function EmiratesSection() {
@@ -149,7 +156,7 @@ function EmiratesSection() {
                     onClick={() => setActive(idx)}
                     className={`group relative text-left p-3 sm:p-4 rounded-2xl transition-all duration-200 cursor-pointer flex flex-col justify-between border ${
                       isSelected
-                        ? 'bg-[#0a1f3d] text-white border-[#C7A24A]/60 shadow-md ring-1 ring-[#C7A24A]/30'
+                        ? 'bg-[#0b3d80] text-white border-[#C7A24A]/60 shadow-md ring-1 ring-[#C7A24A]/30'
                         : 'bg-white text-[#0a1f3d] border-slate-200/90 hover:border-[#0f4a9b]/30 hover:bg-slate-50 shadow-2xs'
                     }`}
                   >
@@ -157,7 +164,7 @@ function EmiratesSection() {
                       <div
                         className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center transition-colors ${
                           isSelected
-                            ? 'bg-gradient-to-br from-[#0f4a9b] to-[#0a1f3d] text-[#f5d77f] border border-[#C7A24A]/40'
+                            ? 'bg-gradient-to-br from-[#0f4a9b] to-[#0b3d80] text-[#f5d77f] border border-[#C7A24A]/40'
                             : 'bg-[#0f4a9b]/10 text-[#0f4a9b] group-hover:bg-[#0f4a9b]/15'
                         }`}
                       >
@@ -242,7 +249,6 @@ function EmiratesSection() {
                     <div className="pt-4 border-t border-slate-100">
                       <div className="flex items-center justify-between gap-2 mb-2.5">
                         <p className="text-[#8a6d1f] text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5">
-                          <ChevronRight className="w-3.5 h-3.5 text-[#C7A24A]" />
                           {current.detailLabel}
                         </p>
                         <span className="text-[11px] font-bold text-slate-400">
@@ -250,17 +256,23 @@ function EmiratesSection() {
                         </span>
                       </div>
 
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                        {current.details.map((d) => (
-                          <div
-                            key={d}
-                            className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-bold bg-slate-50 text-[#0a1f3d] border border-slate-200/90 shadow-2xs hover:border-[#0f4a9b]/30 hover:bg-white transition-colors"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A] flex-shrink-0" />
-                            <span className="truncate">{d}</span>
-                          </div>
-                        ))}
+                      <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 sm:gap-2.5">
+                        {current.details.map((d, i) => {
+                          const isLastOdd = current.details.length % 2 !== 0 && i === current.details.length - 1;
+                          return (
+                            <div
+                              key={d}
+                              className={`flex items-center gap-2 px-3 sm:px-3.5 py-2.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-bold bg-slate-50 text-[#0a1f3d] border border-slate-200/90 shadow-2xs hover:border-[#0f4a9b]/30 hover:bg-white transition-colors ${
+                                isLastOdd ? 'col-span-2 sm:col-span-1' : ''
+                              }`}
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A] flex-shrink-0" />
+                              <span className="leading-snug">{d}</span>
+                            </div>
+                          );
+                        })}
                       </div>
+
                     </div>
                   </div>
 
@@ -288,7 +300,7 @@ function EmiratesSection() {
                             onClick={() => setActive(idx)}
                             className={`h-1.5 rounded-full transition-all duration-200 cursor-pointer ${
                               active === idx
-                                ? 'w-5 bg-[#0f4a9b]'
+                                ? 'w-5 bg-[#0b3d80]'
                                 : 'w-1.5 bg-slate-300 hover:bg-slate-400'
                             }`}
                             aria-label={`View ${e.shortTitle}`}
@@ -299,7 +311,7 @@ function EmiratesSection() {
                       <button
                         onClick={nextConsoleItem}
                         aria-label="Next mode"
-                        className="w-8 h-8 rounded-lg bg-[#0f4a9b] hover:bg-[#0a3a79] text-white flex items-center justify-center transition-colors cursor-pointer shadow-xs"
+                        className="w-8 h-8 rounded-lg bg-[#0b3d80] hover:bg-[#082d61] text-white flex items-center justify-center transition-colors cursor-pointer shadow-xs"
                       >
                         <ChevronRight className="w-4 h-4" />
                       </button>
@@ -411,7 +423,7 @@ function PairingFrameworkSection() {
                   onClick={() => setActive(idx)}
                   className={`group relative flex flex-col items-center justify-center text-center p-2.5 sm:p-3 rounded-xl transition-all duration-200 cursor-pointer border ${
                     isSelected
-                      ? 'bg-[#0a1f3d] text-white border-[#C7A24A]/50 shadow-md ring-1 ring-[#C7A24A]/30'
+                      ? 'bg-[#0b3d80] text-white border-[#C7A24A]/50 shadow-md ring-1 ring-[#C7A24A]/30'
                       : 'bg-white text-slate-700 border-slate-200/80 hover:bg-slate-50 hover:border-[#0f4a9b]/30 shadow-2xs'
                   }`}
                   aria-label={`Select ${item.title}`}
@@ -420,7 +432,7 @@ function PairingFrameworkSection() {
                   <div
                     className={`w-8 h-8 rounded-lg flex items-center justify-center mb-1.5 transition-colors ${
                       isSelected
-                        ? 'bg-gradient-to-br from-[#0f4a9b] to-[#0a1f3d] text-[#f5d77f] border border-[#C7A24A]/40'
+                        ? 'bg-gradient-to-br from-[#0f4a9b] to-[#0b3d80] text-[#f5d77f] border border-[#C7A24A]/40'
                         : 'bg-[#0f4a9b]/10 text-[#0f4a9b] group-hover:bg-[#0f4a9b]/15'
                     }`}
                   >
@@ -470,7 +482,7 @@ function PairingFrameworkSection() {
                     <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/10 px-3 py-1 rounded-full border border-[#0f4a9b]/20">
                       {current.shortBadge}
                     </span>
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0a1f3d] to-[#0f4a9b] text-[#f5d77f] flex items-center justify-center shadow-xs border border-[#C7A24A]/40 flex-shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0b3d80] to-[#0f4a9b] text-[#f5d77f] flex items-center justify-center shadow-xs border border-[#C7A24A]/40 flex-shrink-0">
                       <CurrentIcon className="w-4 h-4" strokeWidth={2.2} />
                     </div>
                   </div>
@@ -499,7 +511,7 @@ function PairingFrameworkSection() {
                         key={item.id}
                         onClick={() => setActive(idx)}
                         className={`h-1.5 rounded-full transition-all duration-200 cursor-pointer ${
-                          active === idx ? 'w-5 bg-[#0f4a9b]' : 'w-1.5 bg-slate-200 hover:bg-slate-300'
+                          active === idx ? 'w-5 bg-[#0b3d80]' : 'w-1.5 bg-slate-200 hover:bg-slate-300'
                         }`}
                         aria-label={`Go to ${item.title}`}
                       />
@@ -518,7 +530,7 @@ function PairingFrameworkSection() {
                     <button
                       onClick={nextStage}
                       aria-label="Next stage"
-                      className="flex items-center gap-1 text-xs font-bold text-white px-3 py-1.5 rounded-xl bg-[#0f4a9b] hover:bg-[#0a3a79] transition-colors cursor-pointer shadow-xs"
+                      className="flex items-center gap-1 text-xs font-bold text-white px-3 py-1.5 rounded-xl bg-[#0b3d80] hover:bg-[#082d61] transition-colors cursor-pointer shadow-xs"
                     >
                       <span>Next Phase</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -537,7 +549,7 @@ function PairingFrameworkSection() {
           </div>
 
           {/* Continuous Academic Quality Control (The Anchor Plinth) */}
-          <div className="relative bg-[#0a1f3d] text-white rounded-3xl p-6 sm:p-7 border border-[#C7A24A]/40 shadow-lg flex flex-col justify-between overflow-hidden">
+          <div className="relative bg-gradient-to-br from-[#0b3d80] via-[#092e63] to-[#072552] text-white rounded-3xl p-6 sm:p-7 border border-[#C7A24A]/40 shadow-lg flex flex-col justify-between overflow-hidden">
             {/* Top Gold Accent Line */}
             <div className="absolute top-0 inset-x-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#C7A24A] to-transparent" />
 
@@ -552,7 +564,7 @@ function PairingFrameworkSection() {
                 </div>
 
                 {/* 3D Shield Crest */}
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#0f4a9b] to-[#061224] text-[#f5d77f] flex items-center justify-center shadow-md border border-[#C7A24A]/50">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#0f4a9b] to-[#0b3d80] text-[#f5d77f] flex items-center justify-center shadow-md border border-[#C7A24A]/50">
                   <ShieldCheck className="w-5 h-5 drop-shadow-[0_2px_6px_rgba(199,162,74,0.5)]" />
                 </div>
               </div>
@@ -582,186 +594,475 @@ function PairingFrameworkSection() {
 }
 
 function TutorScreeningSection() {
+  const [inView, setInView] = useState(false);
+  const [member0State, setMember0State] = useState<'idle' | 'reviewing' | 'checked'>('idle');
+  const [member1State, setMember1State] = useState<'idle' | 'reviewing' | 'checked'>('idle');
+  const [cardApproved, setCardApproved] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    let timeouts: NodeJS.Timeout[] = [];
+    let intervalId: NodeJS.Timeout | null = null;
+
+    const clearAllTimeouts = () => {
+      timeouts.forEach(clearTimeout);
+      timeouts = [];
+    };
+
+    const runCycle = () => {
+      clearAllTimeouts();
+      setMember0State('idle');
+      setMember1State('idle');
+      setCardApproved(false);
+
+      // Reviewer 0 begins review
+      timeouts.push(
+        setTimeout(() => {
+          setMember0State('reviewing');
+        }, 1200)
+      );
+
+      // Reviewer 0 approved
+      timeouts.push(
+        setTimeout(() => {
+          setMember0State('checked');
+        }, 1900)
+      );
+
+      // Reviewer 1 begins review
+      timeouts.push(
+        setTimeout(() => {
+          setMember1State('reviewing');
+        }, 2400)
+      );
+
+      // Reviewer 1 approved
+      timeouts.push(
+        setTimeout(() => {
+          setMember1State('checked');
+        }, 3100)
+      );
+
+      // Tutor card approved with gold seal stamp
+      timeouts.push(
+        setTimeout(() => {
+          setCardApproved(true);
+        }, 3600)
+      );
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            runCycle();
+            if (!intervalId) {
+              intervalId = setInterval(runCycle, 9000);
+            }
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+      clearAllTimeouts();
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, []);
+
   return (
-    <section className="py-14 sm:py-20 bg-gradient-to-br from-[#061529] via-[#0a1f3d] to-[#0d2a52] text-white relative overflow-hidden isolate border-y border-[#C7A24A]/30">
-      {/* Background ambient lighting */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C7A24A]/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#0f4a9b]/20 rounded-full blur-[140px] pointer-events-none" />
-      <div 
-        className="absolute inset-0 opacity-20 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(rgba(199,162,74,0.15) 1px, transparent 1px)',
-          backgroundSize: '28px 28px'
-        }}
-      />
+    <section
+      ref={sectionRef}
+      className={`qa-root relative py-10 sm:py-14 lg:py-28 overflow-hidden text-[#FBF9F4] ${inView ? 'in-view' : ''}`}
+      style={{
+        background:
+          'radial-gradient(1200px 500px at 15% 20%, rgba(199,162,74,0.18), transparent 60%), radial-gradient(1000px 500px at 85% 90%, rgba(15,74,155,0.6), transparent 65%), linear-gradient(180deg, #0e448c 0%, #0b3d80 50%, #082d61 100%)',
+      }}
+      aria-labelledby="qaHeading"
+    >
+      <style>{`
+        .qa-root::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background-image:
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+          background-size: 60px 60px;
+          mask-image: radial-gradient(ellipse at center, black 30%, transparent 78%);
+          -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 78%);
+        }
+        .qa-root::after {
+          content: "";
+          position: absolute;
+          width: 600px;
+          height: 600px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(199,162,74,0.12), transparent 60%);
+          top: -200px;
+          right: -100px;
+          filter: blur(40px);
+          animation: qaDrift 18s ease-in-out infinite;
+          pointer-events: none;
+        }
+        @keyframes qaDrift {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(-40px, 40px); }
+        }
+        @keyframes qaLive {
+          0% { box-shadow: 0 0 0 0 rgba(230,197,117,0.7); }
+          100% { box-shadow: 0 0 0 10px rgba(230,197,117,0); }
+        }
+        @keyframes qaRing {
+          0% { transform: scale(1); opacity: 0.8; }
+          100% { transform: scale(1.4); opacity: 0; }
+        }
+        @keyframes qaShimmer {
+          0%, 100% { left: -60%; }
+          60%, 100% { left: 120%; }
+        }
+        .qa-tcard {
+          box-shadow: 0 0 0 1px rgba(199,162,74,0.35), 0 30px 60px rgba(0,0,0,0.45), 0 0 60px rgba(199,162,74,0.15);
+          transition: opacity 0.8s ease 0.3s, transform 0.9s cubic-bezier(0.22,1,0.36,1) 0.3s, box-shadow 0.6s ease;
+        }
+        .qa-tcard.approved {
+          box-shadow: 0 0 0 1.5px rgba(199,162,74,0.65), 0 30px 60px rgba(0,0,0,0.5), 0 0 70px rgba(199,162,74,0.28);
+        }
+        .qa-seal {
+          box-shadow: 0 8px 24px rgba(199,162,74,0.55), inset 0 0 0 2px rgba(255,255,255,0.45);
+          transition: transform 0.6s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
+        }
+        .qa-seal::before {
+          content: "";
+          position: absolute;
+          inset: 6px;
+          border: 1.5px dashed rgba(10,31,61,0.5);
+          border-radius: 50%;
+        }
+        .qa-bubble::after {
+          content: "";
+          position: absolute;
+          inset: -4px;
+          border-radius: 50%;
+          border: 2px solid #C7A24A;
+          opacity: 0;
+          pointer-events: none;
+        }
+        .qa-bubble.reviewing::after {
+          animation: qaRing 1.4s ease-out infinite;
+        }
+        .qa-accent::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 6%;
+          height: 0.32em;
+          background: rgba(199,162,74,0.32);
+          z-index: -1;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 1.1s cubic-bezier(0.7,0,0.3,1) 0.8s;
+        }
+        .qa-root.in-view .qa-accent::after {
+          transform: scaleX(1);
+        }
+        .qa-btn::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -60%;
+          width: 60%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.65), transparent);
+          animation: qaShimmer 3.4s ease-in-out infinite;
+        }
+      `}</style>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* MOBILE-ONLY HEADER (<lg): Introduces the section first so it feels complete and unified */}
+        <div className="flex flex-col items-center text-center lg:hidden mb-6">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#C7A24A]/45 bg-[#C7A24A]/15 text-[#E6C575] text-[10px] font-extrabold tracking-[0.16em] uppercase mb-2.5 shadow-sm">
+            <span
+              className="w-1.5 h-1.5 rounded-full bg-[#E6C575]"
+              style={{
+                animation: 'qaLive 1.6s ease-out infinite',
+              }}
+            />
+            How Ustaad Screens Tutors
+          </span>
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#FBF9F4] leading-[1.2] mb-2 tracking-tight">
+            <span>Every tutor.</span>{' '}
+            <span className="qa-accent relative inline-block text-[#E6C575]">
+              Personally screened.
+            </span>
+          </h2>
+          <p className="text-[#FBF9F4]/80 text-xs sm:text-sm leading-relaxed max-w-[460px]">
+            Every tutor is reviewed by our named team before your child ever meets them. No anonymous checks. Two real people put their name behind each approval.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-6 sm:gap-8 lg:gap-16 items-center">
           
-          {/* Left Visual Card Container */}
-          <div className="flex flex-col items-center lg:items-start">
-            <div className="relative w-full max-w-lg bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl border border-white/15 rounded-3xl p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
-              
-              {/* Top Badge: Under Review / Live Sign-off */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C7A24A]/15 border border-[#C7A24A]/40 text-[#f5d77f] rounded-full text-xs font-bold tracking-wider uppercase">
-                  <span className="w-2 h-2 rounded-full bg-[#C7A24A] animate-pulse" />
-                  Under Review
-                </div>
-                <span className="text-[11px] font-bold uppercase tracking-widest text-slate-300 bg-white/10 px-2.5 py-1 rounded-md border border-white/15">
-                  How Ustaad Screens Tutors
-                </span>
-              </div>
-
-              {/* Tutor Sample Profile Card */}
-              <div className="bg-white rounded-2xl p-5 text-gray-900 shadow-xl border border-gray-100 mb-6 transform transition hover:-translate-y-1">
-                <div className="flex items-center gap-4 mb-3.5">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0a1f3d] to-[#0f4a9b] text-[#f5d77f] font-black text-xl flex items-center justify-center border-2 border-[#C7A24A]/50 shadow-md shrink-0">
-                    LK
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-extrabold text-[#0a1f3d] flex items-center gap-1.5">
-                      Leila K.
-                      <ShieldCheck className="w-4 h-4 text-[#0f4a9b]" />
-                    </h3>
-                    <p className="text-xs font-bold text-gray-500">
-                      IGCSE Maths · 11 yrs experience
-                    </p>
-                  </div>
-                </div>
-
-                {/* Qualification Badges */}
-                <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-100">
-                  <span className="px-2.5 py-1 bg-slate-100 text-[#0a1f3d] font-extrabold text-[11px] rounded-lg border border-slate-200">
-                    Cambridge
-                  </span>
-                  <span className="px-2.5 py-1 bg-slate-100 text-[#0a1f3d] font-extrabold text-[11px] rounded-lg border border-slate-200">
-                    Edexcel
-                  </span>
-                  <span className="px-2.5 py-1 bg-[#0f4a9b]/10 text-[#0f4a9b] font-extrabold text-[11px] rounded-lg border border-[#0f4a9b]/20">
-                    Ex-Head of Dept
-                  </span>
-                </div>
-              </div>
-
-              {/* Sub-label: Personally Signed Off By */}
-              <div className="relative text-center mb-6">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-white/15" />
-                </div>
-                <span className="relative px-4 bg-[#081a33] text-[11px] font-black tracking-widest text-[#f5d77f] uppercase">
-                  PERSONALLY SIGNED OFF BY
-                </span>
-              </div>
-
-              {/* Sign-off Approver Avatars */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex flex-col items-center text-center p-3 rounded-2xl bg-white/5 border border-white/10">
-                  <div className="relative mb-2">
-                    <img 
-                      src="/images/team/f-zaman-v2.jpg" 
-                      srcSet="/images/team/f-zaman-v2.jpg 300w"
-                      sizes="64px"
-                      alt="F. Zaman" 
-                      className="w-16 h-16 rounded-full object-cover object-[center_14%] border-2 border-[#C7A24A] shadow-md"
-                    />
-                    <span className="absolute -bottom-1 -right-1 bg-emerald-500 text-white rounded-full p-0.5 shadow-sm">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
-                  <h4 className="text-xs font-black text-white">F. Zaman</h4>
-                  <p className="text-[10px] font-extrabold text-[#f5d77f] uppercase tracking-wider mt-0.5">
-                    FOUNDER & ACADEMIC DIRECTOR
-                  </p>
-                  <span className="mt-2 px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold rounded-full border border-emerald-500/30">
-                    Approved
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-center text-center p-3 rounded-2xl bg-white/5 border border-white/10">
-                  <div className="relative mb-2">
-                    <img 
-                      src="/images/team/nida-iqbal-v2.jpg" 
-                      srcSet="/images/team/nida-iqbal-v2.jpg 300w"
-                      sizes="64px"
-                      alt="Nida Iqbal" 
-                      className="w-16 h-16 rounded-full object-cover object-[center_16%] border-2 border-[#C7A24A] shadow-md"
-                    />
-                    <span className="absolute -bottom-1 -right-1 bg-emerald-500 text-white rounded-full p-0.5 shadow-sm">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
-                  <h4 className="text-xs font-black text-white">Nida Iqbal</h4>
-                  <p className="text-[10px] font-extrabold text-[#f5d77f] uppercase tracking-wider mt-0.5">
-                    TUTOR QUALITY & DEVELOPMENT LEAD
-                  </p>
-                  <span className="mt-2 px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold rounded-full border border-emerald-500/30">
-                    Approved
-                  </span>
-                </div>
-              </div>
-
+          {/* LEFT: Tutor Card + Reviewers */}
+          <div className="flex flex-col items-center gap-4 sm:gap-7 max-w-[520px] mx-auto w-full">
+            
+            {/* Header Pill: Under Review / Signed Off */}
+            <div
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full backdrop-blur-md border text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.18em] sm:tracking-[0.2em] transition-all duration-500 ${
+                cardApproved
+                  ? 'bg-[#C7A24A]/25 border-[#C7A24A]/60 text-[#FBF9F4] shadow-[0_0_20px_rgba(199,162,74,0.3)]'
+                  : 'bg-[#0b3d80]/85 border-[#C7A24A]/40 text-[#E6C575]'
+              }`}
+            >
+              <span
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  cardApproved ? 'bg-[#C7A24A]' : 'bg-[#E6C575]'
+                }`}
+                style={{
+                  animation: 'qaLive 1.8s ease-out infinite',
+                }}
+              />
+              <span>{cardApproved ? 'Signed Off & Approved' : 'Under Review'}</span>
             </div>
+
+            {/* Tutor Card */}
+            <article
+              className={`qa-tcard relative w-[min(370px,100%)] rounded-[18px] sm:rounded-[20px] p-4 sm:p-6 text-[#0a1f3d] bg-gradient-to-b from-white to-[#FBF8F1] transition-all duration-700 ${
+                inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              } ${cardApproved ? 'approved' : ''}`}
+            >
+              {/* Gold Seal Stamp */}
+              <span
+                className={`qa-seal absolute -top-2.5 -right-2.5 sm:-top-3.5 sm:-right-3.5 w-[70px] h-[70px] sm:w-[84px] sm:h-[84px] rounded-full text-[#0a1f3d] grid place-items-center text-center font-extrabold text-[8.5px] sm:text-[10px] leading-[1.1] tracking-[0.06em] font-serif select-none pointer-events-none z-20 ${
+                  cardApproved
+                    ? 'opacity-100 rotate-[-14deg] scale-100'
+                    : 'opacity-0 rotate-[-14deg] scale-0'
+                }`}
+                style={{
+                  background: 'radial-gradient(circle at 30% 30%, #E6C575, #C7A24A 70%, #9E7B28 100%)',
+                }}
+              >
+                <span className="relative z-10 px-1 font-black">
+                  USTAAD
+                  <br />
+                  APPROVED
+                </span>
+              </span>
+
+              {/* Tutor Info Row */}
+              <div className="flex items-center gap-3 sm:gap-3.5">
+                <div className="w-13 h-13 sm:w-16 sm:h-16 w-[52px] h-[52px] sm:w-[64px] sm:h-[64px] rounded-full flex-shrink-0 grid place-items-center font-serif font-bold text-lg sm:text-xl tracking-wider text-[#E6C575] bg-gradient-to-br from-[#0f4a9b] to-[#0b3d80] border-2 border-[#C7A24A] shadow-[0_4px_14px_rgba(10,31,60,0.18)]">
+                  LK
+                </div>
+                <div>
+                  <h4 className="font-serif text-base sm:text-lg font-bold text-[#0a1f3d] leading-snug">
+                    Leila K.
+                  </h4>
+                  <div className="text-[11px] sm:text-xs font-semibold text-[#1a3d6e] mt-0.5">
+                    IGCSE Math · 11 yrs experience
+                  </div>
+                </div>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-1.5 mt-3 pt-3 sm:mt-4 sm:pt-3.5 border-t border-[#0a1f3d]/10">
+                <span className="text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-[#0a1f3d]/15 text-[#0f4a9b] bg-[#C7A24A]/10 tracking-wide">
+                  Cambridge
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-[#0a1f3d]/15 text-[#0f4a9b] bg-[#C7A24A]/10 tracking-wide">
+                  Edexcel
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-[#0a1f3d]/15 text-[#0f4a9b] bg-[#C7A24A]/10 tracking-wide">
+                  Ex-Head of Dept
+                </span>
+              </div>
+            </article>
+
+            {/* Reviewers Section */}
+            <div className="w-full flex flex-col items-center gap-2.5 sm:gap-3.5">
+              {/* Divider Label */}
+              <div className="inline-flex items-center gap-2 sm:gap-2.5 text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.24em] uppercase text-[#FBF9F4]/60 font-extrabold">
+                <span className="w-5 sm:w-6 h-px bg-[#C7A24A]/50" />
+                Personally Signed Off By
+                <span className="w-5 sm:w-6 h-px bg-[#C7A24A]/50" />
+              </div>
+
+              {/* Reviewers Grid: Always 2 side-by-side columns on mobile & desktop */}
+              <div className="grid grid-cols-2 gap-3 sm:gap-6 w-full max-w-[360px] sm:max-w-[420px] justify-items-center">
+                
+                {/* Reviewer 1: F. Zaman */}
+                <div className="flex flex-col items-center gap-1.5 sm:gap-2 w-full max-w-[160px] sm:max-w-[180px]">
+                  <div
+                    className={`qa-bubble relative w-14 h-14 sm:w-[76px] sm:h-[76px] rounded-full border-2 border-[#C7A24A] shadow-[0_10px_30px_rgba(0,0,0,0.45)] bg-gradient-to-br from-[#0f4a9b] to-[#0b3d80] ${
+                      member0State === 'reviewing' ? 'reviewing' : ''
+                    }`}
+                  >
+                    <img
+                      src="/images/team/f-zaman-v3.jpg"
+                      alt="F. Zaman, Founder and Academic Director at Ustaad"
+                      className="w-full h-full rounded-full object-cover object-[center_top]"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="font-serif text-xs sm:text-sm text-[#FBF9F4] font-semibold text-center mt-0.5">
+                    F. Zaman
+                  </div>
+                  <div className="text-[9px] sm:text-[10px] tracking-[0.1em] sm:tracking-[0.14em] uppercase text-[#FBF9F4]/70 font-extrabold text-center max-w-[140px] sm:max-w-[170px] leading-tight">
+                    Founder &amp; Academic Director
+                  </div>
+                  <div
+                    className={`flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-[11px] font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border transition-all duration-300 ${
+                      member0State === 'checked'
+                        ? 'bg-[#C7A24A]/25 border-[#C7A24A]/60 text-white shadow-sm'
+                        : 'bg-[#C7A24A]/10 border-[#C7A24A]/30 text-[#E6C575]'
+                    }`}
+                  >
+                    <span
+                      className={`inline-grid place-items-center w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-[#C7A24A] text-[#0a1f3d] transition-all duration-300 ${
+                        member0State === 'checked' ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                      }`}
+                    >
+                      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" className="w-2 h-2">
+                        <path d="M2 6.5 L5 9.5 L10 3" />
+                      </svg>
+                    </span>
+                    <span>{member0State === 'checked' ? 'Approved' : member0State === 'reviewing' ? 'Reviewing...' : 'Pending'}</span>
+                  </div>
+                </div>
+
+                {/* Reviewer 2: Nida Iqbal */}
+                <div className="flex flex-col items-center gap-1.5 sm:gap-2 w-full max-w-[160px] sm:max-w-[180px]">
+                  <div
+                    className={`qa-bubble relative w-14 h-14 sm:w-[76px] sm:h-[76px] rounded-full border-2 border-[#C7A24A] shadow-[0_10px_30px_rgba(0,0,0,0.45)] bg-gradient-to-br from-[#0f4a9b] to-[#0b3d80] ${
+                      member1State === 'reviewing' ? 'reviewing' : ''
+                    }`}
+                  >
+                    <img
+                      src="/images/team/nida-iqbal-v2.jpg"
+                      alt="Nida Iqbal, Tutor Quality and Development Lead at Ustaad"
+                      className="w-full h-full rounded-full object-cover object-[center_16%]"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="font-serif text-xs sm:text-sm text-[#FBF9F4] font-semibold text-center mt-0.5">
+                    Nida Iqbal
+                  </div>
+                  <div className="text-[9px] sm:text-[10px] tracking-[0.1em] sm:tracking-[0.14em] uppercase text-[#FBF9F4]/70 font-extrabold text-center max-w-[140px] sm:max-w-[170px] leading-tight">
+                    Tutor Quality &amp; Development Lead
+                  </div>
+                  <div
+                    className={`flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-[11px] font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border transition-all duration-300 ${
+                      member1State === 'checked'
+                        ? 'bg-[#C7A24A]/25 border-[#C7A24A]/60 text-white shadow-sm'
+                        : 'bg-[#C7A24A]/10 border-[#C7A24A]/30 text-[#E6C575]'
+                    }`}
+                  >
+                    <span
+                      className={`inline-grid place-items-center w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-[#C7A24A] text-[#0a1f3d] transition-all duration-300 ${
+                        member1State === 'checked' ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                      }`}
+                    >
+                      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" className="w-2 h-2">
+                        <path d="M2 6.5 L5 9.5 L10 3" />
+                      </svg>
+                    </span>
+                    <span>{member1State === 'checked' ? 'Approved' : member1State === 'reviewing' ? 'Reviewing...' : 'Pending'}</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
-          {/* Right Text Column */}
-          <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#C7A24A]/15 border border-[#C7A24A]/30 text-[#f5d77f] text-xs font-bold rounded-full mb-4 tracking-wider uppercase">
-              <ShieldCheck className="w-4 h-4 text-[#C7A24A]" />
-              HOW USTAAD SCREENS TUTORS
-            </div>
+          {/* RIGHT: Copy & Conversion */}
+          <div className="copy flex flex-col items-start w-full">
+            
+            {/* Desktop-only Header Badge */}
+            <span className="hidden lg:inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#C7A24A]/45 bg-[#C7A24A]/15 text-[#E6C575] text-[11px] font-extrabold tracking-[0.18em] uppercase mb-4 shadow-sm">
+              <span
+                className="w-2 h-2 rounded-full bg-[#E6C575]"
+                style={{
+                  animation: 'qaLive 1.6s ease-out infinite',
+                }}
+              />
+              How Ustaad Screens Tutors
+            </span>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6 tracking-tight">
-              Every tutor.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5d77f] via-[#C7A24A] to-[#f5d77f]">
+            {/* Desktop-only Headline with Serif and Accent Sweep */}
+            <h2
+              id="qaHeading"
+              className="hidden lg:block font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#FBF9F4] leading-[1.15] mb-5 tracking-tight"
+            >
+              <span>Every tutor.</span>{' '}
+              <span className="qa-accent relative inline-block text-[#E6C575]">
                 Personally screened.
               </span>
             </h2>
 
-            <p className="text-slate-200 text-base sm:text-lg leading-relaxed mb-8">
+            {/* Desktop-only Subtitle */}
+            <p className="hidden lg:block text-[#FBF9F4]/80 text-base sm:text-[17px] leading-relaxed max-w-[520px] mb-7">
               Every tutor is reviewed by our named team before your child ever meets them. No anonymous checks. No marketplace shortcuts. Two real people put their name behind each approval.
             </p>
 
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start gap-3.5">
-                <div className="w-6 h-6 rounded-full bg-[#C7A24A]/20 border border-[#C7A24A]/50 text-[#f5d77f] flex items-center justify-center shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#f5d77f]" />
-                </div>
-                <p className="text-slate-200 text-sm sm:text-base font-semibold">
-                  Personally signed off by our Founder and Quality Lead
-                </p>
-              </div>
+            {/* Benefits List */}
+            <ul className="space-y-2.5 sm:space-y-3.5 mb-6 sm:mb-8 w-full max-w-[480px] mx-auto lg:mx-0">
+              <li className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm lg:text-[15px] font-medium text-[#FBF9F4]">
+                <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#C7A24A] text-[#0a1f3d] grid place-items-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5 sm:w-3 sm:h-3">
+                    <path d="M2 6.5 L5 9.5 L10 3" />
+                  </svg>
+                </span>
+                <span>Personally signed off by our Founder and Quality Lead</span>
+              </li>
 
-              <div className="flex items-start gap-3.5">
-                <div className="w-6 h-6 rounded-full bg-[#C7A24A]/20 border border-[#C7A24A]/50 text-[#f5d77f] flex items-center justify-center shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#f5d77f]" />
-                </div>
-                <p className="text-slate-200 text-sm sm:text-base font-semibold">
-                  Matched to your child's exact curriculum, board and school
-                </p>
-              </div>
+              <li className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm lg:text-[15px] font-medium text-[#FBF9F4]">
+                <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#C7A24A] text-[#0a1f3d] grid place-items-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5 sm:w-3 sm:h-3">
+                    <path d="M2 6.5 L5 9.5 L10 3" />
+                  </svg>
+                </span>
+                <span>Matched to your child's exact curriculum, board and school</span>
+              </li>
 
-              <div className="flex items-start gap-3.5">
-                <div className="w-6 h-6 rounded-full bg-[#C7A24A]/20 border border-[#C7A24A]/50 text-[#f5d77f] flex items-center justify-center shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#f5d77f]" />
-                </div>
-                <p className="text-slate-200 text-sm sm:text-base font-semibold">
-                  Complimentary first session. No card, no commitment.
-                </p>
-              </div>
-            </div>
+              <li className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm lg:text-[15px] font-medium text-[#FBF9F4]">
+                <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#C7A24A] text-[#0a1f3d] grid place-items-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5 sm:w-3 sm:h-3">
+                    <path d="M2 6.5 L5 9.5 L10 3" />
+                  </svg>
+                </span>
+                <span>Complimentary first session. No card, no commitment.</span>
+              </li>
+            </ul>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4">
+            {/* CTA Row */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto mx-auto lg:mx-0">
               <a
                 href="/contact#form"
-                className="w-full sm:w-auto inline-flex items-center justify-center bg-gradient-to-r from-[#f5d77f] via-[#C7A24A] to-[#A8892A] text-[#0a1f3d] font-black rounded-xl px-7 py-4 text-base hover:brightness-110 transition shadow-lg shadow-[#C7A24A]/20 transform hover:-translate-y-0.5"
+                className="qa-btn relative inline-flex items-center justify-center px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-extrabold text-[#0a1f3d] tracking-wide transition-all duration-200 overflow-hidden shadow-[0_12px_30px_rgba(199,162,74,0.35)] hover:-translate-y-0.5 hover:shadow-[0_16px_38px_rgba(199,162,74,0.5)] w-full sm:w-auto text-center"
+                style={{
+                  background: 'linear-gradient(135deg, #E6C575, #C7A24A 55%, #9E7B28)',
+                }}
               >
-                Book a Free Trial →
+                <span>Book a Free Trial</span>
               </a>
-              <span className="text-xs text-slate-300 font-medium">
-                Reply in <strong className="text-[#f5d77f]">12 minutes</strong> on WhatsApp
+
+              <span className="text-xs sm:text-sm text-[#FBF9F4]/75 font-medium text-center sm:text-left">
+                Reply in <strong className="text-[#E6C575] font-bold">12 minutes</strong> on WhatsApp
               </span>
             </div>
+
           </div>
 
         </div>
@@ -809,7 +1110,7 @@ function DiagnosticLens3D({ isHovered, size = 'md' }: { isHovered: boolean; size
 
         {/* Front Face: Precision Optic Lens */}
         <div
-          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex items-center justify-center overflow-hidden"
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#0f4a9b] via-[#0b3d80] to-[#082d61] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.5),0_8px_20px_rgba(11,61,128,0.25)] flex items-center justify-center overflow-hidden"
           style={{ transform: 'translateZ(2px)' }}
         >
           {/* Outer Golden Calibrated Ring */}
@@ -872,7 +1173,7 @@ function Mini3DBook({ isHovered, size = 'md' }: { isHovered: boolean; size?: 'sm
 
         {/* Front Face: Core Knowledge Book Medallion */}
         <div
-          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex items-center justify-center overflow-hidden"
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#0f4a9b] via-[#0b3d80] to-[#082d61] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.5),0_8px_20px_rgba(11,61,128,0.25)] flex items-center justify-center overflow-hidden"
           style={{ transform: 'translateZ(2px)' }}
         >
           {/* Outer Golden Calibrated Ring */}
@@ -941,7 +1242,7 @@ function PracticePaper3D({ isHovered, size = 'md' }: { isHovered: boolean; size?
 
         {/* Front Face: Practice Exam Cycle Medallion */}
         <div
-          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex items-center justify-center overflow-hidden"
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#0f4a9b] via-[#0b3d80] to-[#082d61] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.5),0_8px_20px_rgba(11,61,128,0.25)] flex items-center justify-center overflow-hidden"
           style={{ transform: 'translateZ(2px)' }}
         >
           {/* Outer Golden Calibrated Ring */}
@@ -1013,7 +1314,7 @@ function IndependentGrowth3D({ isHovered, size = 'md' }: { isHovered: boolean; s
 
         {/* Front Face: Mastery Pedestal with Rising Gold Pillars */}
         <div
-          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1a3a6b] via-[#0a1f3d] to-[#061224] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_8px_20px_rgba(10,31,61,0.25)] flex flex-col items-center justify-center overflow-hidden"
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#0f4a9b] via-[#0b3d80] to-[#082d61] p-1.5 sm:p-2 border-[2px] sm:border-[3px] border-[#f5d77f] shadow-[inset_0_0_20px_rgba(0,0,0,0.5),0_8px_20px_rgba(11,61,128,0.25)] flex flex-col items-center justify-center overflow-hidden"
           style={{ transform: 'translateZ(2px)' }}
         >
           {/* Inner Dashed Ring */}
@@ -1048,7 +1349,9 @@ function IndependentGrowth3D({ isHovered, size = 'md' }: { isHovered: boolean; s
 const METHOD_STEPS = [
   {
     step: "STEP 01",
-    title: "Diagnostic Gap Assessment & Consultation",
+    title: "Diagnostic Assessment & Consultation",
+    line1: "Diagnostic Assessment",
+    line2: "& Consultation",
     desc: "We begin with a detailed conversation about your child's current subject performance, exam board syllabus (Cambridge, Edexcel, AQA, IB, AP), upcoming school assessments, and specific learning hurdles.",
     details: "During the initial assessment, our academic team reviews recent school report cards, past test papers, and specific topics where your child feels unconfident. This enables us to pinpoint whether difficulty stems from foundational gaps, pacing issues, or exam technique.",
     Component: DiagnosticLens3D,
@@ -1056,6 +1359,8 @@ const METHOD_STEPS = [
   {
     step: "STEP 02",
     title: "Curriculum & Board-Exact Tutor Matching",
+    line1: "Curriculum & Board-Exact",
+    line2: "Tutor Matching",
     desc: "We match your child with a verified subject specialist who has deep, firsthand experience teaching their exact curriculum board and year group across the UAE.",
     details: "Tutor matching at Ustaad is based on curriculum specialization first. A student preparing for Edexcel IGCSE Chemistry is matched with a tutor who knows Edexcel mark schemes inside out, ensuring lesson examples mirror actual exam expectations.",
     Component: Mini3DBook,
@@ -1063,13 +1368,17 @@ const METHOD_STEPS = [
   {
     step: "STEP 03",
     title: "Targeted 1-to-1 Live Online Sessions",
+    line1: "Targeted 1-to-1 Live",
+    line2: "Online Sessions",
     desc: "Sessions focus on active concept building, step-by-step problem solving, and worked past paper practice using interactive whiteboards and direct live feedback.",
     details: "Lessons are designed around your child's active participation. Tutors break down complex multi-mark questions, model clear working out, and guide students through past papers to build confidence under exam conditions.",
     Component: PracticePaper3D,
   },
   {
     step: "STEP 04",
-    title: "Independent Growth & Continuous Progress Tracking",
+    title: "Independent Growth & Progress Tracking",
+    line1: "Independent Growth &",
+    line2: "Progress Tracking",
     desc: "As understanding deepens, students transition to independent question solving, supported by monthly academic progress reviews and parent check-ins.",
     details: "We track progress throughout the school year. Parents receive regular lesson summaries and milestone reports, allowing us to adjust session frequency ahead of mock exams or major school assessments.",
     Component: IndependentGrowth3D,
@@ -1097,48 +1406,45 @@ function MethodStepCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
-      className="relative group bg-white rounded-xl sm:rounded-2xl border border-slate-200/90 p-2 sm:p-6 shadow-sm hover:shadow-xl hover:border-[#0f4a9b]/35 hover:-translate-y-1 sm:hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center cursor-pointer overflow-hidden justify-between h-full min-h-[165px] sm:min-h-[310px]"
+      className="relative group bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-sm hover:shadow-xl hover:border-[#0f4a9b]/35 hover:-translate-y-1 sm:hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center cursor-pointer overflow-hidden justify-between h-full min-h-[300px] sm:min-h-[320px] w-[260px] sm:w-[280px] lg:w-auto flex-shrink-0 snap-center sm:snap-start"
     >
       {/* Top Gold Accent Bar */}
       <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#C7A24A]/0 to-transparent group-hover:via-[#C7A24A] transition-all duration-300" />
 
       {/* Step Pill Header */}
-      <div className="w-full flex items-center justify-center sm:justify-between mb-1 sm:mb-2">
-        <span className="text-[7px] sm:text-[11px] font-black uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/10 px-1 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-[#0f4a9b]/20 group-hover:bg-[#0f4a9b] group-hover:text-white group-hover:border-[#0f4a9b] transition-all duration-300 whitespace-nowrap">
+      <div className="w-full flex items-center justify-between mb-2">
+        <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/10 px-2.5 py-1 rounded-full border border-[#0f4a9b]/20 group-hover:bg-[#0f4a9b] group-hover:text-white group-hover:border-[#0f4a9b] transition-all duration-300 whitespace-nowrap">
           {item.step}
         </span>
-        <span className="hidden sm:flex text-[10px] font-bold text-slate-400 group-hover:text-[#C7A24A] transition-colors items-center gap-0.5">
-          Tap to view <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+        <span className="flex text-[10px] font-bold text-slate-400 group-hover:text-[#C7A24A] transition-colors items-center">
+          Tap to view
         </span>
       </div>
 
       {/* Prominent 3D Object Hero Stage */}
-      <div className="relative my-1 sm:my-3 w-full h-12 sm:h-28 flex items-center justify-center">
+      <div className="relative my-2 sm:my-3 w-full h-24 sm:h-28 flex items-center justify-center">
         {/* Subtle pedestal glow ring */}
-        <div className="absolute w-12 sm:w-24 h-3 sm:h-5 rounded-full bg-gradient-to-r from-transparent via-[#0f4a9b]/10 to-transparent bottom-0 pointer-events-none group-hover:via-[#C7A24A]/30 transition-all duration-300" />
-        <div className="sm:hidden">
-          <IconComp isHovered={isHovered} size="sm" />
-        </div>
-        <div className="hidden sm:block">
-          <IconComp isHovered={isHovered} size="md" />
-        </div>
+        <div className="absolute w-20 sm:w-24 h-4 sm:h-5 rounded-full bg-gradient-to-r from-transparent via-[#0f4a9b]/10 to-transparent bottom-0 pointer-events-none group-hover:via-[#C7A24A]/30 transition-all duration-300" />
+        <IconComp isHovered={isHovered} size="md" />
       </div>
 
-      {/* Title */}
-      <h3 className="text-[10px] sm:text-lg font-extrabold text-[#0a1f3d] mb-1 sm:mb-2 leading-tight sm:leading-snug group-hover:text-[#0f4a9b] transition-colors duration-300">
-        {item.title}
-      </h3>
+      {/* Equal Height Title Area (Strictly 2 lines across all cards) */}
+      <div className="w-full h-11 sm:h-12 flex flex-col items-center justify-center my-1.5 sm:my-2 px-0.5 text-center">
+        <h3 className="text-[13px] sm:text-sm lg:text-[13.5px] xl:text-[15px] font-extrabold text-[#0a1f3d] leading-snug group-hover:text-[#0f4a9b] transition-colors duration-300 tracking-tight">
+          <span className="block whitespace-nowrap">{item.line1}</span>
+          <span className="block whitespace-nowrap">{item.line2}</span>
+        </h3>
+      </div>
 
       {/* Action Trigger */}
-      <div className="mt-1 inline-flex items-center gap-0.5 sm:gap-1.5 text-[7px] sm:text-xs font-bold text-[#0f4a9b] bg-slate-50 group-hover:bg-[#0f4a9b]/10 px-1.5 py-0.5 sm:px-3.5 sm:py-1.5 rounded-full border border-slate-200/80 group-hover:border-[#0f4a9b]/30 transition-all duration-300 whitespace-nowrap">
+      <div className="mt-2 inline-flex items-center text-xs font-bold text-[#0f4a9b] bg-slate-50 group-hover:bg-[#0f4a9b]/10 px-3.5 py-1.5 rounded-full border border-slate-200/80 group-hover:border-[#0f4a9b]/30 transition-all duration-300 whitespace-nowrap">
         <span>Details</span>
-        <ChevronRight className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 group-hover:translate-x-0.5 transition-transform" />
       </div>
 
       {/* Clean Step Number Watermark in Background */}
       <div
         aria-hidden
-        className="absolute right-1 sm:right-3 bottom-0 text-xl sm:text-5xl font-black text-slate-100/60 select-none pointer-events-none group-hover:text-[#0f4a9b]/10 transition-colors duration-300"
+        className="absolute right-2 sm:right-3 bottom-0 text-3xl sm:text-5xl font-black text-slate-100/60 select-none pointer-events-none group-hover:text-[#0f4a9b]/10 transition-colors duration-300"
       >
         0{index + 1}
       </div>
@@ -1225,7 +1531,7 @@ function FlowMedallion3D({
         <div
           className={`absolute inset-0 rounded-2xl p-1 flex items-center justify-center transition-all duration-300 ${
             isActive
-              ? 'bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#061224] border-2 border-[#f5d77f] shadow-[0_8px_22px_rgba(15,74,155,0.35)]'
+              ? 'bg-gradient-to-br from-[#0f4a9b] via-[#0b3d80] to-[#082d61] border-2 border-[#f5d77f] shadow-[0_8px_22px_rgba(11,61,128,0.35)]'
               : 'bg-white border border-slate-200 shadow-xs hover:border-[#0f4a9b]/40'
           }`}
           style={{ transform: 'translateZ(2px)' }}
@@ -1444,41 +1750,21 @@ export default function HowItWorksPage() {
         schema={[organizationSchema, websiteSchema, localBusinessSchema, howToSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "How It Works", url: "/how-it-works" }]), faqSchema(howItWorksSchemaFaqs)]} 
       />
       {/* ── HERO ── */}
-      <section className="pt-8 pb-14 lg:pt-16 lg:pb-20 relative overflow-hidden bg-white">
+      <section className="min-h-[calc(100dvh-84px)] lg:min-h-[calc(100dvh-92px)] flex items-center relative overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Visible Breadcrumb UI */}
-          <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6" itemScope itemType="https://schema.org/BreadcrumbList">
-            <ol className="flex items-center gap-1.5 text-xs font-semibold text-gray-500">
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <a itemProp="item" href="/" className="hover:text-[#0f4a9b] transition-colors flex items-center gap-1.5 text-gray-600">
-                  <Home className="w-3.5 h-3.5 text-[#0f4a9b]" />
-                  <span itemProp="name">Home</span>
-                </a>
-                <meta itemProp="position" content="1" />
-              </li>
-              <li className="text-gray-400">/</li>
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-[#0a1f3d] font-bold" aria-current="page">
-                <span itemProp="name">How It Works</span>
-                <link itemProp="item" href="https://ustaad.ae/how-it-works" />
-                <meta itemProp="position" content="2" />
-              </li>
-            </ol>
-          </nav>
-
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14 xl:gap-16 items-center">
 
             {/* Left */}
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-sm font-bold rounded-full mb-6 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
-                <Layers className="h-4 w-4" /> How It Works
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-3.5 sm:mb-4 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
+                <Layers className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> How It Works
               </div>
-              <h1 className="text-4xl lg:text-5xl xl:text-[64px] font-extrabold text-[#0a1f3d] mb-4 leading-[1.1] tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f3d] mb-3 sm:mb-4 leading-[1.15] tracking-tight">
                 <GradientHeadingText text="How Tutoring Works at Ustaad" />
               </h1>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
-              <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-xl">
+              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3.5 sm:mb-5" />
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-5 sm:mb-7 leading-relaxed max-w-xl">
                 A calm, patient way of teaching, planned around how UAE students learn across a full school year, not against it.
               </p>
               <HeroCTABlock className="mb-4">
@@ -1489,7 +1775,7 @@ export default function HowItWorksPage() {
             {/* Right Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full h-[400px] lg:h-[580px] rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-8 border-white group z-10"
+              className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[420px] xl:h-[460px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-4 sm:border-8 border-white group z-10"
             >
               <img
                 src="/UpdatedImages/how-ustaad-private-tutoring-works-uae-families.webp"
@@ -1539,7 +1825,13 @@ export default function HowItWorksPage() {
               />
             </div>
 
-            <div className="relative z-10 grid grid-cols-4 gap-1.5 sm:gap-6">
+            {/* Mobile Scroll Hint */}
+            <div className="lg:hidden flex items-center justify-center gap-1.5 text-xs font-semibold text-[#0f4a9b] mb-3.5 bg-blue-50/80 border border-blue-100 rounded-full py-1.5 px-3.5 w-fit mx-auto shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A] animate-pulse" />
+              <span>Swipe to explore all 4 steps</span>
+            </div>
+
+            <div className="relative z-10 flex lg:grid lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {METHOD_STEPS.map((step, i) => (
                 <MethodStepCard
                   key={step.step}
@@ -1561,7 +1853,8 @@ export default function HowItWorksPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#0a1f3d]/70"
+                    style={{ zIndex: 100000 }}
+                    className="fixed inset-0 flex items-center justify-center p-3 sm:p-6 bg-[#0a1f3d]/80 backdrop-blur-md overflow-y-auto"
                     onClick={() => setActiveMethodStep(null)}
                   >
                     <motion.div
@@ -1570,15 +1863,15 @@ export default function HowItWorksPage() {
                       exit={{ opacity: 0, scale: 0.92, y: 20 }}
                       transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                       onClick={(e) => e.stopPropagation()}
-                      className="relative w-full max-w-2xl bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden p-6 sm:p-8"
+                      className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-2xl overflow-hidden flex flex-col my-auto max-h-[calc(100dvh-2rem)]"
                     >
                       {/* Top Gold Accent Strip */}
-                      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#C7A24A] to-[#0f4a9b]" />
+                      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#C7A24A] to-[#0f4a9b] z-20" />
 
-                      {/* Header Bar with Step Badge & Close ("Card End") */}
-                      <div className="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
+                      {/* Header Bar with Step Badge & Close */}
+                      <div className="flex items-center justify-between px-5 sm:px-7 pt-5 pb-3.5 border-b border-slate-100 flex-shrink-0 bg-white z-10">
                         <div className="flex items-center gap-2.5">
-                          <span className="text-xs font-black uppercase tracking-wider text-white bg-[#0f4a9b] px-3.5 py-1 rounded-full shadow-sm">
+                          <span className="text-xs font-black uppercase tracking-wider text-white bg-[#0f4a9b] px-3 py-1 rounded-full shadow-xs">
                             {step.step}
                           </span>
                           <span className="text-xs font-bold text-gray-500">
@@ -1586,7 +1879,7 @@ export default function HowItWorksPage() {
                           </span>
                         </div>
 
-                        {/* Close / Card End Button */}
+                        {/* Close Button */}
                         <button
                           onClick={() => setActiveMethodStep(null)}
                           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-gray-600 hover:text-[#0a1f3d] bg-slate-100 hover:bg-slate-200 transition-all cursor-pointer"
@@ -1597,78 +1890,78 @@ export default function HowItWorksPage() {
                         </button>
                       </div>
 
-                      {/* Body: Big 3D Object & Content */}
-                      <div className="grid sm:grid-cols-[200px_1fr] sm:gap-8 gap-6 items-center">
-                        {/* Big 3D Interactive Stage (Clean Floating Artifact with Ambient Light) */}
-                        <div className="relative flex items-center justify-center py-4 sm:py-6">
-                          <div className="absolute w-36 h-36 bg-gradient-to-br from-[#0f4a9b]/10 via-[#C7A24A]/15 to-transparent rounded-full blur-xl pointer-events-none" />
-                          <StepIcon isHovered={true} size="lg" />
-                        </div>
+                      {/* Body: 3D Object & Content */}
+                      <div className="p-5 sm:p-7 overflow-y-auto overscroll-contain">
+                        <div className="grid sm:grid-cols-[160px_1fr] sm:gap-6 gap-4 items-center">
+                          {/* 3D Interactive Stage */}
+                          <div className="relative flex items-center justify-center py-2 sm:py-4">
+                            <div className="absolute w-28 h-28 bg-gradient-to-br from-[#0f4a9b]/10 via-[#C7A24A]/15 to-transparent rounded-full blur-xl pointer-events-none" />
+                            <StepIcon isHovered={true} size="md" />
+                          </div>
 
-                        {/* Content Area with 100% Crisp Typography */}
-                        <div className="flex flex-col justify-center">
-                          <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3 leading-snug">
-                            {step.title}
-                          </h3>
+                          {/* Content Area */}
+                          <div className="flex flex-col justify-center">
+                            <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-2 leading-snug">
+                              {step.title}
+                            </h3>
 
-                          <div className="w-12 h-1 bg-[#C7A24A] rounded-full mb-4" />
+                            <div className="w-12 h-1 bg-[#C7A24A] rounded-full mb-3" />
 
-                          <p className="text-gray-700 text-base sm:text-lg leading-relaxed font-medium mb-3">
-                            {step.desc}
-                          </p>
-                          {step.details && (
-                            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-                              {step.details}
+                            <p className="text-gray-700 text-sm sm:text-base leading-relaxed font-medium mb-3">
+                              {step.desc}
                             </p>
-                          )}
-
-                          {/* Navigation & Done Actions */}
-                          <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-100">
-                            <button
-                              disabled={activeMethodStep === 0}
-                              onClick={() => setActiveMethodStep((prev) => (prev !== null && prev > 0 ? prev - 1 : prev))}
-                              className={`flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-xl border transition-all ${
-                                activeMethodStep === 0
-                                  ? 'text-gray-300 border-gray-200 cursor-not-allowed'
-                                  : 'text-[#0a1f3d] border-slate-200 hover:border-[#0f4a9b] hover:bg-[#0f4a9b]/5 cursor-pointer'
-                              }`}
-                            >
-                              <ChevronLeft className="w-4 h-4" />
-                              <span className="hidden sm:inline">Previous</span>
-                            </button>
-
-                            <div className="flex items-center gap-1.5">
-                              {METHOD_STEPS.map((_, i) => (
-                                <button
-                                  key={i}
-                                  onClick={() => setActiveMethodStep(i)}
-                                  className={`h-2.5 rounded-full transition-all cursor-pointer ${
-                                    i === activeMethodStep ? 'w-7 bg-[#C7A24A]' : 'w-2.5 bg-slate-200 hover:bg-slate-300'
-                                  }`}
-                                  aria-label={`Go to step ${i + 1}`}
-                                />
-                              ))}
-                            </div>
-
-                            {activeMethodStep < METHOD_STEPS.length - 1 ? (
-                              <button
-                                onClick={() => setActiveMethodStep((prev) => (prev !== null && prev < METHOD_STEPS.length - 1 ? prev + 1 : prev))}
-                                className="flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-xl bg-[#0f4a9b] text-white hover:bg-[#0a3a79] shadow-sm transition-all cursor-pointer"
-                              >
-                                <span>Next Step</span>
-                                <ChevronRight className="w-4 h-4" />
-                              </button>
-                            ) : (
-                              <button
-                                onClick={() => setActiveMethodStep(null)}
-                                className="flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-xl bg-[#C7A24A] text-[#0a1f3d] hover:bg-[#b5923f] shadow-sm transition-all cursor-pointer"
-                              >
-                                <span>Done</span>
-                                <CheckCircle2 className="w-4 h-4" />
-                              </button>
+                            {step.details && (
+                              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed bg-slate-50 p-3 sm:p-3.5 rounded-xl border border-slate-100">
+                                {step.details}
+                              </p>
                             )}
                           </div>
                         </div>
+                      </div>
+
+                      {/* Navigation & Done Actions Footer */}
+                      <div className="flex items-center justify-between gap-3 px-5 sm:px-7 py-3.5 border-t border-slate-100 flex-shrink-0 bg-white z-10">
+                        <button
+                          disabled={activeMethodStep === 0}
+                          onClick={() => setActiveMethodStep((prev) => (prev !== null && prev > 0 ? prev - 1 : prev))}
+                          className={`flex items-center text-xs font-bold px-3.5 py-2 rounded-xl border transition-all ${
+                            activeMethodStep === 0
+                              ? 'text-gray-300 border-gray-200 cursor-not-allowed'
+                              : 'text-[#0a1f3d] border-slate-200 hover:border-[#0f4a9b] hover:bg-[#0f4a9b]/5 cursor-pointer'
+                          }`}
+                        >
+                          <span>Previous</span>
+                        </button>
+
+                        <div className="flex items-center gap-1.5">
+                          {METHOD_STEPS.map((_, i) => (
+                            <button
+                              key={i}
+                              onClick={() => setActiveMethodStep(i)}
+                              className={`h-2 rounded-full transition-all cursor-pointer ${
+                                i === activeMethodStep ? 'w-6 bg-[#C7A24A]' : 'w-2 bg-slate-200 hover:bg-slate-300'
+                              }`}
+                              aria-label={`Go to step ${i + 1}`}
+                            />
+                          ))}
+                        </div>
+
+                        {activeMethodStep < METHOD_STEPS.length - 1 ? (
+                          <button
+                            onClick={() => setActiveMethodStep((prev) => (prev !== null && prev < METHOD_STEPS.length - 1 ? prev + 1 : prev))}
+                            className="flex items-center text-xs font-bold px-4 py-2 rounded-xl bg-[#0f4a9b] text-white hover:bg-[#0a3a79] shadow-sm transition-all cursor-pointer"
+                          >
+                            <span>Next Step</span>
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => setActiveMethodStep(null)}
+                            className="flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-xl bg-[#C7A24A] text-[#0a1f3d] hover:bg-[#b5923f] shadow-sm transition-all cursor-pointer"
+                          >
+                            <span>Done</span>
+                            <CheckCircle2 className="w-4 h-4" />
+                          </button>
+                        )}
                       </div>
                     </motion.div>
                   </motion.div>

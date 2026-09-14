@@ -264,7 +264,7 @@ export default function ALevelTutorAbuDhabiPage() {
     <Layout>
       <SEOHead
         title="Online A-Level Tutor Abu Dhabi | Cambridge & Edexcel"
-        description="Live online A-Level tutors for Abu Dhabi families. Cambridge, Edexcel, Oxford AQA and OCR support for Years 12 and 13. First lesson free."
+        description="Live online A-Level tutors for Abu Dhabi families. Cambridge, Edexcel, Oxford AQA and OCR support for Years 12 and 13."
         canonical="/a-level-tutor-abu-dhabi"
         ogImage="/UpdatedImages/a-level-tutor-abu-dhabi-online-year-13-session.webp"
         preloadHeroImage="/UpdatedImages/a-level-tutor-abu-dhabi-online-year-13-session.webp"
@@ -1617,7 +1617,7 @@ export default function ALevelTutorAbuDhabiPage() {
           </div>
 
           <p className="text-center text-xs font-semibold text-gray-500 mb-14">
-            First lesson free. Weekend, evening and Ramadan slots. UAE-registered since 2015.
+            Weekend, evening and Ramadan slots. UAE-registered since 2015.
           </p>
 
           {/* Related Pages Grid */}

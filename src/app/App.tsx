@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { 
-  Star, GraduationCap, Award, BookOpen, CheckCircle, Home,
+  Star, GraduationCap, Award, BookOpen, CheckCircle,
   MessageCircle, ChevronDown, ChevronLeft, ChevronRight, HelpCircle, TrendingUp, Clock,
   Shield, Brain, Library, Building,
   Atom, Calculator, FlaskConical, Dna, Briefcase, Lightbulb, Wrench,
@@ -250,24 +250,10 @@ export default function App() {
       <SEOHead {...homepageSEO} />
       <BackToSchoolPopup open={showWelcomePopup} onClose={() => setShowWelcomePopup(false)} />
       {/* Hero Section */}
-      <section className="pt-6 pb-12 sm:pt-8 sm:pb-20 lg:pt-16 lg:pb-32 relative overflow-hidden bg-white">
+      <section className="min-h-[calc(100dvh-84px)] lg:min-h-[calc(100dvh-92px)] flex items-center relative overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/10 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Visible Breadcrumb UI */}
-          <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6" itemScope itemType="https://schema.org/BreadcrumbList">
-            <ol className="flex items-center gap-1.5 text-xs font-semibold text-gray-500">
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <a itemProp="item" href="/" className="hover:text-[#0f4a9b] transition-colors flex items-center gap-1.5 text-[#0a1f3d] font-bold">
-                  <Home className="w-3.5 h-3.5 text-[#0f4a9b]" />
-                  <span itemProp="name">Home</span>
-                </a>
-                <meta itemProp="position" content="1" />
-              </li>
-            </ol>
-          </nav>
-
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-20 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14 xl:gap-16 items-center">
             
             {/* Left Content */}
             <motion.div
@@ -275,29 +261,28 @@ export default function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-4 sm:mb-6 border-2 border-[#C7A24A]/60 shadow-[0_0_20px_rgba(199,162,74,0.18)]">
+              <div className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-3.5 sm:mb-4 border-2 border-[#C7A24A]/60 shadow-[0_0_20px_rgba(199,162,74,0.18)]">
                 <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#C7A24A]" /> Trusted by UAE families since 2015.
               </div>
               
-              <h1 className="text-[1.75rem] leading-[1.15] sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#0a1f3d] mb-4 sm:leading-[1.1] tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f3d] mb-3 sm:mb-4 leading-[1.15] tracking-tight">
                 <GradientHeadingText text="Trusted Private Tutors Across the UAE" />
               </h1>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-5 sm:mb-6" />
+              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3.5 sm:mb-5" />
               
-              <p className="text-gray-600 text-[15px] sm:text-base lg:text-lg mb-7 sm:mb-10 leading-relaxed max-w-xl">
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-5 sm:mb-7 leading-relaxed max-w-xl">
                 Ustaad is a premium private tutoring service in the UAE, offering online 1-to-1 lessons for IGCSE, GCSE, A-Level, IB and American curriculum students.
               </p>
 
               <div className="flex flex-col gap-4 mb-4">
                 <div className="flex flex-col sm:flex-row items-start gap-4">
-                  <div className="flex flex-col gap-2 w-full sm:w-auto">
-                    <GoldButton className="w-full sm:w-auto px-8 py-3.5 text-sm hero-cta">
+                  <div className="flex flex-col items-start gap-2 w-fit">
+                    <GoldButton className="w-fit px-8 py-3.5 text-sm hero-cta">
                       Book Your Free Trial
                     </GoldButton>
-                    <p className="text-xs text-gray-400 font-medium text-center sm:text-left tracking-wide">{CTA_SUBTEXT}</p>
+                    <p className="text-xs text-gray-400 font-medium text-left tracking-wide">{CTA_SUBTEXT}</p>
                   </div>
                 </div>
-
               </div>
             </motion.div>
 
@@ -306,7 +291,7 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full h-[220px] sm:h-[400px] lg:h-[600px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-4 sm:border-8 border-white group z-10"
+              className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[420px] xl:h-[460px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-4 sm:border-8 border-white group z-10"
             >
               <img
                 src="/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp"
@@ -396,9 +381,8 @@ export default function App() {
                   {curr.desc}
                 </p>
                 <div className="mt-6 z-10">
-                  <span className="text-sm font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors flex items-center gap-1.5">
+                  <span className="text-sm font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors flex items-center">
                     <span>Explore Curriculum</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300 text-[#0f4a9b]" />
                   </span>
                 </div>
               </motion.a>

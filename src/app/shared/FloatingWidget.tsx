@@ -194,7 +194,7 @@ export default function FloatingWidget() {
               onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
               onMouseLeave={e => (e.currentTarget.style.textDecoration = 'none')}
             >
-              Prefer a form? Request a session →
+              Prefer a form? Request a session
             </a>
             <p style={{ margin: '16px 0 0', fontSize: 11, color: '#666', textAlign: 'center' }}>
               30 minutes with a UAE subject specialist. See the gaps, plan the next steps.

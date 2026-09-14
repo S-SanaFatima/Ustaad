@@ -63,6 +63,28 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Tutors', url: '/tutors' }]
   },
   {
+    path: '/tutors/tabraiz-khan',
+    component: 'TutorProfilePage',
+    seo: {
+      title: 'Tabraiz Khan · Maths, Physics & Statistics Tutor Dubai | Ustaad',
+      description: 'Tabraiz Khan is a Cambridge Certified Maths, Physics and Statistics tutor at Ustaad with 9 years teaching across IGCSE, GCSE, A-Level, IB and American curricula. Book a free trial today.',
+      priority: 0.8,
+      changefreq: 'monthly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Tutors', url: '/tutors' }, { name: 'Tabraiz Khan', url: '/tutors/tabraiz-khan' }]
+  },
+  {
+    path: '/tutors/fahad-khan',
+    component: 'TutorProfilePage',
+    seo: {
+      title: 'Fahad Khan · Maths Tutor Dubai & UAE | Ustaad',
+      description: 'Fahad Khan is a specialized Maths tutor at Ustaad with 10+ years experience teaching IGCSE, GCSE and A-Level. Book a free 30-minute trial lesson today.',
+      priority: 0.8,
+      changefreq: 'monthly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Tutors', url: '/tutors' }, { name: 'Fahad Khan', url: '/tutors/fahad-khan' }]
+  },
+  {
     path: '/subjects',
     component: 'SubjectsPage',
     seo: {
@@ -543,6 +565,19 @@ export const ROUTES: RouteConfig[] = [
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'GCSE Revision Tips', url: '/blogs/gcse-revision-tips-uae-parents' }]
   },
+  {
+    path: '/blogs/mock-exams-uae-not-what-they-were',
+    component: 'MockExamsUAEBlog',
+    seo: {
+      title: 'Mock Exams UAE: Why They Count More Than Before | Ustaad',
+      description: "UAE mock exams now shape predicted grades and school records, not just practice. Here's what changed and how parents should read the results.",
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-09-14'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic', url: '/blogs/academic-exam-skills' }, { name: 'Mock Exams UAE', url: '/blogs/mock-exams-uae-not-what-they-were' }]
+  },
+
 
   // City landings
   {
@@ -649,7 +684,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'ALevelTutorLanding',
     seo: {
       title: 'Online A-Level Tutor Abu Dhabi | Cambridge & Edexcel',
-      description: 'Live online A-Level tutors for Abu Dhabi families. Cambridge, Edexcel, Oxford AQA and OCR support for Years 12 and 13. First lesson free.',
+      description: 'Live online A-Level tutors for Abu Dhabi families. Cambridge, Edexcel, Oxford AQA and OCR support for Years 12 and 13.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -779,13 +814,26 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: '10 Questions Before Hiring a Tutor', url: '/blogs/10-questions-hiring-private-tutor-abu-dhabi' }]
   },
   {
+    path: '/blogs/private-tutoring-uae-parent-guide',
+    component: 'PrivateTutoringParentGuideBlog',
+    seo: {
+      title: 'Private Tutoring in the UAE: A Complete Parent Guide | Ustaad',
+      description: 'Is private tutoring legal in the UAE? What does it cost, and how do you choose the right tutor? Complete parent guide covering KHDA and ADEK rules, 2026 pricing, and vetting checklist.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-09-11'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'Private Tutoring in the UAE', url: '/blogs/private-tutoring-uae-parent-guide' }]
+  },
+  {
     path: '/privacy',
     component: 'PrivacyPage',
     seo: {
-      title: 'Privacy Policy | Ustaad',
-      description: 'Privacy policy for Ustaad — how we handle your data when you use our private tutoring service in the UAE.',
+      title: 'Privacy Policy | Ustaad UAE Tutoring · Data Protection & PDPL Compliance',
+      description: 'Official Privacy Policy of Ustaad UAE. Learn how we safeguard student and parent data under UAE Federal Decree Law No. 45 of 2021 (PDPL), KHDA & ADEK standards.',
       priority: 0.3,
-      changefreq: 'yearly'
+      changefreq: 'monthly',
+      lastmod: '2026-09-11'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Privacy Policy', url: '/privacy' }]
   },
@@ -793,10 +841,11 @@ export const ROUTES: RouteConfig[] = [
     path: '/terms',
     component: 'TermsPage',
     seo: {
-      title: 'Terms of Use | Ustaad',
-      description: 'Terms of use for Ustaad private tutoring services in the UAE.',
+      title: 'Terms of Use | Ustaad UAE · Tutoring Agreement & Service Terms',
+      description: 'Official Terms of Use for Ustaad UAE private tutoring services. Transparent policies on free trial sessions, 24-hour rescheduling, tutor replacement guarantee, and UAE governing law.',
       priority: 0.3,
-      changefreq: 'yearly'
+      changefreq: 'monthly',
+      lastmod: '2026-09-11'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Terms of Use', url: '/terms' }]
   }

@@ -489,10 +489,9 @@ export default function EditorialPage() {
                   </div>
                   <a
                     href={SPECIALIST_TEAM.href}
-                    className="inline-flex items-center gap-1.5 text-sm font-bold text-[#f0c96a] group-hover:gap-2.5 transition-all"
+                    className="inline-flex items-center text-sm font-bold text-[#f0c96a] hover:underline transition-all"
                   >
                     View contributor profile
-                    <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
               </div>
@@ -550,10 +549,9 @@ export default function EditorialPage() {
 
                     <a
                       href={member.href}
-                      className="inline-flex items-center justify-center sm:justify-start gap-1.5 text-sm font-bold text-[#0f4a9b] group-hover:gap-2.5 transition-all"
+                      className="inline-flex items-center justify-center sm:justify-start text-sm font-bold text-[#0f4a9b] hover:underline transition-all"
                     >
                       View full profile
-                      <ArrowRight className="h-4 w-4" />
                     </a>
                   </div>
                 </motion.article>
@@ -619,7 +617,6 @@ export default function EditorialPage() {
                         <h3 className="text-base sm:text-lg font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-300">
                           {title}
                         </h3>
-                        <ArrowRight className="h-4 w-4 text-slate-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-[#C7A24A] transition-all duration-300 shrink-0" />
                       </div>
                       <p className="text-sm text-gray-600 leading-relaxed group-hover:text-[#3a4f6e] transition-colors duration-300">
                         {text}
@@ -660,10 +657,9 @@ export default function EditorialPage() {
                 </div>
                 <a
                   href="/blogs"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[#0a1f3d] bg-white hover:bg-[#f0c96a] hover:scale-[1.03] active:scale-[0.98] transition-all shadow-md text-sm shrink-0"
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-full font-bold text-[#0a1f3d] bg-white hover:bg-[#f0c96a] hover:scale-[1.03] active:scale-[0.98] transition-all shadow-md text-sm shrink-0"
                 >
                   Visit the blog
-                  <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
             </motion.div>

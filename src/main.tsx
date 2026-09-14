@@ -61,6 +61,7 @@ const loadChemistryFadesBlog = () => import('./app/ChemistryFadesBlog');
 const loadEarlySignsChemistryBlog = () => import('./app/EarlySignsChemistryBlog');
 const loadReadSchoolReportCardBlog = () => import('./app/ReadSchoolReportCardBlog');
 const loadHirePrivateTutorAbuDhabiBlog = () => import('./app/HirePrivateTutorAbuDhabiBlog');
+const loadPrivateTutoringParentGuideBlog = () => import('./app/PrivateTutoringParentGuideBlog');
 const loadIGCSEvsGCSEBlog = () => import('./app/IGCSEvsGCSEBlog');
 const loadALevelIndependentThinkingBlog = () => import('./app/ALevelIndependentThinkingBlog');
 const loadIGCSEPreparationPastPapersBlog = () => import('./app/IGCSEPreparationPastPapersBlog');
@@ -73,7 +74,10 @@ const loadALevelTutorLanding = () => import('./app/ALevelTutorAbuDhabiPage');
 const loadIBTutorLanding = () => import('./app/IBTutorAbuDhabiPage');
 const loadAcademicBlogsPage = () => import('./app/AcademicBlogsPage');
 const loadPsychologyBlogsPage = () => import('./app/PsychologyBlogsPage');
+const loadTutorProfilePage = () => import('./app/TutorProfilePage');
 const loadParentGuidanceBlogsPage = () => import('./app/ParentGuidanceBlogsPage');
+const loadMockExamsUAEBlog = () => import('./app/MockExamsUAEBlog');
+
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
   '/': loadApp,
@@ -93,6 +97,8 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/dp-hl': loadDPHLPage,
   '/subjects': loadSubjectsPage,
   '/tutors': loadTutorsPage,
+  '/tutors/tabraiz-khan': loadTutorProfilePage,
+  '/tutors/fahad-khan': loadTutorProfilePage,
   '/contact': loadContactPage,
   '/physics': loadPhysicsPage,
   '/business': loadBusinessPage,
@@ -119,11 +125,14 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/early-signs-chemistry-help-uae': loadEarlySignsChemistryBlog,
   '/blogs/read-uae-school-report-card': loadReadSchoolReportCardBlog,
   '/blogs/10-questions-hiring-private-tutor-abu-dhabi': loadHirePrivateTutorAbuDhabiBlog,
+  '/blogs/private-tutoring-uae-parent-guide': loadPrivateTutoringParentGuideBlog,
   '/blogs/igcse-vs-gcse-curriculum-differences-uae': loadIGCSEvsGCSEBlog,
   '/blogs/a-level-tutoring-uae-independent-thinking': loadALevelIndependentThinkingBlog,
   '/blogs/igcse-preparation-past-papers-final-step': loadIGCSEPreparationPastPapersBlog,
   '/blogs/gcse-revision-tips-uae-parents': loadGCSERevisionTipsParentsBlog,
+  '/blogs/mock-exams-uae-not-what-they-were': loadMockExamsUAEBlog,
   '/sciences': loadSciencesPage,
+
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
   '/physics-tutor-abu-dhabi': loadPhysicsLanding,
   '/chemistry-tutor-abu-dhabi': loadChemistryLandingPage,
@@ -163,6 +172,7 @@ const DPSLPage = lazy(loadDPSLPage);
 const DPHLPage = lazy(loadDPHLPage);
 const SubjectsPage = lazy(loadSubjectsPage);
 const TutorsPage = lazy(loadTutorsPage);
+const TutorProfilePage = lazy(loadTutorProfilePage);
 const ContactPage = lazy(loadContactPage);
 const PhysicsPage = lazy(loadPhysicsPage);
 const BusinessPage = lazy(loadBusinessPage);
@@ -198,10 +208,13 @@ const ChemistryFadesBlog = lazy(loadChemistryFadesBlog);
 const EarlySignsChemistryBlog = lazy(loadEarlySignsChemistryBlog);
 const ReadSchoolReportCardBlog = lazy(loadReadSchoolReportCardBlog);
 const HirePrivateTutorAbuDhabiBlog = lazy(loadHirePrivateTutorAbuDhabiBlog);
+const PrivateTutoringParentGuideBlog = lazy(loadPrivateTutoringParentGuideBlog);
 const IGCSEvsGCSEBlog = lazy(loadIGCSEvsGCSEBlog);
 const ALevelIndependentThinkingBlog = lazy(loadALevelIndependentThinkingBlog);
 const IGCSEPreparationPastPapersBlog = lazy(loadIGCSEPreparationPastPapersBlog);
+const MockExamsUAEBlog = lazy(loadMockExamsUAEBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
+
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
 const GCSETutorLanding = lazy(loadGCSETutorLanding);
 const GCSETutorDubaiLanding = lazy(loadGCSETutorDubaiLanding);
@@ -271,6 +284,8 @@ function AppRoutes() {
           <Route path="/dp-hl"                               element={<DPHLPage />} />
           <Route path="/subjects"                            element={<SubjectsPage />} />
           <Route path="/tutors"                              element={<TutorsPage />} />
+          <Route path="/tutors/tabraiz-khan"                 element={<TutorProfilePage tutorSlug="tabraiz-khan" />} />
+          <Route path="/tutors/fahad-khan"                   element={<TutorProfilePage tutorSlug="fahad-khan" />} />
           <Route path="/contact"                             element={<ContactPage />} />
           <Route path="/physics"                             element={<PhysicsPage />} />
           <Route path="/business"                            element={<BusinessPage />} />
@@ -300,11 +315,14 @@ function AppRoutes() {
           <Route path="/blogs/early-signs-chemistry-help-uae" element={<EarlySignsChemistryBlog />} />
           <Route path="/blogs/read-uae-school-report-card" element={<ReadSchoolReportCardBlog />} />
           <Route path="/blogs/10-questions-hiring-private-tutor-abu-dhabi" element={<HirePrivateTutorAbuDhabiBlog />} />
+          <Route path="/blogs/private-tutoring-uae-parent-guide" element={<PrivateTutoringParentGuideBlog />} />
           <Route path="/blogs/igcse-vs-gcse-curriculum-differences-uae" element={<IGCSEvsGCSEBlog />} />
           <Route path="/blogs/a-level-tutoring-uae-independent-thinking" element={<ALevelIndependentThinkingBlog />} />
           <Route path="/blogs/igcse-preparation-past-papers-final-step" element={<IGCSEPreparationPastPapersBlog />} />
           <Route path="/blogs/gcse-revision-tips-uae-parents" element={<GCSERevisionTipsParentsBlog />} />
+          <Route path="/blogs/mock-exams-uae-not-what-they-were" element={<MockExamsUAEBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
+
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />
           <Route path="/physics-tutor-abu-dhabi"             element={<PhysicsLanding />} />
           <Route path="/chemistry-tutor-abu-dhabi"           element={<ChemistryLandingPage />} />

@@ -33,11 +33,11 @@ const FAQS = [
   },
   {
     q: 'Why do bright students make careless mistakes?',
-    a: 'Careless mistakes often happen when working memory is overloaded. Physics simultaneously demands reading the question, interpreting diagrams, selecting formulas, calculating, and checking units. When these tasks compete for limited working memory, one or more steps get dropped — and what looks like carelessness is actually cognitive overload.',
+    a: 'Careless mistakes often happen when working memory is overloaded. Physics simultaneously demands reading the question, interpreting diagrams, selecting formulas, calculating, and checking units. When these tasks compete for limited working memory, one or more steps get dropped, and what looks like carelessness is actually cognitive overload.',
   },
   {
     q: 'Can anxiety affect Physics performance?',
-    a: 'Yes, significantly. Worry consumes working memory resources. A student who feels anxious in an exam has less cognitive capacity available for the actual questions — not because they know less, but because part of their thinking is occupied by worry. This is why students sometimes do worse under exam conditions than in informal settings.',
+    a: 'Yes, significantly. Worry consumes working memory resources. A student who feels anxious in an exam has less cognitive capacity available for the actual questions (not because they know less, but because part of their thinking is occupied by worry). This is why students sometimes do worse under exam conditions than in informal settings.',
   },
   {
     q: 'How can parents support their child?',

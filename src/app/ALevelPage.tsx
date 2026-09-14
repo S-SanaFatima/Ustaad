@@ -27,7 +27,7 @@ export default function ALevelPage() {
     <Layout>
       <SEOHead
         title="A-Level Tutors UAE | Dubai & Abu Dhabi | Ustaad"
-        description="Specialised A-Level tutoring across Cambridge, Edexcel, AQA, and OCR for Year 12 and 13 students in the UAE. First lesson free."
+        description="Specialised A-Level tutoring across Cambridge, Edexcel, AQA, and OCR for Year 12 and 13 students in the UAE."
         canonical="/a-level"
         ogImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
         schema={[
@@ -80,9 +80,6 @@ export default function ALevelPage() {
       <SchoolsMarquee
         header={
           <div className="text-center mb-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-2">
-              Partner Schools & Communities
-            </div>
             <h2 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d]">
               Leading Abu Dhabi Schools
             </h2>

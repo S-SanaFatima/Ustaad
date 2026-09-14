@@ -38,25 +38,30 @@ export default function FinalCTA({
         <div className="text-gray-600 text-[15px] mb-8">
           {subtitleNode ?? subtitle}
         </div>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <div className="flex flex-col items-center">
-            <GoldButton href={button1Href} className="w-full sm:w-auto px-10 py-4 text-base shadow-[0_0_20px_rgba(234,179,8,0.4)]">
+        <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-start gap-4">
+          <div className="w-full sm:w-80 flex flex-col items-center">
+            <GoldButton 
+              href={button1Href} 
+              className="w-full min-h-[56px] px-6 py-4 text-base shadow-[0_0_20px_rgba(234,179,8,0.4)] text-center flex items-center justify-center"
+            >
               {button1Text}
             </GoldButton>
-            {subtext1 && <p className="text-xs text-gray-500 font-medium mt-2">{subtext1}</p>}
+            {subtext1 && (
+              <p className="text-xs text-gray-500 font-medium mt-2 text-center">{subtext1}</p>
+            )}
           </div>
           {button2Text && (
-            <div className="flex flex-col items-center mt-4 sm:mt-0">
+            <div className="w-full sm:w-80 flex flex-col items-center">
               <a 
                 href={button2Href} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label={button2Text ? `${button2Text} on WhatsApp` : "Chat with Ustaad on WhatsApp"}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1fb858] text-white font-extrabold text-base py-4 px-10 transition-all shadow-[0_8px_16px_rgba(37,211,102,0.25)] hover:shadow-[0_12px_20px_rgba(37,211,102,0.35)] hover:-translate-y-0.5"
+                className="w-full min-h-[56px] inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1fb858] text-white font-extrabold text-base py-4 px-6 transition-all shadow-[0_8px_16px_rgba(37,211,102,0.25)] hover:shadow-[0_12px_20px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 text-center"
               >
                 {button2Text}
               </a>
-              {subtext2 && <p className="text-xs text-gray-500 font-medium mt-2">{subtext2}</p>}
+              {subtext2 && <p className="text-xs text-gray-500 font-medium mt-2 text-center">{subtext2}</p>}
             </div>
           )}
         </div>

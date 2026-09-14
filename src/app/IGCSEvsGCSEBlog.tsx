@@ -73,7 +73,7 @@ const RELATED = [
     slug: 'exam-panic-before-exams-uae',
     category: 'Parent Guidance',
     title: 'What UAE Parents Miss About Exam Panic Right Before Exams',
-    description: 'A closer look at why exam anxiety peaks in the final days before an IGCSE paper — and how parents can help.',
+    description: 'A closer look at why exam anxiety peaks in the final days before an IGCSE paper, and how parents can help.',
   },
   {
     slug: 'why-chemistry-fades-from-memory',

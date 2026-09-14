@@ -41,9 +41,12 @@ import ChemistryFadesBlog from "./app/ChemistryFadesBlog.tsx";
 import EarlySignsChemistryBlog from "./app/EarlySignsChemistryBlog.tsx";
 import ReadSchoolReportCardBlog from "./app/ReadSchoolReportCardBlog.tsx";
 import HirePrivateTutorAbuDhabiBlog from "./app/HirePrivateTutorAbuDhabiBlog.tsx";
+import PrivateTutoringParentGuideBlog from "./app/PrivateTutoringParentGuideBlog.tsx";
 import ALevelIndependentThinkingBlog from "./app/ALevelIndependentThinkingBlog.tsx";
 import IGCSEPreparationPastPapersBlog from "./app/IGCSEPreparationPastPapersBlog.tsx";
+import MockExamsUAEBlog from "./app/MockExamsUAEBlog.tsx";
 import IGCSEvsGCSEBlog from "./app/IGCSEvsGCSEBlog.tsx";
+
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
 import MathsPage from "./app/MathsPage.tsx";
 import MiddleSchoolPage from "./app/MiddleSchoolPage.tsx";
@@ -69,6 +72,7 @@ import GCSETutorDubaiLanding from "./app/GCSETutorDubaiPage.tsx";
 import IgcseTutorDubaiLanding from "./app/IgcseTutorDubaiPage.tsx";
 import ALevelTutorLanding from "./app/ALevelTutorAbuDhabiPage.tsx";
 import IBTutorAbuDhabiPage from "./app/IBTutorAbuDhabiPage.tsx";
+import TutorProfilePage from "./app/TutorProfilePage.tsx";
 
 // Component registry - maps component names to actual components
 const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
@@ -82,6 +86,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   AmericanCurriculumPage,
   APPage,
   AuthorPage,
+  TutorProfilePage,
   BiologyTutorAbuDhabiPage,
   IBTutorAbuDhabiPage,
   BiologyPage,
@@ -92,6 +97,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   EarlySignsChemistryBlog,
   ReadSchoolReportCardBlog,
   HirePrivateTutorAbuDhabiBlog,
+  PrivateTutoringParentGuideBlog,
   ChemistryPage,
   ContactPage,
   CurriculumPage,
@@ -122,7 +128,9 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   GCSETutorDubaiLanding,
   IgcseTutorDubaiLanding,
   ALevelTutorLanding,
+  MockExamsUAEBlog,
   MathematicsLanding,
+
   MathsPage,
   MiddleSchoolPage,
   MYPPage,

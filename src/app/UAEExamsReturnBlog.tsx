@@ -672,7 +672,7 @@ export default function UAEExamsReturnBlog() {
 
             <InlineImage
               src="/images/blogs/uae-exam-mark-scheme-review.webp"
-              alt="UAE Year 13 and Year 11 student analyzing lost marks against official examiner mark scheme with highlighters"
+              alt="UAE Year 13 and Year 11 student analysing lost marks against official examiner mark scheme with highlighters"
               caption="Exam technique is built through granular review: logging lost marks directly against the official board mark scheme rather than just checking final percentages."
             />
 
@@ -813,7 +813,7 @@ export default function UAEExamsReturnBlog() {
                       <td className="p-3.5 font-bold text-[#0a1f3d] bg-slate-50/50">School Mocks</td>
                       <td className="p-3.5 text-emerald-950 bg-emerald-50/15">Treats school mocks as vital dress rehearsals and feedback milestones</td>
                       <td className="p-3.5 text-rose-950 bg-rose-50/15">Treats mocks as an unpleasant chore to &quot;survive&quot; or dreads going to school</td>
-                      <td className="p-3.5 text-xs text-gray-600">De-escalate the grade stakes: emphasize stamina and pacing diagnostics over raw marks.</td>
+                      <td className="p-3.5 text-xs text-gray-600">De-escalate the grade stakes: emphasise stamina and pacing diagnostics over raw marks.</td>
                     </tr>
                     <tr className="hover:bg-slate-50/50 transition-colors">
                       <td className="p-3.5 font-bold text-[#0a1f3d] bg-slate-50/50">Mindset</td>
