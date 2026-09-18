@@ -348,7 +348,7 @@ function MagneticSlipCard({
       {/* Main card body with 3D elevation */}
       <div
         style={{ transform: 'translateZ(18px)' }}
-        className="relative h-full bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 flex flex-col justify-between overflow-hidden"
+        className="relative h-full bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-4.5 lg:p-5 flex flex-col justify-between overflow-hidden"
       >
         {/* Specular glass spotlight sheen (Active ambient gradient + dynamic cursor track) */}
         <div
@@ -361,35 +361,35 @@ function MagneticSlipCard({
         />
 
         {/* Ambient luminous corner glow (Active by default) */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#C7A24A]/15 via-[#0f4a9b]/8 to-transparent rounded-full blur-xl pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-br from-[#C7A24A]/15 via-[#0f4a9b]/8 to-transparent rounded-full blur-xl pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
         <div className="relative z-10">
           {/* Number badge with active beacon ping */}
-          <div className="flex items-center justify-between mb-3.5">
-            <span className="font-mono text-xs font-bold text-[#C7A24A] tracking-wider px-2.5 py-1 rounded-md bg-gradient-to-r from-[#C7A24A]/15 to-[#f0c96a]/15 border border-[#C7A24A]/35 inline-flex items-center gap-1.5 shadow-[0_2px_8px_rgba(199,162,74,0.12)]">
+          <div className="flex items-center justify-between mb-2 sm:mb-2.5">
+            <span className="font-mono text-[11px] font-bold text-[#C7A24A] tracking-wider px-2 py-0.5 rounded-md bg-gradient-to-r from-[#C7A24A]/15 to-[#f0c96a]/15 border border-[#C7A24A]/35 inline-flex items-center gap-1.5 shadow-[0_2px_8px_rgba(199,162,74,0.12)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A] animate-ping" style={{ animationDuration: '2.5s' }} />
               {num}
             </span>
-            <span className="w-2 h-2 rounded-full bg-[#0f4a9b]/40 group-hover:bg-[#0f4a9b] group-hover:scale-125 transition-all duration-300 shadow-xs" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0f4a9b]/40 group-hover:bg-[#0f4a9b] group-hover:scale-125 transition-all duration-300 shadow-xs" />
           </div>
 
           {/* Heading */}
-          <h3 className="font-extrabold text-[#0a1f3d] text-base sm:text-lg mb-2.5 leading-snug group-hover:text-[#0f4a9b] transition-colors duration-300">
+          <h3 className="font-extrabold text-[#0a1f3d] text-[14.5px] sm:text-[15.5px] lg:text-[16px] mb-1.5 leading-snug group-hover:text-[#0f4a9b] transition-colors duration-300">
             {heading}
           </h3>
 
           {/* Body */}
-          <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+          <p className="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed">
             {body}
           </p>
         </div>
 
         {/* Bottom accent footer (Luminous gradient active by default) */}
-        <div className="relative z-10 pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
-          <span className="text-[10px] font-mono font-semibold text-[#0f4a9b] uppercase tracking-wider">
+        <div className="relative z-10 pt-2.5 mt-2.5 border-t border-slate-100 flex items-center justify-between">
+          <span className="text-[9.5px] font-mono font-semibold text-[#0f4a9b] uppercase tracking-wider">
             Pattern {num}
           </span>
-          <div className="h-1 w-12 group-hover:w-20 bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A] rounded-full transition-all duration-300 shadow-xs" />
+          <div className="h-1 w-10 group-hover:w-16 bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A] rounded-full transition-all duration-300 shadow-xs" />
         </div>
       </div>
     </motion.div>
@@ -417,7 +417,7 @@ function DubaiGcseStudentsSlipSection() {
   };
 
   return (
-    <section className="py-14 sm:py-20 bg-[#f8fafc] relative overflow-hidden border-b border-slate-200/60">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#f8fafc] relative overflow-hidden border-b border-slate-200/60">
       <GcseGrid light />
       
       {/* Subtle ambient lighting */}
@@ -425,24 +425,24 @@ function DubaiGcseStudentsSlipSection() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold font-mono tracking-wider uppercase mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-4 sm:mb-6">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-[11px] font-bold font-mono tracking-wider uppercase mb-1.5">
             <Target className="w-3.5 h-3.5 text-[#C7A24A]" />
             DUBAI MARK-LOSS PATTERNS
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] tracking-tight mb-3">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] tracking-tight mb-1.5">
             Where Dubai GCSE Students Slip
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-xs sm:text-[13.5px] max-w-xl mx-auto leading-relaxed">
             Six mark-loss patterns Dubai families hit that generic UK GCSE prep misses.
           </p>
         </div>
 
-        {/* Scrollable on Mobile / 3x2 Grid on Tablet & Desktop */}
+        {/* Scrollable on Mobile / 3x2 Grid on Tablet & Desktop (Single Viewport Fit) */}
         <div
           ref={scrollRef}
           onScroll={handleScroll}
-          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory pt-2 pb-4 sm:pb-0 px-4 sm:px-0 -mx-4 sm:mx-0 scrollbar-none"
+          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-4.5 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory pt-1 pb-3 sm:pb-0 px-4 sm:px-0 -mx-4 sm:mx-0 scrollbar-none"
         >
           {DUBAI_MARK_LOSS_PATTERNS.map((item, idx) => (
             <MagneticSlipCard
@@ -456,7 +456,7 @@ function DubaiGcseStudentsSlipSection() {
         </div>
 
         {/* Mobile Swipe Dots Navigation */}
-        <div className="sm:hidden flex items-center justify-center gap-1.5 mt-4 pt-1">
+        <div className="sm:hidden flex items-center justify-center gap-1.5 mt-3 pt-0.5">
           {DUBAI_MARK_LOSS_PATTERNS.map((_, idx) => (
             <button
               key={idx}
