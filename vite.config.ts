@@ -34,6 +34,9 @@ export default defineConfig({
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
 
+  build: {
+    emptyOutDir: false,
+  },
   ssr: {
     // react-helmet-async ships as CJS; bundle it into the SSR output so Node's
     // ESM loader can resolve its named exports during prerendering.
