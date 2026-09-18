@@ -791,9 +791,9 @@ export default function WhatDoesGradientMeanBlog() {
                 </a>
                 <p className="text-xs text-white/60 font-medium">Free 30-min trial · Cancel anytime</p>
               </div>
-              <a href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Tabraiz%20Khan%20for%20a%20trial%20lesson." target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20free%20trial%20session%20with%20Tabraiz%20Khan%20for%20Maths." target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md">
-                <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> Chat on WhatsApp
+                <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> WhatsApp for Maths with Tabraiz
               </a>
             </div>
             <div className="mt-4 pt-3 border-t border-white/10">
