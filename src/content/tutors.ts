@@ -61,7 +61,7 @@ export const TUTORS: Record<string, TutorProfile> = {
       'Free 30-min trial',
       'Cambridge Certified',
     ],
-    trialUrl: '/contact#form?tutor=Tabraiz-Khan',
+    trialUrl: '/contact#form',
     waUrl: 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Tabraiz%20Khan%20for%20a%20trial%20lesson.',
     trustItems: [
       { label: 'Experience', value: '9 Years', type: 'experience' },
@@ -150,7 +150,7 @@ export const TUTORS: Record<string, TutorProfile> = {
       'Replies in ~12 min on WhatsApp',
       'Free 30-min trial',
     ],
-    trialUrl: '/contact#form?tutor=Fahad-Khan',
+    trialUrl: '/contact#form',
     waUrl: 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Fahad%20Khan%20for%20a%20trial%20lesson.',
     trustItems: [
       { label: 'Experience', value: '10+ Years', type: 'experience' },

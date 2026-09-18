@@ -711,7 +711,7 @@ export default function WhatDoesGradientMeanBlog() {
             <p>That one sentence is worth more at exam time than another hour of practising the calculation itself, because the calculation was never the part students were losing marks on. Once a student checks the axes before they touch the formula, distance-time, velocity-time, and every other graph they meet (in maths, physics, economics, or biology) starts reading the same way.</p>
             
             <p>Ustaad supports Maths and Physics students across the UAE through diagnostic, concept-led learning aligned to IGCSE, A-Level, and IB curricula.{' '}
-              <a href="/contact#form?tutor=Tabraiz-Khan" className="text-[#0f4a9b] font-semibold hover:underline">
+              <a href="/contact#form" className="text-[#0f4a9b] font-semibold hover:underline">
                 Book a free trial with Tabraiz Khan
               </a>{' '}
               to find out exactly where the gaps are.
@@ -719,7 +719,7 @@ export default function WhatDoesGradientMeanBlog() {
 
             {/* Trial CTA */}
             <div className="my-5 flex flex-col items-center gap-1.5">
-              <a href="/contact#form?tutor=Tabraiz-Khan"
+              <a href="/contact#form"
                 className="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-white text-sm hover:brightness-110 transition"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
                 Book Your Free Trial with Tabraiz Khan
@@ -784,7 +784,7 @@ export default function WhatDoesGradientMeanBlog() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-3">
               <div className="flex flex-col items-center gap-1.5">
-                <a href="/contact#form?tutor=Tabraiz-Khan"
+                <a href="/contact#form"
                   className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm shadow-md"
                   style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
                   Book Free Trial with Tabraiz
