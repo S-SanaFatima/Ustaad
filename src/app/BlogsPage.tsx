@@ -52,13 +52,13 @@ export const BLOGS: BlogPost[] = [
   {
     slug: 'what-does-gradient-mean-maths-physics',
     image: '/images/blogs/what-does-gradient-mean-hero.jpg',
-    alt: 'Secondary student studying mathematics and physics graphs in a bright study setting in the UAE',
+    alt: 'Secondary student in Dubai attending an online one-to-one tutoring session with a specialist teacher explaining motion formulas on a digital board',
     category: 'Academic',
     title: 'What Does the Gradient Actually Mean? A Teacher Explains It from Maths to Physics',
     description: 'A Maths and Physics teacher explains what the gradient number actually tells you, not just how to calculate it, across straight-line graphs, distance-time and velocity-time graphs.',
     date: '18 Sep 2026',
     readTime: '7 min read',
-    author: 'Maths & Physics Specialist',
+    author: 'Tabraiz Khan',
     featured: true,
   },
   {

@@ -16,8 +16,9 @@ const BLOG = {
   heroCaption: 'One-to-one online coaching breaks down the physical meaning behind kinematics formulas and graph gradients.',
   datePublished: '2026-09-18',
   dateModified: '2026-09-18',
-  author: 'Maths & Physics Specialist',
-  authorFull: 'Maths & Physics Specialist | Ustaad UAE',
+  author: 'Tabraiz Khan',
+  authorFull: 'Tabraiz Khan | Cambridge Certified Maths & Physics Specialist, Ustaad UAE',
+  authorUrl: '/tutors/tabraiz-khan',
   reviewer: 'Nida Iqbal | MPhil in Education Leadership and Management',
   readTime: '7 min read',
   tags: ['Maths', 'Physics', 'Gradient', 'Rate of Change', 'IGCSE', 'A-Level', 'Exam Technique'],
@@ -456,9 +457,9 @@ export default function WhatDoesGradientMeanBlog() {
             datePublished: BLOG.datePublished,
             dateModified: BLOG.dateModified,
             author: {
-              name: 'Maths & Physics Specialist',
-              url: '/authors/ustaad-subject-specialists',
-              jobTitle: 'Maths & Physics Teacher | Ustaad UAE',
+              name: 'Tabraiz Khan',
+              url: '/tutors/tabraiz-khan',
+              jobTitle: 'Cambridge Certified Maths & Physics Specialist | Ustaad UAE',
               sameAs: 'https://www.linkedin.com/company/ustaad-ae',
             },
             reviewer: {
@@ -516,9 +517,9 @@ export default function WhatDoesGradientMeanBlog() {
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   <span className="font-medium">Written by:</span>{' '}
-                  <a href="/authors/ustaad-subject-specialists" className="text-[#0f4a9b] font-semibold underline">Maths &amp; Physics Specialist</a>
+                  <a href="/tutors/tabraiz-khan" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Tabraiz Khan</a>
                   <span className="block sm:inline">
-                    {' '}<a href="/authors/ustaad-subject-specialists" className="text-gray-500 hover:text-[#0f4a9b]">| Ustaad UAE</a>
+                    {' '}<a href="/tutors/tabraiz-khan" className="text-gray-500 hover:text-[#0f4a9b]">| Maths &amp; Physics Specialist, Ustaad UAE</a>
                   </span>
                 </span>
               </div>
@@ -752,8 +753,11 @@ export default function WhatDoesGradientMeanBlog() {
               <div className="absolute top-3 right-3">
                 <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#0f4a9b] border border-[#0f4a9b]/15 bg-[#0f4a9b]/5">About the Author</span>
               </div>
-              <p className="font-extrabold text-[#0a1f3d] text-sm mb-1 pr-28 mt-4">Maths & Physics Specialist</p>
-              <p className="text-xs text-gray-500 leading-relaxed text-justify">A practising Maths and Physics specialist coaching IGCSE, GCSE, and A-Level students across Dubai and Abu Dhabi, focusing on conceptual clarity, graph literacy, and mark scheme precision.</p>
+              <p className="font-extrabold text-[#0a1f3d] text-sm mb-0.5 pr-28 mt-4">
+                <a href="/tutors/tabraiz-khan" className="hover:text-[#0f4a9b] hover:underline">Tabraiz Khan</a>
+              </p>
+              <p className="text-[11px] font-semibold text-[#0f4a9b] mb-1.5">Cambridge Certified Maths &amp; Physics Specialist</p>
+              <p className="text-xs text-gray-500 leading-relaxed text-justify">Cambridge Certified Teacher with a Master’s in Statistics and 9 years teaching Maths, Physics and Statistics across IGCSE, GCSE, A-Level, and IB curricula in Dubai and Abu Dhabi. Specialises in analytical concept building, kinematics, and exam mark-scheme precision.</p>
             </div>
             <div className="relative rounded-2xl border border-[#C7A24A]/15 bg-gradient-to-br from-white to-[#fdf9f0] p-4 overflow-hidden">
               <div className="absolute top-3 right-3">
