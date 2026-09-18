@@ -710,21 +710,29 @@ export default function WhatDoesGradientMeanBlog() {
             <p className="font-semibold text-[#0a1f3d]">The formula calculates the gradient. The axes tell you what the gradient means.</p>
             <p>That one sentence is worth more at exam time than another hour of practising the calculation itself, because the calculation was never the part students were losing marks on. Once a student checks the axes before they touch the formula, distance-time, velocity-time, and every other graph they meet (in maths, physics, economics, or biology) starts reading the same way.</p>
             
-            <p>Ustaad supports Maths and Physics students across the UAE through diagnostic, concept-led learning aligned to IGCSE, A-Level, and IB curricula.{' '}
-              <a href="/contact#form" className="text-[#0f4a9b] font-semibold hover:underline">
-                Book a free trial
+            <p>Ustaad supports Maths and Physics students across the UAE through diagnostic, concept-led learning aligned to IGCSE, GCSE, A-Level, and IB curricula.{' '}
+              <a href="/contact#form?tutor=Tabraiz-Khan" className="text-[#0f4a9b] font-semibold hover:underline">
+                Book a free trial with Tabraiz Khan
               </a>{' '}
               to find out exactly where the gaps are.
             </p>
 
             {/* Trial CTA */}
-            <div className="my-5 flex flex-col items-center gap-1.5">
-              <a href="/contact#form"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-white text-sm hover:brightness-110 transition"
-                style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial
-              </a>
-              <p className="text-xs text-gray-500 font-medium">No commitment. Cancel anytime.</p>
+            <div className="my-6 p-5 rounded-2xl bg-gradient-to-r from-[#f4f7fc] to-[#edf2fb] border border-[#0f4a9b]/15 text-center">
+              <span className="inline-block px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#0f4a9b] bg-white border border-[#0f4a9b]/20 mb-2">
+                1-to-1 Diagnostic Tuition
+              </span>
+              <p className="text-sm font-bold text-[#0a1f3d] mb-3">
+                Want to connect with a specialist Maths &amp; Physics tutor?
+              </p>
+              <div className="flex flex-col items-center gap-1.5">
+                <a href="/contact#form?tutor=Tabraiz-Khan"
+                  className="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-white text-sm hover:brightness-110 transition shadow-sm"
+                  style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
+                  Book Free Trial with Tabraiz Khan
+                </a>
+                <p className="text-xs text-gray-500 font-medium">Free 30-min trial lesson · No commitment · Cancel anytime</p>
+              </div>
             </div>
 
           </div>
@@ -748,23 +756,90 @@ export default function WhatDoesGradientMeanBlog() {
           </div>
 
           {/* Author & Reviewer */}
-          <div className="mt-7 grid md:grid-cols-2 gap-3">
-            <div className="relative rounded-2xl border border-[#0f4a9b]/10 bg-gradient-to-br from-white to-[#f4f7fd] p-4 overflow-hidden">
-              <div className="absolute top-3 right-3">
-                <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#0f4a9b] border border-[#0f4a9b]/15 bg-[#0f4a9b]/5">About the Author</span>
+          <div className="mt-7 grid md:grid-cols-2 gap-3.5">
+            <div className="relative rounded-2xl border border-[#0f4a9b]/15 bg-gradient-to-br from-white to-[#f4f7fd] p-4 sm:p-5 overflow-hidden shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#0f4a9b] border border-[#0f4a9b]/20 bg-[#0f4a9b]/8">
+                    About the Author
+                  </span>
+                  <a
+                    href="/tutors/tabraiz-khan"
+                    className="text-[11px] font-bold text-[#0f4a9b] hover:underline"
+                  >
+                    View Tutor Profile →
+                  </a>
+                </div>
+                <div className="flex items-start gap-3 mb-2.5">
+                  <img
+                    src="/images/tutors/tabraiz-khan.jpg"
+                    alt="Tabraiz Khan, Maths & Physics Tutor"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm shrink-0"
+                  />
+                  <div>
+                    <h3 className="font-extrabold text-[#0a1f3d] text-base leading-tight">
+                      <a href="/tutors/tabraiz-khan" className="hover:text-[#0f4a9b] hover:underline">
+                        Tabraiz Khan
+                      </a>
+                    </h3>
+                    <p className="text-[11px] font-semibold text-[#0f4a9b] mt-0.5">
+                      Cambridge Certified Maths &amp; Physics Specialist
+                    </p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-600 leading-relaxed text-justify">
+                  Cambridge Certified Teacher with a Master’s in Statistics and 9 years teaching Maths, Physics and Statistics across IGCSE, GCSE, A-Level, and IB curricula in Dubai and Abu Dhabi.
+                </p>
               </div>
-              <p className="font-extrabold text-[#0a1f3d] text-sm mb-0.5 pr-28 mt-4">
-                <a href="/tutors/tabraiz-khan" className="hover:text-[#0f4a9b] hover:underline">Tabraiz Khan</a>
-              </p>
-              <p className="text-[11px] font-semibold text-[#0f4a9b] mb-1.5">Cambridge Certified Maths &amp; Physics Specialist</p>
-              <p className="text-xs text-gray-500 leading-relaxed text-justify">Cambridge Certified Teacher with a Master’s in Statistics and 9 years teaching Maths, Physics and Statistics across IGCSE, GCSE, A-Level, and IB curricula in Dubai and Abu Dhabi. Specialises in analytical concept building, kinematics, and exam mark-scheme precision.</p>
+              <div className="mt-3 pt-2.5 border-t border-[#0f4a9b]/10 flex items-center justify-between">
+                <span className="text-[11px] text-gray-500 font-medium">Available for 1-to-1 lessons</span>
+                <a
+                  href="/contact#form?tutor=Tabraiz-Khan"
+                  className="inline-flex items-center text-xs font-bold text-[#C7A24A] hover:underline"
+                >
+                  Book with Tabraiz →
+                </a>
+              </div>
             </div>
-            <div className="relative rounded-2xl border border-[#C7A24A]/15 bg-gradient-to-br from-white to-[#fdf9f0] p-4 overflow-hidden">
-              <div className="absolute top-3 right-3">
-                <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#A8892A] border border-[#C7A24A]/20 bg-[#C7A24A]/6">Reviewed By</span>
+
+            <div className="relative rounded-2xl border border-[#C7A24A]/20 bg-gradient-to-br from-white to-[#fdf9f0] p-4 sm:p-5 overflow-hidden shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#A8892A] border border-[#C7A24A]/25 bg-[#C7A24A]/10">
+                    Reviewed By
+                  </span>
+                  <a
+                    href="/authors/nida-iqbal"
+                    className="text-[11px] font-bold text-[#A8892A] hover:underline"
+                  >
+                    Editorial Profile →
+                  </a>
+                </div>
+                <div className="flex items-start gap-3 mb-2.5">
+                  <img
+                    src="/images/team/nida-iqbal-v2.jpg"
+                    alt="Nida Iqbal, Educational Reviewer"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm shrink-0"
+                  />
+                  <div>
+                    <h3 className="font-extrabold text-[#0a1f3d] text-base leading-tight">
+                      <a href="/authors/nida-iqbal" className="hover:text-[#A8892A] hover:underline">
+                        Nida Iqbal
+                      </a>
+                    </h3>
+                    <p className="text-[11px] font-semibold text-[#A8892A] mt-0.5">
+                      MPhil in Education Leadership and Management
+                    </p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-600 leading-relaxed text-justify">
+                  Nida Iqbal reviewed this article for pedagogical accuracy, verifying that the cross-curricular maths and physics graph explanations reflect standard UK and IB mark scheme criteria.
+                </p>
               </div>
-              <p className="font-extrabold text-[#0a1f3d] text-sm mb-1 pr-24 mt-4">Nida Iqbal | MPhil in Education Leadership and Management</p>
-              <p className="text-xs text-gray-500 leading-relaxed text-justify">Nida Iqbal reviewed this article for pedagogical accuracy, verifying that the cross-curricular maths and physics graph explanations reflect standard UK and IB mark scheme criteria.</p>
+              <div className="mt-3 pt-2.5 border-t border-[#C7A24A]/15 flex items-center justify-between">
+                <span className="text-[11px] text-gray-500 font-medium">Editorial Quality &amp; Verification</span>
+                <span className="text-[11px] font-bold text-[#0a1f3d]">Pedagogically Verified ✓</span>
+              </div>
             </div>
           </div>
 
@@ -776,21 +851,27 @@ export default function WhatDoesGradientMeanBlog() {
           </div>
 
           {/* Bottom CTA */}
-          <div className="mt-8 mb-12 rounded-2xl p-6 lg:p-8 text-center text-white"
+          <div className="mt-8 mb-12 rounded-2xl p-6 lg:p-8 text-center text-white relative overflow-hidden"
             style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 60%, #1e5ba8 100%)' }}>
-            <p className="text-white/75 mb-5 max-w-lg mx-auto text-sm">
-              Ustaad supports Maths and Physics students across the UAE through diagnostic, concept-led learning aligned to IGCSE, GCSE, A-Level, and IB curricula.
+            <span className="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest text-[#C7A24A] bg-[#C7A24A]/10 border border-[#C7A24A]/25 mb-3">
+              One-to-One Maths &amp; Physics Mentorship
+            </span>
+            <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2">
+              Connect Directly with a Specialist Maths &amp; Physics Tutor
+            </h3>
+            <p className="text-white/80 mb-6 max-w-lg mx-auto text-xs sm:text-sm leading-relaxed">
+              Book a free 30-minute diagnostic session with Tabraiz Khan or our senior mathematics specialists across IGCSE, GCSE, A-Level, and IB curricula in Dubai, Abu Dhabi, and online across the UAE.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-3">
               <div className="flex flex-col items-center gap-1.5">
-                <a href="/contact#form"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm"
-                style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial
-              </a>
-                <p className="text-xs text-white/60 font-medium">No commitment. Cancel anytime.</p>
+                <a href="/contact#form?tutor=Tabraiz-Khan"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm shadow-md"
+                  style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
+                  Book Free Trial with Tabraiz Khan
+                </a>
+                <p className="text-[11px] text-white/60 font-medium">Free 30-min trial · Cancel anytime</p>
               </div>
-              <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Tabraiz%20Khan%20for%20a%20Maths%20and%20Physics%20trial%20lesson." target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md">
                 <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> Ask on WhatsApp
               </a>
