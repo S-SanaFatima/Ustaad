@@ -1,117 +1,39 @@
 import { GraduationCap, TrendingUp, Award, UserCheck } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
 
 interface StatsBarProps {
   customText?: string;
 }
 
-const TARGETS = { students: 2500, grade: 3, exam: 90, satisfaction: 98 };
-
 export default function StatsBar({ customText }: StatsBarProps = {}) {
-  // Default to full target values so SSR, crawlers, and non-JS clients display full figures
-  const [counts, setCounts] = useState(TARGETS);
-  const ref = useRef<HTMLDivElement>(null);
-  const animated = useRef(false);
-
-  useEffect(() => {
-    // Respect user's prefers-reduced-motion setting
-    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
-    }
-
-    const el = ref.current;
-    if (!el) return;
-
-    const startAnimation = () => {
-      if (animated.current) return;
-      animated.current = true;
-
-      setCounts({ students: 0, grade: 0, exam: 0, satisfaction: 0 });
-
-      const delays = { students: 0, grade: 150, exam: 300, satisfaction: 450 };
-      const duration = 1200;
-      const start = performance.now();
-      const easeOutCubic = (x: number) => 1 - Math.pow(1 - x, 3);
-
-      const tick = (now: number) => {
-        const elapsed = now - start;
-
-        setCounts((prev) => {
-          const next = { ...prev };
-          (Object.keys(TARGETS) as Array<keyof typeof TARGETS>).forEach((key) => {
-            const delay = delays[key];
-            if (elapsed >= delay) {
-              const p = Math.min(1, (elapsed - delay) / duration);
-              const eased = easeOutCubic(p);
-              next[key] = Math.round(eased * TARGETS[key]);
-            }
-          });
-          return next;
-        });
-
-        if (elapsed < duration + 450) {
-          requestAnimationFrame(tick);
-        } else {
-          setCounts(TARGETS); // Guarantee final state
-        }
-      };
-
-      requestAnimationFrame(tick);
-    };
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          startAnimation();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(el);
-
-    // Fallback: If not triggered within 1.5s, ensure target stats are shown
-    const fallbackTimer = setTimeout(() => {
-      if (!animated.current) {
-        startAnimation();
-      }
-    }, 1500);
-
-    return () => {
-      observer.disconnect();
-      clearTimeout(fallbackTimer);
-    };
-  }, []);
-
   const stats = [
     {
       icon: GraduationCap,
-      val: `${counts.students || TARGETS.students}+`,
+      val: '2,500+',
       label: 'Students Taught',
       subtext: 'Across UAE Curricula',
     },
     {
       icon: TrendingUp,
-      val: `+1 to +${counts.grade || TARGETS.grade}`,
+      val: '+1 to +3',
       label: 'Grade Improvement',
       subtext: 'Average Grade Jump',
     },
     {
       icon: Award,
-      val: `${counts.exam || TARGETS.exam}%+`,
+      val: '90%+',
       label: 'Exam Success Rate',
       subtext: 'Full Curriculum & Exam Boards',
     },
     {
       icon: UserCheck,
-      val: `${counts.satisfaction || TARGETS.satisfaction}%`,
+      val: '98%',
       label: 'Satisfaction Rate',
       subtext: 'Verified Parent Reviews',
     },
   ];
 
   return (
-    <div ref={ref} className="relative -mt-6 z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+    <div className="relative -mt-6 z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
       <div className="relative overflow-hidden bg-white rounded-2xl shadow-[0_10px_35px_rgba(15,74,155,0.07)] border border-slate-200 px-2.5 sm:px-6 py-5 sm:py-6 lg:py-7">
         
         {/* Subtle Gold Accent Top Line */}

@@ -25,7 +25,7 @@ export const CATEGORY_META = {
     dotColor: 'bg-[#0f4a9b]',
     icon: BookOpen,
     description:
-      'This is where our subject specialists get practical. These articles explain why revision does not always turn into marks, how to read an exam question before reaching for a formula, and the study habits that actually hold at IGCSE and A-Level. Written by active exam markers.',
+      'Practical exam techniques, command-word mastery, and study habits that turn revision into top marks at IGCSE and A-Level. Written by active examiners.',
   },
   'Psychology of Learning': {
     title: 'Psychology of Learning',
@@ -35,7 +35,7 @@ export const CATEGORY_META = {
     dotColor: 'bg-purple-600',
     icon: Brain,
     description:
-      'Understanding a topic at home and producing it under exam pressure are two different skills. The articles in this stream look at what happens in between: how memory fades, why capable students freeze, and how anxiety quietly uses up working memory during a paper.',
+      'Understand how memory works, why students freeze under pressure, and how to manage exam anxiety to perform with confidence during tough papers.',
   },
   'Parent Guidance': {
     title: 'Parent Guidance',
@@ -44,11 +44,23 @@ export const CATEGORY_META = {
     badgeStyle: 'bg-emerald-50 text-emerald-700 border-emerald-200',
     dotColor: 'bg-emerald-500',
     icon: ShieldAlert,
-    description: 'The report card is often the last sign, not the first. These articles help parents read the smaller signals at home, a thinning notebook, a child who stops explaining their work, and decide when a single diagnostic conversation is worth having.',
+    description: 'Identify subtle learning gaps early, interpret report cards accurately, and support your child with proven academic guidance at home.',
   },
 };
 
 export const BLOGS: BlogPost[] = [
+  {
+    slug: 'what-does-gradient-mean-maths-physics',
+    image: '/images/blogs/what-does-gradient-mean-hero.jpg',
+    alt: 'Secondary student studying mathematics and physics graphs in a bright study setting in the UAE',
+    category: 'Academic',
+    title: 'What Does the Gradient Actually Mean? A Teacher Explains It from Maths to Physics',
+    description: 'A Maths and Physics teacher explains what the gradient number actually tells you, not just how to calculate it, across straight-line graphs, distance-time and velocity-time graphs.',
+    date: '18 Sep 2026',
+    readTime: '7 min read',
+    author: 'Maths & Physics Specialist',
+    featured: true,
+  },
   {
     slug: 'mock-exams-uae-not-what-they-were',
     image: '/images/blogs/mock-exam-uae-hero.jpg',

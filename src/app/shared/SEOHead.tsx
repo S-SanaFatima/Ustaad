@@ -34,9 +34,10 @@ export default function SEOHead({ title, description, canonical, ogImage, schema
       {/* Preload critical hero images for LCP optimization */}
       {preloadHeroImage && <link rel="preload" as="image" href={preloadHeroImage} fetchPriority="high" data-rh="true" />}
 
-      {/* hreflang — en-AE + x-default only. ar-AE omitted: Arabic is Google Translate, not a real /ar/ URL */}
-      <link rel="alternate" hreflang="en-AE" href={fullCanonical} data-rh="true" />
-      <link rel="alternate" hreflang="x-default" href={fullCanonical} data-rh="true" />
+      {/* hreflang — en-AE, ar-AE, and x-default */}
+      <link rel="alternate" hrefLang="en-AE" href={fullCanonical} data-rh="true" />
+      <link rel="alternate" hrefLang="ar-AE" href={path === "/" ? `${BASE_URL}/ar/` : `${BASE_URL}/ar${path}`} data-rh="true" />
+      <link rel="alternate" hrefLang="x-default" href={fullCanonical} data-rh="true" />
 
       {/* Open Graph */}
       <meta property="og:type" content={ogType} data-rh="true" />

@@ -56,7 +56,7 @@ export default function APPage() {
     { name: 'Al Ain', note: 'AP coursework support' },
     { name: 'Ras Al Khaimah', note: 'Northern Emirates' },
     { name: 'Fujairah', note: 'East coast' },
-    { name: 'Umm Al Quwain', note: '8th Emirate' },
+    { name: 'Umm Al Quwain', note: 'Northern Emirates' },
   ];
 
   const faqs = [

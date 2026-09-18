@@ -5,7 +5,7 @@ import {
   CheckCircle2, ArrowRight, ChevronDown, Sparkles, Target, Star, MessageCircle, BookOpen, Video, Timer,
   MapPin
 } from 'lucide-react';
-import { Layout, GoldButton, StatsBar, SchoolsMarquee } from './shared';
+import { Layout, GoldButton, StatsBar, SchoolsMarquee, HowOnlineSessions3DSection } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
@@ -242,32 +242,9 @@ export default function GCSETutorAbuDhabiPage() {
       {/* ── SECTION 03: SCHOOLS MARQUEE ── */}
       <SchoolsMarquee logoList={gcseSchoolLogos} />
 
-      {/* ── SECTION 04: HOW ONLINE GCSE SESSIONS RUN ── */}
-      <section className="py-14 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10 max-w-2xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3">How Online GCSE Sessions Run</h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">Live past papers, marked in real time, with your child on screen.</p>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { title: 'Live Past Papers', desc: 'AQA, OCR and Edexcel past papers opened on screen together.', icon: <BookOpen className="w-5 h-5 text-[#0f4a9b]" /> },
-              { title: 'Live Mark Scheme', desc: 'Answers marked in the same session against the board scheme.', icon: <CheckCircle2 className="w-5 h-5 text-[#0f4a9b]" /> },
-              { title: 'Real Paper Timing', desc: 'Non-calculator and calculator papers drilled to full exam length.', icon: <Timer className="w-5 h-5 text-[#0f4a9b]" /> },
-              { title: 'Session Recordings', desc: 'Every session recorded so tricky topics can be rewatched later.', icon: <Video className="w-5 h-5 text-[#0f4a9b]" /> },
-              { title: 'Weekly Homework', desc: 'Homework built from your child\'s own school past-paper booklet.', icon: <PenTool className="w-5 h-5 text-[#0f4a9b]" /> },
-              { title: 'Fortnightly Report', desc: 'A short parent note every two weeks on progress and gaps.', icon: <Target className="w-5 h-5 text-[#0f4a9b]" /> },
-            ].map((s, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(15,74,155,0.12)' }} className="flex flex-col items-center text-center px-4 py-6 bg-white rounded-2xl border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.04)] cursor-default">
-                <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] flex items-center justify-center mb-3">{s.icon}</div>
-                <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
-                <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── SECTION 04: HOW ONLINE GCSE SESSIONS RUN 3D ── */}
+      <HowOnlineSessions3DSection location="Abu Dhabi" />
+
 
       {/* ── SECTION 04: WHERE GCSE MARKS VANISH (Accordion) ── */}
       <section className="py-10 sm:py-12 lg:py-14 bg-[#f4f7fc] relative overflow-hidden">

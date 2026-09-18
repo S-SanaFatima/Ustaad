@@ -70,6 +70,7 @@ const loadIGCSETutorLanding = () => import('./app/IGCSETutorAbuDhabiPage');
 const loadGCSETutorLanding = () => import('./app/GCSETutorAbuDhabiPage');
 const loadGCSETutorDubaiLanding = () => import('./app/GCSETutorDubaiPage');
 const loadIgcseTutorDubaiLanding = () => import('./app/IgcseTutorDubaiPage');
+const loadMathsTutorDubaiLanding = () => import('./app/MathsTutorDubaiPage');
 const loadALevelTutorLanding = () => import('./app/ALevelTutorAbuDhabiPage');
 const loadIBTutorLanding = () => import('./app/IBTutorAbuDhabiPage');
 const loadAcademicBlogsPage = () => import('./app/AcademicBlogsPage');
@@ -77,6 +78,7 @@ const loadPsychologyBlogsPage = () => import('./app/PsychologyBlogsPage');
 const loadTutorProfilePage = () => import('./app/TutorProfilePage');
 const loadParentGuidanceBlogsPage = () => import('./app/ParentGuidanceBlogsPage');
 const loadMockExamsUAEBlog = () => import('./app/MockExamsUAEBlog');
+const loadWhatDoesGradientMeanBlog = () => import('./app/WhatDoesGradientMeanBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
@@ -131,6 +133,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/igcse-preparation-past-papers-final-step': loadIGCSEPreparationPastPapersBlog,
   '/blogs/gcse-revision-tips-uae-parents': loadGCSERevisionTipsParentsBlog,
   '/blogs/mock-exams-uae-not-what-they-were': loadMockExamsUAEBlog,
+  '/blogs/what-does-gradient-mean-maths-physics': loadWhatDoesGradientMeanBlog,
   '/sciences': loadSciencesPage,
 
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
@@ -141,6 +144,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/gcse-tutor-abu-dhabi': loadGCSETutorLanding,
   '/gcse-tutor-dubai': loadGCSETutorDubaiLanding,
   '/igcse-tutor-dubai': loadIgcseTutorDubaiLanding,
+  '/maths-tutor-dubai': loadMathsTutorDubaiLanding,
   '/a-level-tutor-abu-dhabi': loadALevelTutorLanding,
   '/ib-tutor-abu-dhabi': loadIBTutorLanding,
   '/editorial': loadEditorialPage,
@@ -213,12 +217,14 @@ const IGCSEvsGCSEBlog = lazy(loadIGCSEvsGCSEBlog);
 const ALevelIndependentThinkingBlog = lazy(loadALevelIndependentThinkingBlog);
 const IGCSEPreparationPastPapersBlog = lazy(loadIGCSEPreparationPastPapersBlog);
 const MockExamsUAEBlog = lazy(loadMockExamsUAEBlog);
+const WhatDoesGradientMeanBlog = lazy(loadWhatDoesGradientMeanBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
 const GCSETutorLanding = lazy(loadGCSETutorLanding);
 const GCSETutorDubaiLanding = lazy(loadGCSETutorDubaiLanding);
 const IgcseTutorDubaiLanding = lazy(loadIgcseTutorDubaiLanding);
+const MathsTutorDubaiLanding = lazy(loadMathsTutorDubaiLanding);
 const ALevelTutorLanding = lazy(loadALevelTutorLanding);
 const IBTutorLanding = lazy(loadIBTutorLanding);
 const AcademicBlogsPage = lazy(loadAcademicBlogsPage);
@@ -321,6 +327,7 @@ function AppRoutes() {
           <Route path="/blogs/igcse-preparation-past-papers-final-step" element={<IGCSEPreparationPastPapersBlog />} />
           <Route path="/blogs/gcse-revision-tips-uae-parents" element={<GCSERevisionTipsParentsBlog />} />
           <Route path="/blogs/mock-exams-uae-not-what-they-were" element={<MockExamsUAEBlog />} />
+          <Route path="/blogs/what-does-gradient-mean-maths-physics" element={<WhatDoesGradientMeanBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
 
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />
@@ -331,6 +338,7 @@ function AppRoutes() {
           <Route path="/gcse-tutor-abu-dhabi"                element={<GCSETutorLanding />} />
           <Route path="/gcse-tutor-dubai"                     element={<GCSETutorDubaiLanding />} />
           <Route path="/igcse-tutor-dubai"                    element={<IgcseTutorDubaiLanding />} />
+          <Route path="/maths-tutor-dubai"                    element={<MathsTutorDubaiLanding />} />
           <Route path="/a-level-tutor-abu-dhabi"             element={<ALevelTutorLanding />} />
           <Route path="/ib-tutor-abu-dhabi"                  element={<IBTutorLanding />} />
           <Route path="/editorial"                           element={<EditorialPage />} />

@@ -81,7 +81,9 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
     },
     {
       city: 'Dubai',
+      cityHref: '/tutors?city=dubai',
       tutors: [
+        { label: 'Maths Tutor Dubai', href: '/maths-tutor-dubai' },
         { label: 'GCSE Tutor Dubai', href: '/gcse-tutor-dubai' },
         { label: 'IGCSE Tutor Dubai', href: '/igcse-tutor-dubai' },
       ],
@@ -405,7 +407,7 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
             <span>Registered Ustaad® Trademark</span>
           </div>
           {/* Copyright */}
-          <span className="text-xs text-blue-300/60 font-medium">© 2026 Ustaad UAE. All Rights Reserved.</span>
+          <span className="text-xs text-blue-300/60 font-medium">© 2026 Ustaad LLC. All Rights Reserved.</span>
           {/* Links */}
           <div className="flex items-center gap-3 sm:gap-4 text-xs text-blue-300/60 font-medium">
             <a href="/privacy" className="hover:text-white transition">Privacy</a>

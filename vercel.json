@@ -57,7 +57,8 @@
     { "src": "/author(?:/.*)?", "status": 410 },
     { "src": "/category(?:/.*)?", "status": 410 },
     { "src": "/elementor-hf(?:/.*)?", "status": 410 },
-    { "src": "/[0-9]{4}/[0-9]{2}/[0-9]{2}(?:/.*)?", "status": 410 },
+    { "src": "/wp-(?:content|includes|admin|json)(?:/.*)?", "status": 410 },
+    { "src": "/[0-9]{4}/[0-9]{2}(?:/.*)?", "status": 410 },
     { "handle": "filesystem" }
   ]
 }

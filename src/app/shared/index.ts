@@ -37,5 +37,22 @@ export * from './WhyFamiliesChooseSection';
 export * from './StudentStruggleSection';
 export * from './AcademicExpertiseSection';
 export { WhatsAppIcon } from './WhatsAppIcon';
-
-
+export * from './Subject3DCard';
+export * from './CurriculumExpectations3D';
+export * from './StudyHabits3DSection';
+export * from './LessonPlanningTimeline3D';
+export * from './HigherGrades3DSection';
+export * from './HowOnlineSessions3DSection';
+export * from './WhyFamiliesChoose3DSection';
+export * from './SubjectArtifacts';
+export * from './InteractiveComparisonBook3D';
+export * from './FreeTrialTimelineSection';
+export * from './DubaiAreasInteractiveCard';
+export * from './MathsWhiteboard3DSection';
+export * from './InteractiveCardStack';
+export * from './MathsEquations3DSection';
+export * from './MathsBookComparisonSection';
+export * from './DubaiCurriculumAnalysisSection';
+export * from './BritishMethodology3D';
+export * from './BritishCurriculumJourney3D';
+export { default as DubaiMathsDiagnostic3D } from './DubaiMathsDiagnostic3D';

@@ -146,8 +146,8 @@ export default function DPSLPage() {
           <div className="max-w-5xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
             <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 border-b border-gray-200">
               {[
-                { title: "Multi-Subject Tracking", desc: "Tutors track all six subject grades, not just the loudest one, across both DP years.", icon: <BarChart3 className="h-5 w-5" />, num: '01' },
-                { title: "IA Coaching", desc: "IA methodology and write-up reviewed against <a href='/ib-curriculum' class='text-[#5b3a8a] font-semibold underline'>IB sample work</a> and rubrics.", icon: <PenTool className="h-5 w-5" />, num: '02' },
+                { title: "Multi-Subject Tracking", desc: <>Tutors track all six subject grades, not just the loudest one, across both DP years.</>, icon: <BarChart3 className="h-5 w-5" />, num: '01' },
+                { title: "IA Coaching", desc: <>IA methodology and write-up reviewed against <a href="/ib-curriculum" className="text-[#5b3a8a] font-semibold underline">IB sample work</a> and rubrics.</>, icon: <PenTool className="h-5 w-5" />, num: '02' },
               ].map((m, i) => (
                 <div key={i} className="group relative flex flex-col gap-3 p-7 bg-white hover:bg-[#f7f9ff] transition-colors duration-200 overflow-hidden">
                   <div className="absolute bottom-1 right-3 text-[7rem] font-black text-[#0f4a9b]/[0.06] leading-none pointer-events-none select-none tabular-nums">{m.num}</div>
@@ -156,7 +156,7 @@ export default function DPSLPage() {
                     {React.cloneElement(m.icon, { style: { stroke: `url(#dpslTutIcon${i})` } })}
                   </div>
                   <h3 className="text-xl font-extrabold text-[#0a1f3d] leading-snug group-hover:text-[#0f4a9b] transition-colors duration-200 relative z-10">{m.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed text-justify relative z-10" dangerouslySetInnerHTML={{ __html: m.desc }} />
+                  <p className="text-gray-500 text-sm leading-relaxed text-justify relative z-10">{m.desc}</p>
                 </div>
               ))}
             </div>

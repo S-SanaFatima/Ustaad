@@ -41,7 +41,7 @@ const FAQS = [
   },
   {
     q: 'Can technique alone move a grade, or does content matter more?',
-    a: 'Technique and content usually need to be worked on together. Where content knowledge is already secure, technique work on planning, command words and mark-scheme matching can lift long-question performance. Where the underlying content is not secure, technique alone will not close the gap. A short diagnostic separates content gaps from technique gaps. Families exploring one-to-one support can start with our <a href="/biology-tutor-abu-dhabi" class="text-[#0f4a9b] underline">Biology tutoring in Abu Dhabi</a> page for how diagnostic sessions are structured.',
+    a: 'Technique and content usually need to be worked on together. Where content knowledge is already secure, technique work on planning, command words and mark-scheme matching can lift long-question performance. Where the underlying content is not secure, technique alone will not close the gap. A short diagnostic separates content gaps from technique gaps.',
   },
 ];
 

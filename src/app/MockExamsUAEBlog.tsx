@@ -388,7 +388,7 @@ export default function MockExamsUAEBlog() {
               </span>
             </h1>
 
-            <p className="text-gray-600 text-sm lg:text-[15px] leading-relaxed mb-4 text-justify">
+            <p className="text-gray-600 text-sm lg:text-[15px] leading-relaxed mb-4 text-left">
               {BLOG.description}
             </p>
 
@@ -454,7 +454,7 @@ export default function MockExamsUAEBlog() {
           <TOC open={tocOpen} setOpen={setTocOpen} />
 
           {/* Opening Narrative */}
-          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 mb-6 text-justify">
+          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 mb-6 text-left">
             <p className="text-base sm:text-[16.5px] font-medium text-[#0a1f3d] leading-relaxed">
               Ask a parent what a mock exam is for, and most will say practice. Ask a school what it does with the result, and increasingly across the UAE, the answer is something closer to <em>evidence</em>.
             </p>
@@ -468,7 +468,7 @@ export default function MockExamsUAEBlog() {
             Why &quot;it&apos;s only a mock&quot; stopped being true
           </SectionHeading>
           
-          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-justify">
+          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-left">
             <p>
               For decades, the school mock exam had a single pedagogical purpose: low-stakes rehearsal. It allowed a teenager to sit a full paper under formal conditions, experience the pressure of the clock, discover their weak topics, and repair them before the summer exams that determined their future.
             </p>
@@ -550,7 +550,7 @@ export default function MockExamsUAEBlog() {
             What actually changed, and when
           </SectionHeading>
 
-          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-justify">
+          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-left">
             <p>
               The structural change occurred during the exam-cancellation years. When international boards (such as Cambridge Assessment International Education and Pearson Edexcel) were forced to replace public examinations with Teacher Assessed Grades (TAGs), schools had to assemble defensible, auditable portfolios of evidence.
             </p>
@@ -567,39 +567,39 @@ export default function MockExamsUAEBlog() {
             How UAE schools use mock results today
           </SectionHeading>
 
-          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-justify">
+          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-left">
             <p>
               While policies vary between international school groups in Dubai, Abu Dhabi, and Sharjah, three core institutional use cases dominate:
             </p>
 
-            <div className="grid sm:grid-cols-3 gap-3 my-5">
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                <div className="w-7 h-7 rounded-lg bg-amber-100 text-[#C7A24A] flex items-center justify-center font-bold text-xs mb-2">
+            <div className="grid sm:grid-cols-3 gap-3.5 my-5 items-stretch">
+              <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col justify-start h-full text-left">
+                <div className="w-7 h-7 rounded-lg bg-amber-100 text-[#C7A24A] flex items-center justify-center font-bold text-xs mb-2.5">
                   01
                 </div>
-                <h4 className="font-bold text-xs sm:text-sm text-[#0a1f3d] mb-1">Predicted Grades</h4>
-                <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed mb-0">
-                  For A-Level and IB DP students, university predicted grades submitted via UCAS are heavily pegged to mock performance.
+                <h4 className="font-extrabold text-xs sm:text-sm text-[#0a1f3d] mb-1.5 text-left">Predicted Grades</h4>
+                <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed mb-0 text-left flex-1">
+                  University predicted grades submitted through UCAS are directly anchored to student mock performance.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                <div className="w-7 h-7 rounded-lg bg-blue-100 text-[#0f4a9b] flex items-center justify-center font-bold text-xs mb-2">
+              <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col justify-start h-full text-left">
+                <div className="w-7 h-7 rounded-lg bg-blue-100 text-[#0f4a9b] flex items-center justify-center font-bold text-xs mb-2.5">
                   02
                 </div>
-                <h4 className="font-bold text-xs sm:text-sm text-[#0a1f3d] mb-1">Exam Tiering</h4>
-                <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed mb-0">
-                  In subjects like IGCSE Maths and Sciences, mock results dictate whether a student is entered for Higher or Foundation tiers.
+                <h4 className="font-extrabold text-xs sm:text-sm text-[#0a1f3d] mb-1.5 text-left">Exam Tiering</h4>
+                <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed mb-0 text-left flex-1">
+                  Mock exam scores dictate whether students are entered for Higher or Foundation tier subject papers.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs mb-2">
+              <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col justify-start h-full text-left">
+                <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs mb-2.5">
                   03
                 </div>
-                <h4 className="font-bold text-xs sm:text-sm text-[#0a1f3d] mb-1">Formal Records</h4>
-                <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed mb-0">
-                  Mock marks appear on internal transcripts and inform headteacher recommendations for university scholarships.
+                <h4 className="font-extrabold text-xs sm:text-sm text-[#0a1f3d] mb-1.5 text-left">Formal Records</h4>
+                <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed mb-0 text-left flex-1">
+                  Official school transcripts record mock marks to guide headteacher references and scholarship entries.
                 </p>
               </div>
             </div>
@@ -610,7 +610,7 @@ export default function MockExamsUAEBlog() {
             IGCSE mocks and A-Level mocks are not the same stakes
           </SectionHeading>
 
-          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-justify">
+          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-left">
             <p>
               This is the crucial nuance most home discussions miss.
             </p>
@@ -682,7 +682,7 @@ export default function MockExamsUAEBlog() {
             Predicted grades: the part most parents don&apos;t see
           </SectionHeading>
 
-          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-justify">
+          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-left">
             <p>
               A predicted grade is not a casual forecast. In British curriculum schools, teachers are required by senior management to defend every predicted grade with documented evidence. When an exam officer or head of department audits predictions, the mock exam mark sheet is the first document examined.
             </p>
@@ -692,7 +692,7 @@ export default function MockExamsUAEBlog() {
           </div>
 
           <NarrativeBox title="The Teacher's Dilemma">
-            &quot;Teachers want their students to succeed. But schools face scrutiny from examination boards and university admissions officers if their predicted grades consistently fail to match actual results. Mocks provide the safe empirical floor.&quot;
+            Teachers want their students to succeed. But schools face scrutiny from examination boards and university admissions officers if their predicted grades consistently fail to match actual results. Mocks provide the safe empirical floor.
           </NarrativeBox>
 
           {/* ── SECTION 06 ── */}
@@ -700,7 +700,7 @@ export default function MockExamsUAEBlog() {
             The perception gap: why parents and schools read mocks differently
           </SectionHeading>
 
-          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-justify">
+          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-left">
             <p>
               Here is where communication breaks down between home and school:
             </p>
@@ -717,7 +717,7 @@ export default function MockExamsUAEBlog() {
             What a mock exam is actually testing
           </SectionHeading>
 
-          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-justify">
+          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-left">
             <p>
               Beyond the administrative dimension, sitting a formal mock tests three distinct cognitive competencies that homework and chapter tests cannot assess:
             </p>
@@ -745,7 +745,7 @@ export default function MockExamsUAEBlog() {
             How to prepare for a mock that counts
           </SectionHeading>
 
-          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-justify">
+          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-left">
             <p>
               Preparing effectively for high-stakes mocks requires a structured, four-part protocol:
             </p>
@@ -812,7 +812,7 @@ export default function MockExamsUAEBlog() {
             What to do in the 48 hours after results land
           </SectionHeading>
 
-          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-justify">
+          <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-left">
             <p>
               When the mock report card arrives, emotional reactions can derail constructive progress. The 48-hour post-mock window is critical for setting up the recovery cycle.
             </p>
@@ -879,7 +879,7 @@ export default function MockExamsUAEBlog() {
                 </a>: Practical home strategies for British curriculum exam prep.
               </li>
               <li>
-                <a href="/blogs/read-school-report-card-uae" className="text-[#0f4a9b] hover:underline font-medium">
+                <a href="/blogs/read-uae-school-report-card" className="text-[#0f4a9b] hover:underline font-medium">
                   How to Read a UAE School Report Card
                 </a>: Decoding teacher comments and grade metrics across UAE schools.
               </li>

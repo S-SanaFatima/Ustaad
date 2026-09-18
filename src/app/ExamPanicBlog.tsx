@@ -6,7 +6,7 @@ import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, articleSchema, faqSchema } from './shared/schemas';
 
 const BLOG = {
-  title: '"My Child Only Panics Right Before Exams": What UAE Parents Often Notice Too Late',
+  title: 'Exam Panic in UAE Students: What Parents Notice Too Late | Ustaad',
   titleLine1: '"My Child Only Panics Right Before Exams"',
   titleLine2: 'What UAE Parents Often Notice Too Late',
   slug: 'exam-panic-before-exams-uae',
@@ -248,7 +248,7 @@ export default function ExamPanicBlog() {
   return (
     <Layout>
       <SEOHead
-        title='"My Child Only Panics Right Before Exams": What UAE Parents Often Notice Too Late | Ustaad'
+        title="Exam Panic in UAE Students: What Parents Notice Too Late | Ustaad"
         description={BLOG.description}
         canonical={canonical}
         ogImage={BLOG.heroImage}

@@ -12,28 +12,10 @@ import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, re
 
 const PARENT_REVIEWS = [
   {
-    initials: 'ZA',
-    name: 'Zain A., Jumeirah, Dubai',
-    subject: 'Verified Google review · Edexcel IGCSE Physics (4PH1)',
-    text: 'Our daughter kept losing marks on formula calculation questions even though she understood the concepts. Her Edexcel Physics tutor drilled formula rearranging and unit conversion until it became second nature. Her mock scores jumped two grades within one term.',
-  },
-  {
     initials: 'NM',
-    name: 'Nadia M., Emirates Hills, Dubai',
-    subject: 'Verified Google review · Cambridge IGCSE Mathematics (0580)',
-    text: 'The online setup worked seamlessly for our son in Emirates Hills. His Cambridge Mathematics tutor analysed past papers live and explained exactly where marks were lost. He improved from a grade 6 to a strong grade 8 on his final exams.',
-  },
-  {
-    initials: 'FH',
-    name: 'Farah H., Arabian Ranches, Dubai',
-    subject: 'Verified Google review · Cambridge IGCSE Biology (0610)',
-    text: 'Six-mark extended response questions in Biology were a major hurdle. The tutor provided structured mark scheme frameworks and keywords for every unit. Her predicted grade rose from a 5 to a solid 8.',
-  },
-  {
-    initials: 'RK',
-    name: 'Rashid K., Dubai Hills, Dubai',
-    subject: 'Verified Google review · Edexcel IGCSE Chemistry (4CH1)',
-    text: 'Stoichiometry and mole calculations were creating frustration. Interactive problem-solving sessions and timed past paper practice turned things around quickly. He entered the final exams confident and achieved an 8.',
+    name: 'Nadia M., Emirates Hills',
+    subject: 'Cambridge IGCSE Mathematics 0580 · Verified Google Review',
+    text: 'Our son was set for a grade 6 in Cambridge IGCSE Maths at his Dubai British school when we started with Ustaad in November. His tutor walked through Paper 4 past papers live, corrected the working step by step, and showed exactly where he was leaking marks. He walked into the May exam confident and came out with a grade 8.',
   },
 ];
 
@@ -64,13 +46,34 @@ const CHALLENGES: Challenge[] = [
 ];
 
 const FAQS = [
-  { q: 'What is the difference between Cambridge and Edexcel IGCSE in Dubai schools?', a: 'Cambridge (CIE) and Edexcel are the two main exam boards used by British schools in Dubai. While core concepts are similar, question formats, command words, and mark schemes differ. Our tutors specialise in the exact exam board your child is taking to maximise performance.' },
-  { q: 'Is Year 10 too early to start private IGCSE tutoring in Dubai?', a: 'Starting in Year 10 allows students to build solid foundational understanding and prevent learning gaps before Year 11 mock exams. Early prep reduces stress and builds exam confidence over time.' },
-  { q: 'Can your tutors stretch high-achieving students aiming for grade 8 or 9?', a: 'Yes. For high-achieving students, sessions focus on advanced problem-solving, tricky command words, and mark scheme precision that distinguishes grade 8 and 9 candidates.' },
-  { q: 'My child understands the lessons but underperforms in timed exams. How do you help?', a: 'We bridge the gap between classroom understanding and exam execution. Tutors conduct timed past paper practice, teach time allocation strategies, and train students on examiner mark schemes.' },
-  { q: 'Do you provide online IGCSE tutoring across all Dubai communities?', a: 'Yes. Our live 1-to-1 online tutoring platform serves families in Emirates Hills, Jumeirah, Arabian Ranches, Dubai Hills, Downtown Dubai, Palm Jumeirah, Dubai Marina, and across the UAE.' },
-  { q: 'How are lessons structured for maximum engagement?', a: 'Each 1-to-1 session includes live interactive whiteboards, past paper question walkthroughs, immediate feedback, and recorded session access for post-lesson revision.' },
-  { q: 'How quickly can we get matched with a specialised IGCSE tutor?', a: 'After you submit your requirements, our academic advisory team reviews your child\'s school, subject, and exam board to introduce a matched tutor within 15 minutes during working hours.' },
+  {
+    q: 'Which Dubai schools sit Cambridge IGCSE and which sit Pearson Edexcel International GCSE?',
+    a: "Most British-curriculum schools in Dubai sit Cambridge IGCSE (0580, 0625, 0620, 0610), including Dubai College, JESS Dubai, and Nord Anglia Dubai. A smaller group of Dubai schools sit Pearson Edexcel International GCSE (4MA1, 4PH1, 4CH1, 4BI1), including The Winchester School and Deira International School. Tell us your child's school and we confirm the exact board before the first lesson.",
+  },
+  {
+    q: "My child attends a school in Dubai that switched boards this academic year. What do we do about the past-paper practice we've already done?",
+    a: "Board switches during Year 10 or Year 11 are the single most common reason parents in Dubai come to us mid-year. Your child's completed past-paper work is not wasted, since core content overlaps. What changes is command-word phrasing and mark-scheme structure. Our tutors rebuild the exam-technique layer without redoing the content.",
+  },
+  {
+    q: 'Do Dubai IGCSE exam centres run any differently from UK centres?',
+    a: 'Cambridge and Edexcel exams in Dubai are timetabled by the boards on the same global schedule as the UK. Some sittings fall on Fridays, which is a school-day in most Dubai British-curriculum schools, so students walk into a familiar routine on paper day. For deeper board comparison see our IGCSE hub.',
+  },
+  {
+    q: 'My child is applying to competitive Year 12 pathways at a top Dubai school. How does grade 8 tutoring differ from grade 9 tutoring?',
+    a: 'A grade 8 requires strong content plus consistent mark-scheme wording. A grade 9 additionally requires students to hold nerve on the hardest single-mark decisions on the paper, where most candidates lose one or two marks. Grade 9 sessions drill those late-paper questions specifically.',
+  },
+  {
+    q: 'Can lessons be scheduled around Ramadan and UAE public holidays?',
+    a: 'Yes. Lesson slots shift during Ramadan to align with fasting hours where families prefer, and UAE public holidays are built into the tutoring calendar. Recorded sessions cover any lesson your child needs to reschedule.',
+  },
+  {
+    q: 'Our child is finishing IGCSE in Dubai and moving to A-Level next year. How do you bridge that jump?',
+    a: 'Our IGCSE tutors flag which A-Level subjects the current IGCSE grade profile realistically opens, then hold the top-grade IGCSE topics steady so nothing is lost over the summer transition. Where families prefer, the same tutor can continue into A-Level. See our A-Level Tutor Dubai page for the transition path.',
+  },
+  {
+    q: "My child does IGCSE at a Dubai school but we're returning to the UK before Year 12. Is IGCSE accepted by UK sixth forms?",
+    a: 'Yes. Cambridge IGCSE and Pearson Edexcel International GCSE are both accepted by UK sixth forms and used interchangeably with UK GCSE for entry. If your child is preparing for a UK GCSE syllabus specifically rather than IGCSE, see GCSE Tutor Dubai.',
+  },
 ];
 
 function ReviewsScroller() {
@@ -79,6 +82,7 @@ function ReviewsScroller() {
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const startTimer = () => {
+    if (n <= 1) return;
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => setActive((i) => (i + 1) % n), 5500);
   };
@@ -86,9 +90,10 @@ function ReviewsScroller() {
   useEffect(() => {
     startTimer();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, []);
+  }, [n]);
 
   const go = (idx: number) => {
+    if (n <= 1) return;
     setActive(((idx % n) + n) % n);
     startTimer();
   };
@@ -120,6 +125,39 @@ function ReviewsScroller() {
   );
 
   const r = PARENT_REVIEWS[active];
+
+  if (n === 1) {
+    return (
+      <div className="max-w-2xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-[0_8px_32px_rgba(15,74,155,0.08)] relative overflow-hidden"
+        >
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A]" />
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex gap-1">
+              {[1, 2, 3, 4, 5].map((j) => <Star key={j} className="h-4 w-4 fill-[#C7A24A] text-[#C7A24A]" />)}
+            </div>
+            <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/8 px-3 py-1 rounded-full border border-[#0f4a9b]/15">Google · Verified Parent</span>
+          </div>
+          <p className="text-[#374151] text-[15px] sm:text-[16px] leading-relaxed mb-6 italic">
+            &ldquo;{r.text}&rdquo;
+          </p>
+          <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100">
+            <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#1e5ba8] flex items-center justify-center text-white font-bold text-sm shadow-[0_2px_8px_rgba(15,74,155,0.28)] notranslate shrink-0" translate="no">
+              {r.initials}
+            </div>
+            <div className="min-w-0">
+              <div className="font-extrabold text-[#0a1f3d] text-[15px] notranslate truncate" translate="no">{r.name}</div>
+              <div className="text-xs text-slate-500 font-medium mt-0.5 truncate">{r.subject.replace('Verified Google review · ', '')}</div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -568,8 +606,21 @@ export default function IgcseTutorDubaiPage() {
         </motion.div>
       </section>
 
+      {/* ── MISSION / GRADE 8 & 9 SUPPORT BANNER ── */}
+      <section className="relative z-20 max-w-4xl mx-auto px-4 text-center mt-6 mb-6">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0f4a9b]/8 text-[#0f4a9b] text-xs font-bold tracking-wide mb-2.5 border border-[#0f4a9b]/15">
+          <span>Our IGCSE mission in Dubai</span>
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] tracking-tight mb-2">
+          Grade 8 and 9 Support for Dubai IGCSE Students
+        </h2>
+        <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Targeted one-to-one tutoring and structured exam technique designed to help Dubai students achieve top tier results in Cambridge and Edexcel IGCSEs.
+        </p>
+      </section>
+
       {/* ── STATS BAR ── */}
-      <StatsBar customText="Our IGCSE Mission in Dubai" />
+      <StatsBar />
 
       {/* ── SCHOOLS MARQUEE ── */}
       <SchoolsMarquee
@@ -809,17 +860,11 @@ export default function IgcseTutorDubaiPage() {
               <span>UAE Academic Assistance</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-3">
-              Fast, Friendly Assistance for Dubai Families
+              How Fast We Reply to Dubai Families
             </h2>
-            <div className="space-y-2 text-gray-600 text-xs sm:text-sm leading-relaxed bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-gray-200/80 shadow-2xs text-left sm:text-center">
+            <div className="text-gray-700 text-xs sm:text-sm leading-relaxed bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-gray-200/80 shadow-2xs text-center max-w-2xl mx-auto font-medium">
               <p>
-                Our academic team is available 7 days a week to assist Dubai families in Emirates Hills, Jumeirah, Arabian Ranches, Dubai Hills, Downtown, and Palm Jumeirah. We also support families across every UAE emirate.
-              </p>
-              <p>
-                Whether your question is about tutor availability for Cambridge 0580, 0625, or 0620, lesson schedules, or exam preparation, we respond within minutes so your child does not lose momentum.
-              </p>
-              <p className="font-semibold text-[#0f4a9b]">
-                For urgent matching requests or immediate lesson bookings, contact us directly on WhatsApp for real-time guidance from our UAE tutoring coordinators.
+                Our academic team responds within 15 minutes across every Dubai community. WhatsApp the subject and school, and we match a specialist to your child&apos;s board.
               </p>
             </div>
           </div>

@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Layout, FinalCTA } from './shared';
 import SEOHead from './shared/SEOHead';
+import { breadcrumbSchema, localBusinessSchema } from './shared/schemas';
 import { BLOGS, CATEGORY_META } from './BlogsPage';
 
 export default function AcademicBlogsPage() {
@@ -15,6 +16,14 @@ export default function AcademicBlogsPage() {
         title={`${meta.title} | Ustaad Blog`}
         description={meta.description}
         canonical={meta.slug}
+        schema={[
+          localBusinessSchema,
+          breadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Blog', url: '/blogs' },
+            { name: meta.title, url: meta.slug },
+          ]),
+        ]}
       />
 
       <div className="bg-[#f8faff] min-h-screen pt-8 pb-12 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16">

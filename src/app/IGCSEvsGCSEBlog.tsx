@@ -10,7 +10,7 @@ const BLOG = {
   titleLine1: 'USTAAD UAE · BRITISH CURRICULUM GUIDE',
   titleLine2: 'IGCSE vs GCSE: Curriculum Differences UAE Parents Should Know',
   slug: 'igcse-vs-gcse-curriculum-differences-uae',
-  description: 'On paper, IGCSE and GCSE look almost identical. In practice, a few real differences can shape your child\'s two years. A UAE educationist explains them in plain words, so you can pick the right fit.',
+  description: 'A clear guide for UAE parents comparing IGCSE vs GCSE: syllabus differences, 9-1 vs A*-G grading, exam boards, and sixth-form pathways.',
   heroImage: '/images/blogs/igcse-vs-gcse-father-son-subject-list.webp',
   heroAlt: 'Father and son reviewing GCSE subject choices list and study plans on laptop at home',
   heroCaption: 'On paper, IGCSE and GCSE look almost identical. In practice, a few real differences can shape your child\'s two years.',

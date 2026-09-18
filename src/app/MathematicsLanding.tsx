@@ -1,16 +1,17 @@
-import { useState, type ReactNode } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { motion } from 'motion/react';
 import {
   Calculator, Sigma, FunctionSquare, LineChart,
   Brackets, Compass, Network, ScanSearch, Workflow, ShieldCheck,
-  ClipboardCheck, Timer, PenTool, Gauge, CheckCircle2, ArrowRight,
+  ClipboardCheck, Timer, PenTool, Gauge, CheckCircle2,
   ChevronDown, ChevronLeft, ChevronRight, Plus, Sparkles, MapPin, FileSearch, Wrench, ListChecks,
   BookOpen, FlaskConical,
-  Route as RouteIcon, Brain, Target, Eye, Star, Atom, MessageCircle,
+  Route as RouteIcon, Brain, Target, Eye, Star, Atom, MessageCircle, Users,
+  Calendar, TrendingUp, Award,
 } from 'lucide-react';
 
-import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee, WhatsAppIcon } from './shared';
+import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee, WhatsAppIcon, TypewriterHeadingText } from './shared';
 
 
 import SEOHead from './shared/SEOHead';
@@ -39,6 +40,12 @@ const MathGrid = ({ light = false }: { light?: boolean }) => (
     </defs>
     <rect width="100%" height="100%" fill={`url(#${light ? 'grid-l' : 'grid-d'})`} />
   </svg>
+);
+
+const Eyebrow = ({ icon, text, dark = false }: { icon: React.ReactNode; text: string; dark?: boolean }) => (
+  <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] mb-5 border ${dark ? 'bg-white/5 border-white/15 text-blue-200' : 'bg-[#0f4a9b]/5 border-[#0f4a9b]/15 text-[#0f4a9b]'}`}>
+    {icon}{text}
+  </div>
 );
 
 type Step = { n: string; icon: ReactNode; title: string; desc: string };
@@ -197,71 +204,137 @@ function ChallengesCarousel({ challenges }: { challenges: Challenge[] }) {
 }
 
 function ThinkingHabitsSection() {
-  const cards = [
-    { icon: <Target className="w-7 h-7" />, title: 'Topic Diagnosis First', desc: 'We identify whether the gap sits in algebra, geometry, or number work.' },
-    { icon: <CheckCircle2 className="w-7 h-7" />, title: 'Carefully Matched Tutors', desc: 'Tutors picked for IGCSE, A-Level, IB AA HL, or AP Calculus specialisation.' },
-    { icon: <Brain className="w-7 h-7" />, title: 'Stronger Study Habits', desc: 'Working memory, notation, and method order quietly build into your child\'s routine.' },
-    { icon: <Sparkles className="w-7 h-7" />, title: 'Weekly Past Paper Practice', desc: 'Cambridge 0580, Edexcel 4MA1, or IB AA papers worked through every week.' },
-    { icon: <RouteIcon className="w-7 h-7" />, title: 'Focused Exam Preparation', desc: 'Revision blocks target the topics historically losing your child the most marks.' },
-    { icon: <CheckCircle2 className="w-7 h-7" />, title: 'Flexible Around School Life', desc: 'Sessions move easily around homework, sports, and your child\'s routine.' },
+  const sectionRef = useRef<HTMLElement>(null);
+  const inViewRef = useRef(false);
+  const [animCycle, setAnimCycle] = useState(0);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!inViewRef.current) {
+            setAnimCycle((prev) => prev + 1);
+          }
+          inViewRef.current = true;
+        } else {
+          inViewRef.current = false;
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const pillars = [
+    {
+      icon: <ShieldCheck className="w-6 h-6 text-white" strokeWidth={2} />,
+      title: "Not a directory.",
+      desc: "One point of contact, one matched tutor, one accountable team behind every lesson.",
+      highlight: "Accountable & Matched",
+    },
+    {
+      icon: <CheckCircle2 className="w-6 h-6 text-white" strokeWidth={2} />,
+      title: "UAE-licensed since 2015.",
+      desc: "The same team, the same standards, ten years running.",
+      highlight: "10 Years in UAE",
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-white" strokeWidth={2} />,
+      title: "Your tutor is paid to teach.",
+      desc: "No commission cuts, no rush between clients, no marketplace bidding.",
+      highlight: "100% Dedicated",
+    },
   ];
 
   return (
-    <section className="py-6 sm:py-7 lg:py-10 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      ref={sectionRef}
+      className="py-8 sm:py-12 lg:py-14 bg-white relative overflow-hidden"
+      id="why-abu-dhabi-parents-pick-ustaad"
+    >
+      {/* Subtle Ambient Radial Lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-gradient-to-r from-[#0b3d80]/5 via-[#0f4a9b]/5 to-[#0b3d80]/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-4">
-          <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-            Why Families{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Choose Us</span>
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0b3d80]/10 text-[#0b3d80] text-[11px] font-extrabold rounded-full mb-2 border border-[#0b3d80]/20 shadow-xs">
+            <Sparkles className="h-3 w-3 text-[#0b3d80]" /> Premium Model
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-2 tracking-tight">
+            <TypewriterHeadingText
+              key={`wh-title-${animCycle}`}
+              text="Why Abu Dhabi parents pick Ustaad"
+              highlightLastWord={false}
+              charDelay={0.02}
+              delay={0}
+            />
           </h2>
-          <p className="text-gray-600 text-[15px] leading-relaxed">
-            Abu Dhabi parents trust Ustaad for steady maths progress, not loud promises.
+          <div className="w-12 h-0.5 bg-gradient-to-r from-[#0b3d80] to-[#1e5ba8] rounded-full mx-auto mb-3" />
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            <TypewriterHeadingText
+              key={`wh-sub-${animCycle}`}
+              text="The premium service model behind every maths lesson we deliver."
+              highlightLastWord={false}
+              charDelay={0.012}
+              delay={0.2}
+            />
           </p>
         </div>
 
-        {/* 2x3 Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {cards.map((card, i) => (
+        {/* 3 Premium Pillar Cards (Desktop 3-Col, Mobile Horizontal Swipe) */}
+        <div className="flex sm:grid sm:grid-cols-3 gap-5 lg:gap-6 max-w-5xl mx-auto overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-3 sm:pb-0 px-2 sm:px-0 -mx-2 sm:mx-auto">
+          {pillars.map((item, i) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              key={`${i}-${animCycle}`}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              whileHover={{ y: -6, boxShadow: '0 12px 32px rgba(15,74,155,0.12)' }}
-              className="relative rounded-3xl p-3 lg:p-4 text-center overflow-hidden cursor-default transition-shadow duration-300"
-              style={{
-                background: 'linear-gradient(180deg, #fafbff 0%, #f5f7ff 100%)',
-                border: '1px solid rgba(15,74,155,0.08)',
-              }}
+              className="w-[82vw] max-w-[320px] sm:w-auto flex-shrink-0 sm:flex-shrink snap-center bg-white rounded-[22px] border border-slate-200/90 p-6 sm:p-7 flex flex-col justify-between shadow-[0_6px_25px_rgba(11,61,128,0.05)] hover:shadow-[0_16px_40px_rgba(11,61,128,0.12)] hover:border-[#0b3d80]/40 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
             >
-              {/* Dotted pattern background */}
-              <div className="absolute inset-0 opacity-30 pointer-events-none"
-                style={{
-                  backgroundImage: 'radial-gradient(circle, rgba(15,74,155,0.15) 1px, transparent 1px)',
-                  backgroundSize: '16px 16px',
-                  maskImage: 'linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)',
-                }} />
+              {/* Top Accent Line */}
+              <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#0b3d80] via-[#1e5ba8] to-[#0a3a79]" />
 
-              {/* Icon circle */}
-              <div className="relative z-10 inline-flex items-center justify-center w-12 h-12 rounded-full mb-3"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(15,74,155,0.12) 0%, rgba(30,91,168,0.08) 100%)',
-                  boxShadow: '0 8px 24px rgba(15,74,155,0.12)',
-                }}>
-                <div className="text-[#0f4a9b]">{card.icon}</div>
+              <div>
+                {/* Icon Pod: Same blue from stats */}
+                <div className="w-12 h-12 rounded-xl bg-[#0b3d80] flex items-center justify-center mb-4 shadow-[0_4px_14px_rgba(11,61,128,0.25)] group-hover:scale-105 transition-transform duration-300">
+                  {item.icon}
+                </div>
+
+                {/* Title (Animated on every scroll line-by-line) */}
+                <h3 className="text-lg sm:text-xl font-extrabold text-[#0a1f3d] mb-2 leading-snug">
+                  <TypewriterHeadingText
+                    key={`wh-card-title-${i}-${animCycle}`}
+                    text={item.title}
+                    highlightLastWord={false}
+                    charDelay={0.02}
+                    delay={0.3 + i * 0.1}
+                  />
+                </h3>
+
+                {/* Description (Animated on every scroll line-by-line) */}
+                <div className="text-gray-600 text-xs sm:text-[13.5px] leading-relaxed font-medium">
+                  <TypewriterHeadingText
+                    key={`wh-card-desc-${i}-${animCycle}`}
+                    text={item.desc}
+                    highlightLastWord={false}
+                    charDelay={0.01}
+                    delay={0.45 + i * 0.1}
+                  />
+                </div>
               </div>
 
-              {/* Title */}
-              <h3 className="relative z-10 text-[15px] font-extrabold text-[#0a1f3d] mb-1.5 leading-tight">
-                {card.title}
-              </h3>
-
-              {/* Description */}
-              <p className="relative z-10 text-[13px] text-gray-600 leading-relaxed">
-                {card.desc}
-              </p>
+              {/* Bottom Tag - Golden dot removed */}
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-[#0b3d80]">
+                  {item.highlight}
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -270,261 +343,121 @@ function ThinkingHabitsSection() {
   );
 }
 
-function StepsCarousel({ steps }: { steps: Step[] }) {
-  // Wave geometry — 3 nodes, alternating above/below
-  const W = 1200;
+function StepsCarousel() {
+  const monthSteps = [
+    {
+      num: 1,
+      icon: <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-[#0b3d80]" strokeWidth={2} />,
+      title: 'Free 30-minute trial session',
+      desc: 'Your child meets the shortlisted tutor. We identify the exact topics losing marks.',
+    },
+    {
+      num: 2,
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8 text-[#0b3d80]" strokeWidth={2} />,
+      title: 'Matched to a specialist tutor',
+      desc: 'By exam board, year group and learning style. Same tutor every week.',
+    },
+    {
+      num: 3,
+      icon: <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-[#0b3d80]" strokeWidth={2} />,
+      title: 'Weekly lessons & mock score lift',
+      desc: 'Structured past-paper practice, regular topic mastery checks, and measurable mock score gains.',
+    },
+  ];
 
   return (
-    <section className="py-6 sm:py-7 lg:py-10 bg-[#f4f7fc] relative overflow-hidden">
-      {/* Subtle dot grid */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: 'radial-gradient(rgba(15,74,155,0.06) 1px, transparent 1px)',
-        backgroundSize: '24px 24px',
-      }} />
+    <section className="py-10 sm:py-14 lg:py-20 bg-white relative overflow-hidden" id="how-it-works">
+      {/* Subtle Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-gradient-to-r from-[#0b3d80]/5 via-[#0f4a9b]/5 to-[#0b3d80]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Heading — centred like reference */}
-        <div className="text-center mb-4">
-          <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-            Our Simple{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5ba8] to-[#0a3a79]">Process</span>
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
+        >
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] tracking-tight leading-tight mb-2 sm:mb-3">
+            How your first month with Ustaad works
           </h2>
-          <p className="text-gray-500 text-[15px] max-w-2xl mx-auto leading-relaxed">
-            Three quiet steps from weak topics to confident independent maths work.{' '}
-            <a href="/how-it-works" className="font-semibold" style={{ color: '#0f4a9b' }}>See how it works</a>
+          <p className="text-gray-500 text-sm sm:text-base lg:text-[17px] font-medium max-w-2xl mx-auto leading-relaxed">
+            Three steps from your first call to your child&apos;s first mock score lift.
           </p>
-        </div>
+        </motion.div>
 
-        {/* ── Wave timeline — desktop ── */}
-        <div className="hidden lg:block">
-
-          {/* Row 1: text blocks for steps 1 & 3 (above wave), empty cells for 2 */}
-          <div className="grid grid-cols-3 gap-4 mb-0">
-            {steps.map((s, i) => {
-              const above = i % 2 === 0;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: -12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  whileHover={{ y: -6 }}
-                  className={`flex flex-col items-center text-center px-3 cursor-default group ${above ? 'justify-end pb-5' : 'invisible'}`}
-                  style={{ minHeight: '140px' }}
-                >
-                  <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] group-hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] transition-shadow duration-300 flex items-center justify-center text-[#0f4a9b] mb-3">
-                    {s.icon}
-                  </div>
-                  <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
-                  <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
-                </motion.div>
-              );
-            })}
+        {/* ── 3-Step Interactive Animated Timeline (Single View on All Devices) ── */}
+        <div className="relative">
+          
+          {/* Connecting Track Line behind Circle Nodes */}
+          <div className="absolute top-[28px] sm:top-[44px] md:top-[52px] left-[16.66%] right-[16.66%] h-[2.5px] -translate-y-1/2 z-0 hidden xs:block">
+            {/* Base grey line */}
+            <div className="w-full h-full bg-slate-200/90 rounded-full" />
+            {/* Animated glowing active line */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              style={{ originX: 0 }}
+              className="absolute inset-0 bg-gradient-to-r from-[#0b3d80] via-[#0f4a9b] to-[#0b3d80] rounded-full shadow-[0_0_8px_rgba(11,61,128,0.3)]"
+            />
           </div>
 
-          {/* SVG wave with node circles only — no text in SVG */}
-          <div className="relative w-full" style={{ height: '130px' }}>
-            <svg
-              viewBox={`0 0 ${W} 130`}
-              preserveAspectRatio="none"
-              className="absolute inset-0 w-full h-full"
-              aria-hidden="true"
-            >
-              <defs>
-                <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%"   stopColor="#1e5ba8" stopOpacity="0.3" />
-                  <stop offset="50%"  stopColor="#0f4a9b" stopOpacity="1" />
-                  <stop offset="100%" stopColor="#1e5ba8" stopOpacity="0.3" />
-                </linearGradient>
-                <linearGradient id="nodeFill" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#1e5ba8" />
-                  <stop offset="100%" stopColor="#0a3a79" />
-                </linearGradient>
-              </defs>
+          {/* 3 Steps Grid (Displays cleanly in one unified view on mobile & desktop) */}
+          <div className="grid grid-cols-3 gap-2 sm:gap-6 lg:gap-10 relative z-10">
+            {monthSteps.map((step, idx) => (
+              <motion.div
+                key={step.num}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.5, delay: idx * 0.15, ease: 'easeOut' }}
+                className="flex flex-col items-center text-center group cursor-default"
+              >
+                {/* Circle Node Container */}
+                <div className="relative mb-3 sm:mb-5 lg:mb-6">
+                  
+                  {/* Outer Pulsing Aura on Hover */}
+                  <div className="absolute -inset-1.5 rounded-full bg-[#0b3d80]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm pointer-events-none" />
 
-              {/* Wave: steps 1&3 connect at top (y=15), step 2 at bottom (y=85) */}
-              {(() => {
-                const pts = [
-                  { x: 150, y: 20 },
-                  { x: 600, y: 100 },
-                  { x: 1050, y: 20 },
-                ];
-                const wp = `M ${pts[0].x} ${pts[0].y}
-                  C ${pts[0].x+180} ${pts[0].y}, ${pts[1].x-180} ${pts[1].y}, ${pts[1].x} ${pts[1].y}
-                  C ${pts[1].x+180} ${pts[1].y}, ${pts[2].x-180} ${pts[2].y}, ${pts[2].x} ${pts[2].y}`;
-                return (
-                  <>
-                    {/* Glow */}
-                    <path d={wp} fill="none" stroke="rgba(15,74,155,0.10)" strokeWidth="16" strokeLinecap="round" />
-                    {/* Wave line */}
-                    <path d={wp} fill="none" stroke="url(#waveGrad)" strokeWidth="2.5" strokeLinecap="round" />
-                    {/* Watermark numbers behind nodes - positioned further away */}
-                    {pts.map((p, i) => (
-                      <text key={`wm${i}`} x={p.x} y={p.y + (i%2===0 ? 55 : -35)}
-                        textAnchor="middle" fontSize="72" fontWeight="900"
-                        fontFamily="system-ui,sans-serif" fill="rgba(15,74,155,0.06)"
-                        style={{ userSelect: 'none' }}>{i + 1}</text>
-                    ))}
-                    {/* Node dots */}
-                    {pts.map((p, i) => (
-                      <g key={`nd${i}`}>
-                        <circle cx={p.x} cy={p.y} r="22" fill="white" stroke="rgba(15,74,155,0.15)" strokeWidth="1.5" />
-                        <circle cx={p.x} cy={p.y} r="15" fill="url(#nodeFill)" />
-                      </g>
-                    ))}
-                  </>
-                );
-              })()}
-            </svg>
-          </div>
-
-          {/* Row 3: empty cells for 1 & 3 (above), text for 2 (below wave) */}
-          <div className="grid grid-cols-3 gap-4 mt-0">
-            {steps.map((s, i) => {
-              const below = i % 2 !== 0;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  whileHover={{ y: -6 }}
-                  className={`flex flex-col items-center text-center px-3 cursor-default group ${below ? 'justify-start pt-5' : 'invisible'}`}
-                  style={{ minHeight: '140px' }}
-                >
-                  <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] group-hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] transition-shadow duration-300 flex items-center justify-center text-[#0f4a9b] mb-3">
-                    {s.icon}
-                  </div>
-                  <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
-                  <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-
-        </div>
-
-        {/* ── Mobile — vertical S-curve spine ── */}
-        {(() => {
-          // Each row is 150px tall. 3 rows = 450px total.
-          // SVG spine is 80px wide, centred horizontally.
-          // Nodes alternate: left edge (x=14) and right edge (x=66) of the 80px strip.
-          // Node y = row midpoint: 75, 225, 375
-          const ROW_H = 150;
-          const SVG_W = 80;
-          const NL = 14, NR = 66; // node x in SVG coords
-          const nodePositions = [[NL,75],[NR,225],[NL,375]];
-          const curvePath = `M ${NL} 75
-            C ${NL} 155, ${NR} 145, ${NR} 225
-            C ${NR} 305, ${NL} 295, ${NL} 375`;
-
-          return (
-            <div className="lg:hidden mt-8 relative" style={{ height: ROW_H * 3 }}>
-
-              {/* SVG spine — fixed 80px wide, centred, NOT stretched */}
-              <div className="absolute inset-0 flex justify-center pointer-events-none">
-                <svg
-                  width={SVG_W}
-                  height={ROW_H * 3}
-                  viewBox={`0 0 ${SVG_W} ${ROW_H * 3}`}
-                  aria-hidden="true"
-                >
-                  <defs>
-                    <linearGradient id="mvg" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%"   stopColor="#1e5ba8" stopOpacity="0.3" />
-                      <stop offset="50%"  stopColor="#0f4a9b" stopOpacity="1"   />
-                      <stop offset="100%" stopColor="#1e5ba8" stopOpacity="0.3" />
-                    </linearGradient>
-                    <linearGradient id="mnf" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%"   stopColor="#1e5ba8" />
-                      <stop offset="100%" stopColor="#0a3a79" />
-                    </linearGradient>
-                  </defs>
-                  {/* Glow */}
-                  <path d={curvePath} fill="none" stroke="rgba(15,74,155,0.10)" strokeWidth="12" strokeLinecap="round" />
-                  {/* Curve */}
-                  <path d={curvePath} fill="none" stroke="url(#mvg)" strokeWidth="2.5" strokeLinecap="round" />
-                  {/* Watermark numbers — behind nodes, adjusted to prevent cropping */}
-                  {nodePositions.map(([cx, cy], i) => {
-                    const nodeOnLeft = i % 2 === 0;
-                    return (
-                      <text
-                        key={`wm${i}`}
-                        x={cx}
-                        y={nodeOnLeft ? cy + 50 : cy - 30}
-                        textAnchor="middle"
-                        fontSize="56"
-                        fontWeight="900"
-                        fontFamily="system-ui, sans-serif"
-                        fill="rgba(15,74,155,0.08)"
-                        style={{ userSelect: 'none' }}
-                      >{i + 1}</text>
-                    );
-                  })}
-                  {/* Nodes — perfect circles, no distortion */}
-                  {nodePositions.map(([cx, cy], i) => (
-                    <g key={i}>
-                      <circle cx={cx} cy={cy} r="13" fill="white" stroke="rgba(15,74,155,0.18)" strokeWidth="1.5" />
-                      <circle cx={cx} cy={cy} r="9"  fill="url(#mnf)" />
-                    </g>
-                  ))}
-                </svg>
-              </div>
-
-              {/* Text rows — absolutely positioned, split left/right of centre */}
-              {steps.map((s, i) => {
-                const nodeOnLeft = i % 2 === 0;
-                const top = i * ROW_H;
-                return (
+                  {/* Main Circle Ring */}
                   <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: nodeOnLeft ? 16 : -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="absolute flex items-center"
-                    style={{
-                      top,
-                      height: ROW_H,
-                      // nodeOnLeft → text on RIGHT half; nodeOnRight → text on LEFT half
-                      left:  nodeOnLeft ? '50%' : 0,
-                      right: nodeOnLeft ? 0     : '50%',
-                      paddingLeft:  nodeOnLeft ? '20px' : '12px',
-                      paddingRight: nodeOnLeft ? '12px' : '20px',
-                    }}
+                    whileHover={{ scale: 1.06, y: -2 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                    className="w-14 h-14 sm:w-22 sm:h-22 md:w-26 md:h-26 lg:w-28 lg:h-28 rounded-full bg-white border-[2px] sm:border-[2.5px] border-[#0b3d80] flex items-center justify-center shadow-[0_4px_16px_rgba(11,61,128,0.08)] group-hover:shadow-[0_8px_24px_rgba(11,61,128,0.18)] transition-all duration-300 relative z-10"
                   >
-                    {nodeOnLeft ? (
-                      /* text on right — icon then text */
-                      <div className="flex items-start gap-2.5">
-                        <div className="shrink-0 w-9 h-9 rounded-xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_14px_rgba(15,74,155,0.12)] flex items-center justify-center text-[#0f4a9b]">
-                          {s.icon}
-                        </div>
-                        <div>
-                          <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
-                          <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
-                        </div>
-                      </div>
-                    ) : (
-                      /* text on left — text then icon */
-                      <div className="flex items-start gap-2.5 w-full justify-end">
-                        <div className="text-right">
-                          <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
-                          <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
-                        </div>
-                        <div className="shrink-0 w-9 h-9 rounded-xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_14px_rgba(15,74,155,0.12)] flex items-center justify-center text-[#0f4a9b]">
-                          {s.icon}
-                        </div>
-                      </div>
-                    )}
+                    {step.icon}
                   </motion.div>
-                );
-              })}
-            </div>
-          );
-        })()}
+
+                  {/* Top-Right Numbered Badge */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 15, delay: 0.2 + idx * 0.15 }}
+                    className="absolute -top-1 -right-1 sm:top-0 sm:right-0 w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-[#0b3d80] text-white font-extrabold text-[10px] sm:text-xs md:text-sm flex items-center justify-center shadow-md z-20 border-[1.5px] border-white"
+                  >
+                    {step.num}
+                  </motion.div>
+                </div>
+
+                {/* Step Title */}
+                <h3 className="text-[12px] sm:text-[15px] md:text-base lg:text-[17px] font-extrabold text-[#0a1f3d] leading-tight sm:leading-snug mb-1 sm:mb-2 max-w-[190px] sm:max-w-none">
+                  {step.title}
+                </h3>
+
+                {/* Step Description */}
+                <p className="text-[10px] sm:text-[12.5px] md:text-[13.5px] text-gray-500 leading-snug sm:leading-relaxed max-w-[240px]">
+                  {step.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
 
       </div>
     </section>
@@ -532,11 +465,231 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
 }
 
 
-const Eyebrow = ({ icon, text, dark = false }: { icon: React.ReactNode; text: string; dark?: boolean }) => (
-  <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] mb-5 border ${dark ? 'bg-white/5 border-white/15 text-blue-200' : 'bg-[#0f4a9b]/5 border-[#0f4a9b]/15 text-[#0f4a9b]'}`}>
-    {icon}{text}
-  </div>
-);
+/* ── Animated Mini-Artifacts for Dark Subject Cards ── */
+function DarkMathsArtifact() {
+  return (
+    <div className="relative w-full h-24 rounded-xl bg-[#061838]/80 border border-blue-400/20 overflow-hidden flex items-center justify-center select-none mb-3.5">
+      {/* Coordinate Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(96,165,250,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(96,165,250,0.08)_1px,transparent_1px)] bg-[size:10px_10px]" />
+      {/* Coordinate Axes */}
+      <div className="absolute left-0 right-0 top-1/2 h-px bg-blue-400/30" />
+      <div className="absolute top-0 bottom-0 left-1/2 w-px bg-blue-400/30" />
+      
+      {/* Dynamic Sine Wave Path */}
+      <svg viewBox="0 0 180 50" className="w-full h-full relative z-10">
+        <motion.path
+          d="M 10 25 Q 30 5, 50 25 T 90 25 T 130 25 T 170 25"
+          fill="none"
+          stroke="#5fd3e6"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          animate={{
+            d: [
+              "M 10 25 Q 30 5, 50 25 T 90 25 T 130 25 T 170 25",
+              "M 10 25 Q 30 45, 50 25 T 90 25 T 130 25 T 170 25",
+              "M 10 25 Q 30 5, 50 25 T 90 25 T 130 25 T 170 25",
+            ],
+          }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        {/* Animated Tangent Cursor Blip */}
+        <motion.circle
+          r="3.5"
+          fill="#f0c96a"
+          stroke="#ffffff"
+          strokeWidth="1.2"
+          animate={{
+            cx: [15, 50, 90, 130, 165],
+            cy: [14, 25, 25, 25, 18],
+          }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+        />
+      </svg>
+
+      {/* Formula badges */}
+      <div className="absolute top-1.5 right-2 font-mono text-[9px] font-bold text-[#5fd3e6] bg-[#0a2550]/80 px-1.5 py-0.5 rounded border border-[#5fd3e6]/30">
+        f(x) = sin θ
+      </div>
+      <div className="absolute bottom-1.5 left-2 font-mono text-[8.5px] font-bold text-[#f0c96a] bg-[#0a2550]/80 px-1.5 py-0.5 rounded border border-[#f0c96a]/30">
+        ∫ πr²
+      </div>
+    </div>
+  );
+}
+
+function DarkPhysicsArtifact() {
+  return (
+    <div className="relative w-full h-24 rounded-xl bg-[#061838]/80 border border-blue-400/20 overflow-hidden flex items-center justify-center select-none mb-3.5">
+      {/* Radial field gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(96,165,250,0.15)_0%,transparent_70%)]" />
+      
+      {/* Center Nucleus */}
+      <div className="w-4 h-4 rounded-full bg-gradient-to-br from-[#5fd3e6] to-[#1e5ba8] shadow-[0_0_10px_rgba(95,211,230,0.7)] flex items-center justify-center z-10">
+        <div className="w-1.5 h-1.5 rounded-full bg-white" />
+      </div>
+
+      {/* Orbit 1 with Electron Node */}
+      <motion.div
+        className="absolute w-24 h-10 rounded-[50%] border border-[#5fd3e6]/50"
+        style={{ transform: 'rotate(-25deg)' }}
+        animate={{ rotate: [-25, 335] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+      >
+        <div className="w-2 h-2 rounded-full bg-[#5fd3e6] shadow-[0_0_6px_#5fd3e6] -translate-y-1 translate-x-10" />
+      </motion.div>
+
+      {/* Orbit 2 with Counter-Orbiting Electron */}
+      <motion.div
+        className="absolute w-24 h-10 rounded-[50%] border border-[#f0c96a]/50"
+        style={{ transform: 'rotate(45deg)' }}
+        animate={{ rotate: [45, 405] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+      >
+        <div className="w-2 h-2 rounded-full bg-[#f0c96a] shadow-[0_0_6px_#f0c96a] -translate-y-1 translate-x-10" />
+      </motion.div>
+
+      {/* Physics tags */}
+      <div className="absolute top-1.5 right-2 font-mono text-[9px] font-bold text-[#5fd3e6] bg-[#0a2550]/80 px-1.5 py-0.5 rounded border border-[#5fd3e6]/30">
+        E = mc²
+      </div>
+      <div className="absolute bottom-1.5 left-2 font-mono text-[8.5px] font-bold text-blue-200/80 bg-[#0a2550]/80 px-1.5 py-0.5 rounded border border-blue-400/25">
+        F = ma
+      </div>
+    </div>
+  );
+}
+
+function DarkChemistryArtifact() {
+  return (
+    <div className="relative w-full h-24 rounded-xl bg-[#061838]/80 border border-teal-400/20 overflow-hidden flex items-center justify-center select-none mb-3.5">
+      {/* Molecular dot matrix */}
+      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#2dd4bf_1px,transparent_1px)] bg-[size:10px_10px]" />
+      
+      {/* Flask Outline & Liquid */}
+      <div className="relative w-10 h-14 flex flex-col items-center justify-end z-10">
+        {/* Flask Neck */}
+        <div className="w-3 h-4 border-l-2 border-r-2 border-[#2dd4bf]/70 bg-transparent -mb-0.5 z-10" />
+        {/* Flask Body */}
+        <div className="w-10 h-9 border-2 border-[#2dd4bf] rounded-b-xl rounded-t-xs relative overflow-hidden bg-white/10 shadow-sm flex items-end">
+          {/* Animated Liquid Level */}
+          <motion.div
+            className="w-full bg-gradient-to-t from-[#0d9488] to-[#2dd4bf]/90 rounded-b-lg"
+            animate={{ height: ['50%', '75%', '50%'] }}
+            transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          {/* Bubbles */}
+          <motion.div
+            className="absolute bottom-1 left-2 w-1.5 h-1.5 rounded-full bg-white/95"
+            animate={{ y: [-1, -16], opacity: [0.9, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }}
+          />
+          <motion.div
+            className="absolute bottom-1 right-2.5 w-1.5 h-1.5 rounded-full bg-white/95"
+            animate={{ y: [-1, -18], opacity: [0.9, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeOut', delay: 0.5 }}
+          />
+        </div>
+      </div>
+
+      {/* Floating Benzene Ring Graphic */}
+      <svg viewBox="0 0 40 40" className="w-6 h-6 absolute left-2 top-2 text-[#2dd4bf]/35">
+        <polygon points="20,2 35,11 35,29 20,38 5,29 5,11" fill="none" stroke="currentColor" strokeWidth="1.2" />
+        <circle cx="20" cy="20" r="6" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
+      </svg>
+
+      {/* Chemistry tags */}
+      <div className="absolute top-1.5 right-2 font-mono text-[9px] font-bold text-[#2dd4bf] bg-[#0a2550]/80 px-1.5 py-0.5 rounded border border-[#2dd4bf]/30">
+        pH: 7.0
+      </div>
+      <div className="absolute bottom-1.5 left-2 font-mono text-[8.5px] font-bold text-teal-200/80 bg-[#0a2550]/80 px-1.5 py-0.5 rounded border border-teal-400/25">
+        PV = nRT
+      </div>
+    </div>
+  );
+}
+
+function DarkEngineeringArtifact() {
+  return (
+    <div className="relative w-full h-24 rounded-xl bg-[#061838]/80 border border-amber-400/20 overflow-hidden flex items-center justify-center select-none mb-3.5">
+      {/* Blueprint Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(240,201,106,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(240,201,106,0.08)_1px,transparent_1px)] bg-[size:10px_10px]" />
+      
+      {/* Interlocking Gears */}
+      <div className="relative w-24 h-16 flex items-center justify-center z-10">
+        {/* Gear 1 (Clockwise) */}
+        <motion.div
+          className="absolute -left-1 w-11 h-11 rounded-full border-[3px] border-dashed border-[#f0c96a] flex items-center justify-center shadow-xs"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+        >
+          <div className="w-3.5 h-3.5 rounded-full border border-[#f0c96a] bg-[#0a2550] flex items-center justify-center">
+            <div className="w-1 h-1 rounded-full bg-[#f0c96a]" />
+          </div>
+        </motion.div>
+
+        {/* Gear 2 (Counter-Clockwise) */}
+        <motion.div
+          className="absolute -right-1 w-9 h-9 rounded-full border-[3px] border-dashed border-[#fbbf24] flex items-center justify-center shadow-xs"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 4.8, repeat: Infinity, ease: 'linear' }}
+        >
+          <div className="w-3 h-3 rounded-full border border-[#fbbf24] bg-[#0a2550] flex items-center justify-center">
+            <div className="w-1 h-1 rounded-full bg-[#fbbf24]" />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* CAD tags */}
+      <div className="absolute top-1.5 right-2 font-mono text-[9px] font-bold text-[#f0c96a] bg-[#0a2550]/80 px-1.5 py-0.5 rounded border border-[#f0c96a]/30">
+        CAD: ±0.01mm
+      </div>
+      <div className="absolute bottom-1.5 left-2 font-mono text-[8.5px] font-bold text-amber-200/80 bg-[#0a2550]/80 px-1.5 py-0.5 rounded border border-amber-400/25">
+        Torque &amp; Load
+      </div>
+    </div>
+  );
+}
+
+function DarkExamPrepArtifact() {
+  return (
+    <div className="relative w-full h-24 rounded-xl bg-[#061838]/80 border border-amber-400/20 overflow-hidden flex items-center justify-center select-none mb-3.5">
+      {/* Background Target Rings */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-20">
+        <div className="w-16 h-16 rounded-full border border-[#f0c96a]" />
+        <div className="w-10 h-10 rounded-full border border-dashed border-[#f0c96a]" />
+      </div>
+
+      {/* Stopwatch & Grade 9 Stamp Stage */}
+      <div className="relative flex items-center gap-3 z-10">
+        {/* Stopwatch Dial */}
+        <div className="relative w-10 h-10 rounded-full border-2 border-[#f0c96a] bg-[#0a2550] shadow-sm flex items-center justify-center">
+          <div className="absolute -top-1 w-2.5 h-1 bg-[#f0c96a] rounded-xs" />
+          {/* Sweeping Seconds Needle */}
+          <motion.div
+            className="w-0.5 h-4 bg-[#f0c96a] origin-bottom rounded-full -translate-y-1.5"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+          />
+          <div className="absolute w-1 h-1 rounded-full bg-white" />
+        </div>
+
+        {/* Grade 9 / A* Gold Seal */}
+        <div className="flex flex-col items-center justify-center px-2.5 py-1 rounded-lg bg-gradient-to-br from-[#f0c96a] to-[#C7A24A] text-[#0a1f3d] shadow-[0_2px_8px_rgba(240,201,106,0.3)]">
+          <span className="text-[12px] font-black leading-none">A*</span>
+          <span className="text-[7.5px] font-extrabold tracking-widest uppercase mt-0.5">GRADE 9</span>
+        </div>
+      </div>
+
+      {/* Exam Prep tags */}
+      <div className="absolute top-1.5 right-2 font-mono text-[9px] font-bold text-[#f0c96a] bg-[#0a2550]/80 px-1.5 py-0.5 rounded border border-[#f0c96a]/30">
+        TIMER: 45:00
+      </div>
+      <div className="absolute bottom-1.5 left-2 font-mono text-[8.5px] font-bold text-amber-200/80 bg-[#0a2550]/80 px-1.5 py-0.5 rounded border border-amber-400/25">
+        Past Papers
+      </div>
+    </div>
+  );
+}
 
 export default function MathematicsLanding() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -920,12 +1073,12 @@ export default function MathematicsLanding() {
       />
 
       {/* SECTION 08 — SUBJECTS WE COVER */}
-      <section className="relative py-6 sm:py-7 lg:py-10 overflow-hidden"
+      <section className="relative py-8 sm:py-10 lg:py-14 overflow-hidden"
         style={{ background: 'linear-gradient(160deg, #0a1f3d 0%, #0f3575 50%, #0a2a6e 100%)' }}>
         <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(15,74,155,0.45) 0%, transparent 70%)', filter: 'blur(80px)' }} />
         <div className="absolute bottom-[-10%] right-[-8%] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(30,91,168,0.35) 0%, transparent 70%)', filter: 'blur(80px)' }} />
         <MathGrid />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -934,47 +1087,56 @@ export default function MathematicsLanding() {
             className="text-center"
           >
             <Eyebrow icon={<Sparkles className="h-3.5 w-3.5" />} text="Academic Expertise" dark />
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-white leading-[1.1] mb-4">
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-white leading-[1.1] mb-3">
               Unlock Maths.{' '}
               <span style={{ background:'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>Excel Across Subjects</span>
             </h2>
             <p className="text-blue-100/75 text-[15px] leading-relaxed max-w-2xl mx-auto mb-8">
               Strong maths helps Abu Dhabi students handle calculations across science and engineering subjects.
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {[
-                { href: '/maths', label: 'Mathematics', desc: 'From fractions to calculus, every maths topic taught structurally.' },
-                { href: '/physics-tutor-abu-dhabi', label: 'Physics', desc: 'Mechanics, electricity, and waves rely on rearranging equations confidently.' },
-                { href: '/chemistry', label: 'Chemistry', desc: 'Moles, balancing, and titration calculations need strong fraction skills.' },
-                { href: '/engineering', label: 'Engineering', desc: 'Calculus, vectors, and force diagrams power engineering problem solving.' },
-                { href: '/exam-preparation', label: 'Exam Preparation', desc: 'Past papers, timed practice, and mark scheme guidance for Abu Dhabi exams.' },
-              ].map((s, i) => (
-                <motion.a
-                  key={i}
-                  href={s.href}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="block rounded-2xl p-5 text-left hover:-translate-y-0.5 transition-all relative overflow-hidden"
-                  style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(110,168,255,0.18)' }}
-                >
-                  {/* Watermark icon */}
-                  {[BookOpen, Atom, FlaskConical, Wrench, FileSearch][i] && (() => {
-                    const Icon = [BookOpen, Atom, FlaskConical, Wrench, FileSearch][i];
-                    return <Icon className="absolute bottom-2 right-2 h-14 w-14 text-[#6ea8ff] opacity-[0.08]" />;
-                  })()}
-                  <h3 className="text-[15px] font-extrabold text-white mb-1.5">{s.label}</h3>
-                  <p className="text-blue-100/60 text-[13px] leading-relaxed relative z-10">{s.desc}</p>
-                </motion.a>
-              ))}
+                { href: '/maths', label: 'Mathematics', desc: 'From fractions to calculus, every maths topic taught structurally.', artifact: DarkMathsArtifact },
+                { href: '/physics-tutor-abu-dhabi', label: 'Physics', desc: 'Mechanics, electricity, and waves rely on rearranging equations confidently.', artifact: DarkPhysicsArtifact },
+                { href: '/chemistry', label: 'Chemistry', desc: 'Moles, balancing, and titration calculations need strong fraction skills.', artifact: DarkChemistryArtifact },
+                { href: '/engineering', label: 'Engineering', desc: 'Calculus, vectors, and force diagrams power engineering problem solving.', artifact: DarkEngineeringArtifact },
+                { href: '/exam-preparation', label: 'Exam Preparation', desc: 'Past papers, timed practice, and mark scheme guidance for Abu Dhabi exams.', artifact: DarkExamPrepArtifact },
+              ].map((s, i) => {
+                const Artifact = s.artifact;
+                return (
+                  <motion.a
+                    key={i}
+                    href={s.href}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                    whileHover={{ y: -5 }}
+                    className="block rounded-2xl p-4 sm:p-4.5 text-left transition-all duration-300 relative overflow-hidden group shadow-lg"
+                    style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(110,168,255,0.22)', backdropFilter: 'blur(8px)' }}
+                  >
+                    {/* Top Accent Line */}
+                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#5fd3e6] via-[#f0c96a] to-[#5fd3e6] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Animated Mini-Artifact */}
+                    <Artifact />
+
+                    <h3 className="text-[15px] font-extrabold text-white mb-1.5 group-hover:text-[#fde68a] transition-colors">
+                      {s.label}
+                    </h3>
+                    <p className="text-blue-100/70 text-[12.5px] leading-relaxed relative z-10">
+                      {s.desc}
+                    </p>
+                  </motion.a>
+                );
+              })}
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* SECTION 09 — OUR SIMPLE PROCESS */}
-      <StepsCarousel steps={steps} />
+      {/* SECTION 09 — HOW YOUR FIRST MONTH WITH USTAAD WORKS */}
+      <StepsCarousel />
 
       {/* SECTION 10 — WHY FAMILIES CHOOSE US */}
       <ThinkingHabitsSection />
@@ -1030,16 +1192,7 @@ export default function MathematicsLanding() {
                     className="flex items-center pt-8 px-4"
                     style={{ originX: 0 }}
                   >
-                    <svg width="60" height="24" viewBox="0 0 60 24" fill="none" className="shrink-0">
-                      <defs>
-                        <linearGradient id={`arrow-grad-${i}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#0f4a9b" stopOpacity="0.8" />
-                          <stop offset="100%" stopColor="#0f4a9b" stopOpacity="0.2" />
-                        </linearGradient>
-                      </defs>
-                      <line x1="0" y1="12" x2="48" y2="12" stroke={`url(#arrow-grad-${i})`} strokeWidth="2.5" strokeLinecap="round" />
-                      <path d="M 48 12 L 42 8 M 48 12 L 42 16" stroke="#0f4a9b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.6" />
-                    </svg>
+                    <div className="w-12 h-0.5 bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]/30 rounded-full" />
                   </motion.div>
                 )}
               </div>
@@ -1079,6 +1232,259 @@ export default function MathematicsLanding() {
               Meet Our Tutors
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ── MEET YOUR MATHS TUTORS (COMPACT SINGLE-VIEW DESKTOP LAYOUT) ── */}
+      <section className="py-6 sm:py-8 lg:py-10 bg-gradient-to-b from-[#f8fafc] via-white to-[#f8fafc] relative overflow-hidden" id="maths-tutors">
+        {/* Subtle Ambient Background Lighting */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-gradient-to-r from-[#0f4a9b]/5 via-transparent to-[#C7A24A]/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Header */}
+          <div className="max-w-3xl mx-auto text-center mb-4 sm:mb-5">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-[11px] font-extrabold rounded-full mb-1.5 border border-[#0f4a9b]/20 shadow-xs">
+              <Users className="h-3 w-3 text-[#0f4a9b]" /> Specialist Maths Team
+            </div>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-1 tracking-tight">
+              Meet your maths tutors
+            </h2>
+            <div className="w-10 h-0.5 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mx-auto mb-2" />
+            <p className="text-gray-600 text-xs sm:text-[13.5px] leading-relaxed max-w-2xl mx-auto">
+              Two specialist maths teachers on the Ustaad Abu Dhabi team. Both screened by our academic team before their first lesson. Click a name to view the full profile on the Tutors page.
+            </p>
+          </div>
+
+          {/* Tutor Cards Grid (Horizontal on Desktop, Swipe on Mobile) */}
+          <div className="flex sm:grid sm:grid-cols-2 gap-4 lg:gap-5 max-w-5xl mx-auto overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-3 sm:pb-0 px-2 sm:px-0 -mx-2 sm:mx-auto">
+            
+            {/* ── CARD 1: FAHAD KHAN ── */}
+            <article className="w-[85vw] max-w-[340px] sm:w-full sm:max-w-none flex-shrink-0 sm:flex-shrink snap-center bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgba(15,74,155,0.06)] hover:shadow-[0_16px_40px_rgba(15,74,155,0.12)] hover:border-[#0f4a9b]/40 transition-all duration-300 flex flex-col sm:flex-row group hover:-translate-y-0.5">
+              
+              {/* Photo Column */}
+              <div className="relative w-full sm:w-[145px] lg:w-[155px] h-44 sm:h-auto overflow-hidden bg-gradient-to-br from-[#0e448c] to-[#082d61] flex-shrink-0">
+                <img
+                  src="/images/tutors/fahad-khan-cover.jpg"
+                  alt="Fahad Khan, Senior Maths Teacher at Ustaad UAE"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#082d61]/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-300" />
+                
+                {/* Initials Badge */}
+                <div className="absolute top-2.5 left-2.5 z-10 w-7 h-7 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] text-white font-extrabold text-[11px] flex items-center justify-center shadow-md">
+                  FK
+                </div>
+
+                {/* Screened Badge (Top Right on Mobile, Bottom on Desktop) */}
+                <span className="absolute top-2.5 right-2.5 sm:top-auto sm:bottom-2.5 sm:left-2.5 sm:right-auto z-10 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/95 backdrop-blur-md text-[#0a1f3d] text-[9.5px] font-extrabold shadow-sm">
+                  <ShieldCheck className="w-3 h-3 text-[#0f4a9b]" />
+                  Screened
+                </span>
+              </div>
+
+              {/* Info Column */}
+              <div className="p-3.5 sm:p-4 flex flex-col justify-between flex-1">
+                <div>
+                  <div className="flex items-baseline justify-between gap-1 mb-0.5">
+                    <a href="/tutors/fahad-khan" className="hover:text-[#0f4a9b] transition-colors">
+                      <h3 className="text-base sm:text-[17px] font-extrabold text-[#0a1f3d] leading-snug">
+                        Fahad Khan
+                      </h3>
+                    </a>
+                  </div>
+                  <div className="text-[11px] font-bold text-[#0f4a9b] mb-2.5">
+                    Senior Maths Teacher · Ustaad UAE
+                  </div>
+
+                  {/* Metadata 2x2 Grid */}
+                  <div className="grid grid-cols-1 gap-1.5 py-2 border-y border-slate-100 text-[11.5px] text-slate-700">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                        Credentials
+                      </span>
+                      <span className="font-semibold text-[#0a1f3d] text-[11.5px] truncate">
+                        BS Mathematics, B.Ed · 10+ years IGCSE and A-Level
+                      </span>
+                    </div>
+
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                        AD Specialty
+                      </span>
+                      <span className="font-semibold text-slate-700 text-[11.5px] leading-snug">
+                        ADEK-school IGCSE and O-Level Maths. Works with Abu Dhabi students at BSAK, Cranleigh, and Repton Al Reem.
+                      </span>
+                    </div>
+
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                        Recent Student
+                      </span>
+                      <span className="font-semibold text-[#0f4a9b] text-[11.5px] truncate">
+                        Edexcel O-Level Maths grade C to grade A in one term.
+                      </span>
+                    </div>
+
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                        Availability
+                      </span>
+                      <span className="font-semibold text-[#0a1f3d] text-[11.5px] truncate">
+                        Weekday evenings &amp; weekend morning slots (Abu Dhabi time)
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Action Buttons (Strictly Arrow-Free) */}
+                <div className="grid grid-cols-2 gap-2 mt-3 pt-1">
+                  <a
+                    href="/tutors/fahad-khan"
+                    className="flex items-center justify-center px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-[#0f4a9b] text-[#0a1f3d] hover:text-white font-bold text-[11.5px] transition-all duration-300 text-center"
+                  >
+                    View profile
+                  </a>
+                  <a
+                    href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Fahad%20Khan%20for%20a%20trial%20lesson."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center px-2.5 py-1.5 rounded-lg bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] text-white font-bold text-[11.5px] hover:shadow-sm hover:scale-[1.02] transition-all duration-300 text-center"
+                  >
+                    Request Fahad
+                  </a>
+                </div>
+
+              </div>
+            </article>
+
+            {/* ── CARD 2: TABRAIZ KHAN ── */}
+            <article className="w-[85vw] max-w-[340px] sm:w-full sm:max-w-none flex-shrink-0 sm:flex-shrink snap-center bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgba(15,74,155,0.06)] hover:shadow-[0_16px_40px_rgba(15,74,155,0.12)] hover:border-[#0f4a9b]/40 transition-all duration-300 flex flex-col sm:flex-row group hover:-translate-y-0.5">
+              
+              {/* Photo Column */}
+              <div className="relative w-full sm:w-[145px] lg:w-[155px] h-44 sm:h-auto overflow-hidden bg-gradient-to-br from-[#0e448c] to-[#082d61] flex-shrink-0">
+                <img
+                  src="/images/tutors/tabraiz-khan-cover.jpg"
+                  alt="Tabraiz Khan, Senior Maths and Statistics Teacher at Ustaad UAE"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#082d61]/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-300" />
+                
+                {/* Initials Badge */}
+                <div className="absolute top-2.5 left-2.5 z-10 w-7 h-7 rounded-lg bg-gradient-to-br from-[#C7A24A] to-[#A8892A] text-white font-extrabold text-[11px] flex items-center justify-center shadow-md">
+                  TK
+                </div>
+
+                {/* Screened Badge (Top Right on Mobile, Bottom on Desktop) */}
+                <span className="absolute top-2.5 right-2.5 sm:top-auto sm:bottom-2.5 sm:left-2.5 sm:right-auto z-10 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/95 backdrop-blur-md text-[#0a1f3d] text-[9.5px] font-extrabold shadow-sm">
+                  <ShieldCheck className="w-3 h-3 text-[#0f4a9b]" />
+                  Screened
+                </span>
+              </div>
+
+              {/* Info Column */}
+              <div className="p-3.5 sm:p-4 flex flex-col justify-between flex-1">
+                <div>
+                  <div className="flex items-baseline justify-between gap-1 mb-0.5">
+                    <a href="/tutors/tabraiz-khan" className="hover:text-[#0f4a9b] transition-colors">
+                      <h3 className="text-base sm:text-[17px] font-extrabold text-[#0a1f3d] leading-snug">
+                        Tabraiz Khan
+                      </h3>
+                    </a>
+                  </div>
+                  <div className="text-[11px] font-bold text-[#0f4a9b] mb-2.5">
+                    Senior Maths and Statistics Teacher · Ustaad UAE
+                  </div>
+
+                  {/* Metadata 2x2 Grid */}
+                  <div className="grid grid-cols-1 gap-1.5 py-2 border-y border-slate-100 text-[11.5px] text-slate-700">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                        Credentials
+                      </span>
+                      <span className="font-semibold text-[#0a1f3d] text-[11.5px] truncate">
+                        Master in Statistics · Cambridge Certified · 9 years
+                      </span>
+                    </div>
+
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                        AD Specialty
+                      </span>
+                      <span className="font-semibold text-slate-700 text-[11.5px] leading-snug">
+                        A-Level Statistics, IGCSE Statistics, AP Statistics. Coaches Abu Dhabi A-Level students preparing for Khalifa University and MBRU pathways.
+                      </span>
+                    </div>
+
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                        Recent Student
+                      </span>
+                      <span className="font-semibold text-[#0f4a9b] text-[11.5px] truncate">
+                        A-Level Statistics grade C to grade A in one academic year.
+                      </span>
+                    </div>
+
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                        Availability
+                      </span>
+                      <span className="font-semibold text-[#0a1f3d] text-[11.5px] truncate">
+                        Weekday evenings &amp; Saturday afternoon slots (Abu Dhabi time)
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Action Buttons (Strictly Arrow-Free) */}
+                <div className="grid grid-cols-2 gap-2 mt-3 pt-1">
+                  <a
+                    href="/tutors/tabraiz-khan"
+                    className="flex items-center justify-center px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-[#0f4a9b] text-[#0a1f3d] hover:text-white font-bold text-[11.5px] transition-all duration-300 text-center"
+                  >
+                    View profile
+                  </a>
+                  <a
+                    href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Tabraiz%20Khan%20for%20a%20trial%20lesson."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center px-2.5 py-1.5 rounded-lg bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] text-white font-bold text-[11.5px] hover:shadow-sm hover:scale-[1.02] transition-all duration-300 text-center"
+                  >
+                    Request Tabraiz
+                  </a>
+                </div>
+
+              </div>
+            </article>
+
+          </div>
+
+          {/* Bottom Consultation Banner (Exact text preserved) */}
+          <div className="mt-4 sm:mt-5 max-w-5xl mx-auto">
+            <div className="relative overflow-hidden rounded-xl bg-white border border-[#0f4a9b]/15 shadow-xs px-4 py-3 sm:px-5 sm:py-3.5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+              <div className="space-y-0.5 flex-1">
+                <p className="text-gray-700 text-xs sm:text-[13px] leading-relaxed">
+                  <span className="font-extrabold text-[#0a1f3d]">Not sure who's the right fit? </span>
+                  Book a free 30-minute trial and we'll match your child with the tutor who fits their board, year group and learning style.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-2 shrink-0">
+                <GoldButton href={BOOKING} className="px-4 py-1.5 text-xs font-bold">
+                  Book Free Trial
+                </GoldButton>
+                <a
+                  href="/tutors"
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200 hover:border-[#0f4a9b] text-slate-700 hover:text-[#0f4a9b] font-bold text-xs bg-white transition-colors"
+                >
+                  View all Ustaad tutors
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -1138,7 +1544,7 @@ export default function MathematicsLanding() {
             </div>
             <div className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{ background: 'rgba(240,201,106,0.12)', border: '1px solid rgba(240,201,106,0.25)' }}>
               <span className="text-[11px] font-bold flex items-center gap-1" style={{ color: '#C7A24A' }}>
-                D <ArrowRight className="h-3 w-3" /> B · Cambridge 0580
+                D to B · Cambridge 0580
               </span>
             </div>
           </div>

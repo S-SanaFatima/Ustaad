@@ -577,6 +577,18 @@ export const ROUTES: RouteConfig[] = [
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic', url: '/blogs/academic-exam-skills' }, { name: 'Mock Exams UAE', url: '/blogs/mock-exams-uae-not-what-they-were' }]
   },
+  {
+    path: '/blogs/what-does-gradient-mean-maths-physics',
+    component: 'WhatDoesGradientMeanBlog',
+    seo: {
+      title: 'What Does the Gradient Actually Mean? A Teacher Explains It from Maths to Physics | Ustaad',
+      description: 'A Maths and Physics teacher explains what the gradient number actually tells you, not just how to calculate it, across straight-line graphs, distance-time and velocity-time graphs.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-09-18'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic', url: '/blogs/academic-exam-skills' }, { name: 'What Does the Gradient Mean', url: '/blogs/what-does-gradient-mean-maths-physics' }]
+  },
 
 
   // City landings
@@ -678,6 +690,18 @@ export const ROUTES: RouteConfig[] = [
       changefreq: 'monthly'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IGCSE', url: '/igcse' }, { name: 'IGCSE Tutor Dubai', url: '/igcse-tutor-dubai' }]
+  },
+  {
+    path: '/maths-tutor-dubai',
+    component: 'MathsTutorDubaiLanding',
+    seo: {
+      title: 'Maths Tutor Dubai | Online GCSE, IGCSE & A-Level Maths Tuition | Ustaad',
+      description: 'One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Book a free trial lesson with Ustaad.',
+      priority: 0.90,
+      changefreq: 'monthly',
+      lastmod: '2026-09-16'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Maths', url: '/maths' }, { name: 'Maths Tutor Dubai', url: '/maths-tutor-dubai' }]
   },
   {
     path: '/a-level-tutor-abu-dhabi',

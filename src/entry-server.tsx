@@ -45,6 +45,7 @@ import PrivateTutoringParentGuideBlog from "./app/PrivateTutoringParentGuideBlog
 import ALevelIndependentThinkingBlog from "./app/ALevelIndependentThinkingBlog.tsx";
 import IGCSEPreparationPastPapersBlog from "./app/IGCSEPreparationPastPapersBlog.tsx";
 import MockExamsUAEBlog from "./app/MockExamsUAEBlog.tsx";
+import WhatDoesGradientMeanBlog from "./app/WhatDoesGradientMeanBlog.tsx";
 import IGCSEvsGCSEBlog from "./app/IGCSEvsGCSEBlog.tsx";
 
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
@@ -70,6 +71,7 @@ import IGCSETutorLanding from "./app/IGCSETutorAbuDhabiPage.tsx";
 import GCSETutorLanding from "./app/GCSETutorAbuDhabiPage.tsx";
 import GCSETutorDubaiLanding from "./app/GCSETutorDubaiPage.tsx";
 import IgcseTutorDubaiLanding from "./app/IgcseTutorDubaiPage.tsx";
+import MathsTutorDubaiLanding from "./app/MathsTutorDubaiPage.tsx";
 import ALevelTutorLanding from "./app/ALevelTutorAbuDhabiPage.tsx";
 import IBTutorAbuDhabiPage from "./app/IBTutorAbuDhabiPage.tsx";
 import TutorProfilePage from "./app/TutorProfilePage.tsx";
@@ -127,8 +129,10 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   GCSETutorLanding,
   GCSETutorDubaiLanding,
   IgcseTutorDubaiLanding,
+  MathsTutorDubaiLanding,
   ALevelTutorLanding,
   MockExamsUAEBlog,
+  WhatDoesGradientMeanBlog,
   MathematicsLanding,
 
   MathsPage,

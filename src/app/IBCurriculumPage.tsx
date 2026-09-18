@@ -398,7 +398,7 @@ export default function IBCurriculumPage() {
               <div className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_6px_rgba(199,162,74,0.8)]" />
               <MapPin className="h-4 w-4 text-[#4a90d9] mb-2.5" strokeWidth={1.5} />
               <p className="text-white font-bold text-sm leading-tight">Umm Al Quwain</p>
-              <p className="text-white/35 text-[10px] mt-1 leading-snug">8th Emirate</p>
+              <p className="text-white/35 text-[10px] mt-1 leading-snug">Northern Emirates</p>
             </div>
           </div>
 

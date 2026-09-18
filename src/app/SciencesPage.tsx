@@ -220,7 +220,7 @@ const customResultsSection = (
         <ReadMoreParagraph
           className="text-white/70 text-sm leading-relaxed"
           dark
-          preview={<>Middle School students across all seven emirates plus Umm Al Quwain study integrated Science at American Curriculum schools.</>}
+          preview={<>Middle School students across all seven emirates, including Umm Al Quwain, study integrated Science at American Curriculum schools.</>}
           more="Each district uses a slightly different unit order, but the three areas are always present. Ustaad tutors meet students online from every emirate, matched to the school's syllabus and the area currently being taught. Sessions slot into the school day rhythm rather than crowding it."
         />
       </div>

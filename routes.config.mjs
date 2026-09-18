@@ -71,10 +71,12 @@ export const ROUTES = [
   { path: '/blogs/igcse-preparation-past-papers-final-step', component: 'IGCSEPreparationPastPapersBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-27' },
   { path: '/blogs/gcse-revision-tips-uae-parents', component: 'GCSERevisionTipsParentsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-31' },
   { path: '/blogs/mock-exams-uae-not-what-they-were', component: 'MockExamsUAEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-14' },
+  { path: '/blogs/what-does-gradient-mean-maths-physics', component: 'WhatDoesGradientMeanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-18' },
 
 
   // City × subject landings
   { path: '/maths-tutor-abu-dhabi', component: 'MathematicsLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
+  { path: '/maths-tutor-dubai', component: 'MathsTutorDubaiLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-16' },
   { path: '/physics-tutor-abu-dhabi', component: 'PhysicsLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/chemistry-tutor-abu-dhabi', component: 'ChemistryLandingPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/biology-tutor-abu-dhabi', component: 'BiologyTutorAbuDhabiPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },

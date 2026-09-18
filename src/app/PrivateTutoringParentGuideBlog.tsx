@@ -17,7 +17,7 @@ const BLOG = {
     'What does the research say about one-to-one tutoring, and how are tutors regulated in the UAE? A complete, evidence-based guide for UAE parents on legal permits, delivery formats, vetting criteria, and curriculum alignment.',
   slug: 'private-tutoring-uae-parent-guide',
   description:
-    'Is private tutoring legal in the UAE? What does the educational research show about 1-to-1 impact? A complete parent guide covering MOHRE permits, KHDA and ADEK oversight, evidence-based vetting, and learning milestones.',
+    'A complete UAE parent guide to private tutoring: MOHRE permits, KHDA and ADEK oversight, 1-to-1 evidence, curriculum vetting, and learning milestones.',
   heroImage: '/images/blogs/parent-child-tutoring-timetable-hero.jpg',
   heroAlt: 'A UAE parent and their teenage child looking at a printed tutoring schedule together at the kitchen table in the evening.',
   heroCaption:

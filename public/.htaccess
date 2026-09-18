@@ -94,10 +94,11 @@ RewriteRule ^uae-guide/?$ /blogs [R=301,L]
 RewriteRule ^faqs/?$ /#faqs [R=301,L,NE]
 
 # --- WordPress-era Legacy Debris → HTTP 410 Gone ---
-RewriteRule ^author(/.*)?$ - [G,L]
-RewriteRule ^category(/.*)?$ - [G,L]
-RewriteRule ^elementor-hf(/.*)?$ - [G,L]
-RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}(/.*)?$ - [G,L]
+RewriteRule ^/?author(/.*)?$ - [G,L]
+RewriteRule ^/?category(/.*)?$ - [G,L]
+RewriteRule ^/?elementor-hf(/.*)?$ - [G,L]
+RewriteRule ^/?wp-(?:content|includes|admin|json)(/.*)?$ - [G,L]
+RewriteRule ^/?[0-9]{4}/[0-9]{2}(/.*)?$ - [G,L]
 
 # Legacy Asset Redirect
 RewriteRule ^School%20logos/(.*)$ /school-logos/$1 [R=301,L]

@@ -185,96 +185,235 @@ export default function CurriculumPage() {
 
       <StatsBar />
 
-      {/* ── CURRICULUM CARDS ── */}
-      <section id="curricula" className="py-8 sm:py-10 lg:py-12 bg-gray-50 flex flex-col justify-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="text-center mb-6 sm:mb-8 max-w-3xl mx-auto">
+      {/* ── CURRICULUM CARDS (3D Landmark Pedestal Showcase with Interactive Expander) ── */}
+      <section id="curricula" className="py-10 sm:py-14 lg:py-16 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/80 flex flex-col justify-center relative overflow-hidden">
+        {/* Ambient 3D Stage Atmospheric Glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-gradient-to-tr from-[#0f4a9b]/[0.04] via-[#C7A24A]/[0.03] to-[#1d4ed8]/[0.03] rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-3xl mx-auto"
+          >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-2 sm:mb-3">
               <GradientHeadingText text="Find Your Child's Curriculum" />
             </h2>
-            <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed">British, American, and IB students all study differently. Choose your child's curriculum below to see how our support fits their learning style.</p>
-          </div>
+            <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed">
+              British, American, and IB students all study differently. Choose your child's curriculum below to see how our support fits their learning style.
+            </p>
+          </motion.div>
 
-          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 max-w-full mx-auto mb-2 px-4 sm:px-0 -mx-4 sm:mx-0 overflow-x-auto md:overflow-visible pb-3 md:pb-0 pt-1 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden items-stretch">
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 max-w-full mx-auto mb-2 px-4 sm:px-0 -mx-4 sm:mx-0 overflow-x-auto md:overflow-visible pb-4 md:pb-0 pt-2 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden items-stretch [perspective:1200px]">
 
-            {/* British Curriculum */}
-            <div className="w-[82vw] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/40 transition-all duration-300 flex flex-col cursor-pointer group overflow-hidden">
-              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-xl flex items-center justify-center mb-3.5 shadow-[0_0_15px_rgba(15,74,155,0.3)] z-10 text-white flex-shrink-0">
-                <LibraryBig className="h-5 w-5" />
+            {/* 1. 🇬🇧 British Curriculum 3D Landmark Pedestal */}
+            <motion.div
+              initial={{ opacity: 0, y: 35, rotateX: 10 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="w-[84vw] max-w-[330px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-white/80 shadow-[0_10px_35px_rgba(15,74,155,0.07)] hover:shadow-[0_25px_60px_rgba(15,74,155,0.18)] hover:-translate-y-2 hover:border-[#0f4a9b]/35 transition-all duration-300 flex flex-col group overflow-hidden"
+            >
+              {/* Top ambient glass reflection */}
+              <div className="absolute top-0 left-6 right-6 h-[2.5px] bg-gradient-to-r from-transparent via-[#0f4a9b]/40 to-transparent" />
+
+              {/* 3D Landmark Pedestal Showcase Stage */}
+              <div className="relative w-full h-32 mb-3 flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-b from-[#0f4a9b]/[0.04] to-[#0f4a9b]/[0.08] border border-[#0f4a9b]/10">
+                {/* 3D Pedestal Glowing Base Ring */}
+                <div className="absolute bottom-2.5 w-36 h-8 rounded-[100%] bg-gradient-to-r from-[#0f4a9b]/20 via-[#38bdf8]/40 to-[#0f4a9b]/20 blur-sm group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute bottom-3 w-32 h-6 rounded-[100%] border border-[#0f4a9b]/30 shadow-[0_0_15px_rgba(15,74,155,0.3)] bg-white/40 backdrop-blur-sm" />
+
+                {/* 3D Floating Big Ben & Westminster Palace Landmark */}
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+                  className="relative z-10 flex flex-col items-center group-hover:scale-110 transition-transform duration-300"
+                >
+                  <BritishLandmarkWatermark className="h-20 w-20 text-[#0f4a9b] drop-shadow-[0_8px_16px_rgba(15,74,155,0.35)]" />
+                </motion.div>
+
+                {/* Floating Curriculum Icon Badge */}
+                <div className="absolute top-2.5 right-2.5 w-8 h-8 rounded-lg bg-[#0f4a9b] text-white flex items-center justify-center shadow-md">
+                  <LibraryBig className="h-4 w-4" />
+                </div>
               </div>
+
+              {/* Content */}
               <a href="/british-curriculum" className="text-lg sm:text-xl font-extrabold text-[#0a1f3d] mb-1.5 leading-tight z-10 hover:text-[#0f4a9b] transition-colors">British Curriculum</a>
-              <div className="inline-flex items-center px-2.5 py-0.5 bg-[#0f4a9b]/5 text-[#0f4a9b] text-[11px] font-bold rounded-md border border-[#0f4a9b]/10 w-max mb-2.5 z-10">IGCSE · GCSE · A-Level</div>
-              <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-2 z-10">Lessons matched to how British exam boards mark and reward answers.</p>
-              <div className="w-8 h-[2px] bg-[#C7A24A] mb-2 z-10" />
-              <p className="text-gray-500 text-[11px] sm:text-xs mb-4 z-10">Cambridge · Edexcel · AQA</p>
+              <div className="inline-flex items-center px-2.5 py-0.5 bg-[#0f4a9b]/5 text-[#0f4a9b] text-[11px] font-bold rounded-md border border-[#0f4a9b]/15 w-max mb-2.5 z-10 shadow-sm">IGCSE · GCSE · A-Level</div>
+              <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-3 z-10">Lessons matched to how British exam boards mark and reward answers.</p>
+              
+              {/* Expanding Gold Accent Line */}
+              <div className="w-8 group-hover:w-16 h-[2px] bg-gradient-to-r from-[#C7A24A] to-[#E5C368] mb-2.5 z-10 transition-all duration-300 rounded-full" />
+              
+              <p className="text-gray-500 text-[11px] sm:text-xs mb-5 z-10 font-medium">Cambridge · Edexcel · AQA</p>
+              
               <div className="flex flex-col gap-2 mt-auto z-10">
-                <a href="/british-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] border-2 border-gray-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-colors text-center">View Curriculum</a>
-                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]" href="/contact?intent=trial&source=curriculum-british">Book Your Free Trial</GoldButton>
+                <a href="/british-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] bg-white hover:bg-slate-50 border-2 border-slate-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-all text-center shadow-sm">View Curriculum</a>
+                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_4px_15px_rgba(199,162,74,0.3)] hover:shadow-[0_8px_25px_rgba(199,162,74,0.5)]" href="/contact?intent=trial&source=curriculum-british">Book Your Free Trial</GoldButton>
               </div>
-              <div className="absolute right-3 bottom-3 pointer-events-none select-none">
-                <BritishLandmarkWatermark className="h-20 w-20 sm:h-24 sm:w-24 text-[#0f4a9b]/10 transition-transform group-hover:scale-110" />
-              </div>
-            </div>
+            </motion.div>
 
-            {/* American Curriculum */}
-            <div className="w-[82vw] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/40 transition-all duration-300 flex flex-col cursor-pointer group overflow-hidden">
-              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-xl flex items-center justify-center mb-3.5 shadow-[0_0_15px_rgba(15,74,155,0.3)] z-10 text-white flex-shrink-0">
-                <Flag className="h-5 w-5" />
+            {/* 2. 🇺🇸 American Curriculum 3D Landmark Pedestal */}
+            <motion.div
+              initial={{ opacity: 0, y: 35, rotateX: 10 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.55, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="w-[84vw] max-w-[330px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-white/80 shadow-[0_10px_35px_rgba(29,78,216,0.07)] hover:shadow-[0_25px_60px_rgba(29,78,216,0.18)] hover:-translate-y-2 hover:border-[#1d4ed8]/35 transition-all duration-300 flex flex-col group overflow-hidden"
+            >
+              {/* Top ambient glass reflection */}
+              <div className="absolute top-0 left-6 right-6 h-[2.5px] bg-gradient-to-r from-transparent via-[#1d4ed8]/40 to-transparent" />
+
+              {/* 3D Landmark Pedestal Showcase Stage */}
+              <div className="relative w-full h-32 mb-3 flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-b from-[#1d4ed8]/[0.04] to-[#1d4ed8]/[0.08] border border-[#1d4ed8]/10">
+                {/* 3D Pedestal Glowing Base Ring */}
+                <div className="absolute bottom-2.5 w-36 h-8 rounded-[100%] bg-gradient-to-r from-[#1d4ed8]/20 via-[#60a5fa]/40 to-[#1d4ed8]/20 blur-sm group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute bottom-3 w-32 h-6 rounded-[100%] border border-[#1d4ed8]/30 shadow-[0_0_15px_rgba(29,78,216,0.3)] bg-white/40 backdrop-blur-sm" />
+
+                {/* 3D Floating Statue of Liberty & Capitol Landmark */}
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ repeat: Infinity, duration: 4.4, ease: 'easeInOut', delay: 0.4 }}
+                  className="relative z-10 flex flex-col items-center group-hover:scale-110 transition-transform duration-300"
+                >
+                  <AmericanLandmarkWatermark className="h-20 w-20 text-[#1d4ed8] drop-shadow-[0_8px_16px_rgba(29,78,216,0.35)]" />
+                </motion.div>
+
+                {/* Floating Curriculum Icon Badge */}
+                <div className="absolute top-2.5 right-2.5 w-8 h-8 rounded-lg bg-[#1d4ed8] text-white flex items-center justify-center shadow-md">
+                  <Flag className="h-4 w-4" />
+                </div>
               </div>
+
+              {/* Content */}
               <a href="/american-curriculum" className="text-lg sm:text-xl font-extrabold text-[#0a1f3d] mb-1.5 leading-tight z-10 hover:text-[#0f4a9b] transition-colors">American Curriculum</a>
-              <div className="inline-flex items-center px-2.5 py-0.5 bg-[#0f4a9b]/5 text-[#0f4a9b] text-[11px] font-bold rounded-md border border-[#0f4a9b]/10 w-max mb-2.5 z-10">Grade 6-12 · AP · SAT</div>
-              <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-2 z-10">Tutoring that mirrors US coursework alongside AP and SAT prep work.</p>
-              <div className="w-8 h-[2px] bg-[#C7A24A] mb-2 z-10" />
-              <p className="text-gray-500 text-[11px] sm:text-xs mb-4 z-10">College Board · AP · SAT</p>
+              <div className="inline-flex items-center px-2.5 py-0.5 bg-[#1d4ed8]/5 text-[#1d4ed8] text-[11px] font-bold rounded-md border border-[#1d4ed8]/15 w-max mb-2.5 z-10 shadow-sm">Grade 6-12 · AP · SAT</div>
+              <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-3 z-10">Tutoring that mirrors US coursework alongside AP and SAT prep work.</p>
+              
+              {/* Expanding Gold Accent Line */}
+              <div className="w-8 group-hover:w-16 h-[2px] bg-gradient-to-r from-[#C7A24A] to-[#E5C368] mb-2.5 z-10 transition-all duration-300 rounded-full" />
+              
+              <p className="text-gray-500 text-[11px] sm:text-xs mb-5 z-10 font-medium">College Board · AP · SAT</p>
+              
               <div className="flex flex-col gap-2 mt-auto z-10">
-                <a href="/american-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] border-2 border-gray-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-colors text-center">View Curriculum</a>
-                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]" href="/contact?intent=trial&source=curriculum-american">Book Your Free Trial</GoldButton>
+                <a href="/american-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] bg-white hover:bg-slate-50 border-2 border-slate-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-all text-center shadow-sm">View Curriculum</a>
+                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_4px_15px_rgba(199,162,74,0.3)] hover:shadow-[0_8px_25px_rgba(199,162,74,0.5)]" href="/contact?intent=trial&source=curriculum-american">Book Your Free Trial</GoldButton>
               </div>
-              <div className="absolute right-3 bottom-3 pointer-events-none select-none">
-                <AmericanLandmarkWatermark className="h-20 w-20 sm:h-24 sm:w-24 text-[#0f4a9b]/10 transition-transform group-hover:scale-110" />
-              </div>
-            </div>
+            </motion.div>
 
-            {/* IB Curriculum */}
-            <div className="w-[82vw] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-[#E5E7EB] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-[#0f4a9b]/40 transition-all duration-300 flex flex-col cursor-pointer group overflow-hidden">
-              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-xl flex items-center justify-center mb-3.5 shadow-[0_0_15px_rgba(15,74,155,0.3)] z-10 text-white flex-shrink-0">
-                <Orbit className="h-5 w-5" />
+            {/* 3. 🌐 IB Curriculum 3D Landmark Pedestal */}
+            <motion.div
+              initial={{ opacity: 0, y: 35, rotateX: 10 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.55, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="w-[84vw] max-w-[330px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-white/80 shadow-[0_10px_35px_rgba(15,74,155,0.07)] hover:shadow-[0_25px_60px_rgba(15,74,155,0.18)] hover:-translate-y-2 hover:border-[#0f4a9b]/35 transition-all duration-300 flex flex-col group overflow-hidden"
+            >
+              {/* Top ambient glass reflection */}
+              <div className="absolute top-0 left-6 right-6 h-[2.5px] bg-gradient-to-r from-transparent via-[#0f4a9b]/40 to-transparent" />
+
+              {/* 3D Landmark Pedestal Showcase Stage */}
+              <div className="relative w-full h-32 mb-3 flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-b from-[#0f4a9b]/[0.04] to-[#0f4a9b]/[0.08] border border-[#0f4a9b]/10">
+                {/* 3D Pedestal Glowing Base Ring */}
+                <div className="absolute bottom-2.5 w-36 h-8 rounded-[100%] bg-gradient-to-r from-[#0f4a9b]/20 via-[#38bdf8]/40 to-[#0f4a9b]/20 blur-sm group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute bottom-3 w-32 h-6 rounded-[100%] border border-[#0f4a9b]/30 shadow-[0_0_15px_rgba(15,74,155,0.3)] bg-white/40 backdrop-blur-sm" />
+
+                {/* 3D Floating IB World Orbit Landmark */}
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ repeat: Infinity, duration: 4.8, ease: 'easeInOut', delay: 0.8 }}
+                  className="relative z-10 flex flex-col items-center group-hover:scale-110 transition-transform duration-300"
+                >
+                  <IBWorldWatermark className="h-20 w-20 text-[#0f4a9b] drop-shadow-[0_8px_16px_rgba(15,74,155,0.35)]" />
+                </motion.div>
+
+                {/* Floating Curriculum Icon Badge */}
+                <div className="absolute top-2.5 right-2.5 w-8 h-8 rounded-lg bg-[#0f4a9b] text-white flex items-center justify-center shadow-md">
+                  <Orbit className="h-4 w-4" />
+                </div>
               </div>
+
+              {/* Content */}
               <a href="/ib-curriculum" className="text-lg sm:text-xl font-extrabold text-[#0a1f3d] mb-1.5 leading-tight z-10 hover:text-[#0f4a9b] transition-colors">IB Curriculum</a>
-              <div className="inline-flex items-center px-2.5 py-0.5 bg-[#0f4a9b]/5 text-[#0f4a9b] text-[11px] font-bold rounded-md border border-[#0f4a9b]/10 w-max mb-2.5 z-10">MYP · DP · SL & HL</div>
-              <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-2 z-10">Tuition that handles analytical depth and the real academic pressure of IB.</p>
-              <div className="w-8 h-[2px] bg-[#C7A24A] mb-2 z-10" />
-              <p className="text-gray-500 text-[11px] sm:text-xs mb-4 z-10">IB MYP · IB Diploma Programme</p>
+              <div className="inline-flex items-center px-2.5 py-0.5 bg-[#0f4a9b]/5 text-[#0f4a9b] text-[11px] font-bold rounded-md border border-[#0f4a9b]/15 w-max mb-2.5 z-10 shadow-sm">MYP · DP · SL & HL</div>
+              <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed mb-3 z-10">Tuition that handles analytical depth and the real academic pressure of IB.</p>
+              
+              {/* Expanding Gold Accent Line */}
+              <div className="w-8 group-hover:w-16 h-[2px] bg-gradient-to-r from-[#C7A24A] to-[#E5C368] mb-2.5 z-10 transition-all duration-300 rounded-full" />
+              
+              <p className="text-gray-500 text-[11px] sm:text-xs mb-5 z-10 font-medium">IB MYP · IB Diploma Programme</p>
+              
               <div className="flex flex-col gap-2 mt-auto z-10">
-                <a href="/ib-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] border-2 border-gray-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-colors text-center">View Curriculum</a>
-                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]" href="/contact?intent=trial&source=curriculum-ib">Book Your Free Trial</GoldButton>
+                <a href="/ib-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] bg-white hover:bg-slate-50 border-2 border-slate-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-all text-center shadow-sm">View Curriculum</a>
+                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_4px_15px_rgba(199,162,74,0.3)] hover:shadow-[0_8px_25px_rgba(199,162,74,0.5)]" href="/contact?intent=trial&source=curriculum-ib">Book Your Free Trial</GoldButton>
               </div>
-              <div className="absolute right-3 bottom-3 pointer-events-none select-none">
-                <IBWorldWatermark className="h-20 w-20 sm:h-24 sm:w-24 text-[#0f4a9b]/10 transition-transform group-hover:scale-110" />
-              </div>
-            </div>
+            </motion.div>
 
-            {/* Find the Right Fit */}
-            <div className="w-[82vw] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-[#E5E7EB]/30 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(15,74,155,0.15)] hover:-translate-y-1 hover:ring-2 hover:ring-inset hover:ring-white/40 transition-all duration-300 flex flex-col justify-center items-center text-center overflow-hidden cursor-pointer group">
-              <div className="absolute top-0 right-0 w-[240px] h-[240px] bg-gradient-to-br from-[#C7A24A]/20 to-[#A8892A]/10 rounded-full blur-[50px] pointer-events-none" />
-              <div className="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-3 shadow-inner z-10 border border-white/20">
-                <MessageCircleQuestion className="h-7 w-7 text-[#C7A24A]" strokeWidth={2} />
+            {/* 4. 💬 Help / Contact Hub 3D Pedestal */}
+            <motion.div
+              initial={{ opacity: 0, y: 35, rotateX: 10 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.55, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="w-[84vw] max-w-[330px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-gradient-to-br from-[#0a2550]/95 via-[#0f4a9b]/95 to-[#061838]/95 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-5 lg:p-5 xl:p-6 border border-white/20 shadow-[0_12px_45px_rgba(15,74,155,0.25)] hover:shadow-[0_25px_65px_rgba(15,74,155,0.35)] hover:-translate-y-2 hover:border-[#C7A24A]/50 transition-all duration-300 flex flex-col justify-center items-center text-center overflow-hidden group"
+            >
+              {/* 3D Golden Floating Aura */}
+              <div className="absolute top-0 right-0 w-[260px] h-[260px] bg-gradient-to-br from-[#C7A24A]/25 via-[#F5D77F]/15 to-transparent rounded-full blur-[60px] pointer-events-none" />
+
+              {/* 3D Pedestal Showcase Stage for Help Beacon */}
+              <div className="relative w-full h-32 mb-3 flex items-center justify-center overflow-hidden rounded-2xl bg-white/5 border border-white/10">
+                {/* 3D Golden Pedestal Glowing Base Ring */}
+                <div className="absolute bottom-2.5 w-36 h-8 rounded-[100%] bg-gradient-to-r from-[#C7A24A]/30 via-[#F5D77F]/50 to-[#C7A24A]/30 blur-sm group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute bottom-3 w-32 h-6 rounded-[100%] border border-[#C7A24A]/40 shadow-[0_0_20px_rgba(199,162,74,0.4)] bg-white/10 backdrop-blur-sm" />
+
+                {/* 3D Floating Glowing Help Beacon */}
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
+                  className="relative z-10 flex flex-col items-center group-hover:scale-110 transition-transform duration-300"
+                >
+                  <motion.div
+                    animate={{ scale: [1, 1.25, 1], opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ repeat: Infinity, duration: 2.8, ease: 'easeInOut' }}
+                    className="absolute -inset-2.5 rounded-2xl bg-[#C7A24A]/30 blur-md pointer-events-none"
+                  />
+                  <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/25 flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]">
+                    <MessageCircleQuestion className="h-8 w-8 text-[#C7A24A] drop-shadow-[0_4px_10px_rgba(199,162,74,0.5)]" strokeWidth={2.2} />
+                  </div>
+                </motion.div>
               </div>
-              <h3 className="text-lg sm:text-xl font-extrabold text-white mb-1.5 z-10">How Can We Help You?</h3>
-              <p className="text-blue-100 text-xs sm:text-[13px] leading-relaxed mb-4 z-10 max-w-[200px]">Tell us your needs, we'll guide you from here.</p>
-              <GoldButton className="w-full py-3 sm:py-3.5 text-xs sm:text-sm shadow-[0_0_20px_rgba(199,162,74,0.4)] z-10" href="/contact#form">
-                Get Started
-              </GoldButton>
-            </div>
+
+              {/* Content */}
+              <h3 className="text-lg sm:text-xl font-extrabold text-white mb-1.5 z-10 leading-tight">How Can We Help You?</h3>
+              <p className="text-blue-100/80 text-xs sm:text-[13px] leading-relaxed mb-5 z-10 max-w-[210px]">Tell us your needs, we'll guide you from here.</p>
+              
+              <div className="w-full mt-auto z-10">
+                <GoldButton className="w-full py-3 sm:py-3.5 text-xs sm:text-sm shadow-[0_0_25px_rgba(199,162,74,0.45)] hover:shadow-[0_0_35px_rgba(199,162,74,0.7)] group-hover:scale-[1.02] transition-all" href="/contact#form">
+                  Get Started
+                </GoldButton>
+              </div>
+            </motion.div>
 
           </div>
         </div>
       </section>
 
       {/* ── ACADEMIC STAGES ── */}
-      <section className="py-8 sm:py-10 lg:py-12 bg-white flex flex-col justify-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="text-center mb-6 sm:mb-8 max-w-3xl mx-auto">
+      <section className="py-10 sm:py-14 lg:py-16 bg-gradient-to-b from-white via-[#fbfdff] to-white flex flex-col justify-center relative overflow-hidden">
+        {/* Ambient subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-gradient-to-tr from-[#0f4a9b]/[0.03] via-[#C7A24A]/[0.03] to-[#0f4a9b]/[0.02] rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-3xl mx-auto"
+          >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#C7A24A]/10 to-[#A8892A]/10 text-[#A8892A] text-xs sm:text-sm font-bold rounded-full mb-3 border border-[#C7A24A]/20 shadow-[0_0_15px_rgba(199,162,74,0.15)]">
               <GraduationCap className="h-4 w-4" /> Who We Teach
             </div>
@@ -284,54 +423,172 @@ export default function CurriculumPage() {
             <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed">
               Clear academic progression from foundation years to advanced examination stages.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="flex md:grid md:grid-cols-3 gap-5 lg:gap-7 max-w-6xl mx-auto w-full overflow-x-auto md:overflow-visible pb-3 md:pb-0 pt-1 -mx-4 px-4 md:mx-auto md:px-0 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden items-stretch">
-            {academicStages.map((curriculum) => (
-              <div
-                key={curriculum.title}
-                className="w-[82vw] max-w-[320px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-[#E8EDF5] shadow-[0_8px_40px_rgba(15,74,155,0.08)] hover:shadow-[0_24px_60px_rgba(15,74,155,0.14)] hover:-translate-y-1 transition-all duration-300 overflow-hidden group flex flex-col"
-              >
-                {/* Subtle top glow accent */}
-                <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-[#0f4a9b]/20 to-transparent" />
+          <div className="flex md:grid md:grid-cols-3 gap-5 lg:gap-7 max-w-6xl mx-auto w-full overflow-x-auto md:overflow-visible pb-4 md:pb-0 pt-1 -mx-4 px-4 md:mx-auto md:px-0 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden items-stretch">
+            {academicStages.map((curriculum, cardIdx) => {
+              // Custom curriculum aesthetic accents
+              const isBritish = curriculum.title.includes('British');
+              const isAmerican = curriculum.title.includes('American');
+              
+              const theme = isBritish
+                ? {
+                    topGlow: 'via-[#0f4a9b]/40',
+                    iconBg: 'from-[#0f4a9b] to-[#0a3a79]',
+                    iconShadow: 'shadow-[0_8px_20px_rgba(15,74,155,0.3)]',
+                    nodeGradient: 'from-[#0f4a9b] to-[#1e40af]',
+                    nodeGlow: 'shadow-[0_0_10px_rgba(15,74,155,0.6)]',
+                    nodeRing: 'ring-[#0f4a9b]/30',
+                    lightTrail: 'from-[#0f4a9b]/10 via-[#0f4a9b] to-[#0f4a9b]/10',
+                    activeBorder: 'border-[#0f4a9b]/30 shadow-[0_6px_20px_rgba(15,74,155,0.08)]',
+                    borderHover: 'hover:border-[#0f4a9b]/30 hover:shadow-[0_20px_50px_rgba(15,74,155,0.12)]',
+                    watermark: <BritishLandmarkWatermark className="absolute -bottom-8 -right-8 w-44 h-44 text-[#0f4a9b]/[0.03] group-hover:text-[#0f4a9b]/[0.08] group-hover:scale-105 transition-all duration-500 pointer-events-none" />,
+                  }
+                : isAmerican
+                ? {
+                    topGlow: 'via-[#1d4ed8]/40',
+                    iconBg: 'from-[#1e40af] to-[#0f4a9b]',
+                    iconShadow: 'shadow-[0_8px_20px_rgba(29,78,216,0.3)]',
+                    nodeGradient: 'from-[#1d4ed8] to-[#0284c7]',
+                    nodeGlow: 'shadow-[0_0_10px_rgba(29,78,216,0.55)]',
+                    nodeRing: 'ring-[#2563eb]/30',
+                    lightTrail: 'from-[#1d4ed8]/10 via-[#2563eb] to-[#1d4ed8]/10',
+                    activeBorder: 'border-[#1d4ed8]/30 shadow-[0_6px_20px_rgba(29,78,216,0.08)]',
+                    borderHover: 'hover:border-[#1d4ed8]/30 hover:shadow-[0_20px_50px_rgba(29,78,216,0.12)]',
+                    watermark: <AmericanLandmarkWatermark className="absolute -bottom-8 -right-8 w-44 h-44 text-[#1e40af]/[0.03] group-hover:text-[#1e40af]/[0.08] group-hover:scale-105 transition-all duration-500 pointer-events-none" />,
+                  }
+                : {
+                    topGlow: 'via-[#0d9488]/40',
+                    iconBg: 'from-[#4338ca] to-[#0d9488]',
+                    iconShadow: 'shadow-[0_8px_20px_rgba(13,148,136,0.25)]',
+                    nodeGradient: 'from-[#4338ca] to-[#0d9488]',
+                    nodeGlow: 'shadow-[0_0_10px_rgba(13,148,136,0.5)]',
+                    nodeRing: 'ring-[#0d9488]/30',
+                    lightTrail: 'from-[#0d9488]/10 via-[#0d9488] to-[#0d9488]/10',
+                    activeBorder: 'border-[#0d9488]/30 shadow-[0_6px_20px_rgba(13,148,136,0.08)]',
+                    borderHover: 'hover:border-[#0d9488]/30 hover:shadow-[0_20px_50px_rgba(13,148,136,0.1)]',
+                    watermark: <IBWorldWatermark className="absolute -bottom-8 -right-8 w-44 h-44 text-[#4338ca]/[0.03] group-hover:text-[#0d9488]/[0.07] group-hover:scale-105 transition-all duration-500 pointer-events-none" />,
+                  };
 
-                {/* Header */}
-                <div className="flex items-center gap-3.5 mb-4 sm:mb-5">
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white flex items-center justify-center shadow-[0_6px_18px_rgba(15,74,155,0.3)] flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-                    {curriculum.icon}
+              return (
+                <motion.div
+                  key={curriculum.title}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.15 }}
+                  transition={{ duration: 0.5, delay: cardIdx * 0.15 }}
+                  className={`w-[84vw] max-w-[340px] md:w-auto md:max-w-none shrink-0 snap-center relative bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 border border-[#E8EDF5] shadow-[0_10px_35px_rgba(15,74,155,0.06)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden group flex flex-col ${theme.borderHover}`}
+                >
+                  {/* Subtle top glow accent line */}
+                  <div className={`absolute top-0 left-6 right-6 h-[2.5px] bg-gradient-to-r from-transparent ${theme.topGlow} to-transparent`} />
+
+                  {/* Background Watermark */}
+                  {theme.watermark}
+
+                  {/* Header */}
+                  <div className="flex items-center gap-3.5 mb-5 sm:mb-6 relative z-10">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${theme.iconBg} text-white flex items-center justify-center ${theme.iconShadow} flex-shrink-0 group-hover:scale-110 group-hover:rotate-1 transition-all duration-300`}>
+                      {curriculum.icon}
+                    </div>
+                    <div>
+                      <p className="text-base sm:text-lg font-extrabold text-[#0a1f3d] leading-tight tracking-tight">{curriculum.title}</p>
+                      <p className="text-[10px] sm:text-[11px] font-bold text-[#0f4a9b]/60 uppercase tracking-[0.15em] mt-0.5">{curriculum.subtitle.replace(/\s*\|\s*/g, ' • ')}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-base sm:text-lg font-extrabold text-[#0a1f3d] leading-tight">{curriculum.title}</p>
-                    <p className="text-[10px] font-bold text-[#0f4a9b]/50 uppercase tracking-[0.15em] mt-0.5">{curriculum.subtitle.replace(/\s*\|\s*/g, ' • ')}</p>
-                  </div>
-                </div>
 
-                {/* Vertical stage list */}
-                <div className="space-y-0 mt-auto">
-                  {curriculum.stages.map((stage, idx) => {
-                    const isLast = idx === curriculum.stages.length - 1;
-                    return (
-                      <div key={`${curriculum.title}-${stage.label}`} className="flex gap-2.5 sm:gap-3">
-                        {/* Dot + connecting line */}
-                        <div className="flex flex-col items-center flex-shrink-0 pt-[22px]">
-                          <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] shadow-[0_0_6px_rgba(15,74,155,0.45)] flex-shrink-0 flex items-center justify-center">
-                            <div className="w-1 h-1 rounded-full bg-white/70" />
+                  {/* Living Academic Journey Vertical Roadmap with Sequential Turn-Wise Reveal */}
+                  <div className="space-y-0 mt-auto relative z-10">
+                    {curriculum.stages.map((stage, idx) => {
+                      const isLast = idx === curriculum.stages.length - 1;
+                      const baseDelay = cardIdx * 0.15 + idx * 0.35 + 0.25;
+
+                      return (
+                        <div key={`${curriculum.title}-${stage.label}`} className="flex gap-3 sm:gap-3.5 group/stage">
+                          {/* Node + Sequential Connecting Light Conduit */}
+                          <div className="flex flex-col items-center flex-shrink-0 pt-[14px]">
+                            {/* Milestone Dot with Spark Entrance and Pulsing Glow */}
+                            <motion.div
+                              initial={{ scale: 0, opacity: 0 }}
+                              whileInView={{ scale: 1, opacity: 1 }}
+                              viewport={{ once: false, amount: 0.15 }}
+                              transition={{ duration: 0.4, delay: baseDelay, type: 'spring', stiffness: 260, damping: 20 }}
+                              className="relative flex items-center justify-center"
+                            >
+                              {/* Pulsing Aura */}
+                              <motion.span
+                                animate={{
+                                  scale: [1, 1.45, 1],
+                                  opacity: [0.15, 0.45, 0.15],
+                                }}
+                                transition={{
+                                  repeat: Infinity,
+                                  duration: 3,
+                                  delay: idx * 0.9,
+                                  ease: 'easeInOut',
+                                }}
+                                className={`absolute -inset-1.5 rounded-full bg-gradient-to-br ${theme.nodeGradient} blur-[2px]`}
+                              />
+                              <div className={`relative w-3.5 h-3.5 rounded-full bg-gradient-to-br ${theme.nodeGradient} ${theme.nodeGlow} flex items-center justify-center transition-all duration-300 group-hover/stage:scale-125 group-hover/stage:ring-2 ${theme.nodeRing}`}>
+                                <div className="w-1.5 h-1.5 rounded-full bg-white shadow-sm" />
+                              </div>
+                            </motion.div>
+
+                            {/* Connecting vertical line: animates down sequentially, then continuously scrolls light */}
+                            {!isLast && (
+                              <div className="relative w-[2px] flex-1 my-1.5 bg-slate-200/70 overflow-hidden rounded-full min-h-[36px]">
+                                {/* Initial draw line down */}
+                                <motion.div
+                                  initial={{ height: '0%' }}
+                                  whileInView={{ height: '100%' }}
+                                  viewport={{ once: false, amount: 0.15 }}
+                                  transition={{ duration: 0.35, delay: baseDelay + 0.15, ease: 'easeOut' }}
+                                  className={`w-full bg-gradient-to-b ${theme.nodeGradient} opacity-60`}
+                                />
+                                {/* Continuous traveling light photon */}
+                                <motion.div
+                                  className={`absolute inset-x-0 w-full h-12 bg-gradient-to-b ${theme.lightTrail}`}
+                                  animate={{
+                                    y: ['-120%', '280%'],
+                                  }}
+                                  transition={{
+                                    repeat: Infinity,
+                                    duration: 2.6,
+                                    ease: 'easeInOut',
+                                    delay: idx * 0.85,
+                                  }}
+                                />
+                              </div>
+                            )}
                           </div>
-                          {!isLast && <div className="w-px flex-1 bg-gradient-to-b from-[#0f4a9b]/25 to-transparent mt-1 mb-1" />}
-                        </div>
-                        {/* Stage row */}
-                        <div className={`flex-1 ${isLast ? 'pb-0' : 'pb-2'}`}>
-                          <div className="bg-[#f6f9fd] border border-[#0f4a9b]/[0.06] rounded-xl px-3.5 py-2.5">
-                            <p className="text-xs sm:text-[13px] font-extrabold text-[#0a1f3d] leading-snug">{stage.label}</p>
-                            <p className="text-[11px] text-[#0f4a9b]/60 font-semibold mt-0.5">{stage.detail}</p>
+
+                          {/* Sub-Card: Slides in and appears turn-wise after the light arrives */}
+                          <div className={`flex-1 ${isLast ? 'pb-0' : 'pb-3'}`}>
+                            <motion.div
+                              initial={{ opacity: 0, x: 22, filter: 'blur(4px)' }}
+                              whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                              viewport={{ once: false, amount: 0.15 }}
+                              transition={{
+                                duration: 0.5,
+                                delay: baseDelay + 0.1,
+                                ease: [0.25, 1, 0.5, 1],
+                              }}
+                              className="bg-[#f8fafc] border border-slate-200/70 rounded-xl px-4 py-3 transition-all duration-300 group-hover/stage:bg-white group-hover/stage:border-[#0f4a9b]/25 group-hover/stage:shadow-[0_8px_20px_rgba(15,74,155,0.08)] group-hover/stage:translate-x-1"
+                            >
+                              <p className="text-xs sm:text-[13px] font-extrabold text-[#0a1f3d] leading-snug group-hover/stage:text-[#0f4a9b] transition-colors duration-200">
+                                {stage.label}
+                              </p>
+                              <p className="text-[11px] text-gray-500 font-medium mt-0.5">
+                                {stage.detail}
+                              </p>
+                            </motion.div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

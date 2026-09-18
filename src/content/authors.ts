@@ -64,7 +64,7 @@ export const AUTHORS: Author[] = [
   {
     slug: 'nida-iqbal',
     name: 'Nida Iqbal',
-    role: 'Editorial Reviewer, MPhil in Education Leadership',
+    role: 'Editorial Reviewer',
     jobTitle: 'MPhil in Education Leadership and Management',
     credentials: 'Nida checks every article before it is published. She makes sure the advice is correct, easy to understand, and matches how UAE schools teach and test students.',
     subjects: ['Editorial review', 'Curriculum accuracy', 'Parent clarity'],
@@ -76,6 +76,7 @@ export const AUTHORS: Author[] = [
     photoAlt: 'Nida Iqbal, Tutor Quality and Development Lead at Ustaad UAE',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
+      { title: "What Does the Gradient Actually Mean? A Teacher Explains It from Maths to Physics", href: '/blogs/what-does-gradient-mean-maths-physics', role: 'reviewed' },
       { title: "Exam Stamina: Why Your Child Can't Sit the Full Paper", href: '/blogs/exam-stamina-uae-students', role: 'reviewed' },
       { title: 'Exams Are Back in the UAE. What Changes for Your Child', href: '/blogs/uae-exams-return-students-never-sat-one', role: 'reviewed' },
       { title: 'IGCSE Preparation: Why Past Papers Are the Final Step, Not the First', href: '/blogs/igcse-preparation-past-papers-final-step', role: 'reviewed' },
@@ -91,7 +92,7 @@ export const AUTHORS: Author[] = [
   {
     slug: 'ustaad-subject-specialists',
     name: 'Ustaad Subject Specialists',
-    role: 'Contributing teachers, names kept private',
+    role: 'Contributing Teachers',
     jobTitle: 'Ustaad Subject Specialists',
     credentials: 'A group of practising Maths, Science, and English teachers who add worked examples, exam tips, and fact checks to our articles.',
     subjects: ['Maths', 'Physics and Chemistry', 'Biology', 'Exam technique'],
@@ -104,6 +105,7 @@ export const AUTHORS: Author[] = [
     photoAlt: 'Ustaad Subject Specialists contributing Maths, Science and English guidance for UAE families',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
+      { title: 'What Does the Gradient Actually Mean? A Teacher Explains It from Maths to Physics', href: '/blogs/what-does-gradient-mean-maths-physics', role: 'authored' },
       { title: 'IGCSE Physics Formulas for Exams', href: '/blogs/igcse-physics-formulas-exam', role: 'authored' },
       { title: 'Why IGCSE Maths Students Lose Marks After Hours of Revision', href: '/blogs/igcse-maths-revision-low-marks', role: 'authored' },
     ],

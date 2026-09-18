@@ -244,7 +244,7 @@ const uaeLocations = [
   { name: "Al Ain",         desc: "Cambridge focused",         icon: <MapPin className="h-4 w-4" /> },
   { name: "Ras Al Khaimah", desc: "Northern Emirates",         icon: <MapPin className="h-4 w-4" /> },
   { name: "Fujairah",       desc: "East coast",                icon: <MapPin className="h-4 w-4" /> },
-  { name: "Umm Al Quwain",  desc: "6th Emirate",               icon: <MapPin className="h-4 w-4" /> },
+  { name: "Umm Al Quwain",  desc: "Northern Emirates",         icon: <MapPin className="h-4 w-4" /> },
 ];
 
 const customResultsSection = (

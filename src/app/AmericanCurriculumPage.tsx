@@ -102,7 +102,7 @@ export default function AmericanCurriculumPage() {
     { name: 'Al Ain', note: 'Capital region' },
     { name: 'Ras Al Khaimah', note: 'Northern coast' },
     { name: 'Fujairah', note: 'East coast' },
-    { name: 'Umm Al Quwain', note: '7th Emirate' },
+    { name: 'Umm Al Quwain', note: 'Northern Emirates' },
   ];
 
   return (
