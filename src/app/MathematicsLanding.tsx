@@ -1298,40 +1298,40 @@ export default function MathematicsLanding() {
                     Senior Maths Teacher · Ustaad UAE
                   </div>
 
-                  {/* Metadata 2x2 Grid */}
-                  <div className="grid grid-cols-1 gap-1.5 py-2 border-y border-slate-100 text-[11.5px] text-slate-700">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                  {/* Metadata List (Full content, zero truncation) */}
+                  <div className="space-y-2 py-2.5 border-y border-slate-100 text-[12px] text-slate-700">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-slate-400 font-extrabold block">
                         Credentials
                       </span>
-                      <span className="font-semibold text-[#0a1f3d] text-[11.5px] truncate">
+                      <span className="font-semibold text-[#0a1f3d] leading-snug block">
                         BS Mathematics, B.Ed · 10+ years IGCSE and A-Level
                       </span>
                     </div>
 
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-slate-400 font-extrabold block">
                         AD Specialty
                       </span>
-                      <span className="font-semibold text-slate-700 text-[11.5px] leading-snug">
+                      <span className="font-semibold text-slate-600 leading-snug block">
                         ADEK-school IGCSE and O-Level Maths. Works with Abu Dhabi students at BSAK, Cranleigh, and Repton Al Reem.
                       </span>
                     </div>
 
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-slate-400 font-extrabold block">
                         Recent Student
                       </span>
-                      <span className="font-semibold text-[#0f4a9b] text-[11.5px] truncate">
+                      <span className="font-semibold text-[#0f4a9b] leading-snug block">
                         Edexcel O-Level Maths grade C to grade A in one term.
                       </span>
                     </div>
 
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-slate-400 font-extrabold block">
                         Availability
                       </span>
-                      <span className="font-semibold text-[#0a1f3d] text-[11.5px] truncate">
+                      <span className="font-semibold text-[#0a1f3d] leading-snug block">
                         Weekday evenings &amp; weekend morning slots (Abu Dhabi time)
                       </span>
                     </div>
@@ -1398,40 +1398,40 @@ export default function MathematicsLanding() {
                     Senior Maths and Statistics Teacher · Ustaad UAE
                   </div>
 
-                  {/* Metadata 2x2 Grid */}
-                  <div className="grid grid-cols-1 gap-1.5 py-2 border-y border-slate-100 text-[11.5px] text-slate-700">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                  {/* Metadata List (Full content, zero truncation) */}
+                  <div className="space-y-2 py-2.5 border-y border-slate-100 text-[12px] text-slate-700">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-slate-400 font-extrabold block">
                         Credentials
                       </span>
-                      <span className="font-semibold text-[#0a1f3d] text-[11.5px] truncate">
+                      <span className="font-semibold text-[#0a1f3d] leading-snug block">
                         Master in Statistics · Cambridge Certified · 9 years
                       </span>
                     </div>
 
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-slate-400 font-extrabold block">
                         AD Specialty
                       </span>
-                      <span className="font-semibold text-slate-700 text-[11.5px] leading-snug">
+                      <span className="font-semibold text-slate-600 leading-snug block">
                         A-Level Statistics, IGCSE Statistics, AP Statistics. Coaches Abu Dhabi A-Level students preparing for Khalifa University and MBRU pathways.
                       </span>
                     </div>
 
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-slate-400 font-extrabold block">
                         Recent Student
                       </span>
-                      <span className="font-semibold text-[#0f4a9b] text-[11.5px] truncate">
+                      <span className="font-semibold text-[#0f4a9b] leading-snug block">
                         A-Level Statistics grade C to grade A in one academic year.
                       </span>
                     </div>
 
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-[9.5px] uppercase tracking-wider text-gray-400 font-extrabold w-24 shrink-0">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-slate-400 font-extrabold block">
                         Availability
                       </span>
-                      <span className="font-semibold text-[#0a1f3d] text-[11.5px] truncate">
+                      <span className="font-semibold text-[#0a1f3d] leading-snug block">
                         Weekday evenings &amp; Saturday afternoon slots (Abu Dhabi time)
                       </span>
                     </div>
