@@ -796,11 +796,6 @@ export default function WhatDoesGradientMeanBlog() {
                 <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> WhatsApp for Maths with Tabraiz
               </a>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/10">
-              <a href="/tutors/tabraiz-khan" className="text-xs text-white/70 hover:text-white underline font-medium transition">
-                View Tabraiz Khan's Full Teaching Profile &amp; Availability →
-              </a>
-            </div>
           </div>
 
           {/* Meet the Writers */}
