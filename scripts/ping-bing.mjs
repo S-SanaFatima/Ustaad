@@ -1,7 +1,7 @@
 import https from 'node:https';
 import { ROUTES } from '../routes.config.mjs';
 
-const KEY = '567281d473fe4dcba9b56d608254f089';
+const KEY = '82c9829535fe4e56949b90607d53f4c6';
 const HOST = 'ustaad.ae';
 const BASE_URL = `https://${HOST}`;
 
