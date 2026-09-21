@@ -60,9 +60,10 @@ Options -Indexes
     Header set Access-Control-Allow-Origin "*"
   </FilesMatch>
 
-  # XML Sitemap Header
+  # XML Sitemap Header - Ensure search engines treat it as sitemap and not indexable HTML page
   <FilesMatch "sitemap\.xml$">
     Header set Content-Type "application/xml; charset=utf-8"
+    Header set X-Robots-Tag "noindex, follow"
   </FilesMatch>
 </IfModule>
 
@@ -84,14 +85,26 @@ RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
 RewriteRule ^(.*)$ https://ustaad.ae/$1 [R=301,L]
 
 # --- Legacy & Alias 301 Redirects ---
+# Arabic URLs -> English equivalents
+RewriteRule ^ar/gcse-tutor-dubai/?$ /gcse-tutor-dubai [R=301,L]
+RewriteRule ^ar/?$ / [R=301,L]
+RewriteRule ^ar/(.*)$ /$1 [R=301,L]
+
+# Alias & Old Slug 301 Redirects
 RewriteRule ^apply-now/?$ /contact [R=301,L]
+RewriteRule ^american/?$ /american-curriculum [R=301,L]
 RewriteRule ^british/?$ /british-curriculum [R=301,L]
+RewriteRule ^ib-ap-as/?$ /curriculum [R=301,L]
+RewriteRule ^ib/?$ /ib-curriculum [R=301,L]
 RewriteRule ^sat-emsat/?$ /exam-preparation [R=301,L]
 RewriteRule ^gcse-cbse/?$ /gcse [R=301,L]
 RewriteRule ^mathematics/?$ /maths [R=301,L]
 RewriteRule ^mathtestlanding/?$ /maths-tutor-abu-dhabi [R=301,L]
 RewriteRule ^uae-guide/?$ /blogs [R=301,L]
 RewriteRule ^faqs/?$ /#faqs [R=301,L,NE]
+
+# Specific legacy blog post redirects before generic 410
+RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}/lazy-students-effective-strategies.*$ /blogs/psychology-of-learning [R=301,L]
 
 # --- WordPress-era Legacy Debris → HTTP 410 Gone ---
 RewriteRule ^/?author(/.*)?$ - [G,L]
@@ -107,8 +120,8 @@ RewriteRule ^School%20logos/(.*)$ /school-logos/$1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# Strip Trailing Slashes when a prerendered page exists
-RewriteCond %{THE_REQUEST} \s/+([^?\s]*?)/\s [NC]
+# Strip Trailing Slashes when a prerendered page exists (handles query params properly)
+RewriteCond %{THE_REQUEST} \s/+([^?\s]+?)/+(\?|\s) [NC]
 RewriteCond %{DOCUMENT_ROOT}/%1/index.html -f
 RewriteRule ^ /%1 [R=301,L]
 

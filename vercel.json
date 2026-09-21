@@ -11,26 +11,36 @@
       "destination": "https://ustaad.ae/:path*",
       "permanent": true
     },
+    { "source": "/ar/gcse-tutor-dubai", "destination": "/gcse-tutor-dubai", "permanent": true },
+    { "source": "/ar", "destination": "/", "permanent": true },
+    { "source": "/ar/:path*", "destination": "/:path*", "permanent": true },
     { "source": "/apply-now", "destination": "/contact", "permanent": true },
-    { "source": "/apply-now/", "destination": "/contact", "permanent": true },
     { "source": "/british", "destination": "/british-curriculum", "permanent": true },
-    { "source": "/british/", "destination": "/british-curriculum", "permanent": true },
     { "source": "/american", "destination": "/american-curriculum", "permanent": true },
-    { "source": "/american/", "destination": "/american-curriculum", "permanent": true },
+    { "source": "/ib-ap-as", "destination": "/curriculum", "permanent": true },
+    { "source": "/ib", "destination": "/ib-curriculum", "permanent": true },
     { "source": "/sat-emsat", "destination": "/exam-preparation", "permanent": true },
-    { "source": "/sat-emsat/", "destination": "/exam-preparation", "permanent": true },
     { "source": "/gcse-cbse", "destination": "/gcse", "permanent": true },
-    { "source": "/gcse-cbse/", "destination": "/gcse", "permanent": true },
     { "source": "/mathematics", "destination": "/maths", "permanent": true },
-    { "source": "/mathematics/", "destination": "/maths", "permanent": true },
     { "source": "/mathtestlanding", "destination": "/maths-tutor-abu-dhabi", "permanent": true },
-    { "source": "/mathtestlanding/", "destination": "/maths-tutor-abu-dhabi", "permanent": true },
     { "source": "/uae-guide", "destination": "/blogs", "permanent": true },
-    { "source": "/uae-guide/", "destination": "/blogs", "permanent": true },
     { "source": "/faqs", "destination": "/#faqs", "permanent": true },
-    { "source": "/faqs/", "destination": "/#faqs", "permanent": true }
+    { "source": "/2025/08/04/lazy-students-effective-strategies-for-motivating-lazy-students-in-self-study", "destination": "/blogs/psychology-of-learning", "permanent": true }
   ],
   "headers": [
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
