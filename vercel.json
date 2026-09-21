@@ -24,6 +24,8 @@
     { "source": "/mathematics", "destination": "/maths", "permanent": true },
     { "source": "/mathtestlanding", "destination": "/maths-tutor-abu-dhabi", "permanent": true },
     { "source": "/uae-guide", "destination": "/blogs", "permanent": true },
+    { "source": "/subjects-tutoring", "destination": "/subjects", "permanent": true },
+    { "source": "/tutors-private-tutor", "destination": "/tutors", "permanent": true },
     { "source": "/faqs", "destination": "/#faqs", "permanent": true },
     { "source": "/2025/08/04/lazy-students-effective-strategies-for-motivating-lazy-students-in-self-study", "destination": "/blogs/psychology-of-learning", "permanent": true }
   ],

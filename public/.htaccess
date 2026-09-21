@@ -101,6 +101,8 @@ RewriteRule ^gcse-cbse/?$ /gcse [R=301,L]
 RewriteRule ^mathematics/?$ /maths [R=301,L]
 RewriteRule ^mathtestlanding/?$ /maths-tutor-abu-dhabi [R=301,L]
 RewriteRule ^uae-guide/?$ /blogs [R=301,L]
+RewriteRule ^subjects-tutoring/?$ /subjects [R=301,L]
+RewriteRule ^tutors-private-tutor/?$ /tutors [R=301,L]
 RewriteRule ^faqs/?$ /#faqs [R=301,L,NE]
 
 # Specific legacy blog post redirects before generic 410
