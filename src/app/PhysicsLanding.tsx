@@ -178,14 +178,9 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
             {steps.map((s, i) => {
               const above = i % 2 === 0;
               return (
-                <motion.div
+                <div
                   key={i}
-                  initial={{ opacity: 0, y: -12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  whileHover={{ y: -6 }}
-                  className={`flex flex-col items-center text-center px-3 cursor-default group ${above ? 'justify-end pb-5' : 'invisible'}`}
+                  className={`flex flex-col items-center text-center px-3 cursor-default group hover:-translate-y-1.5 transition-all duration-300 ${above ? 'justify-end pb-5' : 'invisible'}`}
                   style={{ minHeight: '140px' }}
                 >
                   <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] group-hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] transition-shadow duration-300 flex items-center justify-center text-[#0f4a9b] mb-3">
@@ -193,7 +188,7 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
                   </div>
                   <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
                   <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
-                </motion.div>
+                </div>
               );
             })}
           </div>
@@ -242,14 +237,9 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
             {steps.map((s, i) => {
               const below = i % 2 !== 0;
               return (
-                <motion.div
+                <div
                   key={i}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  whileHover={{ y: -6 }}
-                  className={`flex flex-col items-center text-center px-3 cursor-default group ${below ? 'justify-start pt-5' : 'invisible'}`}
+                  className={`flex flex-col items-center text-center px-3 cursor-default group hover:-translate-y-1.5 transition-all duration-300 ${below ? 'justify-start pt-5' : 'invisible'}`}
                   style={{ minHeight: '140px' }}
                 >
                   <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] group-hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] transition-shadow duration-300 flex items-center justify-center text-[#0f4a9b] mb-3">
@@ -257,7 +247,7 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
                   </div>
                   <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
                   <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
-                </motion.div>
+                </div>
               );
             })}
           </div>
@@ -269,12 +259,8 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
           <div className="absolute top-3 bottom-3 w-[2px] rounded-full" style={{ left: '17px', background: 'linear-gradient(180deg, rgba(30,91,168,0.3), #0f4a9b 50%, rgba(30,91,168,0.3))' }} />
           <div className="flex flex-col gap-4">
             {steps.map((s, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="relative flex items-start gap-3"
               >
                 {/* numbered node on spine */}
@@ -290,7 +276,7 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
                   <h3 className="text-[14px] font-extrabold text-[#0a1f3d] leading-snug mb-0.5">{s.title}</h3>
                   <p className="text-[12.5px] text-gray-500 leading-relaxed">{s.desc}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -325,13 +311,13 @@ function ParentsSlider() {
   return (
     <div>
       <div className="relative min-h-[230px] sm:min-h-[210px]">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={index}
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -24 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="relative rounded-2xl p-5 sm:p-6 lg:p-8 overflow-hidden"
             style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
           >
@@ -777,14 +763,9 @@ export default function PhysicsLanding() {
               { icon: <Calculator className="w-7 h-7" />, title: 'Equations Decoded', desc: 'Algebra rebuilt first, then F=ma, V=IR, and energy equations under any pressure.' },
               { icon: <PenTool className="w-7 h-7" />, title: 'Diagrams First', desc: 'Free-body, ray, and circuit diagrams become habit, not last-minute drawings.' },
             ].map((card, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                whileHover={{ y: -6, boxShadow: '0 12px 32px rgba(15,74,155,0.12)' }}
-                className="relative rounded-3xl p-5 sm:p-6 text-center overflow-hidden cursor-default transition-shadow duration-300"
+                className="relative rounded-3xl p-5 sm:p-6 text-center overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)]"
                 style={{ background: 'linear-gradient(180deg, #fafbff 0%, #f5f7ff 100%)', border: '1px solid rgba(15,74,155,0.08)' }}
               >
                 <div className="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full mb-2.5"
@@ -793,7 +774,7 @@ export default function PhysicsLanding() {
                 </div>
                 <h3 className="text-[15px] font-extrabold text-[#0a1f3d] mb-2 leading-tight">{card.title}</h3>
                 <p className="text-[13px] text-gray-600 leading-relaxed">{card.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -871,14 +852,9 @@ export default function PhysicsLanding() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {topics.map((card, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                whileHover={{ y: -6, boxShadow: '0 12px 32px rgba(15,74,155,0.12)' }}
-                className="relative rounded-3xl p-5 text-center overflow-hidden cursor-default transition-shadow duration-300"
+                className="relative rounded-3xl p-5 text-center overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)]"
                 style={{ background: 'linear-gradient(180deg, #fafbff 0%, #f5f7ff 100%)', border: '1px solid rgba(15,74,155,0.08)' }}
               >
                 <div className="absolute inset-0 opacity-30 pointer-events-none"
@@ -889,7 +865,7 @@ export default function PhysicsLanding() {
                 </div>
                 <h3 className="relative z-10 text-[15px] font-extrabold text-[#0a1f3d] mb-1.5 leading-tight">{card.title}</h3>
                 <p className="relative z-10 text-[13px] text-gray-600 leading-relaxed">{card.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -913,14 +889,9 @@ export default function PhysicsLanding() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {paperLab.map((card, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                whileHover={{ y: -6, boxShadow: '0 12px 32px rgba(255,255,255,0.12)' }}
-                className="rounded-2xl p-5 text-left relative overflow-hidden cursor-default transition-shadow duration-300"
+                className="rounded-2xl p-5 text-left relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(255,255,255,0.12)]"
                 style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(110,168,255,0.18)' }}
               >
                 <div className="inline-flex items-center justify-center w-11 h-11 rounded-full mb-3"
@@ -929,7 +900,7 @@ export default function PhysicsLanding() {
                 </div>
                 <h3 className="text-[15px] font-extrabold text-white mb-1.5 leading-tight">{card.title}</h3>
                 <p className="text-blue-100/60 text-[13px] leading-relaxed">{card.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -958,28 +929,15 @@ export default function PhysicsLanding() {
           <div className="hidden lg:flex items-start gap-3 justify-center">
             {assessmentSkills.map((s, i) => (
               <div key={i} className="flex items-start flex-1 max-w-[200px]">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.12 }}
-                  className="flex flex-col items-start flex-1"
-                >
+                <div className="flex flex-col items-start flex-1">
                   <span className="text-[32px] font-black leading-none mb-3"
                     style={{ background: 'linear-gradient(135deg, #0f4a9b 0%, #1e5ba8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-tight mb-2.5">{s.title}</h3>
-                </motion.div>
+                </div>
                 {i < assessmentSkills.length - 1 && (
-                  <motion.div
-                    initial={{ scaleX: 0, opacity: 0 }}
-                    whileInView={{ scaleX: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.12 + 0.2 }}
-                    className="flex items-center pt-8 px-4"
-                    style={{ originX: 0 }}
-                  >
+                  <div className="flex items-center pt-8 px-4">
                     <svg width="60" height="24" viewBox="0 0 60 24" fill="none" className="shrink-0">
                       <defs>
                         <linearGradient id={`parrow-grad-${i}`} x1="0%" y1="0%" x2="100%" y2="0%">
@@ -990,7 +948,7 @@ export default function PhysicsLanding() {
                       <line x1="0" y1="12" x2="48" y2="12" stroke={`url(#parrow-grad-${i})`} strokeWidth="2.5" strokeLinecap="round" />
                       <path d="M 48 12 L 42 8 M 48 12 L 42 16" stroke="#0f4a9b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.6" />
                     </svg>
-                  </motion.div>
+                  </div>
                 )}
               </div>
             ))}
@@ -998,20 +956,13 @@ export default function PhysicsLanding() {
 
           <div className="lg:hidden grid grid-cols-2 gap-4 max-w-lg mx-auto">
             {assessmentSkills.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="flex flex-col"
-              >
+              <div key={i} className="flex flex-col">
                 <span className="text-[24px] font-black leading-none mb-2"
                   style={{ background: 'linear-gradient(135deg, #0f4a9b 0%, #1e5ba8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <h3 className="text-[14px] font-extrabold text-[#0a1f3d] leading-tight">{s.title}</h3>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -1128,18 +1079,14 @@ export default function PhysicsLanding() {
           </div>
           <div className="flex flex-col gap-3">
             {gapChecks.map((g, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="flex items-center justify-between gap-4 rounded-2xl p-4 sm:p-5"
+                className="flex items-center justify-between gap-4 rounded-2xl p-4 sm:p-5 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(15,74,155,0.08)]"
                 style={{ background: 'linear-gradient(180deg, #fafbff 0%, #f5f7ff 100%)', border: '1px solid rgba(15,74,155,0.1)' }}
               >
                 <p className="text-[13px] sm:text-[14px] font-semibold text-[#0a1f3d] leading-snug">{g.q}</p>
                 <span className="shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap" style={{ background: 'rgba(15,74,155,0.08)', color: '#0f4a9b', border: '1px solid rgba(15,74,155,0.15)' }}>{g.tag}</span>
-              </motion.div>
+              </div>
             ))}
           </div>
           <p className="text-center text-[13px] text-gray-500 leading-relaxed mt-5 mb-5">
