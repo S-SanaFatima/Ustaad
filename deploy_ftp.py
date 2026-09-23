@@ -8,7 +8,7 @@ FTP_PORT = 21
 FTP_USER = "devsynx@ustaad.ae"
 LOCAL_DIR = os.path.abspath("dist/client")
 
-def upload_dir(ftp, local_dir, remote_dir):
+def upload_dir(ftp, local_dir, remote_dir, force=False):
     for item in os.listdir(local_dir):
         if item == ".DS_Store" or item == ".vite":
             continue
@@ -16,6 +16,14 @@ def upload_dir(ftp, local_dir, remote_dir):
         remote_path = f"{remote_dir}/{item}".strip("/") if remote_dir else item
         
         if os.path.isfile(local_path):
+            local_size = os.path.getsize(local_path)
+            if not force:
+                try:
+                    remote_size = ftp.size(remote_path)
+                    if remote_size == local_size:
+                        continue  # Skip identical file
+                except Exception:
+                    pass  # File does not exist on remote or size check not supported
             print(f"Uploading: {remote_path}")
             with open(local_path, "rb") as f:
                 ftp.storbinary(f"STOR {remote_path}", f)
@@ -24,7 +32,7 @@ def upload_dir(ftp, local_dir, remote_dir):
                 ftp.mkd(remote_path)
             except Exception:
                 pass  # Directory already exists
-            upload_dir(ftp, local_path, remote_path)
+            upload_dir(ftp, local_path, remote_path, force=force)
 
 def main():
     if not os.path.exists(LOCAL_DIR):

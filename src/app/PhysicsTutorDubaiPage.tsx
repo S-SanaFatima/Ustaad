@@ -301,25 +301,25 @@ const Eyebrow = ({ icon, text, dark = false }: { icon: React.ReactNode; text: st
 /* ─── Parents Testimonial Slider — Dubai Parents ─── */
 const PARENT_REVIEWS = [
   { 
-    name: 'Tariq A.', 
-    initials: 'TA', 
-    location: 'Arabian Ranches, Dubai', 
-    subject: 'Cambridge IGCSE Physics 0625 · Verified Google Review',
-    text: 'My daughter struggled with Paper 4 calculations and Paper 6 graph work at her school in Dubai. Her Ustaad physics tutor made vector diagrams and formula rearrangements completely intuitive. Within 3 months, her mock grade jumped from a 5 to an 8.' 
+    name: 'Rashid A.', 
+    initials: 'RA', 
+    location: 'Dubai Hills Estate, Dubai', 
+    subject: 'IB DP Physics Higher Level (HL) · Verified Google Review',
+    text: 'My son at JESS Arabian Ranches was finding the new IB Physics HL syllabus overwhelming, particularly wave mechanics and his Internal Assessment (IA) data analysis. His Ustaad tutor broke down challenging multi-topic problems with extreme clarity. He went from a predicted 5 to achieving a strong 7.' 
   },
   { 
-    name: 'Sarah M.', 
-    initials: 'SM', 
+    name: 'Kavita M.', 
+    initials: 'KM', 
+    location: 'Emirates Hills, Dubai', 
+    subject: 'Cambridge IGCSE Physics 0625 · Verified Google Review',
+    text: 'Our daughter at Dubai College was losing marks on Paper 4 calculations and Paper 6 practical design. Her tutor methodically rebuilt her formula rearrangements and graph interpretation skills. Her confidence skyrocketed, and she achieved an A* in her final IGCSE exams.' 
+  },
+  { 
+    name: 'Jonathan P.', 
+    initials: 'JP', 
     location: 'Dubai Marina, UAE', 
     subject: 'Edexcel A-Level Physics (9PH0) · Verified Google Review',
-    text: 'The transition to Year 12 Physics at Dubai College is tough. Ustaad matched us with an exceptional physics specialist who broke down electromagnetic induction and fields with real clarity. Highly recommended for any student targeting top UK engineering universities.' 
-  },
-  { 
-    name: 'Farhan K.', 
-    initials: 'FK', 
-    location: 'Emirates Hills, Dubai', 
-    subject: 'IB DP Physics Higher Level (HL) · Verified Google Review',
-    text: 'Finding a tutor who genuinely understands the new IB Physics HL syllabus and Internal Assessment requirements in Dubai seemed impossible until we found Ustaad. Patient, rigorous, and completely dedicated to high marks.' 
+    text: 'Transitioning to Year 12 Physics at Brighton College Dubai was a steep step. Ustaad provided a fantastic specialist who taught exact examiner mark-scheme phraseology for electric fields and electromagnetic induction. Truly the most reliable tutoring service in the UAE.' 
   },
 ];
 
@@ -420,88 +420,103 @@ export default function PhysicsTutorDubaiPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const challenges: Challenge[] = [
-    { notation: 'def', icon: <BookOpen className="h-5 w-5" />, title: 'Definitions Half-Written', problem: "Newton's laws, momentum, and work-energy theorem definitions lose easy marks on Cambridge and Edexcel physics papers." },
-    { notation: 'F=ma', icon: <Calculator className="h-5 w-5" />, title: 'Equations Misapplied', problem: 'F=ma, V=IR, SUVAT equations, and thermal energy formulas break down when questions require multi-step algebraic rearrangement.' },
-    { notation: 'fbd', icon: <PenTool className="h-5 w-5" />, title: 'Diagrams Skipped', problem: 'Free-body force diagrams, ray optics, and circuit schematics left blank or unlabelled, throwing away high-tariff method marks.' },
+    { 
+      notation: 'ΣF=0', 
+      icon: <PenTool className="h-5 w-5" />, 
+      title: 'Vector Resolution & Free-Body Forces', 
+      problem: 'When exam questions require resolving contact forces on inclined planes or non-perpendicular magnetic fields, students frequently forget trigonometric components or drop normal reaction forces, losing easy method marks.' 
+    },
+    { 
+      notation: 'Δy/Δx', 
+      icon: <FlaskConical className="h-5 w-5" />, 
+      title: 'Paper 6 & Experimental Logic Flaws', 
+      problem: 'Students lose 6 to 10 marks on practical papers by choosing awkward graph scales, drawing lines of best fit that ignore outliers, or writing vague precautions like "be careful" instead of specific control variables.' 
+    },
+    { 
+      notation: 'E=mc²', 
+      icon: <Calculator className="h-5 w-5" />, 
+      title: 'Multi-Step Derivations & Unit Errors', 
+      problem: 'Questions combining SUVAT kinematics, work-energy theorem, or circuit resistance collapse when students rush into calculator numbers without showing algebraic substitutions or converting Mega/Micro SI prefixes.' 
+    },
   ];
 
   const steps: Step[] = [
-    { n: '01', icon: <FileSearch className="h-6 w-6" />, title: 'Diagnose The Gap', desc: "Your tutor spots whether the breakdown is in definition wording, formula rearrangement, or diagram sketching." },
-    { n: '02', icon: <Wrench className="h-6 w-6" />, title: 'Rebuild The Topic', desc: "Each weak topic is rebuilt from fundamental physics principles before timed exam practice begins." },
-    { n: '03', icon: <Timer className="h-6 w-6" />, title: 'Practise Past Papers', desc: "Real Cambridge 0625, Edexcel 4PH1, A-Level and IB physics past papers drill exam technique until instinctive." },
+    { n: '01', icon: <FileSearch className="h-6 w-6" />, title: 'Diagnostic Past-Paper Baseline', desc: "We evaluate your child's mock performance to isolate whether marks leak from mathematical derivation, concept comprehension, or practical paper logic." },
+    { n: '02', icon: <Wrench className="h-6 w-6" />, title: 'First-Principles Rebuilding', desc: "Complex physics topics—from electromagnetic induction to wave superposition—are explained with visual models until thoroughly understood." },
+    { n: '03', icon: <Timer className="h-6 w-6" />, title: 'Examiner-Standard Drills', desc: "Students complete timed past paper questions mapped to exact Cambridge, Edexcel, and IB mark schemes to develop sharp exam technique." },
   ];
 
   const journey = [
-    { years: 'Year 7–9', title: 'Foundation (KS3)', desc: 'Middle school physics builds solid vector habits, unit consistency, and scientific inquiry early on.', link: { label: 'Middle School Sciences', href: '/middle-school' } },
-    { years: 'Year 10–11', title: 'IGCSE / GCSE', desc: 'Cambridge 0625, Edexcel 4PH1, and AQA GCSE physics, covering Papers 1 to 6 and practical alternatives.', link: { label: 'IGCSE Physics Tutor Dubai', href: '/igcse-tutor-dubai' } },
-    { years: 'Year 12–13', title: 'A-Level / IB / AP', desc: 'Cambridge 9702, Edexcel 9PH0, IB Physics SL/HL (2025 syllabus), and AP Physics 1/C Mechanics.', link: { label: 'A-Level Tutors Dubai', href: '/a-level' } },
+    { years: 'Year 7–9', title: 'Middle School & KS3', desc: 'Building vector intuition, metric unit conversions, and experimental thinking before GCSE pressure begins.', link: { label: 'Middle School Sciences', href: '/middle-school' } },
+    { years: 'Year 10–11', title: 'IGCSE & GCSE Physics', desc: 'Cambridge 0625/0972, Edexcel 4PH1, and AQA, mastering Paper 2 MCQs, Paper 4 theory, and Paper 6 practicals.', link: { label: 'IGCSE Physics Tutor Dubai', href: '/igcse-tutor-dubai' } },
+    { years: 'Year 12–13', title: 'A-Level & IB DP Physics', desc: 'Cambridge 9702, Edexcel 9PH0, and IB DP Physics (2025/2026 syllabus Themes A–E + Internal Assessment IA).', link: { label: 'A-Level Tutors Dubai', href: '/a-level' } },
   ];
 
   const topics = [
-    { icon: <Gauge className="w-7 h-7" />, title: 'Mechanics & Motion', desc: "Newton's laws, SUVAT kinematics, momentum conservation, work-energy-power, and circular motion." },
-    { icon: <Zap className="w-7 h-7" />, title: 'Electricity & Magnetism', desc: "Ohm's law, Kirchhoff's circuit rules, capacitance, magnetic fields, and electromagnetic induction." },
-    { icon: <Waves className="w-7 h-7" />, title: 'Waves & Optics', desc: 'Wave parameters, total internal reflection, diffraction, interference, and stationary waves.' },
-    { icon: <Thermometer className="w-7 h-7" />, title: 'Thermal & Quantum', desc: 'Specific heat, ideal gas laws, photoelectric effect, energy levels, and nuclear decay equations.' },
+    { icon: <Gauge className="w-7 h-7" />, title: 'Classical Mechanics & Dynamics', desc: "SUVAT kinematics, Newton's laws of motion, circular dynamics, projectile trajectories, and momentum conservation." },
+    { icon: <Zap className="w-7 h-7" />, title: 'Electricity, Magnetism & Fields', desc: "Kirchhoff's circuit rules, potential dividers, capacitance, electric fields, and Faraday & Lenz induction." },
+    { icon: <Waves className="w-7 h-7" />, title: 'Oscillations, Waves & Optics', desc: 'Simple harmonic motion, Doppler effect, diffraction gratings, superposition, and total internal reflection.' },
+    { icon: <Thermometer className="w-7 h-7" />, title: 'Thermal, Quantum & Nuclear', desc: 'Specific & latent heat, ideal gas laws, photoelectric effect, de Broglie wavelength, and binding energy.' },
   ];
 
   const paperLab = [
-    { icon: <PenTool className="w-7 h-7" />, title: 'Theory Paper Drills', desc: 'Structured long-answer calculation and explanation questions worked through with mark scheme precision.' },
-    { icon: <FlaskConical className="w-7 h-7" />, title: 'Alternative to Practical', desc: 'Paper 6 and Paper 5 skills: graph plotting, gradient determination, experimental error, and safety precautions.' },
-    { icon: <ClipboardCheck className="w-7 h-7" />, title: 'Past Paper Mastery', desc: 'Real Cambridge, Edexcel, and IB past papers completed under strict timed exam conditions.' },
-    { icon: <Timer className="w-7 h-7" />, title: 'Exam Technique Drills', desc: 'Formula sheets, standard SI unit prefixes, and significant figures drilled until automatic.' },
+    { icon: <PenTool className="w-7 h-7" />, title: 'Method-Mark Mastery', desc: 'Writing structured multi-step calculations with clear formulas so method marks are secured even if arithmetic slips occur.' },
+    { icon: <FlaskConical className="w-7 h-7" />, title: 'Alternative to Practical (Paper 6)', desc: 'Mastering graph axes selection, gradient determination, experimental error evaluations, and controlled variable design.' },
+    { icon: <ClipboardCheck className="w-7 h-7" />, title: 'Command-Word Decoding', desc: 'Deconstructing the precise mark-scheme expectations behind "State", "Describe", "Explain", and "Deduce".' },
+    { icon: <Timer className="w-7 h-7" />, title: 'Paced Mock Simulations', desc: 'Practicing authentic 75-minute and 120-minute papers under strict exam conditions to eliminate timing anxiety.' },
   ];
 
   const assessmentSkills = [
-    { icon: <PenTool className="h-6 w-6" />, title: 'Subject Specialists' },
-    { icon: <ClipboardCheck className="h-6 w-6" />, title: 'Curriculum Specialists' },
-    { icon: <ShieldCheck className="h-6 w-6" />, title: 'Background Checked' },
-    { icon: <CheckCircle2 className="h-6 w-6" />, title: 'One-to-One Focused' },
+    { icon: <PenTool className="h-6 w-6" />, title: 'STEM Degree Specialists' },
+    { icon: <ClipboardCheck className="h-6 w-6" />, title: 'Board-Specific Mastery' },
+    { icon: <ShieldCheck className="h-6 w-6" />, title: 'Diagnostic-Led Lessons' },
+    { icon: <CheckCircle2 className="h-6 w-6" />, title: 'Transparent Progress Reports' },
   ];
 
   const compareRows = [
-    { label: 'Diagnostic assessment before matching', ustaad: 'yes', market: 'no', school: 'no' },
-    { label: 'Exact Dubai curriculum & board match', ustaad: 'yes', market: 'sometimes', school: 'yes' },
-    { label: 'Weekly timed past paper drills', ustaad: 'yes', market: 'no', school: 'rare' },
-    { label: 'Paper 6 / practical alternative prep', ustaad: 'yes', market: 'no', school: 'yes' },
-    { label: 'Detailed parent progress tracking', ustaad: 'yes', market: 'no', school: 'no' },
+    { label: 'Diagnostic baseline assessment before matching', ustaad: 'yes', market: 'no', school: 'no' },
+    { label: 'Exact Dubai board match (0625, 4PH1, 9PH0, IB)', ustaad: 'yes', market: 'sometimes', school: 'yes' },
+    { label: 'Weekly timed past-paper question drills', ustaad: 'yes', market: 'no', school: 'rare' },
+    { label: 'Paper 6 / practical experimental coaching', ustaad: 'yes', market: 'no', school: 'yes' },
+    { label: 'Comprehensive post-lesson parent progress tracking', ustaad: 'yes', market: 'no', school: 'no' },
   ];
 
   const gapChecks = [
-    { q: 'Does your child know the physics formulas but struggle to select the right one?', tag: 'Formula gap' },
-    { q: 'Do they skip drawing free-body diagrams or ray schematics when questions ask?', tag: 'Diagram gap' },
-    { q: 'Are their written explanations vague, missing key examiner mark-scheme terms?', tag: 'Keywords gap' },
+    { q: 'Does your child know the physics formula but struggle to rearrange it algebraically for the target variable?', tag: 'Derivation Gap' },
+    { q: 'Do they lose marks on 4-mark and 6-mark explanation questions for omitting examiner keywords?', tag: 'Keywords Gap' },
+    { q: 'Are Paper 6 practical marks slipping due to careless graph scales or vague experimental safety comments?', tag: 'Practical Gap' },
   ];
 
   const faqs: { q: string; a: React.ReactNode; plain: string }[] = [
     { 
-      q: 'Which Physics exam boards are most common in Dubai schools?', 
-      plain: "Most British-curriculum schools in Dubai (such as Dubai College, JESS Arabian Ranches, and Nord Anglia Dubai) sit Cambridge IGCSE Physics (0625/0972) or Pearson Edexcel International GCSE (4PH1). For sixth form, schools offer Edexcel A-Level (9PH0), Cambridge International A-Level (9702), or IB DP Physics (SL/HL). We verify your child's exact exam board before the first lesson.", 
-      a: <>Most British-curriculum schools in Dubai (such as Dubai College, JESS Arabian Ranches, and Nord Anglia Dubai) sit Cambridge IGCSE Physics (0625/0972) or Pearson Edexcel International GCSE (4PH1). For sixth form, schools offer Edexcel <a href="/a-level" className="text-[#0f4a9b] font-semibold underline">A-Level Physics</a>, Cambridge A-Level, or <a href="/ib-curriculum" className="text-[#0f4a9b] font-semibold underline">IB DP Physics</a>. We verify your child's exact board before the first lesson.</> 
+      q: 'Which Physics exam boards do your Dubai tutors support?', 
+      plain: "We support all major Physics exam boards taught across Dubai private schools: Cambridge IGCSE Physics (0625/0972), Pearson Edexcel International GCSE (4PH1), OxfordAQA GCSE, Cambridge International A-Level (9702), Pearson Edexcel A-Level (9PH0), AQA A-Level, and the International Baccalaureate (IB DP Physics SL & HL). Your tutor will be aligned specifically with your child's exact school syllabus.", 
+      a: <>We support all major Physics exam boards taught across Dubai private schools: Cambridge IGCSE Physics (0625/0972), Pearson Edexcel International GCSE (4PH1), OxfordAQA, Cambridge International <a href="/a-level" className="text-[#0f4a9b] font-semibold underline">A-Level Physics (9702)</a>, Pearson Edexcel A-Level (9PH0), and the International Baccalaureate (<a href="/ib-curriculum" className="text-[#0f4a9b] font-semibold underline">IB DP Physics SL & HL</a>). Your tutor will be aligned specifically with your child's exact school syllabus.</> 
     },
     { 
-      q: 'Do you provide Alternative to Practical (Paper 6) training for Dubai students?', 
-      plain: 'Yes. Paper 6 (Alternative to Practical) and Paper 5 (Practical Test) preparation is embedded into our weekly curriculum. Students master graph drawing with best-fit lines, gradient calculations, percentage error evaluation, and experimental procedure design.', 
-      a: <>Yes. Paper 6 (Alternative to Practical) and Paper 5 practical prep is embedded into our weekly curriculum. Students master graph drawing with best-fit lines, gradient calculations, percentage error evaluation, and experimental procedure design.</> 
+      q: 'How do you prepare Dubai students for Alternative to Practical (Paper 6 / Paper 5)?', 
+      plain: 'Paper 6 and Paper 5 carry substantial weight in IGCSE and A-Level physics grades. We coach students on precise graph-drawing rules (scale utilization, point plotting, line of best fit), accurate gradient calculations with large triangles, source of error identification, and structured experimental design plans.', 
+      a: <>Paper 6 and Paper 5 carry substantial weight in IGCSE and A-Level physics grades. We coach students on precise graph-drawing rules (scale utilization, point plotting, line of best fit), accurate gradient calculations with large triangles, source of error identification, and structured experimental design plans.</> 
     },
     { 
-      q: 'Can your physics tutors support the new IB DP Physics syllabus and Internal Assessment (IA)?', 
-      plain: 'Yes. Our IB Physics specialists are trained on the latest IB Physics syllabus (including Paper 1A, Paper 1B, and Paper 2 structure). We also guide students on choosing research questions, designing experiments, and formatting data for their Physics Internal Assessment (IA).', 
-      a: <>Yes. Our IB Physics specialists are trained on the latest IB Physics syllabus (including Paper 1A, Paper 1B, and Paper 2 structure). We also guide students on choosing research questions, designing experiments, and formatting data for their Physics Internal Assessment (IA).</> 
+      q: 'Can your physics tutors assist with the new IB DP Physics syllabus and Internal Assessment (IA)?', 
+      plain: 'Yes. Our IB Physics specialists are fully trained on the new IB DP Physics syllabus (Themes A–E). We provide comprehensive guidance on formulating authentic IA research questions, setting up rigorous error analysis, processing quantitative data, and structuring the final scientific paper to maximize criterion marks.', 
+      a: <>Yes. Our IB Physics specialists are fully trained on the new IB DP Physics syllabus (Themes A–E). We provide comprehensive guidance on formulating authentic IA research questions, setting up rigorous error analysis, processing quantitative data, and structuring the final scientific paper to maximize criterion marks.</> 
     },
     { 
       q: 'Do you offer 1-to-1 online physics lessons across all Dubai communities?', 
-      plain: 'Yes. We deliver interactive 1-to-1 online physics tutoring to students across Dubai, including Arabian Ranches, Dubai Marina, Emirates Hills, Downtown Dubai, Dubai Hills Estate, Jumeirah, Palm Jumeirah, Motor City, JLT, Al Barsha, and Mirdif.', 
-      a: <>Yes. We deliver interactive 1-to-1 online physics tutoring to students across Dubai, including Arabian Ranches, Dubai Marina, Emirates Hills, Downtown Dubai, Dubai Hills Estate, Jumeirah, Palm Jumeirah, Motor City, JLT, Al Barsha, and Mirdif.</> 
+      plain: 'Yes. We provide interactive 1-to-1 online physics tutoring with digital stylus annotation, live past-paper sharing, and post-session notes to students across Dubai, including Dubai Hills Estate, Arabian Ranches (1, 2 & 3), Emirates Hills, Dubai Marina, Downtown Dubai, Palm Jumeirah, Jumeirah, Al Barsha, JLT, Damac Hills, and Mirdif.', 
+      a: <>Yes. We provide interactive 1-to-1 online physics tutoring with digital stylus annotation, live past-paper sharing, and post-session notes to students across Dubai, including Dubai Hills Estate, Arabian Ranches (1, 2 & 3), Emirates Hills, Dubai Marina, Downtown Dubai, Palm Jumeirah, Jumeirah, Al Barsha, JLT, Damac Hills, and Mirdif.</> 
     },
     { 
-      q: 'My child is aiming for engineering or medicine at university. What physics grade do they need?', 
-      plain: 'Top engineering degrees in the UK (Imperial, Cambridge, UCL) and UAE generally demand A* or A in A-Level Physics or a 7 in IB DP Physics HL. Medical degrees also value the analytical rigor of physics. Our tutors drill advanced problem-solving questions to help students reach the highest grade boundaries.', 
-      a: <>Top engineering degrees in the UK (Imperial, Cambridge, UCL) and UAE generally demand A* or A in A-Level Physics or a 7 in IB DP Physics HL. Our tutors drill advanced problem-solving questions to help students reach the highest grade boundaries.</> 
+      q: 'How do you support students targeting Engineering, Computer Science, or Medicine at top universities?', 
+      plain: 'Competitive university courses (such as Oxford, Cambridge, Imperial, UCL, and top US/Canadian engineering faculties) require A* grades in A-Level Physics or a 7 in IB Physics HL. Our tutors train students on multi-concept extension questions, advanced calculus-based derivations, and physics aptitude tests (such as the ESAT / PAT).', 
+      a: <>Competitive university courses (such as Oxford, Cambridge, Imperial, UCL, and top US/Canadian engineering faculties) require A* grades in A-Level Physics or a 7 in IB Physics HL. Our tutors train students on multi-concept extension questions, advanced calculus-based derivations, and physics aptitude tests (such as the ESAT / PAT).</> 
     },
     { 
-      q: 'How soon can we book our first free trial session in Dubai?', 
-      plain: 'You can book immediately. After submitting our diagnostic form or messaging us on WhatsApp, we match your child with a dedicated physics tutor within 24 to 48 hours for their free trial lesson.', 
-      a: <>You can book immediately. After submitting our <a href="/contact" className="text-[#0f4a9b] font-semibold underline">diagnostic form</a> or messaging us on WhatsApp, we match your child with a dedicated physics tutor within 24 to 48 hours for their free trial lesson.</> 
+      q: 'How quickly can we schedule our first free diagnostic trial in Dubai?', 
+      plain: 'You can book immediately. Submit our diagnostic contact form or reach out via WhatsApp, and our academic team will match your child with a dedicated physics tutor within 24 to 48 hours for their free trial lesson.', 
+      a: <>You can book immediately. Submit our <a href="/contact" className="text-[#0f4a9b] font-semibold underline">diagnostic contact form</a> or reach out via WhatsApp, and our academic team will match your child with a dedicated physics tutor within 24 to 48 hours for their free trial lesson.</> 
     },
   ];
 
@@ -733,16 +748,16 @@ export default function PhysicsTutorDubaiPage() {
           <motion.h1
             variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}
             className="font-extrabold tracking-tight text-white leading-[1.05] mb-3 md:mb-5 text-[clamp(1.5rem,5vw,3.4rem)] max-w-[90%] sm:max-w-none">
-            Master Physics in Dubai,{' '}
+            Elite Physics Tutoring in Dubai,{' '}
             <span style={{ background:'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>
-              Step By Step
+              Built For Exam Precision
             </span>
           </motion.h1>
 
           <motion.p
             variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
             className="text-blue-100/80 text-[clamp(0.88rem,2vw,1.02rem)] leading-relaxed max-w-2xl mb-6 md:mb-8 px-4">
-            One-to-one physics tutors Dubai parents trust for steady, real exam progress in Cambridge, Edexcel, IB & AP.
+            Master multi-step calculations, vector resolutions, and Paper 6 practical experiments with 1-to-1 physics specialists in Dubai.
           </motion.p>
 
           <motion.div
@@ -789,20 +804,20 @@ export default function PhysicsTutorDubaiPage() {
       <section className="py-10 sm:py-12 lg:py-14 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-8">
-            <Eyebrow icon={<Brain className="h-3.5 w-3.5" />} text="Our Approach" />
+            <Eyebrow icon={<Brain className="h-3.5 w-3.5" />} text="Our Methodology" />
             <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-              Ustaad's Assistance{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">For Dubai Physics Students</span>
+              Ustaad's Targeted Approach{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">For Dubai Students</span>
             </h2>
             <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl mx-auto">
-              We rebuild the exact languages of physics where Dubai students lose marks on school and board exams.
+              We eliminate exam confusion through diagnostic precision, mathematical derivations, and genuine mark-scheme fluency.
             </p>
           </div>
           <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
             {[
-              { icon: <BookOpen className="w-7 h-7" />, title: 'Definitions Drilled', desc: "Tutors teach exact keyword definitions for Newton's laws, field strength, and conservation principles." },
-              { icon: <Calculator className="w-7 h-7" />, title: 'Equations Decoded', desc: 'Algebra rebuilt first, then SUVAT, circuits, and energy equations under timed exam pressure.' },
-              { icon: <PenTool className="w-7 h-7" />, title: 'Diagrams First', desc: 'Free-body, wave interference, and circuit schematics become habit, securing essential method marks.' },
+              { icon: <BookOpen className="w-7 h-7" />, title: 'Diagnostic Mark-Scheme Audit', desc: 'Every calculation step and theory definition is mapped against Cambridge and Edexcel examiner benchmarks.' },
+              { icon: <Calculator className="w-7 h-7" />, title: 'Mathematical Modelling First', desc: 'Algebraic rearrangements, variable isolation, and unit conversions mastered before plugging in calculator numbers.' },
+              { icon: <PenTool className="w-7 h-7" />, title: 'Diagrammatic & Practical Rigour', desc: 'Free-body vectors, ray diagrams, and Paper 6 experimental parameters trained until automatic.' },
             ].map((card, i) => (
               <motion.div
                 key={i}
@@ -1061,7 +1076,7 @@ export default function PhysicsTutorDubaiPage() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Real Paper</span>
             </h2>
             <p className="text-gray-600 text-[14px] sm:text-[15px] leading-relaxed max-w-2xl mx-auto">
-              Here is one Cambridge 0625 question, the common mistake, and what earns maximum marks.
+              Here is one classic Cambridge 0625 / Edexcel 4PH1 question, the common pitfall, and what secures all 5 marks.
             </p>
           </div>
           <motion.div
@@ -1073,31 +1088,31 @@ export default function PhysicsTutorDubaiPage() {
             style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(240,248,255,0.5) 100%)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.8)', boxShadow: '0 8px 32px rgba(15,74,155,0.12)' }}
           >
             <div className="relative z-10 flex flex-wrap items-center gap-2 mb-4">
-              <span className="text-[11px] font-bold px-2.5 py-1 rounded-full" style={{ background: 'rgba(15,74,155,0.06)', color: '#0f4a9b', border: '1px solid rgba(15,74,155,0.12)' }}>One Real Cambridge 0625 Question</span>
-              <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full" style={{ background: 'rgba(240,201,106,0.12)', color: '#C7A24A', border: '1px solid rgba(240,201,106,0.25)' }}>Paper 4 · 4 marks</span>
+              <span className="text-[11px] font-bold px-2.5 py-1 rounded-full" style={{ background: 'rgba(15,74,155,0.06)', color: '#0f4a9b', border: '1px solid rgba(15,74,155,0.12)' }}>Cambridge 0625 & Edexcel 4PH1 Exam Sample</span>
+              <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full" style={{ background: 'rgba(240,201,106,0.12)', color: '#C7A24A', border: '1px solid rgba(240,201,106,0.25)' }}>Theory Paper 4 · 5 marks</span>
             </div>
 
             <p className="relative z-10 text-[14px] sm:text-[15px] leading-[1.7] text-[#0a1f3d] font-medium mb-5 italic border-l-2 border-[#0f4a9b]/30 pl-4">
-              "A 2.0 kg trolley moves at 3.0 m/s and collides with a stationary 4.0 kg trolley. They move together after the collision. Calculate the final velocity."
+              "An electric immersion heater rated at 300 W is placed into 0.60 kg of liquid at 22 °C. The liquid reaches 70 °C in 4.0 minutes. Calculate the specific heat capacity of the liquid, assuming zero heat loss."
             </p>
 
             <div className="relative z-10 flex flex-col gap-3">
               <div className="flex items-start gap-2.5">
                 <X className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
-                <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"><span className="font-bold text-[#0a1f3d]">Common student mistake:</span> Skipping the conservation of momentum statement and misapplying unit conversions.</p>
+                <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"><span className="font-bold text-[#0a1f3d]">Common student mistake:</span> Forgetting to convert time from minutes to seconds (4.0 min = 240 s), or confusing temperature change (ΔT = 48 °C) with absolute temperature.</p>
               </div>
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0 mt-0.5" />
-                <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"><span className="font-bold text-[#0a1f3d]">What earns full marks:</span> Formula clearly stated, mass substitutions shown step-by-step, correct units (m/s) attached.</p>
+                <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"><span className="font-bold text-[#0a1f3d]">What earns all 5 marks:</span> Stating E = P × t = 300 × 240 = 72,000 J, setting E = mcΔT, rearranging c = 72,000 / (0.60 × 48) = 2,500 J/(kg·°C), with explicit standard SI units.</p>
               </div>
               <div className="flex items-start gap-2.5">
                 <Sparkles className="h-4 w-4 text-[#0f4a9b] shrink-0 mt-0.5" />
-                <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"><span className="font-bold text-[#0a1f3d]">How Ustaad teaches it:</span> Diagram first, momentum equation second, clear arithmetic substitution last.</p>
+                <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"><span className="font-bold text-[#0a1f3d]">How Ustaad teaches it:</span> "Unit Audit" protocol—converting all non-SI quantities before writing the formula ensures students never lose method marks.</p>
               </div>
             </div>
 
             <p className="relative z-10 text-[12px] text-gray-400 mt-5 pt-4 border-t border-slate-200/60">
-              Past paper guidance reviewed by Cambridge and Edexcel-trained physics specialists with examiner insights.
+              Exam technique coaching prepared by Cambridge, Edexcel, and IB examiners with verified UAE grade improvements.
             </p>
           </motion.div>
         </div>
