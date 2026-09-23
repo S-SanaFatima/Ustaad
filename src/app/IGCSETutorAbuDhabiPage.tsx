@@ -1296,8 +1296,9 @@ export default function IGCSETutorAbuDhabiPage() {
         title="Start IGCSE Support Today"
         subtitle="No commitment. Weekend and evening slots. UAE-registered since 2015."
         button1Text="Book Free Trial"
-        subtext1="No commitment. Cancel anytime."
+        subtext1=""
         button2Text="Ask Question on WhatsApp"
+        subtext2=""
       />
     </Layout>
   );
