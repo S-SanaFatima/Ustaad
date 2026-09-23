@@ -79,6 +79,7 @@ export const ROUTES = [
   { path: '/maths-tutor-abu-dhabi', component: 'MathematicsLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/maths-tutor-dubai', component: 'MathsTutorDubaiLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-16' },
   { path: '/physics-tutor-abu-dhabi', component: 'PhysicsLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
+  { path: '/physics-tutor-dubai', component: 'PhysicsTutorDubaiPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-23' },
   { path: '/chemistry-tutor-abu-dhabi', component: 'ChemistryLandingPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/biology-tutor-abu-dhabi', component: 'BiologyTutorAbuDhabiPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/ib-tutor-abu-dhabi', component: 'IBTutorAbuDhabiPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-25' },

@@ -704,6 +704,17 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Maths', url: '/maths' }, { name: 'Maths Tutor Dubai', url: '/maths-tutor-dubai' }]
   },
   {
+    path: '/physics-tutor-dubai',
+    component: 'PhysicsTutorDubaiPage',
+    seo: {
+      title: 'Physics Tutor Dubai | IGCSE, A-Level & IB Physics Tuition — Ustaad',
+      description: 'Expert 1-to-1 physics tutors in Dubai for Cambridge 0625, Edexcel, A-Level and IB DP Physics. Rebuild weak topics, drill past papers, and achieve top exam grades.',
+      priority: 0.90,
+      changefreq: 'monthly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Physics', url: '/physics' }, { name: 'Physics Tutor Dubai', url: '/physics-tutor-dubai' }]
+  },
+  {
     path: '/a-level-tutor-abu-dhabi',
     component: 'ALevelTutorLanding',
     seo: {
