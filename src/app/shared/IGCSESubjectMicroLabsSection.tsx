@@ -5,11 +5,11 @@ import { Sparkles } from 'lucide-react';
 /* ── 1. MATHS MICRO-LAB: Dynamic Sine Wave & Coordinate Grid ── */
 function MathsMicroLab({ isHovered }: { isHovered: boolean }) {
   return (
-    <div className="relative w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#0a1f3d]/05 border border-[#0f4a9b]/20">
+    <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#0a1f3d]/05 border border-[#0f4a9b]/20">
       {/* Grid Lines */}
-      <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#0f4a9b_1px,transparent_1px),linear-gradient(to_bottom,#0f4a9b_1px,transparent_1px)] bg-[size:8px_8px]" />
+      <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#0f4a9b_1px,transparent_1px),linear-gradient(to_bottom,#0f4a9b_1px,transparent_1px)] bg-[size:6px_6px]" />
 
-      <svg viewBox="0 0 60 60" className="w-10 h-10 overflow-visible relative z-10">
+      <svg viewBox="0 0 60 60" className="w-7 h-7 sm:w-8 sm:h-8 overflow-visible relative z-10">
         {/* Coordinate Axis */}
         <line x1="6" y1="30" x2="54" y2="30" stroke="#0f4a9b" strokeWidth="1" strokeOpacity="0.4" />
         <line x1="30" y1="6" x2="30" y2="54" stroke="#0f4a9b" strokeWidth="1" strokeOpacity="0.4" />
@@ -57,8 +57,8 @@ function MathsMicroLab({ isHovered }: { isHovered: boolean }) {
 /* ── 2. PHYSICS MICRO-LAB: 3D Orbiting Electron Atom ── */
 function PhysicsMicroLab({ isHovered }: { isHovered: boolean }) {
   return (
-    <div className="relative w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#c9a24c]/10 border border-[#0f4a9b]/20">
-      <svg viewBox="0 0 60 60" className="w-11 h-11 overflow-visible">
+    <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#c9a24c]/10 border border-[#0f4a9b]/20">
+      <svg viewBox="0 0 60 60" className="w-8 h-8 sm:w-9 sm:h-9 overflow-visible">
         {/* Core Nucleus */}
         <circle cx="30" cy="30" r="4.5" fill="#0f4a9b" />
         <circle cx="30" cy="30" r="2" fill="#c9a24c" />
@@ -124,8 +124,8 @@ function PhysicsMicroLab({ isHovered }: { isHovered: boolean }) {
 /* ── 3. CHEMISTRY MICRO-LAB: Bubbling Reaction Flask ── */
 function ChemistryMicroLab({ isHovered }: { isHovered: boolean }) {
   return (
-    <div className="relative w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#10b981]/10 border border-[#0f4a9b]/20">
-      <svg viewBox="0 0 60 60" className="w-10 h-10 overflow-visible">
+    <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#10b981]/10 border border-[#0f4a9b]/20">
+      <svg viewBox="0 0 60 60" className="w-7 h-7 sm:w-8 sm:h-8 overflow-visible">
         {/* Flask Body */}
         <path
           d="M 26,10 L 34,10 L 34,22 L 48,46 C 50,49 48,52 44,52 L 16,52 C 12,52 10,49 12,46 L 26,22 Z"
@@ -189,8 +189,8 @@ function ChemistryMicroLab({ isHovered }: { isHovered: boolean }) {
 /* ── 4. BIOLOGY MICRO-LAB: 3D Twisting DNA Double-Helix ── */
 function BiologyMicroLab({ isHovered }: { isHovered: boolean }) {
   return (
-    <div className="relative w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#0284c7]/10 border border-[#0f4a9b]/20">
-      <svg viewBox="0 0 60 60" className="w-10 h-10 overflow-visible">
+    <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#0284c7]/10 border border-[#0f4a9b]/20">
+      <svg viewBox="0 0 60 60" className="w-7 h-7 sm:w-8 sm:h-8 overflow-visible">
         {/* DNA Strand 1 */}
         <motion.path
           d="M 16,8 Q 30,22 44,36 T 16,64"
@@ -251,8 +251,8 @@ function BiologyMicroLab({ isHovered }: { isHovered: boolean }) {
 /* ── 5. ENGLISH MICRO-LAB: Turning Book Pages & Literary Glow ── */
 function EnglishMicroLab({ isHovered }: { isHovered: boolean }) {
   return (
-    <div className="relative w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#c9a24c]/10 border border-[#0f4a9b]/20">
-      <svg viewBox="0 0 60 60" className="w-10 h-10 overflow-visible">
+    <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#c9a24c]/10 border border-[#0f4a9b]/20">
+      <svg viewBox="0 0 60 60" className="w-7 h-7 sm:w-8 sm:h-8 overflow-visible">
         {/* Book Spine & Base */}
         <path
           d="M 12,42 C 20,40 28,42 30,44 C 32,42 40,40 48,42 L 48,18 C 40,16 32,18 30,20 C 28,18 20,16 12,18 Z"
@@ -309,8 +309,8 @@ function EnglishMicroLab({ isHovered }: { isHovered: boolean }) {
 /* ── 6. BUSINESS MICRO-LAB: Ascending Growth Trend & Profit Vector ── */
 function BusinessMicroLab({ isHovered }: { isHovered: boolean }) {
   return (
-    <div className="relative w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#10b981]/10 border border-[#0f4a9b]/20">
-      <svg viewBox="0 0 60 60" className="w-10 h-10 overflow-visible">
+    <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f4a9b]/10 to-[#10b981]/10 border border-[#0f4a9b]/20">
+      <svg viewBox="0 0 60 60" className="w-7 h-7 sm:w-8 sm:h-8 overflow-visible">
         {/* Coordinate Base */}
         <line x1="8" y1="48" x2="52" y2="48" stroke="#0f4a9b" strokeWidth="1" strokeOpacity="0.3" />
         <line x1="8" y1="12" x2="8" y2="48" stroke="#0f4a9b" strokeWidth="1" strokeOpacity="0.3" />
@@ -432,31 +432,31 @@ export function IGCSESubjectMicroLabsSection() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
-    <section className="py-14 lg:py-18 bg-white border-b border-slate-100 relative overflow-hidden">
+    <section className="py-10 sm:py-12 lg:py-14 bg-white border-b border-slate-100 relative overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-[#0f4a9b]/05 via-[#c9a24c]/05 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-[#0f4a9b]/04 via-[#c9a24c]/04 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ── Section Header ── */}
-        <div className="text-center mb-10 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-3 uppercase tracking-widest">
+        <div className="text-center mb-6 sm:mb-8 max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-[11px] sm:text-xs font-bold mb-2 uppercase tracking-widest">
             <Sparkles className="w-3 h-3 text-[#c9a24c]" />
             Curriculum Hub
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-2 tracking-tight">
             IGCSE Subjects We{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5ba8] via-[#0f4a9b] to-[#0a3a79]">
               Walk Students Through
             </span>
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-gray-600 text-xs sm:text-[14px] leading-relaxed">
             Deeper coverage lives on each subject page. Pick your subject and jump.
           </p>
         </div>
 
         {/* ── Micro-Lab Subject Cards Grid ── */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto mb-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 max-w-5xl mx-auto mb-8">
           {SUBJECTS.map((item) => {
             const isHovered = hoveredCard === item.id;
             const MicroLabComponent = item.MicroLab;
@@ -466,54 +466,55 @@ export function IGCSESubjectMicroLabsSection() {
                 key={item.id}
                 onMouseEnter={() => setHoveredCard(item.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-                className="group relative bg-white rounded-3xl p-6 border border-slate-200/80 hover:border-[#c9a24c]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
+                whileHover={{ y: -3 }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+                className="group relative bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 hover:border-[#c9a24c]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer shadow-xs hover:shadow-sm"
                 style={{
                   boxShadow: isHovered
-                    ? '0 16px 36px rgba(10,31,60,0.10), 0 0 0 1px rgba(201,162,76,0.35)'
-                    : '0 4px 20px rgba(10,31,60,0.04), 0 0 0 1px rgba(15,23,42,0.04)',
+                    ? '0 12px 28px rgba(10,31,60,0.08), 0 0 0 1px rgba(201,162,76,0.35)'
+                    : '0 2px 10px rgba(10,31,60,0.03), 0 0 0 1px rgba(15,23,42,0.04)',
                 }}
               >
                 {/* Top Subtle Aura on Hover */}
                 <div
-                  className={`absolute -top-12 -right-12 w-28 h-28 rounded-full blur-2xl transition-opacity duration-500 pointer-events-none ${
-                    isHovered ? 'opacity-40' : 'opacity-0'
+                  className={`absolute -top-10 -right-10 w-24 h-24 rounded-full blur-xl transition-opacity duration-500 pointer-events-none ${
+                    isHovered ? 'opacity-30' : 'opacity-0'
                   }`}
                   style={{ background: item.accentColor }}
                 />
 
                 <div>
                   {/* Micro-Lab Interactive Simulation Badge + Syllabus Code */}
-                  <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center justify-between gap-2.5 mb-3">
                     <MicroLabComponent isHovered={isHovered} />
 
-                    <span className="text-[11px] font-mono font-bold px-2.5 py-1 rounded-full bg-slate-100/80 text-slate-600 border border-slate-200/60 tracking-wider">
+                    <span className="text-[10px] sm:text-[10.5px] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-100/90 text-slate-600 border border-slate-200/60 tracking-wider">
                       {item.syllabus}
                     </span>
                   </div>
 
                   {/* Subject Title */}
                   <h3
-                    className="text-[19px] font-extrabold text-[#0a1f3d] mb-2 leading-snug group-hover:text-[#0f4a9b] transition-colors"
+                    className="text-[15px] sm:text-[16px] font-bold text-[#0a1f3d] mb-1 leading-snug group-hover:text-[#0f4a9b] transition-colors"
                     style={{ fontFamily: 'var(--font-serif,"Fraunces",Georgia,serif)' }}
                   >
                     {item.title}
                   </h3>
 
                   {/* Subject Summary Body */}
-                  <p className="text-[13.5px] text-[#3a4f6e] leading-relaxed mb-5">
+                  <p className="text-[12px] sm:text-[12.5px] text-slate-600 leading-relaxed mb-3">
                     {item.body}
                   </p>
                 </div>
 
                 {/* Footer Action Link */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11.5px] sm:text-xs font-bold text-[#0f4a9b] group-hover:text-[#0a1f3d] transition-colors">
                   <a
                     href={item.href}
-                    className="text-xs font-bold text-[#0f4a9b] group-hover:text-[#0a1f3d] transition-colors"
+                    className="inline-flex items-center gap-1 hover:underline"
                   >
-                    {item.linkText}
+                    <span>{item.linkText}</span>
+                    <span className="text-[#c9a24c] transition-transform group-hover:translate-x-0.5">→</span>
                   </a>
                 </div>
               </motion.article>
@@ -522,7 +523,7 @@ export function IGCSESubjectMicroLabsSection() {
         </div>
 
         {/* ── Footer Additional Subjects Note ── */}
-        <p className="text-center text-xs text-gray-500 max-w-2xl mx-auto">
+        <p className="text-center text-[11px] sm:text-xs text-gray-500 max-w-2xl mx-auto">
           Also available on request: Additional Mathematics (Cambridge 0606), Economics (Cambridge 0455) and Computer Science (Cambridge 0478).{' '}
           <a href="/economics" className="text-[#0f4a9b] hover:underline font-semibold">
             Economics

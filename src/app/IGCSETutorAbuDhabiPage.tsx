@@ -535,15 +535,17 @@ export default function IGCSETutorAbuDhabiPage() {
             variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } }}
             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full px-4"
           >
-            <div className="sm:hidden w-full max-w-[340px] flex flex-col items-center gap-2.5 p-3.5 rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)' }}>
+            <div className="sm:hidden w-full max-w-[340px] flex flex-col items-center gap-2 p-3.5 rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)' }}>
               <a href={BOOKING}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}>
                 Book Your Free Trial
               </a>
+              <p className="text-blue-200/60 text-[11px] -mt-0.5 mb-0.5">No commitment. Cancel anytime.</p>
               <span className="text-blue-200/50 text-[11px] -my-1">or</span>
-              <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
-              <p className="text-blue-200/50 text-[11px] mt-1">No commitment. Cancel anytime.</p>
+              <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
+                <WaIcon /> WhatsApp Us
+              </a>
             </div>
 
             <div className="hidden sm:flex items-start justify-center gap-4">
@@ -553,11 +555,11 @@ export default function IGCSETutorAbuDhabiPage() {
                   style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}>
                   Book Your Free Trial
                 </a>
-                <p className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</p>
+                <p className="text-blue-200/60 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
-                <a href={WA_URL} className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
-                  <MessageCircle className="w-4 h-4" /> WhatsApp Us
+                <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
+                  <WaIcon /> WhatsApp Us
                 </a>
               </div>
             </div>
@@ -638,7 +640,7 @@ export default function IGCSETutorAbuDhabiPage() {
                     <div className="w-[66px] h-[66px] sm:w-[76px] sm:h-[76px] rounded-full overflow-hidden border-2 border-[#c9a24c]"
                       style={{ background: 'linear-gradient(135deg,#0a1f3d,#12305a)', boxShadow: '0 4px 14px rgba(10,31,60,0.22)' }}>
                       <img src="/images/tutors/fahad-khan-cover.jpg" alt="Fahad Khan, IGCSE Maths tutor at Ustaad Abu Dhabi"
-                        className="w-full h-full object-cover" loading="lazy" />
+                        width={76} height={76} className="w-full h-full object-cover" loading="lazy" />
                     </div>
                     {/* soft gold outer ring */}
                     <div className="absolute rounded-full border border-[#c9a24c]/35 pointer-events-none" style={{ inset: -3 }} />
@@ -745,7 +747,7 @@ export default function IGCSETutorAbuDhabiPage() {
                     <div className="w-[66px] h-[66px] sm:w-[76px] sm:h-[76px] rounded-full overflow-hidden border-2 border-[#c9a24c]"
                       style={{ background: 'linear-gradient(135deg,#0a1f3d,#12305a)', boxShadow: '0 4px 14px rgba(10,31,60,0.22)' }}>
                       <img src="/images/tutors/tabraiz-khan-cover.jpg" alt="Tabraiz Khan, IGCSE triple science and Maths tutor at Ustaad Abu Dhabi"
-                        className="w-full h-full object-cover" loading="lazy" />
+                        width={76} height={76} className="w-full h-full object-cover" loading="lazy" />
                     </div>
                     <div className="absolute rounded-full border border-[#c9a24c]/35 pointer-events-none" style={{ inset: -3 }} />
                   </div>
@@ -983,7 +985,9 @@ export default function IGCSETutorAbuDhabiPage() {
               <div key={idx} className="w-full h-[140px] sm:h-[160px] flex items-center justify-center rounded-2xl bg-white border border-[#E5E7EB] shadow-[0_4px_16px_rgba(15,74,155,0.05)] px-4 py-5 cursor-default relative overflow-hidden transition-transform hover:-translate-y-0.5">
                 <img
                   src={`/school-logos/${logo.file}`}
-                  alt={logo.name}
+                  alt={logo.name ? `${logo.name} school logo` : 'Abu Dhabi School Logo'}
+                  width={160}
+                  height={90}
                   className="max-w-full max-h-full object-contain"
                   loading="lazy"
                   onError={(e) => {
@@ -1148,10 +1152,10 @@ export default function IGCSETutorAbuDhabiPage() {
       </section>
 
       {/* ── SECTION 10: EXPLORE DEDICATED SUBJECT HUBS ── */}
-      <section className="py-12 sm:py-16 bg-[#f8fafc] border-t border-slate-200/80 relative overflow-hidden">
+      <section className="py-10 sm:py-12 bg-[#f8fafc] border-t border-slate-200/80 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center sm:text-left mb-8">
+          <div className="text-center sm:text-left mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold mb-2 uppercase tracking-widest text-[#0f4a9b] bg-[#0f4a9b]/06 border border-[#0f4a9b]/15">
               <Sparkles className="w-3 h-3 text-[#c9a24c]" />
               Subject Hubs
@@ -1164,7 +1168,7 @@ export default function IGCSETutorAbuDhabiPage() {
             </p>
           </div>
 
-          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible pb-3 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-mandatory scrollbar-none">
+          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 overflow-x-auto sm:overflow-visible pb-3 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-mandatory scrollbar-none">
             {[
               {
                 title: 'Maths Tutor',
@@ -1206,36 +1210,36 @@ export default function IGCSETutorAbuDhabiPage() {
               <a
                 key={card.href}
                 href={card.href}
-                className="w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-center group relative bg-white rounded-2xl p-5 border border-slate-200/90 hover:border-[#c9a24c]/60 shadow-[0_4px_16px_rgba(10,31,60,0.04)] hover:shadow-[0_10px_28px_rgba(10,31,60,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                className="w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-center group relative bg-white rounded-2xl p-4 sm:p-4.5 border border-slate-200/90 hover:border-[#c9a24c]/60 shadow-xs hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
                 {/* Subtle top-right accent glow on hover */}
                 <div className="absolute -top-8 -right-8 w-20 h-20 bg-[#c9a24c]/10 rounded-full blur-xl group-hover:opacity-100 opacity-0 transition-opacity duration-300 pointer-events-none" />
 
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-3.5">
+                  <div className="flex items-center justify-between gap-2 mb-3">
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
+                      className="w-9 h-9 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
                       style={{ background: 'linear-gradient(135deg, rgba(15,74,155,0.08), rgba(201,162,76,0.12))', border: '1px solid rgba(201,162,76,0.25)' }}
                     >
-                      <card.Icon className="w-5 h-5 text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors" />
+                      <card.Icon className="w-4.5 h-4.5 text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors" />
                     </div>
-                    <span className={`text-[10.5px] font-mono font-bold px-2 py-0.5 rounded-full border ${card.badgeColor}`}>
+                    <span className={`text-[10px] sm:text-[10.5px] font-mono font-bold px-2 py-0.5 rounded-full border ${card.badgeColor}`}>
                       {card.syllabus}
                     </span>
                   </div>
 
-                  <h3 className="text-[15px] font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors mb-1 leading-snug">
+                  <h3 className="text-[14.5px] sm:text-[15px] font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors mb-0.5 leading-snug">
                     {card.title}
                   </h3>
-                  <div className="text-[11.5px] font-semibold text-[#c9a24c] mb-2.5">
+                  <div className="text-[11px] font-semibold text-[#c9a24c] mb-2">
                     {card.location}
                   </div>
-                  <p className="text-[12.5px] text-gray-600 leading-relaxed">
+                  <p className="text-[12px] text-gray-600 leading-relaxed mb-3">
                     {card.desc}
                   </p>
                 </div>
 
-                <div className="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0f4a9b] group-hover:text-[#0a1f3d] transition-colors">
+                <div className="pt-2.5 mt-2 border-t border-slate-100 flex items-center justify-between text-[11.5px] font-bold text-[#0f4a9b] group-hover:text-[#0a1f3d] transition-colors">
                   <span>View Subject Details</span>
                   <span className="text-[#c9a24c] transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </div>
@@ -1291,9 +1295,9 @@ export default function IGCSETutorAbuDhabiPage() {
       <FinalCTA
         title="Start IGCSE Support Today"
         subtitle="No commitment. Weekend and evening slots. UAE-registered since 2015."
-        button1Text="Book Free Diagnostic"
+        button1Text="Book Free Trial"
+        subtext1="No commitment. Cancel anytime."
         button2Text="Ask Question on WhatsApp"
-        subtext2="Send any IGCSE past-paper question; a tutor replies within 15 minutes with a worked solution."
       />
     </Layout>
   );

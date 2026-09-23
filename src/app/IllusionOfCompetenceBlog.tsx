@@ -1006,10 +1006,28 @@ export default function IllusionOfCompetenceBlog() {
               Many UAE students invest serious effort in their notes: coloured pens, neat headings, consistent layouts. The effort is real, but the return is poor, because the work is largely copying and organising rather than remembering.
             </p>
             <p>
-              The most cited evidence here is Dunlosky and colleagues&apos; 2013 comprehensive review of ten common learning techniques. It rated highlighting, re-reading and summarising as <em>low-utility strategies</em>, while practice testing and spaced practice came out as <em>high-utility</em>. In other words, the methods students prefer are often not the methods that work.
+              The most cited evidence here is{' '}
+              <a
+                href="https://journals.sagepub.com/doi/10.1177/1529100612453266"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0f4a9b] font-semibold hover:underline"
+              >
+                Dunlosky et al. (2013)
+              </a>{' '}
+              in their comprehensive review of ten common learning techniques. It rated highlighting, re-reading and summarising as <em>low-utility strategies</em>, while practice testing and spaced practice came out as <em>high-utility</em>. In other words, the methods students prefer are often not the methods that work.
             </p>
             <p>
-              The reason connects to psychologist Robert Bjork&apos;s idea of <strong>desirable difficulty</strong>. Learning that feels effortful in the moment tends to last longer than learning that feels smooth. Low-effort habits produce a pleasant feeling of progress and very little durable memory. Higher-effort habits feel slower and more frustrating, and they are the ones that survive the exam.
+              The reason connects to research from the{' '}
+              <a
+                href="https://bjorklab.psych.ucla.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0f4a9b] font-semibold hover:underline"
+              >
+                Bjork Learning &amp; Forgetting Lab (UCLA)
+              </a>{' '}
+              on <strong>desirable difficulty</strong>. Learning that feels effortful in the moment tends to last longer than learning that feels smooth. Low-effort habits produce a pleasant feeling of progress and very little durable memory. Higher-effort habits feel slower and more frustrating, and they are the ones that survive the exam.
             </p>
             <p>
               This is also why past papers are best used at the right point in the cycle, not as a first step. We cover that in our guide on <a href="/blogs/igcse-preparation-past-papers-final-step" className="text-[#0f4a9b] font-semibold hover:underline">IGCSE Preparation: Why Past Papers Are the Final Step</a>.
@@ -1228,11 +1246,25 @@ export default function IllusionOfCompetenceBlog() {
           <div className="text-xs text-gray-600 leading-relaxed space-y-2 mb-8 p-4 rounded-2xl bg-slate-50 border border-slate-200">
             <ul className="space-y-1.5 list-disc list-inside">
               <li>
-                <strong>Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., &amp; Willingham, D. T. (2013):</strong>{' '}
+                <a
+                  href="https://journals.sagepub.com/doi/10.1177/1529100612453266"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0f4a9b] hover:underline font-bold"
+                >
+                  Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., &amp; Willingham, D. T. (2013):
+                </a>{' '}
                 <em>Improving Students&apos; Learning With Effective Learning Techniques: Promising Directions From Cognitive and Educational Psychology.</em> Psychological Science in the Public Interest.
               </li>
               <li>
-                <strong>Bjork, R. A. &amp; Bjork, E. L.:</strong>{' '}
+                <a
+                  href="https://bjorklab.psych.ucla.edu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0f4a9b] hover:underline font-bold"
+                >
+                  Bjork Learning &amp; Forgetting Lab (UCLA) / Bjork, R. A. &amp; Bjork, E. L.:
+                </a>{' '}
                 <em>Desirable Difficulties in Learning and Memory Consolidation.</em> University of California, Los Angeles (UCLA).
               </li>
               <li>

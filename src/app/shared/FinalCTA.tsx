@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { GoldButton } from './GoldButton';
 import { GradientHeadingText } from './GradientHeadingText';
 import { CTA_SUBTEXT } from './ctaCopy';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface FinalCTAProps {
   title?: string;
@@ -59,7 +60,8 @@ export default function FinalCTA({
                 aria-label={button2Text ? `${button2Text} on WhatsApp` : "Chat with Ustaad on WhatsApp"}
                 className="w-full min-h-[56px] inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1fb858] text-white font-extrabold text-base py-4 px-6 transition-all shadow-[0_8px_16px_rgba(37,211,102,0.25)] hover:shadow-[0_12px_20px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 text-center"
               >
-                {button2Text}
+                <WhatsAppIcon className="w-5 h-5 fill-current" />
+                <span>{button2Text}</span>
               </a>
               {subtext2 && <p className="text-xs text-gray-500 font-medium mt-2 text-center">{subtext2}</p>}
             </div>

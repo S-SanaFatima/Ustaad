@@ -54,9 +54,10 @@ interface SchoolsMarqueeProps {
   logoList?: SchoolLogoItem[];
 }
 
-const SchoolLogoCard = ({ logo }: { logo: SchoolLogoItem }) => (
+const SchoolLogoCard = ({ logo, isAriaHidden }: { logo: SchoolLogoItem; isAriaHidden?: boolean }) => (
   <div
     title={logo.name}
+    aria-hidden={isAriaHidden ? "true" : undefined}
     className="shrink-0 w-[180px] sm:w-[240px] h-[100px] sm:h-[130px] flex items-center justify-center px-4 cursor-default relative transition-all duration-300 hover:scale-110 hover:-translate-y-1"
   >
     <img
@@ -64,6 +65,8 @@ const SchoolLogoCard = ({ logo }: { logo: SchoolLogoItem }) => (
       srcSet={`/school-logos/${logo.file} 280w`}
       sizes="(max-width: 640px) 180px, 240px"
       alt={logo.alt || `${logo.name} logo`}
+      width={240}
+      height={100}
       style={{ transform: logo.scale ? `scale(${logo.scale})` : undefined }}
       className="w-full h-full max-h-[85px] sm:max-h-[100px] object-contain filter drop-shadow-sm mix-blend-multiply"
       loading="lazy"
@@ -118,7 +121,11 @@ export default function SchoolsMarquee({
           <div className="flex w-full overflow-hidden py-2">
             <div className="flex shrink-0 ustaad-logo-marquee gap-4 sm:gap-5 items-center pr-4 sm:pr-5 w-max">
               {[...logoList, ...logoList, ...logoList, ...logoList].map((logo, idx) => (
-                <SchoolLogoCard key={`${logo.file}-${idx}`} logo={logo} />
+                <SchoolLogoCard
+                  key={`${logo.file}-${idx}`}
+                  logo={logo}
+                  isAriaHidden={idx >= logoList.length}
+                />
               ))}
             </div>
           </div>
