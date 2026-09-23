@@ -731,37 +731,29 @@ export default function PhysicsTutorDubaiPage() {
         </div>
 
         {/* ── TEXT BLOCK ── */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
-          className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 md:pt-20 md:pb-14 max-w-5xl w-full">
+        <div className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 md:pt-20 md:pb-14 max-w-5xl w-full">
 
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
+          <div
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-2.5"
             style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}>
             <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#f0c96a' }} />
             <span className="text-blue-100/80 text-[11px] sm:text-[12px] font-semibold">Trusted by Dubai families since 2015</span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}
+          <h1
             className="font-extrabold tracking-tight text-white leading-[1.05] mb-3 md:mb-5 text-[clamp(1.5rem,5vw,3.4rem)] max-w-[90%] sm:max-w-none">
             Elite Physics Tutoring in Dubai,{' '}
             <span style={{ background:'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>
               Built For Exam Precision
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
+          <p
             className="text-blue-100/80 text-[clamp(0.88rem,2vw,1.02rem)] leading-relaxed max-w-2xl mb-6 md:mb-8 px-4">
             Master multi-step calculations, vector resolutions, and Paper 6 practical experiments with 1-to-1 physics specialists in Dubai.
-          </motion.p>
+          </p>
 
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } }}
+          <div
             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full px-4">
 
             <div className="sm:hidden w-full max-w-[340px] flex flex-col items-center gap-2.5 p-3.5 rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)' }}>
@@ -790,8 +782,8 @@ export default function PhysicsTutorDubaiPage() {
                 </a>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* SECTION 03: STATS BAR */}
