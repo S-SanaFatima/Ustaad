@@ -72,6 +72,7 @@ export const ROUTES = [
   { path: '/blogs/gcse-revision-tips-uae-parents', component: 'GCSERevisionTipsParentsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-31' },
   { path: '/blogs/mock-exams-uae-not-what-they-were', component: 'MockExamsUAEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-14' },
   { path: '/blogs/what-does-gradient-mean-maths-physics', component: 'WhatDoesGradientMeanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-18' },
+  { path: '/blogs/illusion-of-competence-revision-false-confidence', component: 'IllusionOfCompetenceBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-21' },
 
 
   // City × subject landings

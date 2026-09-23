@@ -46,6 +46,7 @@ import ALevelIndependentThinkingBlog from "./app/ALevelIndependentThinkingBlog.t
 import IGCSEPreparationPastPapersBlog from "./app/IGCSEPreparationPastPapersBlog.tsx";
 import MockExamsUAEBlog from "./app/MockExamsUAEBlog.tsx";
 import WhatDoesGradientMeanBlog from "./app/WhatDoesGradientMeanBlog.tsx";
+import IllusionOfCompetenceBlog from "./app/IllusionOfCompetenceBlog.tsx";
 import IGCSEvsGCSEBlog from "./app/IGCSEvsGCSEBlog.tsx";
 
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
@@ -133,6 +134,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   ALevelTutorLanding,
   MockExamsUAEBlog,
   WhatDoesGradientMeanBlog,
+  IllusionOfCompetenceBlog,
   MathematicsLanding,
 
   MathsPage,

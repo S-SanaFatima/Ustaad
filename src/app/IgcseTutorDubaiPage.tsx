@@ -4,9 +4,13 @@ import {
   Calculator, MessageSquareQuote, List, ArrowRightLeft, FlaskConical, PenTool,
   CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Star, MessageCircle, BookOpen, Video, Timer,
   MapPin, Atom, Dna, Briefcase, LineChart, ClipboardList, Users, ShieldCheck,
-  Building2,
+  Building2, ArrowRight, ClipboardCheck, Play, Pause, RotateCw,
 } from 'lucide-react';
-import { Layout, StatsBar, SchoolsMarquee, DUBAI_SCHOOL_LOGOS } from './shared';
+import { 
+  Layout, StatsBar, SchoolsMarquee, DUBAI_SCHOOL_LOGOS, 
+  GradientHeadingText,
+  MathsArtifact, PhysicsArtifact, ChemistryArtifact, BiologyArtifact, BusinessArtifact, EnglishArtifact, ExamPrepArtifact,
+} from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, reviewSchema } from './shared/schemas';
 
@@ -234,40 +238,77 @@ function ReviewsScroller() {
 }
 
 function ChallengesAccordion({ challenges }: { challenges: Challenge[] }) {
-  const [active, setActive] = useState<number>(0);
+  const [active, setActive] = useState<number>(-1);
   return (
-    <div className="relative">
-      <div className="flex flex-col gap-[10px]">
-        {challenges.map((c, i) => {
-          const isOpen = active === i;
-          return (
-            <div key={i} className="flex flex-col gap-2">
-              <div className="flex items-center gap-3">
-                <button type="button" onClick={() => setActive(isOpen ? -1 : i)} className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ width: 40, height: 40, minWidth: 40, minHeight: 40, background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', color: isOpen ? '#fff' : '#0f4a9b', transition: 'background 300ms ease, color 300ms ease', cursor: 'pointer', border: 'none', boxShadow: 'inset 0 0 0 2px #fff' }}>
-                  <span className="flex items-center justify-center w-full h-full">{c.icon}</span>
-                </button>
-                <button type="button" onClick={() => setActive(isOpen ? -1 : i)} aria-expanded={isOpen} className="flex-1 flex items-center gap-2 sm:gap-3 text-left rounded-full border bg-white shadow-2xs" style={{ minHeight: '48px', padding: '8px 12px sm:14px', cursor: 'pointer', borderColor: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.12)' }}>
-                  <span className="flex-1 font-semibold text-[#0a1f3d] text-[13px] sm:text-[14px] leading-snug">{c.title}</span>
-                  <span className="flex-shrink-0 flex items-center justify-center" style={{ width: 32, height: 32, minWidth: 32, minHeight: 32, borderRadius: '50%', background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', color: isOpen ? '#fff' : '#0f4a9b', transition: 'background 300ms ease, color 300ms ease, transform 300ms cubic-bezier(0.22,1,0.36,1)', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-                    <ChevronDown className="h-3.5 w-3.5" />
-                  </span>
-                </button>
+    <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden divide-y divide-slate-100">
+      {challenges.map((c, i) => {
+        const isOpen = active === i;
+        return (
+          <div
+            key={i}
+            className={`transition-colors duration-200 ${
+              isOpen ? 'bg-[#0f4a9b]/[0.02]' : 'hover:bg-slate-50/70'
+            }`}
+          >
+            <button
+              type="button"
+              onClick={() => setActive(isOpen ? -1 : i)}
+              aria-expanded={isOpen}
+              className="w-full flex items-center justify-between gap-3 sm:gap-4 px-4 py-3.5 sm:px-5 sm:py-4 text-left transition-colors cursor-pointer group"
+            >
+              <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
+                <div
+                  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${
+                    isOpen
+                      ? 'bg-gradient-to-br from-[#0f4a9b] to-[#1e5ba8] text-white shadow-xs'
+                      : 'bg-[#0f4a9b]/8 text-[#0f4a9b] group-hover:bg-[#0f4a9b]/12'
+                  }`}
+                >
+                  {c.icon}
+                </div>
+                <span
+                  className={`font-bold text-[14px] sm:text-[15px] leading-snug transition-colors truncate ${
+                    isOpen ? 'text-[#0f4a9b]' : 'text-[#0a1f3d] group-hover:text-[#0f4a9b]'
+                  }`}
+                >
+                  {c.title}
+                </span>
               </div>
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div key="content" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }} className="overflow-hidden">
-                    <div className="ml-0 sm:ml-[52px] mt-1">
-                      <div className="rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3" style={{ background: '#f4f7fc', border: '1px solid rgba(15,74,155,0.14)' }}>
-                        <p className="text-[12.5px] sm:text-[13px] text-[#3a4f6e] leading-relaxed">{c.problem}</p>
-                      </div>
+
+              <div
+                className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+                  isOpen
+                    ? 'bg-[#0f4a9b] text-white rotate-180 shadow-xs'
+                    : 'bg-slate-100 text-slate-500 group-hover:bg-[#0f4a9b]/10 group-hover:text-[#0f4a9b]'
+                }`}
+              >
+                <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300" />
+              </div>
+            </button>
+
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  key="content"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-4 pb-3.5 sm:px-5 sm:pb-4 pt-0">
+                    <div className="rounded-xl px-4 py-2.5 bg-[#f4f7fc] border border-[#0f4a9b]/10 border-l-[3px] border-l-[#0f4a9b]">
+                      <p className="text-[12.5px] sm:text-[13px] text-[#3a4f6e] leading-relaxed mb-0">
+                        {c.problem}
+                      </p>
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          );
-        })}
-      </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -278,159 +319,1302 @@ const UAE_COMMUNITIES = [
 ];
 
 function UaeAssistance3DSwitcher() {
-  const [activeTab, setActiveTab] = useState<number>(0);
-
-  const tabs = [
+  const cards = [
     {
-      id: 0,
-      label: '2,500+ Families',
-      sublabel: 'UAE Curricula Trust',
       Icon: Users,
       badge: '2,500+ Taught',
       accentColor: '#0f4a9b',
-      accentGradient: 'from-[#0f4a9b] to-[#1e5ba8]',
-      title: 'Trusted by 2,500+ families across the UAE',
-      text: 'Our tutoring team supports students across British (IGCSE, GCSE, A-Level), IB (MYP, DP), and American (AP) curricula, along with SAT preparation. All enquiries receive a response within 15 minutes during working hours.',
-      pills: ['British (IGCSE, GCSE, A-Level)', 'IB (MYP, DP)', 'American (AP Curricula)', 'SAT Preparation', '15-Min Response Time'],
+      title: 'Trusted by 2,500+ Families',
+      text: 'Our tutoring team supports students across British (IGCSE, GCSE, A-Level), IB (MYP, DP), and American (AP) curricula, along with SAT preparation. All enquiries receive a fast 15-minute response.',
+      pills: ['15-Min Response', 'Board-Matched Tutors', 'Online & In-Person', 'UAE School Calendar'],
     },
     {
-      id: 1,
-      label: 'Dubai Communities',
-      sublabel: 'Online In All Areas',
       Icon: MapPin,
       badge: 'All Emirates',
       accentColor: '#C7A24A',
-      accentGradient: 'from-[#C7A24A] to-[#A8892A]',
-      title: 'Comprehensive Private Tutoring Across Dubai Communities',
-      text: 'Our online tutoring platform connects students in Downtown Dubai, Dubai Marina, Jumeirah, Arabian Ranches, Emirates Hills, and Palm Jumeirah with specialist educators. Book your free 30-minute trial today.',
-      pills: UAE_COMMUNITIES,
+      title: 'Dubai Communities',
+      text: 'Connecting students across Downtown Dubai, Dubai Marina, Jumeirah, Arabian Ranches, Emirates Hills, and Palm Jumeirah with specialist private tutors for online lessons.',
+      pills: ['Downtown & Marina', 'Jumeirah & Hills', 'Arabian Ranches', 'Palm Jumeirah'],
     },
     {
-      id: 2,
-      label: 'Tailored Tutoring',
-      sublabel: 'Targeted Prep Formats',
       Icon: ShieldCheck,
       badge: '100% Customised',
       accentColor: '#059669',
-      accentGradient: 'from-emerald-600 to-teal-700',
       title: 'Tailored Academic Tutoring',
-      text: 'Whether you require short-term exam prep, intensive mock revision, or weekly academic tutoring, Ustaad pairs your child with top-rated private tutors across all Dubai communities.',
-      pills: ['Short-Term Exam Prep', 'Intensive Mock Revision', 'Weekly 1-to-1 Mentorship', 'Live Digital Whiteboards'],
+      text: 'Whether you require short-term exam prep, intensive mock revision, or weekly academic tutoring, Ustaad pairs your child with top-rated private tutors across Dubai.',
+      pills: ['Past Paper Drills', 'Mock Exam Simulation', 'Board Alignment', 'Parent Progress Reports'],
     },
   ];
 
-  const current = tabs[activeTab];
-
   return (
-    <div className="max-w-4xl mx-auto">
-      {/* 3D Tabs Header */}
-      <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-4 sm:mb-5 p-1 sm:p-1.5 bg-slate-200/70 rounded-2xl border border-slate-300/60 shadow-inner">
-        {tabs.map((tab) => {
-          const isActive = activeTab === tab.id;
-          const TabIcon = tab.Icon;
+    <div className="max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        {cards.map((card, idx) => {
+          const CardIcon = card.Icon;
           return (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => setActiveTab(tab.id)}
-              className={`relative flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2.5 py-2.5 sm:py-3 px-1 sm:px-4 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 ${
-                isActive
-                  ? 'bg-white text-[#0a1f3d] shadow-[0_8px_20px_rgba(15,74,155,0.14)] border border-[#0f4a9b]/15 -translate-y-0.5'
-                  : 'text-slate-600 hover:text-[#0a1f3d] hover:bg-white/60'
-              }`}
+            <div
+              key={idx}
+              className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between"
             >
-              <div
-                className={`w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all duration-300 shrink-0 ${
-                  isActive ? `bg-gradient-to-br ${tab.accentGradient} text-white shadow-xs` : 'bg-slate-200/80 text-slate-500'
-                }`}
-              >
-                <TabIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <div>
+                <div className="flex items-center justify-between gap-2.5 mb-2.5">
+                  <div
+                    className="w-9 h-9 rounded-xl flex items-center justify-center text-white shrink-0"
+                    style={{ backgroundColor: card.accentColor }}
+                  >
+                    <CardIcon className="w-4.5 h-4.5" />
+                  </div>
+                  <span
+                    className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10.5px] font-bold uppercase tracking-wider shrink-0"
+                    style={{
+                      backgroundColor: `${card.accentColor}12`,
+                      color: card.accentColor,
+                      border: `1px solid ${card.accentColor}30`,
+                    }}
+                  >
+                    <CheckCircle2 className="w-3 h-3" />
+                    {card.badge}
+                  </span>
+                </div>
+
+                <h3 className="text-base font-extrabold text-[#0a1f3d] mb-1.5 leading-snug">
+                  {card.title}
+                </h3>
+
+                <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed mb-3">
+                  {card.text}
+                </p>
               </div>
-              <div className="text-center sm:text-left min-w-0">
-                <span className="block truncate font-extrabold text-[11px] sm:text-xs md:text-sm leading-tight">{tab.label}</span>
-                <span className="hidden sm:block text-[10.5px] text-slate-400 font-medium truncate">{tab.sublabel}</span>
+
+              {/* Single Line Rotating Pill Track within its Own Card */}
+              <div className="pt-2.5 border-t border-slate-100 overflow-hidden relative">
+                {/* Edge fade gradients */}
+                <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+                <motion.div
+                  className="flex items-center gap-2 w-max whitespace-nowrap py-0.5"
+                  animate={{ x: ['0%', '-33.333%'] }}
+                  transition={{
+                    repeat: Infinity,
+                    ease: 'linear',
+                    duration: 14 + idx * 2,
+                  }}
+                >
+                  {[...card.pills, ...card.pills, ...card.pills].map((pill, pIdx) => (
+                    <span
+                      key={pIdx}
+                      className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10.5px] font-semibold bg-slate-50 border border-slate-200/90 text-slate-700 shrink-0 select-none"
+                    >
+                      <span
+                        className="w-1.5 h-1.5 rounded-full shrink-0"
+                        style={{ backgroundColor: card.accentColor }}
+                      />
+                      {pill}
+                    </span>
+                  ))}
+                </motion.div>
               </div>
-              {isActive && (
-                <div
-                  className="absolute bottom-0 left-2 sm:left-3 right-2 sm:right-3 h-0.5 rounded-full"
-                  style={{ backgroundColor: tab.accentColor }}
-                />
-              )}
-            </button>
+            </div>
           );
         })}
       </div>
+    </div>
+  );
+}
 
-      {/* 3D Animated Card Container with Perspective */}
-      <div style={{ perspective: '1200px' }}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current.id}
-            initial={{ opacity: 0, rotateX: -10, y: 14, scale: 0.98 }}
-            animate={{ opacity: 1, rotateX: 0, y: 0, scale: 1 }}
-            exit={{ opacity: 0, rotateX: 10, y: -14, scale: 0.98 }}
-            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-            className="relative bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 border border-slate-200 shadow-[0_12px_36px_rgba(15,74,155,0.08)] overflow-hidden"
-          >
-            {/* Top Accent Bar */}
-            <div
-              className="absolute top-0 left-0 right-0 h-1"
-              style={{ backgroundColor: current.accentColor }}
-            />
+type IgcseSubjectItem = {
+  id: string;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  title: string;
+  tag: string;
+  href: string;
+  color: string;
+  artifact: React.ComponentType;
+  desc: string;
+};
 
-            {/* Ambient Corner Glow */}
-            <div
-              className="absolute -top-16 -right-16 w-44 h-44 rounded-full blur-3xl opacity-15 pointer-events-none"
-              style={{ backgroundColor: current.accentColor }}
-            />
+const IGCSE_SUBJECTS_LIST: IgcseSubjectItem[] = [
+  {
+    id: 'maths',
+    title: 'IGCSE Mathematics',
+    tag: 'Cambridge 0580 Extended & Edexcel 4MA1 Higher',
+    desc: 'Master algebra, vector geometry, and calculator paper technique to secure every method mark.',
+    icon: Calculator,
+    color: '#0f4a9b',
+    artifact: MathsArtifact,
+    href: '/maths',
+  },
+  {
+    id: 'physics',
+    title: 'IGCSE Physics',
+    tag: 'Cambridge 0625 & Edexcel 4PH1',
+    desc: 'Build formula recall, unit accuracy, and paper technique for Cambridge and Edexcel practicals.',
+    icon: Atom,
+    color: '#2563eb',
+    artifact: PhysicsArtifact,
+    href: '/physics',
+  },
+  {
+    id: 'chemistry',
+    title: 'IGCSE Chemistry',
+    tag: 'Cambridge 0620 & Edexcel 4CH1',
+    desc: 'Demystify mole calculations, organic pathways, and mark schemes that protect method marks.',
+    icon: FlaskConical,
+    color: '#0d9488',
+    artifact: ChemistryArtifact,
+    href: '/chemistry',
+  },
+  {
+    id: 'biology',
+    title: 'IGCSE Biology',
+    tag: 'Cambridge 0610 & Edexcel 4BI1',
+    desc: 'Target 6-mark extended answers using exact examiner keywords and board-specific mark schemes.',
+    icon: Dna,
+    color: '#059669',
+    artifact: BiologyArtifact,
+    href: '/biology',
+  },
+  {
+    id: 'business',
+    title: 'IGCSE Business & Economics',
+    tag: 'Cambridge 0450/0455 & Edexcel 4BS1/4EC1',
+    desc: 'Master case study analysis, data extraction, and balanced evaluation to secure Grades 8 & 9.',
+    icon: Briefcase,
+    color: '#c17b2f',
+    artifact: BusinessArtifact,
+    href: '/business',
+  },
+  {
+    id: 'english',
+    title: 'IGCSE English Language & Lit',
+    tag: 'Cambridge 0500/0475 & Edexcel 4EA1/4ET1',
+    desc: 'Sharpen directed writing frameworks, set-text quotations, and analytical essay vocabulary.',
+    icon: BookOpen,
+    color: '#4f46e5',
+    artifact: EnglishArtifact,
+    href: '/english',
+  },
+];
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 mb-3 sm:mb-4 pb-3 border-b border-slate-100">
-              <div className="flex items-center gap-2.5 sm:gap-3">
-                <div
-                  className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center text-white shadow-md shrink-0"
-                  style={{ background: `linear-gradient(135deg, ${current.accentColor}, #0a1f3d)` }}
-                >
-                  <current.Icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                </div>
-                <div>
-                  <h3 className="text-sm sm:text-base md:text-lg font-extrabold text-[#0a1f3d] leading-snug">
-                    {current.title}
-                  </h3>
-                  <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-400">Verified Dubai Academic Coverage</span>
-                </div>
-              </div>
-              <span
-                className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[11px] sm:text-xs font-extrabold self-start sm:self-auto uppercase tracking-wider shadow-2xs shrink-0"
-                style={{
-                  backgroundColor: `${current.accentColor}12`,
-                  color: current.accentColor,
-                  border: `1px solid ${current.accentColor}30`,
-                }}
+function IgcseSubjectCard({ sub, idx }: { sub: IgcseSubjectItem; idx: number }) {
+  const Icon = sub.icon;
+  const Artifact = sub.artifact;
+
+  return (
+    <motion.a
+      href={sub.href}
+      key={sub.id}
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, delay: (idx % 3) * 0.06 }}
+      className="relative bg-white rounded-2xl border border-gray-200/90 p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_18px_38px_rgba(15,74,155,0.12)] hover:border-[#0f4a9b]/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer group overflow-hidden w-[82vw] max-w-[325px] sm:w-full sm:max-w-[340px] mx-auto shrink-0 snap-center select-none"
+    >
+      {/* Top Accent Gradient Bar */}
+      <div
+        className="absolute top-0 left-0 right-0 h-1 group-hover:h-1.5 transition-all duration-300"
+        style={{
+          background: `linear-gradient(90deg, ${sub.color}, #0a1f3d)`,
+        }}
+      />
+
+      {/* Header: Subject Icon & Title */}
+      <div className="flex items-center gap-3 mb-2">
+        <div
+          className="w-10 h-10 rounded-xl flex items-center justify-center shadow-xs shrink-0 group-hover:scale-105 group-hover:rotate-2 transition-transform duration-300"
+          style={{
+            background: `linear-gradient(135deg, ${sub.color}, #0a1f3d)`,
+          }}
+        >
+          <Icon className="h-5 w-5 text-white" strokeWidth={2.2} />
+        </div>
+        <div className="min-w-0">
+          <h3 className="text-base sm:text-lg font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-200 leading-snug truncate">
+            {sub.title}
+          </h3>
+          <div
+            className="w-8 h-[2px] mt-1 rounded-full group-hover:w-14 transition-all duration-300"
+            style={{ backgroundColor: sub.color }}
+          />
+        </div>
+      </div>
+
+      {/* Specification Tag */}
+      <div className="mb-2">
+        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10.5px] font-semibold bg-[#f4f7fc] text-[#0f4a9b] border border-[#0f4a9b]/15 tracking-tight truncate max-w-full">
+          {sub.tag}
+        </span>
+      </div>
+
+      {/* Description - Crisp 2 lines without ellipsis */}
+      <p className="text-[#4b5563] group-hover:text-[#1f2937] transition-colors duration-200 text-xs sm:text-[13px] leading-relaxed mb-2 min-h-[38px] flex items-center">
+        {sub.desc}
+      </p>
+
+      {/* Bespoke Interactive Subject Artifact */}
+      <div className="my-1 group-hover:scale-[1.01] transition-transform duration-300">
+        <Artifact />
+      </div>
+
+      {/* Footer Link */}
+      <div className="mt-2 pt-2 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-200">
+        <span>Explore {sub.title}</span>
+        <ArrowRight className="w-3.5 h-3.5 text-[#0f4a9b] transform group-hover:translate-x-1 transition-transform duration-200" />
+      </div>
+    </motion.a>
+  );
+}
+
+function IgcseSubjectsShowcase() {
+  const [activeSlide, setActiveSlide] = useState<0 | 1>(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [mobileIndex, setMobileIndex] = useState(0);
+
+  const stemSubjects = IGCSE_SUBJECTS_LIST.slice(0, 3);
+  const humanitiesSubjects = IGCSE_SUBJECTS_LIST.slice(3, 6);
+  const currentSlideSubjects = activeSlide === 0 ? stemSubjects : humanitiesSubjects;
+
+  const handleMobileScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    const cardWidth = el.scrollWidth / IGCSE_SUBJECTS_LIST.length;
+    const idx = Math.round(el.scrollLeft / cardWidth);
+    if (idx !== mobileIndex && idx >= 0 && idx < IGCSE_SUBJECTS_LIST.length) {
+      setMobileIndex(idx);
+    }
+  };
+
+  const scrollToMobileIndex = (idx: number) => {
+    if (!scrollRef.current) return;
+    const cardWidth = scrollRef.current.scrollWidth / IGCSE_SUBJECTS_LIST.length;
+    scrollRef.current.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+    setMobileIndex(idx);
+  };
+
+  return (
+    <section className="py-8 sm:py-10 lg:py-12 bg-[#F4F8FD] relative overflow-hidden isolate border-b border-slate-100">
+      {/* Background Subtle Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(15,74,155,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,74,155,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header with Category Tabs & Controls */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-5 sm:mb-6">
+          <div className="text-center md:text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-0.5 bg-white border border-[#0f4a9b]/15 text-[#0f4a9b] rounded-full text-xs font-bold mb-2 shadow-2xs">
+              Specialised Tutoring
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] tracking-tight">
+              <GradientHeadingText text="IGCSE Subjects We Cover in Dubai" />
+            </h2>
+            <p className="text-gray-600 text-xs sm:text-sm font-medium mt-1">
+              Expert 1-to-1 support across Cambridge (CIE) and Pearson Edexcel specifications.
+            </p>
+          </div>
+
+          {/* Desktop Controls: Category Tabs */}
+          <div className="hidden sm:flex items-center justify-center md:justify-end shrink-0">
+            <div className="bg-white/90 p-1 rounded-xl border border-slate-200/80 shadow-2xs flex items-center gap-1">
+              <button
+                type="button"
+                onClick={() => setActiveSlide(0)}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  activeSlide === 0
+                    ? 'bg-[#0f4a9b] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-[#0a1f3d] hover:bg-slate-100/70'
+                }`}
               >
-                <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                {current.badge}
+                Core STEM (3)
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveSlide(1)}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  activeSlide === 1
+                    ? 'bg-[#0f4a9b] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-[#0a1f3d] hover:bg-slate-100/70'
+                }`}
+              >
+                Humanities &amp; Bio (3)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop View: 1-Row Animated Slider */}
+        <div className="hidden sm:block">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSlide}
+              initial={{ opacity: 0, x: activeSlide === 0 ? -16 : 16 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: activeSlide === 0 ? 16 : -16 }}
+              transition={{ duration: 0.28, ease: 'easeOut' }}
+              className="grid grid-cols-3 gap-4 lg:gap-5 mb-4"
+            >
+              {currentSlideSubjects.map((sub, idx) => (
+                <IgcseSubjectCard key={sub.id} sub={sub} idx={idx} />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Mobile View: Swipeable Horizontal Track */}
+        <div className="sm:hidden">
+          <div
+            ref={scrollRef}
+            onScroll={handleMobileScroll}
+            className="flex gap-3.5 overflow-x-auto pb-2 -mx-4 px-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {IGCSE_SUBJECTS_LIST.map((sub, idx) => (
+              <IgcseSubjectCard key={sub.id} sub={sub} idx={idx} />
+            ))}
+          </div>
+
+          {/* Mobile Dot Indicators & Hint */}
+          <div className="flex items-center justify-between px-1 mt-2.5">
+            <span className="text-[11px] text-slate-400 font-medium">← Swipe to explore</span>
+            <div className="flex items-center gap-1.5">
+              {IGCSE_SUBJECTS_LIST.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Go to subject ${i + 1}`}
+                  onClick={() => scrollToMobileIndex(i)}
+                  className={`h-1.5 rounded-full transition-all ${
+                    mobileIndex === i ? 'w-5 bg-[#0f4a9b]' : 'w-1.5 bg-slate-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Compact Exam Prep Banner */}
+        <motion.a
+          href="/exam-preparation"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="mt-3 sm:mt-4 relative bg-white rounded-xl border border-gray-200/80 p-3.5 sm:p-4 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(199,162,74,0.14)] hover:border-[#C7A24A]/60 hover:-translate-y-0.5 transition-all duration-300 flex flex-col sm:flex-row items-center justify-between gap-3 group overflow-hidden"
+        >
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#C7A24A] to-[#b38728]" />
+
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center shadow-xs shrink-0 bg-gradient-to-br from-[#C7A24A] to-[#9a7620] text-white group-hover:scale-105 transition-transform duration-300">
+              <ClipboardCheck className="h-4 w-4" strokeWidth={2.2} />
+            </div>
+            <div className="min-w-0">
+              <div className="flex items-center gap-2">
+                <h3 className="text-sm sm:text-base font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors leading-tight">
+                  IGCSE Exam Preparation &amp; Mock Mastery
+                </h3>
+                <span className="hidden md:inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-[#C7A24A]/15 text-[#8c6c19] border border-[#C7A24A]/30 uppercase tracking-wider">
+                  High Impact
+                </span>
+              </div>
+              <p className="text-gray-600 text-[11px] sm:text-xs leading-relaxed mt-0.5">
+                Timed past paper drills and mark-scheme dissection to convert predicted Grade 6s into Grade 8s and 9s.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-1 text-xs font-bold text-[#0f4a9b] shrink-0 group-hover:translate-x-1 transition-transform">
+            <span>Explore Exam Prep</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </div>
+        </motion.a>
+      </div>
+    </section>
+  );
+}
+
+type BoardTab = 'cambridge' | 'edexcel' | 'compare';
+
+/* ── 3D VECTOR EMBLEM: CAMBRIDGE (CIE) ── */
+function Cambridge3DEmblem() {
+  return (
+    <div className="relative w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center select-none pointer-events-none shrink-0">
+      {/* Ambient Pulsing Glow */}
+      <motion.div
+        className="absolute inset-0 bg-blue-500/20 rounded-full blur-xl pointer-events-none"
+        animate={{ scale: [1, 1.25, 1], opacity: [0.4, 0.8, 0.4] }}
+        transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+      />
+
+      <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
+        <defs>
+          <linearGradient id="cieShieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1e40af" />
+            <stop offset="60%" stopColor="#0f4a9b" />
+            <stop offset="100%" stopColor="#0a1f3d" />
+          </linearGradient>
+          <linearGradient id="cieGoldTrim" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#fde047" />
+            <stop offset="50%" stopColor="#C7A24A" />
+            <stop offset="100%" stopColor="#854d0e" />
+          </linearGradient>
+          <filter id="cieShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#0f4a9b" floodOpacity="0.35" />
+          </filter>
+        </defs>
+
+        {/* Orbiting Compass Ring */}
+        <motion.ellipse
+          cx="50"
+          cy="50"
+          rx="44"
+          ry="16"
+          fill="none"
+          stroke="#C7A24A"
+          strokeWidth="1.2"
+          strokeDasharray="4 3"
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 12, ease: 'linear' }}
+          style={{ originX: '50px', originY: '50px' }}
+        />
+
+        {/* Orbiting Satellite Particle */}
+        <motion.circle
+          cx="50"
+          cy="50"
+          r="3"
+          fill="#38bdf8"
+          animate={{
+            cx: [10, 50, 90, 50, 10],
+            cy: [50, 36, 50, 64, 50],
+          }}
+          transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+        />
+
+        {/* Main 3D Cambridge Shield with Auto-Movement */}
+        <motion.g
+          filter="url(#cieShadow)"
+          animate={{
+            y: [-3, 3, -3],
+            rotate: [-2, 2, -2],
+          }}
+          transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
+        >
+          {/* Shield Outer Rim */}
+          <path
+            d="M 50 12 Q 78 12 80 34 C 80 62 50 86 50 86 C 50 86 20 62 20 34 Q 22 12 50 12 Z"
+            fill="url(#cieShieldGrad)"
+            stroke="url(#cieGoldTrim)"
+            strokeWidth="2.5"
+          />
+
+          {/* 3D Interior Chevron Divider */}
+          <path
+            d="M 50 20 L 74 34 C 74 56 50 78 50 78 C 50 78 26 56 26 34 Z"
+            fill="#0f4a9b"
+            opacity="0.6"
+          />
+
+          {/* Golden Star Crest */}
+          <circle cx="50" cy="42" r="9" fill="url(#cieGoldTrim)" />
+          <path
+            d="M 50 35 L 52.5 40 L 58 40.5 L 54 44.5 L 55.5 50 L 50 47 L 44.5 50 L 46 44.5 L 42 40.5 L 47.5 40 Z"
+            fill="#0a1f3d"
+          />
+
+          {/* Floating Tag Label */}
+          <rect x="34" y="60" width="32" height="12" rx="3" fill="#ffffff" stroke="#C7A24A" strokeWidth="1" />
+          <text x="50" y="69" textAnchor="middle" fill="#0f4a9b" fontSize="7.5" fontWeight="900" fontFamily="monospace">
+            CIE 0580
+          </text>
+        </motion.g>
+      </svg>
+    </div>
+  );
+}
+
+/* ── 3D VECTOR EMBLEM: PEARSON EDEXCEL ── */
+function Edexcel3DEmblem() {
+  return (
+    <div className="relative w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center select-none pointer-events-none shrink-0">
+      {/* Ambient Pulsing Glow */}
+      <motion.div
+        className="absolute inset-0 bg-amber-400/25 rounded-full blur-xl pointer-events-none"
+        animate={{ scale: [1, 1.25, 1], opacity: [0.5, 0.9, 0.5] }}
+        transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+      />
+
+      <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
+        <defs>
+          <linearGradient id="edxGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#fef08a" />
+            <stop offset="45%" stopColor="#C7A24A" />
+            <stop offset="100%" stopColor="#854d0e" />
+          </linearGradient>
+          <linearGradient id="edxCubeFace" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#0a1f3d" />
+            <stop offset="100%" stopColor="#1e3a8a" />
+          </linearGradient>
+          <filter id="edxShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#C7A24A" floodOpacity="0.4" />
+          </filter>
+        </defs>
+
+        {/* Orbiting Halo Ring */}
+        <motion.circle
+          cx="50"
+          cy="50"
+          r="42"
+          fill="none"
+          stroke="#0f4a9b"
+          strokeWidth="1.2"
+          strokeDasharray="5 4"
+          animate={{ rotate: -360 }}
+          transition={{ repeat: Infinity, duration: 14, ease: 'linear' }}
+          style={{ originX: '50px', originY: '50px' }}
+        />
+
+        {/* 3D Stepped Isometric Cube with Auto-Movement */}
+        <motion.g
+          filter="url(#edxShadow)"
+          animate={{
+            y: [3, -3, 3],
+            rotate: [2, -2, 2],
+          }}
+          transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
+        >
+          {/* Top Hex / Diamond Plate */}
+          <polygon points="50,15 78,31 50,47 22,31" fill="url(#edxGoldGrad)" stroke="#ffffff" strokeWidth="1.2" />
+
+          {/* Left Isometric Face */}
+          <polygon points="22,31 50,47 50,78 22,62" fill="url(#edxCubeFace)" stroke="#C7A24A" strokeWidth="1.2" />
+
+          {/* Right Isometric Face */}
+          <polygon points="50,47 78,31 78,62 50,78" fill="#0f4a9b" stroke="#C7A24A" strokeWidth="1.2" />
+
+          {/* Stepped Evaluation Mark Layers */}
+          <line x1="22" y1="41" x2="50" y2="57" stroke="#C7A24A" strokeWidth="1.5" opacity="0.8" />
+          <line x1="22" y1="51" x2="50" y2="67" stroke="#C7A24A" strokeWidth="1.5" opacity="0.8" />
+          <line x1="50" y1="57" x2="78" y2="41" stroke="#fef08a" strokeWidth="1.5" opacity="0.8" />
+          <line x1="50" y1="67" x2="78" y2="51" stroke="#fef08a" strokeWidth="1.5" opacity="0.8" />
+
+          {/* Floating Grade 9 Badge */}
+          <circle cx="50" cy="47" r="7.5" fill="#ffffff" stroke="#C7A24A" strokeWidth="1.2" />
+          <text x="50" y="50" textAnchor="middle" fill="#9a7620" fontSize="7.5" fontWeight="900">
+            9-1
+          </text>
+        </motion.g>
+      </svg>
+    </div>
+  );
+}
+
+/* ── 3D VECTOR EMBLEM: QUICK COMPARISON ── */
+function Comparison3DEmblem() {
+  return (
+    <div className="relative w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center select-none pointer-events-none shrink-0">
+      <motion.div
+        className="absolute inset-0 bg-indigo-500/20 rounded-full blur-xl pointer-events-none"
+        animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.8, 0.4] }}
+        transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+      />
+      <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
+        {/* Dynamic 3D Balance Beam with Auto-Movement */}
+        <motion.g
+          animate={{ rotate: [-6, 6, -6] }}
+          transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+          style={{ originX: '50px', originY: '30px' }}
+        >
+          {/* Central Fulcrum Joint */}
+          <circle cx="50" cy="30" r="5" fill="#0f4a9b" stroke="#C7A24A" strokeWidth="1.5" />
+          {/* Horizontal Beam */}
+          <line x1="16" y1="30" x2="84" y2="30" stroke="#0a1f3d" strokeWidth="3" strokeLinecap="round" />
+          {/* Left CIE Pan */}
+          <line x1="20" y1="30" x2="16" y2="52" stroke="#0f4a9b" strokeWidth="1.2" />
+          <line x1="28" y1="30" x2="32" y2="52" stroke="#0f4a9b" strokeWidth="1.2" />
+          <path d="M 12 52 Q 24 64 36 52 Z" fill="#0f4a9b" stroke="#C7A24A" strokeWidth="1.2" />
+          <text x="24" y="60" textAnchor="middle" fill="#ffffff" fontSize="6.5" fontWeight="800">CIE</text>
+
+          {/* Right Edexcel Pan */}
+          <line x1="72" y1="30" x2="68" y2="52" stroke="#C7A24A" strokeWidth="1.2" />
+          <line x1="80" y1="30" x2="84" y2="52" stroke="#C7A24A" strokeWidth="1.2" />
+          <path d="M 64 52 Q 76 64 88 52 Z" fill="#C7A24A" stroke="#0a1f3d" strokeWidth="1.2" />
+          <text x="76" y="60" textAnchor="middle" fill="#0a1f3d" fontSize="6.5" fontWeight="800">EDX</text>
+        </motion.g>
+        {/* Stand Base */}
+        <path d="M 48 30 L 46 80 L 36 84 L 64 84 L 54 80 L 52 30 Z" fill="#0a1f3d" />
+      </svg>
+    </div>
+  );
+}
+
+function IgcseBoardConsole() {
+  const [activeBoard, setActiveBoard] = useState<BoardTab>('cambridge');
+
+  return (
+    <section className="py-5 sm:py-10 lg:py-14 bg-[#f8fafd] border-b border-slate-100 relative overflow-hidden">
+      {/* Background Subtle Grid Texture */}
+      <div className="absolute inset-0 bg-[radial-gradient(#0f4a9b_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-[0.04] pointer-events-none" />
+
+      <div className="max-w-5xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
+        {/* Compact Header */}
+        <div className="text-center mb-2.5 sm:mb-5 max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-white border border-[#0f4a9b]/15 text-[#0f4a9b] rounded-full text-[10px] sm:text-xs font-bold mb-1 shadow-2xs">
+            Exam Board Alignment
+          </div>
+          <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] tracking-tight leading-tight">
+            Cambridge (CIE) &amp; Pearson Edexcel
+          </h2>
+          <p className="text-gray-500 text-[11px] sm:text-xs mt-0.5 sm:mt-1 leading-snug line-clamp-1 sm:line-clamp-none">
+            Calibrated to official mark schemes, command words, and paper formats.
+          </p>
+        </div>
+
+        {/* Animated Segmented Switcher Console */}
+        <div className="flex justify-center mb-2.5 sm:mb-5">
+          <div className="inline-flex p-1 sm:p-1.5 rounded-xl sm:rounded-2xl bg-slate-200/80 backdrop-blur-md border border-slate-300/60 shadow-inner max-w-full overflow-x-auto">
+            {[
+              { id: 'cambridge', label: 'Cambridge (CIE) IGCSE', shortLabel: 'Cambridge', badge: '0580 / 0625' },
+              { id: 'edexcel', label: 'Pearson Edexcel IGCSE', shortLabel: 'Edexcel', badge: '4MA1 / 4PH1' },
+              { id: 'compare', label: 'Quick Comparison', shortLabel: 'Compare', badge: 'Key Diffs' },
+            ].map((tab) => {
+              const isActive = activeBoard === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveBoard(tab.id as BoardTab)}
+                  className={`relative px-2.5 sm:px-5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-sm font-extrabold transition-colors duration-200 flex items-center gap-1.5 sm:gap-2 select-none cursor-pointer whitespace-nowrap ${
+                    isActive ? 'text-white' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="boardConsolePill"
+                      className="absolute inset-0 rounded-lg sm:rounded-xl shadow-md"
+                      style={{
+                        background:
+                          tab.id === 'cambridge'
+                            ? 'linear-gradient(135deg, #0f4a9b, #0a3570)'
+                            : tab.id === 'edexcel'
+                            ? 'linear-gradient(135deg, #C7A24A, #9a7620)'
+                            : 'linear-gradient(135deg, #0a1f3d, #1e3a8a)',
+                      }}
+                      transition={{ type: 'spring', stiffness: 450, damping: 35 }}
+                    />
+                  )}
+                  <span className="relative z-10 sm:hidden">{tab.shortLabel}</span>
+                  <span className="relative z-10 hidden sm:inline">{tab.label}</span>
+                  <span
+                    className={`relative z-10 hidden md:inline-block px-1.5 py-0.5 rounded text-[10px] font-bold ${
+                      isActive ? 'bg-white/20 text-white' : 'bg-slate-300/70 text-slate-700'
+                    }`}
+                  >
+                    {tab.badge}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Stable Console Card */}
+        <div className="w-full">
+          <div className="relative bg-white rounded-2xl sm:rounded-3xl border border-gray-200/90 p-3.5 sm:p-6 lg:p-7 shadow-[0_8px_30px_rgba(15,74,155,0.06)] overflow-hidden select-none">
+            {/* Top Accent Gradient Line */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#38bdf8] to-[#C7A24A]" />
+
+            <AnimatePresence mode="wait">
+              {activeBoard === 'cambridge' && (
+                <motion.div
+                  key="cambridge"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25 }}
+                  className="grid md:grid-cols-12 gap-3 sm:gap-6 items-center"
+                >
+                  {/* Left Column: Summary, 3D Emblem & Dubai Schools */}
+                  <div className="md:col-span-7 flex flex-col justify-between h-full" style={{ transform: 'translateZ(25px)' }}>
+                    <div>
+                      <div className="flex items-center gap-2.5 sm:gap-3 mb-1.5 sm:mb-2">
+                        <Cambridge3DEmblem />
+                        <div>
+                          <span className="inline-block px-2 py-0.5 bg-[#0f4a9b] text-white text-[9.5px] sm:text-[11px] font-extrabold rounded shadow-2xs uppercase">
+                            CAMBRIDGE (CIE) IGCSE
+                          </span>
+                          <h3 className="text-sm sm:text-lg font-extrabold text-[#0a1f3d] mt-0.5 leading-snug">
+                            Core &amp; Extended Paper Mastery
+                          </h3>
+                        </div>
+                      </div>
+
+                      <p className="text-slate-600 text-[11px] sm:text-xs leading-relaxed mb-2 sm:mb-3 pl-0.5 sm:pl-1">
+                        Cambridge IGCSE exams heavily weight strict command-word adherence, algebraic precision, and Paper 6 Alternative to Practical experimental design.
+                      </p>
+                    </div>
+
+                    {/* Top Dubai Schools */}
+                    <div className="pt-2 sm:pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1 sm:gap-1.5 text-[10.5px] sm:text-xs text-slate-600 mb-2 md:mb-0">
+                      <span className="font-bold text-[#0a1f3d]">Dubai Schools:</span>
+                      <span className="px-1.5 py-0.5 rounded-full bg-slate-100 font-medium">Dubai College</span>
+                      <span className="px-1.5 py-0.5 rounded-full bg-slate-100 font-medium">JESS Dubai</span>
+                      <span className="px-1.5 py-0.5 rounded-full bg-slate-100 font-medium">Nord Anglia</span>
+                      <span className="px-1.5 py-0.5 rounded-full bg-slate-100 font-medium">Repton</span>
+                    </div>
+                  </div>
+
+                  {/* Right Column: 3D Stage with Spec Chips & Auto-Scanning Laser Meter */}
+                  <div
+                    className="md:col-span-5 bg-gradient-to-br from-[#f4f7fc] to-[#edf3fc] rounded-xl sm:rounded-2xl p-2.5 sm:p-4 border border-[#0f4a9b]/20 flex flex-col gap-1.5 sm:gap-2.5 relative overflow-hidden shadow-inner"
+                    style={{ transform: 'translateZ(35px)' }}
+                  >
+                    {/* Auto-Scanning Radar Laser Line */}
+                    <motion.div
+                      className="absolute -inset-y-4 w-14 bg-gradient-to-r from-transparent via-blue-400/25 to-transparent pointer-events-none"
+                      animate={{ x: [-30, 260, -30] }}
+                      transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
+                    />
+
+                    <div className="text-[10px] sm:text-[11px] font-extrabold text-[#0f4a9b] uppercase tracking-wider flex items-center justify-between relative z-10">
+                      <span>Key Specifications</span>
+                      <span className="text-[9.5px] sm:text-[10px] font-mono bg-white px-1.5 py-0.5 rounded border border-[#0f4a9b]/20 shadow-2xs">
+                        0580 · 0625
+                      </span>
+                    </div>
+
+                    <div className="space-y-1 sm:space-y-1.5 relative z-10">
+                      <div className="flex items-center justify-between p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/95 border border-slate-200/90 text-[10.5px] sm:text-xs font-medium text-slate-700 shadow-2xs">
+                        <div className="flex items-center gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#0f4a9b] shrink-0" />
+                          <span>Mathematics 0580</span>
+                        </div>
+                        <span className="text-[9.5px] sm:text-[10px] font-bold text-[#0f4a9b] bg-blue-50 px-1.5 py-0.5 rounded">Core &amp; Ext</span>
+                      </div>
+
+                      <div className="flex items-center justify-between p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/95 border border-slate-200/90 text-[10.5px] sm:text-xs font-medium text-slate-700 shadow-2xs">
+                        <div className="flex items-center gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#0f4a9b] shrink-0" />
+                          <span>Sciences 0625 / 0620 / 0610</span>
+                        </div>
+                        <span className="text-[9.5px] sm:text-[10px] font-bold text-[#0f4a9b] bg-blue-50 px-1.5 py-0.5 rounded">Paper 2, 4 &amp; 6</span>
+                      </div>
+
+                      <div className="flex items-center justify-between p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/95 border border-slate-200/90 text-[10.5px] sm:text-xs font-medium text-slate-700 shadow-2xs">
+                        <div className="flex items-center gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#0f4a9b] shrink-0" />
+                          <span>English First Language 0500</span>
+                        </div>
+                        <span className="text-[9.5px] sm:text-[10px] font-bold text-[#0f4a9b] bg-blue-50 px-1.5 py-0.5 rounded">Set Texts</span>
+                      </div>
+                    </div>
+
+                    {/* Micro Mark Scheme Meter with Pulsing Dot */}
+                    <div className="pt-1 border-t border-[#0f4a9b]/15 flex items-center justify-between text-[10px] sm:text-[11px] text-slate-600 relative z-10">
+                      <span className="font-semibold flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping inline-block" />
+                        Examiner Focus:
+                      </span>
+                      <span className="font-mono font-bold text-[#0f4a9b] bg-white px-1.5 py-0.5 rounded border border-[#0f4a9b]/20 shadow-2xs text-[9.5px] sm:text-[10px]">
+                        [M1] Method + [A1] Acc
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {activeBoard === 'edexcel' && (
+                <motion.div
+                  key="edexcel"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25 }}
+                  className="grid md:grid-cols-12 gap-3 sm:gap-6 items-center"
+                >
+                  {/* Left Column: Summary, 3D Emblem & Dubai Schools */}
+                  <div className="md:col-span-7 flex flex-col justify-between h-full" style={{ transform: 'translateZ(25px)' }}>
+                    <div>
+                      <div className="flex items-center gap-2.5 sm:gap-3 mb-1.5 sm:mb-2">
+                        <Edexcel3DEmblem />
+                        <div>
+                          <span className="inline-block px-2 py-0.5 bg-[#C7A24A] text-[#0a1f3d] text-[9.5px] sm:text-[11px] font-extrabold rounded shadow-2xs uppercase">
+                            PEARSON EDEXCEL IGCSE
+                          </span>
+                          <h3 className="text-sm sm:text-lg font-extrabold text-[#0a1f3d] mt-0.5 leading-snug">
+                            Structured Multi-Step &amp; Case Analysis
+                          </h3>
+                        </div>
+                      </div>
+
+                      <p className="text-slate-600 text-[11px] sm:text-xs leading-relaxed mb-2 sm:mb-3 pl-0.5 sm:pl-1">
+                        Edexcel IGCSE papers reward structured multi-step calculations, case study data extraction, and higher-tariff 6 to 9-mark extended evaluation chains.
+                      </p>
+                    </div>
+
+                    {/* Top Dubai Schools */}
+                    <div className="pt-2 sm:pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1 sm:gap-1.5 text-[10.5px] sm:text-xs text-slate-600 mb-2 md:mb-0">
+                      <span className="font-bold text-[#0a1f3d]">Dubai Schools:</span>
+                      <span className="px-1.5 py-0.5 rounded-full bg-slate-100 font-medium">The Winchester School</span>
+                      <span className="px-1.5 py-0.5 rounded-full bg-slate-100 font-medium">Deira International</span>
+                      <span className="px-1.5 py-0.5 rounded-full bg-slate-100 font-medium">Regent International</span>
+                    </div>
+                  </div>
+
+                  {/* Right Column: 3D Stage with Spec Chips & Auto-Scanning Laser Meter */}
+                  <div
+                    className="md:col-span-5 bg-gradient-to-br from-[#fffdf7] to-[#fef8ea] rounded-xl sm:rounded-2xl p-2.5 sm:p-4 border border-[#C7A24A]/30 flex flex-col gap-1.5 sm:gap-2.5 relative overflow-hidden shadow-inner"
+                    style={{ transform: 'translateZ(35px)' }}
+                  >
+                    {/* Auto-Scanning Radar Laser Line */}
+                    <motion.div
+                      className="absolute -inset-y-4 w-14 bg-gradient-to-r from-transparent via-amber-400/25 to-transparent pointer-events-none"
+                      animate={{ x: [-30, 260, -30] }}
+                      transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
+                    />
+
+                    <div className="text-[10px] sm:text-[11px] font-extrabold text-[#9a7620] uppercase tracking-wider flex items-center justify-between relative z-10">
+                      <span>Key Specifications</span>
+                      <span className="text-[9.5px] sm:text-[10px] font-mono bg-white px-1.5 py-0.5 rounded border border-[#C7A24A]/35 shadow-2xs">
+                        4MA1 · 4PH1
+                      </span>
+                    </div>
+
+                    <div className="space-y-1 sm:space-y-1.5 relative z-10">
+                      <div className="flex items-center justify-between p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/95 border border-slate-200/90 text-[10.5px] sm:text-xs font-medium text-slate-700 shadow-2xs">
+                        <div className="flex items-center gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#C7A24A] shrink-0" />
+                          <span>Mathematics 4MA1</span>
+                        </div>
+                        <span className="text-[9.5px] sm:text-[10px] font-bold text-[#9a7620] bg-amber-50 px-1.5 py-0.5 rounded">Higher 1H &amp; 2H</span>
+                      </div>
+
+                      <div className="flex items-center justify-between p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/95 border border-slate-200/90 text-[10.5px] sm:text-xs font-medium text-slate-700 shadow-2xs">
+                        <div className="flex items-center gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#C7A24A] shrink-0" />
+                          <span>Sciences 4PH1 / 4CH1</span>
+                        </div>
+                        <span className="text-[9.5px] sm:text-[10px] font-bold text-[#9a7620] bg-amber-50 px-1.5 py-0.5 rounded">Paper 1 &amp; 2</span>
+                      </div>
+
+                      <div className="flex items-center justify-between p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-white/95 border border-slate-200/90 text-[10.5px] sm:text-xs font-medium text-slate-700 shadow-2xs">
+                        <div className="flex items-center gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#C7A24A] shrink-0" />
+                          <span>Business 4BS1 &amp; 4EC1</span>
+                        </div>
+                        <span className="text-[9.5px] sm:text-[10px] font-bold text-[#9a7620] bg-amber-50 px-1.5 py-0.5 rounded">Case Studies</span>
+                      </div>
+                    </div>
+
+                    {/* Micro Mark Ladder with Pulsing Dot */}
+                    <div className="pt-1 border-t border-[#C7A24A]/20 flex items-center justify-between text-[10px] sm:text-[11px] text-slate-600 relative z-10">
+                      <span className="font-semibold flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping inline-block" />
+                        Examiner Focus:
+                      </span>
+                      <span className="font-mono font-bold text-[#9a7620] bg-white px-1.5 py-0.5 rounded border border-[#C7A24A]/30 shadow-2xs text-[9.5px] sm:text-[10px]">
+                        AO1 → AO2 → AO3
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {activeBoard === 'compare' && (
+                <motion.div
+                  key="compare"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25 }}
+                  className="space-y-2.5 sm:space-y-4"
+                >
+                  <div className="flex items-center gap-2.5 sm:gap-3 mb-1" style={{ transform: 'translateZ(25px)' }}>
+                    <Comparison3DEmblem />
+                    <div>
+                      <span className="inline-block px-2 py-0.5 bg-[#0a1f3d] text-white text-[9.5px] sm:text-[11px] font-extrabold rounded shadow-2xs uppercase">
+                        SIDE-BY-SIDE EVALUATION
+                      </span>
+                      <h3 className="text-sm sm:text-lg font-extrabold text-[#0a1f3d] mt-0.5 leading-snug">
+                        Key Differences Between Boards
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4" style={{ transform: 'translateZ(30px)' }}>
+                    <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col shadow-2xs">
+                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#0f4a9b] mb-0.5">
+                        Mark Scheme Style
+                      </span>
+                      <h4 className="font-extrabold text-xs sm:text-sm text-[#0a1f3d] mb-0.5">Rigid Steps vs Leveled Rubrics</h4>
+                      <p className="text-[10.5px] sm:text-xs text-slate-600 leading-relaxed">
+                        Cambridge requires exact command-word phrasing and step-by-step working. Edexcel mark bands reward analytical synthesis and context application.
+                      </p>
+                    </div>
+
+                    <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col shadow-2xs">
+                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#C7A24A] mb-0.5">
+                        Science Practical Papers
+                      </span>
+                      <h4 className="font-extrabold text-xs sm:text-sm text-[#0a1f3d] mb-0.5">Paper 6 vs Embedded Papers</h4>
+                      <p className="text-[10.5px] sm:text-xs text-slate-600 leading-relaxed">
+                        Cambridge Sciences feature a dedicated written practical paper (Paper 6). Edexcel tests practical methods directly within Papers 1 &amp; 2.
+                      </p>
+                    </div>
+
+                    <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-blue-50/60 border border-blue-200/80 flex flex-col shadow-2xs">
+                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#0f4a9b] mb-0.5">
+                        Mid-Year School Moves
+                      </span>
+                      <h4 className="font-extrabold text-xs sm:text-sm text-[#0a1f3d] mb-0.5">Seamless Board Transfer</h4>
+                      <p className="text-[10.5px] sm:text-xs text-slate-600 leading-relaxed">
+                        If your child switches schools between Cambridge and Edexcel in Dubai, our tutors rebuild exam technique without redoing overlapping syllabus topics.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── HOW ONLINE IGCSE TUTORING WORKS (CIRCULAR MOTION ORBIT SHOWCASE) ── */
+const TUTORING_FLOW_STEPS = [
+  {
+    step: 1,
+    num: '01',
+    title: 'Diagnostic Assessment',
+    desc: "We review your child's school, target grades, and current weak areas to pair them with a specialist tutor who knows their exact exam board.",
+    color: '#0f4a9b',
+    gradient: 'from-[#0f4a9b] to-[#1e5bb3]',
+    icon: ClipboardCheck,
+    pills: ['School & Board Review', 'Target Grade Gap Analysis', 'Specialist Tutor Pairing'],
+  },
+  {
+    step: 2,
+    num: '02',
+    title: 'Live 1-to-1 Interactive Sessions',
+    desc: 'Lessons feature real-time digital whiteboards, live past paper solving, immediate feedback, and session recordings for easy exam revision.',
+    color: '#C7A24A',
+    gradient: 'from-[#C7A24A] to-[#9a7620]',
+    icon: Video,
+    pills: ['Interactive Digital Whiteboard', 'Live Past Paper Solving', 'Recorded for 24/7 Revision'],
+  },
+  {
+    step: 3,
+    num: '03',
+    title: 'Continuous Progress Tracking',
+    desc: 'Parents receive regular progress updates after lessons and mock assessments, keeping learning on track for grade 8 and 9 outcomes.',
+    color: '#10b981',
+    gradient: 'from-[#10b981] to-[#047857]',
+    icon: LineChart,
+    pills: ['Regular Parent WhatsApp Updates', 'Timed Mock Assessments', 'Grade 8/9 Target Trajectory'],
+  },
+];
+
+function HowTutoringWorksCircularShowcase() {
+  const [activeStep, setActiveStep] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-advance circular motion continuously every 3.8 seconds unless paused
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % TUTORING_FLOW_STEPS.length);
+    }, 3800);
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const current = TUTORING_FLOW_STEPS[activeStep];
+  const CurrentIcon = current.icon;
+
+  // Orbit Geometry: 3 nodes spaced at 120° intervals
+  // When activeStep changes, wheel rotates by -activeStep * 120° so that active node faces the showcase card
+  const wheelRotation = -activeStep * 120;
+
+  return (
+    <div className="max-w-5xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
+      {/* Header */}
+      <div className="text-center mb-2.5 sm:mb-6 lg:mb-10 max-w-2xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-2.5 py-0.5 sm:py-1 bg-white border border-[#0f4a9b]/15 text-[#0f4a9b] rounded-full text-[10px] sm:text-xs font-bold mb-1 sm:mb-2 shadow-2xs">
+          Interactive Learning Platform
+        </div>
+        <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-1 sm:mb-2 tracking-tight leading-tight">
+          <GradientHeadingText text="How Online IGCSE Tutoring Works" />
+        </h2>
+        <p className="text-gray-600 text-[11px] sm:text-xs lg:text-sm font-medium line-clamp-1 sm:line-clamp-none">
+          Step-by-step guidance designed for Cambridge &amp; Edexcel success in the UAE.
+        </p>
+      </div>
+
+      {/* Main Interactive Stage: Circular Orbit Console + Active Card */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 lg:gap-10 items-center">
+        {/* Left Column: 3D Circular Orbit Wheel */}
+        <div className="lg:col-span-5 flex flex-col items-center justify-center">
+          <div className="relative w-[170px] h-[170px] sm:w-[230px] sm:h-[230px] lg:w-[320px] lg:h-[320px] select-none flex items-center justify-center">
+            {/* Ambient Background Radial Glow */}
+            <motion.div
+              className="absolute inset-2 sm:inset-4 rounded-full blur-2xl sm:blur-3xl opacity-20 pointer-events-none transition-colors duration-700"
+              style={{ backgroundColor: current.color }}
+            />
+
+            {/* Orbit SVG Ring Tracks */}
+            <svg viewBox="0 0 340 340" className="absolute inset-0 w-full h-full pointer-events-none">
+              <defs>
+                <linearGradient id="orbitRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0f4a9b" stopOpacity="0.25" />
+                  <stop offset="50%" stopColor="#C7A24A" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="#10b981" stopOpacity="0.25" />
+                </linearGradient>
+              </defs>
+              {/* Outer Track */}
+              <circle cx="170" cy="170" r="139" fill="none" stroke="rgba(15,74,155,0.06)" strokeWidth="1" />
+              {/* Main Orbit Ring with dashed guide */}
+              <circle
+                cx="170"
+                cy="170"
+                r="115"
+                fill="none"
+                stroke="url(#orbitRingGrad)"
+                strokeWidth="2"
+                strokeDasharray="6 6"
+              />
+              {/* Inner Track */}
+              <circle cx="170" cy="170" r="80" fill="none" stroke="rgba(15,74,155,0.08)" strokeWidth="1" />
+            </svg>
+
+            {/* Center Orbital Core */}
+            <div className="relative z-10 w-14 h-14 sm:w-18 sm:h-18 lg:w-22 lg:h-22 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 shadow-[0_4px_16px_rgba(15,74,155,0.08)] flex flex-col items-center justify-center text-center p-1 select-none">
+              <div
+                className={`w-1.5 h-1.5 rounded-full mb-0.5 transition-colors duration-500 ${isPaused ? '' : 'animate-ping'}`}
+                style={{ backgroundColor: current.color }}
+              />
+              <span className="text-[8px] sm:text-[9.5px] font-black uppercase tracking-wider text-slate-400 leading-none">
+                Step
+              </span>
+              <span
+                className="text-sm sm:text-lg lg:text-2xl font-black transition-colors duration-500 leading-tight"
+                style={{ color: current.color }}
+              >
+                0{activeStep + 1}
               </span>
             </div>
 
-            {/* Preserved Full Text */}
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5">
-              {current.text}
-            </p>
+            {/* Revolving Wheel Container: Rotates in circular motion */}
+            <motion.div
+              className="absolute inset-0 pointer-events-none"
+              animate={{ rotate: wheelRotation }}
+              transition={{ type: 'spring', stiffness: 55, damping: 13 }}
+            >
+              {TUTORING_FLOW_STEPS.map((item, idx) => {
+                const baseRad = ((idx * 120) * Math.PI) / 180;
+                // Percentage geometry so wheel scales to ANY container width/height!
+                const nodeX = 50 + 34 * Math.cos(baseRad);
+                const nodeY = 50 + 34 * Math.sin(baseRad);
+                const isActive = activeStep === idx;
+                const NodeIcon = item.icon;
 
-            {/* Dynamic Community / Curricula Pill Badges */}
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-              {current.pills.map((pill, idx) => (
-                <span
-                  key={idx}
-                  className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-semibold bg-slate-50 border border-slate-200 text-[#0a1f3d] hover:border-[#0f4a9b]/40 hover:bg-blue-50/40 transition-colors"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: current.accentColor }} />
-                  {pill}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        </AnimatePresence>
+                return (
+                  <div
+                    key={item.step}
+                    style={{
+                      position: 'absolute',
+                      left: `${nodeX}%`,
+                      top: `${nodeY}%`,
+                      transform: 'translate(-50%, -50%)',
+                    }}
+                    className="pointer-events-auto"
+                  >
+                    {/* Counter-rotate so the icon stays upright! */}
+                    <motion.div
+                      animate={{ rotate: -wheelRotation }}
+                      transition={{ type: 'spring', stiffness: 55, damping: 13 }}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActiveStep(idx);
+                        }}
+                        aria-label={`Select ${item.title}`}
+                        className={`group relative flex items-center justify-center rounded-xl sm:rounded-2xl transition-all duration-300 cursor-pointer ${
+                          isActive
+                            ? 'w-11 h-11 sm:w-14 sm:h-14 lg:w-16 lg:h-16 scale-110 shadow-[0_8px_20px_rgba(0,0,0,0.18)] ring-2 sm:ring-4 ring-white'
+                            : 'w-9 h-9 sm:w-11 sm:h-11 lg:w-13 lg:h-13 hover:scale-105 bg-white/95 border border-slate-200 shadow-2xs hover:border-[#0f4a9b]/40'
+                        }`}
+                        style={{
+                          backgroundColor: isActive ? item.color : '#ffffff',
+                        }}
+                      >
+                        {/* Step number badge */}
+                        <span
+                          className={`absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full text-[8.5px] sm:text-[10px] font-black flex items-center justify-center shadow-xs transition-colors ${
+                            isActive
+                              ? 'bg-white text-[#0a1f3d]'
+                              : 'bg-slate-100 text-slate-600 border border-slate-200'
+                          }`}
+                        >
+                          {item.step}
+                        </span>
+
+                        {/* Node Icon */}
+                        <NodeIcon
+                          className={`transition-transform duration-300 ${
+                            isActive ? 'w-4.5 h-4.5 sm:w-6 sm:h-6 text-white' : 'w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110'
+                          }`}
+                          style={{ color: isActive ? '#ffffff' : item.color }}
+                          strokeWidth={2.2}
+                        />
+
+                        {/* Active Aura Pulse */}
+                        {isActive && (
+                          <motion.div
+                            className="absolute -inset-1.5 sm:-inset-2.5 rounded-xl sm:rounded-2xl pointer-events-none opacity-30 blur-md -z-10"
+                            style={{ backgroundColor: item.color }}
+                            animate={{ scale: [1, 1.2, 1], opacity: [0.25, 0.5, 0.25] }}
+                            transition={{ repeat: Infinity, duration: 2.2 }}
+                          />
+                        )}
+                      </button>
+                    </motion.div>
+                  </div>
+                );
+              })}
+            </motion.div>
+          </div>
+
+          {/* Orbit Controls (Pause / Resume Button) */}
+          <div className="mt-1.5 sm:mt-3 flex items-center justify-center">
+            <button
+              type="button"
+              onClick={() => setIsPaused((prev) => !prev)}
+              aria-label={isPaused ? "Resume rotation" : "Pause rotation"}
+              className="group inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10.5px] sm:text-xs font-semibold bg-white hover:bg-slate-50 border border-slate-200 hover:border-[#0f4a9b]/30 shadow-2xs text-slate-700 transition-all cursor-pointer active:scale-95"
+            >
+              <span
+                className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                  isPaused ? 'bg-amber-500' : 'bg-emerald-500 animate-pulse'
+                }`}
+              />
+              {isPaused ? (
+                <>
+                  <Play className="w-3 h-3 text-emerald-600 fill-emerald-600" />
+                  <span>Resume</span>
+                </>
+              ) : (
+                <>
+                  <Pause className="w-3 h-3 text-slate-500 fill-slate-500" />
+                  <span>Pause</span>
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Right Column: Active Step Showcase Card with Rich Animations */}
+        <div className="lg:col-span-7">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.step}
+              initial={{ opacity: 0, y: 12, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="relative bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 lg:p-8 border border-slate-200/90 shadow-[0_8px_24px_rgba(15,74,155,0.06)] overflow-hidden"
+            >
+              {/* Top Accent Gradient Bar */}
+              <div
+                className="absolute top-0 left-0 right-0 h-1 sm:h-1.5"
+                style={{
+                  background: `linear-gradient(90deg, ${current.color}, #0a1f3d)`,
+                }}
+              />
+
+              {/* Ghost Step Number Watermark */}
+              <div
+                className="absolute top-2 right-4 text-5xl sm:text-7xl lg:text-8xl font-black pointer-events-none select-none opacity-[0.04]"
+                style={{ color: current.color }}
+              >
+                {current.num}
+              </div>
+
+              {/* Card Header */}
+              <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
+                <div className="flex items-center gap-2.5 sm:gap-3.5">
+                  <div
+                    className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl flex items-center justify-center text-white shadow-xs shrink-0"
+                    style={{ background: `linear-gradient(135deg, ${current.color}, #0a1f3d)` }}
+                  >
+                    <CurrentIcon className="w-4.5 h-4.5 sm:w-5 sm:h-5" strokeWidth={2.2} />
+                  </div>
+                  <div className="min-w-0">
+                    {current.title ? (
+                      <h3 className="text-base sm:text-xl lg:text-2xl font-extrabold text-[#0a1f3d] leading-snug">
+                        {current.title}
+                      </h3>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+
+              {/* Exact Written Content Preserved 100% */}
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-2.5 sm:mb-4 font-normal">
+                {current.desc}
+              </p>
+
+              {/* Key Features Pill Badges */}
+              <div className="flex flex-wrap gap-1.5 pt-2 sm:pt-3 border-t border-slate-100 mb-2.5 sm:mb-4">
+                {current.pills.map((pill, idx) => (
+                  <span
+                    key={idx}
+                    className="inline-flex items-center gap-1 px-2 sm:px-2.5 py-0.5 rounded-md sm:rounded-lg text-[10.5px] sm:text-xs font-semibold bg-slate-50 border border-slate-200 text-[#0a1f3d]"
+                  >
+                    <CheckCircle2 className="w-3 h-3" style={{ color: current.color }} />
+                    {pill}
+                  </span>
+                ))}
+              </div>
+
+              {/* Step Progress Indicator & Pause / Play Controller */}
+              <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-slate-100">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-[11px] sm:text-xs font-extrabold text-[#0a1f3d]">
+                    Step 0{activeStep + 1} of 03
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsPaused((prev) => !prev)}
+                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10.5px] sm:text-[11px] font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors cursor-pointer"
+                    title={isPaused ? "Resume Rotation" : "Pause Rotation"}
+                    aria-label={isPaused ? "Resume Rotation" : "Pause Rotation"}
+                  >
+                    {isPaused ? (
+                      <>
+                        <Play className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-emerald-600 fill-emerald-600" />
+                        <span>Resume</span>
+                      </>
+                    ) : (
+                      <>
+                        <Pause className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-slate-600 fill-slate-600" />
+                        <span>Pause</span>
+                      </>
+                    )}
+                  </button>
+                  <div className="w-16 sm:w-28 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                    <motion.div
+                      key={`${activeStep}-${isPaused}`}
+                      className="h-full rounded-full"
+                      style={{ backgroundColor: current.color }}
+                      initial={{ width: isPaused ? '100%' : '0%' }}
+                      animate={{ width: '100%' }}
+                      transition={{ duration: isPaused ? 0 : 3.8, ease: 'linear' }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );
@@ -606,18 +1790,6 @@ export default function IgcseTutorDubaiPage() {
         </motion.div>
       </section>
 
-      {/* ── MISSION / GRADE 8 & 9 SUPPORT BANNER ── */}
-      <section className="relative z-20 max-w-4xl mx-auto px-4 text-center mt-6 mb-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0f4a9b]/8 text-[#0f4a9b] text-xs font-bold tracking-wide mb-2.5 border border-[#0f4a9b]/15">
-          <span>Our IGCSE mission in Dubai</span>
-        </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] tracking-tight mb-2">
-          Grade 8 and 9 Support for Dubai IGCSE Students
-        </h2>
-        <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-          Targeted one-to-one tutoring and structured exam technique designed to help Dubai students achieve top tier results in Cambridge and Edexcel IGCSEs.
-        </p>
-      </section>
 
       {/* ── STATS BAR ── */}
       <StatsBar />
@@ -629,304 +1801,73 @@ export default function IgcseTutorDubaiPage() {
       />
 
       {/* ── TARGETED EXAM REPAIR / COMMON HURDLES ── */}
-      <section className="py-14 lg:py-20 bg-white border-b border-slate-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 max-w-2xl mx-auto">
-            <span className="text-[#0f4a9b] text-xs font-extrabold uppercase tracking-widest bg-[#0f4a9b]/8 px-3 py-1 rounded-full border border-[#0f4a9b]/15">
-              Targeted Exam Repair
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mt-3 tracking-tight">
-              Common IGCSE Exam Hurdles We Fix
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mt-2 italic">
-              IGCSE boards test exam technique as much as subject knowledge. Our tutors address exact mark loss areas.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <ChallengesAccordion challenges={CHALLENGES} />
-          </div>
-        </div>
-      </section>
-
-      {/* ── SPECIALISED TUTORING / IGCSE SUBJECTS ── */}
-      <section className="py-14 lg:py-20 bg-[#f4f7fc] relative overflow-hidden border-b border-slate-100">
-        <IgcseGrid light />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-3 shadow-xs">
-              Specialised Tutoring
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-3 tracking-tight">
-              IGCSE Subjects We Cover in Dubai
-            </h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">
-              Expert 1-to-1 support across Cambridge (CIE) and Pearson Edexcel specifications.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-            {[
-              {
-                Icon: Calculator,
-                title: 'IGCSE Mathematics',
-                tag: 'Codes: Cambridge 0580 Extended & Edexcel 4MA1 Higher',
-                href: '/maths',
-                desc1: 'The two tiers taught across most British curriculum schools in the emirate, including Dubai College, Repton, Nord Anglia, and JESS.',
-                desc2: 'Focus on algebra fluency, vector geometry, and calculator paper technique so working shows the marks examiners expect at the top grades.',
-              },
-              {
-                Icon: Atom,
-                title: 'IGCSE Physics',
-                tag: 'Codes: Cambridge 0625 & Edexcel 4PH1',
-                href: '/physics',
-                desc1: 'Formula sheet recall and unit conversion rebuilt for students preparing at Cambridge schools or Edexcel schools, including those who transfer between boards mid year.',
-                desc2: 'Practical questions covered separately for each board, whether the Cambridge Alternative to Practical or the Edexcel written practical style.',
-              },
-              {
-                Icon: FlaskConical,
-                title: 'IGCSE Chemistry',
-                tag: 'Codes: Cambridge 0620 & Edexcel 4CH1',
-                href: '/chemistry',
-                desc1: 'Mole calculations, organic reaction pathways, and practical write ups covered as three distinct skill areas rather than lumped into revision.',
-                desc2: 'Recent past papers used every session so working is rebuilt against real mark schemes, protecting method marks even when the final answer slips.',
-              },
-              {
-                Icon: Dna,
-                title: 'IGCSE Biology',
-                tag: 'Codes: Cambridge 0610 & Edexcel 4BI1',
-                href: '/biology',
-                desc1: 'Extended response questions are where strong students often plateau, and they are the main focus of our sessions.',
-                desc2: 'Cambridge and Edexcel mark schemes read side by side so answers are shaped around the terminology examiners reward, not paraphrased versions.',
-              },
-              {
-                Icon: Briefcase,
-                title: 'IGCSE Business & Economics',
-                tag: 'Codes: Cambridge 0450/0455 & Edexcel 4BS1/4EC1',
-                href: '/business',
-                desc1: 'Case study analysis and higher tariff evaluation questions taught as structured skills rather than as content revision.',
-                desc2: 'Extended responses coached for balanced argument, data interpretation from the case study, and a clear final judgement line.',
-              },
-              {
-                Icon: BookOpen,
-                title: 'IGCSE English Language & Literature',
-                tag: 'Codes: Cambridge 0500/0475 & Edexcel 4EA1/4ET1',
-                href: '/english',
-                desc1: 'Written for candidates in Dubai\'s multilingual classrooms, where marks turn on structure and analytical vocabulary rather than vocabulary alone.',
-                desc2: 'Sessions cover directed writing frameworks, quotation recall for set texts, and the analytical language rewarded on unseen extracts.',
-              },
-            ].map((sub, idx) => (
-              <motion.a
-                key={idx}
-                href={sub.href}
-                aria-label={`${sub.title} — ${sub.tag}`}
-                initial={{ opacity: 0, y: 30, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="relative bg-white rounded-2xl border border-gray-200/80 p-6 shadow-[0_4px_20px_rgba(15,74,155,0.05)] hover:shadow-[0_20px_42px_rgba(15,74,155,0.12)] hover:-translate-y-1.5 hover:border-[#0f4a9b]/40 transition-all duration-300 flex flex-col h-full group overflow-hidden cursor-pointer"
-              >
-                {/* Top Accent Gradient Indicator */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A] group-hover:h-1.5 transition-all duration-300" />
-
-                {/* Ambient Soft Blue Corner Glow */}
-                <div className="absolute -right-8 -bottom-8 w-24 h-24 rounded-full blur-2xl bg-[#0f4a9b]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-                {/* Stylish Icon Badge */}
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white shadow-[0_4px_12px_rgba(15,74,155,0.2)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shrink-0">
-                  <sub.Icon className="h-5 w-5" strokeWidth={2.2} />
-                </div>
-
-                <h3 className="text-[17px] font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors mb-1.5 leading-snug">
-                  {sub.title}
-                </h3>
-
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#0f4a9b]/8 text-[#0f4a9b] border border-[#0f4a9b]/15 mb-3 w-fit tracking-wide group-hover:bg-[#0f4a9b]/12 transition-colors">
-                  {sub.tag}
+      <section className="py-12 lg:py-16 bg-white border-b border-slate-100 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#f8fafd] rounded-3xl border border-slate-200/80 p-6 sm:p-8 lg:p-10 shadow-xs">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-center">
+              {/* Left Column: Heading & Context */}
+              <div className="lg:col-span-5 text-left">
+                <span className="inline-flex items-center text-[#0f4a9b] text-xs font-extrabold uppercase tracking-widest bg-[#0f4a9b]/8 px-3.5 py-1.5 rounded-full border border-[#0f4a9b]/15 mb-4">
+                  Targeted Exam Repair
                 </span>
-
-                <div className="space-y-2 text-[13px] text-gray-600 group-hover:text-gray-700 transition-colors leading-relaxed flex-1">
-                  <p>{sub.desc1}</p>
-                  <p>{sub.desc2}</p>
-                </div>
-
-                <div className="mt-4 pt-3.5 border-t border-gray-100 flex items-center text-xs font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors">
-                  <span>Explore {sub.title}</span>
-                </div>
-              </motion.a>
-            ))}
-          </div>
-
-          <motion.a
-            href="/exam-preparation"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-6 flex items-center gap-4 rounded-2xl p-5 sm:p-6 bg-gradient-to-r from-white via-[#f4f7fc] to-white border border-[#0f4a9b]/15 hover:border-[#0f4a9b]/35 shadow-[0_4px_20px_rgba(15,74,155,0.06)] hover:shadow-[0_12px_32px_rgba(15,74,155,0.14)] hover:-translate-y-1 transition-all group"
-          >
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] text-white shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-              <CheckCircle2 className="h-5 w-5" strokeWidth={2.2} />
-            </div>
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center gap-2 mb-0.5">
-                <h3 className="text-[17px] font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors">Exam Preparation</h3>
-                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#C7A24A]/15 text-[#A8892A] border border-[#C7A24A]/30 uppercase tracking-wider">High Impact</span>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] tracking-tight leading-[1.2]">
+                  Common IGCSE Exam Hurdles We Fix
+                </h2>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mt-3.5 italic mb-0">
+                  IGCSE boards test exam technique as much as subject knowledge. Our tutors address exact mark loss areas.
+                </p>
               </div>
-              <p className="text-[13px] text-gray-600 leading-relaxed">Past papers, timing drills and mark-scheme practice for mocks and final exams.</p>
-            </div>
-          </motion.a>
-        </div>
-      </section>
 
-      {/* ── EXAM BOARD ALIGNMENT ── */}
-      <section className="py-14 lg:py-20 bg-white border-b border-slate-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 max-w-2xl mx-auto">
-            <span className="text-[#0f4a9b] text-xs font-extrabold uppercase tracking-widest bg-[#0f4a9b]/8 px-3 py-1 rounded-full border border-[#0f4a9b]/15">
-              Exam Board Alignment
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mt-3 tracking-tight">
-              Cambridge (CIE) &amp; Pearson Edexcel IGCSE Preparation
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mt-2 italic">
-              Every lesson uses past papers, mark schemes, and command word guides specific to your child&apos;s exam board.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-[#f8fafd] rounded-2xl p-7 border border-[#0f4a9b]/15 shadow-xs relative overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_18px_38px_rgba(15,74,155,0.12)] hover:border-[#0f4a9b]/40 group cursor-default">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#0f4a9b] group-hover:h-1.5 transition-all duration-300" />
-              <div className="inline-block px-3 py-1 bg-[#0f4a9b] text-white text-xs font-extrabold rounded-md mb-4 shadow-xs group-hover:shadow-md transition-all duration-300">
-                CAMBRIDGE (CIE) IGCSE
+              {/* Right Column: Challenges Accordion in One Unified Card */}
+              <div className="lg:col-span-7">
+                <ChallengesAccordion challenges={CHALLENGES} />
               </div>
-              <h3 className="text-xl font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-300 mb-3">Core &amp; Extended Paper Mastery</h3>
-              <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                Cambridge IGCSE exams emphasise technical accuracy, core vs extended tier differentiation, and alternative to practical paper 6 methods.
-              </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-700 font-medium">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#0f4a9b] shrink-0 group-hover:scale-110 transition-transform duration-200" />
-                  <span>Mathematics 0580 (Core &amp; Extended)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#0f4a9b] shrink-0 group-hover:scale-110 transition-transform duration-200" />
-                  <span>Sciences 0625 / 0620 / 0610 (Paper 2, 4 &amp; 6)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#0f4a9b] shrink-0 group-hover:scale-110 transition-transform duration-200" />
-                  <span>English First Language 0500 &amp; Literature 0475</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-[#f8fafd] rounded-2xl p-7 border border-[#C7A24A]/30 shadow-xs relative overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_18px_38px_rgba(199,162,74,0.16)] hover:border-[#C7A24A]/60 group cursor-default">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#C7A24A] to-amber-600 group-hover:h-1.5 transition-all duration-300" />
-              <div className="inline-block px-3 py-1 bg-[#C7A24A] text-[#0a1f3d] text-xs font-extrabold rounded-md mb-4 shadow-xs group-hover:shadow-md transition-all duration-300">
-                PEARSON EDEXCEL IGCSE
-              </div>
-              <h3 className="text-xl font-extrabold text-[#0a1f3d] group-hover:text-[#C7A24A] transition-colors duration-300 mb-3">Specification A &amp; B Preparation</h3>
-              <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                Edexcel IGCSE exams place strong weight on structured multi-step calculations, case study application, and clear 6 to 9-mark extended answers.
-              </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-700 font-medium">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#C7A24A] shrink-0 group-hover:scale-110 transition-transform duration-200" />
-                  <span>Mathematics 4MA1 (Higher &amp; Foundation)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#C7A24A] shrink-0 group-hover:scale-110 transition-transform duration-200" />
-                  <span>Double &amp; Triple Sciences 4PH1 / 4CH1 / 4BI1</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#C7A24A] shrink-0 group-hover:scale-110 transition-transform duration-200" />
-                  <span>Business 4BS1 &amp; Economics 4EC1</span>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ── SPECIALISED TUTORING / IGCSE SUBJECTS SHOWCASE (IN ONE SECTION) ── */}
+      <IgcseSubjectsShowcase />
+
+      {/* ── EXAM BOARD ALIGNMENT (COMPACT INTERACTIVE CONSOLE) ── */}
+      <IgcseBoardConsole />
 
       {/* ── UAE ACADEMIC ASSISTANCE & SEO TRUST SECTION ── */}
-      <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 to-slate-100/70 border-b border-gray-200/70 relative overflow-hidden">
+      <section className="py-8 sm:py-10 lg:py-12 bg-gradient-to-b from-slate-50 to-slate-100/70 border-b border-gray-200/70 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-gradient-to-r from-[#0f4a9b]/5 via-[#C7A24A]/5 to-[#0a3a79]/5 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-4 sm:mb-5">
           
-          <div className="max-w-3xl mx-auto text-center mb-8">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f4a9b]/10 text-[#0f4a9b] text-xs font-extrabold uppercase tracking-widest mb-3 border border-[#0f4a9b]/20">
-              <Building2 className="w-3.5 h-3.5" />
+          <div className="max-w-3xl mx-auto text-center mb-5 sm:mb-6">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0f4a9b]/10 text-[#0f4a9b] text-[11px] font-extrabold uppercase tracking-widest mb-2 border border-[#0f4a9b]/20">
+              <Building2 className="w-3 h-3" />
               <span>UAE Academic Assistance</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-2">
               How Fast We Reply to Dubai Families
             </h2>
-            <div className="text-gray-700 text-xs sm:text-sm leading-relaxed bg-white/90 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-gray-200/80 shadow-2xs text-center max-w-2xl mx-auto font-medium">
-              <p>
-                Our academic team responds within 15 minutes across every Dubai community. WhatsApp the subject and school, and we match a specialist to your child&apos;s board.
-              </p>
-            </div>
+            <p className="text-gray-600 text-xs sm:text-sm font-medium max-w-xl mx-auto leading-relaxed">
+              Our academic team responds within 15 minutes across every Dubai community. WhatsApp the subject and school, and we match a specialist to your child&apos;s board.
+            </p>
           </div>
 
           <UaeAssistance3DSwitcher />
 
         </div>
 
-        <div className="text-center text-xs font-semibold text-gray-500 py-3.5 bg-slate-100 border-t border-gray-200 flex items-center justify-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
+        <div className="text-center text-[11px] font-semibold text-gray-500 py-2.5 bg-slate-100/80 border-t border-gray-200/80 flex items-center justify-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
           <span>Friendly academic consultation guaranteed. Response within 15 minutes during UAE office hours.</span>
         </div>
       </section>
 
-      {/* ── HOW ONLINE IGCSE TUTORING WORKS ── */}
-      <section className="py-14 lg:py-20 bg-[#f4f7fc] relative overflow-hidden border-b border-slate-100">
+
+
+      {/* ── HOW ONLINE IGCSE TUTORING WORKS (CIRCULAR MOTION ORBIT SHOWCASE) ── */}
+      <section className="py-4 sm:py-8 lg:py-16 bg-[#f4f7fc] relative overflow-hidden border-b border-slate-100">
         <IgcseGrid light />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-3 shadow-xs">
-              Interactive Learning Platform
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-3 tracking-tight">
-              How Online IGCSE Tutoring Works for Dubai Students
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-[0_4px_20px_rgba(15,74,155,0.05)] relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_40px_rgba(15,74,155,0.13)] hover:border-[#0f4a9b]/40 group cursor-default">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#0f4a9b] group-hover:h-1.5 transition-all duration-300" />
-              <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0f4a9b] flex items-center justify-center mb-4 font-extrabold text-lg group-hover:scale-110 group-hover:bg-[#0f4a9b] group-hover:text-white transition-all duration-300 shadow-xs">
-                1
-              </div>
-              <h3 className="font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors duration-300 text-lg mb-2">Diagnostic Assessment</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                We review your child&apos;s school, target grades, and current weak areas to pair them with a specialist tutor who knows their exact exam board.
-              </p>
-            </div>
-
-            <div className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-[0_4px_20px_rgba(15,74,155,0.05)] relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_40px_rgba(199,162,74,0.16)] hover:border-[#C7A24A]/50 group cursor-default">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#C7A24A] group-hover:h-1.5 transition-all duration-300" />
-              <div className="w-12 h-12 rounded-xl bg-amber-50 text-[#C7A24A] flex items-center justify-center mb-4 font-extrabold text-lg group-hover:scale-110 group-hover:bg-[#C7A24A] group-hover:text-white transition-all duration-300 shadow-xs">
-                2
-              </div>
-              <h3 className="font-extrabold text-[#0a1f3d] group-hover:text-[#C7A24A] transition-colors duration-300 text-lg mb-2">Live 1-to-1 Interactive Sessions</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Lessons feature real-time digital whiteboards, live past paper solving, immediate feedback, and session recordings for easy exam revision.
-              </p>
-            </div>
-
-            <div className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-[0_4px_20px_rgba(15,74,155,0.05)] relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_40px_rgba(16,185,129,0.15)] hover:border-emerald-500/50 group cursor-default">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-emerald-500 group-hover:h-1.5 transition-all duration-300" />
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 font-extrabold text-lg group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300 shadow-xs">
-                3
-              </div>
-              <h3 className="font-extrabold text-[#0a1f3d] group-hover:text-emerald-700 transition-colors duration-300 text-lg mb-2">Continuous Progress Tracking</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Parents receive regular progress updates after lessons and mock assessments, keeping learning on track for grade 8 and 9 outcomes.
-              </p>
-            </div>
-          </div>
-        </div>
+        <HowTutoringWorksCircularShowcase />
       </section>
 
       {/* ── PARENT REVIEWS CAROUSEL ── */}

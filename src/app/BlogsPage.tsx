@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'illusion-of-competence-revision-false-confidence',
+    image: '/images/blogs/illusion-of-competence-hero.jpg',
+    alt: 'High school student studying at a sunlit wooden desk in Dubai with highlighted revision notes and an open Cambridge exam paper',
+    category: 'Psychology of Learning',
+    title: 'The Illusion of Competence: Why Re-Reading Notes Gives UAE Students False Confidence',
+    description: 'Why highlighting and re-reading notes tricks the brain into false exam confidence, and how UAE students can build real retrieval strength.',
+    date: '21 Sep 2026',
+    readTime: '8 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'what-does-gradient-mean-maths-physics',
     image: '/images/blogs/what-does-gradient-mean-hero.jpg',
     alt: 'Secondary student in Dubai attending an online one-to-one tutoring session with a specialist teacher explaining motion formulas on a digital board',
@@ -65,7 +77,7 @@ export const BLOGS: BlogPost[] = [
     slug: 'mock-exams-uae-not-what-they-were',
     image: '/images/blogs/mock-exam-uae-hero.jpg',
     alt: 'UAE student sitting a mock exam under timed conditions, Ustaad UAE',
-    category: 'Academic',
+    category: 'Parent Guidance',
     title: 'Mock Exams Are Not What They Were Last Year: What UAE Parents Need to Know',
     description: "Mock exam results now feed predicted grades and formal school records across many UAE curricula. Here's what changed since the exam-cancellation years, and how to read a mock report correctly.",
     date: '14 Sep 2026',

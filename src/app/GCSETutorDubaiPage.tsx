@@ -851,7 +851,7 @@ function DubaiGcseTermPhasesSection() {
         <div
           ref={scrollRef}
           onScroll={handleScroll}
-          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory pt-3 pb-4 sm:pb-0 px-4 sm:px-0 -mx-4 sm:mx-0 scrollbar-none"
+          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-4 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory pt-3 pb-4 sm:pb-0 px-4 sm:px-0 -mx-4 sm:mx-0 scrollbar-none"
         >
           {PHASES.map((phase, idx) => (
             <div
@@ -906,13 +906,13 @@ function DubaiGcseTermPhasesSection() {
                 </div>
 
                 {/* Calendar Page Content */}
-                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between bg-white">
+                <div className="p-4 sm:p-5 lg:p-4 flex-1 flex flex-col justify-between bg-white">
                   <div>
-                    <h3 className="font-extrabold text-[#0a1f3d] text-base sm:text-lg mb-2.5 group-hover:text-[#0f4a9b] transition-colors leading-snug">
+                    <h3 className="font-extrabold text-[#0a1f3d] text-base sm:text-base lg:text-[15px] mb-2 group-hover:text-[#0f4a9b] transition-colors leading-snug">
                       {phase.title}
                     </h3>
 
-                    <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed mb-4">
+                    <p className="text-slate-600 text-xs sm:text-xs lg:text-[12px] leading-relaxed mb-3">
                       {phase.desc}
                     </p>
                   </div>

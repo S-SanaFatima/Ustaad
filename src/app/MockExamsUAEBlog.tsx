@@ -10,10 +10,10 @@ import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, articleSchema, faqSchema } from './shared/schemas';
 
 const BLOG = {
-  title: 'Mock Exams UAE: Why They Count More Than Before | Ustaad',
-  titleLine1: 'Mock Exams:',
+  title: 'UAE Mock Exams: Why They Count More Than Before | Ustaad',
+  titleLine1: 'UAE Mock Exams:',
   titleLine2: 'Why They Count More Than Before',
-  categoryBadge: 'USTAAD UAE · ACADEMIC & EXAM SKILLS',
+  categoryBadge: 'USTAAD UAE · PARENT GUIDANCE',
   slug: 'mock-exams-uae-not-what-they-were',
   description:
     "UAE mock exams now shape predicted grades and school records, not just practice. Here's what changed and how parents should read the results.",
@@ -322,7 +322,7 @@ export default function MockExamsUAEBlog() {
           breadcrumbSchema([
             { name: 'Home', url: '/' },
             { name: 'Blog', url: '/blogs' },
-            { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' },
+            { name: 'Parent Guidance', url: '/blogs/parent-guidance' },
             { name: 'Mock Exams UAE', url: canonical },
           ]),
           articleSchema({
@@ -363,7 +363,7 @@ export default function MockExamsUAEBlog() {
           </li>
           <li aria-hidden="true"><ChevronRightIcon className="h-3 w-3" /></li>
           <li>
-            <a href="/blogs/academic-exam-skills" className="hover:text-[#0f4a9b] transition truncate max-w-[150px]">Academic &amp; Exam Skills</a>
+            <a href="/blogs/parent-guidance" className="hover:text-[#0f4a9b] transition truncate max-w-[150px]">Parent Guidance</a>
           </li>
           <li aria-hidden="true"><ChevronRightIcon className="h-3 w-3" /></li>
           <li className="text-[#0f4a9b] font-semibold truncate max-w-[150px]" aria-current="page">
@@ -473,7 +473,7 @@ export default function MockExamsUAEBlog() {
               For decades, the school mock exam had a single pedagogical purpose: low-stakes rehearsal. It allowed a teenager to sit a full paper under formal conditions, experience the pressure of the clock, discover their weak topics, and repair them before the summer exams that determined their future.
             </p>
             <p>
-              That framing remains true in spirit. But administratively, UAE secondary schools now operate under a vastly different regulatory and admissions landscape.
+              That framing remains true in spirit. But administratively, many UAE international schools now operate under a different regulatory and admissions landscape, and the mock is where that shift shows up most clearly.
             </p>
           </div>
 
@@ -534,7 +534,7 @@ export default function MockExamsUAEBlog() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#C7A24A] font-bold">•</span>
-                      <span><strong>Tier Placement:</strong> Informs decisions between Higher vs Foundation tier entry.</span>
+                      <span><strong>Tier Placement:</strong> Informs entry decisions for tiered subjects. Foundation/Higher on Edexcel IGCSE, Core/Extended on Cambridge IGCSE.</span>
                     </li>
                   </ul>
                 </div>
@@ -552,13 +552,13 @@ export default function MockExamsUAEBlog() {
 
           <div className="text-sm sm:text-[14.5px] text-gray-700 leading-relaxed space-y-4 text-left">
             <p>
-              The structural change occurred during the exam-cancellation years. When international boards (such as Cambridge Assessment International Education and Pearson Edexcel) were forced to replace public examinations with Teacher Assessed Grades (TAGs), schools had to assemble defensible, auditable portfolios of evidence.
+              The structural change occurred during the exam-cancellation years. When international boards (such as Cambridge Assessment International Education and Pearson Edexcel) were forced to replace public examinations with Teacher Assessed Grades (TAGs), a shift we cover in <a href="/blogs/uae-exams-return-students-never-sat-one" className="text-[#0f4a9b] font-semibold hover:underline">Exams Are Back. What Changes for Students Who Have Never Sat One</a>, schools had to assemble defensible, auditable portfolios of evidence.
             </p>
             <p>
               The central pillar of every portfolio was the mock exam. It was standardised, sat under timed conditions, and marked against official schemes. That historical period permanently trained school leadership and department heads to view mock performance as <em>actionable institutional evidence</em>.
             </p>
             <p>
-              While public exam halls have completely reopened, the administrative apparatus never reverted. Schools now use mocks as robust risk-management checkpoints to validate teacher predictions against inflation.
+              Many British-curriculum schools now use mocks as evidence to validate teacher predictions against overshoot, particularly at A-Level where predictions feed UCAS submissions.
             </p>
           </div>
 
@@ -589,7 +589,7 @@ export default function MockExamsUAEBlog() {
                 </div>
                 <h4 className="font-extrabold text-xs sm:text-sm text-[#0a1f3d] mb-1.5 text-left">Exam Tiering</h4>
                 <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed mb-0 text-left flex-1">
-                  Mock exam scores dictate whether students are entered for Higher or Foundation tier subject papers.
+                  In tiered IGCSE subjects (Foundation/Higher on Edexcel, Core/Extended on Cambridge), mock exam scores inform which tier a student is entered for.
                 </p>
               </div>
 
@@ -618,7 +618,7 @@ export default function MockExamsUAEBlog() {
               <strong>IGCSE mocks</strong> (in Year 10 and Year 11) remain predominantly diagnostic. If a student drops marks in January, there is a clear 4-month runway to diagnose the root cause, drill past papers, and secure an A* on the actual summer paper. The external world will only ever see the final certificate issued by the exam board.
             </p>
             <p>
-              <strong>A-Level mocks</strong> (in Year 12 and Year 13) carry external consequences. UK, European, US, and UAE universities issue conditional offers based almost entirely on predicted grades. If a student sits a poor Year 12 summer mock or Year 13 January mock, the resulting conservative prediction can lock them out of competitive degree courses before they even sit their final papers.
+              <strong>A-Level mocks</strong> (in Year 12 and Year 13) carry external consequences. UK universities issue conditional offers via UCAS that rest heavily on predicted grades. European, US and UAE admissions weigh predicted grades differently. US applications also lean on essays, standardised tests and extracurriculars, and many UAE and US universities look at final grades rather than predictions. Even so, a conservative prediction still narrows the shortlist a student can realistically apply to.
             </p>
           </div>
 
@@ -689,11 +689,10 @@ export default function MockExamsUAEBlog() {
             <p>
               If a student sits an A-Level mock underprepared, fatigued, or on an off-day, teachers find it administratively difficult to predict two grades above what the mock score reflects, even if they believe the student is capable of higher marks.
             </p>
+            <p>
+              This is a real bind for teachers. They want their students to succeed, but schools also face audit from examination boards and university admissions offices when predicted grades consistently overshoot final results. The mock mark is the piece of evidence that protects both the teacher and the school if the prediction is later challenged.
+            </p>
           </div>
-
-          <NarrativeBox title="The Teacher's Dilemma">
-            Teachers want their students to succeed. But schools face scrutiny from examination boards and university admissions officers if their predicted grades consistently fail to match actual results. Mocks provide the safe empirical floor.
-          </NarrativeBox>
 
           {/* ── SECTION 06 ── */}
           <SectionHeading num="06" id="the-perception-gap">
@@ -884,10 +883,19 @@ export default function MockExamsUAEBlog() {
                 </a>: Decoding teacher comments and grade metrics across UAE schools.
               </li>
               <li>
-                <strong>UCAS Guidance on Predicted Grades:</strong> Official principles for school predicted grades and university conditional offers.
+                <a href="https://www.ucas.com/undergraduate/applying-university/predicted-grades" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] hover:underline font-semibold">
+                  UCAS Guidance on Predicted Grades
+                </a>: Official principles for school predicted grades and university conditional offers.
               </li>
               <li>
-                <strong>Cambridge International and Pearson Edexcel:</strong> Assessment frameworks and mock examination standards for international centres.
+                <a href="https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse/" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] hover:underline font-semibold">
+                  Cambridge International Assessment Education
+                </a>: Assessment frameworks and mock examination standards for Cambridge IGCSE centres.
+              </li>
+              <li>
+                <a href="https://qualifications.pearson.com/en/qualifications/edexcel-international-gcses.html" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] hover:underline font-semibold">
+                  Pearson Edexcel International GCSE
+                </a>: Assessment frameworks and mock examination standards for Edexcel centres.
               </li>
             </ul>
             <p className="pt-2 text-[11px] text-gray-500 italic border-t border-slate-200 mb-0">
@@ -967,7 +975,7 @@ export default function MockExamsUAEBlog() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm w-full sm:w-auto shadow-md"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
               >
-                Book a Free Assessment
+                Book a Free Trial
               </a>
               <a
                 href="https://wa.me/971561249005"

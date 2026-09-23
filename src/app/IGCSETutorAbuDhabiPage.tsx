@@ -8,6 +8,8 @@ import {
   BookOpen, Calculator, MapPin, Phone, Mail, Dna, Briefcase, Microscope, ClipboardList, TrendingDown, Scale, LineChart
 } from 'lucide-react';
 import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared';
+import { IGCSEAcademicYearPaintSection } from './shared/IGCSEAcademicYearPaintSection';
+import { IGCSESubjectMicroLabsSection } from './shared/IGCSESubjectMicroLabsSection';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, courseSchema } from './shared/schemas';
 
@@ -134,6 +136,22 @@ const FAQS = [
   {
     q: 'What if my child does not connect with the tutor?',
     a: 'Rematching is always free. A better fit usually happens within 48 hours, and lessons pick up from where the previous tutor reached.',
+  },
+  {
+    q: 'Do you support IGCSE students at Cranleigh Abu Dhabi or Brighton College Abu Dhabi?',
+    a: 'Yes. We have active students at both schools. Cranleigh Abu Dhabi sits the Cambridge IGCSE board (CAIE); Brighton College Abu Dhabi also runs Cambridge. We match your child to a tutor already familiar with each school\'s internal mock schedule and marking style.',
+  },
+  {
+    q: 'Does Ustaad cover both Cambridge and Edexcel IGCSE Maths?',
+    a: 'Yes. Cambridge IGCSE Maths (0580) and Edexcel IGCSE Maths (4MA1) have different paper structures and mark scheme styles. Our tutors are board-specific — your child gets a tutor who teaches their exact specification, not a generic Maths tutor.',
+  },
+  {
+    q: 'Can lessons shift to post-Iftar timing during Ramadan?',
+    a: 'Yes, automatically. During Ramadan we move evening lesson slots to post-Iftar windows (typically 9 pm–11 pm UAE time) or pre-Suhoor slots on request. No re-booking needed — we adjust the schedule and confirm the new times with parents by message.',
+  },
+  {
+    q: 'Do you help IGCSE students preparing for the November series?',
+    a: 'Yes. Cambridge offers a November exam series for IGCSE, and some Abu Dhabi schools enter students for it. We run a condensed 8–10 week preparation plan focused on the specific papers available in November, with timed past-paper drills and mark scheme work from June and November series papers.',
   },
 ];
 
@@ -356,8 +374,8 @@ export default function IGCSETutorAbuDhabiPage() {
   return (
     <Layout>
       <SEOHead
-        title="IGCSE Tutor Abu Dhabi | Cambridge & Edexcel | Ustaad"
-        description="Cambridge and Edexcel IGCSE tutors in Abu Dhabi. Matched to your child's exact syllabus across Maths, Physics, Chemistry, Biology, Business & English."
+        title="IGCSE Tutor Abu Dhabi | Cambridge, Edexcel & OxfordAQA"
+        description="1-to-1 IGCSE tutors Abu Dhabi. Cambridge, Edexcel, OxfordAQA. Each tutor carefully vetted by our academic and operations team. Free 30-min trial."
         canonical="/igcse-tutor-abu-dhabi"
         ogImage="/UpdatedImages/igcse-abudhabi-hero.jpg"
         placename="Abu Dhabi, UAE"
@@ -575,165 +593,256 @@ export default function IGCSETutorAbuDhabiPage() {
         </div>
       </section>
 
-      {/* ── SECTION 04: HOW WE PLAN THE IGCSE YEAR ── */}
-      <section className="py-14 lg:py-18 bg-[#f4f7fc] relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-3">
-              Academic Planning
+      {/* ── SECTION 04: HOW WE PLAN THE IGCSE YEAR (3D ANIMATED PAINT SECTION) ── */}
+      <IGCSEAcademicYearPaintSection />
+
+      {/* ── SECTION A: MEET YOUR IGCSE TUTORS ── */}
+      <section className="py-8 sm:py-10 lg:py-12 bg-[#f4f7fc] relative overflow-hidden">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Section heading */}
+          <div className="text-center mb-4 sm:mb-6 lg:mb-8">
+            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold mb-1.5 uppercase tracking-widest text-[#0a1f3d]"
+              style={{ background: 'linear-gradient(135deg, rgba(15,74,155,0.06), rgba(201,162,76,0.14))', border: '1px solid rgba(201,162,76,0.35)' }}>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#c9a24c]" />
+              Your IGCSE Tutors
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3">
-              How We Plan the IGCSE Year{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5ba8] to-[#0a3a79]">
-                in Abu Dhabi
-              </span>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-[#0a1f3d] mb-1"
+              style={{ fontFamily: 'var(--font-serif,"Fraunces",Georgia,serif)', letterSpacing: '-.01em' }}>
+              Meet Your IGCSE Tutors
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base max-w-xl mx-auto">
-              A 4-phase structured plan built around the Abu Dhabi school calendar and Cambridge and Edexcel exam timelines.
+            <p className="text-gray-600 text-xs sm:text-sm max-w-lg mx-auto">
+              Each tutor is carefully vetted by our academic and operations team before taking a single IGCSE session.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
-            {[
-              {
-                phase: 'PHASE 01',
-                period: 'Sep to Dec',
-                title: 'Diagnostic and Rebuild',
-                desc: 'A free 30-minute diagnostic spots weak topics and command-word gaps. Lessons rebuild foundations in line with your school\'s teaching order.',
-                milestone: 'Term 1 Diagnostic',
-              },
-              {
-                phase: 'PHASE 02',
-                period: 'Jan to Feb',
-                title: 'Targeted Mock Fixes',
-                desc: 'School mock results drive the plan. Lessons pivot directly to high-tariff topics and specific question formats where marks were lost.',
-                milestone: 'Mock Paper Analysis',
-              },
-              {
-                phase: 'PHASE 03',
-                period: 'Mar to Apr',
-                title: 'Weekly Past Papers',
-                desc: 'Timed practice with real Cambridge and Edexcel past papers. Strict mark scheme grading builds exam technique, speed, and accuracy.',
-                milestone: 'Mark Scheme Mastery',
-              },
-              {
-                phase: 'PHASE 04',
-                period: 'May to Jun',
-                title: 'Final Exam Polish',
-                desc: 'Final sprint before official board papers. High-frequency formula drills, Paper 6 write-ups, and examiner-style final checks.',
-                milestone: 'Board Exams Ready',
-              },
-            ].map((p, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(15,74,155,0.15)' }}
-                className="rounded-2xl p-5 flex flex-col gap-3 cursor-default"
-                style={{ background: 'rgba(15,74,155,0.06)', border: '1px solid rgba(15,74,155,0.15)', transition: 'border-color 200ms ease' }}
-              >
-                <div>
-                  <div className="text-[10px] font-extrabold text-[#0f4a9b] tracking-widest mb-0.5">{p.phase}</div>
-                  <div className="text-xs font-bold text-[#0f4a9b]/50 mb-2">{p.period}</div>
-                  <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-2">{p.title}</h3>
-                  <p className="text-[13px] text-[#3a4f6e] leading-relaxed">{p.desc}</p>
+          {/* Cards container: horizontal swipe on mobile, 2-col grid on tablet/desktop */}
+          <div className="flex sm:grid sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 overflow-x-auto sm:overflow-visible pb-3 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-mandatory scrollbar-none">
+
+            {/* ── FAHAD KHAN ── */}
+            <motion.article
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="w-[84vw] max-w-[340px] sm:w-auto sm:max-w-none shrink-0 snap-center relative bg-white rounded-2xl overflow-visible transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between"
+              style={{ padding: '16px 18px 14px', boxShadow: '0 6px 22px rgba(10,31,60,0.06), 0 0 0 1px rgba(201,162,76,0.22)' }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 12px 30px rgba(10,31,60,0.12), 0 0 0 1px rgba(201,162,76,0.45)')}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 6px 22px rgba(10,31,60,0.06), 0 0 0 1px rgba(201,162,76,0.22)')}
+            >
+              <div>
+                {/* Photo + speech bubble */}
+                <div className="flex items-start gap-3 mb-2.5">
+                  {/* Circular photo with classy gold border */}
+                  <div className="relative flex-shrink-0">
+                    <div className="w-[66px] h-[66px] sm:w-[76px] sm:h-[76px] rounded-full overflow-hidden border-2 border-[#c9a24c]"
+                      style={{ background: 'linear-gradient(135deg,#0a1f3d,#12305a)', boxShadow: '0 4px 14px rgba(10,31,60,0.22)' }}>
+                      <img src="/images/tutors/fahad-khan-cover.jpg" alt="Fahad Khan, IGCSE Maths tutor at Ustaad Abu Dhabi"
+                        className="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    {/* soft gold outer ring */}
+                    <div className="absolute rounded-full border border-[#c9a24c]/35 pointer-events-none" style={{ inset: -3 }} />
+                  </div>
+
+                  {/* Speech bubble with classy gold border & soft ivory-blue background */}
+                  <div className="relative flex-1 min-w-0 rounded-xl rounded-tl-xs border border-[#c9a24c]/30"
+                    style={{ background: 'linear-gradient(135deg,#fefdfa 0%,#f4f7fc 100%)', padding: '8px 12px', boxShadow: '0 2px 10px rgba(10,31,60,0.04)' }}>
+                    {/* CSS tail */}
+                    <span className="absolute border-l border-b border-[#c9a24c]/30 rounded-bl-xs"
+                      style={{ top: 22, left: -6, width: 11, height: 11, background: 'linear-gradient(135deg,#fefdfa 0%,#f4f7fc 100%)', transform: 'rotate(45deg)' }} />
+                    {/* gold open-quote */}
+                    <span className="absolute select-none pointer-events-none"
+                      style={{ top: -5, left: 6, fontFamily: 'var(--font-serif,"Fraunces",Georgia,serif)', fontWeight: 700, fontSize: '1.6rem', color: 'rgba(201,162,76,0.55)', lineHeight: 1 }}>"</span>
+                    <p className="leading-snug pl-3 text-[#0a1f3d]"
+                      style={{ fontFamily: 'var(--font-serif,"Fraunces",Georgia,serif)', fontStyle: 'italic', fontWeight: 500, fontSize: '.80rem' }}>
+                      I start every IGCSE student on a diagnostic paper before we plan the term. It tells us exactly which topics need daylight.
+                    </p>
+                  </div>
                 </div>
-                <div className="mt-auto flex items-center gap-1.5 text-[12px] font-bold text-[#0f4a9b]">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  {p.milestone}
+
+                {/* Name + role */}
+                <div className="mb-2">
+                  <h3 className="leading-tight text-[#0a1f3d]"
+                    style={{ fontFamily: 'var(--font-serif,"Fraunces",Georgia,serif)', fontWeight: 600, fontSize: '1.1rem', letterSpacing: '-.005em' }}>
+                    Fahad Khan
+                  </h3>
+                  <div className="mt-0.5 font-semibold uppercase text-[#0f4a9b]" style={{ fontSize: '.68rem', letterSpacing: '.08em' }}>IGCSE Maths Lead · Ustaad UAE</div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
 
+                {/* Credentials */}
+                <ul className="flex flex-col gap-1 py-1.5 mb-2" style={{ borderTop: '1px solid rgba(10,31,60,0.07)', borderBottom: '1px solid rgba(10,31,60,0.07)' }}>
+                  {[
+                    { b: 'BS Mathematics, B.Ed', r: ' · 10+ yrs teaching' },
+                    { b: '', r: 'Cambridge 0580 & Edexcel 4MA1' },
+                    { b: 'Specialism:', r: ' rebuilding algebra confidence from Year 9' },
+                  ].map((c, i) => (
+                    <li key={i} className="flex items-start gap-1.5 text-[#334155]" style={{ fontSize: '.75rem', lineHeight: 1.3 }}>
+                      <span className="flex-shrink-0 rounded-full flex items-center justify-center mt-0.5"
+                        style={{ width: 13, height: 13, background: 'linear-gradient(135deg,#e4c069,#c9a24c)' }}>
+                        <svg viewBox="0 0 12 12" fill="none" stroke="#0a1f3d" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ width: 6.5, height: 6.5 }}><path d="M2 6.5 L5 9.5 L10 3"/></svg>
+                      </span>
+                      <span>{c.b && <strong style={{ color: '#0a1f3d', fontWeight: 600 }}>{c.b}</strong>}{c.r}</span>
+                    </li>
+                  ))}
+                </ul>
 
-        </div>
-      </section>
-
-      {/* ── SECTION 05: IGCSE SUBJECT HUB ── */}
-      <section className="py-14 lg:py-18 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-3">
-              Curriculum Hub
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3">
-              IGCSE Subjects We{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5ba8] to-[#0a3a79]">
-                Walk Students Through
-              </span>
-            </h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              Deeper coverage lives on each subject page. Pick your subject and jump.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
-            {[
-              {
-                Icon: Calculator,
-                title: 'IGCSE Maths',
-                body: 'Cambridge 0580 and Edexcel 4MA1: algebra, geometry, statistics and calculator technique for the paper.',
-                linkText: 'Maths Tutor Abu Dhabi',
-                href: '/maths-tutor-abu-dhabi',
-              },
-              {
-                Icon: Atom,
-                title: 'IGCSE Physics',
-                body: 'Cambridge 0625 and Edexcel 4PH1: mechanics, waves, electricity and required practicals for the exam.',
-                linkText: 'Physics Tutor Abu Dhabi',
-                href: '/physics-tutor-abu-dhabi',
-              },
-              {
-                Icon: FlaskConical,
-                title: 'IGCSE Chemistry',
-                body: 'Cambridge 0620 and Edexcel 4CH1: moles, bonding, organic chemistry and Paper 6 practical writing.',
-                linkText: 'Chemistry Tutor Abu Dhabi',
-                href: '/chemistry-tutor-abu-dhabi',
-              },
-              {
-                Icon: Dna,
-                title: 'IGCSE Biology',
-                body: 'Cambridge 0610 and Edexcel 4BI1: genetics, physiology, ecology and required practical questions.',
-                linkText: 'Biology Tutor Abu Dhabi',
-                href: '/biology-tutor-abu-dhabi',
-              },
-              {
-                Icon: BookOpen,
-                title: 'IGCSE English',
-                body: 'Cambridge 0500 or Edexcel English: reading comprehension, directed writing and creative composition.',
-                linkText: 'English Tutoring',
-                href: '/english',
-              },
-              {
-                Icon: Briefcase,
-                title: 'IGCSE Business',
-                body: 'Cambridge 0450 or Edexcel Business: enterprise, marketing, finance and structured case-study answers.',
-                linkText: 'Business Tutoring',
-                href: '/business',
-              },
-            ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-[#0f4a9b]/10 p-6 shadow-[0_4px_20px_rgba(15,74,155,0.06)] hover:shadow-[0_12px_32px_rgba(15,74,155,0.18)] hover:-translate-y-1.5 hover:border-[#0f4a9b]/30 transition-all duration-300 flex flex-col">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: 'rgba(15,74,155,0.08)' }}>
-                  <item.Icon className="h-6 w-6 text-[#0f4a9b]" strokeWidth={2} />
+                {/* Subject chips */}
+                <div className="flex flex-wrap gap-1 mb-2.5">
+                  {['IGCSE Maths', 'Cambridge', 'Edexcel', 'Extended Tier'].map((s, idx) => (
+                    <span key={s} className="rounded-full font-semibold"
+                      style={{
+                        fontSize: '.64rem',
+                        padding: '2px 8px',
+                        letterSpacing: '.02em',
+                        background: idx % 2 === 0 ? 'rgba(201,162,76,0.12)' : 'rgba(15,74,155,0.06)',
+                        border: idx % 2 === 0 ? '1px solid rgba(201,162,76,0.28)' : '1px solid rgba(15,74,155,0.15)',
+                        color: idx % 2 === 0 ? '#0a1f3d' : '#0f4a9b'
+                      }}>{s}</span>
+                  ))}
                 </div>
-                <h3 className="text-[18px] font-extrabold text-[#0a1f3d] mb-2 leading-snug">{item.title}</h3>
-                <p className="text-[14px] text-[#3a4f6e] leading-relaxed flex-1 mb-4">{item.body}</p>
-                <a href={item.href} className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0f4a9b] hover:text-[#1e5ba8] transition-colors">
-                  {item.linkText}
+              </div>
+
+              {/* Footer */}
+              <div className="flex items-center justify-between gap-2 pt-2 border-t border-[#0a1f3d]/07">
+                <div className="flex items-center gap-1 text-[#64748b]" style={{ fontSize: '.66rem', fontWeight: 500 }}>
+                  <span className="flex">
+                    {['FZ','NI'].map((init, i) => (
+                      <span key={init} className="rounded-full flex items-center justify-center font-bold border border-white"
+                        style={{ width: 18, height: 18, fontSize: '.5rem', background: 'linear-gradient(135deg,#0a1f3d,#12305a)', color: '#e4c069', marginLeft: i === 0 ? 0 : -4 }}>{init}</span>
+                    ))}
+                  </span>
+                  Signed off by FZ &amp; NI
+                </div>
+                <a href="/tutors/fahad-khan"
+                  className="inline-flex items-center gap-1 font-bold text-white rounded-md transition-all hover:scale-[1.02]"
+                  style={{
+                    padding: '5px 12px',
+                    fontSize: '.74rem',
+                    background: 'linear-gradient(135deg,#0a1f3d,#0f4a9b)',
+                    border: '1px solid rgba(201,162,76,0.35)',
+                    boxShadow: '0 2px 8px rgba(10,31,60,0.20)'
+                  }}>
+                  Profile <ArrowRight className="w-2.5 h-2.5 text-[#e4c069]" />
                 </a>
               </div>
-            ))}
+            </motion.article>
+
+            {/* ── TABRAIZ KHAN ── */}
+            <motion.article
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="w-[84vw] max-w-[340px] sm:w-auto sm:max-w-none shrink-0 snap-center relative bg-white rounded-2xl overflow-visible transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between"
+              style={{ padding: '16px 18px 14px', boxShadow: '0 6px 22px rgba(10,31,60,0.06), 0 0 0 1px rgba(201,162,76,0.22)' }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 12px 30px rgba(10,31,60,0.12), 0 0 0 1px rgba(201,162,76,0.45)')}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 6px 22px rgba(10,31,60,0.06), 0 0 0 1px rgba(201,162,76,0.22)')}
+            >
+              <div>
+                {/* Photo + speech bubble */}
+                <div className="flex items-start gap-3 mb-2.5">
+                  <div className="relative flex-shrink-0">
+                    <div className="w-[66px] h-[66px] sm:w-[76px] sm:h-[76px] rounded-full overflow-hidden border-2 border-[#c9a24c]"
+                      style={{ background: 'linear-gradient(135deg,#0a1f3d,#12305a)', boxShadow: '0 4px 14px rgba(10,31,60,0.22)' }}>
+                      <img src="/images/tutors/tabraiz-khan-cover.jpg" alt="Tabraiz Khan, IGCSE triple science and Maths tutor at Ustaad Abu Dhabi"
+                        className="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div className="absolute rounded-full border border-[#c9a24c]/35 pointer-events-none" style={{ inset: -3 }} />
+                  </div>
+
+                  <div className="relative flex-1 min-w-0 rounded-xl rounded-tl-xs border border-[#c9a24c]/30"
+                    style={{ background: 'linear-gradient(135deg,#fefdfa 0%,#f4f7fc 100%)', padding: '8px 12px', boxShadow: '0 2px 10px rgba(10,31,60,0.04)' }}>
+                    <span className="absolute border-l border-b border-[#c9a24c]/30 rounded-bl-xs"
+                      style={{ top: 22, left: -6, width: 11, height: 11, background: 'linear-gradient(135deg,#fefdfa 0%,#f4f7fc 100%)', transform: 'rotate(45deg)' }} />
+                    <span className="absolute select-none pointer-events-none"
+                      style={{ top: -5, left: 6, fontFamily: 'var(--font-serif,"Fraunces",Georgia,serif)', fontWeight: 700, fontSize: '1.6rem', color: 'rgba(201,162,76,0.55)', lineHeight: 1 }}>"</span>
+                    <p className="leading-snug pl-3 text-[#0a1f3d]"
+                      style={{ fontFamily: 'var(--font-serif,"Fraunces",Georgia,serif)', fontStyle: 'italic', fontWeight: 500, fontSize: '.80rem' }}>
+                      IGCSE mark schemes reward structure. My job is to make that structure automatic before the exam room.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Name + role */}
+                <div className="mb-2">
+                  <h3 className="leading-tight text-[#0a1f3d]"
+                    style={{ fontFamily: 'var(--font-serif,"Fraunces",Georgia,serif)', fontWeight: 600, fontSize: '1.1rem', letterSpacing: '-.005em' }}>
+                    Tabraiz Khan
+                  </h3>
+                  <div className="mt-0.5 font-semibold uppercase text-[#0f4a9b]" style={{ fontSize: '.68rem', letterSpacing: '.08em' }}>Cambridge Certified · Maths &amp; Physics</div>
+                </div>
+
+                {/* Credentials */}
+                <ul className="flex flex-col gap-1 py-1.5 mb-2" style={{ borderTop: '1px solid rgba(10,31,60,0.07)', borderBottom: '1px solid rgba(10,31,60,0.07)' }}>
+                  {[
+                    { b: "Master's in Statistics", r: ' · Cambridge Certified' },
+                    { b: '', r: '9 yrs across IGCSE Maths, Physics & Add Maths' },
+                    { b: 'Specialism:', r: ' students juggling 3 sciences with Extended Maths' },
+                  ].map((c, i) => (
+                    <li key={i} className="flex items-start gap-1.5 text-[#334155]" style={{ fontSize: '.75rem', lineHeight: 1.3 }}>
+                      <span className="flex-shrink-0 rounded-full flex items-center justify-center mt-0.5"
+                        style={{ width: 13, height: 13, background: 'linear-gradient(135deg,#e4c069,#c9a24c)' }}>
+                        <svg viewBox="0 0 12 12" fill="none" stroke="#0a1f3d" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ width: 6.5, height: 6.5 }}><path d="M2 6.5 L5 9.5 L10 3"/></svg>
+                      </span>
+                      <span>{c.b && <strong style={{ color: '#0a1f3d', fontWeight: 600 }}>{c.b}</strong>}{c.r}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Subject chips */}
+                <div className="flex flex-wrap gap-1 mb-2.5">
+                  {['IGCSE Maths', 'IGCSE Physics', 'Cambridge Certified', 'Additional Maths'].map((s, idx) => (
+                    <span key={s} className="rounded-full font-semibold"
+                      style={{
+                        fontSize: '.64rem',
+                        padding: '2px 8px',
+                        letterSpacing: '.02em',
+                        background: idx % 2 === 0 ? 'rgba(201,162,76,0.12)' : 'rgba(15,74,155,0.06)',
+                        border: idx % 2 === 0 ? '1px solid rgba(201,162,76,0.28)' : '1px solid rgba(15,74,155,0.15)',
+                        color: idx % 2 === 0 ? '#0a1f3d' : '#0f4a9b'
+                      }}>{s}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="flex items-center justify-between gap-2 pt-2 border-t border-[#0a1f3d]/07">
+                <div className="flex items-center gap-1 text-[#64748b]" style={{ fontSize: '.66rem', fontWeight: 500 }}>
+                  <span className="flex">
+                    {['FZ','NI'].map((init, i) => (
+                      <span key={init} className="rounded-full flex items-center justify-center font-bold border border-white"
+                        style={{ width: 18, height: 18, fontSize: '.5rem', background: 'linear-gradient(135deg,#0a1f3d,#12305a)', color: '#e4c069', marginLeft: i === 0 ? 0 : -4 }}>{init}</span>
+                    ))}
+                  </span>
+                  Signed off by FZ &amp; NI
+                </div>
+                <a href="/tutors/tabraiz-khan"
+                  className="inline-flex items-center gap-1 font-bold text-white rounded-md transition-all hover:scale-[1.02]"
+                  style={{
+                    padding: '5px 12px',
+                    fontSize: '.74rem',
+                    background: 'linear-gradient(135deg,#0a1f3d,#0f4a9b)',
+                    border: '1px solid rgba(201,162,76,0.35)',
+                    boxShadow: '0 2px 8px rgba(10,31,60,0.20)'
+                  }}>
+                  Profile <ArrowRight className="w-2.5 h-2.5 text-[#e4c069]" />
+                </a>
+              </div>
+            </motion.article>
+
           </div>
 
-          <p className="text-center text-xs text-gray-500 max-w-2xl mx-auto">
-            Also available on request: Additional Mathematics (Cambridge 0606), Economics (Cambridge 0455) and Computer Science (Cambridge 0478).{' '}
-            <a href="/economics" className="text-[#0f4a9b] hover:underline font-semibold">Economics</a> is available as a full subject page.
-          </p>
+          {/* Mobile swipe hint */}
+          <div className="flex sm:hidden items-center justify-center gap-1.5 mt-2 text-[11px] text-[#0f4a9b]/70 font-medium">
+            <span>Swipe for more tutors</span>
+            <ArrowRight className="w-3 h-3 animate-pulse text-[#c9a24c]" />
+          </div>
+
         </div>
       </section>
+
+      {/* ── SECTION 05: IGCSE SUBJECT HUB (INTERACTIVE MICRO-LABS) ── */}
+      <IGCSESubjectMicroLabsSection />
 
       {/* ── SECTION 06: EXAM BOARDS (CAIE & Edexcel) ── */}
       <section className="py-14 lg:py-18 bg-[#f4f7fc] relative overflow-hidden">
@@ -760,10 +869,13 @@ export default function IGCSETutorAbuDhabiPage() {
               <p className="text-xs sm:text-sm text-[#3a4f6e] leading-relaxed mb-4">
                 Sat by many British-curriculum schools in Abu Dhabi. Longer application questions; mark schemes reward exact terminology.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-3">
                 {['0580', '0625', '0620', '0610', '0500', '0450'].map(code => (
                   <span key={code} className="px-2.5 py-1 text-xs font-bold rounded-full border border-[#0f4a9b]/25 text-[#0f4a9b] bg-[#f4f7fc]">{code}</span>
                 ))}
+              </div>
+              <div className="text-[11px] text-slate-500 leading-snug">
+                <span className="font-semibold text-[#0f4a9b]/70">Schools include:</span>{' '}BSAK · Cranleigh Abu Dhabi · Repton Abu Dhabi
               </div>
             </div>
 
@@ -773,53 +885,13 @@ export default function IGCSETutorAbuDhabiPage() {
               <p className="text-xs sm:text-sm text-[#3a4f6e] leading-relaxed mb-4">
                 Sat by several Abu Dhabi schools. Close-marked calculation, structured reasoning, and rapid formula applications.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-3">
                 {['4MA1', '4PH1', '4CH1', '4BI1'].map(code => (
                   <span key={code} className="px-2.5 py-1 text-xs font-bold rounded-full border border-[#f0c96a]/40 text-[#8a6a2f] bg-[#fffdf5]">{code}</span>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 06.5: WHAT PARENTS SAY (HUMAID KHALAF REVIEW) ── */}
-      <section className="py-16 lg:py-20 relative overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f4a9b 100%)' }}>
-        <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: 'radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)',
-          backgroundSize: '24px 24px'
-        }} />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Header Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-              What <span style={{ color: '#f0c96a' }}>Parents Say</span>
-            </h2>
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-xs text-white/90 font-semibold self-start sm:self-auto">
-              <span className="text-[#f0c96a] tracking-tighter">★★★★★</span>
-              <span>5.0 · Verified Google Review</span>
-            </div>
-          </div>
-
-          {/* Review Card */}
-          <div className="rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md p-6 sm:p-8 shadow-2xl relative text-left">
-            {/* Decorative Quote Icon */}
-            <div className="text-6xl font-serif text-white/15 absolute top-3 left-6 select-none pointer-events-none">
-              “
-            </div>
-
-            <p className="relative z-10 text-white text-base sm:text-lg lg:text-xl font-medium leading-relaxed mb-6 pt-2">
-              Very good site if you want a good teacher for your studies. The tutors really know how to make difficult topics easy to understand.
-            </p>
-
-            <div className="flex items-center gap-3.5 relative z-10">
-              <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm shadow-inner shrink-0">
-                HK
-              </div>
-              <div>
-                <div className="font-extrabold text-white text-base leading-tight">Humaid Khalaf</div>
-                <div className="text-blue-200/70 text-xs mt-0.5">Abu Dhabi, UAE · IGCSE Parent</div>
+              <div className="text-[11px] text-slate-500 leading-snug">
+                <span className="font-semibold text-[#8a6a2f]/70">Schools include:</span>{' '}GEMS World Academy AD · Al Bateen Academy · Reach British
               </div>
             </div>
           </div>
@@ -1068,13 +1140,154 @@ export default function IGCSETutorAbuDhabiPage() {
                   </motion.div>
                 );
               })}
+
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* ── SECTION 10: START IGCSE SUPPORT & SIBLING SUBJECT CARDS ── */}
+      {/* ── SECTION 10: EXPLORE DEDICATED SUBJECT HUBS ── */}
+      <section className="py-12 sm:py-16 bg-[#f8fafc] border-t border-slate-200/80 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center sm:text-left mb-8">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold mb-2 uppercase tracking-widest text-[#0f4a9b] bg-[#0f4a9b]/06 border border-[#0f4a9b]/15">
+              <Sparkles className="w-3 h-3 text-[#c9a24c]" />
+              Subject Hubs
+            </div>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#0a1f3d]" style={{ fontFamily: 'var(--font-serif,"Fraunces",Georgia,serif)' }}>
+              Explore Dedicated IGCSE Subject Pages
+            </h2>
+            <p className="text-gray-600 text-xs sm:text-sm mt-1 max-w-2xl">
+              Detailed syllabus breakdowns, past paper methodologies &amp; tutor profiles for each discipline across Abu Dhabi.
+            </p>
+          </div>
+
+          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible pb-3 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-mandatory scrollbar-none">
+            {[
+              {
+                title: 'Maths Tutor',
+                location: 'Abu Dhabi',
+                syllabus: '0580 · 4MA1',
+                href: '/maths-tutor-abu-dhabi',
+                Icon: Calculator,
+                desc: 'Algebra, calculus, statistics & exam past-paper strategy.',
+                badgeColor: 'bg-blue-50 text-[#0f4a9b] border-blue-200/60',
+              },
+              {
+                title: 'Physics Tutor',
+                location: 'Abu Dhabi',
+                syllabus: '0625 · 4PH1',
+                href: '/physics-tutor-abu-dhabi',
+                Icon: Atom,
+                desc: 'Mechanics, electricity, waves & practical Paper 6 prep.',
+                badgeColor: 'bg-amber-50 text-[#b45309] border-amber-200/60',
+              },
+              {
+                title: 'Chemistry Tutor',
+                location: 'Abu Dhabi',
+                syllabus: '0620 · 4CH1',
+                href: '/chemistry-tutor-abu-dhabi',
+                Icon: FlaskConical,
+                desc: 'Stoichiometry, organic chemistry & experimental methods.',
+                badgeColor: 'bg-emerald-50 text-[#047857] border-emerald-200/60',
+              },
+              {
+                title: 'Biology Tutor',
+                location: 'Abu Dhabi',
+                syllabus: '0610 · 4BI1',
+                href: '/biology-tutor-abu-dhabi',
+                Icon: Dna,
+                desc: 'Genetics, physiology, ecology & 6-mark extended answers.',
+                badgeColor: 'bg-indigo-50 text-[#4338ca] border-indigo-200/60',
+              },
+            ].map((card) => (
+              <a
+                key={card.href}
+                href={card.href}
+                className="w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-center group relative bg-white rounded-2xl p-5 border border-slate-200/90 hover:border-[#c9a24c]/60 shadow-[0_4px_16px_rgba(10,31,60,0.04)] hover:shadow-[0_10px_28px_rgba(10,31,60,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+              >
+                {/* Subtle top-right accent glow on hover */}
+                <div className="absolute -top-8 -right-8 w-20 h-20 bg-[#c9a24c]/10 rounded-full blur-xl group-hover:opacity-100 opacity-0 transition-opacity duration-300 pointer-events-none" />
+
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3.5">
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
+                      style={{ background: 'linear-gradient(135deg, rgba(15,74,155,0.08), rgba(201,162,76,0.12))', border: '1px solid rgba(201,162,76,0.25)' }}
+                    >
+                      <card.Icon className="w-5 h-5 text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors" />
+                    </div>
+                    <span className={`text-[10.5px] font-mono font-bold px-2 py-0.5 rounded-full border ${card.badgeColor}`}>
+                      {card.syllabus}
+                    </span>
+                  </div>
+
+                  <h3 className="text-[15px] font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors mb-1 leading-snug">
+                    {card.title}
+                  </h3>
+                  <div className="text-[11.5px] font-semibold text-[#c9a24c] mb-2.5">
+                    {card.location}
+                  </div>
+                  <p className="text-[12.5px] text-gray-600 leading-relaxed">
+                    {card.desc}
+                  </p>
+                </div>
+
+                <div className="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0f4a9b] group-hover:text-[#0a1f3d] transition-colors">
+                  <span>View Subject Details</span>
+                  <span className="text-[#c9a24c] transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile swipe hint */}
+          <div className="flex sm:hidden items-center justify-center gap-1.5 mt-3 text-[11px] text-[#0f4a9b]/70 font-medium">
+            <span>Swipe for more subjects</span>
+            <span className="text-[#c9a24c] animate-pulse">→</span>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── SECTION 05: WHAT PARENTS SAY ── */}
+      <section className="py-16 lg:py-20 relative overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f4a9b 100%)' }}>
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: 'radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }} />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+              What <span style={{ color: '#f0c96a' }}>Parents Say</span>
+            </h2>
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-xs text-white/90 font-semibold self-start sm:self-auto">
+              <span className="text-[#f0c96a] tracking-tighter">★★★★★</span>
+              <span>5.0 · Verified Google Review</span>
+            </div>
+          </div>
+          <div className="rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md p-6 sm:p-8 shadow-2xl relative text-left">
+            <div className="text-6xl font-serif text-white/15 absolute top-3 left-6 select-none pointer-events-none">
+              “
+            </div>
+            <p className="relative z-10 text-white text-base sm:text-lg lg:text-xl font-medium leading-relaxed mb-6 pt-2">
+              Very good site if you want a good teacher for your studies. The tutors really know how to make difficult topics easy to understand.
+            </p>
+            <div className="flex items-center gap-3.5 relative z-10">
+              <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm shadow-inner shrink-0">
+                HK
+              </div>
+              <div>
+                <div className="font-extrabold text-white text-base leading-tight">Humaid Khalaf</div>
+                <div className="text-blue-200/70 text-xs mt-0.5">Abu Dhabi, UAE · IGCSE Parent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <FinalCTA
         title="Start IGCSE Support Today"
         subtitle="No commitment. Weekend and evening slots. UAE-registered since 2015."
@@ -1082,62 +1295,6 @@ export default function IGCSETutorAbuDhabiPage() {
         button2Text="Ask Question on WhatsApp"
         subtext2="Send any IGCSE past-paper question; a tutor replies within 15 minutes with a worked solution."
       />
-
-      {/* Sibling Subject Cards Grid */}
-      <section className="py-12 bg-white border-t border-slate-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d]">Looking for a Subject Page?</h2>
-            <p className="text-xs sm:text-sm text-gray-600">Deep-dive curriculum mentorship for individual IGCSE subjects in Abu Dhabi.</p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              {
-                title: 'Maths Tutor Abu Dhabi',
-                href: '/maths-tutor-abu-dhabi',
-                desc: 'For algebra fluency, past-paper drilling and IGCSE 0580 or IB Maths support.',
-                icon: <Calculator className="w-5 h-5 text-[#0f4a9b]" />,
-              },
-              {
-                title: 'Physics Tutor Abu Dhabi',
-                href: '/physics-tutor-abu-dhabi',
-                desc: 'For formulas, derivations, mechanics, waves and required practical questions.',
-                icon: <Atom className="w-5 h-5 text-[#0f4a9b]" />,
-              },
-              {
-                title: 'Chemistry Tutor Abu Dhabi',
-                href: '/chemistry-tutor-abu-dhabi',
-                desc: 'For mole calculations, bonding, organic reaction routes and Paper 6 practicals.',
-                icon: <FlaskConical className="w-5 h-5 text-[#0f4a9b]" />,
-              },
-              {
-                title: 'Biology Tutor Abu Dhabi',
-                href: '/biology-tutor-abu-dhabi',
-                desc: 'For genetics, physiology, ecology and IB Biology Internal Assessment support.',
-                icon: <Dna className="w-5 h-5 text-[#0f4a9b]" />,
-              },
-            ].map((card, idx) => (
-              <a
-                key={idx}
-                href={card.href}
-                className="group p-5 rounded-2xl border border-slate-200/80 bg-white hover:border-[#0f4a9b]/30 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#0f4a9b]/8 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                    {card.icon}
-                  </div>
-                  <h3 className="text-sm font-bold text-[#0a1f3d] mb-1.5 group-hover:text-[#0f4a9b] transition-colors">{card.title}</h3>
-                  <p className="text-xs text-gray-600 leading-relaxed mb-3">{card.desc}</p>
-                </div>
-                <div className="text-xs font-bold text-[#0f4a9b] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  View Page
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
     </Layout>
   );
 }

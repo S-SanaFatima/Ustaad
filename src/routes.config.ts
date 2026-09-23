@@ -850,6 +850,18 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'Private Tutoring in the UAE', url: '/blogs/private-tutoring-uae-parent-guide' }]
   },
   {
+    path: '/blogs/illusion-of-competence-revision-false-confidence',
+    component: 'IllusionOfCompetenceBlog',
+    seo: {
+      title: 'The Illusion of Competence in Revision: Why Reading Notes Fails | Ustaad',
+      description: 'Why highlighting and re-reading notes tricks the brain into false exam confidence, and how UAE students can build real retrieval strength.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-09-21'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' }, { name: 'The Illusion of Competence', url: '/blogs/illusion-of-competence-revision-false-confidence' }]
+  },
+  {
     path: '/privacy',
     component: 'PrivacyPage',
     seo: {

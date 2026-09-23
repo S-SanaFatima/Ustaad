@@ -79,6 +79,7 @@ const loadTutorProfilePage = () => import('./app/TutorProfilePage');
 const loadParentGuidanceBlogsPage = () => import('./app/ParentGuidanceBlogsPage');
 const loadMockExamsUAEBlog = () => import('./app/MockExamsUAEBlog');
 const loadWhatDoesGradientMeanBlog = () => import('./app/WhatDoesGradientMeanBlog');
+const loadIllusionOfCompetenceBlog = () => import('./app/IllusionOfCompetenceBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
@@ -134,6 +135,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/gcse-revision-tips-uae-parents': loadGCSERevisionTipsParentsBlog,
   '/blogs/mock-exams-uae-not-what-they-were': loadMockExamsUAEBlog,
   '/blogs/what-does-gradient-mean-maths-physics': loadWhatDoesGradientMeanBlog,
+  '/blogs/illusion-of-competence-revision-false-confidence': loadIllusionOfCompetenceBlog,
   '/sciences': loadSciencesPage,
 
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
@@ -218,6 +220,7 @@ const ALevelIndependentThinkingBlog = lazy(loadALevelIndependentThinkingBlog);
 const IGCSEPreparationPastPapersBlog = lazy(loadIGCSEPreparationPastPapersBlog);
 const MockExamsUAEBlog = lazy(loadMockExamsUAEBlog);
 const WhatDoesGradientMeanBlog = lazy(loadWhatDoesGradientMeanBlog);
+const IllusionOfCompetenceBlog = lazy(loadIllusionOfCompetenceBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
@@ -328,6 +331,7 @@ function AppRoutes() {
           <Route path="/blogs/gcse-revision-tips-uae-parents" element={<GCSERevisionTipsParentsBlog />} />
           <Route path="/blogs/mock-exams-uae-not-what-they-were" element={<MockExamsUAEBlog />} />
           <Route path="/blogs/what-does-gradient-mean-maths-physics" element={<WhatDoesGradientMeanBlog />} />
+          <Route path="/blogs/illusion-of-competence-revision-false-confidence" element={<IllusionOfCompetenceBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
 
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />

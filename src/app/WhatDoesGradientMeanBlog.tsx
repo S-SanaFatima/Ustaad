@@ -495,7 +495,7 @@ export default function WhatDoesGradientMeanBlog() {
             {/* Category tag */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0f4a9b]/6 rounded-full mb-3 border border-[#0f4a9b]/10">
               <BookOpen className="h-3.5 w-3.5 text-[#0f4a9b]" />
-              <span className="text-[11px] font-extrabold text-[#0f4a9b] tracking-wide">USTAAD UAE · MATHS & PHYSICS INSIGHTS</span>
+              <span className="text-[11px] font-extrabold text-[#0f4a9b] tracking-wide">USTAAD UAE · ACADEMIC &amp; EXAM SKILLS</span>
             </div>
 
             {/* Title */}
