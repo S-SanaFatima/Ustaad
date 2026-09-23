@@ -707,7 +707,7 @@ export const ROUTES: RouteConfig[] = [
     path: '/physics-tutor-dubai',
     component: 'PhysicsTutorDubaiPage',
     seo: {
-      title: 'Physics Tutor Dubai | IGCSE, A-Level & IB Physics Tuition — Ustaad',
+      title: 'Physics Tutor Dubai | IGCSE, A-Level & IB Physics Tuition | Ustaad',
       description: 'Expert 1-to-1 physics tutors in Dubai for Cambridge 0625, Edexcel, A-Level and IB DP Physics. Rebuild weak topics, drill past papers, and achieve top exam grades.',
       priority: 0.90,
       changefreq: 'monthly'

@@ -169,7 +169,7 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
           </p>
         </div>
 
-        {/* ── Wave timeline — desktop ── */}
+        {/* Wave timeline: desktop */}
         <div className="hidden lg:block">
           <div className="grid grid-cols-3 gap-4 mb-0">
             {steps.map((s, i) => {
@@ -260,7 +260,7 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
           </div>
         </div>
 
-        {/* ── Mobile — compact vertical timeline ── */}
+        {/* Mobile: compact vertical timeline */}
         <div className="lg:hidden relative pl-[52px]">
           <div className="absolute top-3 bottom-3 w-[2px] rounded-full" style={{ left: '17px', background: 'linear-gradient(180deg, rgba(30,91,168,0.3), #0f4a9b 50%, rgba(30,91,168,0.3))' }} />
           <div className="flex flex-col gap-4">
@@ -298,7 +298,7 @@ const Eyebrow = ({ icon, text, dark = false }: { icon: React.ReactNode; text: st
   </div>
 );
 
-/* ─── Parents Testimonial Slider — Dubai Parents ─── */
+/* Parents Testimonial Slider: Dubai Parents */
 const PARENT_REVIEWS = [
   { 
     name: 'Rashid A.', 
@@ -442,7 +442,7 @@ export default function PhysicsTutorDubaiPage() {
 
   const steps: Step[] = [
     { n: '01', icon: <FileSearch className="h-6 w-6" />, title: 'Diagnostic Past-Paper Baseline', desc: "We evaluate your child's mock performance to isolate whether marks leak from mathematical derivation, concept comprehension, or practical paper logic." },
-    { n: '02', icon: <Wrench className="h-6 w-6" />, title: 'First-Principles Rebuilding', desc: "Complex physics topics—from electromagnetic induction to wave superposition—are explained with visual models until thoroughly understood." },
+    { n: '02', icon: <Wrench className="h-6 w-6" />, title: 'First-Principles Rebuilding', desc: "Complex physics topics, from electromagnetic induction to wave superposition, are explained with visual models until thoroughly understood." },
     { n: '03', icon: <Timer className="h-6 w-6" />, title: 'Examiner-Standard Drills', desc: "Students complete timed past paper questions mapped to exact Cambridge, Edexcel, and IB mark schemes to develop sharp exam technique." },
   ];
 
@@ -529,7 +529,7 @@ export default function PhysicsTutorDubaiPage() {
   return (
     <Layout>
       <SEOHead
-        title="Physics Tutor Dubai | IGCSE, A-Level & IB Physics Tuition — Ustaad"
+        title="Physics Tutor Dubai | IGCSE, A-Level & IB Physics Tuition | Ustaad"
         description="Expert 1-to-1 physics tutors in Dubai for Cambridge 0625, Edexcel, A-Level and IB DP Physics. Rebuild weak topics, drill past papers, and achieve top exam grades."
         canonical="/physics-tutor-dubai"
         placename="Dubai, UAE"
@@ -537,7 +537,7 @@ export default function PhysicsTutorDubaiPage() {
           cityLocalBusinessSchema({
             city: 'Dubai',
             url: '/physics-tutor-dubai',
-            name: 'Ustaad — Physics Tutor Dubai',
+            name: 'Ustaad | Physics Tutor Dubai',
             description: 'Expert 1-to-1 physics tutors in Dubai for Cambridge 0625, Edexcel, A-Level and IB DP Physics. Rebuild weak topics and achieve top exam grades.',
           }),
           breadcrumbSchema([
@@ -557,10 +557,10 @@ export default function PhysicsTutorDubaiPage() {
         ]}
       />
 
-      {/* SECTION 01/02 — HERO */}
+      {/* SECTION 01/02: HERO */}
       <section className="relative -mt-16 overflow-hidden bg-[#060f22] flex flex-col items-center justify-center md:min-h-[75vh]">
 
-        {/* ── PHYSICS VISUAL: Full background on desktop ── */}
+        {/* PHYSICS VISUAL: Full background on desktop */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block">
           <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice"
             className="absolute inset-0 w-full h-full" aria-hidden="true" style={{ background: '#060f22' }}>
@@ -694,7 +694,7 @@ export default function PhysicsTutorDubaiPage() {
               <filter id="m-pglowDubai"><feGaussianBlur stdDeviation="3"/></filter>
             </defs>
 
-            {/* Wave — left half */}
+            {/* Wave: left half */}
             {(() => {
               const pts: string[] = [];
               for (let i = 0; i <= 80; i++) {
@@ -710,7 +710,7 @@ export default function PhysicsTutorDubaiPage() {
               ];
             })()}
 
-            {/* Atom — right */}
+            {/* Atom: right */}
             {(() => {
               const out: React.ReactNode[] = [];
               const AX = 660, AY = 110;
@@ -794,13 +794,13 @@ export default function PhysicsTutorDubaiPage() {
         </motion.div>
       </section>
 
-      {/* SECTION 03 — STATS BAR */}
+      {/* SECTION 03: STATS BAR */}
       <StatsBar />
 
-      {/* SECTION 04 — WHERE PHYSICS MARKS VANISH */}
+      {/* SECTION 04: WHERE PHYSICS MARKS VANISH */}
       <ChallengesCarousel challenges={challenges} />
 
-      {/* SECTION 05 — USTAAD'S ASSISTANCE */}
+      {/* SECTION 05: USTAAD'S ASSISTANCE */}
       <section className="py-10 sm:py-12 lg:py-14 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-8">
@@ -841,7 +841,7 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 06 — PHYSICS JOURNEY WITH USTAAD */}
+      {/* SECTION 06: PHYSICS JOURNEY WITH USTAAD */}
       <section className="py-10 sm:py-12 lg:py-14 relative overflow-hidden"
         style={{ background: 'linear-gradient(160deg, #0a1f3d 0%, #0f3575 50%, #0a2a6e 100%)' }}>
         <div className="absolute top-[-10%] right-[-8%] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(15,74,155,0.45) 0%, transparent 70%)', filter: 'blur(80px)' }} />
@@ -883,7 +883,7 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 07 — TRUSTED BY DUBAI SCHOOLS */}
+      {/* SECTION 07: TRUSTED BY DUBAI SCHOOLS */}
       <SchoolsMarquee
         logoList={physicsDubaiSchoolLogos}
         header={
@@ -898,7 +898,7 @@ export default function PhysicsTutorDubaiPage() {
         }
       />
 
-      {/* SECTION 08 — TOPICS WE COVER */}
+      {/* SECTION 08: TOPICS WE COVER */}
       <section className="py-10 sm:py-12 lg:py-14 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-6">
@@ -937,7 +937,7 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 09 — FROM PAPER TO LAB */}
+      {/* SECTION 09: FROM PAPER TO LAB */}
       <section className="py-10 sm:py-12 lg:py-14 relative overflow-hidden"
         style={{ background: 'linear-gradient(160deg, #0a1f3d 0%, #0f3575 50%, #0a2a6e 100%)' }}>
         <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(15,74,155,0.45) 0%, transparent 70%)', filter: 'blur(80px)' }} />
@@ -977,10 +977,10 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 10 — OUR SIMPLE PROCESS */}
+      {/* SECTION 10: OUR SIMPLE PROCESS */}
       <StepsCarousel steps={steps} />
 
-      {/* SECTION 11 — THE USTAAD TUTOR STANDARD */}
+      {/* SECTION 11: THE USTAAD TUTOR STANDARD */}
       <section className="py-10 sm:py-12 lg:py-14 bg-gradient-to-b from-white to-[#f8fafc]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-4">
@@ -1067,7 +1067,7 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 12 — INSIDE A REAL PAPER */}
+      {/* SECTION 12: INSIDE A REAL PAPER */}
       <section className="py-10 sm:py-12 lg:py-14 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-5 sm:mb-6">
@@ -1107,7 +1107,7 @@ export default function PhysicsTutorDubaiPage() {
               </div>
               <div className="flex items-start gap-2.5">
                 <Sparkles className="h-4 w-4 text-[#0f4a9b] shrink-0 mt-0.5" />
-                <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"><span className="font-bold text-[#0a1f3d]">How Ustaad teaches it:</span> "Unit Audit" protocol—converting all non-SI quantities before writing the formula ensures students never lose method marks.</p>
+                <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"><span className="font-bold text-[#0a1f3d]">How Ustaad teaches it:</span> "Unit Audit" protocol: converting all non-SI quantities before writing the formula ensures students never lose method marks.</p>
               </div>
             </div>
 
@@ -1118,7 +1118,7 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 13 — WHERE USTAAD STANDS APART */}
+      {/* SECTION 13: WHERE USTAAD STANDS APART */}
       <section className="py-10 sm:py-12 lg:py-14 bg-[#f4f7fc]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-5 sm:mb-6">
@@ -1155,7 +1155,7 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 14 — CHECK THE GAP YOURSELF */}
+      {/* SECTION 14: CHECK THE GAP YOURSELF */}
       <section className="py-10 sm:py-12 lg:py-14 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-5 sm:mb-6">
@@ -1195,7 +1195,7 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 15 — WHAT PARENTS SAY */}
+      {/* SECTION 15: WHAT PARENTS SAY */}
       <section className="py-10 sm:py-12 lg:py-14" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 50%, #1e5ba8 100%)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-5 sm:mb-6">
@@ -1218,7 +1218,7 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 16 — FAQs */}
+      {/* SECTION 16: FAQs */}
       <section className="py-10 sm:py-12 lg:py-14 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[0.9fr_1.6fr] gap-12 lg:gap-16 items-center">
@@ -1324,7 +1324,7 @@ export default function PhysicsTutorDubaiPage() {
         ]}
       />
 
-      {/* SECTION 17 — START PHYSICS SUPPORT TODAY */}
+      {/* SECTION 17: START PHYSICS SUPPORT TODAY */}
       <FinalCTA
         title="Start Physics Support in Dubai Today"
         subtitleNode={
@@ -1342,7 +1342,7 @@ export default function PhysicsTutorDubaiPage() {
         subtext2=""
       />
 
-      {/* SECTION 18 — LOOKING FOR ANOTHER SUBJECT? */}
+      {/* SECTION 18: LOOKING FOR ANOTHER SUBJECT? */}
       <section className="py-10 sm:py-12 lg:py-14 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-5 sm:mb-6">
@@ -1374,7 +1374,7 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 19 — ASK A PHYSICS TUTOR */}
+      {/* SECTION 19: ASK A PHYSICS TUTOR */}
       <section className="py-8 sm:py-10 bg-[#f4f7fc] border-t border-slate-200/60">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
           <div className="flex-1">
