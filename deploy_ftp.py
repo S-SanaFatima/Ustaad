@@ -9,7 +9,19 @@ FTP_USER = "devsynx@ustaad.ae"
 LOCAL_DIR = os.path.abspath("dist/client")
 
 def upload_dir(ftp, local_dir, remote_dir, force=False):
-    for item in os.listdir(local_dir):
+    items = os.listdir(local_dir)
+    # Sort items so that 'assets' directory and non-html files are uploaded FIRST,
+    # and HTML files are uploaded LAST. This prevents temporary unstyled content.
+    def sort_key(item):
+        if item == "assets":
+            return (0, item)
+        if not item.endswith(".html") and not os.path.isfile(os.path.join(local_dir, item)):
+            return (1, item)
+        if not item.endswith(".html"):
+            return (2, item)
+        return (3, item)
+
+    for item in sorted(items, key=sort_key):
         if item == ".DS_Store" or item == ".vite":
             continue
         local_path = os.path.join(local_dir, item)

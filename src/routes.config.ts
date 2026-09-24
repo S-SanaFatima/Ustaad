@@ -640,8 +640,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/ib-tutor-abu-dhabi',
     component: 'IBTutorAbuDhabiPage',
     seo: {
-      title: 'IB Tutor Abu Dhabi | Online MYP, SL & HL Tuition',
-      description: 'Private online IB tutoring for Abu Dhabi families. Subject-matched MYP, SL and HL tutors, flexible weekly slots and between-session help. First session free.',
+      title: 'IB Tutor Abu Dhabi | MYP, DP SL & HL | Math AA/AI + Physics',
+      description: 'IB tutor Abu Dhabi where one tutor connects Math AA/AI, Physics and Statistics. MYP to DP HL. Vetted by our academic and operations team. Free trial.',
       priority: 0.90,
       changefreq: 'monthly'
     },

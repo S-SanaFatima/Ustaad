@@ -1,11 +1,11 @@
-import { useState, useEffect, type ReactNode } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import {
   Atom, Zap, Waves, Thermometer, Gauge,
   ScanSearch, CheckCircle2, X,
   ChevronDown, ChevronLeft, ChevronRight, Sparkles, FileSearch, Wrench, Timer, PenTool, ShieldCheck,
   ClipboardCheck, Brain, Target, Star, MessageCircle, FlaskConical,
-  BookOpen, Calculator, MapPin, Phone, Mail,
+  BookOpen, Calculator, MapPin, Phone, Mail, ArrowRight, Layers, Compass, LineChart, GraduationCap
 } from 'lucide-react';
 
 import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee, WhatsAppIcon } from './shared';
@@ -40,55 +40,64 @@ const PhysGrid = ({ light = false }: { light?: boolean }) => (
 );
 
 type Step = { n: string; icon: ReactNode; title: string; desc: string };
-type Challenge = { notation: string; icon: ReactNode; title: string; problem: string };
+type Challenge = { notation: string; icon: ReactNode; title: string; problem: string; tag: string };
 
-/* ─── Challenges Accordion (FAQ-style compact) ─── */
+/* Challenges Accordion */
 function ChallengesAccordion({ challenges }: { challenges: Challenge[] }) {
-  const [active, setActive] = useState<number>(-1);
+  const [active, setActive] = useState<number>(0);
 
   return (
     <div className="relative">
-      <div className="flex flex-col gap-[10px]">
+      <div className="flex flex-col gap-3">
         {challenges.map((c, i) => {
           const isOpen = active === i;
           return (
-            <div key={i} className="flex flex-col gap-2">
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setActive(isOpen ? -1 : i)}
-                  className="flex-shrink-0 flex items-center justify-center rounded-full"
-                  style={{
-                    width: 40, height: 40, minWidth: 40, minHeight: 40,
-                    background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)',
-                    color: isOpen ? '#fff' : '#0f4a9b',
-                    transition: 'background 300ms ease, color 300ms ease',
-                    cursor: 'pointer', border: 'none', boxShadow: 'inset 0 0 0 2px #fff',
-                  }}
-                >
-                  <span className="flex items-center justify-center w-full h-full">{c.icon}</span>
-                </button>
-
-                <button
-                  onClick={() => setActive(isOpen ? -1 : i)}
-                  aria-expanded={isOpen}
-                  className="flex-1 flex items-center gap-3 text-left rounded-full border"
-                  style={{ minHeight: '48px', padding: '8px 14px', cursor: 'pointer', background: 'transparent', borderColor: 'rgba(15,74,155,0.1)' }}
-                >
-                  <span className="flex-1 font-semibold text-[#0a1f3d] text-[14px] leading-snug">{c.title}</span>
-                  <span
-                    className="flex-shrink-0 flex items-center justify-center"
-                    style={{
-                      width: 32, height: 32, minWidth: 32, minHeight: 32, borderRadius: '50%',
-                      background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)',
-                      color: isOpen ? '#fff' : '#0f4a9b',
-                      transition: 'background 300ms ease, color 300ms ease, transform 300ms cubic-bezier(0.22,1,0.36,1)',
-                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                    }}
+            <div
+              key={i}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden bg-white ${
+                isOpen
+                  ? 'border-[#0f4a9b]/30 shadow-[0_12px_30px_rgba(15,74,155,0.08)]'
+                  : 'border-slate-200/80 hover:border-slate-300 shadow-xs'
+              }`}
+            >
+              <button
+                onClick={() => setActive(isOpen ? -1 : i)}
+                aria-expanded={isOpen}
+                className="w-full flex items-center justify-between p-4 sm:p-5 text-left focus:outline-none select-none gap-3"
+              >
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <div
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 font-bold text-sm transition-all duration-300 ${
+                      isOpen
+                        ? 'bg-[#0f4a9b] text-white shadow-md shadow-[#0f4a9b]/25'
+                        : 'bg-[#0f4a9b]/5 text-[#0f4a9b]'
+                    }`}
                   >
-                    <ChevronDown className="h-3.5 w-3.5" />
+                    {c.icon}
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#C7A24A] block mb-0.5">
+                      {c.tag}
+                    </span>
+                    <h3 className="font-bold text-[#0a1f3d] text-sm sm:text-base leading-snug truncate">
+                      {c.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="hidden sm:inline-block font-mono text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200">
+                    {c.notation}
                   </span>
-                </button>
-              </div>
+                  <span
+                    className={`w-7 h-7 rounded-full flex items-center justify-center bg-slate-50 text-slate-400 transition-transform duration-300 ${
+                      isOpen ? 'rotate-180 text-[#0f4a9b] bg-[#0f4a9b]/10' : ''
+                    }`}
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </span>
+                </div>
+              </button>
 
               <AnimatePresence initial={false}>
                 {isOpen && (
@@ -100,10 +109,10 @@ function ChallengesAccordion({ challenges }: { challenges: Challenge[] }) {
                     transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="ml-[52px] mt-1">
-                      <div className="rounded-2xl px-4 py-3" style={{ background: 'linear-gradient(135deg, rgba(15,74,155,0.06) 0%, rgba(30,91,168,0.03) 100%)', border: '1px solid rgba(15,74,155,0.12)', backdropFilter: 'blur(8px)' }}>
-                        <p className="text-[13px] text-[#3a4f6e] leading-relaxed">{c.problem}</p>
-                      </div>
+                    <div className="px-5 pb-5 pt-1 border-t border-slate-100 bg-[#f8fafc]/80 text-left">
+                      <p className="text-slate-600 text-sm leading-relaxed antialiased pl-2 border-l-2 border-[#C7A24A]">
+                        {c.problem}
+                      </p>
                     </div>
                   </motion.div>
                 )}
@@ -118,73 +127,86 @@ function ChallengesAccordion({ challenges }: { challenges: Challenge[] }) {
 
 function ChallengesCarousel({ challenges }: { challenges: Challenge[] }) {
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-white relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(15,74,155,0.05) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+    <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(15,74,155,0.05) 0%, transparent 70%)', filter: 'blur(60px)' }}
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          <div className="lg:sticky lg:top-24">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0f4a9b]/5 to-transparent border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full mb-5">
-              <Target className="h-4 w-4" />
-              <span className="text-sm font-bold">Exam Insight</span>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="lg:col-span-5 text-left lg:sticky lg:top-24">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f4a9b]/5 border border-[#0f4a9b]/15 text-[#0f4a9b] text-xs font-bold uppercase tracking-wider mb-4">
+              <Target className="h-3.5 w-3.5 text-[#C7A24A]" />
+              Exam Insight
             </div>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-4 leading-tight">
-              Where Physics{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5ba8] to-[#0a3a79]">
-                Marks Vanish
-              </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4 leading-tight">
+              Where Physics <span className="text-[#0f4a9b]">Marks Vanish</span>
             </h2>
-            <p className="text-gray-600 text-[15px] leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
               Most physics marks slip away in three quiet places Dubai students rarely notice until mock exam reports arrive.
             </p>
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-[#FEFBF3] to-[#FBF6E8] border border-[#C7A24A]/30">
+              <p className="text-xs sm:text-sm font-semibold text-[#0a1f3d] leading-relaxed">
+                <strong className="text-[#C7A24A]">The Diagnostic Solution:</strong> We target algebraic rearrangements, experimental logic, and mark-scheme keywords first before drilling full papers.
+              </p>
+            </div>
           </div>
 
-          <ChallengesAccordion challenges={challenges} />
+          <div className="lg:col-span-7">
+            <ChallengesAccordion challenges={challenges} />
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-/* ─── Wave Timeline Carousel ─── */
+/* Wave Timeline Carousel */
 function StepsCarousel({ steps }: { steps: Step[] }) {
   const W = 1200;
 
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#f4f7fc] relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: 'radial-gradient(rgba(15,74,155,0.06) 1px, transparent 1px)',
-        backgroundSize: '24px 24px',
-      }} />
+    <section className="py-16 sm:py-20 bg-[#f4f7fc] relative overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(15,74,155,0.06) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-5 sm:mb-6">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-1.5">
-            Our Simple{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5ba8] to-[#0a3a79]">Process</span>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-12 max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0f4a9b]/5 border border-[#0f4a9b]/15 text-[#0f4a9b] text-xs font-bold uppercase tracking-wider mb-3">
+            METHODICAL PROGRESS
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+            Our Simple <span className="text-[#0f4a9b]">3-Step Process</span>
           </h2>
-          <p className="text-gray-500 text-[13px] sm:text-[15px] max-w-2xl mx-auto leading-relaxed">
-            Three quiet steps from physics confusion to confident, independent exam practice in Dubai.
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Three structured steps from physics confusion to confident, independent exam practice in Dubai.
           </p>
         </div>
 
         {/* Wave timeline: desktop */}
         <div className="hidden lg:block">
-          <div className="grid grid-cols-3 gap-4 mb-0">
+          <div className="grid grid-cols-3 gap-6 mb-0">
             {steps.map((s, i) => {
               const above = i % 2 === 0;
               return (
                 <div
                   key={i}
-                  className={`flex flex-col items-center text-center px-3 cursor-default group hover:-translate-y-1.5 transition-all duration-300 ${above ? 'justify-end pb-5' : 'invisible'}`}
+                  className={`flex flex-col items-center text-center px-4 cursor-default group hover:-translate-y-1 transition-all duration-300 ${
+                    above ? 'justify-end pb-6' : 'invisible'
+                  }`}
                   style={{ minHeight: '140px' }}
                 >
-                  <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] group-hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] transition-shadow duration-300 flex items-center justify-center text-[#0f4a9b] mb-3">
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_6px_20px_rgba(15,74,155,0.1)] group-hover:shadow-[0_12px_32px_rgba(15,74,155,0.15)] transition-all flex items-center justify-center text-[#0f4a9b] mb-3">
                     {s.icon}
                   </div>
-                  <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
-                  <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
+                  <h3 className="text-base font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed max-w-xs">{s.desc}</p>
                 </div>
               );
             })}
@@ -213,10 +235,19 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
                     <path d={wp} fill="none" stroke="rgba(15,74,155,0.10)" strokeWidth="16" strokeLinecap="round" />
                     <path d={wp} fill="none" stroke="url(#pwaveGradDubai)" strokeWidth="2.5" strokeLinecap="round" />
                     {pts.map((p, i) => (
-                      <text key={`wm${i}`} x={p.x} y={p.y + (i%2===0 ? 55 : -35)}
-                        textAnchor="middle" fontSize="72" fontWeight="900"
-                        fontFamily="system-ui,sans-serif" fill="rgba(15,74,155,0.06)"
-                        style={{ userSelect: 'none' }}>{i + 1}</text>
+                      <text
+                        key={`wm${i}`}
+                        x={p.x}
+                        y={p.y + (i%2===0 ? 55 : -35)}
+                        textAnchor="middle"
+                        fontSize="72"
+                        fontWeight="900"
+                        fontFamily="system-ui,sans-serif"
+                        fill="rgba(15,74,155,0.06)"
+                        style={{ userSelect: 'none' }}
+                      >
+                        {i + 1}
+                      </text>
                     ))}
                     {pts.map((p, i) => (
                       <g key={`nd${i}`}>
@@ -230,20 +261,22 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
             </svg>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 mt-0">
+          <div className="grid grid-cols-3 gap-6 mt-0">
             {steps.map((s, i) => {
               const below = i % 2 !== 0;
               return (
                 <div
                   key={i}
-                  className={`flex flex-col items-center text-center px-3 cursor-default group hover:-translate-y-1.5 transition-all duration-300 ${below ? 'justify-start pt-5' : 'invisible'}`}
+                  className={`flex flex-col items-center text-center px-4 cursor-default group hover:-translate-y-1 transition-all duration-300 ${
+                    below ? 'justify-start pt-6' : 'invisible'
+                  }`}
                   style={{ minHeight: '140px' }}
                 >
-                  <div className="w-11 h-11 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_4px_20px_rgba(15,74,155,0.15)] group-hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] transition-shadow duration-300 flex items-center justify-center text-[#0f4a9b] mb-3">
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-[0_6px_20px_rgba(15,74,155,0.1)] group-hover:shadow-[0_12px_32px_rgba(15,74,155,0.15)] transition-all flex items-center justify-center text-[#0f4a9b] mb-3">
                     {s.icon}
                   </div>
-                  <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
-                  <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
+                  <h3 className="text-base font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed max-w-xs">{s.desc}</p>
                 </div>
               );
             })}
@@ -251,23 +284,26 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
         </div>
 
         {/* Mobile: compact vertical timeline */}
-        <div className="lg:hidden relative pl-[52px]">
-          <div className="absolute top-3 bottom-3 w-[2px] rounded-full" style={{ left: '17px', background: 'linear-gradient(180deg, rgba(30,91,168,0.3), #0f4a9b 50%, rgba(30,91,168,0.3))' }} />
-          <div className="flex flex-col gap-4">
+        <div className="lg:hidden relative pl-[52px] mt-6">
+          <div
+            className="absolute top-3 bottom-3 w-[2px] rounded-full"
+            style={{ left: '17px', background: 'linear-gradient(180deg, rgba(30,91,168,0.3), #0f4a9b 50%, rgba(30,91,168,0.3))' }}
+          />
+          <div className="flex flex-col gap-6">
             {steps.map((s, i) => (
-              <div
-                key={i}
-                className="relative flex items-start gap-3"
-              >
-                <div className="absolute top-0 flex items-center justify-center w-9 h-9 rounded-full bg-white text-[13px] font-extrabold text-[#0f4a9b]" style={{ left: '-52px', border: '1px solid rgba(15,74,155,0.15)', boxShadow: '0 4px 14px rgba(15,74,155,0.12)' }}>
+              <div key={i} className="relative flex items-start gap-3 text-left">
+                <div
+                  className="absolute top-0 flex items-center justify-center w-9 h-9 rounded-full bg-white text-[13px] font-extrabold text-[#0f4a9b]"
+                  style={{ left: '-52px', border: '1px solid rgba(15,74,155,0.15)', boxShadow: '0 4px 14px rgba(15,74,155,0.12)' }}
+                >
                   {i + 1}
                 </div>
-                <div className="shrink-0 w-9 h-9 rounded-xl bg-white border border-[#0f4a9b]/15 shadow-[0_3px_12px_rgba(15,74,155,0.1)] flex items-center justify-center text-[#0f4a9b]">
+                <div className="shrink-0 w-10 h-10 rounded-xl bg-white border border-[#0f4a9b]/15 shadow-[0_3px_12px_rgba(15,74,155,0.1)] flex items-center justify-center text-[#0f4a9b]">
                   {s.icon}
                 </div>
                 <div className="flex-1 pt-0.5">
-                  <h3 className="text-[14px] font-extrabold text-[#0a1f3d] leading-snug mb-0.5">{s.title}</h3>
-                  <p className="text-[12.5px] text-gray-500 leading-relaxed">{s.desc}</p>
+                  <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug mb-1">{s.title}</h3>
+                  <p className="text-[13px] text-slate-600 leading-relaxed">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -279,8 +315,15 @@ function StepsCarousel({ steps }: { steps: Step[] }) {
 }
 
 const Eyebrow = ({ icon, text, dark = false }: { icon: React.ReactNode; text: string; dark?: boolean }) => (
-  <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] mb-5 border ${dark ? 'bg-white/5 border-white/15 text-blue-200' : 'bg-[#0f4a9b]/5 border-[#0f4a9b]/15 text-[#0f4a9b]'}`}>
-    {icon}{text}
+  <div
+    className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] mb-4 border ${
+      dark
+        ? 'bg-white/5 border-white/15 text-blue-200'
+        : 'bg-[#0f4a9b]/5 border-[#0f4a9b]/15 text-[#0f4a9b]'
+    }`}
+  >
+    {icon}
+    {text}
   </div>
 );
 
@@ -331,28 +374,45 @@ function ParentsSlider() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -24 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="relative rounded-2xl p-5 sm:p-6 lg:p-8 overflow-hidden"
-            style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
+            className="relative rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden"
+            style={{
+              background: 'rgba(255,255,255,0.08)',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
+              border: '1px solid rgba(255,255,255,0.18)',
+              boxShadow: '0 16px 40px rgba(0,0,0,0.25)'
+            }}
           >
-            <div className="absolute top-3 left-4 text-[90px] font-black leading-none select-none pointer-events-none" style={{ color: 'rgba(240,201,106,0.12)', fontFamily: 'Georgia, serif' }}>“</div>
-            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 35%, transparent 65%, rgba(255,255,255,0.06) 100%)' }} />
-            <div className="relative z-10">
-              <div className="flex gap-0.5 mb-3">
+            <div
+              className="absolute top-3 left-4 text-[90px] font-black leading-none select-none pointer-events-none"
+              style={{ color: 'rgba(240,201,106,0.12)', fontFamily: 'Georgia, serif' }}
+            >
+              “
+            </div>
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 35%, transparent 65%, rgba(255,255,255,0.06) 100%)' }}
+            />
+            <div className="relative z-10 text-left">
+              <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, si) => (
-                  <Star key={si} className="h-3.5 w-3.5 fill-[#f0c96a] text-[#f0c96a]" />
+                  <Star key={si} className="h-4 w-4 fill-[#f0c96a] text-[#f0c96a]" />
                 ))}
               </div>
-              <p className="text-white/90 text-[15px] sm:text-[16px] leading-[1.7] mb-5 font-medium text-justify">
-                {r.text}
+              <p className="text-white text-[15px] sm:text-[17px] leading-[1.75] mb-6 font-medium">
+                "{r.text}"
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center text-[12px] font-extrabold text-white shrink-0 border-2 border-white/20 notranslate" translate="no"
-                  style={{ background: 'linear-gradient(135deg, rgba(240,201,106,0.3), rgba(199,162,74,0.5))' }}>
+              <div className="flex items-center gap-3.5 pt-4 border-t border-white/15">
+                <div
+                  className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-extrabold text-white shrink-0 border-2 border-white/20 notranslate shadow-md"
+                  translate="no"
+                  style={{ background: 'linear-gradient(135deg, rgba(240,201,106,0.5), rgba(199,162,74,0.8))' }}
+                >
                   {r.initials}
                 </div>
                 <div>
-                  <p className="text-white font-extrabold text-[14px] leading-tight notranslate" translate="no">{r.name}</p>
-                  <p className="text-blue-200/70 text-[11px] mt-0.5 notranslate" translate="no">{r.location} · {r.subject}</p>
+                  <p className="text-white font-extrabold text-base leading-tight notranslate" translate="no">{r.name}</p>
+                  <p className="text-blue-200/80 text-xs mt-0.5 notranslate" translate="no">{r.location} · {r.subject}</p>
                 </div>
               </div>
             </div>
@@ -362,12 +422,11 @@ function ParentsSlider() {
 
       {/* Controls: prev arrow · dot indicators · next arrow */}
       {count > 1 && (
-        <div className="flex items-center justify-center gap-3 mt-5">
+        <div className="flex items-center justify-center gap-3 mt-6">
           <button
             onClick={() => go(index - 1)}
             aria-label="Previous review"
-            className="flex items-center justify-center w-9 h-9 rounded-full transition-all hover:-translate-x-0.5 cursor-pointer"
-            style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
+            className="flex items-center justify-center w-10 h-10 rounded-full transition-all hover:-translate-x-0.5 cursor-pointer bg-white/10 hover:bg-white/20 border border-white/20"
           >
             <ChevronLeft className="h-4 w-4 text-white" />
           </button>
@@ -380,7 +439,7 @@ function ParentsSlider() {
                 aria-label={`Go to review ${i + 1}`}
                 className="rounded-full transition-all duration-300 cursor-pointer"
                 style={{
-                  width: i === index ? 22 : 8,
+                  width: i === index ? 24 : 8,
                   height: 8,
                   background: i === index ? 'linear-gradient(92deg,#f0c96a,#fde68a)' : 'rgba(255,255,255,0.3)',
                 }}
@@ -391,8 +450,7 @@ function ParentsSlider() {
           <button
             onClick={() => go(index + 1)}
             aria-label="Next review"
-            className="flex items-center justify-center w-9 h-9 rounded-full transition-all hover:translate-x-0.5 cursor-pointer"
-            style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
+            className="flex items-center justify-center w-10 h-10 rounded-full transition-all hover:translate-x-0.5 cursor-pointer bg-white/10 hover:bg-white/20 border border-white/20"
           >
             <ChevronRight className="h-4 w-4 text-white" />
           </button>
@@ -403,24 +461,29 @@ function ParentsSlider() {
 }
 
 export default function PhysicsTutorDubaiPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [activeCurriculumTab, setActiveCurriculumTab] = useState(1);
+  const [activeDomainTab, setActiveDomainTab] = useState(0);
 
   const challenges: Challenge[] = [
     { 
       notation: 'ΣF=0', 
       icon: <PenTool className="h-5 w-5" />, 
+      tag: 'Vector Calculations',
       title: 'Vector Resolution & Free-Body Forces', 
       problem: 'When exam questions require resolving contact forces on inclined planes or non-perpendicular magnetic fields, students frequently forget trigonometric components or drop normal reaction forces, losing easy method marks.' 
     },
     { 
       notation: 'Δy/Δx', 
       icon: <FlaskConical className="h-5 w-5" />, 
+      tag: 'Paper 6 Practical',
       title: 'Paper 6 & Experimental Logic Flaws', 
       problem: 'Students lose 6 to 10 marks on practical papers by choosing awkward graph scales, drawing lines of best fit that ignore outliers, or writing vague precautions like "be careful" instead of specific control variables.' 
     },
     { 
       notation: 'E=mc²', 
       icon: <Calculator className="h-5 w-5" />, 
+      tag: 'Units & Formulas',
       title: 'Multi-Step Derivations & Unit Errors', 
       problem: 'Questions combining SUVAT kinematics, work-energy theorem, or circuit resistance collapse when students rush into calculator numbers without showing algebraic substitutions or converting Mega/Micro SI prefixes.' 
     },
@@ -432,31 +495,112 @@ export default function PhysicsTutorDubaiPage() {
     { n: '03', icon: <Timer className="h-6 w-6" />, title: 'Examiner-Standard Drills', desc: "Students complete timed past paper questions mapped to exact Cambridge, Edexcel, and IB mark schemes to develop sharp exam technique." },
   ];
 
-  const journey = [
-    { years: 'Year 7–9', title: 'Middle School & KS3', desc: 'Building vector intuition, metric unit conversions, and experimental thinking before GCSE pressure begins.', link: { label: 'Middle School Sciences', href: '/middle-school' } },
-    { years: 'Year 10–11', title: 'IGCSE & GCSE Physics', desc: 'Cambridge 0625/0972, Edexcel 4PH1, and AQA, mastering Paper 2 MCQs, Paper 4 theory, and Paper 6 practicals.', link: { label: 'IGCSE Physics Tutor Dubai', href: '/igcse-tutor-dubai' } },
-    { years: 'Year 12–13', title: 'A-Level & IB DP Physics', desc: 'Cambridge 9702, Edexcel 9PH0, and IB DP Physics (2025/2026 syllabus Themes A–E + Internal Assessment IA).', link: { label: 'A-Level Tutors Dubai', href: '/a-level' } },
+  const curriculumTabs = [
+    {
+      name: 'Middle School (KS3)',
+      level: 'Years 7–9',
+      boards: 'British & American NGSS',
+      lead: 'Building vector intuition, metric unit conversions, and experimental thinking before GCSE pressure begins.',
+      bullets: [
+        'Speed, velocity & acceleration graphs',
+        'Basic circuit components & Ohm’s law introduction',
+        'Energy transfers & conservation principles',
+        'Metric unit conversions & scientific notation'
+      ],
+      link: { label: 'Middle School Sciences', href: '/middle-school' }
+    },
+    {
+      name: 'IGCSE & GCSE Physics',
+      level: 'Years 10–11',
+      boards: 'Cambridge 0625/0972 · Edexcel 4PH1 · AQA',
+      lead: 'Mastering Paper 2 multiple-choice technique, Paper 4 structured theory, and Paper 6 Alternative to Practical.',
+      bullets: [
+        'SUVAT mechanics & momentum conservation',
+        'Electromagnetic induction & transformer calculations',
+        'Waves, refraction, critical angles & ray diagrams',
+        'Paper 6 graph scales, gradients & experimental design'
+      ],
+      link: { label: 'IGCSE Physics Tutor Dubai', href: '/igcse-tutor-dubai' }
+    },
+    {
+      name: 'A-Level & IB DP Physics',
+      level: 'Years 12–13',
+      boards: 'Cambridge 9702 · Edexcel 9PH0 · IB DP Themes A–E',
+      lead: 'Advanced calculus-based derivations, electric/gravitational fields, and Internal Assessment (IA) scientific papers.',
+      bullets: [
+        'Circular motion, simple harmonic motion & thermal physics',
+        'Capacitance, magnetic flux & quantum phenomena',
+        'Paper 3 / Paper 5 experimental planning & error analysis',
+        'IB Physics IA research question & data processing'
+      ],
+      link: { label: 'A-Level Tutors Dubai', href: '/a-level' }
+    }
   ];
 
-  const topics = [
-    { icon: <Gauge className="w-7 h-7" />, title: 'Classical Mechanics & Dynamics', desc: "SUVAT kinematics, Newton's laws of motion, circular dynamics, projectile trajectories, and momentum conservation." },
-    { icon: <Zap className="w-7 h-7" />, title: 'Electricity, Magnetism & Fields', desc: "Kirchhoff's circuit rules, potential dividers, capacitance, electric fields, and Faraday & Lenz induction." },
-    { icon: <Waves className="w-7 h-7" />, title: 'Oscillations, Waves & Optics', desc: 'Simple harmonic motion, Doppler effect, diffraction gratings, superposition, and total internal reflection.' },
-    { icon: <Thermometer className="w-7 h-7" />, title: 'Thermal, Quantum & Nuclear', desc: 'Specific & latent heat, ideal gas laws, photoelectric effect, de Broglie wavelength, and binding energy.' },
+  const physicsDomains = [
+    {
+      id: 'mechanics',
+      name: 'Mechanics & Dynamics',
+      icon: <Gauge className="w-5 h-5" />,
+      tag: 'Core Pillar 01',
+      title: 'Classical Mechanics, Kinematics & Energy',
+      desc: "SUVAT kinematics, Newton's laws of motion, circular dynamics, projectile trajectories, and momentum conservation.",
+      keyFormulas: ['v = u + at', 's = ut + ½at²', 'F = ma', 'p = mv', 'W = Fs cos θ'],
+      examTip: 'Examiners award method marks for writing algebraic formulas before inserting numeric values.'
+    },
+    {
+      id: 'electricity',
+      name: 'Electricity & Fields',
+      icon: <Zap className="w-5 h-5" />,
+      tag: 'Core Pillar 02',
+      title: 'Circuits, Electromagnetism & Fields',
+      desc: "Kirchhoff's circuit rules, potential dividers, capacitance, electric fields, and Faraday & Lenz electromagnetic induction.",
+      keyFormulas: ['V = IR', 'P = VI = I²R', 'ε = -N(ΔΦ/Δt)', 'F = BIl sin θ', 'E = V/d'],
+      examTip: 'Always sketch current flow and right-hand grip rules for magnetic field orientation.'
+    },
+    {
+      id: 'waves',
+      name: 'Waves & Optics',
+      icon: <Waves className="w-5 h-5" />,
+      tag: 'Core Pillar 03',
+      title: 'Oscillations, Superposition & Wave Optics',
+      desc: 'Simple harmonic motion, Doppler effect, diffraction gratings, wave superposition, and total internal reflection.',
+      keyFormulas: ['v = fλ', 'n = sin i / sin r', 'd sin θ = nλ', 'T = 2π√(l/g)'],
+      examTip: 'Ensure phase difference is calculated in radians for A-Level and IB wave interference.'
+    },
+    {
+      id: 'quantum',
+      name: 'Thermal & Quantum',
+      icon: <Thermometer className="w-5 h-5" />,
+      tag: 'Core Pillar 04',
+      title: 'Thermodynamics, Nuclear & Modern Physics',
+      desc: 'Specific & latent heat, ideal gas laws, photoelectric effect, de Broglie wavelength, and nuclear binding energy.',
+      keyFormulas: ['E = mcΔT', 'pV = nRT', 'E = hf', 'hf = Φ + ½mv²max', 'E = mc²'],
+      examTip: 'Convert minutes to seconds and Celsius to Kelvin before substituting into gas equations.'
+    }
   ];
 
   const paperLab = [
-    { icon: <PenTool className="w-7 h-7" />, title: 'Method-Mark Mastery', desc: 'Writing structured multi-step calculations with clear formulas so method marks are secured even if arithmetic slips occur.' },
-    { icon: <FlaskConical className="w-7 h-7" />, title: 'Alternative to Practical (Paper 6)', desc: 'Mastering graph axes selection, gradient determination, experimental error evaluations, and controlled variable design.' },
-    { icon: <ClipboardCheck className="w-7 h-7" />, title: 'Command-Word Decoding', desc: 'Deconstructing the precise mark-scheme expectations behind "State", "Describe", "Explain", and "Deduce".' },
-    { icon: <Timer className="w-7 h-7" />, title: 'Paced Mock Simulations', desc: 'Practicing authentic 75-minute and 120-minute papers under strict exam conditions to eliminate timing anxiety.' },
-  ];
-
-  const assessmentSkills = [
-    { icon: <PenTool className="h-6 w-6" />, title: 'STEM Degree Specialists' },
-    { icon: <ClipboardCheck className="h-6 w-6" />, title: 'Board-Specific Mastery' },
-    { icon: <ShieldCheck className="h-6 w-6" />, title: 'Diagnostic-Led Lessons' },
-    { icon: <CheckCircle2 className="h-6 w-6" />, title: 'Transparent Progress Reports' },
+    {
+      icon: <PenTool className="w-6 h-6 text-[#0f4a9b]" />,
+      title: 'Method-Mark Mastery',
+      desc: 'Writing structured multi-step calculations with clear formulas so method marks are secured even if arithmetic slips occur.'
+    },
+    {
+      icon: <FlaskConical className="w-6 h-6 text-[#0f4a9b]" />,
+      title: 'Alternative to Practical (Paper 6)',
+      desc: 'Mastering graph axes selection, gradient determination with large triangles, source of error evaluations, and controlled variable design.'
+    },
+    {
+      icon: <ClipboardCheck className="w-6 h-6 text-[#0f4a9b]" />,
+      title: 'Command-Word Decoding',
+      desc: 'Deconstructing the precise mark-scheme expectations behind "State", "Describe", "Explain", and "Deduce".'
+    },
+    {
+      icon: <Timer className="w-6 h-6 text-[#0f4a9b]" />,
+      title: 'Paced Mock Simulations',
+      desc: 'Practicing authentic 75-minute and 120-minute papers under strict timed conditions to eliminate timing anxiety.'
+    },
   ];
 
   const compareRows = [
@@ -468,9 +612,9 @@ export default function PhysicsTutorDubaiPage() {
   ];
 
   const gapChecks = [
-    { q: 'Does your child know the physics formula but struggle to rearrange it algebraically for the target variable?', tag: 'Derivation Gap' },
-    { q: 'Do they lose marks on 4-mark and 6-mark explanation questions for omitting examiner keywords?', tag: 'Keywords Gap' },
-    { q: 'Are Paper 6 practical marks slipping due to careless graph scales or vague experimental safety comments?', tag: 'Practical Gap' },
+    { q: 'Does your child know the physics formula but struggle to rearrange it algebraically for the target variable?', tag: 'Derivation Gap', focus: 'Algebraic modeling & variable isolation' },
+    { q: 'Do they lose marks on 4-mark and 6-mark explanation questions for omitting examiner keywords?', tag: 'Keywords Gap', focus: 'Mark scheme vocabulary & step-by-step logic' },
+    { q: 'Are Paper 6 practical marks slipping due to careless graph scales or vague experimental safety comments?', tag: 'Practical Gap', focus: 'Graph calibration & error evaluation protocols' },
   ];
 
   const faqs: { q: string; a: React.ReactNode; plain: string }[] = [
@@ -543,32 +687,36 @@ export default function PhysicsTutorDubaiPage() {
         ]}
       />
 
-      {/* SECTION 01/02: HERO */}
+      {/* SECTION 01: HERO */}
       <section className="relative -mt-16 overflow-hidden bg-[#060f22] flex flex-col items-center justify-center md:min-h-[75vh]">
-
         {/* PHYSICS VISUAL: Full background on desktop */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block">
-          <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice"
-            className="absolute inset-0 w-full h-full" aria-hidden="true" style={{ background: '#060f22' }}>
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block opacity-40 lg:opacity-100">
+          <svg
+            viewBox="0 0 1400 600"
+            preserveAspectRatio="xMidYMid slice"
+            className="absolute inset-0 w-full h-full"
+            aria-hidden="true"
+            style={{ background: '#060f22' }}
+          >
             <defs>
               <linearGradient id="dubaiWaveGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#5fd3e6" stopOpacity="0.15"/>
-                <stop offset="40%" stopColor="#5fd3e6" stopOpacity="1"/>
-                <stop offset="100%" stopColor="#5fd3e6" stopOpacity="0.15"/>
+                <stop offset="0%" stopColor="#5fd3e6" stopOpacity="0.15" />
+                <stop offset="40%" stopColor="#5fd3e6" stopOpacity="1" />
+                <stop offset="100%" stopColor="#5fd3e6" stopOpacity="0.15" />
               </linearGradient>
               <linearGradient id="dubaiOrbitGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#5fd3e6" stopOpacity="0.2"/>
-                <stop offset="50%" stopColor="#5fd3e6" stopOpacity="1"/>
-                <stop offset="100%" stopColor="#5fd3e6" stopOpacity="0.2"/>
+                <stop offset="0%" stopColor="#5fd3e6" stopOpacity="0.2" />
+                <stop offset="50%" stopColor="#5fd3e6" stopOpacity="1" />
+                <stop offset="100%" stopColor="#5fd3e6" stopOpacity="0.2" />
               </linearGradient>
               <radialGradient id="dubaiNucleusGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#22b8cd" stopOpacity="0.8"/>
-                <stop offset="100%" stopColor="#22b8cd" stopOpacity="0"/>
+                <stop offset="0%" stopColor="#22b8cd" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#22b8cd" stopOpacity="0" />
               </radialGradient>
-              <filter id="dubaiPglow"><feGaussianBlur stdDeviation="3"/></filter>
-              <filter id="dubaiPglow2"><feGaussianBlur stdDeviation="6"/></filter>
+              <filter id="dubaiPglow"><feGaussianBlur stdDeviation="3" /></filter>
+              <filter id="dubaiPglow2"><feGaussianBlur stdDeviation="6" /></filter>
               <marker id="dubaiArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto">
-                <path d="M0,0 L6,3 L0,6 Z" fill="rgba(240,201,106,0.8)"/>
+                <path d="M0,0 L6,3 L0,6 Z" fill="rgba(240,201,106,0.8)" />
               </marker>
             </defs>
 
@@ -576,7 +724,7 @@ export default function PhysicsTutorDubaiPage() {
             {(() => {
               const dots: React.ReactNode[] = [];
               for (let x = 40; x < 1400; x += 55) for (let y = 30; y < 600; y += 55)
-                dots.push(<circle key={`d${x}${y}`} cx={x} cy={y} r="1" fill="rgba(255,255,255,0.04)"/>);
+                dots.push(<circle key={`d${x}${y}`} cx={x} cy={y} r="1" fill="rgba(255,255,255,0.04)" />);
               return dots;
             })()}
 
@@ -591,18 +739,16 @@ export default function PhysicsTutorDubaiPage() {
                 const fade = Math.min(1, Math.min(i / 18, (120 - i) / 18));
                 wpts.push(`${x},${WY - Math.sin(phase) * WAMP * fade}`);
               }
-              out.push(<polyline key="wave" points={wpts.join(' ')} fill="none" stroke="url(#dubaiWaveGrad)" strokeWidth="2.6" filter="url(#dubaiPglow)"/>);
-              out.push(<line key="waxis" x1="30" y1={WY} x2="610" y2={WY} stroke="rgba(95,211,230,0.15)" strokeWidth="1" strokeDasharray="6 6"/>);
+              out.push(<polyline key="wave" points={wpts.join(' ')} fill="none" stroke="url(#dubaiWaveGrad)" strokeWidth="2.6" filter="url(#dubaiPglow)" />);
+              out.push(<line key="waxis" x1="30" y1={WY} x2="610" y2={WY} stroke="rgba(95,211,230,0.15)" strokeWidth="1" strokeDasharray="6 6" />);
               [0.25, 0.75, 1.25, 1.75].forEach((t, i) => {
                 const bx = 30 + (t / NWAVES) * 580;
                 const by = WY;
                 const amp = 70;
-                out.push(<line key={`bar${i}`} x1={bx} y1={by - amp} x2={bx} y2={by + amp}
-                  stroke="rgba(95,211,230,0.25)" strokeWidth="1.2" strokeDasharray="3 4"/>);
+                out.push(<line key={`bar${i}`} x1={bx} y1={by - amp} x2={bx} y2={by + amp} stroke="rgba(95,211,230,0.25)" strokeWidth="1.2" strokeDasharray="3 4" />);
               });
-              out.push(<line key="wavedir" x1="580" y1={WY} x2="640" y2={WY}
-                stroke="rgba(95,211,230,0.7)" strokeWidth="2" markerEnd="url(#dubaiArrow)"/>);
-              out.push(<text key="elbl" x="42" y={WY - WAMP - 12} fill="rgba(95,211,230,0.7)" fontSize="13" fontFamily="monospace">E</text>);
+              out.push(<line key="wavedir" x1="580" y1={WY} x2="640" y2={WY} stroke="rgba(95,211,230,0.7)" strokeWidth="2" markerEnd="url(#dubaiArrow)" />);
+              out.push(<text key="elbl" x="42" y={WY - WAMP - 12} fill="rgba(95,211,230,0.7)" fontSize="13" fontFamily="monospace">E-Field</text>);
               out.push(<text key="wlbl" x="560" y={WY - 14} fill="rgba(95,211,230,0.55)" fontSize="11" fontFamily="monospace">→ λ</text>);
               out.push(<text key="fma" x="48" y="480" fill="rgba(240,201,106,0.60)" fontSize="14" fontFamily="monospace" letterSpacing="1">F = ma</text>);
               out.push(<text key="ke" x="48" y="505" fill="rgba(95,211,230,0.45)" fontSize="13" fontFamily="monospace" letterSpacing="1">½mv²</text>);
@@ -621,150 +767,108 @@ export default function PhysicsTutorDubaiPage() {
               ];
               orbitDefs.forEach((o, oi) => {
                 out.push(
-                  <ellipse key={`orb${oi}`} cx={AX} cy={AY} rx={o.rx} ry={o.ry}
-                    fill="none" stroke="url(#dubaiOrbitGrad)" strokeWidth="1.6"
+                  <ellipse
+                    key={`orb${oi}`}
+                    cx={AX}
+                    cy={AY}
+                    rx={o.rx}
+                    ry={o.ry}
+                    fill="none"
+                    stroke="url(#dubaiOrbitGrad)"
+                    strokeWidth="1.6"
                     transform={`rotate(${o.rot} ${AX} ${AY})`}
-                    filter="url(#dubaiPglow)"/>
+                    filter="url(#dubaiPglow)"
+                  />
                 );
                 const cosA = Math.cos(o.eAng), sinA = Math.sin(o.eAng);
                 const rotR = o.rot * Math.PI / 180;
                 const ex = AX + (o.rx * cosA * Math.cos(rotR) - o.ry * sinA * Math.sin(rotR));
                 const ey = AY + (o.rx * cosA * Math.sin(rotR) + o.ry * sinA * Math.cos(rotR));
-                out.push(<circle key={`eg${oi}`} cx={ex} cy={ey} r="9" fill="rgba(95,211,230,0.2)" filter="url(#dubaiPglow)"/>);
-                out.push(<circle key={`el${oi}`} cx={ex} cy={ey} r="4.5" fill="#5fd3e6"/>);
+                out.push(<circle key={`eg${oi}`} cx={ex} cy={ey} r="9" fill="rgba(95,211,230,0.2)" filter="url(#dubaiPglow)" />);
+                out.push(<circle key={`el${oi}`} cx={ex} cy={ey} r="4.5" fill="#5fd3e6" />);
                 out.push(<text key={`ellt${oi}`} x={ex + 7} y={ey - 6} fill="rgba(95,211,230,0.65)" fontSize="10" fontFamily="monospace">e⁻</text>);
               });
-              out.push(<circle key="nglow2" cx={AX} cy={AY} r="36" fill="url(#dubaiNucleusGlow)" filter="url(#dubaiPglow2)"/>);
-              out.push(<circle key="nglow" cx={AX} cy={AY} r="18" fill="rgba(34,184,205,0.15)"/>);
-              out.push(<circle key="ncore" cx={AX} cy={AY} r="9" fill="#22b8cd" opacity="0.9"/>);
+              out.push(<circle key="nglow2" cx={AX} cy={AY} r="36" fill="url(#dubaiNucleusGlow)" filter="url(#dubaiPglow2)" />);
+              out.push(<circle key="nglow" cx={AX} cy={AY} r="18" fill="rgba(34,184,205,0.15)" />);
+              out.push(<circle key="ncore" cx={AX} cy={AY} r="9" fill="#22b8cd" opacity="0.9" />);
               [[-4,-3],[4,-3],[0,4]].forEach(([dx,dy],i) => {
-                out.push(<circle key={`p${i}`} cx={AX+dx} cy={AY+dy} r="3" fill="rgba(255,120,100,0.8)"/>);
+                out.push(<circle key={`p${i}`} cx={AX+dx} cy={AY+dy} r="3" fill="rgba(255,120,100,0.8)" />);
               });
               out.push(<text key="albl" x={AX + 120} y={AY - 40} fill="rgba(95,211,230,0.55)" fontSize="12" fontFamily="monospace">E = hf</text>);
               out.push(<text key="albl2" x={AX + 120} y={AY - 20} fill="rgba(180,180,255,0.40)" fontSize="12" fontFamily="monospace">p = mv</text>);
-              const topE = (() => {
-                const o = orbitDefs[0]; const cosA=Math.cos(o.eAng), sinA=Math.sin(o.eAng);
-                return { x: AX + o.rx*cosA, y: AY + o.ry*sinA };
-              })();
-              out.push(<line key="velv" x1={topE.x} y1={topE.y} x2={topE.x + 28} y2={topE.y - 22}
-                stroke="rgba(240,201,106,0.75)" strokeWidth="1.8" markerEnd="url(#dubaiArrow)"/>);
-              out.push(<text key="vvlbl" x={topE.x + 32} y={topE.y - 24} fill="rgba(240,201,106,0.65)" fontSize="11" fontFamily="monospace">v</text>);
-              out.push(<path key="photon" d={`M ${AX - 105} ${AY} Q ${AX - 160} ${AY - 90} ${AX - 140} ${AY - 160}`}
-                fill="none" stroke="rgba(255,200,80,0.30)" strokeWidth="1.4" strokeDasharray="5 4"/>);
-              out.push(<text key="photonlbl" x={AX - 145} y={AY - 170} fill="rgba(255,200,80,0.45)" fontSize="11" fontFamily="monospace">γ</text>);
-
               return out;
             })()}
           </svg>
         </div>
 
-        {/* Mobile physics visual at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-[200px] pointer-events-none z-0 md:hidden">
-          <svg viewBox="0 0 800 220" preserveAspectRatio="xMidYMid slice"
-            className="absolute inset-0 w-full h-full" aria-hidden="true">
-            <defs>
-              <linearGradient id="m-waveGradDubai" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#5fd3e6" stopOpacity="0.1"/>
-                <stop offset="50%" stopColor="#5fd3e6" stopOpacity="1"/>
-                <stop offset="100%" stopColor="#5fd3e6" stopOpacity="0.1"/>
-              </linearGradient>
-              <linearGradient id="m-orbitGradDubai" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#5fd3e6" stopOpacity="0.2"/>
-                <stop offset="50%" stopColor="#5fd3e6" stopOpacity="1"/>
-                <stop offset="100%" stopColor="#5fd3e6" stopOpacity="0.2"/>
-              </linearGradient>
-              <radialGradient id="m-nucleusGlowDubai" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#22b8cd" stopOpacity="0.7"/>
-                <stop offset="100%" stopColor="#22b8cd" stopOpacity="0"/>
-              </radialGradient>
-              <filter id="m-pglowDubai"><feGaussianBlur stdDeviation="3"/></filter>
-            </defs>
-
-            {/* Wave: left half */}
-            {(() => {
-              const pts: string[] = [];
-              for (let i = 0; i <= 80; i++) {
-                const x = 20 + (i / 80) * 320;
-                const phase = (i / 80) * 2 * 2 * Math.PI;
-                const fade = Math.min(1, Math.min(i / 12, (80 - i) / 12));
-                pts.push(`${x},${110 - Math.sin(phase) * 55 * fade}`);
-              }
-              return [
-                <polyline key="mwave" points={pts.join(' ')} fill="none" stroke="url(#m-waveGradDubai)" strokeWidth="2.2" filter="url(#m-pglowDubai)"/>,
-                <line key="mwaxis" x1="20" y1="110" x2="340" y2="110" stroke="rgba(95,211,230,0.12)" strokeWidth="1" strokeDasharray="5 5"/>,
-                <text key="mwlbl" x="26" y="34" fill="rgba(95,211,230,0.55)" fontSize="12" fontFamily="monospace">E-field wave</text>,
-              ];
-            })()}
-
-            {/* Atom: right */}
-            {(() => {
-              const out: React.ReactNode[] = [];
-              const AX = 660, AY = 110;
-              [[0,80,28],[60,80,28],[120,80,28]].forEach(([rot, rx, ry], oi) => {
-                out.push(<ellipse key={`morb${oi}`} cx={AX} cy={AY} rx={rx} ry={ry}
-                  fill="none" stroke="url(#m-orbitGradDubai)" strokeWidth="1.4"
-                  transform={`rotate(${rot} ${AX} ${AY})`} filter="url(#m-pglowDubai)"/>);
-                const ang = oi * 2.1, rotR = rot * Math.PI / 180;
-                const ex = AX + rx*Math.cos(ang)*Math.cos(rotR) - ry*Math.sin(ang)*Math.sin(rotR);
-                const ey = AY + rx*Math.cos(ang)*Math.sin(rotR) + ry*Math.sin(ang)*Math.cos(rotR);
-                out.push(<circle key={`mel${oi}`} cx={ex} cy={ey} r="4" fill="#5fd3e6"/>);
-              });
-              out.push(<circle key="mnglow" cx={AX} cy={AY} r="22" fill="url(#m-nucleusGlowDubai)" filter="url(#m-pglowDubai)"/>);
-              out.push(<circle key="mncore" cx={AX} cy={AY} r="8" fill="#22b8cd" opacity="0.9"/>);
-              return out;
-            })()}
-          </svg>
-        </div>
-
-        {/* ── TEXT BLOCK ── */}
-        <div className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 md:pt-20 md:pb-14 max-w-5xl w-full">
-
-          <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-2.5"
-            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}>
-            <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#f0c96a' }} />
-            <span className="text-blue-100/80 text-[11px] sm:text-[12px] font-semibold">Trusted by Dubai families since 2015</span>
+        {/* Hero Content Box */}
+        <div className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-12 sm:pt-28 sm:pb-14 md:pt-20 md:pb-16 max-w-5xl w-full">
+          {/* Hero pill tags */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+            {['Cambridge 0625/0972', 'Edexcel 4PH1', 'A-Level 9702/9PH0', 'IB DP Themes A–E', 'Paper 6 Lab Skills'].map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold text-blue-100/80 bg-white/[0.08] border border-white/15"
+              >
+                <span className="w-1.5 h-1.5 rounded-full inline-block shrink-0 bg-[#f0c96a]" />
+                {tag}
+              </span>
+            ))}
           </div>
 
-          <h1
-            className="font-extrabold tracking-tight text-white leading-[1.05] mb-3 md:mb-5 text-[clamp(1.5rem,5vw,3.4rem)] max-w-[90%] sm:max-w-none">
-            Elite Physics Tutoring in Dubai,{' '}
-            <span style={{ background:'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>
+          <h1 className="font-extrabold tracking-tight text-white leading-[1.12] mb-4 md:mb-5 text-[clamp(1.75rem,5vw,3.3rem)] max-w-4xl">
+            Physics Tutor Dubai,{' '}
+            <span style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               Built For Exam Precision
             </span>
           </h1>
 
-          <p
-            className="text-blue-100/80 text-[clamp(0.88rem,2vw,1.02rem)] leading-relaxed max-w-2xl mb-6 md:mb-8 px-4">
+          <p className="text-blue-100/80 text-[clamp(0.92rem,2vw,1.05rem)] leading-relaxed max-w-2xl mb-8 px-4 font-medium">
             Master multi-step calculations, vector resolutions, and Paper 6 practical experiments with 1-to-1 physics specialists in Dubai.
           </p>
 
-          <div
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full px-4">
-
-            <div className="sm:hidden w-full max-w-[340px] flex flex-col items-center gap-2.5 p-3.5 rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)' }}>
-              <a href={BOOKING}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5"
-                style={{ background:'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow:'0 4px 16px rgba(15,74,155,0.5)' }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 w-full px-4">
+            <div
+              className="sm:hidden w-full max-w-[340px] flex flex-col items-center gap-2.5 p-4 rounded-2xl"
+              style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)' }}
+            >
+              <a
+                href={BOOKING}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5 text-center shadow-lg"
+                style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}
+              >
                 Book Your Free Trial
               </a>
-              <span className="text-blue-200/50 text-[11px] -my-1">or</span>
-              <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><WhatsAppIcon className="w-4 h-4" /> WhatsApp Us</a>
-              <p className="text-blue-200/50 text-[11px] mt-1">No commitment. Cancel anytime.</p>
+              <span className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</span>
+              <a
+                href={WA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[13px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all shadow-md"
+              >
+                <WhatsAppIcon className="w-4 h-4" /> WhatsApp a Tutor
+              </a>
             </div>
 
             <div className="hidden sm:flex items-start justify-center gap-4">
               <div className="flex flex-col items-center gap-1.5">
-                <a href={BOOKING}
-                  className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
-                  style={{ background:'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow:'0 4px 18px rgba(15,74,155,0.55)' }}>
+                <a
+                  href={BOOKING}
+                  className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-full font-bold text-base text-white transition-all hover:-translate-y-0.5 shadow-lg"
+                  style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}
+                >
                   Book Your Free Trial
                 </a>
                 <p className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
-                <a href={WA_URL} className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
-                  <WhatsAppIcon className="w-4 h-4" /> WhatsApp Us
+                <a
+                  href={WA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-full font-bold text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"
+                >
+                  <WhatsAppIcon className="w-4 h-4" /> WhatsApp a Tutor
                 </a>
               </div>
             </div>
@@ -772,320 +876,498 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 03: STATS BAR */}
+      {/* SECTION 02: STATS BAR */}
       <StatsBar />
 
-      {/* SECTION 04: WHERE PHYSICS MARKS VANISH */}
-      <ChallengesCarousel challenges={challenges} />
-
-      {/* SECTION 05: USTAAD'S ASSISTANCE */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6 sm:mb-8">
-            <Eyebrow icon={<Brain className="h-3.5 w-3.5" />} text="Our Methodology" />
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-              Ustaad's Targeted Approach{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">For Dubai Students</span>
-            </h2>
-            <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl mx-auto">
-              We eliminate exam confusion through diagnostic precision, mathematical derivations, and genuine mark-scheme fluency.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
-            {[
-              { icon: <BookOpen className="w-7 h-7" />, title: 'Diagnostic Mark-Scheme Audit', desc: 'Every calculation step and theory definition is mapped against Cambridge and Edexcel examiner benchmarks.' },
-              { icon: <Calculator className="w-7 h-7" />, title: 'Mathematical Modelling First', desc: 'Algebraic rearrangements, variable isolation, and unit conversions mastered before plugging in calculator numbers.' },
-              { icon: <PenTool className="w-7 h-7" />, title: 'Diagrammatic & Practical Rigour', desc: 'Free-body vectors, ray diagrams, and Paper 6 experimental parameters trained until automatic.' },
-            ].map((card, i) => (
-              <div
-                key={i}
-                className="relative rounded-3xl p-5 sm:p-6 text-center overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)]"
-                style={{ background: 'linear-gradient(180deg, #fafbff 0%, #f5f7ff 100%)', border: '1px solid rgba(15,74,155,0.08)' }}
-              >
-                <div className="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full mb-2.5"
-                  style={{ background: 'linear-gradient(135deg, rgba(15,74,155,0.12) 0%, rgba(30,91,168,0.08) 100%)', boxShadow: '0 8px 24px rgba(15,74,155,0.12)' }}>
-                  <div className="text-[#0f4a9b]">{card.icon}</div>
-                </div>
-                <h3 className="text-[15px] font-extrabold text-[#0a1f3d] mb-2 leading-tight">{card.title}</h3>
-                <p className="text-[13px] text-gray-600 leading-relaxed">{card.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 06: PHYSICS JOURNEY WITH USTAAD */}
-      <section className="py-10 sm:py-12 lg:py-14 relative overflow-hidden"
-        style={{ background: 'linear-gradient(160deg, #0a1f3d 0%, #0f3575 50%, #0a2a6e 100%)' }}>
-        <div className="absolute top-[-10%] right-[-8%] w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(15,74,155,0.45) 0%, transparent 70%)', filter: 'blur(80px)' }} />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[300px] h-[300px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(30,91,168,0.35) 0%, transparent 70%)', filter: 'blur(80px)' }} />
-        <PhysGrid />
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-5 sm:mb-6">
-            <h2 className="text-xl lg:text-2xl font-extrabold text-white leading-[1.1] mb-1.5">
-              Physics Journey{' '}
-              <span style={{ background:'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>With Ustaad</span>
-            </h2>
-            <p className="text-blue-100/55 text-[13px] leading-relaxed max-w-xl mx-auto">
-              From middle school fundamentals to A-Level and IB Diploma exams, we match the exact syllabus your child studies in Dubai.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {journey.map((c, i) => (
-              <div key={i} className="rounded-2xl p-4 flex flex-col gap-2.5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-default"
-                style={{ background: 'rgba(15,74,155,0.18)', border: '1px solid rgba(110,168,255,0.18)' }}>
-                <div className="flex flex-col gap-1.5">
-                  <span className="self-start text-[9px] font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap"
-                    style={{ background: 'rgba(240,201,106,0.12)', color: '#fde68a', border: '1px solid rgba(240,201,106,0.25)' }}>
-                    {c.years}
-                  </span>
-                  <span className="font-extrabold text-[15px] text-white leading-tight">{c.title}</span>
-                </div>
-                <div className="h-px" style={{ background: 'rgba(110,168,255,0.12)' }} />
-                <p className="text-blue-100/65 text-[12px] leading-relaxed font-medium">{c.desc}</p>
-                <div className="mt-auto pt-0.5">
-                  <a href={c.link.href}
-                    className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-1 rounded-full whitespace-nowrap transition-all hover:brightness-110"
-                    style={{ color: '#93c5fd', background: 'rgba(15,74,155,0.3)', border: '1px solid rgba(110,168,255,0.2)' }}>
-                    {c.link.label}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 07: TRUSTED BY DUBAI SCHOOLS */}
+      {/* SECTION 03: TRUSTED BY DUBAI SCHOOLS */}
       <SchoolsMarquee
         logoList={physicsDubaiSchoolLogos}
         header={
-          <div className="text-center mb-5 sm:mb-6 max-w-2xl mx-auto">
-            <p className="text-[13px] sm:text-[14px] font-bold text-[#0a1f3d] leading-relaxed mb-1">
-              Tutoring physics students at Dubai's leading British, IB, and International schools since 2015.
+          <div className="text-center mb-5 sm:mb-6 max-w-3xl mx-auto px-4">
+            <p className="text-sm sm:text-base font-bold text-[#0a1f3d] leading-relaxed mb-1">
+              Tutoring physics students across Dubai's leading British, IB, and International schools since 2015.
             </p>
-            <p className="text-[12px] text-gray-500 leading-relaxed">
-              Including families from Dubai College, JESS Arabian Ranches, Brighton College Dubai, Repton, and Nord Anglia International School Dubai.
+            <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
+              Trusted by families from Dubai College, JESS Arabian Ranches, Brighton College Dubai, Repton, and Nord Anglia International School Dubai.
             </p>
           </div>
         }
       />
 
-      {/* SECTION 08: TOPICS WE COVER */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-6">
-            <Eyebrow icon={<Atom className="h-3.5 w-3.5" />} text="Topic Coverage" />
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-              Topics{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">We Cover in Dubai</span>
+      {/* SECTION 04: WHERE PHYSICS MARKS VANISH */}
+      <ChallengesCarousel challenges={challenges} />
+
+      {/* SECTION 05: INTERACTIVE 3D PHYSICS CORE DOMAINS */}
+      <section className="py-16 sm:py-20 bg-slate-50 relative overflow-hidden">
+        <PhysGrid light />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-10 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#0f4a9b]/5 border border-[#0f4a9b]/15 text-[#0f4a9b] text-xs font-bold uppercase tracking-wider mb-3">
+              <Atom className="w-3.5 h-3.5 text-[#C7A24A]" />
+              SYLLABUS BREAKDOWN
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+              Physics Core Domains <span className="text-[#0f4a9b]">Covered in Dubai</span>
             </h2>
-            <p className="text-gray-600 text-[15px] leading-relaxed">
-              From classical mechanics to atomic and quantum physics, every syllabus topic taught at full exam depth.
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              From classical mechanics to atomic and quantum physics, every topic taught at full exam depth with first-principles derivation.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {topics.map((card, i) => (
-              <div
-                key={i}
-                className="relative rounded-3xl p-5 text-center overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)]"
-                style={{ background: 'linear-gradient(180deg, #fafbff 0%, #f5f7ff 100%)', border: '1px solid rgba(15,74,155,0.08)' }}
+
+          {/* Domain Tab Buttons */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto mb-8">
+            {physicsDomains.map((dom, idx) => (
+              <button
+                key={dom.id}
+                onClick={() => setActiveDomainTab(idx)}
+                className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 border ${
+                  activeDomainTab === idx
+                    ? 'bg-[#0f4a9b] text-white border-[#0f4a9b] shadow-md shadow-[#0f4a9b]/25 scale-102'
+                    : 'bg-white text-slate-600 border-slate-200 hover:border-[#0f4a9b]/30 hover:text-[#0f4a9b]'
+                }`}
               >
-                <div className="absolute inset-0 opacity-30 pointer-events-none"
-                  style={{ backgroundImage: 'radial-gradient(circle, rgba(15,74,155,0.15) 1px, transparent 1px)', backgroundSize: '16px 16px', maskImage: 'linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)' }} />
-                <div className="relative z-10 inline-flex items-center justify-center w-12 h-12 rounded-full mb-3"
-                  style={{ background: 'linear-gradient(135deg, rgba(15,74,155,0.12) 0%, rgba(30,91,168,0.08) 100%)', boxShadow: '0 8px 24px rgba(15,74,155,0.12)' }}>
-                  <div className="text-[#0f4a9b]">{card.icon}</div>
-                </div>
-                <h3 className="relative z-10 text-[15px] font-extrabold text-[#0a1f3d] mb-1.5 leading-tight">{card.title}</h3>
-                <p className="relative z-10 text-[13px] text-gray-600 leading-relaxed">{card.desc}</p>
-              </div>
+                {dom.icon}
+                <span>{dom.name}</span>
+              </button>
             ))}
+          </div>
+
+          {/* Active Domain 3D Feature Panel */}
+          <div className="max-w-4xl mx-auto">
+            <AnimatePresence mode="wait">
+              {(() => {
+                const dom = physicsDomains[activeDomainTab];
+                return (
+                  <motion.div
+                    key={activeDomainTab}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.25 }}
+                    className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-[0_20px_50px_rgba(10,31,60,0.06)] text-left relative overflow-hidden"
+                  >
+                    <div className="grid md:grid-cols-12 gap-8 items-start">
+                      <div className="md:col-span-7 flex flex-col justify-between h-full">
+                        <div>
+                          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C7A24A]/10 border border-[#C7A24A]/25 text-[#9E7B24] text-[11px] font-extrabold uppercase tracking-widest mb-3">
+                            {dom.tag}
+                          </div>
+                          <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-3">
+                            {dom.title}
+                          </h3>
+                          <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-medium">
+                            {dom.desc}
+                          </p>
+                        </div>
+
+                        <div className="p-4 rounded-2xl bg-gradient-to-r from-[#FEFBF3] to-[#FBF6E8] border border-[#C7A24A]/30 text-xs sm:text-sm text-[#0a1f3d]">
+                          <strong className="text-[#C7A24A] font-bold block mb-1">Examiner Mark Scheme Focus:</strong>
+                          {dom.examTip}
+                        </div>
+                      </div>
+
+                      <div className="md:col-span-5 bg-slate-50 rounded-2xl p-5 border border-slate-100 flex flex-col justify-between h-full">
+                        <div className="mb-4">
+                          <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block mb-3">
+                            Essential Formula Derivations
+                          </span>
+                          <div className="flex flex-wrap gap-2">
+                            {dom.keyFormulas.map((f, fIdx) => (
+                              <span
+                                key={fIdx}
+                                className="font-mono text-xs font-bold px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-[#0f4a9b] shadow-2xs"
+                              >
+                                {f}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="pt-4 border-t border-slate-200/80 flex items-center justify-between">
+                          <span className="text-xs text-slate-500 font-semibold">1-to-1 Syllabus Aligned</span>
+                          <a
+                            href={BOOKING}
+                            className="inline-flex items-center gap-1 text-xs font-bold text-[#0f4a9b] hover:underline"
+                          >
+                            Rebuild this topic <ArrowRight className="w-3.5 h-3.5" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })()}
+            </AnimatePresence>
           </div>
         </div>
       </section>
 
-      {/* SECTION 09: FROM PAPER TO LAB */}
-      <section className="py-10 sm:py-12 lg:py-14 relative overflow-hidden"
-        style={{ background: 'linear-gradient(160deg, #0a1f3d 0%, #0f3575 50%, #0a2a6e 100%)' }}>
-        <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(15,74,155,0.45) 0%, transparent 70%)', filter: 'blur(80px)' }} />
-        <PhysGrid />
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-            <Eyebrow icon={<FlaskConical className="h-3.5 w-3.5" />} text="Paper And Practical" dark />
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-white leading-[1.1] mb-2">
-              From Paper{' '}
-              <span style={{ background:'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>To Lab</span>
+      {/* SECTION 06: FROM PAPER TO LAB (PRACTICAL EXPERTISE) */}
+      <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <Eyebrow icon={<FlaskConical className="h-3.5 w-3.5" />} text="Paper & Practical" />
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+              From Theory <span className="text-[#0f4a9b]">To Lab Mastery</span>
             </h2>
-            <p className="text-blue-100/65 text-[15px] leading-relaxed">
-              Physics exams test rigorous theory and experimental skills. We cover both with mark-scheme precision.
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Physics exams test rigorous mathematical theory alongside experimental lab skills. We cover both with mark-scheme precision.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {paperLab.map((card, i) => (
               <div
                 key={i}
-                className="rounded-2xl p-5 text-left relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(255,255,255,0.12)]"
-                style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(110,168,255,0.18)' }}
+                className="rounded-3xl p-6 text-left relative overflow-hidden bg-slate-50/70 border border-slate-200/80 shadow-xs hover:shadow-lg hover:border-[#0f4a9b]/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="inline-flex items-center justify-center w-11 h-11 rounded-full mb-3"
-                  style={{ background: 'rgba(110,168,255,0.12)', border: '1px solid rgba(110,168,255,0.2)' }}>
-                  <div className="text-[#93c5fd]">{card.icon}</div>
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-[#0f4a9b]/15 shadow-xs flex items-center justify-center mb-5">
+                    {card.icon}
+                  </div>
+                  <h3 className="text-base font-extrabold text-[#0a1f3d] mb-2 leading-snug">{card.title}</h3>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{card.desc}</p>
                 </div>
-                <h3 className="text-[15px] font-extrabold text-white mb-1.5 leading-tight">{card.title}</h3>
-                <p className="text-blue-100/60 text-[13px] leading-relaxed">{card.desc}</p>
+                <div className="mt-5 pt-3 border-t border-slate-200/60 flex items-center gap-1.5 text-[11px] font-bold text-[#0f4a9b]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#C7A24A]" /> Examiner Standard
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 10: OUR SIMPLE PROCESS */}
-      <StepsCarousel steps={steps} />
-
-      {/* SECTION 11: THE USTAAD TUTOR STANDARD */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-gradient-to-b from-white to-[#f8fafc]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center mb-4">
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-[1.1] mb-2">
-              The Ustaad{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Tutor Standard</span>
+      {/* SECTION 07: FEATURED FACULTY (TABRAIZ KHAN - 3-SUBJECT BRIDGE) */}
+      <section className="py-16 bg-slate-50 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C7A24A]/10 border border-[#C7A24A]/25 text-[#9E7B24] text-[11px] font-extrabold uppercase tracking-widest mb-2">
+              EXPERT STEM FACULTY
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d]">
+              Meet Your Physics Specialist: <span className="text-[#C7A24A]">Tabraiz Khan</span>
             </h2>
-            <p className="text-gray-600 text-[15px] leading-relaxed">
-              Every Ustaad physics tutor passes our rigorous vetting for curriculum mastery, subject qualifications, and teaching communication.
+            <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mt-2">
+              Physics is grounded in mathematical modeling. Tabraiz connects complex mechanics with vector and calculus fluency.
             </p>
           </div>
 
-          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#0f4a9b]/60 mb-5 text-center">
-            Carefully Selected Tutors in Dubai
-          </p>
+          <article className="grid md:grid-cols-12 bg-white rounded-3xl overflow-hidden shadow-[0_24px_60px_rgba(10,31,60,0.1)] border border-slate-200/80 max-w-4xl mx-auto">
+            {/* Left Column (Navy Dark Card with Portrait) */}
+            <div className="md:col-span-5 bg-gradient-to-br from-[#061530] via-[#0A1F3C] to-[#12305A] text-white p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#C7A24A]/15 rounded-full blur-2xl pointer-events-none" />
 
-          <div className="hidden lg:flex items-start gap-3 justify-center">
-            {assessmentSkills.map((s, i) => (
-              <div key={i} className="flex items-start flex-1 max-w-[200px]">
-                <div className="flex flex-col items-start flex-1">
-                  <span className="text-[32px] font-black leading-none mb-3"
-                    style={{ background: 'linear-gradient(135deg, #0f4a9b 0%, #1e5ba8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-tight mb-2.5">{s.title}</h3>
-                </div>
-                {i < assessmentSkills.length - 1 && (
-                  <div className="flex items-center pt-8 px-4">
-                    <svg width="60" height="24" viewBox="0 0 60 24" fill="none" className="shrink-0">
-                      <defs>
-                        <linearGradient id={`pdubaiarrow-grad-${i}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#0f4a9b" stopOpacity="0.8" />
-                          <stop offset="100%" stopColor="#0f4a9b" stopOpacity="0.2" />
-                        </linearGradient>
-                      </defs>
-                      <line x1="0" y1="12" x2="48" y2="12" stroke={`url(#pdubaiarrow-grad-${i})`} strokeWidth="2.5" strokeLinecap="round" />
-                      <path d="M 48 12 L 42 8 M 48 12 L 42 16" stroke="#0f4a9b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.6" />
-                    </svg>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <div className="lg:hidden grid grid-cols-2 gap-4 max-w-lg mx-auto">
-            {assessmentSkills.map((s, i) => (
-              <div key={i} className="flex flex-col">
-                <span className="text-[24px] font-black leading-none mb-2"
-                  style={{ background: 'linear-gradient(135deg, #0f4a9b 0%, #1e5ba8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  {String(i + 1).padStart(2, '0')}
+              <div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#E4C069] to-[#C9A24C] text-[#0A1F3C] text-[11px] font-extrabold uppercase tracking-wider mb-5 shadow-xs">
+                  <CheckCircle2 className="w-3.5 h-3.5" /> Cambridge Certified
                 </span>
-                <h3 className="text-[14px] font-extrabold text-[#0a1f3d] leading-tight">{s.title}</h3>
+
+                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-[#C7A24A]/30 shadow-2xl mb-5 bg-[#0A1F3C]">
+                  <img
+                    src="/images/tutors/tabraiz-khan.jpg"
+                    alt="Tabraiz Khan, Physics, Maths, and Statistics tutor in Dubai"
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <div className="absolute inset-2 border border-[#E4C069]/30 rounded-xl pointer-events-none" />
+                </div>
               </div>
+
+              {/* Signed Off Banner */}
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-[#C7A24A]/25 backdrop-blur-xs text-left">
+                <div className="flex -space-x-2">
+                  <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#E4C069] to-[#C9A24C] text-[#0A1F3C] font-bold text-[10px] flex items-center justify-center border-2 border-[#0A1F3C]">
+                    FZ
+                  </span>
+                  <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#E4C069] to-[#C9A24C] text-[#0A1F3C] font-bold text-[10px] flex items-center justify-center border-2 border-[#0A1F3C]">
+                    NI
+                  </span>
+                </div>
+                <div className="text-[11px] text-slate-300 leading-snug">
+                  <strong className="text-white font-bold">Signed off</strong> by F. Zaman &amp; Nida Iqbal
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column (Details & Subject Bridge) */}
+            <div className="md:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-between text-left gap-6">
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#0a1f3d] leading-tight">
+                  Tabraiz Khan
+                </h3>
+                <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-500 mt-1">
+                  Cambridge Certified · Physics &amp; Mathematics Faculty
+                </p>
+              </div>
+
+              {/* Subject Bridge Container */}
+              <div>
+                <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#C7A24A] mb-2.5 flex items-center gap-2">
+                  <span className="w-4 h-[1.5px] bg-[#C7A24A]" />
+                  THE SUBJECT BRIDGE
+                </div>
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#FEFBF3] to-[#FBF6E8] border border-[#C7A24A]/30">
+                  <div className="flex items-center justify-between gap-1.5 sm:gap-2 text-center">
+                    <div className="flex-1 bg-white border border-[#C7A24A]/60 rounded-xl p-2.5 shadow-xs">
+                      <div className="font-bold text-xs sm:text-sm text-[#0a1f3d]">Physics</div>
+                      <div className="text-[10px] font-bold text-slate-500 uppercase">IGCSE / A-L / IB</div>
+                    </div>
+                    <span className="text-[#C7A24A] font-bold text-sm shrink-0">↔</span>
+                    <div className="flex-1 bg-white border border-[#C7A24A]/60 rounded-xl p-2.5 shadow-xs">
+                      <div className="font-bold text-xs sm:text-sm text-[#0a1f3d]">Math AA</div>
+                      <div className="text-[10px] font-bold text-slate-500 uppercase">Calculus &amp; Vectors</div>
+                    </div>
+                    <span className="text-[#C7A24A] font-bold text-sm shrink-0">↔</span>
+                    <div className="flex-1 bg-white border border-[#C7A24A]/60 rounded-xl p-2.5 shadow-xs">
+                      <div className="font-bold text-xs sm:text-sm text-[#0a1f3d]">Paper 6 &amp; IA</div>
+                      <div className="text-[10px] font-bold text-slate-500 uppercase">Data Analysis</div>
+                    </div>
+                  </div>
+                  <p className="text-center text-xs font-semibold text-[#0a1f3d] mt-3">
+                    One tutor connecting physics concepts with exact mathematical proof.
+                  </p>
+                </div>
+              </div>
+
+              {/* Credentials list */}
+              <ul className="space-y-2.5 border-y border-slate-100 py-4">
+                {[
+                  { bold: "Master's in Statistics", text: "· Cambridge Certified Tutor" },
+                  { bold: "9+ years", text: "teaching IGCSE 0625, A-Level 9702, and IB DP Physics" },
+                  { bold: "Proven track record", text: "moving student predictions from 4/5s to 7s and A*s" }
+                ].map((cred, cIdx) => (
+                  <li key={cIdx} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700">
+                    <span className="w-4 h-4 rounded-md bg-gradient-to-br from-[#E4C069] to-[#C9A24C] text-[#0A1F3C] flex items-center justify-center shrink-0 font-bold">
+                      <CheckCircle2 className="w-3 h-3" />
+                    </span>
+                    <span>
+                      <strong className="text-[#0a1f3d] font-bold">{cred.bold}</strong> {cred.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Action and Experience Footer */}
+              <div className="flex items-center justify-between gap-4 pt-1 flex-wrap">
+                <div>
+                  <div className="text-2xl font-serif font-bold text-[#C7A24A] leading-none">
+                    9<span className="text-sm font-sans font-semibold text-slate-500 ml-1">yrs</span>
+                  </div>
+                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">Physics Teaching</div>
+                </div>
+
+                <a
+                  href="/tutors/tabraiz-khan"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0a1f3d] hover:bg-gradient-to-r hover:from-[#E4C069] hover:to-[#C9A24C] hover:text-[#0A1F3C] text-white font-bold text-xs sm:text-sm transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                >
+                  View Full Profile
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* SECTION 08: THE PHYSICS SYLLABUS JOURNEY IN DUBAI */}
+      <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-10 max-w-2xl mx-auto">
+            <Eyebrow icon={<Compass className="w-3.5 h-3.5" />} text="Curriculum Pathways" />
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+              The Physics Journey <span className="text-[#0f4a9b]">With Ustaad</span>
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              From middle school foundations to A-Level and IB Diploma exams, we align with the exact syllabus your child studies in Dubai.
+            </p>
+          </div>
+
+          {/* Curriculum Switcher Tabs */}
+          <div className="flex flex-wrap justify-center gap-2.5 max-w-3xl mx-auto mb-8">
+            {curriculumTabs.map((tab, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveCurriculumTab(idx)}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 border ${
+                  activeCurriculumTab === idx
+                    ? 'bg-[#0f4a9b] text-white border-[#0f4a9b] shadow-md shadow-[#0f4a9b]/25'
+                    : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-[#0f4a9b]'
+                }`}
+              >
+                <GraduationCap className="w-4 h-4" />
+                <span>{tab.name}</span>
+              </button>
             ))}
           </div>
 
-          <div className="mt-8 flex justify-center">
-            <a href="/tutors"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5"
-              style={{ background: 'linear-gradient(135deg,#0f4a9b,#1e5ba8)', boxShadow: '0 4px 16px rgba(15,74,155,0.3)' }}>
-              Meet Our Tutors
-            </a>
+          {/* Active Curriculum Panel */}
+          <div className="max-w-4xl mx-auto">
+            <AnimatePresence mode="wait">
+              {(() => {
+                const c = curriculumTabs[activeCurriculumTab];
+                return (
+                  <motion.div
+                    key={activeCurriculumTab}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.22 }}
+                    className="bg-gradient-to-br from-[#0a1f3d] via-[#0f3575] to-[#0a2a6e] rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden text-left"
+                  >
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-[#C7A24A]/10 rounded-full blur-3xl pointer-events-none" />
+
+                    <div className="grid md:grid-cols-12 gap-8 items-start relative z-10">
+                      <div className="md:col-span-6 flex flex-col justify-between h-full">
+                        <div>
+                          <div className="flex items-center gap-2 mb-3">
+                            <span className="text-[11px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[#fde68a]">
+                              {c.level}
+                            </span>
+                          </div>
+                          <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-2 leading-tight">
+                            {c.name}
+                          </h3>
+                          <div className="text-xs text-blue-200/80 font-mono mb-4">
+                            {c.boards}
+                          </div>
+                          <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed mb-6 font-medium">
+                            {c.lead}
+                          </p>
+                        </div>
+
+                        <div>
+                          <a
+                            href={c.link.href}
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#E4C069] to-[#C9A24C] text-[#0A1F3C] font-extrabold text-xs sm:text-sm shadow-md hover:brightness-105 transition-all hover:-translate-y-0.5"
+                          >
+                            {c.link.label}
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </a>
+                        </div>
+                      </div>
+
+                      <div className="md:col-span-6 bg-white/5 border border-white/15 rounded-2xl p-6 backdrop-blur-xs">
+                        <h4 className="text-xs font-extrabold uppercase tracking-widest text-[#fde68a] mb-4">
+                          Key Curriculum Focus Areas:
+                        </h4>
+                        <ul className="space-y-3">
+                          {c.bullets.map((b, bIdx) => (
+                            <li key={bIdx} className="flex items-start gap-3 text-xs sm:text-sm text-blue-100/90 leading-snug">
+                              <span className="w-4 h-4 rounded-full bg-[#C7A24A] text-[#0A1F3C] flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
+                                ✓
+                              </span>
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })()}
+            </AnimatePresence>
           </div>
         </div>
       </section>
 
-      {/* SECTION 12: INSIDE A REAL PAPER */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-5 sm:mb-6">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-              Inside A{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Real Paper</span>
+      {/* SECTION 09: INSIDE A REAL PAPER (DIAGNOSTIC WORKED STEP SIMULATOR) */}
+      <section className="py-16 bg-slate-50 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-10 max-w-2xl mx-auto">
+            <Eyebrow icon={<Sparkles className="h-3.5 w-3.5" />} text="Worked Question" />
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+              Inside A <span className="text-[#0f4a9b]">Real Exam Paper</span>
             </h2>
-            <p className="text-gray-600 text-[14px] sm:text-[15px] leading-relaxed max-w-2xl mx-auto">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               Here is one classic Cambridge 0625 / Edexcel 4PH1 question, the common pitfall, and what secures all 5 marks.
             </p>
           </div>
-          <div
-            className="relative rounded-2xl p-5 sm:p-6 lg:p-8 overflow-hidden"
-            style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(240,248,255,0.5) 100%)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.8)', boxShadow: '0 8px 32px rgba(15,74,155,0.12)' }}
-          >
-            <div className="relative z-10 flex flex-wrap items-center gap-2 mb-4">
-              <span className="text-[11px] font-bold px-2.5 py-1 rounded-full" style={{ background: 'rgba(15,74,155,0.06)', color: '#0f4a9b', border: '1px solid rgba(15,74,155,0.12)' }}>Cambridge 0625 & Edexcel 4PH1 Exam Sample</span>
-              <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full" style={{ background: 'rgba(240,201,106,0.12)', color: '#C7A24A', border: '1px solid rgba(240,201,106,0.25)' }}>Theory Paper 4 · 5 marks</span>
+
+          <div className="rounded-3xl p-6 sm:p-8 lg:p-10 bg-white border border-slate-200/80 shadow-[0_16px_40px_rgba(10,31,60,0.06)] relative overflow-hidden text-left">
+            <div className="flex flex-wrap items-center gap-2 mb-5">
+              <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#0f4a9b]/5 text-[#0f4a9b] border border-[#0f4a9b]/15">
+                Cambridge 0625 &amp; Edexcel 4PH1 Exam Sample
+              </span>
+              <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#C7A24A]/10 text-[#9E7B24] border border-[#C7A24A]/25">
+                Theory Paper 4 · 5 marks
+              </span>
             </div>
 
-            <p className="relative z-10 text-[14px] sm:text-[15px] leading-[1.7] text-[#0a1f3d] font-medium mb-5 italic border-l-2 border-[#0f4a9b]/30 pl-4">
+            <p className="text-sm sm:text-base leading-relaxed text-[#0a1f3d] font-medium mb-6 italic border-l-3 border-[#0f4a9b] pl-4 py-1 bg-slate-50/60 rounded-r-xl">
               "An electric immersion heater rated at 300 W is placed into 0.60 kg of liquid at 22 °C. The liquid reaches 70 °C in 4.0 minutes. Calculate the specific heat capacity of the liquid, assuming zero heat loss."
             </p>
 
-            <div className="relative z-10 flex flex-col gap-3">
-              <div className="flex items-start gap-2.5">
-                <X className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
-                <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"><span className="font-bold text-[#0a1f3d]">Common student mistake:</span> Forgetting to convert time from minutes to seconds (4.0 min = 240 s), or confusing temperature change (ΔT = 48 °C) with absolute temperature.</p>
+            <div className="space-y-4">
+              <div className="p-4 rounded-2xl bg-red-50/70 border border-red-100 flex items-start gap-3">
+                <X className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  <strong className="text-red-900 font-bold block mb-0.5">Common student mistake:</strong>
+                  Forgetting to convert time from minutes to seconds (4.0 min = 240 s), or confusing temperature change (ΔT = 48 °C) with absolute temperature.
+                </p>
               </div>
-              <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0 mt-0.5" />
-                <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"><span className="font-bold text-[#0a1f3d]">What earns all 5 marks:</span> Stating E = P × t = 300 × 240 = 72,000 J, setting E = mcΔT, rearranging c = 72,000 / (0.60 × 48) = 2,500 J/(kg·°C), with explicit standard SI units.</p>
+
+              <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-100 flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  <strong className="text-emerald-900 font-bold block mb-0.5">What earns all 5 marks:</strong>
+                  Stating E = P × t = 300 × 240 = 72,000 J, setting E = mcΔT, rearranging c = 72,000 / (0.60 × 48) = 2,500 J/(kg·°C), with explicit standard SI units.
+                </p>
               </div>
-              <div className="flex items-start gap-2.5">
-                <Sparkles className="h-4 w-4 text-[#0f4a9b] shrink-0 mt-0.5" />
-                <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"><span className="font-bold text-[#0a1f3d]">How Ustaad teaches it:</span> "Unit Audit" protocol: converting all non-SI quantities before writing the formula ensures students never lose method marks.</p>
+
+              <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start gap-3">
+                <Sparkles className="h-5 w-5 text-[#0f4a9b] shrink-0 mt-0.5" />
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  <strong className="text-[#0a1f3d] font-bold block mb-0.5">How Ustaad teaches it:</strong>
+                  "Unit Audit" protocol: converting all non-SI quantities before writing the formula ensures students never lose method marks.
+                </p>
               </div>
             </div>
 
-            <p className="relative z-10 text-[12px] text-gray-400 mt-5 pt-4 border-t border-slate-200/60">
+            <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-400 text-center">
               Exam technique coaching prepared by Cambridge, Edexcel, and IB examiners with verified UAE grade improvements.
-            </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 13: WHERE USTAAD STANDS APART */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-[#f4f7fc]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-5 sm:mb-6">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-              Where Ustaad{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Stands Apart</span>
+      {/* SECTION 10: OUR 3-STEP PROCESS TIMELINE */}
+      <StepsCarousel steps={steps} />
+
+      {/* SECTION 11: WHERE USTAAD STANDS APART (COMPARISON MATRIX) */}
+      <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-10 max-w-2xl mx-auto">
+            <Eyebrow icon={<Layers className="w-3.5 h-3.5" />} text="Comparative Value" />
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+              Where Ustaad <span className="text-[#0f4a9b]">Stands Apart in Dubai</span>
             </h2>
-            <p className="text-gray-600 text-[14px] sm:text-[15px] leading-relaxed max-w-2xl mx-auto">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               Honest comparison between Ustaad, open marketplace tutors, and school-only physics support in Dubai.
             </p>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_4px_20px_rgba(15,74,155,0.06)]">
+
+          <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_16px_40px_rgba(10,31,60,0.06)]">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-slate-200" style={{ background: 'linear-gradient(135deg, #0f4a9b 0%, #1e5ba8 100%)' }}>
-                  <th className="py-3 px-3 sm:px-4 text-[12px] sm:text-[13px] font-bold text-white"></th>
-                  <th className="py-3 px-2 sm:px-4 text-[12px] sm:text-[13px] font-extrabold text-white text-center">Ustaad</th>
-                  <th className="py-3 px-2 sm:px-4 text-[11px] sm:text-[13px] font-semibold text-blue-100/80 text-center">Marketplace tutor</th>
-                  <th className="py-3 px-2 sm:px-4 text-[11px] sm:text-[13px] font-semibold text-blue-100/80 text-center">School only</th>
+                <tr className="border-b border-slate-200 bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">
+                  <th className="py-4 px-4 sm:px-6 text-xs sm:text-sm font-bold text-white">Feature</th>
+                  <th className="py-4 px-3 sm:px-4 text-xs sm:text-sm font-extrabold text-white text-center bg-[#0a1f3d]/20">
+                    Ustaad
+                  </th>
+                  <th className="py-4 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-blue-100/90 text-center">
+                    Marketplace Tutor
+                  </th>
+                  <th className="py-4 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-blue-100/90 text-center">
+                    School Only
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {compareRows.map((row, i) => (
-                  <tr key={i} className={`border-b border-slate-100 last:border-0 ${i % 2 === 1 ? 'bg-slate-50/50' : ''}`}>
-                    <td className="py-3 px-3 sm:px-4 text-[12px] sm:text-[13px] font-semibold text-[#0a1f3d]">{row.label}</td>
-                    <td className="py-3 px-2 sm:px-4 text-center bg-[#0f4a9b]/[0.03]"><Mark v={row.ustaad} /></td>
-                    <td className="py-3 px-2 sm:px-4 text-center"><Mark v={row.market} /></td>
-                    <td className="py-3 px-2 sm:px-4 text-center"><Mark v={row.school} /></td>
+                  <tr key={i} className={`border-b border-slate-100 last:border-0 ${i % 2 === 1 ? 'bg-slate-50/60' : ''}`}>
+                    <td className="py-4 px-4 sm:px-6 text-xs sm:text-sm font-semibold text-[#0a1f3d]">{row.label}</td>
+                    <td className="py-4 px-3 sm:px-4 text-center bg-[#0f4a9b]/[0.04]"><Mark v={row.ustaad} /></td>
+                    <td className="py-4 px-3 sm:px-4 text-center"><Mark v={row.market} /></td>
+                    <td className="py-4 px-3 sm:px-4 text-center"><Mark v={row.school} /></td>
                   </tr>
                 ))}
               </tbody>
@@ -1094,81 +1376,88 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 14: CHECK THE GAP YOURSELF */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-5 sm:mb-6">
+      {/* SECTION 12: SELF-DIAGNOSIS (CHECK THE GAP YOURSELF) */}
+      <section className="py-16 bg-slate-50 relative overflow-hidden">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-10 max-w-2xl mx-auto">
             <Eyebrow icon={<ScanSearch className="h-3.5 w-3.5" />} text="Self Diagnosis" />
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-              Check The{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Gap Yourself</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+              Check The <span className="text-[#0f4a9b]">Gap Yourself</span>
             </h2>
-            <p className="text-gray-600 text-[14px] sm:text-[15px] leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               Three quick diagnostic questions to pinpoint where physics marks are leaking.
             </p>
           </div>
-          <div className="flex flex-col gap-3">
+
+          <div className="space-y-3.5">
             {gapChecks.map((g, i) => (
               <div
                 key={i}
-                className="flex items-center justify-between gap-4 rounded-2xl p-4 sm:p-5 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(15,74,155,0.08)]"
-                style={{ background: 'linear-gradient(180deg, #fafbff 0%, #f5f7ff 100%)', border: '1px solid rgba(15,74,155,0.1)' }}
+                className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl p-5 bg-white border border-slate-200 shadow-xs hover:border-[#0f4a9b]/30 hover:shadow-md transition-all text-left"
               >
-                <p className="text-[13px] sm:text-[14px] font-semibold text-[#0a1f3d] leading-snug">{g.q}</p>
-                <span className="shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap" style={{ background: 'rgba(15,74,155,0.08)', color: '#0f4a9b', border: '1px solid rgba(15,74,155,0.15)' }}>{g.tag}</span>
+                <div>
+                  <p className="text-sm font-bold text-[#0a1f3d] leading-snug mb-1">{g.q}</p>
+                  <p className="text-xs text-slate-500 font-medium">{g.focus}</p>
+                </div>
+                <span className="shrink-0 text-xs font-bold px-3 py-1 rounded-full bg-[#0f4a9b]/8 text-[#0f4a9b] border border-[#0f4a9b]/15 self-start sm:self-center">
+                  {g.tag}
+                </span>
               </div>
             ))}
           </div>
-          <p className="text-center text-[13px] text-gray-500 leading-relaxed mt-5 mb-5">
-            Most students experience two of three. We start with the highest-impact gap first.
+
+          <p className="text-center text-xs sm:text-sm text-slate-500 leading-relaxed mt-6 mb-6">
+            Most students experience two of these three. We start with the highest-impact gap first during your free trial.
           </p>
+
           <div className="flex justify-center">
-            <GoldButton href={BOOKING} className="px-6 py-3 text-sm">
-              Book Diagnostic Trial
+            <GoldButton href={BOOKING} className="px-8 py-3.5 text-sm shadow-[0_0_24px_rgba(199,162,74,0.35)]">
+              Book Your Diagnostic Trial
             </GoldButton>
           </div>
         </div>
       </section>
 
-      {/* SECTION 15: WHAT PARENTS SAY */}
-      <section className="py-10 sm:py-12 lg:py-14" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 50%, #1e5ba8 100%)' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-5 sm:mb-6">
-            <div className="flex-1">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-tight">
+      {/* SECTION 13: WHAT PARENTS SAY */}
+      <section className="py-16 sm:py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 50%, #1e5ba8 100%)' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
                 What Dubai Parents{' '}
-                <span style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Say</span>
+                <span style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  Say
+                </span>
               </h2>
             </div>
-            <div className="shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full" style={{ background: 'rgba(240,201,106,0.12)', border: '1px solid rgba(240,201,106,0.25)' }}>
+            <div className="shrink-0 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, si) => (
-                  <Star key={si} className="h-3 w-3 fill-[#f0c96a] text-[#f0c96a]" />
+                  <Star key={si} className="h-3.5 w-3.5 fill-[#f0c96a] text-[#f0c96a]" />
                 ))}
               </div>
-              <span className="text-[11px] font-bold ml-1" style={{ color: '#f0c96a' }}>5.0 · Verified Google Review</span>
+              <span className="text-xs font-bold text-[#f0c96a]">5.0 · Verified Google Review</span>
             </div>
           </div>
           <ParentsSlider />
         </div>
       </section>
 
-      {/* SECTION 16: FAQs */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-white">
+      {/* SECTION 14: FAQs */}
+      <section className="py-16 sm:py-20 bg-white border-t border-slate-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[0.9fr_1.6fr] gap-12 lg:gap-16 items-center">
-            <div className="flex flex-col items-center justify-center text-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            <div className="lg:col-span-5 flex flex-col items-start text-left lg:sticky lg:top-24">
               <Eyebrow icon={<Atom className="h-3.5 w-3.5" />} text="Common Questions" />
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-[1.15] mb-2">
-                Dubai Parents{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Often Ask</span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+                Dubai Parents <span className="text-[#0f4a9b]">Often Ask</span>
               </h2>
-              <p className="text-gray-600 text-[15px] leading-relaxed">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                 Honest answers to physics tutoring questions Dubai parents ask before their first session.
               </p>
             </div>
 
-            <div className="flex flex-col gap-[10px]">
+            <div className="lg:col-span-7 flex flex-col gap-3.5">
               {faqs.map((f, i) => {
                 const isOpen = openFaq === i;
                 return (
@@ -1178,34 +1467,48 @@ export default function PhysicsTutorDubaiPage() {
                         onClick={() => setOpenFaq(isOpen ? null : i)}
                         className="flex-shrink-0 flex items-center justify-center font-extrabold text-base rounded-full"
                         style={{
-                          width: 40, height: 40, minWidth: 40, minHeight: 40,
+                          width: 40,
+                          height: 40,
+                          minWidth: 40,
+                          minHeight: 40,
                           background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)',
                           color: isOpen ? '#fff' : '#0f4a9b',
                           transition: 'background 300ms ease, color 300ms ease',
-                          cursor: 'pointer', border: 'none', boxShadow: 'inset 0 0 0 2px #fff',
+                          cursor: 'pointer',
+                          border: 'none',
+                          boxShadow: 'inset 0 0 0 2px #fff',
                         }}
                       >
-                        <span className="flex items-center justify-center w-full h-full">?</span>
+                        ?
                       </button>
 
                       <button
                         onClick={() => setOpenFaq(isOpen ? null : i)}
                         aria-expanded={isOpen}
-                        className="flex-1 flex items-center gap-3 text-left rounded-full border"
-                        style={{ minHeight: '48px', padding: '8px 14px', cursor: 'pointer', background: 'transparent', borderColor: 'rgba(15,74,155,0.1)' }}
+                        className="flex-1 flex items-center gap-3 text-left rounded-full border bg-white shadow-xs"
+                        style={{
+                          minHeight: '52px',
+                          padding: '10px 16px',
+                          cursor: 'pointer',
+                          borderColor: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.12)',
+                        }}
                       >
                         <span className="flex-1 font-semibold text-[#0a1f3d] text-[14px] leading-snug">{f.q}</span>
                         <span
                           className="flex-shrink-0 flex items-center justify-center"
                           style={{
-                            width: 32, height: 32, minWidth: 32, minHeight: 32, borderRadius: '50%',
+                            width: 32,
+                            height: 32,
+                            minWidth: 32,
+                            minHeight: 32,
+                            borderRadius: '50%',
                             background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)',
                             color: isOpen ? '#fff' : '#0f4a9b',
                             transition: 'background 300ms ease, color 300ms ease, transform 300ms cubic-bezier(0.22,1,0.36,1)',
                             transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                           }}
                         >
-                          <ChevronDown className="h-3.5 w-3.5" />
+                          <ChevronDown className="h-4 w-4" />
                         </span>
                       </button>
                     </div>
@@ -1213,15 +1516,21 @@ export default function PhysicsTutorDubaiPage() {
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
-                          initial={{ opacity: 0, y: -8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -8 }}
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                          className="ml-[56px]"
+                          className="ml-[52px] overflow-hidden"
                         >
-                          <div className="flex items-start gap-3 rounded-2xl border p-4" style={{ background: '#f8fafc', borderColor: 'rgba(15,74,155,0.15)', boxShadow: '0 4px 16px rgba(15,74,155,0.06)' }}>
-                            <p className="flex-1 text-gray-600 text-[13px] leading-relaxed">{f.a}</p>
-                            <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ width: 32, height: 32, minWidth: 32, minHeight: 32, background: '#0f4a9b', color: '#fff' }}>
+                          <div
+                            className="flex items-start gap-3 rounded-2xl border p-4.5 bg-[#f8fafc] text-left"
+                            style={{ borderColor: 'rgba(15,74,155,0.15)', boxShadow: '0 4px 16px rgba(15,74,155,0.06)' }}
+                          >
+                            <p className="flex-1 text-slate-600 text-[13.5px] leading-relaxed">{f.a}</p>
+                            <span
+                              className="flex-shrink-0 flex items-center justify-center rounded-full"
+                              style={{ width: 32, height: 32, minWidth: 32, minHeight: 32, background: '#0f4a9b', color: '#fff' }}
+                            >
                               <MessageCircle className="h-4 w-4" />
                             </span>
                           </div>
@@ -1236,6 +1545,7 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
+      {/* RELATED CONTENT */}
       <RelatedContent
         breadcrumbs={[
           { name: 'Home', href: '/' },
@@ -1259,7 +1569,7 @@ export default function PhysicsTutorDubaiPage() {
         ]}
       />
 
-      {/* SECTION 17: START PHYSICS SUPPORT TODAY */}
+      {/* SECTION 15: START PHYSICS SUPPORT TODAY */}
       <FinalCTA
         title="Start Physics Support in Dubai Today"
         subtitleNode={
@@ -1277,30 +1587,33 @@ export default function PhysicsTutorDubaiPage() {
         subtext2=""
       />
 
-      {/* SECTION 18: LOOKING FOR ANOTHER SUBJECT? */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-white">
+      {/* SECTION 16: LOOKING FOR ANOTHER SUBJECT? */}
+      <section className="py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-5 sm:mb-6">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-              Looking For{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Another Subject in Dubai?</span>
+          <div className="text-center mb-6">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
+              Looking For <span className="text-[#0f4a9b]">Another Subject in Dubai?</span>
             </h2>
-            <p className="text-gray-600 text-[14px] sm:text-[15px] leading-relaxed">
+            <p className="text-slate-600 text-sm leading-relaxed">
               Same calm, topic-rooted approach across every core subject Dubai students study.
             </p>
           </div>
-          <a href="/maths-tutor-dubai"
-            className="group block rounded-2xl p-5 sm:p-6 transition-all hover:-translate-y-0.5"
-            style={{ background: 'linear-gradient(180deg, #fafbff 0%, #f5f7ff 100%)', border: '1px solid rgba(15,74,155,0.12)', boxShadow: '0 4px 20px rgba(15,74,155,0.06)' }}>
-            <div className="flex items-center gap-4">
-              <div className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full" style={{ background: 'linear-gradient(135deg, rgba(15,74,155,0.12) 0%, rgba(30,91,168,0.08) 100%)' }}>
+          <a
+            href="/maths-tutor-dubai"
+            className="group block rounded-2xl p-5 sm:p-6 transition-all hover:-translate-y-0.5 bg-gradient-to-b from-[#fafbff] to-[#f5f7ff] border border-[#0f4a9b]/15 shadow-sm hover:shadow-md"
+          >
+            <div className="flex items-center gap-4 text-left">
+              <div
+                className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full"
+                style={{ background: 'linear-gradient(135deg, rgba(15,74,155,0.12) 0%, rgba(30,91,168,0.08) 100%)' }}
+              >
                 <Calculator className="w-6 h-6 text-[#0f4a9b]" />
               </div>
               <div className="flex-1">
-                <h3 className="text-[16px] font-extrabold text-[#0a1f3d] mb-1 flex items-center gap-1.5 group-hover:text-[#0f4a9b] transition-colors">
+                <h3 className="text-base font-extrabold text-[#0a1f3d] mb-1 flex items-center gap-1.5 group-hover:text-[#0f4a9b] transition-colors">
                   Maths Tutor Dubai
                 </h3>
-                <p className="text-[13px] text-gray-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   For algebra, calculus, Cambridge 0580 Paper 4, IB Maths AA/AI, and the same structured problem-solving approach.
                 </p>
               </div>
@@ -1309,22 +1622,26 @@ export default function PhysicsTutorDubaiPage() {
         </div>
       </section>
 
-      {/* SECTION 19: ASK A PHYSICS TUTOR */}
+      {/* SECTION 17: ASK A PHYSICS TUTOR */}
       <section className="py-8 sm:py-10 bg-[#f4f7fc] border-t border-slate-200/60">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 text-left">
           <div className="flex-1">
-            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#0f4a9b]/60 mb-1">Ask A Dubai Physics Tutor</p>
-            <p className="text-[15px] font-semibold text-[#0a1f3d] mb-3">Send a challenging past-paper question. We'll send a worked solution.</p>
-            <div className="flex flex-col gap-2 text-[12.5px] text-[#0a1f3d]/70">
-              <div className="flex items-center gap-2.5">
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#0f4a9b]/70 mb-1">
+              Ask A Dubai Physics Tutor
+            </p>
+            <p className="text-sm sm:text-base font-bold text-[#0a1f3d] mb-2">
+              Send a challenging past-paper question. We'll send a worked solution.
+            </p>
+            <div className="flex flex-col gap-1.5 text-xs text-slate-600">
+              <div className="flex items-center gap-2">
                 <MapPin className="h-3.5 w-3.5 text-[#0f4a9b] shrink-0" />
                 <span>Ustaad UAE · Dubai, United Arab Emirates</span>
               </div>
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <Phone className="h-3.5 w-3.5 text-[#0f4a9b] shrink-0" />
                 <span>800 9005 (USTAAD) · WhatsApp +971 56 124 9005</span>
               </div>
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <Mail className="h-3.5 w-3.5 text-[#0f4a9b] shrink-0" />
                 <span>
                   <a href="mailto:support@ustaad.ae" className="hover:text-[#0f4a9b] transition-colors">support@ustaad.ae</a>
@@ -1334,11 +1651,14 @@ export default function PhysicsTutorDubaiPage() {
               </div>
             </div>
           </div>
-          <a href="https://wa.me/971561249005"
-            target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-5 h-11 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5 shrink-0 self-stretch sm:self-center"
-            style={{ background: 'linear-gradient(135deg,#25d366,#128c4a)', boxShadow: '0 4px 14px rgba(37,211,102,0.35)' }}>
-            <WhatsAppIcon className="w-[18px] h-[18px] fill-current" />
+          <a
+            href={WA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full font-bold text-sm text-white transition-all hover:-translate-y-0.5 shrink-0 shadow-md"
+            style={{ background: 'linear-gradient(135deg,#25d366,#128c4a)', boxShadow: '0 4px 14px rgba(37,211,102,0.35)' }}
+          >
+            <WhatsAppIcon className="w-4 h-4 fill-current" />
             WhatsApp Us
           </a>
         </div>

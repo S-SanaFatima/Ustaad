@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IB Abu Dhabi — Placement Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A1F3C; --navy-500:#12305A;
+    --gold:#C9A24C; --gold-2:#E4C069;
+    --ivory:#F8F5EF; --white:#FFFFFF;
+    --slate-700:#334155; --slate-500:#64748B; --slate-100:#E2E8F0;
+    --line:rgba(15,23,42,.08);
+    --green:#16A34A; --green-soft:#DCFCE7;
+    --blue:#2563EB;
+    --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:#F5EFE2;color:var(--navy);padding:44px 20px;-webkit-font-smoothing:antialiased}
+  .container{max-width:820px;margin:0 auto}
+
+  .doc-hd{text-align:center;margin-bottom:32px}
+  .doc-hd .eyebrow{display:inline-block;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+  .doc-hd h1{font-family:var(--serif);font-size:1.8rem;font-weight:500;color:var(--navy);line-height:1.15;letter-spacing:-.01em}
+  .doc-hd .url{display:inline-block;margin-top:10px;font-size:.78rem;color:var(--slate-500);background:var(--white);padding:6px 12px;border-radius:6px;font-family:var(--mono);border:1px solid var(--line)}
+
+  .summary{background:var(--white);border-radius:14px;padding:20px 22px;margin-bottom:24px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(10,31,60,.05)}
+  .summary h3{font-family:var(--serif);font-size:.98rem;color:var(--navy);font-weight:600;margin-bottom:14px}
+  .summary table{width:100%;border-collapse:collapse;font-size:.85rem}
+  .summary th{text-align:left;padding:8px 10px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-500);font-weight:700;border-bottom:1px solid var(--line)}
+  .summary td{padding:10px;border-bottom:1px solid var(--line);color:var(--slate-700);vertical-align:top}
+  .summary td:first-child{width:80px}
+  .summary tr:last-child td{border-bottom:none}
+  .summary .id{
+    display:inline-block;font-family:var(--mono);font-size:.72rem;font-weight:700;
+    padding:3px 8px;border-radius:5px;background:linear-gradient(135deg,var(--gold-2),var(--gold));color:var(--navy);
+  }
+  .summary strong{color:var(--navy);font-weight:600}
+
+  /* FLOW STACK */
+  .flow{background:var(--white);border-radius:14px;padding:24px 22px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(10,31,60,.05)}
+  .flow-hd{font-family:var(--serif);font-size:1rem;color:var(--navy);font-weight:600;margin-bottom:6px}
+  .flow-sub{font-size:.82rem;color:var(--slate-500);margin-bottom:20px}
+
+  .item{display:flex;align-items:flex-start;gap:14px;padding:12px 0;position:relative}
+  .item + .item{border-top:1px solid var(--line)}
+
+  .marker{
+    width:32px;height:32px;flex-shrink:0;border-radius:50%;
+    background:var(--slate-100);color:var(--slate-500);
+    display:grid;place-items:center;
+    font-family:var(--serif);font-weight:700;font-size:.82rem;
+  }
+  .item.existing .marker{background:var(--slate-100);color:var(--slate-500)}
+  .item.new .marker{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:var(--navy);box-shadow:0 4px 12px rgba(201,162,76,.3)}
+  .item.inside .marker{background:var(--green-soft);color:#166534;border:2px solid var(--green);width:36px;height:36px}
+
+  .body{flex:1;min-width:0}
+  .row-1{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+  .row-1 .name{font-size:.94rem;color:var(--navy);font-weight:600}
+  .item.existing .row-1 .name{color:var(--slate-700);font-weight:500}
+  .item.new .row-1 .name{color:var(--navy);font-weight:700}
+
+  .tag{
+    font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+    padding:2px 7px;border-radius:99px;
+  }
+  .tag-keep{background:var(--slate-100);color:var(--slate-500)}
+  .tag-new{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:var(--navy)}
+  .tag-inline{background:var(--green-soft);color:#166534}
+  .id-code{
+    font-family:var(--mono);font-size:.68rem;font-weight:700;color:var(--navy);
+    background:rgba(201,162,76,.14);padding:2px 6px;border-radius:4px;
+  }
+  .action{font-size:.78rem;color:var(--slate-500);line-height:1.5;margin-top:2px}
+  .action code{font-family:var(--mono);font-size:.72rem;background:var(--ivory);padding:1px 5px;border-radius:3px;color:var(--navy)}
+
+  /* Inside-block indicator */
+  .inside-block{
+    margin-left:46px;margin-top:8px;
+    padding:12px 14px;background:#F0FDF4;border-radius:8px;border-left:3px solid var(--green);
+    display:flex;align-items:center;gap:10px;
+  }
+  .inside-block .l{font-family:var(--mono);font-size:.68rem;font-weight:700;color:#166534;letter-spacing:.06em;text-transform:uppercase}
+  .inside-block .t{font-size:.82rem;color:#166534;line-height:1.4}
+
+  /* Insert marker (highlight between existing) */
+  .insert{
+    margin-left:-4px;padding:8px 12px;
+    background:linear-gradient(90deg,var(--gold-2),var(--gold));border-radius:8px;
+    display:flex;align-items:center;gap:10px;
+    font-size:.72rem;font-weight:700;color:var(--navy);letter-spacing:.06em;text-transform:uppercase;
+    box-shadow:0 6px 18px rgba(201,162,76,.35);
+    margin-top:12px;
+  }
+  .insert::before{content:"▼";font-size:.85rem}
+
+  /* Meta card */
+  .meta{background:var(--navy);color:var(--ivory);border-radius:12px;padding:18px 20px;margin-bottom:24px;position:relative;overflow:hidden}
+  .meta::before{content:"";position:absolute;top:-80px;right:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(201,162,76,.14),transparent 60%)}
+  .meta > *{position:relative;z-index:2}
+  .meta h3{font-family:var(--serif);font-size:.98rem;color:var(--ivory);font-weight:600;margin-bottom:10px}
+  .meta-row{margin-bottom:10px}
+  .meta-row .l{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2);font-weight:700;margin-bottom:4px}
+  .meta-row .v{background:rgba(255,255,255,.06);padding:9px 12px;border-radius:6px;font-family:var(--mono);font-size:.76rem;color:var(--ivory);line-height:1.5;border:1px solid rgba(201,162,76,.25)}
+
+  .footer-note{margin-top:24px;padding:14px 18px;background:var(--white);border-radius:10px;font-size:.8rem;color:var(--slate-500);line-height:1.5;border:1px dashed var(--line)}
+  .footer-note strong{color:var(--navy)}
+  .footer-note code{font-family:var(--mono);font-size:.72rem;background:var(--ivory);padding:1px 5px;border-radius:3px;color:var(--navy)}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="doc-hd">
+    <span class="eyebrow">Dev Handoff · Placement</span>
+    <h1>IB Abu Dhabi — Where to place each new section</h1>
+    <div class="url">https://ustaad.ae/ib-tutor-abu-dhabi</div>
+  </div>
+
+  <!-- META FIRST -->
+  <div class="meta">
+    <h3>Step 1 · Update title + meta</h3>
+    <div class="meta-row">
+      <div class="l">Title (60 chars)</div>
+      <div class="v">IB Tutor Abu Dhabi | MYP, DP SL &amp; HL | Math AA/AI + Physics</div>
+    </div>
+    <div class="meta-row">
+      <div class="l">Meta description (157 chars)</div>
+      <div class="v">IB tutor Abu Dhabi where one tutor connects Math AA/AI, Physics and Statistics. MYP to DP HL. Vetted by our academic and operations team. Free trial.</div>
+    </div>
+  </div>
+
+  <!-- QUICK SUMMARY TABLE -->
+  <div class="summary">
+    <h3>Step 2 · Section placement summary</h3>
+    <table>
+      <thead>
+        <tr><th>Section</th><th>Placement</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="id">SECTION-C</span></td>
+          <td><strong>Inline inside §3</strong> "Where the Jump to Diploma Bites" — after the orbit-icon visual. Not a new H2.</td>
+        </tr>
+        <tr>
+          <td><span class="id">SECTION-A</span></td>
+          <td><strong>New standalone section</strong> — between §3 and §4 "What You Keep After the Free Session".</td>
+        </tr>
+        <tr>
+          <td><span class="id">SECTION-B</span></td>
+          <td><strong>Immediately below SECTION-A</strong>, still before §4. Featured tutor card. Only tutor on this page.</td>
+        </tr>
+        <tr>
+          <td><span class="id">SECTION-D</span></td>
+          <td><strong>New standalone section</strong> — between §5 "Tuition That Bends" and §6 "One Tutor Per Subject".</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FULL FLOW MAP -->
+  <div class="flow">
+    <div class="flow-hd">Step 3 · Full page flow after changes</div>
+    <div class="flow-sub">Every section on the live page in order. New insertions marked with gold badges.</div>
+
+    <div class="item existing">
+      <div class="marker">H</div>
+      <div class="body">
+        <div class="row-1"><span class="name">Hero — "IB Tutor Abu Dhabi, from MYP to Diploma"</span><span class="tag tag-keep">Keep</span></div>
+      </div>
+    </div>
+
+    <div class="item existing">
+      <div class="marker">1</div>
+      <div class="body">
+        <div class="row-1"><span class="name">Trusted by IB Families Across Leading Abu Dhabi Schools</span><span class="tag tag-keep">Keep</span></div>
+        <div class="action">Add named IB school list: Cranleigh AD · GEMS World Academy AD · Raha International · Sunmarke · ACS AD · Al Yasmina (IBDP) · Repton (IB pathway)</div>
+      </div>
+    </div>
+
+    <div class="item existing">
+      <div class="marker">2</div>
+      <div class="body">
+        <div class="row-1"><span class="name">How Your Child's IB Hour Is Spent</span><span class="tag tag-keep">Keep</span></div>
+      </div>
+    </div>
+
+    <div class="item inside">
+      <div class="marker">3</div>
+      <div class="body">
+        <div class="row-1"><span class="name">Where the Jump to Diploma Bites</span><span class="tag tag-inline">Add inline</span></div>
+        <div class="action">Keep the H2 and the orbit-icon visual. Then drop SECTION-C right after the visual, before the section closes.</div>
+        <div class="inside-block">
+          <span class="l">↳ Insert inline</span>
+          <span class="t"><span class="id-code">SECTION-C</span> · SL vs HL Decision Helper</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insert">Insertion point · new sections drop here</div>
+
+    <div class="item new" style="margin-top:12px">
+      <div class="marker">A</div>
+      <div class="body">
+        <div class="row-1"><span class="name">One IB Tutor. Three Subjects. Zero Handoffs.</span><span class="tag tag-new">New</span><span class="id-code">SECTION-A</span></div>
+        <div class="action">Positioning section with animated 3-circle connector diagram (Math · Physics · Statistics → One Tutor · Ustaad).</div>
+      </div>
+    </div>
+
+    <div class="item new">
+      <div class="marker">B</div>
+      <div class="body">
+        <div class="row-1"><span class="name">Meet Your IB Tutor — Tabraiz Khan</span><span class="tag tag-new">New</span><span class="id-code">SECTION-B</span></div>
+        <div class="action">Faculty card with portrait + Subject Bridge visual. Sits directly below SECTION-A. Fahad Khan does NOT appear on this page.</div>
+      </div>
+    </div>
+
+    <div class="item existing">
+      <div class="marker">4</div>
+      <div class="body">
+        <div class="row-1"><span class="name">What You Keep After the Free Session</span><span class="tag tag-keep">Keep</span></div>
+      </div>
+    </div>
+
+    <div class="item existing">
+      <div class="marker">5</div>
+      <div class="body">
+        <div class="row-1"><span class="name">Tuition That Bends Around IB Deadlines</span><span class="tag tag-keep">Keep</span></div>
+      </div>
+    </div>
+
+    <div class="insert">Insertion point · SECTION-D drops here</div>
+
+    <div class="item new" style="margin-top:12px">
+      <div class="marker">D</div>
+      <div class="body">
+        <div class="row-1"><span class="name">The IB Year in Abu Dhabi</span><span class="tag tag-new">New</span><span class="id-code">SECTION-D</span></div>
+        <div class="action">4-phase IBDP May-session timeline (Sep–Nov · Dec–Feb · Mar–Apr · May) with peak-window callout + November-session footnote.</div>
+      </div>
+    </div>
+
+    <div class="item existing">
+      <div class="marker">6</div>
+      <div class="body">
+        <div class="row-1"><span class="name">One Tutor Per Subject, Matched to You</span><span class="tag tag-keep">Keep</span></div>
+      </div>
+    </div>
+
+    <div class="item existing">
+      <div class="marker">7</div>
+      <div class="body">
+        <div class="row-1"><span class="name">When Abu Dhabi Parents Tend to Call</span><span class="tag tag-keep">Keep</span></div>
+      </div>
+    </div>
+
+    <div class="item existing">
+      <div class="marker">8</div>
+      <div class="body">
+        <div class="row-1"><span class="name">What Parents Say</span><span class="tag tag-keep">Keep</span></div>
+      </div>
+    </div>
+
+    <div class="item existing">
+      <div class="marker">9</div>
+      <div class="body">
+        <div class="row-1"><span class="name">Parents Often Ask</span><span class="tag tag-keep">Keep</span></div>
+        <div class="action">Add 4 new questions to the visible accordion AND to the FAQPage JSON-LD schema:<br>
+        · Do you tutor IB students at Cranleigh Abu Dhabi or GEMS World Academy AD?<br>
+        · Can Tabraiz Khan tutor both Math AA and Physics for the same student?<br>
+        · Is Ustaad available for the November IB session as well as May?<br>
+        · Can lessons shift to post-Iftar timing during Ramadan?</div>
+      </div>
+    </div>
+
+    <div class="item existing">
+      <div class="marker">10</div>
+      <div class="body">
+        <div class="row-1"><span class="name">Start Your IB Support</span><span class="tag tag-keep">Keep</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    <strong>Source of the 4 section designs:</strong> <code>ib-ad-all-new-sections-merged.html</code> — one clean file with SECTION-C, SECTION-A, SECTION-B and SECTION-D rendered in flow order. Copy the markup for each section by its <code>id</code> and slot it at the placement above.<br><br>
+    <strong>Anchor IDs already set:</strong> <code>#section-c</code>, <code>#section-a</code>, <code>#section-b</code>, <code>#section-d</code>.<br><br>
+    <strong>Tabraiz mentions:</strong> exactly one on this page (SECTION-B). SECTION-A's diagram uses generic "One Tutor · Ustaad" wording to avoid pre-naming him.
+  </div>
+</div>
+
+</body>
+</html>

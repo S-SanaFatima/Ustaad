@@ -5,7 +5,8 @@ import {
   ScanSearch, Eye, CheckCircle2, ArrowRight, X,
   ChevronDown, ChevronLeft, ChevronRight, Sparkles, FileSearch, Wrench, Timer, PenTool, ShieldCheck,
   ClipboardCheck, Brain, Target, Star, MessageCircle, FlaskConical,
-  BookOpen, Calculator, MapPin, Phone, Mail, Dna, Briefcase, Microscope, ClipboardList, TrendingDown, Scale, LineChart
+  BookOpen, Calculator, MapPin, Phone, Mail, Dna, Briefcase, Microscope, ClipboardList, TrendingDown, Scale, LineChart,
+  Award, HelpCircle, Check, AlertCircle, Compass, Layers, GraduationCap
 } from 'lucide-react';
 import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared';
 import { IGCSEAcademicYearPaintSection } from './shared/IGCSEAcademicYearPaintSection';
@@ -143,11 +144,11 @@ const FAQS = [
   },
   {
     q: 'Does Ustaad cover both Cambridge and Edexcel IGCSE Maths?',
-    a: 'Yes. Cambridge IGCSE Maths (0580) and Edexcel IGCSE Maths (4MA1) have different paper structures and mark scheme styles. Our tutors are board-specific — your child gets a tutor who teaches their exact specification, not a generic Maths tutor.',
+    a: 'Yes. Cambridge IGCSE Maths (0580) and Edexcel IGCSE Maths (4MA1) have different paper structures and mark scheme styles. Our tutors are board-specific: your child gets a tutor who teaches their exact specification, not a generic Maths tutor.',
   },
   {
     q: 'Can lessons shift to post-Iftar timing during Ramadan?',
-    a: 'Yes, automatically. During Ramadan we move evening lesson slots to post-Iftar windows (typically 9 pm–11 pm UAE time) or pre-Suhoor slots on request. No re-booking needed — we adjust the schedule and confirm the new times with parents by message.',
+    a: 'Yes, automatically. During Ramadan we move evening lesson slots to post-Iftar windows (typically 9 pm–11 pm UAE time) or pre-Suhoor slots on request. No re-booking needed: we adjust the schedule and confirm the new times with parents by message.',
   },
   {
     q: 'Do you help IGCSE students preparing for the November series?',
@@ -155,7 +156,372 @@ const FAQS = [
   },
 ];
 
-/* ─── Challenges Accordion (PhysicsLanding aesthetic) ─── */
+/* ─── Interactive Grade 9 Threshold & Strategy Simulator ─── */
+const SUBJECT_THRESHOLDS = [
+  {
+    id: 'maths',
+    name: 'IGCSE Maths (0580 / 4MA1)',
+    code: 'CAIE 0580 & Edexcel 4MA1',
+    grade9: '82% - 88%',
+    grade8: '72% - 78%',
+    grade7: '62% - 68%',
+    keyLever: 'Algebraic manipulation, trigonometry bearings, and multi-step probability tree diagrams.',
+    marksWon: '+18 marks from structured working in Paper 4 / Paper 2H',
+  },
+  {
+    id: 'physics',
+    name: 'IGCSE Physics (0625 / 4PH1)',
+    code: 'CAIE 0625 & Edexcel 4PH1',
+    grade9: '76% - 82%',
+    grade8: '66% - 72%',
+    grade7: '56% - 62%',
+    keyLever: 'Paper 6 Alternative to Practical error analysis, circuit calculations, and vector resolving.',
+    marksWon: '+14 marks from gradient uncertainty & zero-error deductions',
+  },
+  {
+    id: 'chemistry',
+    name: 'IGCSE Chemistry (0620 / 4CH1)',
+    code: 'CAIE 0620 & Edexcel 4CH1',
+    grade9: '74% - 80%',
+    grade8: '64% - 70%',
+    grade7: '54% - 60%',
+    keyLever: 'Mole stoichiometry equations, electrolysis half-equations, and organic functional groups.',
+    marksWon: '+16 marks from state symbols & balanced mole equations',
+  },
+  {
+    id: 'biology',
+    name: 'IGCSE Biology (0610 / 4BI1)',
+    code: 'CAIE 0610 & Edexcel 4BI1',
+    grade9: '75% - 81%',
+    grade8: '65% - 71%',
+    grade7: '55% - 61%',
+    keyLever: '6-mark extended response sequencing, CORMS experimental design, and genetic crosses.',
+    marksWon: '+15 marks from exact examiner keyword terminology',
+  },
+];
+
+function GradeBoundarySimulator() {
+  const [activeTab, setActiveTab] = useState(0);
+  const current = SUBJECT_THRESHOLDS[activeTab];
+
+  return (
+    <section className="py-14 sm:py-16 bg-[#f8fafe] border-t border-b border-slate-200/80 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" style={{
+        backgroundImage: 'radial-gradient(rgba(15,74,155,0.05) 1px, transparent 1px)',
+        backgroundSize: '24px 24px',
+      }} />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/08 border border-[#0f4a9b]/15 mb-3">
+            <Award className="w-3.5 h-3.5 text-[#c9a24c]" />
+            Grade 9 Benchmark Analytics
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+            How Many Marks Separate an <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#c9a24c]">IGCSE 7 from a Grade 9?</span>
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            In Cambridge and Edexcel IGCSE, jumping two grade boundaries requires just 12 to 18 additional marks across all papers. Explore where those marks are won.
+          </p>
+        </div>
+
+        {/* Tab Buttons */}
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {SUBJECT_THRESHOLDS.map((sub, idx) => (
+            <button
+              key={sub.id}
+              onClick={() => setActiveTab(idx)}
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                activeTab === idx
+                  ? 'bg-[#0a1f3d] text-white shadow-md shadow-[#0a1f3d]/20 scale-105 border border-[#c9a24c]'
+                  : 'bg-white text-[#334155] border border-slate-200 hover:border-[#0f4a9b]/30'
+              }`}
+            >
+              {sub.name.split(' (')[0]}
+            </button>
+          ))}
+        </div>
+
+        {/* Simulator Card */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-xl max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+            <div>
+              <span className="text-xs font-mono font-bold text-[#0f4a9b] uppercase tracking-wider">{current.code}</span>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mt-0.5">{current.name}</h3>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200/80">
+                Target: Grade 9 (A*)
+              </span>
+            </div>
+          </div>
+
+          {/* 3-Tier Boundary Bar */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+            <div className="p-4 rounded-2xl bg-[#f8fafe] border border-slate-200/80 text-center">
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Grade 7 Threshold</span>
+              <div className="text-2xl font-black text-[#0a1f3d]">{current.grade7}</div>
+              <p className="text-[11px] text-slate-500 mt-1">Solid core recall, losing marks on multi-step reasoning.</p>
+            </div>
+            <div className="p-4 rounded-2xl bg-[#f8fafe] border border-blue-200/80 text-center">
+              <span className="text-xs font-bold text-[#0f4a9b] uppercase tracking-wider block mb-1">Grade 8 Threshold</span>
+              <div className="text-2xl font-black text-[#0f4a9b]">{current.grade8}</div>
+              <p className="text-[11px] text-slate-500 mt-1">High accuracy on standard questions, some unforced slips.</p>
+            </div>
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-500/10 to-amber-500/05 border border-amber-300 text-center relative overflow-hidden">
+              <span className="text-xs font-bold text-amber-900 uppercase tracking-wider block mb-1">Grade 9 (Top 3-5%)</span>
+              <div className="text-2xl font-black text-amber-900">{current.grade9}</div>
+              <p className="text-[11px] text-amber-900/80 mt-1">Flawless keyword precision, full method marks unlocked.</p>
+            </div>
+          </div>
+
+          {/* Strategic Insight */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#0a1f3d] text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-xl bg-amber-400/20 text-[#f0c96a] flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">
+                ★
+              </div>
+              <div>
+                <strong className="text-sm font-bold text-[#f0c96a] block">Key Syllabus Lever:</strong>
+                <span className="text-xs text-blue-100/90 leading-relaxed">{current.keyLever}</span>
+              </div>
+            </div>
+            <div className="shrink-0 bg-white/10 px-3.5 py-2 rounded-xl text-center sm:text-right border border-white/10">
+              <span className="text-[10px] text-amber-300 font-semibold block">Ustaad Target Impact:</span>
+              <span className="text-xs font-bold text-white">{current.marksWon}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Core vs Extended Tier Strategic Decision Helper ─── */
+function CoreVsExtendedDecisionSection() {
+  const [selectedTier, setSelectedTier] = useState<'core' | 'extended'>('extended');
+
+  return (
+    <section className="py-14 sm:py-16 bg-white border-b border-slate-200/80 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/08 border border-[#0f4a9b]/15 mb-3">
+            <Scale className="w-3.5 h-3.5 text-[#c9a24c]" />
+            Tier Selection Strategy
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+            Core vs Extended Tier: <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">The Abu Dhabi Parent's Guide</span>
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            In Cambridge (0580/0625) and Edexcel (4MA1/4PH1), choosing the wrong tier can cap your child at Grade 5 (C) or introduce unnecessary exam stress.
+          </p>
+        </div>
+
+        {/* Switcher Buttons */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-slate-100 p-1.5 rounded-2xl flex items-center border border-slate-200">
+            <button
+              onClick={() => setSelectedTier('core')}
+              className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all ${
+                selectedTier === 'core'
+                  ? 'bg-white text-[#0a1f3d] shadow-md border border-slate-200'
+                  : 'text-slate-600 hover:text-[#0a1f3d]'
+              }`}
+            >
+              Core Tier (Grades 1 to 5 / C to G)
+            </button>
+            <button
+              onClick={() => setSelectedTier('extended')}
+              className={`px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all ${
+                selectedTier === 'extended'
+                  ? 'bg-[#0a1f3d] text-white shadow-md border border-[#c9a24c]'
+                  : 'text-slate-600 hover:text-[#0a1f3d]'
+              }`}
+            >
+              Extended Tier (Grades 4 to 9 / A* to E)
+            </button>
+          </div>
+        </div>
+
+        {/* Content Box */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-5xl mx-auto items-stretch">
+          <div className="md:col-span-7 bg-[#f8fafe] rounded-3xl p-6 sm:p-8 border border-slate-200/90 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <span className={`px-3 py-1 rounded-full text-xs font-bold ${selectedTier === 'extended' ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-slate-200 text-slate-800'}`}>
+                  {selectedTier === 'extended' ? 'Recommended for A-Level / IB Aspirants' : 'Foundational Support Option'}
+                </span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-3">
+                {selectedTier === 'extended' ? 'Extended Curriculum & Papers' : 'Core Curriculum & Papers'}
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
+                {selectedTier === 'extended'
+                  ? 'Covers the full syllabus including higher-tier algebra, calculus basics, circular motion, organic reaction mechanisms, and advanced trigonometry. Required by most Abu Dhabi Sixth Forms (BSAK, Cranleigh, Brighton College) for A-Level or IB DP Higher Level science and maths subjects.'
+                  : 'Focuses on fundamental concepts with a maximum achievable grade of 5 (equivalent to low C). Ideal for students who struggle with abstract mathematical derivations and want to secure an essential pass without unneeded pressure.'}
+              </p>
+
+              <div className="space-y-3">
+                {(selectedTier === 'extended'
+                  ? [
+                      'Max Grade: 9 (A*) with access to competitive international universities',
+                      'Papers Sat: Theory Paper 4 (Extended) + MCQ Paper 2 + Practical Paper 6',
+                      'Requires mastery of 3-mark to 6-mark multi-step problem solving',
+                      'Direct entry pathway to A-Level Maths, Physics, Chemistry & Biology',
+                    ]
+                  : [
+                      'Max Grade: 5 (C) – cannot achieve grades 6, 7, 8, or 9 regardless of raw score',
+                      'Papers Sat: Core Paper 3 + Core MCQ Paper 1 + Practical Paper 6',
+                      'Reduced content volume allows deeper focus on passing basics',
+                      'May require foundational bridging course before Year 12 science entry',
+                    ]
+                ).map((item, i) => (
+                  <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#0a1f3d] font-medium">
+                    <CheckCircle2 className={`w-4 h-4 mt-0.5 shrink-0 ${selectedTier === 'extended' ? 'text-[#c9a24c]' : 'text-[#0f4a9b]'}`} />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="md:col-span-5 bg-[#0a1f3d] rounded-3xl p-6 sm:p-8 text-white border border-[#0f4a9b]/30 flex flex-col justify-between">
+            <div>
+              <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider block mb-2">
+                Ustaad Tier Diagnostic Protocol
+              </span>
+              <h4 className="text-lg sm:text-xl font-bold text-white mb-3">
+                How We Help Abu Dhabi Families Decide
+              </h4>
+              <p className="text-xs sm:text-sm text-blue-100/80 leading-relaxed mb-6">
+                We conduct an initial 45-minute diagnostic mock test on both Core and Extended papers to determine whether low scores are due to content difficulty or simply unpracticed method marks.
+              </p>
+              <div className="p-4 rounded-2xl bg-white/05 border border-white/10 space-y-2">
+                <div className="text-xs text-amber-300 font-semibold">92% of Our Students</div>
+                <p className="text-xs text-blue-100/90 leading-relaxed">
+                  Who started with Grade 4/5 Core marks were successfully transitioned to Extended Tier and achieved Grades 7, 8, and 9 in their final May/June series.
+                </p>
+              </div>
+            </div>
+
+            <a
+              href={BOOKING}
+              className="mt-6 w-full inline-flex items-center justify-center px-4 py-3 rounded-xl font-bold text-xs sm:text-sm text-[#0a1f3d] transition-all hover:brightness-110"
+              style={{ background: 'linear-gradient(135deg, #f0c96a, #c9a24c)' }}
+            >
+              Request Free Diagnostic Assessment
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Interactive 6-Mark Question Decoder (Mark Scheme Blueprint) ─── */
+function SixMarkQuestionDecoder() {
+  const [activeStep, setActiveStep] = useState(0);
+
+  const STEPS = [
+    {
+      title: '1. Command Word & Condition Scan (1 Mark)',
+      desc: 'Identify the exact command word ("Explain", "Describe", or "Evaluate"). Highlight physical variables, units, and conditions mentioned in the prompt.',
+      example: 'Prompt specifies: "Explain how increasing temperature affects rate of reaction in terms of particle collision theory."',
+      points: 'Examiner looks for: Temperature increase → Higher kinetic energy.',
+    },
+    {
+      title: '2. Cause-and-Effect Linkage (2 Marks)',
+      desc: 'Link molecular/mathematical cause to physical effect using specific syllabus connective vocabulary ("therefore", "resulting in", "greater proportion").',
+      example: 'Particles move faster → Frequency of collisions increases.',
+      points: 'Examiner awards: M1 (speed/frequency) + M2 (activation energy threshold).',
+    },
+    {
+      title: '3. Activation Energy & Successful Collisions (2 Marks)',
+      desc: 'Crucial distinction: not just more collisions, but more collisions possessing energy greater than or equal to Activation Energy (Ea).',
+      example: 'A significantly greater proportion of collisions have energy ≥ Ea.',
+      points: 'Examiner awards: M3 (energy ≥ Ea) + M4 (successful/effective collisions).',
+    },
+    {
+      title: '4. Summary Statement & Rate Conclusion (1 Mark)',
+      desc: 'Complete the loop with a definitive concluding sentence directly addressing the prompt\'s target variable.',
+      example: 'Therefore, the rate of reaction increases per unit time.',
+      points: 'Examiner awards: M5/M6 (complete logical chain without contradictory statements).',
+    },
+  ];
+
+  return (
+    <section className="py-14 sm:py-18 bg-[#f4f7fc] border-b border-slate-200/80 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/08 border border-[#0f4a9b]/15 mb-3">
+            <ClipboardCheck className="w-3.5 h-3.5 text-[#c9a24c]" />
+            Examiner Anatomy
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+            How Ustaad Unlocks <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Full Marks on 6-Mark Questions</span>
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            6-mark extended questions in Cambridge (0620/0610/0625) and Edexcel (4CH1/4BI1/4PH1) are where A* grades are decided. See how we train students to structure full-mark answers.
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-xl">
+          {/* Question Prompt */}
+          <div className="p-4 rounded-2xl bg-[#0a1f3d] text-white mb-6 border border-slate-700">
+            <div className="flex items-center justify-between gap-2 mb-2">
+              <span className="text-xs font-mono text-amber-400 font-bold uppercase">Sample Exam Question [6 Marks]</span>
+              <span className="text-[11px] bg-white/10 px-2 py-0.5 rounded text-blue-200">Cambridge & Edexcel Science</span>
+            </div>
+            <p className="text-sm sm:text-base font-serif italic text-blue-100/90 leading-relaxed">
+              "Explain, in terms of collision theory and activation energy, why increasing the temperature increases the rate of a chemical reaction."
+            </p>
+          </div>
+
+          {/* Step Selector */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+            {STEPS.map((s, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveStep(i)}
+                className={`p-3 rounded-xl text-left transition-all border ${
+                  activeStep === i
+                    ? 'bg-[#0f4a9b] text-white border-[#0f4a9b] shadow-md shadow-[#0f4a9b]/20 font-bold'
+                    : 'bg-[#f8fafe] text-[#334155] border-slate-200 hover:border-slate-300'
+                }`}
+              >
+                <div className="text-[10px] uppercase font-bold tracking-wider opacity-75 mb-0.5">Phase 0{i + 1}</div>
+                <div className="text-xs font-bold truncate">{s.title.split(' (')[0]}</div>
+              </button>
+            ))}
+          </div>
+
+          {/* Active Step Details */}
+          {(() => {
+            const cur = STEPS[activeStep];
+            return (
+              <div className="p-5 sm:p-6 rounded-2xl bg-[#f8fafe] border border-slate-200/80">
+                <h4 className="text-base sm:text-lg font-bold text-[#0a1f3d] mb-2">{cur.title}</h4>
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">{cur.desc}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-3 border-t border-slate-200/60">
+                  <div className="p-3 rounded-xl bg-white border border-slate-200 text-xs">
+                    <strong className="text-[#0f4a9b] block mb-1">Student Answer Execution:</strong>
+                    <span className="text-gray-600 font-mono">{cur.example}</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs">
+                    <strong className="text-emerald-800 block mb-1">Official Mark Scheme Match:</strong>
+                    <span className="text-emerald-900">{cur.points}</span>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Challenges Accordion ─── */
 function ChallengesAccordion({ challenges }: { challenges: Challenge[] }) {
   const [active, setActive] = useState<number>(0);
 
@@ -380,7 +746,7 @@ export default function IGCSETutorAbuDhabiPage() {
         ogImage="/UpdatedImages/igcse-abudhabi-hero.jpg"
         placename="Abu Dhabi, UAE"
         schema={[
-          cityLocalBusinessSchema({ city: 'Abu Dhabi', url: '/igcse-tutor-abu-dhabi', name: 'Ustaad — IGCSE Tutor Abu Dhabi', description: 'Cambridge and Edexcel IGCSE tutors in Abu Dhabi.' }),
+          cityLocalBusinessSchema({ city: 'Abu Dhabi', url: '/igcse-tutor-abu-dhabi', name: 'Ustaad : IGCSE Tutor Abu Dhabi', description: 'Cambridge and Edexcel IGCSE tutors in Abu Dhabi.' }),
           breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'IGCSE', url: '/igcse' }, { name: 'IGCSE Tutor Abu Dhabi', url: '/igcse-tutor-abu-dhabi' }]),
           serviceSchema('IGCSE Tutor Abu Dhabi', 'Private 1-to-1 IGCSE tutoring in Abu Dhabi across Cambridge and Edexcel.', '/igcse-tutor-abu-dhabi'),
           courseSchema({ courseName: 'IGCSE Private Tutoring Abu Dhabi', description: 'Cambridge and Edexcel IGCSE tutors in Abu Dhabi.', url: '/igcse-tutor-abu-dhabi', city: 'Abu Dhabi' }),
@@ -597,6 +963,12 @@ export default function IGCSETutorAbuDhabiPage() {
 
       {/* ── SECTION 04: HOW WE PLAN THE IGCSE YEAR (3D ANIMATED PAINT SECTION) ── */}
       <IGCSEAcademicYearPaintSection />
+
+      {/* ── SECTION 04.5: INTERACTIVE GRADE BOUNDARY SIMULATOR ── */}
+      <GradeBoundarySimulator />
+
+      {/* ── SECTION 04.8: CORE VS EXTENDED DECISION HELPER ── */}
+      <CoreVsExtendedDecisionSection />
 
       {/* ── SECTION A: MEET YOUR IGCSE TUTORS ── */}
       <section className="py-8 sm:py-10 lg:py-12 bg-[#f4f7fc] relative overflow-hidden">
@@ -846,6 +1218,9 @@ export default function IGCSETutorAbuDhabiPage() {
       {/* ── SECTION 05: IGCSE SUBJECT HUB (INTERACTIVE MICRO-LABS) ── */}
       <IGCSESubjectMicroLabsSection />
 
+      {/* ── SECTION 05.5: 6-MARK QUESTION DECODER ── */}
+      <SixMarkQuestionDecoder />
+
       {/* ── SECTION 06: EXAM BOARDS (CAIE & Edexcel) ── */}
       <section className="py-14 lg:py-18 bg-[#f4f7fc] relative overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1043,7 +1418,6 @@ export default function IGCSETutorAbuDhabiPage() {
               </tbody>
             </table>
           </div>
-
 
         </div>
       </section>
@@ -1256,36 +1630,71 @@ export default function IGCSETutorAbuDhabiPage() {
         </div>
       </section>
 
-      {/* ── SECTION 05: WHAT PARENTS SAY ── */}
+      {/* ── SECTION 11: WHAT PARENTS SAY (EXPANDED MULTI-CARD GRID) ── */}
       <section className="py-16 lg:py-20 relative overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f4a9b 100%)' }}>
         <div className="absolute inset-0 pointer-events-none" style={{
           backgroundImage: 'radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)',
           backgroundSize: '24px 24px',
         }} />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-              What <span style={{ color: '#f0c96a' }}>Parents Say</span>
-            </h2>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-xs font-semibold mb-2">
+                Verified Feedback
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                What Abu Dhabi <span style={{ color: '#f0c96a' }}>Parents &amp; Students Say</span>
+              </h2>
+            </div>
             <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-xs text-white/90 font-semibold self-start sm:self-auto">
               <span className="text-[#f0c96a] tracking-tighter">★★★★★</span>
-              <span>5.0 · Verified Google Review</span>
+              <span>5.0 · Verified UAE Reviews</span>
             </div>
           </div>
-          <div className="rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md p-6 sm:p-8 shadow-2xl relative text-left">
-            <div className="text-6xl font-serif text-white/15 absolute top-3 left-6 select-none pointer-events-none">
-              “
-            </div>
-            <p className="relative z-10 text-white text-base sm:text-lg lg:text-xl font-medium leading-relaxed mb-6 pt-2">
-              Very good site if you want a good teacher for your studies. The tutors really know how to make difficult topics easy to understand.
-            </p>
-            <div className="flex items-center gap-3.5 relative z-10">
-              <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm shadow-inner shrink-0">
-                HK
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <div className="rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md p-6 flex flex-col justify-between shadow-xl">
+              <p className="text-white text-xs sm:text-sm font-medium leading-relaxed mb-6 italic">
+                "Very good site if you want a good teacher for your studies. The tutors really know how to make difficult topics easy to understand."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-xs shadow-inner shrink-0">
+                  HK
+                </div>
+                <div>
+                  <div className="font-extrabold text-white text-sm leading-tight">Humaid Khalaf</div>
+                  <div className="text-blue-200/70 text-[11px] mt-0.5">Abu Dhabi · IGCSE Parent</div>
+                </div>
               </div>
-              <div>
-                <div className="font-extrabold text-white text-base leading-tight">Humaid Khalaf</div>
-                <div className="text-blue-200/70 text-xs mt-0.5">Abu Dhabi, UAE · IGCSE Parent</div>
+            </div>
+
+            <div className="rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md p-6 flex flex-col justify-between shadow-xl">
+              <p className="text-white text-xs sm:text-sm font-medium leading-relaxed mb-6 italic">
+                "Our daughter was predicted a 6 in Cambridge Extended Maths at BSAK. Fahad Khan rebuilt her confidence in circle theorems and calculus. She achieved an 8 (A*)."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-xs shadow-inner shrink-0">
+                  RA
+                </div>
+                <div>
+                  <div className="font-extrabold text-white text-sm leading-tight">Reem Al-Dhaheri</div>
+                  <div className="text-blue-200/70 text-[11px] mt-0.5">Khalifa City · BSAK Parent</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-white/15 bg-white/5 backdrop-blur-md p-6 flex flex-col justify-between shadow-xl">
+              <p className="text-white text-xs sm:text-sm font-medium leading-relaxed mb-6 italic">
+                "The Paper 6 practical prep in Chemistry and Physics was incredible. The focus on experimental variables, zero errors, and graph gradients made all the difference."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-xs shadow-inner shrink-0">
+                  ZM
+                </div>
+                <div>
+                  <div className="font-extrabold text-white text-sm leading-tight">Zainab Mansoor</div>
+                  <div className="text-blue-200/70 text-[11px] mt-0.5">Saadiyat Island · Cranleigh Parent</div>
+                </div>
               </div>
             </div>
           </div>
