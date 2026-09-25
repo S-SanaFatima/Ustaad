@@ -51,7 +51,7 @@ export const TEAM: TeamMember[] = [
     desc: 'Oversees tutor selection, classroom observation, and ongoing pedagogy training so academic standards stay consistent.',
     focus: ['Tutor Vetting', 'Pedagogy Audits'],
     initials: 'MR',
-    image: '/images/team/nida-iqbal-v2.jpg',
+    image: '/images/team/mariam-rahman-v1.jpg',
     imageAlt: 'Mariam Rahman, Tutor Quality and Development Lead at Ustaad',
     objectPosition: 'center 16%',
   },

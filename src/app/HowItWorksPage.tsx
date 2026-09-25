@@ -949,7 +949,7 @@ function TutorScreeningSection() {
                     }`}
                   >
                     <img
-                      src="/images/team/nida-iqbal-v2.jpg"
+                      src="/images/team/mariam-rahman-v1.jpg"
                       alt="Mariam Rahman, Tutor Quality and Development Lead at Ustaad"
                       className="w-full h-full rounded-full object-cover object-[center_16%]"
                       loading="lazy"

@@ -962,7 +962,7 @@ export default function TutorProfilePage({ tutorSlug }: { tutorSlug?: string }) 
                     <div className="group relative flex items-center gap-3 bg-gradient-to-b from-white/[0.12] to-white/[0.06] border border-white/20 hover:border-[#E6C575] p-3 sm:p-3.5 rounded-2xl backdrop-blur-md transition-all duration-300 hover:shadow-lg hover:bg-white/[0.16] cursor-default">
                       <div className="relative w-11 h-11 rounded-full overflow-hidden ring-2 ring-[#E6C575] ring-offset-2 ring-offset-[#0b3d80] shadow-sm flex-shrink-0 bg-white">
                         <img
-                          src="/images/team/nida-iqbal-v2.jpg"
+                          src="/images/team/mariam-rahman-v1.jpg"
                           alt="Mariam Rahman, Tutor Quality and Development Lead at Ustaad"
                           className="w-full h-full object-cover object-top"
                         />
