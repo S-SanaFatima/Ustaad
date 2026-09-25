@@ -589,6 +589,18 @@ export const ROUTES: RouteConfig[] = [
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic', url: '/blogs/academic-exam-skills' }, { name: 'What Does the Gradient Mean', url: '/blogs/what-does-gradient-mean-maths-physics' }]
   },
+  {
+    path: '/blogs/command-words-igcse-a-level-exams',
+    component: 'CommandWordsBlog',
+    seo: {
+      title: 'Command Words in IGCSE and A-Level Exams: A Guide | Ustaad',
+      description: 'Your child knows the content but loses marks anyway. The reason is usually command words. Here is how to read them and answer exactly what the examiner wants.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-09-25'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' }, { name: 'Command Words in Exams', url: '/blogs/command-words-igcse-a-level-exams' }]
+  },
 
 
   // City landings

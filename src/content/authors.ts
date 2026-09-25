@@ -52,6 +52,7 @@ export const AUTHORS: Author[] = [
     photoAlt: 'Nimra Shahzada, Content Lead and Academic Consultant at Ustaad UAE',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
+      { title: 'The One Word in Every Exam Question That Decides Your Marks (Command Words)', href: '/blogs/command-words-igcse-a-level-exams', role: 'authored' },
       { title: "Exam Stamina: Why Your Child Can't Sit the Full Paper", href: '/blogs/exam-stamina-uae-students', role: 'authored' },
       { title: 'Exams Are Back in the UAE. What Changes for Your Child', href: '/blogs/uae-exams-return-students-never-sat-one', role: 'authored' },
       { title: 'IGCSE Preparation: Why Past Papers Are the Final Step, Not the First', href: '/blogs/igcse-preparation-past-papers-final-step', role: 'authored' },
@@ -76,6 +77,7 @@ export const AUTHORS: Author[] = [
     photoAlt: 'Nida Iqbal, Editorial Reviewer at Ustaad UAE',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
+      { title: 'The One Word in Every Exam Question That Decides Your Marks (Command Words)', href: '/blogs/command-words-igcse-a-level-exams', role: 'reviewed' },
       { title: "What Does the Gradient Actually Mean? A Teacher Explains It from Maths to Physics", href: '/blogs/what-does-gradient-mean-maths-physics', role: 'reviewed' },
       { title: "Exam Stamina: Why Your Child Can't Sit the Full Paper", href: '/blogs/exam-stamina-uae-students', role: 'reviewed' },
       { title: 'Exams Are Back in the UAE. What Changes for Your Child', href: '/blogs/uae-exams-return-students-never-sat-one', role: 'reviewed' },

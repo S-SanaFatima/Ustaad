@@ -81,6 +81,7 @@ const loadParentGuidanceBlogsPage = () => import('./app/ParentGuidanceBlogsPage'
 const loadMockExamsUAEBlog = () => import('./app/MockExamsUAEBlog');
 const loadWhatDoesGradientMeanBlog = () => import('./app/WhatDoesGradientMeanBlog');
 const loadIllusionOfCompetenceBlog = () => import('./app/IllusionOfCompetenceBlog');
+const loadCommandWordsBlog = () => import('./app/CommandWordsBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
@@ -137,6 +138,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/mock-exams-uae-not-what-they-were': loadMockExamsUAEBlog,
   '/blogs/what-does-gradient-mean-maths-physics': loadWhatDoesGradientMeanBlog,
   '/blogs/illusion-of-competence-revision-false-confidence': loadIllusionOfCompetenceBlog,
+  '/blogs/command-words-igcse-a-level-exams': loadCommandWordsBlog,
   '/sciences': loadSciencesPage,
 
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
@@ -223,6 +225,7 @@ const IGCSEPreparationPastPapersBlog = lazy(loadIGCSEPreparationPastPapersBlog);
 const MockExamsUAEBlog = lazy(loadMockExamsUAEBlog);
 const WhatDoesGradientMeanBlog = lazy(loadWhatDoesGradientMeanBlog);
 const IllusionOfCompetenceBlog = lazy(loadIllusionOfCompetenceBlog);
+const CommandWordsBlog = lazy(loadCommandWordsBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
@@ -335,6 +338,7 @@ function AppRoutes() {
           <Route path="/blogs/mock-exams-uae-not-what-they-were" element={<MockExamsUAEBlog />} />
           <Route path="/blogs/what-does-gradient-mean-maths-physics" element={<WhatDoesGradientMeanBlog />} />
           <Route path="/blogs/illusion-of-competence-revision-false-confidence" element={<IllusionOfCompetenceBlog />} />
+          <Route path="/blogs/command-words-igcse-a-level-exams" element={<CommandWordsBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
 
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />

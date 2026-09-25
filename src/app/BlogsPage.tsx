@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'command-words-igcse-a-level-exams',
+    image: '/images/blogs/uae-exam-mark-scheme-review.webp',
+    alt: 'Cambridge and Edexcel IGCSE and A-Level exam paper with command words circled by an examiner during mark scheme review',
+    category: 'Academic',
+    title: 'The One Word in Every Exam Question That Decides Your Marks',
+    description: 'Your child knows the content but loses marks anyway. The reason is usually command words. Here is how to read them and answer exactly what the examiner wants.',
+    date: '25 Sep 2026',
+    readTime: '7 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'illusion-of-competence-revision-false-confidence',
     image: '/images/blogs/illusion-of-competence-hero.jpg',
     alt: 'High school student studying at a sunlit wooden desk in Dubai with highlighted revision notes and an open Cambridge exam paper',

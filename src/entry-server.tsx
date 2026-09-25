@@ -59,6 +59,7 @@ import PhysicsPage from "./app/PhysicsPage.tsx";
 import PsychologyBlogsPage from "./app/PsychologyBlogsPage.tsx";
 import PhysicsUnderstandingMarksBlog from "./app/PhysicsUnderstandingMarksBlog.tsx";
 import IGCSEPhysicsFormulasBlog from "./app/IGCSEPhysicsFormulasBlog.tsx";
+import CommandWordsBlog from "./app/CommandWordsBlog.tsx";
 import PrivacyPage from "./app/PrivacyPage.tsx";
 import TermsPage from "./app/TermsPage.tsx";
 import SciencesPage from "./app/SciencesPage.tsx";
@@ -137,6 +138,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   MockExamsUAEBlog,
   WhatDoesGradientMeanBlog,
   IllusionOfCompetenceBlog,
+  CommandWordsBlog,
   MathematicsLanding,
 
   MathsPage,
