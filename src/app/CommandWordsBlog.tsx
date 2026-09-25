@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  Calendar, User, Clock, BookOpen, ChevronDown, ChevronUp,
+  Calendar, Clock, BookOpen, ChevronDown, ChevronUp,
   Mail, Home, ChevronRight as ChevronRightIcon, MessageCircle,
   Sparkles, ArrowRight
 } from 'lucide-react';
@@ -30,9 +30,11 @@ const BLOG = {
   reviewedText: 'September 2026',
   author: 'Nimra Shahzada',
   authorRole: 'writer on learning and the psychology of studying',
+  authorPhoto: '/images/team/nimra-shahzada-v2.jpg',
   authorUrl: '/authors/nimra-shahzada',
   reviewer: 'Nida Iqbal',
   reviewerRole: 'MPhil in Education Leadership and Management',
+  reviewerPhoto: '/images/team/nida-iqbal-v3.jpg',
   reviewerUrl: '/authors/nida-iqbal',
   readTime: '7 min read',
   tags: [
@@ -143,6 +145,28 @@ function NarrativeBox({ label, children }: { label: string; children: React.Reac
       </div>
       <div className="px-4 py-3.5 text-sm text-gray-700 leading-[1.75] text-justify space-y-2">{children}</div>
     </div>
+  );
+}
+
+function InlineImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+  return (
+    <figure className="mx-auto my-6 max-w-xl">
+      <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md aspect-[16/9] bg-slate-100">
+        <img
+          src={src}
+          alt={alt}
+          width={1376}
+          height={774}
+          loading="lazy"
+          className="w-full h-full object-cover block"
+        />
+      </div>
+      {caption && (
+        <figcaption className="mt-2.5 text-center text-xs text-gray-400 italic leading-relaxed px-2">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
   );
 }
 
@@ -410,8 +434,16 @@ export default function CommandWordsBlog() {
 
             {/* Meta */}
             <div className="mb-4 mt-2 space-y-2">
-              <div className="flex items-start gap-2 text-xs text-gray-500">
-                <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
+              <div className="flex items-center gap-2.5 text-xs text-gray-500">
+                <div className="w-6 h-6 rounded-full overflow-hidden border border-[#0f4a9b]/25 shrink-0 bg-slate-100 shadow-2xs">
+                  <img
+                    src={BLOG.authorPhoto}
+                    alt={BLOG.author}
+                    width={24}
+                    height={24}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
                 <span className="leading-relaxed">
                   <span className="font-medium">Written by:</span>{' '}
                   <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Nimra Shahzada</a>
@@ -420,8 +452,16 @@ export default function CommandWordsBlog() {
                   </span>
                 </span>
               </div>
-              <div className="flex items-start gap-2 text-xs text-gray-500">
-                <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
+              <div className="flex items-center gap-2.5 text-xs text-gray-500">
+                <div className="w-6 h-6 rounded-full overflow-hidden border border-[#0f4a9b]/25 shrink-0 bg-slate-100 shadow-2xs">
+                  <img
+                    src={BLOG.reviewerPhoto}
+                    alt={BLOG.reviewer}
+                    width={24}
+                    height={24}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
                 <span className="leading-relaxed">
                   <span className="font-medium">Reviewed by:</span>{' '}
                   <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Nida Iqbal</a>
@@ -515,6 +555,13 @@ export default function CommandWordsBlog() {
               The mark scheme is built around the command word, not around how much you know. For an explain question, the marks are sitting behind the words <em>because</em> and <em>therefore</em> and <em>this causes</em>. For a describe question, they are sitting behind what you observe. Same topic, completely different answer, and the command word is the only thing telling you which one to give.
             </p>
           </div>
+
+          {/* Upper Section Image 1 */}
+          <InlineImage
+            src="/images/blogs/igcse-biology-6-mark-scheme-mapping.webp"
+            alt="Examiner mark scheme mapping topic recall against command word criteria"
+            caption="Mark schemes allocate marks based on the specific command verb (mechanisms, causes, linked differences) rather than broad subject knowledge."
+          />
 
           <NarrativeBox label="EXAMINER'S NOTE">
             <p className="font-semibold text-[#0a1f3d]">
@@ -670,6 +717,13 @@ export default function CommandWordsBlog() {
               Three seconds each, before every question. It feels almost too small to matter, and it routinely moves a grade, because the content was never the problem. The aim was.
             </p>
           </div>
+
+          {/* Upper Section Image 2 */}
+          <InlineImage
+            src="/images/blogs/saturday-past-paper.jpg"
+            alt="Secondary student in the UAE practising circling command words on past paper questions"
+            caption="The 5-second circling habit stops the rush to write and trains the brain to target exactly what the examiner requested."
+          />
 
           {/* 09. Home practice */}
           <SectionHeading num="09" id="home-practice">
@@ -839,11 +893,17 @@ export default function CommandWordsBlog() {
             </p>
           </div>
 
-          {/* Author Cards */}
+          {/* Author Cards with Photos */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
-            <div className="p-4 rounded-xl border border-slate-200 bg-white flex items-start gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#0f4a9b]/10 flex items-center justify-center text-[#0f4a9b] font-bold text-sm shrink-0">
-                NS
+            <div className="p-4 rounded-xl border border-slate-200 bg-white flex items-start gap-3.5 shadow-xs">
+              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#0f4a9b]/20 shrink-0 bg-slate-100 shadow-xs">
+                <img
+                  src={BLOG.authorPhoto}
+                  alt={BLOG.author}
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               <div>
                 <a href="/authors/nimra-shahzada" className="font-bold text-xs text-[#0a1f3d] hover:text-[#0f4a9b] block">
@@ -856,9 +916,15 @@ export default function CommandWordsBlog() {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl border border-slate-200 bg-white flex items-start gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#0f4a9b]/10 flex items-center justify-center text-[#0f4a9b] font-bold text-sm shrink-0">
-                NI
+            <div className="p-4 rounded-xl border border-slate-200 bg-white flex items-start gap-3.5 shadow-xs">
+              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#0f4a9b]/20 shrink-0 bg-slate-100 shadow-xs">
+                <img
+                  src={BLOG.reviewerPhoto}
+                  alt={BLOG.reviewer}
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               <div>
                 <a href="/authors/nida-iqbal" className="font-bold text-xs text-[#0a1f3d] hover:text-[#0f4a9b] block">
