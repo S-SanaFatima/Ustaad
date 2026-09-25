@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { Layout, GoldButton, StatsBar, SchoolsMarquee, SwipeIndicator } from './shared';
 import SEOHead from './shared/SEOHead';
-import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, reviewSchema } from './shared/schemas';
+import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, courseSchema } from './shared/schemas';
 
 const BOOKING = "/contact#form";
 const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27m%20looking%20for%20IB%20tutoring%20support%20in%20Abu%20Dhabi.%20Could%20we%20discuss%20how%20you%20can%20help%20my%20child%3F';
@@ -427,13 +427,12 @@ export default function IBTutorAbuDhabiPage() {
           ]),
           serviceSchema('Online IB Tutoring', 'Expert MYP and Diploma tutoring for Abu Dhabi students.'),
           faqSchema(FAQS),
-          reviewSchema('Ustaad - Online IB Tutor Abu Dhabi', [
-            {
-              author: 'Fatima A.',
-              reviewBody: "The sessions transformed how my daughter approached HL Chemistry. Her tutor guided her through the Internal Assessment perfectly, and her predicted points jumped from a 4 to a 6 just in time for university applications.",
-              ratingValue: 5
-            }
-          ])
+          courseSchema({
+            courseName: 'IB Private Tutoring Abu Dhabi',
+            description: 'Expert MYP and IB Diploma tutoring in Abu Dhabi connecting Math AA/AI, Physics, Chemistry, and Internal Assessment guidance.',
+            url: '/ib-tutor-abu-dhabi',
+            city: 'Abu Dhabi',
+          }),
         ]}
       />
 
@@ -565,7 +564,13 @@ export default function IBTutorAbuDhabiPage() {
                 Claim a Free IB Session
               </a>
               <span className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</span>
-              <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="text-blue-200/90 text-[12px] font-semibold underline flex items-center justify-center gap-1">
+              <a
+                href={WA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp a question to Ustaad about IB tutoring in Abu Dhabi"
+                className="text-blue-200/90 text-[12px] font-semibold underline flex items-center justify-center gap-1"
+              >
                 <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" /> or WhatsApp a question
               </a>
             </div>
@@ -1108,7 +1113,12 @@ export default function IBTutorAbuDhabiPage() {
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-[#C7A24A]/30 shadow-2xl mb-5 bg-[#0A1F3C]">
                   <img
                     src="/images/tutors/tabraiz-khan.jpg"
+                    srcSet="/images/tutors/tabraiz-khan.jpg 400w"
+                    sizes="(max-width: 768px) 100vw, 360px"
                     alt="Tabraiz Khan, IB HL Math AA and Physics tutor at Ustaad"
+                    width={400}
+                    height={500}
+                    loading="lazy"
                     className="w-full h-full object-cover object-top"
                   />
                   <div className="absolute inset-2 border border-[#E4C069]/30 rounded-xl pointer-events-none" />
@@ -1776,7 +1786,8 @@ export default function IBTutorAbuDhabiPage() {
                   <a 
                     href={WA_URL} 
                     target="_blank" 
-                    rel="noopener noreferrer" 
+                    rel="noopener noreferrer"
+                    aria-label="Message an IB specialist tutor on WhatsApp"
                     className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-full px-6 py-3 text-sm transition-all shadow-md shadow-[#25D366]/20 transform hover:-translate-y-0.5 active:scale-95 duration-300"
                   >
                     <MessageCircle className="w-4 h-4" /> Message a Tutor
