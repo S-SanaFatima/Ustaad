@@ -61,7 +61,7 @@ const TEAM = [
     role: 'Editorial Reviewer',
     badge: 'Reviewer',
     badgeClass: 'bg-[#C7A24A]/15 text-[#8a6d1f] border-[#C7A24A]/30',
-    photo: '/images/team/nida-iqbal-v2.jpg' as string | null,
+    photo: '/images/team/nida-iqbal-v3.jpg' as string | null,
     photoAlt: 'Nida Iqbal, Editorial Reviewer at Ustaad UAE',
     objectPosition: 'center 18%',
     bio: 'Nida holds an MPhil in Education Leadership and Management. She checks every article before it is published so the advice stays correct, clear, and matched to how UAE schools teach and test.',

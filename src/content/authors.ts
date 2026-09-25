@@ -72,8 +72,8 @@ export const AUTHORS: Author[] = [
       'Nida checks every article before it is published. She makes sure the advice is correct, easy to understand, and matches how UAE schools teach and test students.',
       'She is the named person who approves our content, including the work sent in by teachers who prefer to stay unnamed.',
     ],
-    photo: '/images/team/nida-iqbal-v2.jpg',
-    photoAlt: 'Nida Iqbal, Tutor Quality and Development Lead at Ustaad UAE',
+    photo: '/images/team/nida-iqbal-v3.jpg',
+    photoAlt: 'Nida Iqbal, Editorial Reviewer at Ustaad UAE',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
       { title: "What Does the Gradient Actually Mean? A Teacher Explains It from Maths to Physics", href: '/blogs/what-does-gradient-mean-maths-physics', role: 'reviewed' },
