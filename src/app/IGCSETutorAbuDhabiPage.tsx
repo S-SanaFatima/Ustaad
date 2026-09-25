@@ -1080,12 +1080,12 @@ export default function IGCSETutorAbuDhabiPage() {
               <div className="flex items-center justify-between gap-2 pt-2 border-t border-[#0a1f3d]/07">
                 <div className="flex items-center gap-1 text-[#64748b]" style={{ fontSize: '.66rem', fontWeight: 500 }}>
                   <span className="flex">
-                    {['FZ','NI'].map((init, i) => (
+                    {['FZ','MR'].map((init, i) => (
                       <span key={init} className="rounded-full flex items-center justify-center font-bold border border-white"
                         style={{ width: 18, height: 18, fontSize: '.5rem', background: 'linear-gradient(135deg,#0a1f3d,#12305a)', color: '#e4c069', marginLeft: i === 0 ? 0 : -4 }}>{init}</span>
                     ))}
                   </span>
-                  Signed off by FZ &amp; NI
+                  Signed off by FZ &amp; MR
                 </div>
                 <a href="/tutors/fahad-khan"
                   className="inline-flex items-center gap-1 font-bold text-white rounded-md transition-all hover:scale-[1.02]"
@@ -1183,12 +1183,12 @@ export default function IGCSETutorAbuDhabiPage() {
               <div className="flex items-center justify-between gap-2 pt-2 border-t border-[#0a1f3d]/07">
                 <div className="flex items-center gap-1 text-[#64748b]" style={{ fontSize: '.66rem', fontWeight: 500 }}>
                   <span className="flex">
-                    {['FZ','NI'].map((init, i) => (
+                    {['FZ','MR'].map((init, i) => (
                       <span key={init} className="rounded-full flex items-center justify-center font-bold border border-white"
                         style={{ width: 18, height: 18, fontSize: '.5rem', background: 'linear-gradient(135deg,#0a1f3d,#12305a)', color: '#e4c069', marginLeft: i === 0 ? 0 : -4 }}>{init}</span>
                     ))}
                   </span>
-                  Signed off by FZ &amp; NI
+                  Signed off by FZ &amp; MR
                 </div>
                 <a href="/tutors/tabraiz-khan"
                   className="inline-flex items-center gap-1 font-bold text-white rounded-md transition-all hover:scale-[1.02]"

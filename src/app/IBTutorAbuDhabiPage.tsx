@@ -1122,11 +1122,11 @@ export default function IBTutorAbuDhabiPage() {
                     FZ
                   </span>
                   <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#E4C069] to-[#C9A24C] text-[#0A1F3C] font-bold text-[10px] flex items-center justify-center border-2 border-[#0A1F3C]">
-                    NI
+                    MR
                   </span>
                 </div>
                 <div className="text-[11px] text-slate-300 leading-snug">
-                  <strong className="text-white font-bold">Signed off</strong> by F. Zaman &amp; Nida Iqbal
+                  <strong className="text-white font-bold">Signed off</strong> by F. Zaman &amp; Mariam Rahman
                 </div>
               </div>
             </div>

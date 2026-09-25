@@ -941,7 +941,7 @@ function TutorScreeningSection() {
                   </div>
                 </div>
 
-                {/* Reviewer 2: Nida Iqbal */}
+                {/* Reviewer 2: Mariam Rahman */}
                 <div className="flex flex-col items-center gap-1.5 sm:gap-2 w-full max-w-[160px] sm:max-w-[180px]">
                   <div
                     className={`qa-bubble relative w-14 h-14 sm:w-[76px] sm:h-[76px] rounded-full border-2 border-[#C7A24A] shadow-[0_10px_30px_rgba(0,0,0,0.45)] bg-gradient-to-br from-[#0f4a9b] to-[#0b3d80] ${
@@ -950,13 +950,13 @@ function TutorScreeningSection() {
                   >
                     <img
                       src="/images/team/nida-iqbal-v2.jpg"
-                      alt="Nida Iqbal, Tutor Quality and Development Lead at Ustaad"
+                      alt="Mariam Rahman, Tutor Quality and Development Lead at Ustaad"
                       className="w-full h-full rounded-full object-cover object-[center_16%]"
                       loading="lazy"
                     />
                   </div>
                   <div className="font-serif text-xs sm:text-sm text-[#FBF9F4] font-semibold text-center mt-0.5">
-                    Nida Iqbal
+                    Mariam Rahman
                   </div>
                   <div className="text-[9px] sm:text-[10px] tracking-[0.1em] sm:tracking-[0.14em] uppercase text-[#FBF9F4]/70 font-extrabold text-center max-w-[140px] sm:max-w-[170px] leading-tight">
                     Tutor Quality &amp; Development Lead

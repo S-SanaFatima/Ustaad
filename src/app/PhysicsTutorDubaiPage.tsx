@@ -933,7 +933,7 @@ export default function PhysicsTutorDubaiPage() {
                     FZ
                   </span>
                   <span className="w-5 h-5 rounded-full bg-gradient-to-br from-[#E4C069] to-[#C9A24C] text-[#0A1F3C] font-bold text-[8.5px] flex items-center justify-center border border-[#0A1F3C]">
-                    NI
+                    MR
                   </span>
                 </div>
                 <div className="text-[10px] text-slate-300 leading-snug">
