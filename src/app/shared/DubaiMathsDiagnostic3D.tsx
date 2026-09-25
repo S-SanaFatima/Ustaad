@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Target, CheckCircle2 } from 'lucide-react';
+import SwipeIndicator from './SwipeIndicator';
 
 // ── 1. 3D STOPWATCH OBJECT (Edexcel 4MA1 Calculator Timing) ──
 function Stopwatch3D({ isHovered }: { isHovered: boolean }) {
@@ -597,7 +598,8 @@ export default function DubaiMathsDiagnostic3D() {
         </div>
 
         {/* Mobile Carousel Indicators */}
-        <div className="md:hidden flex items-center justify-center gap-1.5 mt-3">
+        <SwipeIndicator text="Swipe across diagnostic points" className="mt-3 mb-2" />
+        <div className="md:hidden flex items-center justify-center gap-1.5 mt-1">
           {CARDS.map((_, idx) => (
             <button
               key={idx}

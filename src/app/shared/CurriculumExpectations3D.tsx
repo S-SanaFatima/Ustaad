@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Layers, BadgeCheck } from 'lucide-react';
 import { GradientHeadingText } from './GradientHeadingText';
+import SwipeIndicator from './SwipeIndicator';
 
 /* ── 3D VECTOR EMBLEM 1: IGCSE & GCSE (3D Exam Scroll & Golden Wax Seal) ── */
 function Scroll3DEmblem({ isHovered, isSelected }: { isHovered: boolean; isSelected: boolean }) {
@@ -641,6 +642,9 @@ export function CurriculumExpectations3D() {
             );
           })}
         </div>
+
+        {/* Swipe indicator on mobile */}
+        <SwipeIndicator text="Swipe across all curricula" className="-mt-6 mb-8" />
 
         {/* Closing Highlight Statement (Exact content preserved) */}
         <div className="max-w-4xl mx-auto">

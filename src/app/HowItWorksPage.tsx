@@ -4,7 +4,7 @@ import {
   Award, BookOpen, Calendar, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Crosshair, Eye, Globe, GraduationCap, HelpCircle, Layers, Map, MessageCircle, MessageSquare,
   RotateCw, Search, ShieldCheck, Sparkles, Star, TrendingUp, UserCheck, X, Zap,
 } from 'lucide-react';
-import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock} from './shared';
+import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock, SwipeIndicator } from './shared';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, faqSchema, organizationSchema, websiteSchema } from './shared/schemas';
 
@@ -1826,10 +1826,7 @@ export default function HowItWorksPage() {
             </div>
 
             {/* Mobile Scroll Hint */}
-            <div className="lg:hidden flex items-center justify-center gap-1.5 text-xs font-semibold text-[#0f4a9b] mb-3.5 bg-blue-50/80 border border-blue-100 rounded-full py-1.5 px-3.5 w-fit mx-auto shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A] animate-pulse" />
-              <span>Swipe to explore all 4 steps</span>
-            </div>
+            <SwipeIndicator text="Swipe to explore all 4 steps" className="mb-4" />
 
             <div className="relative z-10 flex lg:grid lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {METHOD_STEPS.map((step, i) => (

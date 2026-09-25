@@ -6,7 +6,7 @@ import {
   ChevronDown, ChevronLeft, ChevronRight, Dna, FileText, FlaskConical, GraduationCap,
   HelpCircle, Landmark, MapPin, MessageCircle, Pause, Play, Target, TrendingUp,
 } from 'lucide-react';
-import { Layout, GradientHeadingText, FinalCTA, StatsBar, HeroCTABlock, UstaadMethodology3DSection, BritishCurriculumJourney3D } from './shared';
+import { Layout, GradientHeadingText, FinalCTA, StatsBar, HeroCTABlock, UstaadMethodology3DSection, BritishCurriculumJourney3D, SwipeIndicator } from './shared';
 import {
   MathsArtifact,
   PhysicsArtifact,
@@ -572,6 +572,9 @@ export default function BritishCurriculumPage() {
               );
             })}
           </div>
+
+          {/* Swipe indicator on mobile */}
+          <SwipeIndicator text="Swipe across all 6 subjects" className="mt-4" />
         </div>
       </section>
 

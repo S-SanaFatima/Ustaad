@@ -11,7 +11,7 @@ import {
   Calendar, TrendingUp, Award,
 } from 'lucide-react';
 
-import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee, WhatsAppIcon, TypewriterHeadingText } from './shared';
+import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee, WhatsAppIcon, TypewriterHeadingText, SwipeIndicator } from './shared';
 
 
 import SEOHead from './shared/SEOHead';
@@ -338,6 +338,9 @@ function ThinkingHabitsSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Swipe indicator on mobile */}
+        <SwipeIndicator text="Swipe across all 3 pillars" className="mt-4" />
       </div>
     </section>
   );
@@ -1460,6 +1463,9 @@ export default function MathematicsLanding() {
             </article>
 
           </div>
+
+          {/* Swipe indicator on mobile */}
+          <SwipeIndicator text="Swipe to view all tutors" className="mt-4" />
 
           {/* Bottom Consultation Banner (Exact text preserved) */}
           <div className="mt-4 sm:mt-5 max-w-5xl mx-auto">

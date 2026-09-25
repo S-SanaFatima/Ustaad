@@ -9,6 +9,7 @@ import {
 import { 
   Layout, StatsBar, SchoolsMarquee, DUBAI_SCHOOL_LOGOS, 
   GradientHeadingText,
+  SwipeIndicator,
   MathsArtifact, PhysicsArtifact, ChemistryArtifact, BiologyArtifact, BusinessArtifact, EnglishArtifact, ExamPrepArtifact,
 } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -670,8 +671,9 @@ function IgcseSubjectsShowcase() {
           </div>
 
           {/* Mobile Dot Indicators & Hint */}
-          <div className="flex items-center justify-between px-1 mt-2.5">
-            <span className="text-[11px] text-slate-400 font-medium">← Swipe to explore</span>
+          <SwipeIndicator text={`Swipe across all ${IGCSE_SUBJECTS_LIST.length} subjects`} className="mt-3 mb-2" />
+          <div className="flex items-center justify-between px-1 mt-1">
+            <span className="text-[11px] text-slate-400 font-medium">Subject ({mobileIndex + 1}/{IGCSE_SUBJECTS_LIST.length})</span>
             <div className="flex items-center gap-1.5">
               {IGCSE_SUBJECTS_LIST.map((_, i) => (
                 <button

@@ -7,7 +7,7 @@ import {
   AlertTriangle, MessageSquareQuote, Video, PenTool, ArrowRightLeft,
   Calendar, FileText, Timer
 } from 'lucide-react';
-import { Layout, GoldButton, StatsBar, SchoolsMarquee } from './shared';
+import { Layout, GoldButton, StatsBar, SchoolsMarquee, SwipeIndicator } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, reviewSchema } from './shared/schemas';
 
@@ -1376,6 +1376,9 @@ export default function IBTutorAbuDhabiPage() {
                 );
               })}
             </div>
+
+            {/* Mobile swipe hint */}
+            <SwipeIndicator text="Swipe across all 6 milestones" className="mt-3" />
           </div>
 
           {/* Before / After Adaptability Comparison Panel */}

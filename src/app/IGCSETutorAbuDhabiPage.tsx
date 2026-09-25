@@ -8,7 +8,7 @@ import {
   BookOpen, Calculator, MapPin, Phone, Mail, Dna, Briefcase, Microscope, ClipboardList, TrendingDown, Scale, LineChart,
   Award, HelpCircle, Check, AlertCircle, Compass, Layers, GraduationCap
 } from 'lucide-react';
-import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared';
+import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee, SwipeIndicator } from './shared';
 import { IGCSEAcademicYearPaintSection } from './shared/IGCSEAcademicYearPaintSection';
 import { IGCSESubjectMicroLabsSection } from './shared/IGCSESubjectMicroLabsSection';
 import SEOHead from './shared/SEOHead';
@@ -1207,10 +1207,7 @@ export default function IGCSETutorAbuDhabiPage() {
           </div>
 
           {/* Mobile swipe hint */}
-          <div className="flex sm:hidden items-center justify-center gap-1.5 mt-2 text-[11px] text-[#0f4a9b]/70 font-medium">
-            <span>Swipe for more tutors</span>
-            <ArrowRight className="w-3 h-3 animate-pulse text-[#c9a24c]" />
-          </div>
+          <SwipeIndicator text="Swipe to view all tutors" className="mt-3" />
 
         </div>
       </section>
@@ -1622,10 +1619,7 @@ export default function IGCSETutorAbuDhabiPage() {
           </div>
 
           {/* Mobile swipe hint */}
-          <div className="flex sm:hidden items-center justify-center gap-1.5 mt-3 text-[11px] text-[#0f4a9b]/70 font-medium">
-            <span>Swipe for more subjects</span>
-            <span className="text-[#c9a24c] animate-pulse">→</span>
-          </div>
+          <SwipeIndicator text="Swipe across all subject hubs" className="mt-4" />
 
         </div>
       </section>

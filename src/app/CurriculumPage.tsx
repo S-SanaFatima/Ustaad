@@ -6,7 +6,7 @@ import {
   Flag, GraduationCap, HelpCircle, Layers, LibraryBig, MapPin, MessageCircle, MessageCircleQuestion,
   Orbit, PenLine, School, Sparkles,
 } from 'lucide-react';
-import { Layout, GradientHeadingText, GoldButton, BritishLandmarkWatermark, AmericanLandmarkWatermark, IBWorldWatermark, FinalCTA, StatsBar, HeroCTABlock } from './shared';
+import { Layout, GradientHeadingText, GoldButton, BritishLandmarkWatermark, AmericanLandmarkWatermark, IBWorldWatermark, FinalCTA, StatsBar, HeroCTABlock, SwipeIndicator } from './shared';
 import RelatedContent from './shared/RelatedContent';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, faqSchema } from './shared/schemas';
@@ -398,6 +398,9 @@ export default function CurriculumPage() {
             </motion.div>
 
           </div>
+
+          {/* Swipe indicator on mobile */}
+          <SwipeIndicator text="Swipe across all curricula" className="mt-4" />
         </div>
       </section>
 
@@ -590,6 +593,9 @@ export default function CurriculumPage() {
               );
             })}
           </div>
+
+          {/* Swipe indicator on mobile */}
+          <SwipeIndicator text="Swipe across all 3 pathways" className="mt-4" />
         </div>
       </section>
 

@@ -55,4 +55,5 @@ export * from './MathsBookComparisonSection';
 export * from './DubaiCurriculumAnalysisSection';
 export * from './BritishMethodology3D';
 export * from './BritishCurriculumJourney3D';
-export { default as DubaiMathsDiagnostic3D } from './DubaiMathsDiagnostic3D';
+export { default as DubaiMathsDiagnostic3D } from './DubaiMathsDiagnostic3D';
+export { default as SwipeIndicator } from './SwipeIndicator';

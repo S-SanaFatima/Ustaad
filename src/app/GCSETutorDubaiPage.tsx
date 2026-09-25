@@ -25,6 +25,7 @@ import {
   FreeTrialTimelineSection,
   DubaiAreasInteractiveCard,
   WhatsAppIcon,
+  SwipeIndicator,
   type SchoolLogoItem 
 } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -456,7 +457,8 @@ function DubaiGcseStudentsSlipSection() {
         </div>
 
         {/* Mobile Swipe Dots Navigation */}
-        <div className="sm:hidden flex items-center justify-center gap-1.5 mt-3 pt-0.5">
+        <SwipeIndicator text="Swipe across mark-loss patterns" className="mt-3 mb-2" />
+        <div className="sm:hidden flex items-center justify-center gap-1.5 mt-1 pt-0.5">
           {DUBAI_MARK_LOSS_PATTERNS.map((_, idx) => (
             <button
               key={idx}
@@ -580,8 +582,9 @@ function GCSESubjectsSection() {
         </div>
 
         {/* Mobile Swipe Pagination Dots & Indicator */}
-        <div className="flex sm:hidden items-center justify-between mt-2.5 px-1">
-          <span className="text-[11px] text-slate-500 font-medium">Swipe to view subjects ({activeIdx + 1}/{GCSE_SUBJECTS.length})</span>
+        <SwipeIndicator text={`Swipe across all ${GCSE_SUBJECTS.length} subjects`} className="mt-3 mb-2" />
+        <div className="flex sm:hidden items-center justify-between mt-1 px-1">
+          <span className="text-[11px] text-slate-500 font-medium">Subject ({activeIdx + 1}/{GCSE_SUBJECTS.length})</span>
           <div className="flex items-center gap-1.5">
             {GCSE_SUBJECTS.map((_, i) => (
               <button
@@ -931,7 +934,8 @@ function DubaiGcseTermPhasesSection() {
         </div>
 
         {/* Mobile Swipe Dots Navigation */}
-        <div className="sm:hidden flex items-center justify-center gap-2 mt-4 pt-1">
+        <SwipeIndicator text="Swipe across all 4 phases" className="mt-4 mb-2" />
+        <div className="sm:hidden flex items-center justify-center gap-2 mt-1 pt-1">
           {PHASES.map((phase, idx) => (
             <button
               key={idx}

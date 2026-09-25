@@ -19,7 +19,7 @@ import {
   Lock,
   Zap,
 } from 'lucide-react';
-import { Layout, WhatsAppIcon } from './shared';
+import { Layout, WhatsAppIcon, SwipeIndicator } from './shared';
 
 
 import SEOHead from './shared/SEOHead';
@@ -722,11 +722,7 @@ export default function TutorProfilePage({ tutorSlug }: { tutorSlug?: string }) 
             </div>
 
             {/* Mobile Swipe Hint */}
-            <div className="sm:hidden flex items-center justify-center gap-1.5 text-xs font-semibold text-[#0f4a9b]/75 mb-3.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A]" />
-              <span>Swipe horizontally to view all days</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A]" />
-            </div>
+            <SwipeIndicator text="Swipe horizontally to view all days" className="mb-4" />
 
             {/* 7-Day Schedule: Horizontal Scroll on Mobile, 7-Col Grid on Desktop */}
             <div className="flex sm:grid sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4 overflow-x-auto sm:overflow-visible pb-4 sm:pb-0 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden mb-8">

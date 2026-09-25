@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { GradientHeadingText } from './GradientHeadingText';
+import SwipeIndicator from './SwipeIndicator';
 
 /* ── 3D EMBLEM 1: 3D Quantum Filament Bulb & Orbiting Practice Rings ── */
 function Bulb3DEmblem({ isHovered }: { isHovered: boolean }) {
@@ -473,6 +474,9 @@ export function LessonPlanningTimeline3D() {
               );
             })}
           </div>
+
+          {/* Swipe indicator on mobile */}
+          <SwipeIndicator text="Swipe across all 3 steps" className="mt-4" />
         </div>
       </div>
     </section>

@@ -4,6 +4,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { GradientHeadingText } from './GradientHeadingText';
+import SwipeIndicator from './SwipeIndicator';
 
 /* ── 3D VECTOR EMBLEM 01: Live Past Papers (3D Exam Booklet + Holographic Pen) ── */
 function LiveExamPaper3D({ isHovered }: { isHovered: boolean }) {
@@ -960,7 +961,8 @@ export function HowOnlineSessions3DSection({
         </div>
 
         {/* Mobile Swipe Pagination Indicator Dots */}
-        <div className="flex sm:hidden items-center justify-center gap-1.5 mt-2">
+        <SwipeIndicator text="Swipe across session features" className="mt-3 mb-2" />
+        <div className="flex sm:hidden items-center justify-center gap-1.5 mt-1">
           {stepsData.map((_, i) => (
             <div
               key={i}

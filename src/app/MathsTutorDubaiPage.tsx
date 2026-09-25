@@ -16,7 +16,8 @@ import {
   MathsEquations3DSection,
   MathsBookComparisonSection,
   DubaiCurriculumAnalysisSection,
-  DubaiMathsDiagnostic3D
+  DubaiMathsDiagnostic3D,
+  SwipeIndicator
 } from './shared';
 import {
   cityLocalBusinessSchema,
@@ -956,10 +957,7 @@ export default function MathsTutorDubaiPage() {
           </div>
 
           {/* Swipe indicator on mobile */}
-          <div className="sm:hidden flex items-center justify-center gap-1.5 mt-3 text-[11px] font-mono text-slate-400">
-            <span>Swipe across 6 steps</span>
-            <span>→</span>
-          </div>
+          <SwipeIndicator text="Swipe across all 6 steps" className="mt-4" />
         </div>
       </section>
 
@@ -1339,6 +1337,9 @@ export default function MathsTutorDubaiPage() {
               </div>
             </article>
           </div>
+
+          {/* Swipe indicator on mobile */}
+          <SwipeIndicator text="Swipe to view all tutors" className="mt-4" />
         </div>
       </section>
 

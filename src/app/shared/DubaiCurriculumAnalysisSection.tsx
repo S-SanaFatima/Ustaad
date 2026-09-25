@@ -1,5 +1,6 @@
 import React from 'react';
 import { Compass, ShieldAlert, Layers, Clock, ArrowLeftRight } from 'lucide-react';
+import SwipeIndicator from './SwipeIndicator';
 
 export function DubaiCurriculumAnalysisSection() {
   const cards = [
@@ -104,10 +105,7 @@ export function DubaiCurriculumAnalysisSection() {
         </div>
 
         {/* Swipe indicator on mobile */}
-        <div className="sm:hidden flex items-center justify-center gap-1.5 mt-3 text-[11px] font-mono text-slate-400">
-          <span>Swipe across 4 points</span>
-          <span>→</span>
-        </div>
+        <SwipeIndicator text="Swipe across all 4 points" className="mt-4" />
       </div>
     </section>
   );

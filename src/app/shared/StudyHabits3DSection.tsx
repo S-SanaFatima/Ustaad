@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { GradientHeadingText } from './GradientHeadingText';
+import SwipeIndicator from './SwipeIndicator';
 
 /* ── COMPACT 3D EMBLEM 1: Study Journal & Stylus ── */
 function MinimalJournal3D({ isHovered }: { isHovered: boolean }) {
@@ -371,6 +372,9 @@ export function StudyHabits3DSection() {
             );
           })}
         </div>
+
+        {/* Swipe indicator on mobile */}
+        <SwipeIndicator text="Swipe across all 3 guides" className="mt-4" />
       </div>
     </section>
   );

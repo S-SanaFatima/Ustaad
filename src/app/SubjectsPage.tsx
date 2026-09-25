@@ -6,7 +6,7 @@ import {
   Lightbulb, LineChart, MessageCircle, Microscope, NotebookPen, Receipt, ScrollText, Sigma, SlidersHorizontal,
   Target, Timer, TrendingUp, Zap, Layers, Sparkles
 } from 'lucide-react';
-import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock, Subject3DCard, CurriculumExpectations3D, StudyHabits3DSection, LessonPlanningTimeline3D, HigherGrades3DSection, type SubjectItem } from './shared';
+import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock, Subject3DCard, CurriculumExpectations3D, StudyHabits3DSection, LessonPlanningTimeline3D, HigherGrades3DSection, SwipeIndicator, type SubjectItem } from './shared';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema } from './shared/schemas';
 
@@ -275,6 +275,8 @@ export default function SubjectsPage() {
             </div>
           </div>
 
+          {/* Swipe indicator on mobile */}
+          <SwipeIndicator text="Swipe horizontally to explore all subjects" className="mt-4" />
         </div>
       </section>
 
@@ -347,6 +349,9 @@ export default function SubjectsPage() {
               </div>
             ))}
           </div>
+
+          {/* Swipe indicator on mobile */}
+          <SwipeIndicator text="Swipe across all 3 benefits" className="mt-4" />
         </div>
       </section>
 
