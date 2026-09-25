@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { GradientHeadingText } from './GradientHeadingText';
 import { personSchema } from './schemas';
@@ -11,6 +11,9 @@ import {
   Crown,
   ChevronLeft,
   ChevronRight,
+  Play,
+  Pause,
+  RotateCw,
 } from 'lucide-react';
 
 export type TeamMember = {
@@ -121,15 +124,54 @@ export const teamPersonSchemas = TEAM.map((member) =>
 
 const viewportReplay = { once: false, amount: 0.25, margin: '0px 0px -6% 0px' } as const;
 
+const ROTATION_TIME_MS = 5500;
+
 export default function TeamSection() {
   const [activeFaculty, setActiveFaculty] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Auto-rotation timer: advances to next profile unless paused (by tap/click) or hovered
+  useEffect(() => {
+    if (isPaused || isHovered) {
+      if (timerRef.current) clearInterval(timerRef.current);
+      return;
+    }
+
+    timerRef.current = setInterval(() => {
+      setActiveFaculty((prev) => (prev < FACULTY.length - 1 ? prev + 1 : 0));
+    }, ROTATION_TIME_MS);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isPaused, isHovered, activeFaculty]);
+
+  // When user clicks/taps any profile pill: stay on that profile
+  const handleSelectFaculty = (idx: number) => {
+    setActiveFaculty(idx);
+    setIsPaused(true);
+  };
+
+  // When user clicks/taps the profile card: stay on that profile
+  const handleCardTap = () => {
+    setIsPaused(true);
+  };
 
   const handlePrev = () => {
     setActiveFaculty((prev) => (prev > 0 ? prev - 1 : FACULTY.length - 1));
+    setIsPaused(true);
   };
 
   const handleNext = () => {
     setActiveFaculty((prev) => (prev < FACULTY.length - 1 ? prev + 1 : 0));
+    setIsPaused(true);
+  };
+
+  const handleTogglePlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsPaused((prev) => !prev);
   };
 
   const currentFaculty = FACULTY[activeFaculty];
@@ -240,19 +282,45 @@ export default function TeamSection() {
           </div>
         </motion.article>
 
-        {/* BELOW: One Single Card of Faculty with Interactive Next/Prev */}
+        {/* BELOW: One Single Card of Faculty with Interactive Next/Prev & Auto-Rotation */}
         <div className="relative">
           {/* Section Subheader & Tab Pills */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-[10px] sm:text-xs font-bold sm:font-extrabold uppercase tracking-wider sm:tracking-[0.12em] text-[#0a1f3d]/75">
-                  Our Academic and Operations Team
-                </h3>
-                <span className="text-[9px] sm:text-[10px] font-bold text-[#0f4a9b] bg-[#0f4a9b]/8 px-1.5 sm:px-2 py-0.5 rounded-full border border-[#0f4a9b]/12 shrink-0">
-                  Member {activeFaculty + 1} of {FACULTY.length}
-                </span>
-              </div>
+            <div className="flex flex-wrap items-center gap-2.5">
+              <h3 className="text-[10px] sm:text-xs font-bold sm:font-extrabold uppercase tracking-wider sm:tracking-[0.12em] text-[#0a1f3d]/75">
+                Our Academic and Operations Team
+              </h3>
+              <span className="text-[9px] sm:text-[10px] font-bold text-[#0f4a9b] bg-[#0f4a9b]/8 px-2 py-0.5 rounded-full border border-[#0f4a9b]/12 shrink-0">
+                Member {activeFaculty + 1} of {FACULTY.length}
+              </span>
+
+              {/* Auto-Rotation / Stay Status Badge */}
+              <button
+                type="button"
+                onClick={handleTogglePlay}
+                className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider transition-all ${
+                  isPaused
+                    ? 'bg-amber-500/10 text-amber-700 border border-amber-300 hover:bg-amber-500/20'
+                    : 'bg-emerald-500/10 text-emerald-700 border border-emerald-300 hover:bg-emerald-500/20'
+                }`}
+                title={isPaused ? "Auto-scroll paused (tapped to stay). Click to resume auto-rotation" : "Auto-scrolling every 5.5s. Click or tap card to stay"}
+              >
+                {isPaused ? (
+                  <>
+                    <Play className="w-2.5 h-2.5 fill-current text-amber-600" />
+                    <span>Stayed · Tap to Resume</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                    </span>
+                    <Pause className="w-2.5 h-2.5 fill-current text-emerald-600" />
+                    <span>Auto-Rotating</span>
+                  </>
+                )}
+              </button>
             </div>
 
             {/* Quick-Select Faculty Pills */}
@@ -262,8 +330,8 @@ export default function TeamSection() {
                 return (
                   <button
                     key={member.name}
-                    onClick={() => setActiveFaculty(idx)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                    onClick={() => handleSelectFaculty(idx)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
                       isActive
                         ? 'bg-[#0f4a9b] text-white shadow-md'
                         : 'bg-white border border-slate-200 text-[#0a1f3d]/70 hover:bg-slate-50'
@@ -277,18 +345,33 @@ export default function TeamSection() {
             </div>
           </div>
 
-          {/* Single Active Faculty Card */}
+          {/* Single Active Faculty Card (Tap-to-Stay) */}
           <div className="relative">
             <AnimatePresence mode="wait">
               <motion.article
                 key={activeFaculty}
+                onClick={handleCardTap}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.28, ease: "easeOut" }}
-                className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200 bg-white shadow-[0_12px_36px_rgba(15,74,155,0.06)] p-5 sm:p-7"
+                className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200 bg-white shadow-[0_12px_36px_rgba(15,74,155,0.06)] p-5 sm:p-7 cursor-pointer transition-shadow hover:shadow-[0_16px_44px_rgba(15,74,155,0.12)]"
               >
-                <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#C7A24A] to-transparent" />
+                {/* Visual Progress Timer Bar when Auto-Rotating */}
+                {!isPaused && (
+                  <motion.div
+                    key={`progress-bar-${activeFaculty}`}
+                    initial={{ width: '0%' }}
+                    animate={{ width: '100%' }}
+                    transition={{ duration: ROTATION_TIME_MS / 1000, ease: 'linear' }}
+                    className="absolute top-0 left-0 h-[2.5px] bg-gradient-to-r from-[#0f4a9b] via-[#C7A24A] to-[#0f4a9b] z-20"
+                  />
+                )}
+                {isPaused && (
+                  <div className="absolute top-0 inset-x-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#C7A24A] to-transparent z-20" />
+                )}
 
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-7">
                   {/* Portrait */}
@@ -298,7 +381,7 @@ export default function TeamSection() {
                       srcSet={`${currentFaculty.image} 300w`}
                       sizes="(max-width: 640px) 112px, 144px"
                       alt={currentFaculty.imageAlt}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       style={{ objectPosition: currentFaculty.objectPosition }}
                       loading="lazy"
                     />
@@ -313,6 +396,7 @@ export default function TeamSection() {
                       {currentFaculty.profileHref && (
                         <a
                           href={currentFaculty.profileHref}
+                          onClick={(e) => e.stopPropagation()}
                           className="text-xs font-bold text-[#0f4a9b] hover:text-[#C7A24A] transition-colors inline-flex items-center"
                         >
                           View Full Profile
@@ -347,6 +431,21 @@ export default function TeamSection() {
                         </span>
                       ))}
                     </div>
+
+                    {/* Tap-to-stay UX indicator */}
+                    <div className="mt-3 pt-2 border-t border-slate-100 text-[11px] text-slate-400 font-medium flex items-center justify-center sm:justify-start gap-1.5">
+                      {isPaused ? (
+                        <span className="text-amber-700 font-semibold flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                          Stayed on {currentFaculty.name} (auto-rotation paused)
+                        </span>
+                      ) : (
+                        <span className="text-slate-500 flex items-center gap-1">
+                          <RotateCw className="w-3 h-3 text-[#0f4a9b] animate-spin" />
+                          Auto-rotating every 5.5s · Tap card to stay on this profile
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.article>
@@ -356,7 +455,7 @@ export default function TeamSection() {
             <div className="flex items-center justify-between mt-4 sm:mt-5 gap-3">
               <button
                 onClick={handlePrev}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-slate-200 bg-white text-[#0a1f3d] text-xs sm:text-sm font-bold shadow-sm hover:border-[#0f4a9b]/30 hover:bg-slate-50 transition-all active:scale-95"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-slate-200 bg-white text-[#0a1f3d] text-xs sm:text-sm font-bold shadow-sm hover:border-[#0f4a9b]/30 hover:bg-slate-50 transition-all active:scale-95 cursor-pointer"
                 aria-label="Previous faculty member"
               >
                 <ChevronLeft className="w-4 h-4 text-[#0f4a9b]" />
@@ -368,8 +467,8 @@ export default function TeamSection() {
                 {FACULTY.map((_, idx) => (
                   <button
                     key={idx}
-                    onClick={() => setActiveFaculty(idx)}
-                    className={`h-2 transition-all duration-300 rounded-full ${
+                    onClick={() => handleSelectFaculty(idx)}
+                    className={`h-2 transition-all duration-300 rounded-full cursor-pointer ${
                       activeFaculty === idx
                         ? 'w-6 bg-[#0f4a9b]'
                         : 'w-2 bg-slate-300 hover:bg-slate-400'
@@ -381,7 +480,7 @@ export default function TeamSection() {
 
               <button
                 onClick={handleNext}
-                className="inline-flex items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all active:scale-95"
+                className="inline-flex items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer"
                 aria-label="Next faculty member"
               >
                 <span>Next Member</span>
