@@ -82,6 +82,7 @@ const loadMockExamsUAEBlog = () => import('./app/MockExamsUAEBlog');
 const loadWhatDoesGradientMeanBlog = () => import('./app/WhatDoesGradientMeanBlog');
 const loadIllusionOfCompetenceBlog = () => import('./app/IllusionOfCompetenceBlog');
 const loadCommandWordsBlog = () => import('./app/CommandWordsBlog');
+const loadSleepAndMemoryBlog = () => import('./app/SleepAndMemoryBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
@@ -139,6 +140,8 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/what-does-gradient-mean-maths-physics': loadWhatDoesGradientMeanBlog,
   '/blogs/illusion-of-competence-revision-false-confidence': loadIllusionOfCompetenceBlog,
   '/blogs/command-words-igcse-a-level-exams': loadCommandWordsBlog,
+  '/blogs/sleep-and-memory-why-all-nighters-backfire': loadSleepAndMemoryBlog,
+  '/blog/sleep-and-memory-why-all-nighters-backfire': loadSleepAndMemoryBlog,
   '/sciences': loadSciencesPage,
 
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
@@ -226,6 +229,7 @@ const MockExamsUAEBlog = lazy(loadMockExamsUAEBlog);
 const WhatDoesGradientMeanBlog = lazy(loadWhatDoesGradientMeanBlog);
 const IllusionOfCompetenceBlog = lazy(loadIllusionOfCompetenceBlog);
 const CommandWordsBlog = lazy(loadCommandWordsBlog);
+const SleepAndMemoryBlog = lazy(loadSleepAndMemoryBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
@@ -339,6 +343,8 @@ function AppRoutes() {
           <Route path="/blogs/what-does-gradient-mean-maths-physics" element={<WhatDoesGradientMeanBlog />} />
           <Route path="/blogs/illusion-of-competence-revision-false-confidence" element={<IllusionOfCompetenceBlog />} />
           <Route path="/blogs/command-words-igcse-a-level-exams" element={<CommandWordsBlog />} />
+          <Route path="/blogs/sleep-and-memory-why-all-nighters-backfire" element={<SleepAndMemoryBlog />} />
+          <Route path="/blog/sleep-and-memory-why-all-nighters-backfire" element={<SleepAndMemoryBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
 
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />

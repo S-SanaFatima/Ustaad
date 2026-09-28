@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import {
   Calendar, Clock, BookOpen, ChevronDown, ChevronUp,
   Mail, Home, ChevronRight as ChevronRightIcon, MessageCircle,
-  Sparkles, ArrowRight
+  Sparkles, ArrowRight, User, Activity
 } from 'lucide-react';
 import { Layout } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -21,8 +21,8 @@ const BLOG = {
   canonical: '/blogs/command-words-igcse-a-level-exams',
   description:
     'Your child knows the content but loses marks anyway. The reason is usually command words. Here is how to read them and answer exactly what the examiner wants.',
-  heroImage: '/images/blogs/uae-exam-mark-scheme-review.webp',
-  heroAlt: 'Secondary student in UAE reviewing Cambridge and Edexcel IGCSE exam paper mark scheme with private tutor',
+  heroImage: '/images/blogs/command-words-hero.png',
+  heroAlt: 'Secondary student in UAE reviewing Cambridge and Edexcel IGCSE exam paper mark scheme and command words',
   heroCaption: 'Examiners award marks based on the command word, not volume of text. Missing the command word means missing the mark scheme.',
   datePublished: '2026-09-25',
   dateModified: '2026-09-25',
@@ -32,19 +32,18 @@ const BLOG = {
   authorRole: 'writer on learning and the psychology of studying',
   authorPhoto: '/images/team/nimra-shahzada-v2.jpg',
   authorUrl: '/authors/nimra-shahzada',
-  reviewer: 'Nida Iqbal',
-  reviewerRole: 'MPhil in Education Leadership and Management',
-  reviewerPhoto: '/images/team/nida-iqbal-v3.jpg',
-  reviewerUrl: '/authors/nida-iqbal',
-  readTime: '7 min read',
+  reviewer: 'Ustaad Editorial Team',
+  reviewerRole: 'Curriculum & Academic Review Board',
+  reviewerPhoto: '/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp',
+  reviewerUrl: '/editorial',
   tags: [
-    'Command Words',
-    'IGCSE Command Words',
-    'A-Level Command Words',
-    'Exam Technique',
-    'Describe vs Explain',
-    'Mark Scheme',
-    'British Curriculum UAE'
+    'Psychology of Learning',
+    'Active Recall',
+    'Retrieval Practice',
+    'IGCSE Revision',
+    'A-Level Study Tips',
+    'Exam Preparation UAE',
+    'Cognitive Load',
   ],
 };
 
@@ -88,9 +87,8 @@ const TOC_ITEMS = [
   { label: '08. The five-second habit that fixes it', id: 'five-second-habit' },
   { label: '09. How parents can practise this at home', id: 'home-practice' },
   { label: '10. Quick reference for common command words', id: 'quick-reference' },
-  { label: '11. Bringing it together & Diagnostic Session', id: 'bringing-it-together' },
-  { label: '12. Frequently asked questions', id: 'faqs' },
-  { label: '13. About the writers', id: 'about-writers' }
+  { label: '11. Bringing it together', id: 'bringing-it-together' },
+  { label: '12. Frequently asked questions', id: 'faqs' }
 ];
 
 const COMMAND_WORDS_TABLE = [
@@ -105,26 +103,17 @@ const COMMAND_WORDS_TABLE = [
 
 const RELATED_BLOGS = [
   {
+    slug: 'exam-stamina-uae-students',
+    category: 'Psychology of Learning',
+    title: "Exam Stamina: Why Your Child Can't Sit the Full Paper",
+    description: 'Why unbroken focus breaks down halfway through a paper and how to build cognitive endurance before exam season.',
+  },
+  {
     slug: 'physics-understanding-vs-marks',
-    category: 'Academic & Exam Skills',
+    category: 'Psychology of Learning',
     title: 'Your Child Understands Physics. So Why Are the Marks Still Low?',
-    description: 'The gap between understanding and exam marks: mark scheme alignment, working memory overload, and calculation precision.',
-    image: '/images/blogs/uae-physics-student-understanding-vs-marks.webp'
+    description: 'The gap between understanding and exam performance: retrieval, working memory overload, and nerves.',
   },
-  {
-    slug: 'igcse-preparation-past-papers-final-step',
-    category: 'Academic & Exam Skills',
-    title: 'IGCSE Preparation: Why Past Papers Are the Final Step, Not the First',
-    description: 'How to sequence topic learning and command word mastery before taking on full timed past papers.',
-    image: '/images/blogs/igcse-preparation-past-papers-hero.jpg'
-  },
-  {
-    slug: '10-questions-hiring-private-tutor-abu-dhabi',
-    category: 'Parent Guidance',
-    title: '10 Honest Questions to Ask Before You Hire a Private Tutor in Abu Dhabi',
-    description: 'How to evaluate whether a tutor actively teaches command-word strategy and examiner techniques.',
-    image: '/images/blogs/parent_interview_worksheet.jpg'
-  }
 ];
 
 function SectionHeading({ num, id, children }: { num: string; id: string; children: React.ReactNode }) {
@@ -380,9 +369,9 @@ export default function CommandWordsBlog() {
               sameAs: 'https://www.linkedin.com/company/ustaad-ae',
             },
             reviewer: {
-              name: 'Nida Iqbal',
-              url: '/authors/nida-iqbal',
-              jobTitle: 'MPhil in Education Leadership and Management',
+              name: 'Ustaad Editorial Team',
+              url: '/editorial',
+              jobTitle: 'Curriculum & Academic Review Board',
               sameAs: 'https://www.linkedin.com/company/ustaad-ae',
             },
             image: BLOG.heroImage,
@@ -434,16 +423,8 @@ export default function CommandWordsBlog() {
 
             {/* Meta */}
             <div className="mb-4 mt-2 space-y-2">
-              <div className="flex items-center gap-2.5 text-xs text-gray-500">
-                <div className="w-6 h-6 rounded-full overflow-hidden border border-[#0f4a9b]/25 shrink-0 bg-slate-100 shadow-2xs">
-                  <img
-                    src={BLOG.authorPhoto}
-                    alt={BLOG.author}
-                    width={24}
-                    height={24}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
+              <div className="flex items-start gap-2 text-xs text-gray-500">
+                <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   <span className="font-medium">Written by:</span>{' '}
                   <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Nimra Shahzada</a>
@@ -452,21 +433,13 @@ export default function CommandWordsBlog() {
                   </span>
                 </span>
               </div>
-              <div className="flex items-center gap-2.5 text-xs text-gray-500">
-                <div className="w-6 h-6 rounded-full overflow-hidden border border-[#0f4a9b]/25 shrink-0 bg-slate-100 shadow-2xs">
-                  <img
-                    src={BLOG.reviewerPhoto}
-                    alt={BLOG.reviewer}
-                    width={24}
-                    height={24}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
+              <div className="flex items-start gap-2 text-xs text-gray-500">
+                <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   <span className="font-medium">Reviewed by:</span>{' '}
-                  <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Nida Iqbal</a>
+                  <a href="/editorial" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Ustaad Editorial Team</a>
                   <span className="block sm:inline">
-                    {' '}<a href="/authors/nida-iqbal" className="text-gray-500 hover:text-[#0f4a9b]">| MPhil in Education Leadership and Management</a>
+                    {' '}<a href="/editorial" className="text-gray-500 hover:text-[#0f4a9b]">| Curriculum &amp; Academic Review Board</a>
                   </span>
                 </span>
               </div>
@@ -556,18 +529,17 @@ export default function CommandWordsBlog() {
             </p>
           </div>
 
-          {/* Upper Section Image 1 */}
-          <InlineImage
-            src="/images/blogs/igcse-biology-6-mark-scheme-mapping.webp"
-            alt="Examiner mark scheme mapping topic recall against command word criteria"
-            caption="Mark schemes allocate marks based on the specific command verb (mechanisms, causes, linked differences) rather than broad subject knowledge."
-          />
-
           <NarrativeBox label="EXAMINER'S NOTE">
             <p className="font-semibold text-[#0a1f3d]">
               A question is a topic plus a command word. Most students read the topic and skip the command word. The marks live in the command word.
             </p>
           </NarrativeBox>
+
+          <InlineImage
+            src="/images/blogs/command-words-exam-hall.png"
+            alt="Secondary school students in the UAE sitting Cambridge and Edexcel examinations under timed conditions in an exam hall"
+            caption="In the exam hall: Under timed pressure, reading past the command word is the most common reason students lose marks on topics they understand."
+          />
 
           {/* 03. Words that cost marks */}
           <SectionHeading num="03" id="words-that-cost-marks">
@@ -621,6 +593,13 @@ export default function CommandWordsBlog() {
             <p>
               A quick test your child can use in the hall: if they can answer without ever writing the word <strong>because</strong>, the question was probably describe. If the answer only makes sense with a <em>because</em> in it, the question was explain and every sentence should be building toward that reason.
             </p>
+
+            {/* Describe vs Explain Visual Comparison Image */}
+            <InlineImage
+              src="/images/blogs/describe-vs-explain-command-words.jpg"
+              alt="Study notebook with structured visual comparison between Describe and Explain exam answers"
+              caption="Comparative breakdown: Notice how 'Describe' focuses on key observable characteristics, while 'Explain' requires formulaic reasoning with causal connectors (because, so, due to)."
+            />
           </div>
 
           {/* 05. State and give vs explain */}
@@ -716,14 +695,14 @@ export default function CommandWordsBlog() {
             <p>
               Three seconds each, before every question. It feels almost too small to matter, and it routinely moves a grade, because the content was never the problem. The aim was.
             </p>
-          </div>
 
-          {/* Upper Section Image 2 */}
-          <InlineImage
-            src="/images/blogs/saturday-past-paper.jpg"
-            alt="Secondary student in the UAE practising circling command words on past paper questions"
-            caption="The 5-second circling habit stops the rush to write and trains the brain to target exactly what the examiner requested."
-          />
+            {/* Section 08 Image: The 5-Second Circling Habit */}
+            <InlineImage
+              src="/images/blogs/command-word-circling-habit.jpg"
+              alt="Student using a highlighter to circle the command word Evaluate on an IGCSE Physics paper before planning their answer"
+              caption="The 5-second habit: Circling the command verb on the exam paper forces active identification before rushing into the answer."
+            />
+          </div>
 
           {/* 09. Home practice */}
           <SectionHeading num="09" id="home-practice">
@@ -755,6 +734,12 @@ export default function CommandWordsBlog() {
               </li>
             </ul>
 
+            <InlineImage
+              src="/images/blogs/command-words-home-practice.png"
+              alt="Mother and teenage son practising past exam papers together at home, identifying command words"
+              caption="Home practice in action: You don't need to be an expert in the subject—simply going through past papers together and circling the command words builds an instinctive habit before exam day."
+            />
+
             <p>
               If you have not started working with past papers yet, our guide to{' '}
               <a href="/blogs/igcse-preparation-past-papers-final-step" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
@@ -772,6 +757,12 @@ export default function CommandWordsBlog() {
             <p>
               Keep this near your child's desk. It covers the command words that appear most often across IGCSE and A-Level papers.
             </p>
+
+            <InlineImage
+              src="/images/blogs/command-words-reference.png"
+              alt="Cork pin-up board above a study desk displaying a quick reference guide of key command word definitions"
+              caption="Visual study reference: Having a clean command-word summary sheet on a study board reminds students of the vital distinction between stating, describing, explaining, comparing, and evaluating."
+            />
 
             {/* Filter pills */}
             <div className="flex flex-wrap gap-1.5 my-3">
@@ -831,47 +822,6 @@ export default function CommandWordsBlog() {
             </p>
           </div>
 
-          {/* Diagnostic callout CTA */}
-          <div className="my-8 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-[#0a1f3d] to-[#0f4a9b] text-white shadow-lg">
-            <span className="text-[10px] font-extrabold text-[#C7A24A] uppercase tracking-widest block mb-1">
-              DIAGNOSTIC ASSESSMENT
-            </span>
-            <h3 className="text-lg sm:text-xl font-extrabold mb-2 text-white leading-snug">
-              Find out where your child's marks are really going
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed mb-4 text-justify">
-              A short diagnostic session with an Ustaad tutor puts your child through a timed question, then marks it against the real mark scheme and shows you exactly where the marks were lost. Very often it is command-word mismatches, not gaps in knowledge, which means the fix is quick. No teaching on the first day, just a clear picture of where the marks are leaking.
-            </p>
-            <p className="text-xs text-slate-300 mb-4">
-              We match students across the UAE with tutors who are active examiners and know their exact board and tier, in{' '}
-              <a href="/physics-tutor-dubai" className="text-white underline hover:text-[#C7A24A]">Dubai</a>,{' '}
-              <a href="/physics-tutor-abu-dhabi" className="text-white underline hover:text-[#C7A24A]">Abu Dhabi</a>,{' '}
-              <a href="/igcse-tutor-dubai" className="text-white underline hover:text-[#C7A24A]">Sharjah</a> and every emirate, in person or online. If you have never worked with a tutor before, our guide to{' '}
-              <a href="/blogs/10-questions-hiring-private-tutor-abu-dhabi" className="text-[#C7A24A] underline font-semibold">
-                ten honest questions to ask first
-              </a>{' '}
-              will help you judge the fit.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-2.5">
-              <a
-                href="https://wa.me/971501234567?text=Hello%20Ustaad%20team,%20I%20read%20your%20guide%20on%20Command%20Words%20and%20would%20like%20to%20book%20a%20free%20diagnostic%20trial%20session%20with%20a%20recent%20past%20paper."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs bg-[#25d366] text-white hover:bg-[#20ba5a] transition shadow-xs"
-              >
-                <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="w-4 h-4" />
-                Book a free trial session
-              </a>
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl font-bold text-xs bg-white/10 hover:bg-white/20 text-white border border-white/20 transition"
-              >
-                Contact Academic Advisors
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-
           {/* 12. FAQ Section */}
           <SectionHeading num="12" id="faqs">
             Frequently asked questions
@@ -880,90 +830,121 @@ export default function CommandWordsBlog() {
             <FAQAccordion />
           </div>
 
-          {/* 13. About the writers */}
-          <SectionHeading num="13" id="about-writers">
-            About the writers
-          </SectionHeading>
-          <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify mb-6">
-            <p>
-              This guide comes from the people who teach and mark for Ustaad families every week, not an anonymous marketing desk. Nimra Shahzada writes our parent-facing guides on learning and the psychology of studying, and Nida Iqbal, who holds an MPhil in Education Leadership and Management, reviews them for accuracy. You can see{' '}
-              <a href="/editorial" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
-                who reviews Ustaad's academic content and how we keep it trustworthy
-              </a>.
-            </p>
-          </div>
-
-          {/* Author Cards with Photos */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
-            <div className="p-4 rounded-xl border border-slate-200 bg-white flex items-start gap-3.5 shadow-xs">
-              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#0f4a9b]/20 shrink-0 bg-slate-100 shadow-xs">
-                <img
-                  src={BLOG.authorPhoto}
-                  alt={BLOG.author}
-                  width={48}
-                  height={48}
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-              <div>
-                <a href="/authors/nimra-shahzada" className="font-bold text-xs text-[#0a1f3d] hover:text-[#0f4a9b] block">
-                  Nimra Shahzada
-                </a>
-                <span className="text-[11px] text-gray-500 block mb-1">Writer on learning &amp; study psychology</span>
-                <p className="text-[11px] text-gray-600 leading-snug">
-                  Author of Ustaad guides on study habits, cognition, and student exam performance across UAE schools.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-xl border border-slate-200 bg-white flex items-start gap-3.5 shadow-xs">
-              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#0f4a9b]/20 shrink-0 bg-slate-100 shadow-xs">
-                <img
-                  src={BLOG.reviewerPhoto}
-                  alt={BLOG.reviewer}
-                  width={48}
-                  height={48}
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-              <div>
-                <a href="/authors/nida-iqbal" className="font-bold text-xs text-[#0a1f3d] hover:text-[#0f4a9b] block">
-                  Nida Iqbal
-                </a>
-                <span className="text-[11px] text-gray-500 block mb-1">Editorial Reviewer · MPhil Education</span>
-                <p className="text-[11px] text-gray-600 leading-snug">
-                  Reviews curriculum accuracy and pedagogical standards across Ustaad's academic publication board.
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* Related Articles */}
-          <div className="mt-10 pt-8 border-t border-slate-100">
-            <span className="text-[11px] font-extrabold text-[#0f4a9b] uppercase tracking-wider block mb-3">
-              Recommended Reading
-            </span>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {RELATED_BLOGS.map((rel, idx) => (
+          <div className="mt-10 pt-8 border-t border-slate-200">
+            <h3 className="text-sm font-extrabold text-[#0a1f3d] mb-4 uppercase tracking-wider">
+              Related Guides on Psychology of Learning
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {RELATED_BLOGS.map((item, i) => (
                 <a
-                  key={idx}
-                  href={`/blogs/${rel.slug}`}
-                  className="group block p-3.5 rounded-xl border border-slate-200 hover:border-[#0f4a9b]/40 hover:shadow-xs transition bg-white"
+                  key={i}
+                  href={`/blogs/${item.slug}`}
+                  className="group p-5 bg-[#f8fafd] hover:bg-[#0f4a9b]/[0.03] border border-[#0f4a9b]/15 rounded-2xl transition shadow-xs flex flex-col justify-between"
                 >
-                  <span className="text-[10px] font-bold text-[#0f4a9b] block mb-1">{rel.category}</span>
-                  <h4 className="text-xs font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition leading-snug line-clamp-2 mb-1.5">
-                    {rel.title}
-                  </h4>
-                  <p className="text-[11px] text-gray-500 line-clamp-2 leading-relaxed">
-                    {rel.description}
-                  </p>
+                  <div>
+                    <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-[#0f4a9b]">
+                      {item.category}
+                    </span>
+                    <p className="text-sm font-extrabold text-[#0a1f3d] mt-2 mb-1.5 group-hover:text-[#0f4a9b] transition leading-snug">
+                      {item.title}
+                    </p>
+                    <p className="text-xs text-gray-500 leading-relaxed mb-0">
+                      {item.description}
+                    </p>
+                  </div>
                 </a>
               ))}
             </div>
           </div>
 
+          {/* Author & Reviewer Info Cards */}
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="rounded-2xl border border-[#0f4a9b]/15 bg-white p-5 shadow-xs flex flex-col justify-start">
+              <span className="inline-block self-start px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider text-[#0f4a9b] border border-[#0f4a9b]/20 bg-[#0f4a9b]/8 mb-3">
+                ABOUT THE AUTHOR
+              </span>
+              <h4 className="font-extrabold text-[#0a1f3d] text-base mb-1">
+                <a href="/authors/nimra-shahzada" className="text-[#0a1f3d] hover:text-[#0f4a9b] transition">
+                  Nimra Shahzada
+                </a>
+              </h4>
+              <p className="text-xs text-[#0f4a9b] font-semibold mb-2.5 leading-snug">
+                Writer on learning and the psychology of studying
+              </p>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                Nimra writes on study technique, memory consolidation, and exam preparation for British and IB curriculum students across the UAE.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-[#C7A24A]/25 bg-[#fffdfa] p-5 shadow-xs flex flex-col justify-start">
+              <span className="inline-block self-start px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider text-[#A8892A] border border-[#C7A24A]/30 bg-[#C7A24A]/12 mb-3">
+                REVIEWED BY
+              </span>
+              <h4 className="font-extrabold text-[#0a1f3d] text-base mb-1">
+                <a href="/editorial" className="text-[#0a1f3d] hover:text-[#0f4a9b] transition">
+                  Ustaad Editorial Team
+                </a>
+              </h4>
+              <p className="text-xs text-[#A8892A] font-semibold mb-2.5 leading-snug">
+                Academic &amp; Curriculum Review Board
+              </p>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                The Ustaad Editorial Team reviews each guide for accuracy, educational validity, and parent clarity before it is published. See{' '}
+                <a href="/editorial" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                  how our editorial review works
+                </a>.
+              </p>
+            </div>
+          </div>
+
+          {/* Tags */}
+          <div className="mt-6 flex flex-wrap gap-2">
+            {BLOG.tags.map((tag, i) => (
+              <span
+                key={i}
+                className="px-3.5 py-1.5 bg-[#f0f4f8] rounded-full text-xs font-bold text-[#0a1f3d]"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Diagnostic Assessment CTA Card */}
+          <div
+            className="mt-10 mb-8 rounded-3xl p-6 sm:p-8 md:p-10 text-white text-center relative overflow-hidden shadow-xl"
+            style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 60%, #1e5ba8 100%)' }}
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#C7A24A]/40 text-[#f5d77f] text-xs font-bold mb-4 backdrop-blur-sm">
+              <Activity className="w-3.5 h-3.5 text-[#C7A24A]" /> Diagnostic Assessment
+            </div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white leading-snug mb-3 max-w-xl mx-auto tracking-tight">
+              Pinpoint where your child&apos;s revision is leaking marks
+            </h3>
+            <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed mb-6 max-w-xl mx-auto font-normal">
+              Our curriculum tutors run short diagnostic sessions that show exactly where recognition is standing in for recall, and how to fix it before the exam.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
+              <a
+                href="/contact#form"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white hover:brightness-110 transition text-sm w-full sm:w-auto shadow-md"
+                style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
+              >
+                Book a Free Trial
+              </a>
+              <a
+                href="https://wa.me/971561249005"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-xl font-bold text-white transition text-sm shadow-md w-full sm:w-auto"
+              >
+                <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> Ask on WhatsApp
+              </a>
+            </div>
+          </div>
+
           {/* Social share bottom */}
-          <div className="my-8 py-4 border-t border-b border-slate-100 flex items-center justify-between">
+          <div className="my-6 py-4 border-t border-slate-100 flex items-center justify-between">
             <span className="text-xs font-bold text-[#0a1f3d]">Share this guide with other parents:</span>
             <SocialShare url={shareUrl} title={BLOG.title} />
           </div>

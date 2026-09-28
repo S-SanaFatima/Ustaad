@@ -601,6 +601,18 @@ export const ROUTES: RouteConfig[] = [
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' }, { name: 'Command Words in Exams', url: '/blogs/command-words-igcse-a-level-exams' }]
   },
+  {
+    path: '/blogs/sleep-and-memory-why-all-nighters-backfire',
+    component: 'SleepAndMemoryBlog',
+    seo: {
+      title: 'Sleep and Memory: Why All-Nighters Fail Students | Ustaad',
+      description: 'Does sleep matter more than extra revision? Learn how sleep builds memory, why all-nighters backfire, and how UAE students can plan revision around sleep.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-09-28'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' }, { name: 'Sleep and Memory', url: '/blogs/sleep-and-memory-why-all-nighters-backfire' }]
+  },
 
 
   // City landings

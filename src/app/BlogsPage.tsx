@@ -50,9 +50,21 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'sleep-and-memory-why-all-nighters-backfire',
+    image: '/images/blogs/sleep-and-memory-students-uae-hero.webp',
+    alt: 'UAE teenage student asleep at a tidy bedroom desk beside closed revision notes with a moon visible through the window',
+    category: 'Psychology of Learning',
+    title: 'Sleep and Memory: Why All-Nighters Backfire for UAE Students',
+    description: "Does sleep matter more than extra revision? Learn how sleep builds memory, why all-nighters backfire, and how UAE students can plan revision around sleep.",
+    date: '28 Sep 2026',
+    readTime: '9 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'command-words-igcse-a-level-exams',
-    image: '/images/blogs/uae-exam-mark-scheme-review.webp',
-    alt: 'Cambridge and Edexcel IGCSE and A-Level exam paper with command words circled by an examiner during mark scheme review',
+    image: '/images/blogs/command-words-hero.png',
+    alt: 'Secondary student in UAE reviewing Cambridge and Edexcel IGCSE exam paper mark scheme and command words',
     category: 'Academic',
     title: 'The One Word in Every Exam Question That Decides Your Marks',
     description: 'Your child knows the content but loses marks anyway. The reason is usually command words. Here is how to read them and answer exactly what the examiner wants.',

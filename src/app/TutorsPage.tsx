@@ -110,55 +110,43 @@ export default function TutorsPage() {
         ]}
       />
 
-      {/* ── 1. HERO (FITS BEAUTIFULLY ON 100% DESKTOP RESOLUTION) ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#F4F8FD] via-white to-[#fcfaf5] py-8 sm:py-10 lg:py-12">
-        {/* Animated Radial Ambient Glow Orbs */}
-        <motion.div 
-          animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.75, 0.5] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-0 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-gradient-to-br from-[#0f4a9b]/15 via-[#1e5ba8]/10 to-[#C7A24A]/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none translate-x-1/4 -translate-y-1/4" 
-        />
-        <motion.div 
-          animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.65, 0.4] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-0 left-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-gradient-to-tr from-[#C7A24A]/12 via-[#0f4a9b]/8 to-transparent rounded-full blur-[70px] sm:blur-[100px] pointer-events-none -translate-x-1/4 translate-y-1/4" 
-        />
-        <div className="absolute inset-0 z-0 opacity-[0.035] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #0f4a9b 1px, transparent 0)', backgroundSize: '32px 32px' }} />
-
+      {/* ── 1. HERO ── */}
+      <section className="min-h-[calc(100dvh-84px)] lg:min-h-[calc(100dvh-92px)] flex items-center relative overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 lg:gap-10 xl:gap-12 items-center">
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-12 xl:gap-16 items-center">
 
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-xs sm:text-sm font-bold rounded-full mb-3 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.12)]">
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-xs sm:text-sm font-bold rounded-full mb-3.5 sm:mb-4 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.15)]">
                 <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> {cityName ? `Private Tutors in ${cityName}` : 'Our Tutors'}
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#0a1f3d] mb-3 leading-[1.15] tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f3d] mb-3 sm:mb-4 leading-[1.15] tracking-tight">
                 <GradientHeadingText text={cityName ? `Expert Tutors in ${cityName}` : 'Learn from the Right Tutor'} />
               </h1>
-              <div className="w-14 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3" />
-              <p className="text-gray-600 text-xs sm:text-sm lg:text-base mb-5 leading-relaxed max-w-xl font-medium">
+              <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3.5 sm:mb-5" />
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-5 sm:mb-7 leading-relaxed max-w-xl">
                 Every Ustaad tutor is evaluated for curriculum command, subject depth, and clear teaching before joining our UAE faculty.
               </p>
-              <HeroCTABlock className="mb-2">
+              <HeroCTABlock className="mb-4">
                 Book Your Free Trial
               </HeroCTABlock>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[350px] xl:h-[380px] rounded-2xl sm:rounded-[28px] overflow-hidden shadow-[0_15px_45px_rgba(15,74,155,0.12)] border-4 border-white group z-10"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative w-full max-w-[460px] mx-auto lg:max-w-none aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto lg:h-[500px] xl:h-[540px] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(15,74,155,0.15)] border-4 sm:border-8 border-white group z-10"
             >
               <img
                 src="/UpdatedImages/tutor-page.webp"
                 alt="Curriculum-specialist Ustaad tutor walking an IGCSE student through exam-board past paper practice"
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700 block"
                 width={1200}
                 height={800}
                 fetchPriority="high"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f4a9b]/35 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f4a9b]/30 via-transparent to-transparent pointer-events-none" />
             </motion.div>
 
           </div>
