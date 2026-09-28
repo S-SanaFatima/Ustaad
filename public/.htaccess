@@ -2,8 +2,10 @@
 # USTAAD.AE PRODUCTION APACHE CONFIGURATION (.htaccess)
 # ==============================================================================
 
-# Disable directory browsing for security
+# Disable directory browsing for security and disable auto-trailing slash on directories
 Options -Indexes
+DirectorySlash Off
+DirectoryIndex index.html
 
 # ------------------------------------------------------------------------------
 # 1. MIME TYPES
@@ -42,7 +44,9 @@ Options -Indexes
 
   # HTML Pages Caching Strategy
   <FilesMatch "\.html$">
-    Header set Cache-Control "no-cache, must-revalidate"
+    Header always set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header always set Pragma "no-cache"
+    Header always set Expires "0"
     Header set Content-Type "text/html; charset=utf-8"
   </FilesMatch>
 
@@ -70,14 +74,17 @@ Options -Indexes
 # Custom 404 page (HTTP status remains 404)
 ErrorDocument 404 /404.html
 
-# Stop Apache auto-redirecting /about → /about/ before custom rules run
-DirectorySlash Off
+DirectoryIndex index.html
 
 # ------------------------------------------------------------------------------
 # 4. REWRITE RULES (HTTPS, NON-WWW, LEGACY REDIRECTS & CLEAN URLS)
 # ------------------------------------------------------------------------------
 RewriteEngine On
 RewriteBase /
+
+# Rewrite root requests directly to index.html
+RewriteRule ^$ /index.html [L]
+RewriteRule ^index\.html$ - [L]
 
 # --- Canonical Host & HTTPS Protocol (Single 301 Hop to https://ustaad.ae) ---
 RewriteCond %{HTTPS} !=on [OR]
