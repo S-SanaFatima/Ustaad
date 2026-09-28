@@ -74,6 +74,7 @@ export const ROUTES = [
   { path: '/blogs/what-does-gradient-mean-maths-physics', component: 'WhatDoesGradientMeanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-18' },
   { path: '/blogs/illusion-of-competence-revision-false-confidence', component: 'IllusionOfCompetenceBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-21' },
   { path: '/blogs/command-words-igcse-a-level-exams', component: 'CommandWordsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-25' },
+  { path: '/blogs/sleep-and-memory-why-all-nighters-backfire', component: 'SleepAndMemoryBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-28' },
 
 
 
