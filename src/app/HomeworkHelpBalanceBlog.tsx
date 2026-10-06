@@ -19,6 +19,7 @@ import {
   HelpCircle,
   Lightbulb,
   Share2,
+  Download,
 } from 'lucide-react';
 import { Layout } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -36,7 +37,7 @@ const BLOG = {
   subtitle:
     "How much homework help is too much? A practical UAE parent's guide to supporting your child without doing the work for them, by subject and age.",
   heroImage: "/images/blogs/homework-help-balance-uae-parent-child.webp",
-  heroAlt: "UAE parent sitting nearby while a child works through homework independently at a desk",
+  heroAlt: "Father reading in an armchair while his son does his homework on his own at a desk at home in the UAE",
   heroCaption: "The most useful kind of homework help is often the kind that makes itself unnecessary over time.",
   datePublished: "2026-10-05",
   dateModified: "2026-10-05",
@@ -68,7 +69,7 @@ const FAQS = [
   },
   {
     q: "My child says the homework method is different from what I learned. What should I do?",
-    a: "Say so honestly, and have them check their class notes or textbook rather than teaching your version. Many mark schemes, especially in maths, specifically reward the taught method.",
+    a: "Say so honestly, and have them check their class notes or textbook rather than teaching your version. A second method can confuse them while the class is learning another one.",
   },
   {
     q: "Should older students (IGCSE, A-Level, IB) still get homework help from parents?",
@@ -562,7 +563,7 @@ export default function HomeworkHelpBalanceBlog() {
             {/* IMAGE 2 */}
             <InlineImage
               src="/images/blogs/parent-child-homework-question-prompt.webp"
-              alt="Parent asking a guiding question while a child works through a maths problem"
+              alt="Father pointing to one step in his daughter's maths workbook while she works at her desk"
               caption="Pointing gently to the exact step where thinking broke down preserves student ownership."
             />
 
@@ -589,13 +590,19 @@ export default function HomeworkHelpBalanceBlog() {
               <strong>IGCSE and GCSE years (roughly ages 14 to 16).</strong> Support shifts from the content to the system around it: helping them plan a week with five subjects' worth of homework, checking a revision timetable is realistic, asking about exam board specifics. Direct content help should be rare and specific (a single topic that genuinely was not covered well in class), not routine.
             </p>
             <p>
-              <strong>A-Level and IB years (roughly ages 16 to 18).</strong> Independent learning is itself part of what is being assessed, particularly in IB Internal Assessments and A-Level extended writing. The useful parental role here is almost entirely logistical and emotional: protecting time, asking how a piece of coursework is going, noticing stress. Content help at this stage, even well-intentioned, more often gets in the way than it helps, and many A-Level and IB mark schemes specifically credit independent, unaided thinking.
+              <strong>A-Level and IB years (roughly ages 16 to 18).</strong> Independent learning is itself part of what is being assessed, particularly in IB Internal Assessments and A-Level extended writing. The useful parental role here is almost entirely logistical and emotional: protecting time, asking how a piece of coursework is going, noticing stress. Content help at this stage, even well-intentioned, more often gets in the way than it helps, and coursework at this level must be the student's own work.
             </p>
+
+            {/* Infographic: Homework help by age */}
+            <InlineImage
+              src="/images/blogs/homework-help-by-age.webp"
+              alt="Chart showing how much homework help suits each age group, from primary to A-Level and IB"
+            />
 
             {/* IMAGE 4: Weekly homework planning */}
             <InlineImage
               src="/images/blogs/weekly-homework-planner-igcse-student.webp"
-              alt="A simple weekly homework and revision planner on a desk"
+              alt="Parent pinning a note to a family weekly wall planner with school, revision and family time blocked out"
               caption="For older students, supporting time management and timetable routines is more effective than direct content intervention."
             />
           </div>
@@ -609,7 +616,7 @@ export default function HomeworkHelpBalanceBlog() {
               Subjects differ in how safely a parent can help without accidentally doing the thinking.
             </p>
             <p>
-              <strong>Maths and sciences.</strong> These are method-driven subjects where there is usually one correct process, and it is tempting to simply show it. The safer move is to ask the child to explain their working so far out loud; the gap in their explanation usually reveals where they went wrong, without you supplying the fix. If the method being taught now is different from the one you learned, say so honestly and let them check their notes rather than teaching your version, since a different method at this stage often costs them marks on method-specific mark schemes.
+              <strong>Maths and sciences.</strong> These are method-driven subjects where there is usually one correct process, and it is tempting to simply show it. The safer move is to ask the child to explain their working so far out loud; the gap in their explanation usually reveals where they went wrong, without you supplying the fix. If the method being taught now is different from the one you learned, say so honestly and let them check their notes rather than teaching your version, since a second method can confuse them while the class is learning another one.
             </p>
             <p>
               <strong>English and humanities.</strong> The temptation here is editing: smoothing a sentence, adding a stronger word, restructuring a paragraph. Teachers can usually tell when writing has shifted register partway through a piece, and overly polished homework from a struggling writer sometimes does more harm than good at the next assessment, when the support is not there. Ask questions about the draft instead: "What's your main point in this paragraph?" is more useful than rewriting it.
@@ -677,13 +684,19 @@ export default function HomeworkHelpBalanceBlog() {
             {/* IMAGE 3: Student thinking */}
             <InlineImage
               src="/images/blogs/student-thinking-through-stuck-problem.webp"
-              alt="Student pausing to think through a difficult homework question alone"
+              alt="Teenage student pausing to think about a homework problem at his desk by a window"
               caption="Active problem-solving attempts signal productive struggle, while silent paralysis calls for a diagnostic prompt."
             />
 
             <p>
               Telling the two apart is mostly a matter of time: if a child is stuck but still actively trying different approaches, give it a few more minutes. If they have stopped trying and are just staring at the page or getting visibly upset, that is unproductive struggle, and it is time to help.
             </p>
+
+            {/* Infographic: Stuck on homework wait or step in */}
+            <InlineImage
+              src="/images/blogs/homework-struggle-wait-or-step-in.webp"
+              alt="Two cards comparing productive and unproductive homework struggle, with what a parent should do in each case"
+            />
           </div>
 
           {/* 08. Homework and tutoring: where one ends and the other begins */}
@@ -695,7 +708,7 @@ export default function HomeworkHelpBalanceBlog() {
               A pattern worth naming honestly: if homework help at home has turned into reteaching entire topics most nights, across multiple subjects, that is no longer homework support. It is informal, unplanned tutoring, usually delivered by an exhausted parent after a full working day, without a lesson plan or a diagnostic sense of what is actually missing.
             </p>
             <p>
-              This is not a failure on the parent's part. It is simply a sign that the gap is bigger than an evening's nudge can close, and that a structured, diagnostic conversation with the subject teacher, or a short, targeted block with a tutor, is likely to close it faster and with far less friction at home. Our guide on{' '}
+              This is not a failure on the parent's part. It is simply a sign that the gap is bigger than an evening's nudge can close, and that a structured, diagnostic conversation with the subject teacher, or a short, targeted block with <a href="/tutors" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">an online 1-to-1 tutor</a>, is likely to close it faster and with far less friction at home. Our guide on{' '}
               <a href="/blogs/private-tutoring-uae-parent-guide" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                 private tutoring in the UAE
               </a>{' '}
@@ -705,8 +718,8 @@ export default function HomeworkHelpBalanceBlog() {
             {/* IMAGE: Homework vs Tutoring Boundary */}
             <InlineImage
               src="/images/blogs/homework-help-vs-tutoring-boundary.webp"
-              alt="A UAE parent and child reviewing a structured tutoring timetable at the kitchen table"
-              caption="When nightly homework support shifts into continuous re-teaching, establishing a structured tutoring plan restores calm and diagnostic clarity."
+              alt="Father and son looking over a weekly study schedule together at the kitchen table"
+              caption="When nightly homework help turns into re-teaching, a structured plan can take the pressure off the evenings."
             />
 
             <NarrativeBox label="PARENT TAKEAWAY">
@@ -787,6 +800,29 @@ export default function HomeworkHelpBalanceBlog() {
                 <p className="text-xs font-bold text-[#0a1f3d] mb-1">4. Afterwards</p>
                 <p className="text-xs text-gray-600">Ask one open question, "What was the hardest part?", rather than checking every answer. Hard parts are the useful signal to carry into the next class or the next conversation with the teacher.</p>
               </div>
+            </div>
+
+            {/* Downloadable Attachment Box */}
+            <div className="my-6 p-5 sm:p-6 rounded-2xl border border-[#0f4a9b]/20 bg-gradient-to-br from-[#f8fafd] to-[#eef4fb] shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <h3 className="text-sm sm:text-base font-extrabold text-[#0a1f3d]">
+                  Print the homework check-in sheet
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-lg">
+                  One page with the four steps, the five questions to ask, and a weekly log you can show the teacher.
+                </p>
+              </div>
+              <a
+                href="/homework-check-in-sheet-ustaad.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download="homework-check-in-sheet-ustaad.pdf"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm text-white transition shadow hover:brightness-110 shrink-0"
+                style={{ background: 'linear-gradient(90deg, #0f4a9b 0%, #1e5ba8 100%)' }}
+              >
+                <Download className="h-4 w-4" />
+                Download the PDF
+              </a>
             </div>
 
             <p>
@@ -884,7 +920,7 @@ export default function HomeworkHelpBalanceBlog() {
               Not sure if it's a homework gap or something bigger?
             </h3>
             <p className="text-xs sm:text-sm text-white/85 leading-relaxed mb-6 max-w-lg mx-auto">
-              An Ustaad curriculum specialist can run a short diagnostic session with your child, work out exactly which topics need rebuilding, and show you where a tutor's help would actually save your evenings.
+              An Ustaad curriculum specialist can run a short online 1-to-1 session with your child, work out exactly which topics need rebuilding, and show you where a tutor's help would actually save your evenings.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
               <a
