@@ -85,7 +85,7 @@ const customStrugglesSection = (
           <GradientHeadingText text="Ustaad Physics Support" />
         </h2>
         <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-          Stress shows at home long before the report card changes. Our four steps rebuild the paper habits first.
+          Stress shows at home long before the report card changes. Our dedicated <a href="/a-level" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">A-Level physics tutors</a> rebuild the paper habits through four structured steps.
         </p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">

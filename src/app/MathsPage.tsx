@@ -411,7 +411,7 @@ const customCurriculaSection = (
           <GradientHeadingText text="Mathematical Problem-Solving Skills" />
         </h2>
         <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-          Memorised formulas fall apart the moment a question changes shape. We train the thinking that lets your child solve any new problem alone.
+          Memorised formulas fall apart the moment a question changes shape. Our dedicated <a href="/a-level" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">A-Level maths tutors</a> train the thinking that lets your child solve any new problem alone.
         </p>
       </div>
       {/* 2x2 grid with zero gap and thin borders */}

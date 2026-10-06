@@ -523,7 +523,7 @@ export default function CommandWordsBlog() {
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
             <p>
-              Every exam question is really two parts joined together. There is the topic, which is what the question is about, and there is the command word, which is what the question wants you to do with that topic.
+              Every exam question is really two parts joined together. There is the topic, which is what the question is about, and there is the command word, which is what the question wants you to do with that topic. Through targeted IGCSE and <a href="/a-level" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">A-Level tutoring</a>, students learn to decode both instantly before putting pen to paper.
             </p>
             <p>
               Take a question like: <em>"Explain why a plant wilts when it is not watered."</em> The topic is plant water loss. The command word is <strong>explain</strong>. A student who knows about osmosis and turgor pressure has the topic covered. But if they only describe what happens, the leaves droop, the stem bends, they have not explained why, and the marks for reasoning are gone.

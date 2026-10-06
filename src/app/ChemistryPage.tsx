@@ -85,7 +85,7 @@ const customStrugglesSection = (
           <GradientHeadingText text="Our Chemistry Process" />
         </h2>
         <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-          Frustration with chemistry grows for months before grades show. Our four-stage method levels the habits your child needs.
+          Frustration with chemistry grows for months before grades show. Our dedicated <a href="/a-level" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">A-Level chemistry tutors</a> coach the habits your child needs through four structured stages.
         </p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">

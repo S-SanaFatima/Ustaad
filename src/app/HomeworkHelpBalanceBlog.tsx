@@ -37,14 +37,14 @@ const BLOG = {
   subtitle:
     "How much homework help is too much? A practical UAE parent's guide to supporting your child without doing the work for them, by subject and age.",
   heroImage: "/images/blogs/homework-help-balance-uae-parent-child.webp",
-  heroAlt: "Father reading in an armchair while his son does his homework on his own at a desk at home in the UAE",
+  heroAlt: "Mother sitting with her son at a desk at home in the UAE while guiding him through homework",
   heroCaption: "The most useful kind of homework help is often the kind that makes itself unnecessary over time.",
   datePublished: "2026-10-05",
   dateModified: "2026-10-05",
   publishedText: "5 Oct 2026",
-  author: "Ustaad UAE Editorial Team",
-  authorFull: "Ustaad UAE Editorial Team | Academic Insights Desk",
-  authorUrl: "/editorial",
+  author: "Nimra Shahzada",
+  authorFull: "Nimra Shahzada | Writer on learning and the psychology of studying",
+  authorUrl: "/authors/nimra-shahzada",
   reviewer: "Ustaad Editorial Team",
   reviewerUrl: "/editorial",
   readTime: "9 min read",
@@ -339,13 +339,13 @@ export default function HomeworkHelpBalanceBlog() {
             dateModified: BLOG.dateModified,
             author: {
               name: BLOG.author,
-              url: '/editorial',
-              jobTitle: 'Academic Insights Desk',
+              url: '/authors/nimra-shahzada',
+              jobTitle: 'Content Writer, Study and Exam Topics',
             },
             reviewer: {
               name: BLOG.reviewer,
-              url: '/editorial',
-              jobTitle: 'Curriculum Review Board',
+              url: '/authors/nida-iqbal',
+              jobTitle: 'Editorial Reviewer',
             },
             image: BLOG.heroImage,
             timeRequired: 'PT9M',
@@ -401,9 +401,9 @@ export default function HomeworkHelpBalanceBlog() {
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   <span className="font-medium">Written by:</span>{' '}
-                  <a href="/editorial" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">{BLOG.author}</a>
+                  <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Nimra Shahzada</a>
                   <span className="block sm:inline">
-                    {' '}<a href="/editorial" className="text-gray-500 hover:text-[#0f4a9b]">| Academic Insights Desk</a>
+                    {' '}<a href="/authors/nimra-shahzada" className="text-gray-500 hover:text-[#0f4a9b]">| Writer on learning and the psychology of studying</a>
                   </span>
                 </span>
               </div>
@@ -411,9 +411,9 @@ export default function HomeworkHelpBalanceBlog() {
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   <span className="font-medium">Reviewed by:</span>{' '}
-                  <a href="/editorial" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">{BLOG.reviewer}</a>
+                  <a href="/editorial" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Ustaad Editorial Team</a>
                   <span className="block sm:inline">
-                    {' '}<a href="/editorial" className="text-gray-500 hover:text-[#0f4a9b]">| Curriculum Review Board</a>
+                    {' '}<span className="text-gray-500">| Every guide is checked for syllabus accuracy and parent clarity</span>
                   </span>
                 </span>
               </div>
@@ -504,6 +504,14 @@ export default function HomeworkHelpBalanceBlog() {
             <p>
               <strong>New-material homework</strong> (a flipped-classroom video to watch before a lesson, a research task, an open-ended project) asks the child to encounter something for the first time alone. This kind can carry more parent involvement, because the child has not yet had a teacher explain it, and a parent reading alongside is closer to being a second source of instruction than someone correcting work.
             </p>
+
+            {/* IMAGE: Open-ended project work */}
+            <InlineImage
+              src="/images/blogs/parent-child-open-ended-project-homework.webp"
+              alt="Mother and daughter collaborating on a creative building project at a desk at home in the UAE"
+              caption="Open-ended projects and new material naturally benefit from collaborative exploration without taking over the thinking."
+            />
+
             <p>
               Confusing the two is a common source of friction. A parent who treats a practice worksheet like new material ends up re-teaching the whole topic, which both takes far longer than the homework was meant to and quietly tells the child that the version from class was not enough.
             </p>
@@ -563,7 +571,7 @@ export default function HomeworkHelpBalanceBlog() {
             {/* IMAGE 2 */}
             <InlineImage
               src="/images/blogs/parent-child-homework-question-prompt.webp"
-              alt="Father pointing to one step in his daughter's maths workbook while she works at her desk"
+              alt="Mother in a hijab guiding her son through a maths exercise at a study desk at home in the UAE"
               caption="Pointing gently to the exact step where thinking broke down preserves student ownership."
             />
 
@@ -598,13 +606,6 @@ export default function HomeworkHelpBalanceBlog() {
               src="/images/blogs/homework-help-by-age.webp"
               alt="Chart showing how much homework help suits each age group, from primary to A-Level and IB"
             />
-
-            {/* IMAGE 4: Weekly homework planning */}
-            <InlineImage
-              src="/images/blogs/weekly-homework-planner-igcse-student.webp"
-              alt="Parent pinning a note to a family weekly wall planner with school, revision and family time blocked out"
-              caption="For older students, supporting time management and timetable routines is more effective than direct content intervention."
-            />
           </div>
 
           {/* 05. By subject: where to step in and where to step back */}
@@ -627,6 +628,13 @@ export default function HomeworkHelpBalanceBlog() {
             <p>
               <strong>Research and project work.</strong> Helping a child find and evaluate sources is a genuinely useful, teachable skill. Choosing their argument or writing their analysis for them is not.
             </p>
+
+            {/* IMAGE 4: Weekly homework planning */}
+            <InlineImage
+              src="/images/blogs/weekly-homework-planner-igcse-student.webp"
+              alt="A-Level and IB weekly master revision schedule and stress tracker binder on a student study desk"
+              caption="For older students, supporting timetable routines and subject planning across the week is more effective than direct content intervention."
+            />
           </div>
 
           {/* 06. The questions to ask instead of giving answers */}
@@ -680,14 +688,6 @@ export default function HomeworkHelpBalanceBlog() {
             <p>
               <strong>Unproductive struggle</strong> happens when the child is missing a foundational piece entirely, a method never properly understood, vocabulary never learned, and no amount of staring at the page will produce it. Here, persistence just produces frustration and, over time, a belief that they are "bad at" the subject. This is the moment to step in, briefly, with the missing piece, and then let them continue independently.
             </p>
-
-            {/* IMAGE 3: Student thinking */}
-            <InlineImage
-              src="/images/blogs/student-thinking-through-stuck-problem.webp"
-              alt="Teenage student pausing to think about a homework problem at his desk by a window"
-              caption="Active problem-solving attempts signal productive struggle, while silent paralysis calls for a diagnostic prompt."
-            />
-
             <p>
               Telling the two apart is mostly a matter of time: if a child is stuck but still actively trying different approaches, give it a few more minutes. If they have stopped trying and are just staring at the page or getting visibly upset, that is unproductive struggle, and it is time to help.
             </p>
@@ -718,7 +718,7 @@ export default function HomeworkHelpBalanceBlog() {
             {/* IMAGE: Homework vs Tutoring Boundary */}
             <InlineImage
               src="/images/blogs/homework-help-vs-tutoring-boundary.webp"
-              alt="Father and son looking over a weekly study schedule together at the kitchen table"
+              alt="Father reading in an armchair while his son does his homework on his own at a desk at home in the UAE"
               caption="When nightly homework help turns into re-teaching, a structured plan can take the pressure off the evenings."
             />
 
@@ -760,6 +760,13 @@ export default function HomeworkHelpBalanceBlog() {
                 <span>A sustained drop in confidence that extends beyond homework into how they talk about school generally</span>
               </li>
             </ul>
+
+            {/* IMAGE 3: Student thinking / stress reflection */}
+            <InlineImage
+              src="/images/blogs/student-thinking-through-stuck-problem.webp"
+              alt="Teenage student pausing to think about a homework problem at his desk by a window"
+              caption="Recognising when normal homework friction turns into chronic overwhelm is the key to stepping in with targeted support."
+            />
 
             <p>
               If several of these persist over weeks, it is worth raising directly with the class or subject teacher, who can say whether what you are seeing at home matches what they see in class. Our guide on{' '}
@@ -803,12 +810,12 @@ export default function HomeworkHelpBalanceBlog() {
             </div>
 
             {/* Downloadable Attachment Box */}
-            <div className="my-6 p-5 sm:p-6 rounded-2xl border border-[#0f4a9b]/20 bg-gradient-to-br from-[#f8fafd] to-[#eef4fb] shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="space-y-1">
-                <h3 className="text-sm sm:text-base font-extrabold text-[#0a1f3d]">
+            <div className="my-7 p-6 sm:p-7 rounded-[22px] border border-slate-200 bg-[#f8fafd] flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+              <div className="space-y-1.5 max-w-md">
+                <h3 className="text-base sm:text-lg font-extrabold text-[#0a1f3d] tracking-tight">
                   Print the homework check-in sheet
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-lg">
+                <p className="text-xs sm:text-[13.5px] text-gray-500 leading-relaxed">
                   One page with the four steps, the five questions to ask, and a weekly log you can show the teacher.
                 </p>
               </div>
@@ -817,8 +824,7 @@ export default function HomeworkHelpBalanceBlog() {
                 target="_blank"
                 rel="noopener noreferrer"
                 download="homework-check-in-sheet-ustaad.pdf"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm text-white transition shadow hover:brightness-110 shrink-0"
-                style={{ background: 'linear-gradient(90deg, #0f4a9b 0%, #1e5ba8 100%)' }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-xs sm:text-sm text-white bg-[#0f4a9b] hover:bg-[#0a3a79] transition shadow-xs hover:shadow shrink-0"
               >
                 <Download className="h-4 w-4" />
                 Download the PDF
@@ -874,11 +880,11 @@ export default function HomeworkHelpBalanceBlog() {
                 <User className="h-3.5 w-3.5 text-[#0f4a9b]" />
                 <span className="text-[11px] font-bold text-[#0f4a9b] uppercase tracking-wider">About the Author</span>
               </div>
-              <a href="/editorial" className="font-bold text-xs text-[#0a1f3d] hover:text-[#0f4a9b] block mb-1">
-                Ustaad UAE Editorial Team
+              <a href="/authors/nimra-shahzada" className="font-bold text-xs text-[#0a1f3d] hover:text-[#0f4a9b] block mb-1">
+                Nimra Shahzada
               </a>
               <p className="text-xs text-gray-500 leading-relaxed">
-                The Ustaad UAE Editorial Team synthesises input from experienced British and IB curriculum specialists and parent counselling cases to produce practical guides for families.
+                Nimra writes about the study problems UAE parents see at home: children who revise for hours but still lose marks, homework that never gets finished, and exam stress that builds before mocks.
               </p>
             </div>
 
@@ -891,7 +897,7 @@ export default function HomeworkHelpBalanceBlog() {
                 Ustaad Editorial Team
               </a>
               <p className="text-xs text-gray-500 leading-relaxed">
-                Every guide is checked for accuracy, educational validity and parent clarity before it is published.
+                Every guide is checked for syllabus accuracy and parent clarity before it is published.
               </p>
             </div>
           </div>

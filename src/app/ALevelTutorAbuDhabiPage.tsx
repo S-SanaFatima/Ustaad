@@ -1644,6 +1644,11 @@ export default function ALevelTutorAbuDhabiPage() {
         ]}
         curricula={[
           {
+            label: 'A-Level tutors across the UAE',
+            href: '/a-level',
+            note: 'One-to-one AS and A-Level tutoring across Cambridge, Edexcel, AQA and OCR.'
+          },
+          {
             label: 'IGCSE Tutor Abu Dhabi',
             href: '/igcse-tutor-abu-dhabi',
             note: 'Year 10 and Year 11 support ahead of Cambridge or Edexcel IGCSE.'

@@ -429,7 +429,7 @@ export default function ALevelIndependentThinkingBlog() {
             {/* Section 01 */}
             <SectionHeading num="01" id="what-is-independent-thinking-at-a-level">What is independent thinking at A-Level?</SectionHeading>
             <p>
-              Independent thinking at A-Level is a student's ability to approach an unfamiliar question without a memorised template: to analyse what is being asked, choose a suitable method, and justify each step on their own.
+              Independent thinking at A-Level is a student's ability to approach an unfamiliar question without a memorised template: to analyse what is being asked, choose a suitable method, and justify each step on their own. Experienced <a href="/a-level" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">online A-Level tutors</a> cultivate this self-reliance from the very first session.
             </p>
             <p>
               It draws on critical thinking, <a href="https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] font-bold underline">metacognition and self-regulated learning</a> rather than recall alone. It is the skill that separates a grade B from an A or A*, because top marks reward reasoning applied to new problems.

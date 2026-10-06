@@ -61,6 +61,7 @@ export const AUTHORS: Author[] = [
       { title: 'Your Child Understands Physics. So Why Are the Marks Still Low?', href: '/blogs/physics-understanding-vs-marks', role: 'authored' },
       { title: 'How to Read a UAE School Report Card Like an Education Counsellor', href: '/blogs/read-uae-school-report-card', role: 'authored' },
       { title: '10 Honest Questions to Ask Before You Hire a Private Tutor in Abu Dhabi', href: '/blogs/10-questions-hiring-private-tutor-abu-dhabi', role: 'authored' },
+      { title: "How Much Should Parents Help With Homework? A UAE Parent's Guide to Getting the Balance Right", href: '/blogs/how-much-should-parents-help-with-homework', role: 'authored' },
     ],
   },
   {
@@ -78,6 +79,7 @@ export const AUTHORS: Author[] = [
     photoAlt: 'Nida Iqbal, Editorial Reviewer at Ustaad UAE',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
+      { title: "How Much Should Parents Help With Homework? A UAE Parent's Guide to Getting the Balance Right", href: '/blogs/how-much-should-parents-help-with-homework', role: 'reviewed' },
       { title: 'Sleep and Memory: Why All-Nighters Backfire for UAE Students', href: '/blogs/sleep-and-memory-why-all-nighters-backfire', role: 'reviewed' },
       { title: 'The One Word in Every Exam Question That Decides Your Marks (Command Words)', href: '/blogs/command-words-igcse-a-level-exams', role: 'reviewed' },
       { title: "What Does the y-Intercept Actually Mean? (And When It Means Nothing at All)", href: '/blogs/what-does-y-intercept-mean-maths', role: 'reviewed' },

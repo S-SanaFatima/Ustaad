@@ -436,7 +436,7 @@ export default function IGCSEPage() {
               <div className="rounded-2xl p-8 shadow-[0_8px_40px_rgba(0,0,0,0.25)] border border-white/10" style={{background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)', backdropFilter: 'blur(16px)'}}>
                 <div className="w-8 h-0.5 bg-gradient-to-r from-[#C7A24A] to-[#f0d080] rounded-full mb-5" />
                 <p className="text-blue-100/85 text-sm leading-relaxed">
-                  At the end of Year 11, your child narrows from eight or more IGCSE subjects to three or four A-Levels. That choice shapes which university courses stay open. Ustaad tutors hold the IGCSE foundations steady so the right A-Level combination is still in reach, then help families plan the mix with the chosen course in view.
+                  At the end of Year 11, your child narrows from eight or more IGCSE subjects to three or four A-Levels. That choice shapes which university courses stay open. Ustaad's <a href="/a-level" className="font-semibold underline hover:text-white transition-colors" style={{color: '#C7A24A'}}>A-Level tutors</a> hold the IGCSE foundations steady so the right A-Level combination is still in reach, then help families plan the mix with the chosen course in view.
                 </p>
               </div>
             </div>

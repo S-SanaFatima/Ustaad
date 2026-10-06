@@ -45,7 +45,7 @@ const OPENING_HOURS = [
 const AGGREGATE_RATING = {
   "@type": "AggregateRating",
   ratingValue: "5.0",
-  reviewCount: "200",
+  reviewCount: "20",
   bestRating: "5",
   worstRating: "1",
 };

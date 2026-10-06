@@ -54,7 +54,15 @@ const pathwayStages = [
     years: "Years 12–13",
     stepNum: "03",
     icon: Award,
-    desc: "Chosen subjects studied in greater depth, with sharper academic focus.",
+    desc: (
+      <>
+        Chosen subjects studied in greater depth, with sharper academic focus through dedicated{' '}
+        <a href="/a-level" className="text-[#0f4a9b] font-bold underline hover:text-[#0a1f3d]">
+          A-Level tutoring in the UAE
+        </a>
+        .
+      </>
+    ),
   },
 ];
 

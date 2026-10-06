@@ -84,7 +84,7 @@ const customStrugglesSection = (
           <GradientHeadingText text="Our Biology Pathway" />
         </h2>
         <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-          Confidence in biology can dip weeks before the next paper arrives. Our four-stage pathway rebuilds the right habits.
+          Confidence in biology can dip weeks before the next paper arrives. Our dedicated <a href="/a-level" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">A-Level biology tutors</a> rebuild the right habits through a structured four-stage pathway.
         </p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
