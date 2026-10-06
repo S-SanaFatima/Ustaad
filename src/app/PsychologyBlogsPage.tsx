@@ -61,12 +61,13 @@ export default function PsychologyBlogsPage() {
                 className="group flex flex-col bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 overflow-hidden h-full"
               >
                 {/* Top Half (Image) */}
-                <div className="relative h-48 p-6 flex flex-col justify-end overflow-hidden">
-                  <img src={blog.image} alt={blog.alt || blog.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f3d]/80 via-[#0a1f3d]/20 to-transparent"></div>
-                  <span className="relative z-10 inline-flex items-center px-3 py-1 bg-white/20 text-white text-[10px] font-bold tracking-widest uppercase rounded-full w-fit backdrop-blur-md border border-white/20">
-                    {meta.title}
-                  </span>
+                <div className="relative h-48 overflow-hidden bg-slate-100">
+                  <img
+                    src={blog.image}
+                    alt={blog.alt || blog.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </div>
                 
                 {/* Bottom Half (Content) */}

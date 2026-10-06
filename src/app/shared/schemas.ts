@@ -278,7 +278,40 @@ function personNode(p: PersonInput | string) {
   };
 }
 
-/** BlogPosting + nested Person (author + reviewedBy) + EducationalOrganization publisher */
+export type ReviewerInput =
+  | PersonInput
+  | {
+      "@type"?: "Organization" | "Person";
+      type?: "Organization" | "Person";
+      name: string;
+      url?: string;
+      jobTitle?: string;
+      sameAs?: string | string[];
+      description?: string;
+      image?: string;
+    };
+
+function reviewerNode(r: ReviewerInput | string) {
+  if (typeof r === "string") {
+    return {
+      "@type": "Person",
+      name: r,
+      worksFor: { "@type": "EducationalOrganization", name: "Ustaad — Private Tutors UAE", url: BASE_URL },
+    };
+  }
+  const entityType = (r as any)["@type"] || r.type || (r.name.includes("Team") ? "Organization" : "Person");
+  if (entityType === "Organization") {
+    return {
+      "@type": "Organization",
+      name: r.name,
+      ...(r.url && { url: r.url.startsWith("http") ? r.url : `${BASE_URL}${r.url}` }),
+      ...(r.sameAs && { sameAs: Array.isArray(r.sameAs) ? r.sameAs : [r.sameAs] }),
+    };
+  }
+  return personNode(r as PersonInput);
+}
+
+/** BlogPosting + nested Person/Organization (author + reviewedBy) + EducationalOrganization publisher */
 export const articleSchema = ({
   title,
   description,
@@ -296,7 +329,7 @@ export const articleSchema = ({
   datePublished: string;
   dateModified?: string;
   author: string | PersonInput;
-  reviewer?: string | PersonInput;
+  reviewer?: string | ReviewerInput;
   image?: string;
   timeRequired?: string;
 }) => ({
@@ -309,13 +342,13 @@ export const articleSchema = ({
   dateModified: dateModified || datePublished,
   ...(timeRequired && { timeRequired }),
   author: personNode(author),
-  ...(reviewer && { reviewedBy: personNode(reviewer) }),
+  ...(reviewer && { reviewedBy: reviewerNode(reviewer) }),
   publisher: {
     "@type": "EducationalOrganization",
     "@id": `${BASE_URL}/#organization`,
     name: "Ustaad — Private Tutors UAE",
     url: BASE_URL,
-    logo: { "@type": "ImageObject", url: `${BASE_URL}/ustaad-logo-updated-white.png` },
+    logo: { "@type": "ImageObject", url: `${BASE_URL}/ustaad-private-tutors-uae-logo.png` },
   },
   mainEntityOfPage: { "@type": "WebPage", "@id": url.startsWith("http") ? url : `${BASE_URL}${url}` },
   ...(image && {
@@ -400,25 +433,29 @@ export const itemListSchema = (
 });
 
 export const reviewSchema = (
-  itemName: string,
-  reviews: Array<{ author: string; reviewBody: string; ratingValue?: number }>
-) => ({
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: itemName,
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: reviews.length.toString(),
-  },
-  review: reviews.map((r) => ({
-    "@type": "Review",
-    author: { "@type": "Person", name: r.author },
-    reviewBody: r.reviewBody,
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: (r.ratingValue || 5).toString(),
-      bestRating: "5",
+  itemNameOrReviews: string | Array<{ author: string; reviewBody: string; ratingValue?: number; reviewRating?: number }>,
+  maybeReviews?: Array<{ author: string; reviewBody: string; ratingValue?: number; reviewRating?: number }>
+) => {
+  const itemName = typeof itemNameOrReviews === 'string' ? itemNameOrReviews : 'Ustaad Tutoring UAE';
+  const reviews = Array.isArray(itemNameOrReviews) ? itemNameOrReviews : (maybeReviews || []);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: itemName,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: Math.max(reviews.length, 1).toString(),
     },
-  })),
-});
+    review: reviews.map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.author },
+      reviewBody: r.reviewBody,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: (r.ratingValue || r.reviewRating || 5).toString(),
+        bestRating: "5",
+      },
+    })),
+  };
+};

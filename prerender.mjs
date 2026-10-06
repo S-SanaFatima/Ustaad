@@ -101,6 +101,14 @@ async function prerender() {
   fs.writeFileSync(path.resolve(clientDir, 'sitemap.xml'), sitemap);
   console.log(`[prerender] ✓ sitemap.xml generated`);
 
+  // Ensure case-insensitive directory aliases exist physically in dist/client for Linux hosts
+  const updatedImagesSrc = path.resolve(clientDir, 'UpdatedImages');
+  const updatedImagesDest = path.resolve(clientDir, 'updatedimages');
+  if (fs.existsSync(updatedImagesSrc) && !fs.existsSync(updatedImagesDest)) {
+    fs.cpSync(updatedImagesSrc, updatedImagesDest, { recursive: true });
+    console.log(`[prerender] ✓ Created lowercase /updatedimages alias directory for Linux host compatibility`);
+  }
+
   console.log(`\n[prerender] Done! ${routes.length} pages pre-rendered.`);
 }
 

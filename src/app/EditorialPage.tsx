@@ -9,17 +9,17 @@ import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema } from './shared/schemas';
 
 const TRUST_BADGES = [
-  { icon: PenLine, label: 'Named writers' },
+  { icon: PenLine, label: 'Verified writers' },
   { icon: Eye, label: 'Named reviewer' },
   { icon: BadgeCheck, label: 'UAE school focus' },
-  { icon: ShieldCheck, label: 'No anonymous tips' },
+  { icon: ShieldCheck, label: 'No faceless advice' },
 ];
 
 const PROCESS_STEPS = [
   {
     icon: PenLine,
     title: 'Write',
-    desc: 'A named writer drafts the guide from real UAE classroom and parent patterns.',
+    desc: 'A named writer or verified examiner drafts the guide from real UAE classroom and parent patterns.',
     tone: 'from-[#0f4a9b] to-[#0a3a79]',
   },
   {
@@ -68,6 +68,22 @@ const TEAM = [
     topics: ['Editorial review', 'Curriculum accuracy', 'Parent clarity'],
   },
   {
+    id: 'examiner-writer',
+    name: 'Cambridge IGCSE & A-Level Examiner',
+    subtitle: 'Name withheld on request',
+    href: '/blogs/command-words-igcse-a-level-exams',
+    role: 'Examiner Writer',
+    badge: 'EXAMINER WRITER',
+    badgeClass: 'bg-[#C7A24A]/20 text-[#f0c96a] border-[#C7A24A]/30',
+    photo: null as string | null,
+    photoAlt: '',
+    objectPosition: 'center',
+    bio: 'A practising Cambridge examiner who marks IGCSE and A-Level papers and tutors 1-to-1 with Ustaad. Exam boards restrict examiners from publicising their role, so we share the board and level instead of a name. Every article they write is checked by our editorial team before it goes live.',
+    topics: ['Cambridge IGCSE', 'A-Level', 'Mark schemes', 'Exam technique'],
+    linkText: 'Read their guide →',
+    linkHref: '/blogs/command-words-igcse-a-level-exams',
+  },
+  {
     name: 'Ustaad Subject Specialists',
     href: '/authors/ustaad-subject-specialists',
     role: 'Contributing teachers',
@@ -78,18 +94,20 @@ const TEAM = [
     objectPosition: 'center',
     bio: 'Practising Maths, Science and English teachers who add worked examples, exam tips and fact checks. Many teach in UAE schools and prefer privacy, so we share subjects and experience instead of names. Nida reviews everything they send in.',
     topics: ['Maths', 'Physics & Chemistry', 'Biology', 'Exam technique'],
+    linkText: 'View contributor profile',
+    linkHref: '/authors/ustaad-subject-specialists',
   },
 ];
 
 const NAMED_TEAM = TEAM.filter((m) => m.photo);
-const SPECIALIST_TEAM = TEAM.find((m) => !m.photo)!;
+const NON_PHOTO_TEAM = TEAM.filter((m) => !m.photo);
 
 const TRUST_RULES = [
   {
     icon: PenLine,
     step: '01',
     title: 'Named authorship',
-    text: 'Every article is written by a real person or a named group of teachers.',
+    text: 'Every article is written by a real person, a named group of teachers, or a practising examiner whose name is withheld under exam board rules.',
   },
   {
     icon: Eye,
@@ -101,13 +119,13 @@ const TRUST_RULES = [
     icon: Users,
     step: '03',
     title: 'Open profiles',
-    text: 'Each writer has a profile you can open to see their background and articles.',
+    text: 'Each writer has a profile or writer card you can open to see their background and articles.',
   },
   {
     icon: ShieldCheck,
     step: '04',
-    title: 'No anonymous tips',
-    text: 'We never publish "anonymous expert tips" with no one behind them.',
+    title: 'No faceless advice',
+    text: "Every tip has a real person behind it. When an examiner's name is withheld, we tell you their board and level, and why.",
   },
 ];
 
@@ -225,6 +243,16 @@ export default function EditorialPage() {
         '@type': 'ListItem',
         position: 3,
         item: {
+          '@type': 'Person',
+          name: 'Cambridge IGCSE & A-Level Examiner (name withheld)',
+          url: 'https://ustaad.ae/editorial#examiner-writer',
+          jobTitle: 'Cambridge IGCSE & A-Level Examiner',
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        item: {
           '@type': 'OrganizationRole',
           roleName: 'Contributing teachers, names kept private',
           memberOf: {
@@ -245,13 +273,12 @@ export default function EditorialPage() {
         canonical="/editorial"
         robots="index,follow"
         schema={[
-          localBusinessSchema,
-          editorialCollectionSchema,
-          editorialTeamItemListSchema,
           breadcrumbSchema([
             { name: 'Home', url: '/' },
             { name: 'Editorial', url: '/editorial' },
           ]),
+          editorialCollectionSchema,
+          editorialTeamItemListSchema,
         ]}
       />
 
@@ -274,7 +301,7 @@ export default function EditorialPage() {
               </h1>
 
               <p className="text-blue-100/85 text-base sm:text-lg leading-relaxed max-w-2xl mb-8">
-                Every study guide is written by a real person or a named group of teachers, and checked by a qualified reviewer before it goes live. Here is who writes, who checks, and how we keep the advice honest for UAE families.
+                Every study guide is written by a real person, a named group of teachers or a practising examiner, and checked by a qualified reviewer before it goes live. Here is who writes, who checks, and how we keep the advice honest for UAE families.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -330,7 +357,7 @@ export default function EditorialPage() {
                 </span>
               </h2>
               <p className="text-gray-500 text-sm sm:text-base mt-3 max-w-xl mx-auto">
-                Four clear steps. No anonymous blogs. No unchecked tips.
+                Four clear steps. Every writer is named, or their board and role are shown when a name is withheld.
               </p>
             </motion.div>
 
@@ -434,68 +461,74 @@ export default function EditorialPage() {
               </div>
             </div>
 
-            {/* Non-photo profile first */}
-            <motion.article
-              initial={{ opacity: 0, y: 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.35 }}
-              transition={{ duration: 0.45 }}
-              className="group relative mb-6 overflow-hidden rounded-[1.75rem] border border-[#0f4a9b]/15 bg-gradient-to-br from-[#061428] via-[#0a1f3d] to-[#0f4a9b] text-white shadow-[0_16px_40px_rgba(10,31,61,0.18)]"
-            >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#C7A24A]/15 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none" />
-              <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6 p-6 sm:p-8">
-                <div className="shrink-0 flex items-center gap-4">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-white/10 border border-white/20 backdrop-blur-sm flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
-                    <GraduationCap className="h-10 w-10 sm:h-11 sm:w-11 text-[#f0c96a]" />
-                  </div>
-                  <div className="md:hidden">
-                    <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider border bg-white/10 text-[#f0c96a] border-white/20 mb-2`}>
-                      {SPECIALIST_TEAM.badge}
-                    </span>
-                    <h3 className="text-xl font-extrabold leading-snug">
-                      <a href={SPECIALIST_TEAM.href} className="hover:text-[#f0c96a] transition">
-                        {SPECIALIST_TEAM.name}
-                      </a>
-                    </h3>
-                    <p className="text-sm font-semibold text-blue-100/80 mt-0.5">{SPECIALIST_TEAM.role}</p>
-                  </div>
-                </div>
+            {/* Non-photo profiles (Examiner Writer and Subject Specialists) */}
+            <div className="space-y-6 mb-8">
+              {NON_PHOTO_TEAM.map((member) => (
+                <motion.article
+                  key={member.name}
+                  id={member.id}
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.35 }}
+                  transition={{ duration: 0.45 }}
+                  className="group relative overflow-hidden rounded-[1.75rem] border border-[#0f4a9b]/15 bg-gradient-to-br from-[#061428] via-[#0a1f3d] to-[#0f4a9b] text-white shadow-[0_16px_40px_rgba(10,31,61,0.18)] scroll-mt-24"
+                >
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-[#C7A24A]/15 rounded-full blur-3xl pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+                  <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6 p-6 sm:p-8">
+                    <div className="shrink-0 flex items-center gap-4">
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-white/10 border border-white/20 backdrop-blur-sm flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
+                        <GraduationCap className="h-10 w-10 sm:h-11 sm:w-11 text-[#f0c96a]" />
+                      </div>
+                      <div className="md:hidden">
+                        <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider border bg-white/10 text-[#f0c96a] border-white/20 mb-2`}>
+                          {member.badge}
+                        </span>
+                        <h3 className="text-xl font-extrabold leading-snug">
+                          <a href={member.href} className="hover:text-[#f0c96a] transition">
+                            {member.name}
+                          </a>
+                        </h3>
+                        <p className="text-sm font-semibold text-blue-100/80 mt-0.5">{member.subtitle || member.role}</p>
+                      </div>
+                    </div>
 
-                <div className="flex-1 min-w-0">
-                  <div className="hidden md:block mb-2">
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider border bg-white/10 text-[#f0c96a] border-white/20 mb-2">
-                      {SPECIALIST_TEAM.badge}
-                    </span>
-                    <h3 className="text-2xl font-extrabold leading-snug">
-                      <a href={SPECIALIST_TEAM.href} className="hover:text-[#f0c96a] transition">
-                        {SPECIALIST_TEAM.name}
-                      </a>
-                    </h3>
-                    <p className="text-sm font-semibold text-blue-100/85 mt-1">{SPECIALIST_TEAM.role}</p>
-                  </div>
-                  <p className="text-sm sm:text-[15px] text-blue-100/80 leading-relaxed mb-4 max-w-3xl">
-                    {SPECIALIST_TEAM.bio}
-                  </p>
-                  <div className="flex flex-wrap items-center gap-2 mb-4">
-                    {SPECIALIST_TEAM.topics.map((topic) => (
-                      <span
-                        key={topic}
-                        className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/10 text-white border border-white/15"
+                    <div className="flex-1 min-w-0">
+                      <div className="hidden md:block mb-2">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider border bg-white/10 text-[#f0c96a] border-white/20 mb-2">
+                          {member.badge}
+                        </span>
+                        <h3 className="text-2xl font-extrabold leading-snug">
+                          <a href={member.href} className="hover:text-[#f0c96a] transition">
+                            {member.name}
+                          </a>
+                        </h3>
+                        <p className="text-sm font-semibold text-blue-100/85 mt-1">{member.subtitle || member.role}</p>
+                      </div>
+                      <p className="text-sm sm:text-[15px] text-blue-100/80 leading-relaxed mb-4 max-w-3xl">
+                        {member.bio}
+                      </p>
+                      <div className="flex flex-wrap items-center gap-2 mb-4">
+                        {member.topics.map((topic) => (
+                          <span
+                            key={topic}
+                            className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/10 text-white border border-white/15"
+                          >
+                            {topic}
+                          </span>
+                        ))}
+                      </div>
+                      <a
+                        href={member.linkHref || member.href}
+                        className="inline-flex items-center text-sm font-bold text-[#f0c96a] hover:underline transition-all"
                       >
-                        {topic}
-                      </span>
-                    ))}
+                        {member.linkText || 'View contributor profile'}
+                      </a>
+                    </div>
                   </div>
-                  <a
-                    href={SPECIALIST_TEAM.href}
-                    className="inline-flex items-center text-sm font-bold text-[#f0c96a] hover:underline transition-all"
-                  >
-                    View contributor profile
-                  </a>
-                </div>
-              </div>
-            </motion.article>
+                </motion.article>
+              ))}
+            </div>
 
             {/* Named profiles with photos */}
             <div className="grid sm:grid-cols-2 gap-5">

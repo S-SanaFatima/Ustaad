@@ -26,6 +26,7 @@ import {
   DubaiAreasInteractiveCard,
   WhatsAppIcon,
   SwipeIndicator,
+  RelatedContent,
   type SchoolLogoItem 
 } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -1962,18 +1963,46 @@ export default function GCSETutorDubaiPage() {
               <a href={WA_URL} target="_blank" rel="noopener" className="mt-auto w-full min-h-[48px] bg-[#25D366] hover:bg-[#20b958] text-white py-3 px-4 rounded-xl font-bold transition flex items-center justify-center gap-2"><WhatsAppIcon className="w-4 h-4 text-white" /> Message Us</a>
             </div>
           </div>
-
-          <div className="bg-[#f4f7fc] rounded-3xl p-6 sm:p-8 border border-gray-100">
-            <h4 className="text-[15px] font-bold text-[#0a1f3d] mb-6 border-b border-gray-200 pb-4">Related pages</h4>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div><a href="/gcse" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">GCSE Hub (All Subjects)</a><p className="text-[12px] text-gray-500">For board comparison, subject list and the full GCSE framework across the UAE.</p></div>
-              <div><a href="/maths" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">GCSE Maths</a><p className="text-[12px] text-gray-500">For non-calc drills, Paper 1 timing and Higher tier prep.</p></div>
-              <div><a href="/english" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">GCSE English</a><p className="text-[12px] text-gray-500">For English Language reading and Literature essay support.</p></div>
-              <div><a href="/physics" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">GCSE Physics</a><p className="text-[12px] text-gray-500">For forces, motion, waves and required practicals.</p></div>
-            </div>
-          </div>
         </div>
       </section>
+
+      {/* RELATED CONTENT SECTION */}
+      <RelatedContent
+        subjects={[
+          {
+            label: 'Maths Tutor Dubai',
+            href: '/maths-tutor-dubai',
+            note: 'Non-calculator drills, algebra, and Higher tier GCSE exam mastery.'
+          },
+          {
+            label: 'Physics Tutor Dubai',
+            href: '/physics-tutor-dubai',
+            note: 'Forces, motion, energy, and Paper 2/Paper 4 exam technique.'
+          },
+          {
+            label: 'Chemistry Tutor Dubai',
+            href: '/chemistry-tutor-dubai',
+            note: 'Periodic table, stoichiometry, and structured 6-mark answers.'
+          },
+        ]}
+        curricula={[
+          {
+            label: 'IGCSE Tutor Dubai',
+            href: '/igcse-tutor-dubai',
+            note: 'Cambridge 0580/0620 and Pearson Edexcel IGCSE tutoring.'
+          },
+          {
+            label: 'A-Level Tutoring UAE',
+            href: '/a-level',
+            note: 'Sixth form transition, advanced modules, and exam boards.'
+          },
+          {
+            label: 'British Curriculum UAE',
+            href: '/british-curriculum',
+            note: 'Years 7–13 National Curriculum for England pathways.'
+          },
+        ]}
+      />
     </Layout>
   );
 }

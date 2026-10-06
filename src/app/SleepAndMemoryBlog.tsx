@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'motion/react';
 import {
   Calendar, Clock, BookOpen, ChevronDown, ChevronUp,
   Mail, Home, ChevronRight as ChevronRightIcon, MessageCircle,
-  Sparkles, ArrowRight, User, Moon, BedDouble, AlertCircle,
-  Brain, ShieldAlert, CheckCircle2, XCircle, ArrowUpRight
+  Sparkles, ArrowRight, User
 } from 'lucide-react';
 import { Layout } from './shared';
 import SEOHead from './shared/SEOHead';
-import { localBusinessSchema, breadcrumbSchema, articleSchema, faqSchema } from './shared/schemas';
+import { breadcrumbSchema, articleSchema, faqSchema } from './shared/schemas';
+import { WhatsAppIcon } from './shared/WhatsAppIcon';
 
 const BLOG = {
   title: 'Sleep and Memory: Why All-Nighters Fail Students | Ustaad',
@@ -25,11 +25,9 @@ const BLOG = {
     'Does sleep matter more than extra revision? Learn how sleep builds memory, why all-nighters backfire, and how UAE students can plan revision around sleep.',
   heroImage: '/images/blogs/sleep-and-memory-students-uae-hero.webp',
   heroAlt: 'UAE teenage student asleep at a tidy bedroom desk beside closed revision notes with a moon visible through the window',
-  heroCaption: 'Revision puts information in. Sleep is what stabilises it. Both halves are needed.',
   datePublished: '2026-09-28',
   dateModified: '2026-09-28',
-  publishedText: 'September 2026',
-  reviewedText: 'September 2026',
+  publishedText: 'Sep 2026',
   readTime: '9 min read',
   author: 'Nimra Shahzada',
   authorRole: 'Writer on learning and the psychology of studying',
@@ -79,7 +77,6 @@ const FAQS = [
 ];
 
 const TOC_ITEMS = [
-  { id: 'quick-answers', label: 'Quick answers before you read' },
   { id: 'what-sleep-does-for-memory', label: 'What sleep actually does for memory' },
   { id: 'the-all-nighter-trade', label: 'The all-nighter trade: more hours, fewer marks' },
   { id: 'why-teenage-sleep-runs-late', label: 'Why teenage sleep runs late (and school starts early)' },
@@ -141,21 +138,21 @@ function SocialShare({ url, title, center }: { url: string; title: string; cente
   const enc = encodeURIComponent(url);
   const encT = encodeURIComponent(title);
   return (
-    <div className={`flex items-center gap-2 ${center ? 'justify-center' : ''}`}>
+    <div className={`flex items-center gap-1.5 ${center ? 'justify-center' : 'ml-auto sm:ml-2'}`}>
       <a
         href={`https://wa.me/?text=${encT}%20${enc}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#25d366]/10 hover:bg-[#25d366]/20 transition"
+        className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#25d366]/10 hover:bg-[#25d366]/20 transition"
         aria-label="Share on WhatsApp"
       >
-        <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="w-4 h-4" />
+        <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="w-3.5 h-3.5" />
       </a>
       <a
         href={`https://www.facebook.com/sharer/sharer.php?u=${enc}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#1877f2]/10 hover:bg-[#1877f2]/20 transition text-[#1877f2] font-extrabold text-xs"
+        className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#1877f2]/10 hover:bg-[#1877f2]/20 transition text-[#1877f2] font-bold text-xs"
         aria-label="Share on Facebook"
       >
         f
@@ -164,14 +161,14 @@ function SocialShare({ url, title, center }: { url: string; title: string; cente
         href={`https://www.linkedin.com/shareArticle?mini=true&url=${enc}&title=${encT}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#0a66c2]/10 hover:bg-[#0a66c2]/20 transition text-[#0a66c2] font-extrabold text-xs"
+        className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0a66c2]/10 hover:bg-[#0a66c2]/20 transition text-[#0a66c2] font-bold text-xs"
         aria-label="Share on LinkedIn"
       >
         in
       </a>
       <a
         href={`mailto:?subject=${encT}&body=${enc}`}
-        className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 transition text-gray-500"
+        className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 hover:bg-gray-200 transition text-gray-500"
         aria-label="Share via Email"
       >
         <Mail className="h-3.5 w-3.5" />
@@ -320,7 +317,6 @@ export default function SleepAndMemoryBlog() {
         placename="United Arab Emirates"
         ogType="article"
         schema={[
-          localBusinessSchema,
           breadcrumbSchema([
             { name: 'Home', url: '/' },
             { name: 'Blog', url: '/blogs' },
@@ -337,13 +333,11 @@ export default function SleepAndMemoryBlog() {
               name: 'Nimra Shahzada',
               url: '/authors/nimra-shahzada',
               jobTitle: 'Writer on learning and the psychology of studying',
-              sameAs: 'https://www.linkedin.com/company/ustaad-ae',
             },
             reviewer: {
+              type: 'Organization',
               name: 'Ustaad Editorial Team',
               url: '/editorial',
-              jobTitle: 'Curriculum & Academic Review Board',
-              sameAs: 'https://www.linkedin.com/company/ustaad-ae',
             },
             image: BLOG.heroImage,
           }),
@@ -414,13 +408,15 @@ export default function SleepAndMemoryBlog() {
                   </span>
                 </span>
               </div>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-400 pt-1">
-                <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-gray-400 pt-1">
+                <time dateTime={BLOG.dateModified} className="flex items-center gap-1.5 min-w-0">
                   <Calendar className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />
-                  First published: {BLOG.publishedText} · Last reviewed: {BLOG.reviewedText}
+                  <span className="leading-snug">Published {BLOG.publishedText}</span>
                 </time>
-                <span className="flex items-center gap-1">
-                  <Clock className="h-3.5 w-3.5 text-[#C7A24A]" />{BLOG.readTime}
+                <span className="text-gray-300" aria-hidden="true">·</span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />
+                  <span>{BLOG.readTime}</span>
                 </span>
                 <SocialShare url={shareUrl} title={BLOG.title} />
               </div>
@@ -439,17 +435,12 @@ export default function SleepAndMemoryBlog() {
                 className="w-full h-full object-cover block"
               />
             </div>
-            {BLOG.heroCaption && (
-              <figcaption className="mt-2.5 text-center text-xs text-gray-400 italic leading-relaxed px-2">
-                {BLOG.heroCaption}
-              </figcaption>
-            )}
           </figure>
 
           {/* Intro Narrative */}
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
             <p>
-              It is 2:10 a.m. in Dubai. A Year 12 student has been at her desk since dinner, her physics notes spread across the bed, a can of energy drink beside the laptop. The mock starts at 8:00. She has decided that three more hours of revision beats three hours of sleep.
+              It is 2:10 a.m. in Dubai. A Year 12 student has been at her desk since dinner, her physics notes spread across it, a can of energy drink beside the laptop. The mock starts at 8:00. She has decided that three more hours of revision beats three hours of sleep.
             </p>
             <p>
               At 8:40 the next morning she reaches question 3, a topic she covered again at midnight, and finds she can only half-remember it. Her mark on the paper is lower than her practice scores from the week before.
@@ -465,27 +456,8 @@ export default function SleepAndMemoryBlog() {
           {/* Table of Contents */}
           <TOC open={tocOpen} setOpen={setTocOpen} />
 
-          {/* 01. Quick answers */}
-          <SectionHeading num="01" id="quick-answers">
-            Quick answers before you read
-          </SectionHeading>
-          <div className="space-y-2.5 my-4">
-            {[
-              { q: 'Does sleep really affect memory?', a: 'Yes. Sleep is when recently learned information is reactivated and stabilised. A tired brain also takes in new material less effectively the next day.' },
-              { q: 'Is one all-nighter really that bad?', a: 'It can cost more than it gains. Sleep loss reduces attention and working memory, which are the very abilities an exam draws on.' },
-              { q: 'How much sleep do teenagers need?', a: 'Sleep medicine guidance recommends around 8 to 10 hours a night for 13 to 18 year olds.' },
-              { q: 'Should my child stop revising the night before an exam?', a: 'A short, light review is fine. Late-night cramming and new topics tend to backfire.' },
-              { q: 'What if sleep is disrupted by Ramadan?', a: 'Plan lighter, shorter sessions at times that suit the adjusted routine, and protect total rest wherever possible. See section 07.' }
-            ].map((item, idx) => (
-              <div key={idx} className="p-3.5 rounded-xl border border-[#0f4a9b]/12 bg-[#f8fafd]">
-                <span className="font-bold text-xs text-[#0a1f3d] block mb-1">{item.q}</span>
-                <p className="text-xs text-gray-600 leading-relaxed text-justify">{item.a}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* 02. What sleep actually does for memory */}
-          <SectionHeading num="02" id="what-sleep-does-for-memory">
+          {/* 01. What sleep actually does for memory */}
+          <SectionHeading num="01" id="what-sleep-does-for-memory">
             What sleep actually does for memory
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
@@ -503,11 +475,10 @@ export default function SleepAndMemoryBlog() {
             </p>
           </div>
 
-          {/* IMAGE 2: Warehouse night-shift metaphor */}
+          {/* IMAGE 2: Warehouse photo */}
           <InlineImage
             src="/images/blogs/sleep-memory-consolidation-warehouse-metaphor.webp"
-            alt="Illustration of sleep as a night shift sorting learned information into shelves"
-            caption="Revision loads the boxes. Sleep sorts and shelves them so they can be found again."
+            alt="Teenage boy asleep in his bedroom at night, with subject folders on the shelf and the Dubai skyline outside the window"
           />
 
           <NarrativeBox label="PARENT TAKEAWAY">
@@ -516,13 +487,13 @@ export default function SleepAndMemoryBlog() {
             </p>
           </NarrativeBox>
 
-          {/* 03. The all-nighter trade */}
-          <SectionHeading num="03" id="the-all-nighter-trade">
+          {/* 02. The all-nighter trade */}
+          <SectionHeading num="02" id="the-all-nighter-trade">
             The all-nighter trade: more hours, fewer marks
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
             <p>
-              It feels logical that more study time equals better results. A large diary study by Gillen-O'Neel, Huynh and Fuligni followed high school students over several weeks and found something different. On days when students cut sleep to study more, they reported more difficulty understanding material in class and more trouble on tests the following day. Extra hours bought at the expense of sleep did not pay off.
+              A diary study by Gillen-O'Neel, Huynh and Fuligni tracked 535 US high school students, who logged their study time and sleep for 14 days in each of grades 9, 10 and 12. On days when students cut sleep to study more, they were more likely to report not understanding something taught in class and doing poorly on a test, quiz or homework the next day. Extra hours bought at the expense of sleep did not pay off.
             </p>
             <p>
               Part of the explanation is what sleep loss does to the brain's day-to-day tools. A meta-analysis by Lim and Dinges found that short-term sleep deprivation impairs attention and working memory, which are used constantly during an exam: holding a question in mind, choosing a method, tracking multi-step working.
@@ -543,7 +514,7 @@ export default function SleepAndMemoryBlog() {
                     <tr className="bg-[#0f4a9b] text-white">
                       <th className="p-3 w-1/3 font-bold border-r border-white/10">Factor</th>
                       <th className="p-3 w-1/3 font-bold border-r border-white/10">The 2 a.m. session</th>
-                      <th className="p-3 w-1/3 font-bold">Lights out at reasonable hour</th>
+                      <th className="p-3 w-1/3 font-bold">Lights out at a reasonable hour</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 bg-white">
@@ -555,7 +526,7 @@ export default function SleepAndMemoryBlog() {
                     <tr className="hover:bg-slate-50 bg-[#f8fafd]">
                       <td className="p-3 border-r border-slate-100 font-semibold text-slate-700">Quality of those hours</td>
                       <td className="p-3 border-r border-slate-100 text-rose-600 font-medium">Low: tired brain encodes less well</td>
-                      <td className="p-3 text-slate-500 italic">n/a</td>
+                      <td className="p-3 text-slate-600">Higher: the day's study was done while alert</td>
                     </tr>
                     <tr className="hover:bg-slate-50">
                       <td className="p-3 border-r border-slate-100 font-semibold text-slate-700">Consolidation of day's learning</td>
@@ -583,11 +554,11 @@ export default function SleepAndMemoryBlog() {
             </div>
           </div>
 
-          {/* IMAGE 4: All-nighter vs sleep comparison graphic */}
+          {/* IMAGE 4: All-nighter image */}
           <InlineImage
             src="/images/blogs/all-nighter-vs-full-night-sleep-exam-results.webp"
-            alt="Split comparison of a tired student after an all-nighter and a rested student at an exam"
-            caption="The All-Nighter Tradeoff: Extra hours bought by cutting sleep compromise memory consolidation and working memory accuracy on exam day."
+            alt="Tired teenage boy at his desk late at night with a laptop, an energy drink can and revision notes"
+            caption="Late-night revision the night before a paper."
           />
 
           <NarrativeBox label="PARENT TAKEAWAY">
@@ -596,8 +567,8 @@ export default function SleepAndMemoryBlog() {
             </p>
           </NarrativeBox>
 
-          {/* 04. Why teenage sleep runs late */}
-          <SectionHeading num="04" id="why-teenage-sleep-runs-late">
+          {/* 03. Why teenage sleep runs late */}
+          <SectionHeading num="03" id="why-teenage-sleep-runs-late">
             Why teenage sleep runs late (and school starts early)
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
@@ -642,12 +613,12 @@ export default function SleepAndMemoryBlog() {
           {/* IMAGE 5: Teen body clock */}
           <InlineImage
             src="/images/blogs/teenage-body-clock-school-start-uae.webp"
-            alt="Diagram showing teenage body clock shifting later while school starts early in the UAE"
-            caption="Circadian Biology: Melatonin release delays naturally during adolescence, clashing with early UAE school buses and morning exams."
+            alt="Teenage girl sitting on her bed rubbing her eyes early in the morning, with her school uniform ready on a chair"
+            caption="Teenage body clocks shift later just as the school day starts early."
           />
 
-          {/* 05. The sleep-smart revision day */}
-          <SectionHeading num="05" id="the-sleep-smart-revision-day">
+          {/* 04. The sleep-smart revision day */}
+          <SectionHeading num="04" id="the-sleep-smart-revision-day">
             The sleep-smart revision day
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
@@ -690,7 +661,7 @@ export default function SleepAndMemoryBlog() {
                     <tr className="hover:bg-slate-50">
                       <td className="p-3 border-r border-slate-100 font-semibold text-slate-700">Bedtime</td>
                       <td className="p-3 border-r border-slate-100 text-emerald-700 font-semibold">Consistent lights-out</td>
-                      <td className="p-3 text-emerald-700 font-semibold">Protects neural consolidation</td>
+                      <td className="p-3 text-emerald-700 font-semibold">Gives the brain the night to store the day's work</td>
                     </tr>
                   </tbody>
                 </table>
@@ -705,19 +676,21 @@ export default function SleepAndMemoryBlog() {
               <a href="/blogs/illusion-of-competence-revision-false-confidence" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                 The Illusion of Competence
               </a>
-              , this fits neatly: hard retrieval earlier, light review later, sleep in between.
+              , this fits neatly: hard retrieval earlier, light review later, sleep in between. If your child needs help building a realistic plan like this, it is a large part of how we approach{' '}
+              <a href="/exam-preparation" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                exam preparation with a 1-to-1 tutor
+              </a>.
             </p>
           </div>
 
           {/* IMAGE 3: Sleep-smart revision day timeline */}
           <InlineImage
             src="/images/blogs/sleep-smart-revision-day-timeline.webp"
-            alt="Timeline showing hard revision after school and light review before bed"
-            caption="Put the hardest thinking early in the day and let the last hour be light."
+            alt="Student in school uniform writing revision notes at her desk in late-afternoon light"
           />
 
-          {/* 06. Seven sleep rules */}
-          <SectionHeading num="06" id="seven-sleep-rules">
+          {/* 05. Seven sleep rules */}
+          <SectionHeading num="05" id="seven-sleep-rules">
             Seven sleep rules that protect exam performance
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
@@ -752,16 +725,16 @@ export default function SleepAndMemoryBlog() {
           <InlineImage
             src="/images/blogs/phone-charging-outside-bedroom-sleep-routine.webp"
             alt="Phone charging on a shelf outside a bedroom with an analogue alarm clock by the bed"
-            caption="Sleep Rule #2 in action: Charging devices outside the bedroom prevents bedtime digital distraction and protects the natural sleep window."
+            caption="A phone left charging outside the bedroom."
           />
 
-          {/* 07. Ramadan, mocks and shifted sleep */}
-          <SectionHeading num="07" id="ramadan-mocks-shifted-sleep">
+          {/* 06. Ramadan, mocks and shifted sleep */}
+          <SectionHeading num="06" id="ramadan-mocks-shifted-sleep">
             Ramadan, mocks and shifted sleep
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
             <p>
-              Ramadan currently falls in the winter months and moves earlier each year. For many families it overlaps with mock exams and the pre-Easter revision block, which are important stretches of the school year.
+              Ramadan currently falls in late winter and moves about 11 days earlier each year. Ramadan 2027 is expected to begin around 8 February, subject to moon sighting. For many families it overlaps with mock exams and the spring-term revision block, which are important stretches of the school year.
             </p>
             <p>
               During Ramadan, sleep often changes shape: later nights, an early suhoor meal and altered school hours. Total sleep can fall and timing can become fragmented.
@@ -786,7 +759,7 @@ export default function SleepAndMemoryBlog() {
               <li className="flex items-start gap-2.5 text-xs text-gray-700">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0f4a9b] mt-1.5 shrink-0" />
                 <span>
-                  <strong>Protect total sleep:</strong> Protect total rest with a consistent core block plus a short afternoon rest if the school day allows it.
+                  <strong>Protect total sleep:</strong> Keep one consistent core block of sleep, plus a short afternoon rest if the school day allows it.
                 </span>
               </li>
               <li className="flex items-start gap-2.5 text-xs text-gray-700">
@@ -812,11 +785,11 @@ export default function SleepAndMemoryBlog() {
           <InlineImage
             src="/images/blogs/ramadan-revision-routine-after-iftar.webp"
             alt="Student revising at a desk after iftar with a lantern and a short study timer"
-            caption="Ramadan revision planning: Scheduling shorter, focused study blocks right after iftar capitalises on restored energy without sacrificing night rest."
+            caption="Revising after iftar, with a short timer on the desk."
           />
 
-          {/* 08. What parents can say */}
-          <SectionHeading num="08" id="what-parents-can-say">
+          {/* 07. What parents can say */}
+          <SectionHeading num="07" id="what-parents-can-say">
             What parents can say (and avoid saying)
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
@@ -882,7 +855,7 @@ export default function SleepAndMemoryBlog() {
           <InlineImage
             src="/images/blogs/parent-teen-sleep-plan-exam-week-uae.webp"
             alt="UAE parent and teenager agreeing an exam-week routine together at a home table"
-            caption="Collaborative planning: Negotiating a realistic sleep window as part of the revision timetable turns rest into a shared objective rather than an argument."
+            caption="A parent and teenager planning exam week together."
           />
 
           <NarrativeBox label="PARENT TAKEAWAY">
@@ -891,8 +864,8 @@ export default function SleepAndMemoryBlog() {
             </p>
           </NarrativeBox>
 
-          {/* 09. When poor sleep is more than a habit */}
-          <SectionHeading num="09" id="when-poor-sleep-more-than-habit">
+          {/* 08. When poor sleep is more than a habit */}
+          <SectionHeading num="08" id="when-poor-sleep-more-than-habit">
             When poor sleep is more than a habit
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
@@ -924,36 +897,36 @@ export default function SleepAndMemoryBlog() {
             </ul>
 
             <p>
-              If you notice these over a sustained period, speak to your GP, and inform the school's pastoral team, who commonly deal with exam-season sleep and stress. This article is general educational guidance and not a substitute for professional advice.
+              If you notice these over a sustained period, speak to your family doctor or paediatrician, and inform the school's pastoral team, who commonly deal with exam-season sleep and stress. This article is general educational guidance and not a substitute for professional advice.
             </p>
             <p>
               If worry about exams is what's keeping your child awake, our guide on{' '}
               <a href="/blogs/exam-panic-before-exams-uae" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
-                Exam Panic Right Before Major Tests
+                why some children only panic right before exams
               </a>{' '}
-              offers strategies for calming the night before.
+              explains what usually sits behind that panic and how parents can help before and during exam season.
             </p>
           </div>
 
-          {/* 10. Frequently asked questions */}
-          <SectionHeading num="10" id="faqs">
+          {/* 09. Frequently asked questions */}
+          <SectionHeading num="09" id="faqs">
             Frequently asked questions
           </SectionHeading>
           <div className="my-5">
             <FAQAccordion />
           </div>
 
-          {/* 11. Sources and further reading */}
-          <SectionHeading num="11" id="sources">
+          {/* 10. Sources and further reading */}
+          <SectionHeading num="10" id="sources">
             Sources and further reading
           </SectionHeading>
           <div className="space-y-2.5 my-4 text-xs text-gray-600 leading-relaxed bg-[#f8fafd] p-4 rounded-xl border border-slate-200">
-            <p>• Diekelmann, S., &amp; Born, J. (2010). The memory function of sleep. <em>Nature Reviews Neuroscience</em>.</p>
-            <p>• Yoo, S.-S., Hu, P. T., Gujar, N., Jolesz, F. A., &amp; Walker, M. P. (2007). A deficit in the ability to form new human memories without sleep. <em>Nature Neuroscience</em>.</p>
-            <p>• Gillen-O'Neel, C., Huynh, V. W., &amp; Fuligni, A. J. (2013). To study or to sleep? The academic costs of extra studying at the expense of sleep. <em>Child Development</em>.</p>
-            <p>• Lim, J., &amp; Dinges, D. F. (2010). A meta-analysis of the impact of short-term sleep deprivation on cognitive variables. <em>Psychological Bulletin</em>.</p>
-            <p>• Carskadon, M. A. (2011). Sleep in adolescents: The perfect storm. <em>Pediatric Clinics of North America</em>.</p>
-            <p>• Paruthi, S., et al. (2016). Recommended amount of sleep for pediatric populations: A consensus statement of the American Academy of Sleep Medicine. <em>Journal of Clinical Sleep Medicine</em>.</p>
+            <p>• <a href="https://doi.org/10.1038/nrn2762" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] underline hover:text-[#0a3a79]">Diekelmann, S., &amp; Born, J. (2010). The memory function of sleep. <em>Nature Reviews Neuroscience</em>.</a></p>
+            <p>• <a href="https://doi.org/10.1038/nn1851" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] underline hover:text-[#0a3a79]">Yoo, S.-S., Hu, P. T., Gujar, N., Jolesz, F. A., &amp; Walker, M. P. (2007). A deficit in the ability to form new human memories without sleep. <em>Nature Neuroscience</em>.</a></p>
+            <p>• <a href="https://doi.org/10.1111/j.1467-8624.2012.01834.x" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] underline hover:text-[#0a3a79]">Gillen-O'Neel, C., Huynh, V. W., &amp; Fuligni, A. J. (2013). To study or to sleep? The academic costs of extra studying at the expense of sleep. <em>Child Development</em>.</a></p>
+            <p>• <a href="https://doi.org/10.1037/a0018883" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] underline hover:text-[#0a3a79]">Lim, J., &amp; Dinges, D. F. (2010). A meta-analysis of the impact of short-term sleep deprivation on cognitive variables. <em>Psychological Bulletin</em>.</a></p>
+            <p>• <a href="https://pubmed.ncbi.nlm.nih.gov/21600346/" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] underline hover:text-[#0a3a79]">Carskadon, M. A. (2011). Sleep in adolescents: The perfect storm. <em>Pediatric Clinics of North America</em>.</a></p>
+            <p>• <a href="https://doi.org/10.5664/jcsm.5866" target="_blank" rel="noopener noreferrer" className="text-[#0f4a9b] underline hover:text-[#0a3a79]">Paruthi, S., et al. (2016). Recommended amount of sleep for pediatric populations: A consensus statement of the American Academy of Sleep Medicine. <em>Journal of Clinical Sleep Medicine</em>.</a></p>
           </div>
 
           {/* Related Guides */}
@@ -968,8 +941,8 @@ export default function SleepAndMemoryBlog() {
                 <span className="font-semibold">The Illusion of Competence: Why Re-Reading Notes Gives False Confidence</span>
                 <ArrowRight className="h-3.5 w-3.5 text-gray-400 group-hover:text-[#0f4a9b] group-hover:translate-x-0.5 transition" />
               </a>
-              <a href="/blogs/igcse-preparation-past-papers-final-step" className="flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-50 text-gray-700 hover:text-[#0f4a9b] transition group">
-                <span className="font-semibold">IGCSE Preparation: Why Past Papers Are the Final Step, Not the First</span>
+              <a href="/blogs/exam-panic-before-exams-uae" className="flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-50 text-gray-700 hover:text-[#0f4a9b] transition group">
+                <span className="font-semibold">My Child Only Panics Right Before Exams</span>
                 <ArrowRight className="h-3.5 w-3.5 text-gray-400 group-hover:text-[#0f4a9b] group-hover:translate-x-0.5 transition" />
               </a>
             </div>
@@ -1017,35 +990,34 @@ export default function SleepAndMemoryBlog() {
           </div>
 
           {/* Diagnostic Assessment CTA */}
-          <div className="my-10 rounded-2xl border border-[#0f4a9b]/20 bg-gradient-to-br from-[#0f4a9b]/5 via-[#f8fafd] to-white p-6 sm:p-8">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0f4a9b]/10 rounded-full mb-3 text-[10px] font-extrabold text-[#0f4a9b] tracking-wider uppercase">
+          <div
+            className="my-10 rounded-2xl p-6 sm:p-8 border border-white/10 text-white text-center relative overflow-hidden shadow-xl"
+            style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 60%, #1e5ba8 100%)' }}
+          >
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#C7A24A]/20 border border-[#C7A24A]/30 text-[#f0c96a] rounded-full mb-3 text-[10px] font-extrabold tracking-wider uppercase">
               DIAGNOSTIC SESSION
             </div>
-            <h3 className="text-lg sm:text-xl font-extrabold text-[#0a1f3d] mb-2 leading-snug">
-              Is your child's revision plan leaking sleep, or marks?
+            <h3 className="text-lg sm:text-2xl font-extrabold text-white mb-2 leading-snug max-w-xl mx-auto">
+              Is your child's revision routine costing them sleep?
             </h3>
-            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4 text-justify">
-              An Ustaad curriculum specialist can review your child's weekly routine, spot where revision time is being wasted or squeezed, and build a realistic plan that protects sleep and lifts results across{' '}
-              <a href="/physics-tutor-dubai" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Dubai</a>,{' '}
-              <a href="/physics-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Abu Dhabi</a>,{' '}
-              <a href="/igcse-tutor-dubai" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Sharjah</a> and every emirate, in person or online.
+            <p className="text-xs sm:text-sm text-white/85 leading-relaxed mb-6 max-w-lg mx-auto">
+              An Ustaad tutor can look at your child's weekly routine with you, spot where revision time is being wasted or squeezed, and build a realistic plan that protects sleep through exam season. Sessions are online and 1-to-1, for families in every emirate.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
               <a
-                href="https://wa.me/971501234567?text=Hello%20Ustaad%20team,%20I%20would%20like%20to%20book%20a%20free%20trial%20session%20for%20my%20child."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0f4a9b] text-white text-xs font-bold hover:bg-[#0a3a79] transition shadow-xs"
+                href="/contact#form"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-xs sm:text-sm w-full sm:w-auto shadow-md"
+                style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
               >
-                Book a Free Trial Session <ArrowRight className="h-3.5 w-3.5" />
+                Book a Free Trial Session
               </a>
               <a
-                href="https://wa.me/971501234567?text=Hello%20Ustaad%20team,%20I%20have%20a%20question%20about%20revision%20planning%20and%20tutoring."
+                href="https://wa.me/971561249005?text=Hello%20Ustaad%20team,%20I%20have%20a%20question%20about%20revision%20planning%20and%20tutoring."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 bg-white text-gray-700 text-xs font-bold hover:bg-slate-50 transition"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full font-bold text-xs sm:text-sm transition shadow-md w-full sm:w-auto"
               >
-                <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="w-4 h-4" /> Ask on WhatsApp
+                <WhatsAppIcon className="w-4 h-4 fill-white" /> Ask on WhatsApp
               </a>
             </div>
           </div>

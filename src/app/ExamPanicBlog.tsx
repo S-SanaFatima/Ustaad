@@ -461,7 +461,7 @@ export default function ExamPanicBlog() {
               'They treat homework as thinking, not just task completion. When they get something wrong, they review the reasoning, not just the answer.',
               'They sit timed practice papers earlier in the term. By exam time, the format no longer surprises them, and they stop panicking under timed conditions.',
               'They talk about difficulty without shame. They tell parents or teachers when something does not make sense.',
-              'They keep study sessions short and consistent rather than long and unfocused.',
+              <>They keep study sessions short and consistent rather than long and unfocused, understanding <a href="/blogs/sleep-and-memory-why-all-nighters-backfire" className="text-[#0f4a9b] font-semibold hover:underline">why all-nighters backfire</a> and protecting sleep.</>,
             ]} />
 
             <NarrativeBox label="Classroom Story, A-Level Mathematics Revision Group">

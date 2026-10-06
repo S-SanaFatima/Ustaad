@@ -10,6 +10,7 @@ import {
   Layout, StatsBar, SchoolsMarquee, DUBAI_SCHOOL_LOGOS, 
   GradientHeadingText,
   SwipeIndicator,
+  RelatedContent,
   MathsArtifact, PhysicsArtifact, ChemistryArtifact, BiologyArtifact, BusinessArtifact, EnglishArtifact, ExamPrepArtifact,
 } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -2039,31 +2040,46 @@ export default function IgcseTutorDubaiPage() {
               </a>
             </div>
           </div>
-
-          {/* Related pages */}
-          <div className="bg-[#f4f7fc] rounded-3xl p-6 sm:p-8 border border-gray-100">
-            <h4 className="text-[15px] font-bold text-[#0a1f3d] mb-6 border-b border-gray-200 pb-4">Related pages</h4>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div>
-                <a href="/igcse" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">IGCSE Hub (All Subjects)</a>
-                <p className="text-[12px] text-gray-500">For board comparison, subject list and the full IGCSE framework across the UAE.</p>
-              </div>
-              <div>
-                <a href="/maths" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">IGCSE Maths</a>
-                <p className="text-[12px] text-gray-500">For Cambridge 0580 and Edexcel 4MA1 past paper mark scheme mastery.</p>
-              </div>
-              <div>
-                <a href="/english" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">IGCSE English</a>
-                <p className="text-[12px] text-gray-500">For Language 0500 and Literature 0475 quotation recall frameworks.</p>
-              </div>
-              <div>
-                <a href="/physics" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">IGCSE Physics</a>
-                <p className="text-[12px] text-gray-500">For Cambridge 0625 and Edexcel 4PH1 structured equation substitution training.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
+
+      {/* RELATED CONTENT SECTION */}
+      <RelatedContent
+        subjects={[
+          {
+            label: 'Maths Tutor Dubai',
+            href: '/maths-tutor-dubai',
+            note: 'Cambridge 0580 and Edexcel 4MA1 past paper mark scheme mastery.'
+          },
+          {
+            label: 'Physics Tutor Dubai',
+            href: '/physics-tutor-dubai',
+            note: 'Forces, motion, waves, and structured equation substitution in Dubai.'
+          },
+          {
+            label: 'Chemistry Tutor Dubai',
+            href: '/chemistry-tutor-dubai',
+            note: 'Cambridge 0620 and Edexcel 4CH1 stoichiometry and 6-mark answers.'
+          },
+        ]}
+        curricula={[
+          {
+            label: 'GCSE Tutor Dubai',
+            href: '/gcse-tutor-dubai',
+            note: 'AQA, OCR, and Pearson Edexcel 9-1 GCSE tutoring across Dubai.'
+          },
+          {
+            label: 'A-Level Tutoring UAE',
+            href: '/a-level',
+            note: 'Sixth form transition, advanced subject mastery, and exam boards.'
+          },
+          {
+            label: 'British Curriculum UAE',
+            href: '/british-curriculum',
+            note: 'Years 7–13 National Curriculum for England pathways.'
+          },
+        ]}
+      />
     </Layout>
   );
 }

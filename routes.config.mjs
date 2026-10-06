@@ -75,6 +75,8 @@ export const ROUTES = [
   { path: '/blogs/illusion-of-competence-revision-false-confidence', component: 'IllusionOfCompetenceBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-21' },
   { path: '/blogs/command-words-igcse-a-level-exams', component: 'CommandWordsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-25' },
   { path: '/blogs/sleep-and-memory-why-all-nighters-backfire', component: 'SleepAndMemoryBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-28' },
+  { path: '/blogs/what-does-y-intercept-mean-maths', component: 'WhatDoesYInterceptMeanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-02' },
+  { path: '/blogs/how-much-should-parents-help-with-homework', component: 'HomeworkHelpBalanceBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-05' },
 
 
 
@@ -84,6 +86,7 @@ export const ROUTES = [
   { path: '/physics-tutor-abu-dhabi', component: 'PhysicsLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/physics-tutor-dubai', component: 'PhysicsTutorDubaiPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-23' },
   { path: '/chemistry-tutor-abu-dhabi', component: 'ChemistryLandingPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
+  { path: '/chemistry-tutor-dubai', component: 'ChemistryTutorDubaiPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-30' },
   { path: '/biology-tutor-abu-dhabi', component: 'BiologyTutorAbuDhabiPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/ib-tutor-abu-dhabi', component: 'IBTutorAbuDhabiPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-25' },
   { path: '/igcse-tutor-abu-dhabi', component: 'IGCSETutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },

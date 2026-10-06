@@ -8,7 +8,7 @@ import {
   BookOpen, Calculator, MapPin, Phone, Mail, Dna, Briefcase, Microscope, ClipboardList, TrendingDown, Scale, LineChart,
   Award, HelpCircle, Check, AlertCircle, Compass, Layers, GraduationCap
 } from 'lucide-react';
-import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee, SwipeIndicator } from './shared';
+import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee, SwipeIndicator, RelatedContent } from './shared';
 import { IGCSEAcademicYearPaintSection } from './shared/IGCSEAcademicYearPaintSection';
 import { IGCSESubjectMicroLabsSection } from './shared/IGCSESubjectMicroLabsSection';
 import SEOHead from './shared/SEOHead';
@@ -1702,6 +1702,44 @@ export default function IGCSETutorAbuDhabiPage() {
         subtext1=""
         button2Text="Ask Question on WhatsApp"
         subtext2=""
+      />
+
+      {/* RELATED CONTENT SECTION */}
+      <RelatedContent
+        subjects={[
+          {
+            label: 'Maths Tutor Abu Dhabi',
+            href: '/maths-tutor-abu-dhabi',
+            note: 'Cambridge 0580 and Edexcel 4MA1 past paper mark scheme mastery.'
+          },
+          {
+            label: 'Physics Tutor Abu Dhabi',
+            href: '/physics-tutor-abu-dhabi',
+            note: 'Forces, motion, waves, and structured equation substitution in Abu Dhabi.'
+          },
+          {
+            label: 'Chemistry Tutor Abu Dhabi',
+            href: '/chemistry-tutor-abu-dhabi',
+            note: 'Cambridge 0620 and Edexcel 4CH1 stoichiometry and 6-mark answers.'
+          },
+        ]}
+        curricula={[
+          {
+            label: 'GCSE Tutor Abu Dhabi',
+            href: '/gcse-tutor-abu-dhabi',
+            note: 'AQA, OCR, and Pearson Edexcel 9-1 GCSE tutoring across Abu Dhabi.'
+          },
+          {
+            label: 'A-Level Tutoring UAE',
+            href: '/a-level-tutor-abu-dhabi',
+            note: 'Sixth form transition, advanced subject mastery, and exam boards.'
+          },
+          {
+            label: 'British Curriculum UAE',
+            href: '/british-curriculum',
+            note: 'Years 7–13 National Curriculum for England pathways.'
+          },
+        ]}
       />
     </Layout>
   );

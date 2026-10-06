@@ -142,7 +142,7 @@ export default function CurriculumPage() {
     <Layout>
       <SEOHead title="Curriculum Tutoring UAE | British, IB & American | Ustaad" description="Curriculum-specific online tutoring across the UAE for British, American & IB students. 1-to-1 lessons matched to Cambridge, Edexcel & IB assessments." canonical="/curriculum" ogImage="/UpdatedImages/igcse-ib-a-level-all-curriculum-tutoring-uae.webp" schema={[localBusinessSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Curriculum", url: "/curriculum" }]), faqSchema(faqItems.map(({ question, answer }) => ({ q: question, a: answer })))]} />
       {/* ── HERO ── */}
-      <section className="min-h-[calc(100dvh-84px)] lg:min-h-[calc(100dvh-92px)] flex items-center relative overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
+      <section className="relative overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="grid lg:grid-cols-[1fr_1fr] gap-8 lg:gap-14 xl:gap-16 items-center">

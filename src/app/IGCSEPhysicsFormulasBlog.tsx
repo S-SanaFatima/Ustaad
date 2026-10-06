@@ -409,7 +409,7 @@ export default function IGCSEPhysicsFormulasBlog() {
 
             {/* 04 */}
             <SectionHeading num="04" id="reading-the-wording">Reading the Wording: Hidden Physics Cues</SectionHeading>
-            <p>Half of physics exam technique is reading the question properly. Students miss clues because they treat physics questions like maths exercises, when the wording usually carries the physics.</p>
+            <p>Half of physics exam technique is decoding the <a href="/blogs/command-words-igcse-a-level-exams" className="text-[#0f4a9b] font-semibold hover:underline">command words</a> and reading the question properly. Students miss clues because they treat physics questions like maths exercises, when the wording usually carries the physics.</p>
             <p>A quick translation guide for the most common cues:</p>
             <BulletList items={[
               <><strong>"dropped"</strong> means initial velocity is zero</>,
@@ -423,7 +423,7 @@ export default function IGCSEPhysicsFormulasBlog() {
             </NarrativeBox>
 
             <p>For Abu Dhabi families looking for one-to-one support with habits like question reading and free body diagrams, Ustaad's{' '}
-              <a href="/physics-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">physics tutoring in Abu Dhabi</a>{' '}
+              <a href="/physics-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">IGCSE physics tutoring in Abu Dhabi</a>{' '}
               is built around the same approach used in this class.</p>
 
             {/* 05 */}

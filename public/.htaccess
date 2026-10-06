@@ -77,7 +77,7 @@ ErrorDocument 404 /404.html
 DirectoryIndex index.html
 
 # ------------------------------------------------------------------------------
-# 4. REWRITE RULES (HTTPS, NON-WWW, LEGACY REDIRECTS & CLEAN URLS)
+# 4. REWRITE RULES (HTTPS, NON-WWW, REAL FILES & CLEAN URLS)
 # ------------------------------------------------------------------------------
 RewriteEngine On
 RewriteBase /
@@ -91,7 +91,11 @@ RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
 RewriteRule ^(.*)$ https://ustaad.ae/$1 [R=301,L]
 
-# --- Legacy & Alias 301 Redirects ---
+# --- 1. Real Existing Files (Images, WebP, JS, CSS, fonts, direct .html) → Serve as-is immediately ---
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# --- 2. Legacy & Alias 301 Redirects ---
 # Arabic URLs -> English equivalents
 RewriteRule ^ar/gcse-tutor-dubai/?$ /gcse-tutor-dubai [R=301,L]
 RewriteRule ^ar/?$ / [R=301,L]
@@ -122,13 +126,6 @@ RewriteRule ^/?elementor-hf(/.*)?$ - [G,L]
 RewriteRule ^/?wp-(?:content|includes|admin|json)(/.*)?$ - [G,L]
 RewriteRule ^/?[0-9]{4}/[0-9]{2}(/.*)?$ - [G,L]
 
-# Legacy Asset Redirect
-RewriteRule ^School%20logos/(.*)$ /school-logos/$1 [R=301,L]
-
-# Real Files (JS, CSS, Images, direct .html) → Serve as-is
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^ - [L]
-
 # Strip Trailing Slashes when a prerendered page exists (handles query params properly)
 RewriteCond %{THE_REQUEST} \s/+([^?\s]+?)/+(\?|\s) [NC]
 RewriteCond %{DOCUMENT_ROOT}/%1/index.html -f
@@ -140,4 +137,3 @@ RewriteCond %{DOCUMENT_ROOT}/%1/index.html -f
 RewriteRule ^ %1/index.html [L]
 
 # Unknown paths → Real HTTP 404 (handled by ErrorDocument 404 above)
-# Note: /authors/* are real prerendered pages (not WordPress /author/*)

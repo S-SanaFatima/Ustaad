@@ -5,7 +5,7 @@ import {
   CheckCircle2, ArrowRight, ChevronDown, Sparkles, Target, Star, MessageCircle, BookOpen, Video, Timer,
   MapPin
 } from 'lucide-react';
-import { Layout, GoldButton, StatsBar, SchoolsMarquee, HowOnlineSessions3DSection } from './shared';
+import { Layout, GoldButton, StatsBar, SchoolsMarquee, HowOnlineSessions3DSection, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
@@ -466,19 +466,47 @@ export default function GCSETutorAbuDhabiPage() {
               <a href={WA_URL} target="_blank" rel="noopener" className="w-full bg-[#25D366] hover:bg-[#20b958] text-white py-3 rounded-xl font-bold transition flex items-center justify-center gap-2"><MessageCircle className="w-4 h-4" /> Message Us</a>
             </div>
           </div>
-          <p className="text-center text-[13px] text-gray-500 font-medium mb-10">Weekend, evening and Ramadan slots. UAE-registered since 2015.</p>
-          
-          <div className="bg-[#f4f7fc] rounded-3xl p-6 sm:p-8 border border-gray-100">
-            <h4 className="text-[15px] font-bold text-[#0a1f3d] mb-6 border-b border-gray-200 pb-4">Related pages</h4>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div><a href="/gcse" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">GCSE Hub (All Subjects)</a><p className="text-[12px] text-gray-500">For board comparison, subject list and the full GCSE framework.</p></div>
-
-              <div><a href="/maths-tutor-abu-dhabi" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">Maths Tutor Abu Dhabi</a><p className="text-[12px] text-gray-500">For non-calc drills, Paper 1 timing and Higher tier prep.</p></div>
-              <div><span className="text-[14px] font-bold text-[#0f4a9b] block mb-1">English Tutor Abu Dhabi</span><p className="text-[12px] text-gray-500">For English Language reading and Literature essay support.</p></div>
-            </div>
-          </div>
+          <p className="text-center text-[13px] text-gray-500 font-medium">Weekend, evening and Ramadan slots. UAE-registered since 2015.</p>
         </div>
       </section>
+
+      {/* RELATED CONTENT SECTION */}
+      <RelatedContent
+        subjects={[
+          {
+            label: 'Maths Tutor Abu Dhabi',
+            href: '/maths-tutor-abu-dhabi',
+            note: 'Non-calculator drills, algebra, and Higher tier GCSE exam mastery.'
+          },
+          {
+            label: 'Physics Tutor Abu Dhabi',
+            href: '/physics-tutor-abu-dhabi',
+            note: 'Forces, motion, energy, and Paper 2/Paper 4 exam technique.'
+          },
+          {
+            label: 'Chemistry Tutor Abu Dhabi',
+            href: '/chemistry-tutor-abu-dhabi',
+            note: 'Periodic table, stoichiometry, and structured 6-mark answers.'
+          },
+        ]}
+        curricula={[
+          {
+            label: 'IGCSE Tutor Abu Dhabi',
+            href: '/igcse-tutor-abu-dhabi',
+            note: 'Cambridge 0580/0620 and Pearson Edexcel IGCSE tutoring.'
+          },
+          {
+            label: 'A-Level Tutoring UAE',
+            href: '/a-level-tutor-abu-dhabi',
+            note: 'Sixth form transition, advanced modules, and exam boards.'
+          },
+          {
+            label: 'British Curriculum UAE',
+            href: '/british-curriculum',
+            note: 'Years 7–13 National Curriculum for England pathways.'
+          },
+        ]}
+      />
     </Layout>
   );
 }

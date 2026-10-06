@@ -1030,7 +1030,7 @@ export default function IllusionOfCompetenceBlog() {
               on <strong>desirable difficulty</strong>. Learning that feels effortful in the moment tends to last longer than learning that feels smooth. Low-effort habits produce a pleasant feeling of progress and very little durable memory. Higher-effort habits feel slower and more frustrating, and they are the ones that survive the exam.
             </p>
             <p>
-              This is also why past papers are best used at the right point in the cycle, not as a first step. We cover that in our guide on <a href="/blogs/igcse-preparation-past-papers-final-step" className="text-[#0f4a9b] font-semibold hover:underline">IGCSE Preparation: Why Past Papers Are the Final Step</a>.
+              This is also why past papers are best used at the right point in the cycle, not as a first step. We cover that in our guide on <a href="/blogs/igcse-preparation-past-papers-final-step" className="text-[#0f4a9b] font-semibold hover:underline">IGCSE Preparation: Why Past Papers Are the Final Step</a>, alongside mastering how to decode <a href="/blogs/command-words-igcse-a-level-exams" className="text-[#0f4a9b] font-semibold hover:underline">command words</a> before writing.
             </p>
           </div>
 
@@ -1182,7 +1182,7 @@ export default function IllusionOfCompetenceBlog() {
             <LeitnerSystemVisual />
 
             <p>
-              Spacing these sessions over days and weeks, rather than cramming, strengthens all four steps.
+              Spacing these sessions over days and weeks, rather than cramming, strengthens all four steps (and explains <a href="/blogs/sleep-and-memory-why-all-nighters-backfire" className="text-[#0f4a9b] font-semibold hover:underline">why all-nighters backfire</a> when students try to replace memory consolidation with late-night study).
             </p>
           </div>
 

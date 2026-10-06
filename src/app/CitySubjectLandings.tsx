@@ -236,17 +236,11 @@ function CityLanding({ config }: { config: LandingConfig }) {
         </div>
       </section>
 
+      <FinalCTA />
       <RelatedContent
-        breadcrumbs={[
-          { name: 'Home', href: '/' },
-          { name: 'Curriculum', href: '/curriculum' },
-          { name: 'Abu Dhabi', href: config.path },
-          { name: config.subject, href: config.path },
-        ]}
         subjects={config.subjects}
         curricula={config.curricula}
       />
-      <FinalCTA />
     </Layout>
   );
 }

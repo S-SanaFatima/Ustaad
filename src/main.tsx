@@ -72,6 +72,7 @@ const loadGCSETutorDubaiLanding = () => import('./app/GCSETutorDubaiPage');
 const loadIgcseTutorDubaiLanding = () => import('./app/IgcseTutorDubaiPage');
 const loadMathsTutorDubaiLanding = () => import('./app/MathsTutorDubaiPage');
 const loadPhysicsTutorDubaiLanding = () => import('./app/PhysicsTutorDubaiPage');
+const loadChemistryTutorDubaiLanding = () => import('./app/ChemistryTutorDubaiPage');
 const loadALevelTutorLanding = () => import('./app/ALevelTutorAbuDhabiPage');
 const loadIBTutorLanding = () => import('./app/IBTutorAbuDhabiPage');
 const loadAcademicBlogsPage = () => import('./app/AcademicBlogsPage');
@@ -83,6 +84,8 @@ const loadWhatDoesGradientMeanBlog = () => import('./app/WhatDoesGradientMeanBlo
 const loadIllusionOfCompetenceBlog = () => import('./app/IllusionOfCompetenceBlog');
 const loadCommandWordsBlog = () => import('./app/CommandWordsBlog');
 const loadSleepAndMemoryBlog = () => import('./app/SleepAndMemoryBlog');
+const loadWhatDoesYInterceptMeanBlog = () => import('./app/WhatDoesYInterceptMeanBlog');
+const loadHomeworkHelpBalanceBlog = () => import('./app/HomeworkHelpBalanceBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
@@ -142,6 +145,9 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/command-words-igcse-a-level-exams': loadCommandWordsBlog,
   '/blogs/sleep-and-memory-why-all-nighters-backfire': loadSleepAndMemoryBlog,
   '/blog/sleep-and-memory-why-all-nighters-backfire': loadSleepAndMemoryBlog,
+  '/blogs/what-does-y-intercept-mean-maths': loadWhatDoesYInterceptMeanBlog,
+  '/blogs/how-much-should-parents-help-with-homework': loadHomeworkHelpBalanceBlog,
+  '/blog/how-much-should-parents-help-with-homework': loadHomeworkHelpBalanceBlog,
   '/sciences': loadSciencesPage,
 
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
@@ -154,6 +160,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/igcse-tutor-dubai': loadIgcseTutorDubaiLanding,
   '/maths-tutor-dubai': loadMathsTutorDubaiLanding,
   '/physics-tutor-dubai': loadPhysicsTutorDubaiLanding,
+  '/chemistry-tutor-dubai': loadChemistryTutorDubaiLanding,
   '/a-level-tutor-abu-dhabi': loadALevelTutorLanding,
   '/ib-tutor-abu-dhabi': loadIBTutorLanding,
   '/editorial': loadEditorialPage,
@@ -230,6 +237,8 @@ const WhatDoesGradientMeanBlog = lazy(loadWhatDoesGradientMeanBlog);
 const IllusionOfCompetenceBlog = lazy(loadIllusionOfCompetenceBlog);
 const CommandWordsBlog = lazy(loadCommandWordsBlog);
 const SleepAndMemoryBlog = lazy(loadSleepAndMemoryBlog);
+const WhatDoesYInterceptMeanBlog = lazy(loadWhatDoesYInterceptMeanBlog);
+const HomeworkHelpBalanceBlog = lazy(loadHomeworkHelpBalanceBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
@@ -238,6 +247,7 @@ const GCSETutorDubaiLanding = lazy(loadGCSETutorDubaiLanding);
 const IgcseTutorDubaiLanding = lazy(loadIgcseTutorDubaiLanding);
 const MathsTutorDubaiLanding = lazy(loadMathsTutorDubaiLanding);
 const PhysicsTutorDubaiLanding = lazy(loadPhysicsTutorDubaiLanding);
+const ChemistryTutorDubaiLanding = lazy(loadChemistryTutorDubaiLanding);
 const ALevelTutorLanding = lazy(loadALevelTutorLanding);
 const IBTutorLanding = lazy(loadIBTutorLanding);
 const AcademicBlogsPage = lazy(loadAcademicBlogsPage);
@@ -345,6 +355,9 @@ function AppRoutes() {
           <Route path="/blogs/command-words-igcse-a-level-exams" element={<CommandWordsBlog />} />
           <Route path="/blogs/sleep-and-memory-why-all-nighters-backfire" element={<SleepAndMemoryBlog />} />
           <Route path="/blog/sleep-and-memory-why-all-nighters-backfire" element={<SleepAndMemoryBlog />} />
+          <Route path="/blogs/what-does-y-intercept-mean-maths" element={<WhatDoesYInterceptMeanBlog />} />
+          <Route path="/blogs/how-much-should-parents-help-with-homework" element={<HomeworkHelpBalanceBlog />} />
+          <Route path="/blog/how-much-should-parents-help-with-homework" element={<HomeworkHelpBalanceBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
 
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />
@@ -357,6 +370,7 @@ function AppRoutes() {
           <Route path="/igcse-tutor-dubai"                    element={<IgcseTutorDubaiLanding />} />
           <Route path="/maths-tutor-dubai"                    element={<MathsTutorDubaiLanding />} />
           <Route path="/physics-tutor-dubai"                  element={<PhysicsTutorDubaiLanding />} />
+          <Route path="/chemistry-tutor-dubai"                element={<ChemistryTutorDubaiLanding />} />
           <Route path="/a-level-tutor-abu-dhabi"             element={<ALevelTutorLanding />} />
           <Route path="/ib-tutor-abu-dhabi"                  element={<IBTutorLanding />} />
           <Route path="/editorial"                           element={<EditorialPage />} />

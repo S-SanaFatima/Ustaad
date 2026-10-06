@@ -136,10 +136,7 @@ function InlineImage({ src, alt }: { src: string; alt: string }) {
   return (
     <figure className="mx-auto my-6 max-w-xl">
       <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
-        <picture>
-          <source type="image/webp" srcSet={src} />
-          <img src={src.replace('.webp', '.jpg')} alt={alt} loading="lazy" className="w-full h-auto block" />
-        </picture>
+        <img src={src} alt={alt} loading="lazy" className="w-full h-auto block" />
       </div>
     </figure>
   );
@@ -445,7 +442,7 @@ export default function IGCSEBiology6MarkBlog() {
             {/* 04 */}
             <SectionHeading num="04" id="command-words-students-misread">Command Words Students Misread</SectionHeading>
             <p><strong>Describe</strong> asks what happens. <strong>Explain</strong> asks why it happens. <strong>Suggest</strong> asks for a reasoned inference from the data or diagram in front of the student. <strong>Compare</strong> asks for similarities and differences in the same sentence structure. <strong>Discuss</strong>, where it appears, asks the student to address a topic in depth in a structured way.</p>
-            <p>Students who treat these command words as interchangeable lose marks predictably. Writing a full explanation for a question that only asks for a description does not earn extra credit, and it uses time the student needs elsewhere.</p>
+            <p>Students who treat these <a href="/blogs/command-words-igcse-a-level-exams" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">command words</a> as interchangeable lose marks predictably. Writing a full explanation for a question that only asks for a description does not earn extra credit, and it uses time the student needs elsewhere.</p>
             <p>If your child finishes a Biology paper with time to spare and still scores below expectation, the command word check is worth investigating first. A calm re-read of the command word before writing keeps the answer aligned with what the question actually asks.</p>
 
             {/* 05 */}

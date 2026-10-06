@@ -170,7 +170,7 @@ export default function BackToSchoolPopup({ open, onClose }: BackToSchoolPopupPr
                       className="mt-0.5 text-xs font-bold uppercase tracking-[0.06em] text-[#0a1f3d] md:text-xs"
                       style={SERIF}
                     >
-                      30 September 2026
+                      15 October 2026
                     </p>
                   </div>
                 </div>

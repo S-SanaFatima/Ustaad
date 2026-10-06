@@ -85,6 +85,7 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
       tutors: [
         { label: 'Maths Tutor Dubai', href: '/maths-tutor-dubai' },
         { label: 'Physics Tutor Dubai', href: '/physics-tutor-dubai' },
+        { label: 'Chemistry Tutor Dubai', href: '/chemistry-tutor-dubai' },
         { label: 'GCSE Tutor Dubai', href: '/gcse-tutor-dubai' },
         { label: 'IGCSE Tutor Dubai', href: '/igcse-tutor-dubai' },
       ],

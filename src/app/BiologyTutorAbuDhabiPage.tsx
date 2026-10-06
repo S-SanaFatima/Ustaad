@@ -5,7 +5,7 @@ import {
   Star, CheckCircle2, X, MessageCircle, BookOpen, Calculator, PenTool,
   ShieldCheck, ClipboardCheck, Brain, Target, FlaskConical, Timer, FileSearch, Wrench
 } from 'lucide-react';
-import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee } from './shared';
+import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
@@ -1083,7 +1083,7 @@ export default function BiologyLanding() {
         title="Biology Tutor Abu Dhabi | IGCSE, A-Level & IB | Ustaad"
         description="Specialist 1-to-1 biology tutors in Abu Dhabi for IGCSE, A-Level and IB. Master genetics, physiology and IA. Ideal for medicine pathways. Free trial."
         canonical="/biology-tutor-abu-dhabi"
-        ogImage="/UpdatedImages/abu-dhabi-biology-tutor-student-online-session.jpg"
+        ogImage="/UpdatedImages/private-subject-tutoring-igcse-ib-a-level-uae.webp"
         placename="Abu Dhabi, UAE"
         robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
         schema={[
@@ -1905,6 +1905,44 @@ export default function BiologyLanding() {
         }
         button1Text="Book Your Free Trial"
         button1Href={BOOKING} />
+
+      {/* RELATED CONTENT SECTION */}
+      <RelatedContent
+        subjects={[
+          {
+            label: 'Chemistry Tutor Abu Dhabi',
+            href: '/chemistry-tutor-abu-dhabi',
+            note: 'Biochemistry, metabolic pathways, and organic chemistry tutoring.'
+          },
+          {
+            label: 'Physics Tutor Abu Dhabi',
+            href: '/physics-tutor-abu-dhabi',
+            note: 'Biophysics, optics, and mathematical science tutoring.'
+          },
+          {
+            label: 'Biology Subject Hub',
+            href: '/biology',
+            note: 'Comprehensive overview of our life sciences faculty and curriculum tracks.'
+          },
+        ]}
+        curricula={[
+          {
+            label: 'IB DP Biology (SL & HL)',
+            href: '/ib-curriculum',
+            note: 'Genetics, ecology, human physiology & internal assessment guidance.'
+          },
+          {
+            label: 'IGCSE Biology Abu Dhabi',
+            href: '/igcse-tutor-abu-dhabi',
+            note: 'Cambridge 0610 and Edexcel 4BI1 past paper exam technique.'
+          },
+          {
+            label: 'A-Level Biology Abu Dhabi',
+            href: '/a-level-tutor-abu-dhabi',
+            note: 'AQA, OCR and Edexcel cellular biology and essay preparation.'
+          },
+        ]}
+      />
 
       {/* STICKY MOBILE BAR */}
       <AnimatePresence>

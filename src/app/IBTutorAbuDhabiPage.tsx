@@ -7,7 +7,7 @@ import {
   AlertTriangle, MessageSquareQuote, Video, PenTool, ArrowRightLeft,
   Calendar, FileText, Timer
 } from 'lucide-react';
-import { Layout, GoldButton, StatsBar, SchoolsMarquee, SwipeIndicator } from './shared';
+import { Layout, GoldButton, StatsBar, SchoolsMarquee, SwipeIndicator, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, courseSchema } from './shared/schemas';
 
@@ -2025,34 +2025,49 @@ export default function IBTutorAbuDhabiPage() {
             </motion.div>
           </div>
 
-          {/* Related Pages Internal Links */}
-          <div className="max-w-4xl mx-auto mb-10">
-            <p className="text-center text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-5">Related Pages</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
-              {[
-                { label: 'IB Programme Hub', sublabel: 'MYP, SL, HL and Core overview', href: '/ib-curriculum' },
-                { label: 'IB Maths Tutor Abu Dhabi', sublabel: 'AA, AI, the exploration and papers', href: '/maths-tutor-abu-dhabi' },
-                { label: 'IB English Tutor Abu Dhabi', sublabel: 'English A and B, spoken assessment', href: '/english' },
-                { label: 'IGCSE Tutor Abu Dhabi', sublabel: 'Year 10 and 11, British curriculum', href: '/igcse-tutor-abu-dhabi' },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="flex flex-col gap-0.5 p-4 rounded-2xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-[#0f4a9b]/20 hover:shadow-sm transition-all duration-200 group"
-                >
-                  <span className="text-[#0f4a9b] font-bold text-xs group-hover:underline">{link.label}</span>
-                  <span className="text-slate-500 text-[11px] leading-tight">{link.sublabel}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <p className="text-center text-xs font-semibold text-gray-500 mb-14">
+          <p className="text-center text-xs font-semibold text-gray-500 mb-6">
             First session free. Evening, weekend and Ramadan slots. Serving Abu Dhabi families, delivered online across the UAE. Ustaad has operated in the UAE since 2015.
           </p>
-
         </div>
       </section>
-</Layout>
+
+      {/* RELATED CONTENT SECTION */}
+      <RelatedContent
+        subjects={[
+          {
+            label: 'Maths Tutor Abu Dhabi',
+            href: '/maths-tutor-abu-dhabi',
+            note: 'IB AA & AI (HL & SL) internal assessment and examination coaching.'
+          },
+          {
+            label: 'Physics Tutor Abu Dhabi',
+            href: '/physics-tutor-abu-dhabi',
+            note: 'DP Themes A–E first-principles physics tuition in Abu Dhabi.'
+          },
+          {
+            label: 'Chemistry Tutor Abu Dhabi',
+            href: '/chemistry-tutor-abu-dhabi',
+            note: 'DP Chemistry SL & HL reaction mechanism and internal assessment prep.'
+          },
+        ]}
+        curricula={[
+          {
+            label: 'IB DP Standard & Higher Level',
+            href: '/ib-curriculum',
+            note: 'Complete Diploma Programme core syllabus preparation and IA coaching.'
+          },
+          {
+            label: 'MYP Sciences & Mathematics',
+            href: '/myp',
+            note: 'Years 7–10 inquiry-based learning and Criterion B/C mastery.'
+          },
+          {
+            label: 'IGCSE Tutor Abu Dhabi',
+            href: '/igcse-tutor-abu-dhabi',
+            note: 'Cambridge and Edexcel IGCSE curriculum pathways in Abu Dhabi.'
+          },
+        ]}
+      />
+    </Layout>
   );
 }

@@ -631,8 +631,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/physics-tutor-abu-dhabi',
     component: 'PhysicsLanding',
     seo: {
-      title: 'Physics Tutor Abu Dhabi | IGCSE, A-Level & IB | Ustaad',
-      description: 'Trusted 1-to-1 physics tutors in Abu Dhabi for IGCSE, A-Level and IB. Rebuild weak topics, drill past papers, and lift exam grades. Book a free trial.',
+      title: 'IGCSE & A-Level Physics Tutor | Abu Dhabi & UAE | Ustaad',
+      description: 'One-to-one IGCSE and A-Level physics tutoring for Abu Dhabi families, taught online across the UAE. Cambridge 0625, Edexcel 4PH1 and A-Level 9702, including the practical papers. Free 30-minute trial.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -737,6 +737,19 @@ export const ROUTES: RouteConfig[] = [
       changefreq: 'monthly'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Physics', url: '/physics' }, { name: 'Physics Tutor Dubai', url: '/physics-tutor-dubai' }]
+  },
+  {
+    path: '/chemistry-tutor-dubai',
+    component: 'ChemistryTutorDubaiPage',
+    seo: {
+      title: 'Chemistry Tutor Dubai | IGCSE, GCSE, A-Level & IB | Ustaad',
+      description: 'One-to-one online chemistry tutors in Dubai for IGCSE, GCSE, A-Level and IB. Fix mole calculations, organic and 6-mark answers. Book a free trial.',
+      keywords: 'chemistry tutor Dubai, IGCSE chemistry tutor Dubai, GCSE chemistry tutor Dubai, A-Level chemistry tutor Dubai, IB chemistry tutor Dubai, online chemistry tuition Dubai, private chemistry tutor UAE',
+      priority: 0.90,
+      changefreq: 'monthly',
+      lastmod: '2026-09-30'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Chemistry', url: '/chemistry' }, { name: 'Chemistry Tutor Dubai', url: '/chemistry-tutor-dubai' }]
   },
   {
     path: '/a-level-tutor-abu-dhabi',
@@ -895,6 +908,40 @@ export const ROUTES: RouteConfig[] = [
       lastmod: '2026-09-21'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' }, { name: 'The Illusion of Competence', url: '/blogs/illusion-of-competence-revision-false-confidence' }]
+  },
+  {
+    path: '/blogs/what-does-y-intercept-mean-maths',
+    component: 'WhatDoesYInterceptMeanBlog',
+    seo: {
+      title: 'What Does the y-Intercept Actually Mean? | Ustaad',
+      description: 'What does the y-intercept mean in a real-life graph? A maths teacher explains how to read it in context, and when it means nothing at all.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-10-02'
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blogs' },
+      { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' },
+      { name: 'What Does the y-Intercept Mean?', url: '/blogs/what-does-y-intercept-mean-maths' }
+    ]
+  },
+  {
+    path: '/blogs/how-much-should-parents-help-with-homework',
+    component: 'HomeworkHelpBalanceBlog',
+    seo: {
+      title: 'How Much Should Parents Help With Homework? | Ustaad UAE',
+      description: "How much homework help is too much? A practical UAE parent's guide to supporting your child without doing the work for them, by subject and age.",
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-10-05'
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blogs' },
+      { name: 'Parent Guidance', url: '/blogs/parent-guidance' },
+      { name: 'How Much Should Parents Help With Homework?', url: '/blogs/how-much-should-parents-help-with-homework' }
+    ]
   },
   {
     path: '/privacy',

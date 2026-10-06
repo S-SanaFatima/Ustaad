@@ -2039,7 +2039,7 @@ export default function HowItWorksPage() {
         title="Start with a Short Conversation"
         subtitle="A first call lets us hear what your child needs, before any lessons are arranged."
         button1Text="Start Your First Session"
-        button2Text="Ask Your Question on WhatsApp"
+        button2Text="Ask on WhatsApp"
         button2Href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20have%20a%20question%20about%20how%20tutoring%20works."
       />
 

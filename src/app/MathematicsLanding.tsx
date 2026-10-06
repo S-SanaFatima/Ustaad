@@ -1754,29 +1754,6 @@ export default function MathematicsLanding() {
         </div>
       </section>
 
-      <RelatedContent
-        breadcrumbs={[
-          { name: 'Home', href: '/' },
-          { name: 'Curriculum', href: '/curriculum' },
-          { name: 'Abu Dhabi', href: '/maths-tutor-abu-dhabi' },
-          { name: 'Maths', href: '/maths-tutor-abu-dhabi' },
-        ]}
-        subjects={[
-          { label: 'Physics Tutor Abu Dhabi', href: '/physics-tutor-abu-dhabi' },
-          { label: 'Chemistry Tutor Abu Dhabi', href: '/chemistry-tutor-abu-dhabi' },
-          { label: 'Biology Tutor Abu Dhabi', href: '/biology-tutor-abu-dhabi' },
-          { label: 'Maths subject hub', href: '/maths' },
-          { label: 'Statistics', href: '/statistics' },
-        ]}
-        curricula={[
-          { label: 'IGCSE', href: '/igcse' },
-          { label: 'A-Level', href: '/a-level' },
-          { label: 'IB Curriculum', href: '/ib-curriculum' },
-          { label: 'British Curriculum', href: '/british-curriculum' },
-          { label: 'IGCSE Tutor Abu Dhabi', href: '/igcse-tutor-abu-dhabi' },
-        ]}
-      />
-
       <FinalCTA
         title="Start Maths Support Today"
         subtitleNode={
@@ -1788,6 +1765,44 @@ export default function MathematicsLanding() {
         button1Href={BOOKING}
         button2Text="Ask Your Question"
         subtext2="Stuck on a topic? Send it across."
+      />
+
+      {/* RELATED CONTENT SECTION */}
+      <RelatedContent
+        subjects={[
+          {
+            label: 'Physics Tutor Abu Dhabi',
+            href: '/physics-tutor-abu-dhabi',
+            note: 'Mechanics, vector kinematics, and mathematical physics in Abu Dhabi.'
+          },
+          {
+            label: 'Chemistry Tutor Abu Dhabi',
+            href: '/chemistry-tutor-abu-dhabi',
+            note: 'Moles calculations, stoichiometry, and kinetics support in Abu Dhabi.'
+          },
+          {
+            label: 'Maths Subject Hub',
+            href: '/maths',
+            note: 'Comprehensive overview of maths faculty and curriculum tracks.'
+          },
+        ]}
+        curricula={[
+          {
+            label: 'IB DP Mathematics (AA & AI)',
+            href: '/ib-curriculum',
+            note: 'Analysis & Approaches (HL/SL) and Applications & Interpretation.'
+          },
+          {
+            label: 'IGCSE Maths Abu Dhabi',
+            href: '/igcse-tutor-abu-dhabi',
+            note: 'Cambridge 0580 and Edexcel 4MA1 past paper mark scheme mastery.'
+          },
+          {
+            label: 'A-Level Mathematics Abu Dhabi',
+            href: '/a-level-tutor-abu-dhabi',
+            note: 'Pure Maths, Mechanics, and Statistics module mastery.'
+          },
+        ]}
       />
     </Layout>
   );

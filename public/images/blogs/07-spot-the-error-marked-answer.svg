@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%" style="background:#ffffff; border-radius:16px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="paper-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0a1f3d" flood-opacity="0.08" />
+    </filter>
+    <pattern id="grid-pattern" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#e2e8f0" stroke-width="0.75" />
+    </pattern>
+    <linearGradient id="desk-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#edf2f7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="480" fill="url(#desk-bg)" rx="16" />
+
+  <!-- Exam Sheet Container -->
+  <g transform="translate(40, 24)" filter="url(#paper-shadow)">
+    <!-- Paper Sheet -->
+    <rect width="720" height="432" fill="#ffffff" rx="10" stroke="#cbd5e1" stroke-width="1.5" />
+    
+    <!-- Top Header Bar -->
+    <rect x="0" y="0" width="720" height="38" fill="#f8fafc" rx="10" />
+    <path d="M 0 38 L 720 38" stroke="#e2e8f0" stroke-width="1" />
+    
+    <text x="24" y="24" font-size="12" font-weight="700" fill="#475569" letter-spacing="0.5">IGCSE MATHEMATICS · PAPER 4 (EXTENDED)</text>
+    <rect x="616" y="8" width="80" height="22" rx="4" fill="#0f4a9b" />
+    <text x="656" y="23" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">2 MARKS</text>
+
+    <!-- Question Content -->
+    <g transform="translate(28, 62)">
+      <!-- Question Title -->
+      <text x="0" y="16" font-size="14" font-weight="800" fill="#0f172a">
+        5. A kiosk in Dubai records daily ice cream sales (S) against temperature (T °C).
+      </text>
+      <text x="18" y="38" font-size="13" font-weight="600" fill="#334155">
+        The regression equation is calculated as: <tspan font-family="monospace" font-weight="800" fill="#0f4a9b">S = 12T - 180</tspan> (for temperatures between 25°C and 45°C).
+      </text>
+
+      <!-- Sub-question -->
+      <text x="18" y="68" font-size="13.5" font-weight="700" fill="#0f172a">
+        (b) Interpret the value of the y-intercept in the context of this model.
+      </text>
+      <text x="635" y="68" font-size="12" font-weight="700" fill="#64748b" text-anchor="end">[2]</text>
+
+      <!-- Student Answer Box Area -->
+      <g transform="translate(18, 92)">
+        <rect width="626" height="150" fill="#fcfdfe" rx="8" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="6 4" />
+        
+        <!-- Answer Line 1 -->
+        <line x1="20" y1="42" x2="606" y2="42" stroke="#e2e8f0" stroke-width="1" />
+        <!-- Answer Line 2 -->
+        <line x1="20" y1="84" x2="606" y2="84" stroke="#e2e8f0" stroke-width="1" />
+        <!-- Answer Line 3 -->
+        <line x1="20" y1="126" x2="606" y2="126" stroke="#e2e8f0" stroke-width="1" />
+
+        <!-- Student Handwritten Answer (Blue Ink) -->
+        <text x="28" y="36" font-size="15" font-family="'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif" fill="#1e40af" font-weight="600">
+          The intercept is -180, so the kiosk sells -180 ice creams at 0°C.
+        </text>
+
+        <!-- Red Pen Strike-through (Teacher Marking) -->
+        <line x1="22" y1="31" x2="570" y2="31" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" />
+        
+        <!-- Teacher Red Pen Corrections -->
+        <g transform="translate(32, 76)">
+          <text x="0" y="0" font-size="14" font-family="'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif" fill="#dc2626" font-weight="700">
+            ✗ Extrapolation error! 0°C is far outside the recorded data (25°C to 45°C).
+          </text>
+          <text x="0" y="38" font-size="13.5" font-family="'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif" fill="#dc2626" font-weight="700">
+            Correct statement: "The intercept has no meaning in context because x = 0 is outside the range."
+          </text>
+        </g>
+      </g>
+
+      <!-- Examiner Marking Stamp / Score Box -->
+      <g transform="translate(480, 260)">
+        <rect width="164" height="52" rx="8" fill="#fef2f2" stroke="#f87171" stroke-width="1.5" />
+        <text x="14" y="24" font-size="11" font-weight="700" fill="#991b1b" letter-spacing="0.5">EXAMINER MARK:</text>
+        <text x="14" y="42" font-size="16" font-weight="900" fill="#dc2626">0 / 2 MARKS</text>
+        <circle cx="138" cy="26" r="16" fill="#dc2626" />
+        <text x="138" y="32" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">✗</text>
+      </g>
+
+      <!-- Key Takeaway Banner -->
+      <g transform="translate(18, 260)">
+        <rect width="445" height="52" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.2" />
+        <circle cx="28" cy="26" r="12" fill="#0f4a9b" />
+        <text x="28" y="31" font-size="13" font-weight="900" fill="#ffffff" text-anchor="middle">!</text>
+        <text x="48" y="22" font-size="11" font-weight="800" fill="#1e3a8a">EXAMINER TIP:</text>
+        <text x="48" y="38" font-size="11" font-weight="600" fill="#1e40af">Never give a physical meaning to an intercept outside the data range.</text>
+      </g>
+    </g>
+  </g>
+</svg>

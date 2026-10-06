@@ -747,7 +747,7 @@ export default function ExamStaminaBlog() {
                 <strong>Rule 2: Every session must require active production.</strong> Reading study guides builds zero endurance. Endurance is built exclusively through output under time: writing solutions, deriving equations, and formulating essays.
               </p>
               <p>
-                <strong>Rule 3: Protect deep recovery between drills.</strong> Cognitive capacity regenerates during sleep and active rest. Piling four hours of cramming immediately after a timed paper erodes the very neural recovery needed for endurance to expand.
+                <strong>Rule 3: Protect deep recovery between drills.</strong> Cognitive capacity regenerates during sleep and active rest. Piling four hours of cramming immediately after a timed paper erodes the very neural recovery needed for endurance to expand (see our guide on <a href="/blogs/sleep-and-memory-why-all-nighters-backfire" className="text-[#0f4a9b] font-semibold hover:underline">why all-nighters backfire for UAE students</a>).
               </p>
             </NarrativeBox>
 

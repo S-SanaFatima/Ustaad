@@ -17,7 +17,8 @@ import {
   MathsBookComparisonSection,
   DubaiCurriculumAnalysisSection,
   DubaiMathsDiagnostic3D,
-  SwipeIndicator
+  SwipeIndicator,
+  RelatedContent
 } from './shared';
 import {
   cityLocalBusinessSchema,
@@ -1536,38 +1537,46 @@ export default function MathsTutorDubaiPage() {
               </a>
             </div>
           </div>
-
-          <div className="bg-[#f4f7fc] rounded-3xl p-6 sm:p-8 border border-gray-100">
-            <h4 className="text-[15px] font-bold text-[#0a1f3d] mb-6 border-b border-gray-200 pb-4">Related pages</h4>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div>
-                <a href="/gcse-tutor-dubai" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">
-                  GCSE Maths Dubai
-                </a>
-                <p className="text-[12px] text-gray-500">For non-calc drills, Paper 1 timing and Higher tier prep.</p>
-              </div>
-              <div>
-                <a href="/igcse-tutor-dubai" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">
-                  IGCSE Maths Dubai
-                </a>
-                <p className="text-[12px] text-gray-500">Cambridge 0580 and Edexcel 4MA1 past paper mastery.</p>
-              </div>
-              <div>
-                <a href="/a-level" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">
-                  A-Level Maths Dubai
-                </a>
-                <p className="text-[12px] text-gray-500">Pure, Mechanics and Statistics modules, board by board.</p>
-              </div>
-              <div>
-                <a href="/maths-tutor-abu-dhabi" className="text-[14px] font-bold text-[#0f4a9b] hover:underline block mb-1">
-                  Maths Tutor Abu Dhabi
-                </a>
-                <p className="text-[12px] text-gray-500">The same specialist model, for families across the capital.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
+
+      {/* RELATED CONTENT SECTION */}
+      <RelatedContent
+        subjects={[
+          {
+            label: 'Physics Tutor Dubai',
+            href: '/physics-tutor-dubai',
+            note: 'Mechanics, vector kinematics, and mathematical physics in Dubai.'
+          },
+          {
+            label: 'Chemistry Tutor Dubai',
+            href: '/chemistry-tutor-dubai',
+            note: 'Moles calculations, stoichiometry, and kinetics support in Dubai.'
+          },
+          {
+            label: 'Maths Subject Hub',
+            href: '/maths',
+            note: 'Comprehensive overview of maths faculty and curriculum tracks.'
+          },
+        ]}
+        curricula={[
+          {
+            label: 'IB DP Mathematics (AA & AI)',
+            href: '/ib-curriculum',
+            note: 'Analysis & Approaches (HL/SL) and Applications & Interpretation.'
+          },
+          {
+            label: 'IGCSE Maths Dubai',
+            href: '/igcse-tutor-dubai',
+            note: 'Cambridge 0580 and Edexcel 4MA1 past paper mark scheme mastery.'
+          },
+          {
+            label: 'A-Level Mathematics',
+            href: '/a-level',
+            note: 'Pure Maths, Mechanics, and Statistics module mastery.'
+          },
+        ]}
+      />
     </Layout>
   );
 }

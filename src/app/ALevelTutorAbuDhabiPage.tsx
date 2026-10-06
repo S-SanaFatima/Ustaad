@@ -6,7 +6,7 @@ import {
   Users, ArrowRight, ArrowRightLeft, Calculator, FileText, Calendar, Compass,
   Layers, CheckCircle2, TrendingUp, AlertTriangle, MessageSquareQuote, Video, Timer
 } from 'lucide-react';
-import { Layout, GoldButton, StatsBar, SchoolsMarquee, GradientHeadingText } from './shared';
+import { Layout, GoldButton, StatsBar, SchoolsMarquee, GradientHeadingText, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, singleReviewSchema, reviewSchema } from './shared/schemas';
 
@@ -1620,47 +1620,46 @@ export default function ALevelTutorAbuDhabiPage() {
             Weekend, evening and Ramadan slots. UAE-registered since 2015.
           </p>
 
-          {/* Related Pages Grid */}
-          <div className="border-t border-gray-100 pt-10">
-            <h3 className="text-center text-lg font-extrabold text-[#0a1f3d] mb-6">
-              Related Pages
-            </h3>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-              <a href="/a-level" className="p-4 rounded-2xl bg-white hover:bg-blue-50/50 border border-slate-100 hover:border-[#0f4a9b]/30 shadow-xs transition-all">
-                <div className="font-extrabold text-[#0f4a9b] text-sm mb-0.5">A-Level Hub (All Subjects)</div>
-                <p className="text-xs text-gray-500">For board comparison, subject list and the full A-Level framework.</p>
-              </a>
-
-              <a href="/sciences" className="p-4 rounded-2xl bg-white hover:bg-blue-50/50 border border-slate-100 hover:border-[#0f4a9b]/30 shadow-xs transition-all">
-                <div className="font-extrabold text-[#0f4a9b] text-sm mb-0.5">Main Science Page</div>
-                <p className="text-xs text-gray-500">For topic breakdowns across biology, chemistry and physics.</p>
-              </a>
-
-              <a href="/maths-tutor-abu-dhabi" className="p-4 rounded-2xl bg-white hover:bg-blue-50/50 border border-slate-100 hover:border-[#0f4a9b]/30 shadow-xs transition-all">
-                <div className="font-extrabold text-[#0f4a9b] text-sm mb-0.5">Maths Tutor Abu Dhabi</div>
-                <p className="text-xs text-gray-500">For calculus, mechanics, statistics and pure maths at A-Level depth.</p>
-              </a>
-
-              <a href="/english" className="p-4 rounded-2xl bg-white hover:bg-blue-50/50 border border-slate-100 hover:border-[#0f4a9b]/30 shadow-xs transition-all">
-                <div className="font-extrabold text-[#0f4a9b] text-sm mb-0.5">English Tutor Abu Dhabi</div>
-                <p className="text-xs text-gray-500">For Literature essay writing and Language unseen extract technique.</p>
-              </a>
-
-              <a href="/igcse-tutor-abu-dhabi" className="p-4 rounded-2xl bg-white hover:bg-blue-50/50 border border-slate-100 hover:border-[#0f4a9b]/30 shadow-xs transition-all">
-                <div className="font-extrabold text-[#0f4a9b] text-sm mb-0.5">IGCSE Tutor Abu Dhabi</div>
-                <p className="text-xs text-gray-500">For Year 10 and Year 11 support ahead of Cambridge or Edexcel IGCSE.</p>
-              </a>
-
-              <a href="/gcse-tutor-abu-dhabi" className="p-4 rounded-2xl bg-white hover:bg-blue-50/50 border border-slate-100 hover:border-[#0f4a9b]/30 shadow-xs transition-all">
-                <div className="font-extrabold text-[#0f4a9b] text-sm mb-0.5">GCSE Tutor Abu Dhabi</div>
-                <p className="text-xs text-gray-500">For AQA, OCR and Edexcel GCSE support in Years 10 and 11.</p>
-              </a>
-            </div>
-          </div>
-
         </div>
       </section>
+
+      {/* RELATED CONTENT SECTION */}
+      <RelatedContent
+        subjects={[
+          {
+            label: 'Maths Tutor Abu Dhabi',
+            href: '/maths-tutor-abu-dhabi',
+            note: 'Calculus, mechanics, statistics and pure maths at A-Level depth.'
+          },
+          {
+            label: 'Physics Tutor Abu Dhabi',
+            href: '/physics-tutor-abu-dhabi',
+            note: 'Advanced mechanics, electromagnetism, and Paper 3 practical prep.'
+          },
+          {
+            label: 'Chemistry Tutor Abu Dhabi',
+            href: '/chemistry-tutor-abu-dhabi',
+            note: 'Organic reaction mechanisms, energetics, and transition metals.'
+          },
+        ]}
+        curricula={[
+          {
+            label: 'IGCSE Tutor Abu Dhabi',
+            href: '/igcse-tutor-abu-dhabi',
+            note: 'Year 10 and Year 11 support ahead of Cambridge or Edexcel IGCSE.'
+          },
+          {
+            label: 'IB Tutor Abu Dhabi',
+            href: '/ib-tutor-abu-dhabi',
+            note: 'International Baccalaureate DP Higher Level and Standard Level support.'
+          },
+          {
+            label: 'British Curriculum UAE',
+            href: '/british-curriculum',
+            note: 'Complete Sixth Form and National Curriculum for England pathways.'
+          },
+        ]}
+      />
     </Layout>
   );
 }

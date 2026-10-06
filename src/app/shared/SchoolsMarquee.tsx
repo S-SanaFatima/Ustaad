@@ -8,6 +8,11 @@ export interface SchoolLogoItem {
 }
 
 export const DUBAI_SCHOOL_LOGOS: SchoolLogoItem[] = [
+  { name: 'Royal Grammar School Guildford Dubai', file: 'rgs.png' },
+  { name: 'Safa Community School Dubai', file: 'safa.png' },
+  { name: 'GEMS World Academy Dubai', file: 'gems-world-academy.png' },
+  { name: 'GEMS Wellington International School Dubai', file: 'gems-wis.png' },
+  { name: 'Victory Heights Primary School Dubai', file: 'victory_heights.png' },
   { name: 'Dubai College', file: 'dubai-college.png' },
   { name: 'Repton School Dubai', file: 'repton-dubai.png' },
   { name: 'Nord Anglia International School Dubai', file: 'nord-anglia-dubai.png' },
@@ -18,11 +23,6 @@ export const DUBAI_SCHOOL_LOGOS: SchoolLogoItem[] = [
   { name: 'Durham School Dubai', file: 'durham-school-dubai.png' },
   { name: 'Sunmarke School Dubai', file: 'sunmarke.png' },
   { name: 'Deira International School Dubai', file: 'deira.png' },
-  { name: 'Royal Grammar School Guildford Dubai', file: 'rgs.png' },
-  { name: 'Safa Community School Dubai', file: 'safa.png' },
-  { name: 'GEMS World Academy Dubai', file: 'gems-world-academy.png', scale: 0.72 },
-  { name: 'GEMS Wellington International School Dubai', file: 'gems-wis.png', scale: 0.85 },
-  { name: 'Victory Heights Primary School Dubai', file: 'victory_heights.png' },
   { name: 'Dwight School Dubai', file: 'dwight.png' },
 ];
 

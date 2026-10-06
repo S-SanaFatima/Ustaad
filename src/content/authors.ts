@@ -80,6 +80,7 @@ export const AUTHORS: Author[] = [
     articles: [
       { title: 'Sleep and Memory: Why All-Nighters Backfire for UAE Students', href: '/blogs/sleep-and-memory-why-all-nighters-backfire', role: 'reviewed' },
       { title: 'The One Word in Every Exam Question That Decides Your Marks (Command Words)', href: '/blogs/command-words-igcse-a-level-exams', role: 'reviewed' },
+      { title: "What Does the y-Intercept Actually Mean? (And When It Means Nothing at All)", href: '/blogs/what-does-y-intercept-mean-maths', role: 'reviewed' },
       { title: "What Does the Gradient Actually Mean? A Teacher Explains It from Maths to Physics", href: '/blogs/what-does-gradient-mean-maths-physics', role: 'reviewed' },
       { title: "Exam Stamina: Why Your Child Can't Sit the Full Paper", href: '/blogs/exam-stamina-uae-students', role: 'reviewed' },
       { title: 'Exams Are Back in the UAE. What Changes for Your Child', href: '/blogs/uae-exams-return-students-never-sat-one', role: 'reviewed' },
@@ -91,6 +92,24 @@ export const AUTHORS: Author[] = [
       { title: 'Why Students Forget Chemistry So Quickly (And How Parents Can Help)', href: '/blogs/why-chemistry-fades-from-memory', role: 'reviewed' },
       { title: 'How to Read a UAE School Report Card Like an Education Counsellor', href: '/blogs/read-uae-school-report-card', role: 'reviewed' },
       { title: '10 Honest Questions to Ask Before You Hire a Private Tutor in Abu Dhabi', href: '/blogs/10-questions-hiring-private-tutor-abu-dhabi', role: 'reviewed' },
+    ],
+  },
+  {
+    slug: 'fahad-khan',
+    name: 'Fahad Khan',
+    role: 'Maths Tutor, IGCSE, GCSE & A-Level',
+    jobTitle: 'Maths Tutor & Curriculum Specialist',
+    credentials: 'BS Mathematics & B.Ed with 10+ years teaching Cambridge and Edexcel Mathematics across IGCSE, GCSE, and A-Level.',
+    subjects: ['Mathematics', 'IGCSE Maths', 'GCSE Maths', 'A-Level Maths', 'Coordinate Geometry'],
+    bio: [
+      'Fahad Khan is an experienced mathematics tutor specialising in Cambridge and Edexcel Maths for secondary and sixth form students.',
+      'His teaching breaks down abstract algebraic equations and graphs into clear, intuitive steps that earn full method and interpretation marks in examinations.',
+    ],
+    photo: '/images/tutors/fahad-khan.jpg',
+    photoAlt: 'Fahad Khan, Maths Tutor at Ustaad UAE',
+    linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
+    articles: [
+      { title: 'What Does the y-Intercept Actually Mean? (And When It Means Nothing at All)', href: '/blogs/what-does-y-intercept-mean-maths', role: 'authored' },
     ],
   },
   {

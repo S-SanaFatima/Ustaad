@@ -50,6 +50,30 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'how-much-should-parents-help-with-homework',
+    image: '/images/blogs/homework-help-balance-uae-parent-child.webp',
+    alt: 'UAE parent sitting nearby while a child works through homework independently at a desk in Dubai',
+    category: 'Parent Guidance',
+    title: "How Much Should Parents Help With Homework? A UAE Parent's Guide to Getting the Balance Right",
+    description: "How much homework help is too much? A practical UAE parent's guide to supporting your child without doing the work for them, by subject and age.",
+    date: '5 Oct 2026',
+    readTime: '9 min read',
+    author: 'Ustaad UAE Editorial Team',
+    featured: true,
+  },
+  {
+    slug: 'what-does-y-intercept-mean-maths',
+    image: '/images/blogs/what-does-y-intercept-mean-hero.webp',
+    alt: 'Secondary student in Dubai attending an online one-to-one tutoring session for IGCSE and GCSE Maths graphs of functions',
+    category: 'Academic',
+    title: 'What Does the y-Intercept Actually Mean? (And When It Means Nothing at All)',
+    description: 'What does the y-intercept mean in a real-life graph? A maths teacher explains how to read it in context, and when it means nothing at all.',
+    date: '2 Oct 2026',
+    readTime: '7 min read',
+    author: 'Fahad Khan',
+    featured: true,
+  },
+  {
     slug: 'sleep-and-memory-why-all-nighters-backfire',
     image: '/images/blogs/sleep-and-memory-students-uae-hero.webp',
     alt: 'UAE teenage student asleep at a tidy bedroom desk beside closed revision notes with a moon visible through the window',

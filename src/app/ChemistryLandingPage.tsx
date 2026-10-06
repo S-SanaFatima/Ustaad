@@ -5,7 +5,7 @@ import {
   CheckCircle2, ChevronDown, Sparkles, Target, Star, MessageCircle, BookOpen, Video, Timer,
   MapPin, Atom, Brain, X, ArrowRight, ShieldCheck, ClipboardCheck, ChevronLeft, ChevronRight
 } from 'lucide-react';
-import { Layout, StatsBar, GoldButton, SchoolsMarquee, FinalCTA } from './shared';
+import { Layout, StatsBar, GoldButton, SchoolsMarquee, FinalCTA, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
@@ -472,35 +472,47 @@ export default function ChemistryLandingPage() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-xl font-extrabold text-[#0a1f3d] mb-2">Related Subjects</h3>
-              <p className="text-sm text-gray-500 mb-6">Explore neighbouring subjects families often book alongside this page.</p>
-              <ul className="space-y-4">
-                <li><a href="/maths-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> Maths Tutor Abu Dhabi</a></li>
-                <li><a href="/physics-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> Physics Tutor Abu Dhabi</a></li>
-                <li><a href="/biology-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> Biology Tutor Abu Dhabi</a></li>
-                <li><a href="/chemistry" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> Chemistry subject hub</a></li>
-                <li><a href="/sciences" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> Sciences overview</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-extrabold text-[#0a1f3d] mb-2">Related Curricula</h3>
-              <p className="text-sm text-gray-500 mb-6">Match tutoring to the board and pathway your school follows.</p>
-              <ul className="space-y-4">
-                <li><a href="/igcse" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> IGCSE</a></li>
-                <li><a href="/a-level" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> A-Level</a></li>
-                <li><a href="/ib-curriculum" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> IB Curriculum</a></li>
-                <li><a href="/british-curriculum" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> British Curriculum</a></li>
-                <li><a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold text-[15px] hover:underline"> IGCSE Tutor Abu Dhabi</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </section>
 
       <FinalCTA title="Find the Right Tutor for Your Curriculum" description="Get matched with an expert tutor for your subject and curriculum." />
+
+      {/* RELATED CONTENT SECTION */}
+      <RelatedContent
+        subjects={[
+          {
+            label: 'Physics Tutor Abu Dhabi',
+            href: '/physics-tutor-abu-dhabi',
+            note: 'One-to-one mechanics, fields and IB/A-Level physics tutoring.'
+          },
+          {
+            label: 'Maths Tutor Abu Dhabi',
+            href: '/maths-tutor-abu-dhabi',
+            note: 'Coordinate calculus, vectors, and mechanics support in Abu Dhabi.'
+          },
+          {
+            label: 'Chemistry Subject Hub',
+            href: '/chemistry',
+            note: 'Comprehensive overview of chemistry faculty and syllabus tracks.'
+          },
+        ]}
+        curricula={[
+          {
+            label: 'IB DP Chemistry (SL & HL)',
+            href: '/ib-curriculum',
+            note: 'Organic mechanisms, energetics and internal assessment guidance.'
+          },
+          {
+            label: 'IGCSE Chemistry Abu Dhabi',
+            href: '/igcse-tutor-abu-dhabi',
+            note: 'Cambridge 0620 and Edexcel 4CH1 past paper preparation.'
+          },
+          {
+            label: 'A-Level Chemistry Abu Dhabi',
+            href: '/a-level-tutor-abu-dhabi',
+            note: 'AQA, OCR and Edexcel inorganic, physical and organic chemistry.'
+          },
+        ]}
+      />
     </Layout>
   );
 }

@@ -184,11 +184,9 @@ export default function AboutPage() {
             >
               <img
                 src="/UpdatedImages/experienced-uae-educator-online-tutoring-session.webp"
-                srcSet="/UpdatedImages/experienced-uae-educator-online-tutoring-session.webp 1200w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                 alt="Experienced Ustaad educator leading an online tutoring session for a UAE student across Dubai and Abu Dhabi"
-                width={4372}
-                height={6558}
+                width={1200}
+                height={800}
                 fetchPriority="high"
                 className="w-full h-full object-cover object-[center_38%] group-hover:scale-105 transition duration-700 block"
               />
@@ -254,10 +252,10 @@ export default function AboutPage() {
               <div className="relative rounded-[20px] sm:rounded-[28px] overflow-hidden shadow-[0_15px_40px_rgba(15,74,155,0.12)] border-2 sm:border-4 border-gray-100 group order-2 lg:order-1">
                 <img 
                   src={storyTabs[activeStoryTab].image} 
-                  srcSet={`${storyTabs[activeStoryTab].image} 1200w`}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                   alt={storyTabs[activeStoryTab].imageAlt} 
-                  className="w-full aspect-[4/3] sm:aspect-auto sm:h-[440px] object-cover group-hover:scale-105 transition duration-700" 
+                  width={1200}
+                  height={800}
+                  className="w-full aspect-[4/3] sm:aspect-auto sm:h-[440px] object-cover group-hover:scale-105 transition duration-700 block" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f3d]/50 via-transparent to-transparent" />
                 

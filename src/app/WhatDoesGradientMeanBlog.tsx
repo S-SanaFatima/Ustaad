@@ -679,7 +679,11 @@ export default function WhatDoesGradientMeanBlog() {
             <p>This is precisely the reading gap covered from the physics side in{' '}
               <a href="/blogs/igcse-physics-formulas-exam" className="text-[#0f4a9b] font-semibold hover:underline">
                 why IGCSE Physics formulas stop working in exams
-              </a>, where the same equation behaves differently once a real situation and real units are attached to it. Families working through this at home can also look at Ustaad's{' '}
+              </a>, where the same equation behaves differently once a real situation and real units are attached to it. Families working with an{' '}
+              <a href="/physics-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">
+                A-Level physics tutor in Abu Dhabi
+              </a>{' '}
+              can also look at Ustaad's{' '}
               <a href="/physics" className="text-[#0f4a9b] font-semibold hover:underline">
                 physics tutoring
               </a>, which builds graph interpretation into every mechanics topic rather than treating it as a separate skill.
@@ -708,7 +712,11 @@ export default function WhatDoesGradientMeanBlog() {
             {/* 08 */}
             <SectionHeading num="08" id="takeaway">Teacher's Takeaway</SectionHeading>
             <p className="font-semibold text-[#0a1f3d]">The formula calculates the gradient. The axes tell you what the gradient means.</p>
-            <p>That one sentence is worth more at exam time than another hour of practising the calculation itself, because the calculation was never the part students were losing marks on. Once a student checks the axes before they touch the formula, distance-time, velocity-time, and every other graph they meet (in maths, physics, economics, or biology) starts reading the same way.</p>
+            <p>That one sentence is worth more at exam time than another hour of practising the calculation itself, because the calculation was never the part students were losing marks on. Once a student checks the axes before they touch the formula, distance-time, velocity-time, and every other graph they meet (in maths, physics, economics, or biology) starts reading the same way. To understand how starting values behave and avoid common extrapolation mistakes, explore our companion guide on{' '}
+              <a href="/blogs/what-does-y-intercept-mean-maths" className="text-[#0f4a9b] font-semibold hover:underline">
+                the other number in y = mx + c
+              </a>.
+            </p>
             
             <p>Ustaad supports Maths and Physics students across the UAE through diagnostic, concept-led learning aligned to IGCSE, A-Level, and IB curricula.{' '}
               <a href="/contact#form" className="text-[#0f4a9b] font-semibold hover:underline">
