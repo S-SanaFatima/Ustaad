@@ -37,7 +37,7 @@ const BLOG = {
   subtitle:
     "How much homework help is too much? A practical UAE parent's guide to supporting your child without doing the work for them, by subject and age.",
   heroImage: "/images/blogs/homework-help-balance-uae-parent-child.webp",
-  heroAlt: "Mother sitting with her son at a desk at home in the UAE while guiding him through homework",
+  heroAlt: "Mother sitting beside her son at a study desk at home in the UAE as he writes independently in his notebook",
   heroCaption: "The most useful kind of homework help is often the kind that makes itself unnecessary over time.",
   datePublished: "2026-10-05",
   dateModified: "2026-10-05",
@@ -628,13 +628,6 @@ export default function HomeworkHelpBalanceBlog() {
             <p>
               <strong>Research and project work.</strong> Helping a child find and evaluate sources is a genuinely useful, teachable skill. Choosing their argument or writing their analysis for them is not.
             </p>
-
-            {/* IMAGE 4: Weekly homework planning */}
-            <InlineImage
-              src="/images/blogs/weekly-homework-planner-igcse-student.webp"
-              alt="A-Level and IB weekly master revision schedule and stress tracker binder on a student study desk"
-              caption="For older students, supporting timetable routines and subject planning across the week is more effective than direct content intervention."
-            />
           </div>
 
           {/* 06. The questions to ask instead of giving answers */}

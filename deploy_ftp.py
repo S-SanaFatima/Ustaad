@@ -18,29 +18,37 @@ class FTPUploader:
         self.ftp = None
         self.connect()
 
-    def connect(self):
+    def connect(self, max_retries=5):
         if self.ftp:
             try:
                 self.ftp.close()
             except Exception:
                 pass
-        print(f"\nConnecting to {self.host}:{self.port} as {self.user}...")
-        try:
-            self.ftp = ftplib.FTP_TLS()
-            self.ftp.connect(self.host, self.port, timeout=30)
-            self.ftp.login(self.user, self.password)
-            self.ftp.prot_p()
-            print("✓ Connected securely using FTPS (Explicit TLS).")
-        except Exception as e:
-            print(f"Notice: FTPS connection error ({e}), trying standard FTP...")
+        
+        for attempt in range(1, max_retries + 1):
+            print(f"\nConnecting to {self.host}:{self.port} as {self.user} (attempt {attempt}/{max_retries})...")
             try:
-                self.ftp = ftplib.FTP()
+                self.ftp = ftplib.FTP_TLS()
                 self.ftp.connect(self.host, self.port, timeout=30)
                 self.ftp.login(self.user, self.password)
-                print("✓ Connected using standard FTP.")
-            except Exception as err:
-                print(f"❌ Connection failed: {err}")
-                sys.exit(1)
+                self.ftp.prot_p()
+                print("✓ Connected securely using FTPS (Explicit TLS).")
+                break
+            except Exception as e:
+                print(f"Notice: FTPS connection error ({e}), trying standard FTP...")
+                try:
+                    self.ftp = ftplib.FTP()
+                    self.ftp.connect(self.host, self.port, timeout=30)
+                    self.ftp.login(self.user, self.password)
+                    print("✓ Connected using standard FTP.")
+                    break
+                except Exception as err:
+                    print(f"Connection attempt {attempt} failed: {err}")
+                    if attempt < max_retries:
+                        time.sleep(3 * attempt)
+                    else:
+                        print(f"❌ All connection attempts failed: {err}")
+                        sys.exit(1)
         
         try:
             self.ftp.cwd("public_html")

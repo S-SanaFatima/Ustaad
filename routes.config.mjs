@@ -30,7 +30,7 @@ export const ROUTES = [
   { path: '/dp-sl', component: 'DPSLPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/dp-hl', component: 'DPHLPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/american-curriculum', component: 'AmericanCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/ap', component: 'APPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-07-28' },
+  { path: '/ap', component: 'APPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-10-07' },
   { path: '/middle-school', component: 'MiddleSchoolPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/high-school', component: 'HighSchoolPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
 
@@ -93,6 +93,7 @@ export const ROUTES = [
   { path: '/gcse-tutor-abu-dhabi', component: 'GCSETutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-12' },
   { path: '/gcse-tutor-dubai', component: 'GCSETutorDubaiLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-02' },
   { path: '/igcse-tutor-dubai', component: 'IgcseTutorDubaiLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-09' },
+  { path: '/a-level-tutor-dubai', component: 'ALevelTutorDubaiPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-10-07' },
   { path: '/a-level-tutor-abu-dhabi', component: 'ALevelTutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-19' },
 
   { path: '/privacy', component: 'PrivacyPage', priority: 0.3, changefreq: 'monthly', lastmod: '2026-09-11' },

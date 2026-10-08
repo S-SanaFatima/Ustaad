@@ -40,7 +40,7 @@ const customTopicsSection = (
           <GradientHeadingText text="Common Statistics Slip-Ups" />
         </h2>
  <p className="text-gray-500 text-base lg:text-lg leading-relaxed">
-          Six patterns that cost marks across every statistics exam.
+          Six patterns that cost marks across every statistics exam, targeted by our dedicated <a href="/ap" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">AP Statistics tutors</a> and data specialists.
         </p>
       </div>
       <div className="max-w-7xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
@@ -107,7 +107,7 @@ const customStrugglesSection = (
 /* ─── §5 Statistics Areas We Cover — 3+2 topic cards ─── */
 const statsTopics = [
   { title: "Probability & Distributions", boards: "Cambridge IGCSE 0455 Statistics, A-Level Statistics, IB Maths AI",          insight: "Distribution choice slips under timed work. We assess each dataset's distribution quickly.",                                         icon: <BarChart3    className="h-6 w-6" strokeWidth={2} />, wm: <BarChart3    className="h-20 w-20" strokeWidth={1} /> },
-  { title: "Hypothesis Testing",          boards: "A-Level Statistics, AP Statistics, IB Maths AI HL",                          insight: "Null and alternative blur under exam time. We confirm both before any calculation.",                                               icon: <Target       className="h-6 w-6" strokeWidth={2} />, wm: <Target       className="h-20 w-20" strokeWidth={1} /> },
+  { title: "Hypothesis Testing",          boards: <>A-Level Statistics, <a href="/ap" className="text-[#0f4a9b] font-semibold underline">AP Statistics</a>, IB Maths AI HL</>,                          insight: "Null and alternative blur under exam time. We confirm both before any calculation.",                                               icon: <Target       className="h-6 w-6" strokeWidth={2} />, wm: <Target       className="h-20 w-20" strokeWidth={1} /> },
   { title: "Descriptive Statistics",      boards: "Cambridge A-Level, AP Statistics, IB Maths SL",                              insight: "Mean, median, mode trip on tricky datasets. We solve each measure step by step.",                                                  icon: <LineChart    className="h-6 w-6" strokeWidth={2} />, wm: <LineChart    className="h-20 w-20" strokeWidth={1} /> },
   { title: "Inferential Statistics",      boards: "A-Level Statistics, AP Statistics, IB Mathematics AI HL",                    insight: "Confidence intervals and t-tests confuse students under exam time. We measure formula choice carefully.",                              icon: <TrendingUp   className="h-6 w-6" strokeWidth={2} />, wm: <TrendingUp   className="h-20 w-20" strokeWidth={1} /> },
   { title: "Statistical Reports",         boards: "Cambridge IGCSE 0455, A-Level coursework, IB Internal Assessment",           insight: "Reports drift between data, hypothesis, and conclusion. We stage each section in proper order.",                                     icon: <FileText     className="h-6 w-6" strokeWidth={2} />, wm: <FileText     className="h-20 w-20" strokeWidth={1} /> },

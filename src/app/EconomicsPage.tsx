@@ -39,7 +39,7 @@ const customTopicsSection = (
           <GradientHeadingText text="Common Economics Trip-Ups" />
         </h2>
  <p className="text-gray-500 text-base lg:text-lg leading-relaxed">
-          Economics revision often feels strong yet drops marks in the exam. We focus on six places where writing slips.
+          Economics revision often feels strong yet drops marks in the exam. Our dedicated <a href="/ap" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">AP Economics tutors</a> and subject specialists focus on six places where writing slips.
         </p>
       </div>
       <div className="max-w-7xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
@@ -113,7 +113,7 @@ const econAreas = [
   },
   {
     title: "Macroeconomics",
-    boards: "AQA A-Level 7136, OCR A H460, AP Macroeconomics",
+    boards: <>AQA A-Level 7136, OCR A H460, <a href="/ap" className="text-[#5b3a8a] font-semibold underline">AP Economics</a> (Micro & Macro)</>,
     insight: "Inflation, growth, and trade answers stay thin. We extend depth with current data.",
     icon: <BarChart3  className="h-6 w-6" strokeWidth={2} />, wm: <BarChart3  className="h-20 w-20" strokeWidth={1} />,
   },

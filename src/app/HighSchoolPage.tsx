@@ -153,7 +153,7 @@ export default function HighSchoolPage() {
               <GradientHeadingText text="Core High School Subjects" />
             </h2>
  <p className="text-gray-500 text-base lg:text-lg leading-relaxed">
-              Six core High School subjects across Grades 9 to 12, taught by Honors and <a href="/ap" className="text-[#0f4a9b] font-semibold underline">AP</a>-ready tutors.
+              Six core High School subjects across Grades 9 to 12, with dedicated <a href="/ap" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">AP classes and exam prep</a> from specialist tutors.
             </p>
           </div>
           <div className="max-w-5xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">

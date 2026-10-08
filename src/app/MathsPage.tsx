@@ -183,7 +183,7 @@ const customTopicsSection = (
           <GradientHeadingText text="Mathematics Challenges" />
         </h2>
  <p className="text-gray-500 text-base lg:text-lg leading-relaxed">
-          Strong revision often turns into weaker results on the timed paper. We focus on the six places where your child's working slips under pressure.
+          Strong revision often turns into weaker results on the timed paper. Our <a href="/ap" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">AP Maths tutors</a> and curriculum specialists focus on the six places where your child's working slips under pressure.
         </p>
       </div>
       <div className="max-w-7xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
@@ -264,7 +264,7 @@ const mathTopics = [
     title: "Calculus & Analysis",
     icon: <CalcIcon className="h-6 w-6" strokeWidth={2} />,
     wm: <CalcIcon className="h-20 w-20" strokeWidth={1} />,
-    curricula: "AP Calculus AB and BC, IB Diploma Analysis & Approaches (AA) SL and HL",
+    curricula: <><a href="/ap" className="text-[#0f4a9b] font-semibold underline">AP Calculus</a> AB and BC, IB Diploma Analysis & Approaches (AA) SL and HL</>,
     issue: "Freezes on layered derivation rules. We map them visually for stamina."
   },
   {

@@ -80,6 +80,7 @@ import MathsTutorDubaiLanding from "./app/MathsTutorDubaiPage.tsx";
 import PhysicsTutorDubaiPage from "./app/PhysicsTutorDubaiPage.tsx";
 import ChemistryTutorDubaiPage from "./app/ChemistryTutorDubaiPage.tsx";
 import ALevelTutorLanding from "./app/ALevelTutorAbuDhabiPage.tsx";
+import ALevelTutorDubaiPage from "./app/ALevelTutorDubaiPage.tsx";
 import IBTutorAbuDhabiPage from "./app/IBTutorAbuDhabiPage.tsx";
 import TutorProfilePage from "./app/TutorProfilePage.tsx";
 
@@ -88,6 +89,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   App,
   AboutPage,
   ALevelPage,
+  ALevelTutorDubaiPage,
   ALevelIndependentThinkingBlog,
   IGCSEPreparationPastPapersBlog,
   AccountingPage,

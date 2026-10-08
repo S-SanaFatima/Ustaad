@@ -4,9 +4,9 @@ import {
   Atom, BookOpen, Brain, Briefcase, Calculator, ChevronDown,
   Dna, FileText, FlaskConical, GraduationCap, HelpCircle, Landmark,
   MapPin, MessageCircle, PenTool, Target, TrendingUp, Lightbulb,
-  ArrowRight, ShieldCheck, CheckCircle2,
+  ArrowRight, ShieldCheck,
 } from 'lucide-react';
-import { Layout, GradientHeadingText, FinalCTA, StatsBar, SchoolsMarquee, GoldButton, WhatsAppIcon } from './shared';
+import { Layout, GradientHeadingText, FinalCTA, StatsBar, GoldButton, WhatsAppIcon } from './shared';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
@@ -154,17 +154,6 @@ export default function ALevelPage() {
 
       {/* Stats Bar */}
       <StatsBar />
-
-      {/* Leading Schools Marquee */}
-      <SchoolsMarquee
-        header={
-          <div className="text-center mb-6">
-            <h2 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d]">
-              Leading Abu Dhabi Schools
-            </h2>
-          </div>
-        }
-      />
 
       {/* ── SECTION 2: A-LEVEL SUBJECTS WE COVER ── */}
       <section className="py-20 bg-white">
@@ -329,10 +318,9 @@ export default function ALevelPage() {
           <div>
             <a
               href="/tutors"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm text-white bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] hover:from-[#1a5bb8] hover:to-[#0f4a9b] shadow-[0_4px_16px_rgba(15,74,155,0.25)] hover:shadow-[0_6px_20px_rgba(15,74,155,0.35)] transition-all duration-200"
+              className="inline-flex items-center justify-center px-7 py-3.5 rounded-full font-bold text-sm text-white bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] hover:from-[#1a5bb8] hover:to-[#0f4a9b] shadow-[0_4px_16px_rgba(15,74,155,0.25)] hover:shadow-[0_6px_20px_rgba(15,74,155,0.35)] transition-all duration-200"
             >
               <span>Meet the Ustaad tutors</span>
-              <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
@@ -340,49 +328,28 @@ export default function ALevelPage() {
 
       {/* ── SECTION 5: QUALITY A-LEVEL TUTORING AT A FAIR COST ── */}
       <section className="py-20 lg:py-24 bg-[#f8fafc] relative overflow-hidden border-t border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#0a3a79] text-white p-8 sm:p-12 lg:p-14 shadow-[0_20px_50px_rgba(15,74,155,0.25)] border border-white/15">
             {/* Background Ambient Glows & Watermark */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#C7A24A]/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-10 -left-10 w-80 h-80 bg-white/5 rounded-full blur-2xl pointer-events-none" />
             <ShieldCheck className="absolute -bottom-10 right-4 w-72 h-72 text-white/[0.03] pointer-events-none select-none" strokeWidth={0.8} />
 
-            <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left Column: Heading & Copy */}
-              <div className="lg:col-span-7">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-white text-xs font-bold mb-4 shadow-sm">
-                  <ShieldCheck className="h-4 w-4 text-[#C7A24A]" />
-                  <span className="tracking-wide">Screened Academic Quality</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight">
-                  Quality A-Level Tutoring at a{' '}
-                  <span className="bg-gradient-to-r from-[#C7A24A] to-[#f0d080] bg-clip-text text-transparent">
-                    Fair Cost
-                  </span>
-                </h2>
-                <div className="w-12 h-1 bg-gradient-to-r from-[#C7A24A] to-[#f0d080] rounded-full mb-5" />
-                <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed text-justify font-normal">
-                  Tutor marketplaces list hundreds of profiles and leave parents to judge who can teach. At Ustaad, our academic team screens every A-Level tutor before they take a student, so you are not paying to find out. Families get specialist one-to-one teaching at a cost-effective rate, with the fee agreed before the first paid lesson.
-                </p>
+            <div className="relative z-10 max-w-3xl">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-white text-xs font-bold mb-4 shadow-sm">
+                <ShieldCheck className="h-4 w-4 text-[#C7A24A]" />
+                <span className="tracking-wide">Screened Academic Quality</span>
               </div>
-
-              {/* Right Column: Comparison Card */}
-              <div className="lg:col-span-5">
-                <div className="rounded-2xl p-6 border border-white/15 bg-white/10 backdrop-blur-md shadow-lg space-y-4">
-                  <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-red-300/90 mb-1">Tutor Marketplaces</p>
-                    <p className="text-xs text-blue-100/70 leading-relaxed">
-                      Hundreds of unscreened profiles, trial-and-error with your child's grades, and variable pricing.
-                    </p>
-                  </div>
-                  <div className="p-4 rounded-xl bg-gradient-to-r from-[#C7A24A]/20 to-[#A8892A]/10 border border-[#C7A24A]/30">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-[#C7A24A] mb-1">The Ustaad Standard</p>
-                    <p className="text-xs text-white/95 leading-relaxed font-medium">
-                      Academically vetted subject specialists matched to your school's exam board, with the fee agreed in advance.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight">
+                Quality A-Level Tutoring at a{' '}
+                <span className="bg-gradient-to-r from-[#C7A24A] to-[#f0d080] bg-clip-text text-transparent">
+                  Fair Cost
+                </span>
+              </h2>
+              <div className="w-12 h-1 bg-gradient-to-r from-[#C7A24A] to-[#f0d080] rounded-full mb-5" />
+              <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed text-justify font-normal">
+                Tutor marketplaces list hundreds of profiles and leave parents to judge who can teach. At Ustaad, our academic team screens every A-Level tutor before they take a student, so you are not paying to find out. Families get specialist one-to-one teaching at a cost-effective rate, with the fee agreed before the first paid lesson.
+              </p>
             </div>
           </div>
         </div>
@@ -407,17 +374,17 @@ export default function ALevelPage() {
             {[
               {
                 num: "01",
-                step: "1. Tell us the subject and exam board.",
+                step: "Share Subject and Exam Board",
                 desc: "Send the form or a WhatsApp message with your child's year group, subjects and school.",
               },
               {
                 num: "02",
-                step: "2. Get matched.",
+                step: "Get Your Matched Tutor",
                 desc: "We pair your child with a tutor for that subject and board, then agree a time that suits your family.",
               },
               {
                 num: "03",
-                step: "3. Take the 30-minute lesson.",
+                step: "Take Your Free Lesson",
                 desc: "It is online and one-to-one. The tutor teaches one topic your child is studying now, and you decide afterwards whether to continue.",
               },
             ].map((st, i) => (
@@ -473,13 +440,13 @@ export default function ALevelPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 border-b border-gray-200">
                 {[
                   {
-                    title: "New content.",
+                    title: "New Content",
                     desc: "A-Level Maths takes calculus far beyond the introduction some IGCSE courses give, and the sciences add topics with no GCSE equivalent.",
                     icon: <Calculator className="h-5 w-5" />,
                     num: "01",
                   },
                   {
-                    title: "Fewer subjects, more depth.",
+                    title: "Fewer Subjects, More Depth",
                     desc: "Students move from eight or more GCSE subjects to three or four, each studied in far greater detail.",
                     icon: <Target className="h-5 w-5" />,
                     num: "02",
@@ -511,13 +478,13 @@ export default function ALevelPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
                 {[
                   {
-                    title: "Longer answers.",
+                    title: "Longer Answers",
                     desc: "History, English Literature and Business are assessed through extended essays, where marks come from analysis and judgement.",
                     icon: <FileText className="h-5 w-5" />,
                     num: "03",
                   },
                   {
-                    title: "Independent study.",
+                    title: "Independent Study",
                     desc: "Lessons cover less of the course than at GCSE, so your child is expected to read, practise and revise alone every week.",
                     icon: <Brain className="h-5 w-5" />,
                     num: "04",
@@ -700,7 +667,6 @@ export default function ALevelPage() {
                   <div>
                     <p className="text-[#0a1f3d] group-hover:text-[#0f4a9b] font-extrabold text-base leading-tight flex items-center justify-between transition-colors">
                       <span>{loc.city}</span>
-                      {loc.href && <ArrowRight className="h-4 w-4 text-[#0f4a9b] transition-transform group-hover:translate-x-1" />}
                     </p>
                     <p className="text-gray-500 text-xs font-medium mt-1 leading-snug">{loc.note}</p>
                   </div>
@@ -731,9 +697,9 @@ export default function ALevelPage() {
                 <span className="text-xs uppercase tracking-wider">Common Questions</span>
               </div>
               <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-[1.15] mb-3">
-                Frequently Asked{' '}
+                A-Level Tutoring{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">
-                  Questions
+                  FAQs
                 </span>
               </h2>
               <p className="text-gray-600 text-[15px] leading-relaxed">

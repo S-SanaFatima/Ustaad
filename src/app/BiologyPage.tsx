@@ -40,7 +40,7 @@ const customTopicsSection = (
           <GradientHeadingText text="Biology Trouble Spots" />
         </h2>
  <p className="text-gray-500 text-base lg:text-lg leading-relaxed">
-          Biology revision often feels strong yet drops marks on the exam paper. We focus on six common slips.
+          Biology revision often feels strong yet drops marks on the exam paper. Our dedicated <a href="/ap" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">AP Biology tutors</a> and curriculum specialists focus on six common slips.
         </p>
       </div>
       <div className="max-w-7xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
@@ -107,7 +107,7 @@ const customStrugglesSection = (
 /* ─── §5 Topic Reach — 5 topic cards (Maths "Topics" style) ─── */
 const bioTopics = [
   { title: "Cell Biology & Genetics",  boards: "Cambridge IGCSE 0610, Edexcel IGCSE 4BI1, A-Level 9BI0 and 9700",                         insight: "Mitosis, meiosis, and inheritance steps haze under timed work. We file each stage clearly.",                              icon: <Dna         className="h-6 w-6" strokeWidth={2} />, wm: <Dna         className="h-20 w-20" strokeWidth={1} /> },
-  { title: "Human Physiology",         boards: "AQA 7402, OCR A H420, AP Biology, IB Biology SL and HL",                                   insight: "Organ systems and feedback loops knot under pressure. We lay out the pathways clearly.",                                   icon: <Heart       className="h-6 w-6" strokeWidth={2} />, wm: <Heart       className="h-20 w-20" strokeWidth={1} /> },
+  { title: "Human Physiology",         boards: <>AQA 7402, OCR A H420, <a href="/ap" className="text-[#0f4a9b] font-semibold underline">AP Biology</a>, IB Biology SL and HL</>,                                   insight: "Organ systems and feedback loops knot under pressure. We lay out the pathways clearly.",                                   icon: <Heart       className="h-6 w-6" strokeWidth={2} />, wm: <Heart       className="h-20 w-20" strokeWidth={1} /> },
   { title: "Ecology & Evolution",      boards: "Cambridge IGCSE 0610, A-Level 9BI0, AQA 7402, IB Biology SL and HL",                       insight: "Sampling and selection questions trail mid-answer. We name the principles holding each argument.",                        icon: <Leaf        className="h-6 w-6" strokeWidth={2} />, wm: <Leaf        className="h-20 w-20" strokeWidth={1} /> },
   { title: "Microbiology & Disease",   boards: "Edexcel A-Level 9BI0, Cambridge A 9700, AP Biology, IB HL Option",                         insight: "Immunity and infection chains snag under multi-part questions. We mark out the stages clearly.",                          icon: <Bug         className="h-6 w-6" strokeWidth={2} />, wm: <Bug         className="h-20 w-20" strokeWidth={1} /> },
   { title: "Biochemistry & Energy",    boards: "Cambridge IGCSE 0610, Edexcel IGCSE 4BI1, A-Level papers, IB Biology SL",                  insight: "Enzyme and respiration pathways jam under unfamiliar wording. We plant the cycle outline first.",                         icon: <FlaskConical className="h-6 w-6" strokeWidth={2} />, wm: <FlaskConical className="h-20 w-20" strokeWidth={1} /> },

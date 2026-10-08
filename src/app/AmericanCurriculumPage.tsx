@@ -151,7 +151,7 @@ export default function AmericanCurriculumPage() {
             </h1>
             <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
             <p className="text-gray-700 text-lg mb-10 leading-relaxed max-w-xl">
-              Online tutoring for American Curriculum students across Middle School, High School, and AP courses.
+              Online tutoring for American Curriculum students across Middle School, High School, and with specialist <a href="/ap" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">AP tutors in the UAE</a>.
             </p>
             <HeroCTABlock>
               Book Your Free Trial

@@ -41,7 +41,7 @@ const customTopicsSection = (
           <GradientHeadingText text="Physics Pressure Points" />
         </h2>
  <p className="text-gray-500 text-base lg:text-lg leading-relaxed">
-          Your child grasps the concept in class yet drops marks on the paper. We rebuild six scoring habits.
+          Your child grasps the concept in class yet drops marks on the paper. Our <a href="/ap" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">AP Physics tutors</a> and curriculum specialists rebuild six key scoring habits.
         </p>
       </div>
       <div className="max-w-7xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
@@ -108,7 +108,7 @@ const customStrugglesSection = (
 /* ─── §5 Physics Topics — 3+2 topic cards ─── */
 const physicsTopics = [
   { title: "Mechanics & Forces",   boards: "Cambridge IGCSE 0625, Edexcel IGCSE 4PH1, A-Level 9PH0 and 9702",        insight: "Multi-body systems feel crowded under exam pressure. We walk through each calmly.",                     icon: <Gauge  className="h-6 w-6" strokeWidth={2} />, wm: <Gauge  className="h-20 w-20" strokeWidth={1} /> },
-  { title: "Electricity & Circuits",boards: "Edexcel A-Level 9PH0, AQA 7408, OCR A H556, AP Physics 1 and 2",        insight: "Kirchhoff's loops confuse under multi-loop pressure. We rewire loop logic.",                           icon: <Plug   className="h-6 w-6" strokeWidth={2} />, wm: <Plug   className="h-20 w-20" strokeWidth={1} /> },
+  { title: "Electricity & Circuits",boards: <>Edexcel A-Level 9PH0, AQA 7408, OCR A H556, <a href="/ap" className="text-[#0f4a9b] font-semibold underline">AP Physics</a> 1 and 2</>,        insight: "Kirchhoff's loops confuse under multi-loop pressure. We rewire loop logic.",                           icon: <Plug   className="h-6 w-6" strokeWidth={2} />, wm: <Plug   className="h-20 w-20" strokeWidth={1} /> },
   { title: "Waves & Optics",        boards: "Cambridge IGCSE 0625, IB Physics SL and HL, AP Physics 2",               insight: "Interference and phase questions break setup. We ground each diagram step.",                          icon: <Waves  className="h-6 w-6" strokeWidth={2} />, wm: <Waves  className="h-20 w-20" strokeWidth={1} /> },
   { title: "Thermal & Energy",      boards: "A-Level 9PH0 thermal sections, AP Physics C, IB Physics HL",             insight: "Energy accounting wobbles across processes. We plot each state shift visibly.",                       icon: <Flame  className="h-6 w-6" strokeWidth={2} />, wm: <Flame  className="h-20 w-20" strokeWidth={1} /> },
   { title: "Nuclear & Quantum",     boards: "Cambridge A-Level 9702, IB HL Option, AP Physics C",                     insight: "Wave-particle questions blur under unfamiliar notation. We strengthen symbol-mapping habits.",         icon: <Atom   className="h-6 w-6" strokeWidth={2} />, wm: <Atom   className="h-20 w-20" strokeWidth={1} /> },

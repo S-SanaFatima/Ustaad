@@ -41,7 +41,7 @@ const customTopicsSection = (
           <GradientHeadingText text="Where Chemistry Slips" />
         </h2>
  <p className="text-gray-500 text-base lg:text-lg leading-relaxed">
-          Confident revision often fades when a fresh question lands. We focus on six places where working comes apart.
+          Confident revision often fades when a fresh question lands. Our <a href="/ap" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">AP Chemistry tutors</a> and science specialists focus on six places where working comes apart.
         </p>
       </div>
       <div className="max-w-7xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
@@ -108,7 +108,7 @@ const customStrugglesSection = (
 /* ─── §5 Syllabus Coverage — 3+2 topic cards ─── */
 const chemTopics = [
   { title: "Physical Chemistry",   boards: "Cambridge IGCSE 0620, Edexcel IGCSE 4CH1, A-Level 9CH0 and 9701",              insight: "Energetics and kinetics fade under timed work. We dial in the calculation routes.",                              icon: <Flame       className="h-6 w-6" strokeWidth={2} />, wm: <Flame       className="h-20 w-20" strokeWidth={1} /> },
-  { title: "Inorganic Chemistry",  boards: "AQA 7405, OCR A H432, AP Chemistry, IB Chemistry SL and HL",                   insight: "Trends and transition-metal questions drift off course. We sort the underlying patterns.",                       icon: <Atom        className="h-6 w-6" strokeWidth={2} />, wm: <Atom        className="h-20 w-20" strokeWidth={1} /> },
+  { title: "Inorganic Chemistry",  boards: <>AQA 7405, OCR A H432, <a href="/ap" className="text-[#0f4a9b] font-semibold underline">AP Chemistry</a>, IB Chemistry SL and HL</>,                   insight: "Trends and transition-metal questions drift off course. We sort the underlying patterns.",                       icon: <Atom        className="h-6 w-6" strokeWidth={2} />, wm: <Atom        className="h-20 w-20" strokeWidth={1} /> },
   { title: "Organic Chemistry",    boards: "Cambridge IGCSE 0620, A-Level 9CH0, AQA 7405, IB Chemistry SL and HL",         insight: "Mechanism arrows and functional groups slip up on paper. We cement the conventions.",                           icon: <Leaf        className="h-6 w-6" strokeWidth={2} />, wm: <Leaf        className="h-20 w-20" strokeWidth={1} /> },
   { title: "Analysis & Practical", boards: "Edexcel A-Level 9CH0, Cambridge A 9701, AP Chemistry, IB HL Option",           insight: "Titrations and spectra readings derail under exam timing. We polish each interpretation.",                       icon: <FlaskConical className="h-6 w-6" strokeWidth={2} />, wm: <FlaskConical className="h-20 w-20" strokeWidth={1} /> },
   { title: "Atomic & Bonding",     boards: "Cambridge IGCSE 0620, Edexcel IGCSE 4CH1, A-Level papers, IB Chemistry SL",    insight: "Bonding diagrams and electron configurations falter. We weave structure into reasoning.",                        icon: <Network     className="h-6 w-6" strokeWidth={2} />, wm: <Network     className="h-20 w-20" strokeWidth={1} /> },

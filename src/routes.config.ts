@@ -228,8 +228,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/ap',
     component: 'APPage',
     seo: {
-      title: 'AP Tutors UAE | AP Exam Prep Dubai & Abu Dhabi | Ustaad',
-      description: 'Expert AP tutoring in Dubai & Abu Dhabi. All AP subjects covered: Calculus, Physics, Chemistry, Biology & Economics. Score 4s and 5s.',
+      title: 'AP Tutors in Dubai & Abu Dhabi | AP Exam Prep UAE | Ustaad',
+      description: 'Online 1-to-1 AP tutors for Statistics, Physics, Chemistry, Biology and Economics. AP classes and exam prep through to May. Free 30-minute trial.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -750,6 +750,19 @@ export const ROUTES: RouteConfig[] = [
       lastmod: '2026-09-30'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Chemistry', url: '/chemistry' }, { name: 'Chemistry Tutor Dubai', url: '/chemistry-tutor-dubai' }]
+  },
+  {
+    path: '/a-level-tutor-dubai',
+    component: 'ALevelTutorDubaiPage',
+    seo: {
+      title: 'A-Level Tutor Dubai | Cambridge & Edexcel Specialist Tutors',
+      description: 'Expert 1-on-1 A-Level tutoring in Dubai for Cambridge CIE, Edexcel & AQA. Maths, Further Maths, Physics, Chemistry, Biology & Economics. Book free trial.',
+      keywords: 'A-Level tutor Dubai, A level tutoring Dubai, Cambridge A level tutor Dubai, Edexcel A level tutor Dubai, online A Level tuition Dubai, A Level maths physics chemistry tutor UAE',
+      priority: 0.90,
+      changefreq: 'monthly',
+      lastmod: '2026-10-07'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'A-Level', url: '/a-level' }, { name: 'A-Level Tutor Dubai', url: '/a-level-tutor-dubai' }]
   },
   {
     path: '/a-level-tutor-abu-dhabi',
