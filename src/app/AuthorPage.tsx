@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { Linkedin, BookOpen, BadgeCheck } from 'lucide-react';
 import { Layout, GoldButton, GradientHeadingText } from './shared';
 import SEOHead from './shared/SEOHead';
-import { breadcrumbSchema, personSchema, profilePageSchema, localBusinessSchema } from './shared/schemas';
+import { breadcrumbSchema, personSchema, profilePageSchema } from './shared/schemas';
 import { getAuthorBySlug, AUTHORS } from '../content/authors';
 
 export default function AuthorPage() {
@@ -68,7 +68,6 @@ export default function AuthorPage() {
         ogImage={author.photo}
         author={author.name}
         schema={[
-          localBusinessSchema,
           breadcrumbSchema([
             { name: 'Home', url: '/' },
             { name: 'Editorial', url: '/editorial' },
@@ -121,7 +120,7 @@ export default function AuthorPage() {
           </div>
 
           <div className="mt-12 space-y-4 text-gray-700 leading-relaxed">
-            {author.bio.map((p, i) => (
+            {author.bio.filter((p) => p !== author.credentials).map((p, i) => (
               <p key={i} className="text-base lg:text-lg">{p}</p>
             ))}
           </div>
@@ -140,10 +139,10 @@ export default function AuthorPage() {
             </ul>
           </div>
 
-          {/* Ustaad Editorial & E-E-A-T Review Standards */}
+          {/* Ustaad Editorial Standards & Accuracy Commitment */}
           <div className="mt-14 bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 shadow-sm">
-            <h2 className="text-xl font-extrabold text-[#0a1f3d] mb-3">Our E-E-A-T Editorial Commitment</h2>
-            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">At Ustaad UAE, every article is produced with strict adherence to Experience, Expertise, Authoritativeness, and Trustworthiness (E-E-A-T). Academic guidance for UAE parents and students requires factual accuracy, current curriculum alignment, and practical classroom relevance.</p>
+            <h2 className="text-xl font-extrabold text-[#0a1f3d] mb-3">Our Editorial Standards & Accuracy Commitment</h2>
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">At Ustaad UAE, every article is produced with a strict commitment to academic accuracy, hands-on teaching experience, and proven educational research. Academic guidance for UAE parents and students requires factual precision, current curriculum alignment, and practical relevance at home.</p>
             
             <div className="grid sm:grid-cols-2 gap-6 text-xs text-gray-600 pt-4 border-t border-slate-100">
               <div>
@@ -174,7 +173,7 @@ export default function AuthorPage() {
           <p className="mt-10 text-sm text-gray-500">
             Meet the full team on our <a href="/editorial" className="text-[#0f4a9b] font-semibold underline">editorial page</a>.
             {AUTHORS.filter((a) => a.slug !== author.slug).map((a) => (
-              <span key={a.slug}> · <a href={`/authors/${a.slug}`} className="text-[#0f4a9b] underline">{a.name}</a></span>
+              <span key={a.slug}> · <a href={a.slug === 'fahad-khan' ? '/tutors/fahad-khan' : `/authors/${a.slug}`} className="text-[#0f4a9b] underline">{a.name}</a></span>
             ))}
           </p>
         </div>

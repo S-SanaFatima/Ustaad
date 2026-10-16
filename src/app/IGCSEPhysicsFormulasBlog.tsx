@@ -343,7 +343,7 @@ export default function IGCSEPhysicsFormulasBlog() {
             {/* Opening */}
             <p>A Year 10 student stayed behind after class last term holding a mechanics worksheet. He had solved nine questions correctly. One near the bottom had been crossed out three times.</p>
             <p>"Sir, I know the formula. I just don't know how it fits in this question."</p>
-            <p>After more than a decade teaching physics, I hear a version of that sentence every term. The maths was not the problem; he could rearrange equations and solve numerical problems. The gap was the moment between reading the question and writing the first equation, and that is where most IGCSE Physics marks are lost. The fix is not more hours. It is a different habit.</p>
+            <p>After more than a decade teaching physics, I hear a version of that sentence every term. The maths was not the problem; he could rearrange equations and solve numerical problems. The gap was the moment between reading the question and writing the first equation, and that is where most IGCSE Physics marks are lost. Working with dedicated <a href="/igcse" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">IGCSE Physics tutors</a> helps students master this interpretation habit early.</p>
 
             {/* 01 */}
             <SectionHeading num="01" id="why-formula-memorisation-stops-working">Why Formula Memorisation Stops Working Around Year 10</SectionHeading>

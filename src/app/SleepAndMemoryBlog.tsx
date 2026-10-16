@@ -904,7 +904,11 @@ export default function SleepAndMemoryBlog() {
               <a href="/blogs/exam-panic-before-exams-uae" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                 why some children only panic right before exams
               </a>{' '}
-              explains what usually sits behind that panic and how parents can help before and during exam season.
+              explains what usually sits behind that panic, and for students who delay studying until bedtime, our guide on{' '}
+              <a href="/blogs/why-teenagers-procrastinate-on-revision" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                why teenagers put off revision
+              </a>{' '}
+              shows how to break the avoidance cycle.
             </p>
           </div>
 

@@ -1,7 +1,7 @@
 // Blog Content System
 // Loads markdown files with frontmatter and auto-generates SEO
 
-import { localBusinessSchema, breadcrumbSchema, articleSchema } from '../app/shared/schemas';
+import { breadcrumbSchema, articleSchema } from '../app/shared/schemas';
 
 export interface BlogPost {
   slug: string;
@@ -30,7 +30,6 @@ export function generateBlogSEO(post: BlogPost): BlogSEO {
     description: post.description,
     canonical: `/blog/${post.slug}`,
     schema: [
-      localBusinessSchema,
       breadcrumbSchema([
         { name: "Home", url: "/" },
         { name: "Blog", url: "/blogs" },

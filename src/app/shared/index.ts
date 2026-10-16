@@ -59,4 +59,11 @@ export { default as DubaiMathsDiagnostic3D } from './DubaiMathsDiagnostic3D';
 export { default as SwipeIndicator } from './SwipeIndicator';
 export * from './PhysicsCurriculumJourney3D';
 export * from './PhysicsDiagnosticApproach3D';
+export { default as IGCSESubjectsCosmicSection } from './IGCSESubjectsCosmicSection';
+export { default as IGCSETutoringTreeSection } from './IGCSETutoringTreeSection';
+export { default as IGCSEFreeTrialWhiteboardSection } from './IGCSEFreeTrialWhiteboardSection';
+export { default as IGCSEWhyStudentsLoseMarksSection } from './IGCSEWhyStudentsLoseMarksSection';
+export { default as ALevelFreeTrialWhiteboardSection } from './ALevelFreeTrialWhiteboardSection';
+export { default as APFreeTrialWhiteboardSection } from './APFreeTrialWhiteboardSection';
+export * from './BiologyDiagnosticApproach3D';
 

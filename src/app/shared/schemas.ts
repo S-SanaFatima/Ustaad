@@ -108,9 +108,8 @@ export const localBusinessSchema = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Private 1-to-1 tutoring across the UAE",
-    addressLocality: "Dubai",
-    addressRegion: "Dubai",
+    addressLocality: "Abu Dhabi",
+    addressRegion: "Abu Dhabi",
     addressCountry: "AE",
   },
   sameAs: [
@@ -131,8 +130,8 @@ export const localBusinessSchema = {
   paymentAccepted: "Credit Card, Bank Transfer, Cash",
   geo: {
     "@type": "GeoCoordinates",
-    latitude: "25.2048",
-    longitude: "55.2708",
+    latitude: "24.4539",
+    longitude: "54.3773",
   },
 };
 
@@ -181,7 +180,7 @@ export const cityLocalBusinessSchema = ({
     parentOrganization: {
       "@type": "EducationalOrganization",
       "@id": `${BASE_URL}/#organization`,
-      name: "Ustaad — Private Tutors UAE",
+      name: "Ustaad",
       url: BASE_URL,
     },
   };
@@ -206,7 +205,7 @@ export const serviceSchema = (name: string, description: string, url: string) =>
   url: `${BASE_URL}${url}`,
   provider: {
     "@type": "EducationalOrganization",
-    name: "Ustaad — Private Tutors UAE",
+    name: "Ustaad",
     url: BASE_URL,
   },
   areaServed: { "@type": "Country", name: "United Arab Emirates" },
@@ -239,7 +238,7 @@ export const singleReviewSchema = ({
   itemReviewed: {
     "@type": "Service",
     name: serviceName,
-    provider: { "@type": "Organization", name: "Ustaad — Private Tutors UAE", url: BASE_URL },
+    provider: { "@type": "Organization", name: "Ustaad", url: BASE_URL },
   },
   author: { "@type": "Person", name: authorName },
   reviewBody,
@@ -258,23 +257,30 @@ export type PersonInput = {
   image?: string;
 };
 
-function personNode(p: PersonInput | string) {
+function personNode(p?: PersonInput | string) {
+  if (!p) {
+    return {
+      "@type": "Person",
+      name: "Ustaad Academic Team",
+      worksFor: { "@type": "EducationalOrganization", name: "Ustaad", url: BASE_URL },
+    };
+  }
   if (typeof p === "string") {
     return {
       "@type": "Person",
       name: p,
-      worksFor: { "@type": "EducationalOrganization", name: "Ustaad — Private Tutors UAE", url: BASE_URL },
+      worksFor: { "@type": "EducationalOrganization", name: "Ustaad", url: BASE_URL },
     };
   }
   return {
     "@type": "Person",
-    name: p.name,
+    name: p.name || "Ustaad Academic Team",
     ...(p.url && { url: p.url.startsWith("http") ? p.url : `${BASE_URL}${p.url}` }),
     ...(p.jobTitle && { jobTitle: p.jobTitle }),
     ...(p.description && { description: p.description }),
     ...(p.image && { image: p.image.startsWith("http") ? p.image : `${BASE_URL}${p.image}` }),
     ...(p.sameAs && { sameAs: Array.isArray(p.sameAs) ? p.sameAs : [p.sameAs] }),
-    worksFor: { "@type": "EducationalOrganization", name: "Ustaad — Private Tutors UAE", url: BASE_URL },
+    worksFor: { "@type": "EducationalOrganization", name: "Ustaad", url: BASE_URL },
   };
 }
 
@@ -291,19 +297,21 @@ export type ReviewerInput =
       image?: string;
     };
 
-function reviewerNode(r: ReviewerInput | string) {
+function reviewerNode(r?: ReviewerInput | string) {
+  if (!r) return undefined;
   if (typeof r === "string") {
     return {
       "@type": "Person",
       name: r,
-      worksFor: { "@type": "EducationalOrganization", name: "Ustaad — Private Tutors UAE", url: BASE_URL },
+      worksFor: { "@type": "EducationalOrganization", name: "Ustaad", url: BASE_URL },
     };
   }
-  const entityType = (r as any)["@type"] || r.type || (r.name.includes("Team") ? "Organization" : "Person");
+  const entityType =
+    (r as any)["@type"] || r.type || (r.name && r.name.includes("Team") ? "Organization" : "Person");
   if (entityType === "Organization") {
     return {
       "@type": "Organization",
-      name: r.name,
+      name: r.name || "Ustaad Editorial Team",
       ...(r.url && { url: r.url.startsWith("http") ? r.url : `${BASE_URL}${r.url}` }),
       ...(r.sameAs && { sameAs: Array.isArray(r.sameAs) ? r.sameAs : [r.sameAs] }),
     };
@@ -346,7 +354,7 @@ export const articleSchema = ({
   publisher: {
     "@type": "EducationalOrganization",
     "@id": `${BASE_URL}/#organization`,
-    name: "Ustaad — Private Tutors UAE",
+    name: "Ustaad",
     url: BASE_URL,
     logo: { "@type": "ImageObject", url: `${BASE_URL}/ustaad-private-tutors-uae-logo.png` },
   },
@@ -379,7 +387,7 @@ export const courseSchema = ({
   provider: {
     "@type": "EducationalOrganization",
     "@id": `${BASE_URL}/#organization`,
-    name: "Ustaad — Private Tutors UAE",
+    name: "Ustaad",
     url: BASE_URL,
   },
   hasCourseInstance: {

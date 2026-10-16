@@ -500,7 +500,7 @@ export default function ExamPanicBlog() {
 
             {/* 07 */}
             <SectionHeading num="07" id="when-extra-support-may-help">When Extra Support May Help</SectionHeading>
-            <p>As a counsellor, I often see patterns families struggle to address on their own. When a child avoids studying despite wanting to do well, when gaps stay hidden in homework but appear under timed conditions, or when their emotional regulation drops across the term, these are usually signs the child is carrying more than effort alone can solve.</p>
+            <p>As a counsellor, I often see patterns families struggle to address on their own. When a child avoids studying despite wanting to do well (often explored in our guide on <a href="/blogs/why-teenagers-procrastinate-on-revision" className="text-[#0f4a9b] font-semibold hover:underline">why teenagers procrastinate on revision</a>), when gaps stay hidden in homework but appear under timed conditions, or when their emotional regulation drops across the term, these are usually signs the child is carrying more than effort alone can solve.</p>
             <p>In many UAE families I work with, this is where I recommend reaching out to Ustaad. Not as added pressure, but as calmer, structured guidance for parents trying to understand what is happening underneath.</p>
             <p>If a student continues to struggle despite consistent effort, personalised academic support may help identify the underlying issue and build a more effective path forward.</p>
 

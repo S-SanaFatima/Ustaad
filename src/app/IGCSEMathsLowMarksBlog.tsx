@@ -385,7 +385,7 @@ export default function IGCSEMathsLowMarksBlog() {
             <Blockquote>"I don't know how it went."</Blockquote>
             <p>Then the results arrive, and the marks are far lower than expected.</p>
             <p>For many families, the confusing part is that the effort was genuinely there. The student studied consistently, revised carefully, and appeared disciplined at home. Yet somehow, the final performance still failed to reflect the preparation.</p>
-            <p>This is one of the most common concerns parents raise during Year 10 and Year 11, especially in competitive British curriculum schools across Dubai and Abu Dhabi where academic pressure quietly increases as board exams approach.</p>
+            <p>This is one of the most common reasons families seek <a href="/igcse" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">IGCSE Maths tuition</a> during Year 10 and Year 11, especially in competitive British curriculum schools across Dubai and Abu Dhabi where academic pressure quietly increases as board exams approach.</p>
             <p>In many cases, the issue is not laziness, distraction, or lack of revision time.</p>
             <p>The real difficulty begins when students are expected to apply what they know independently under timed exam conditions.</p>
             <p>And by the time parents notice the problem clearly, the gap has often been developing for much longer beneath the surface.</p>
@@ -519,7 +519,12 @@ export default function IGCSEMathsLowMarksBlog() {
                 'Which step caused confusion?',
                 'At what point did reasoning break down?',
               ]} />
-              <p className="mt-1.5 mb-0">That is where meaningful improvement begins.</p>
+              <p className="mt-1.5 mb-0">
+                That is where meaningful improvement begins. Tracing these breakdown points in an error log is also how students stop repeating{' '}
+                <a href="/blogs/silly-mistakes-maths-exams" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                  silly mistakes in maths exams
+                </a>.
+              </p>
             </StepCard>
 
             <StepCard title="Show full working clearly">

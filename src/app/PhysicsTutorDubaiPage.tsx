@@ -669,7 +669,7 @@ export default function PhysicsTutorDubaiPage() {
           </h1>
 
           <p className="text-blue-100/80 text-xs sm:text-sm lg:text-base leading-relaxed max-w-xl mb-6 px-4 font-medium">
-            Master multi-step calculations, vector resolutions, and internal assessment data analysis with 1-to-1 physics specialists in Dubai.
+            Master multi-step calculations, vector resolutions, and internal assessment data analysis with 1-to-1 physics specialists in Dubai. Preparing for Year 12 or 13? Connect with our <a href="/a-level-tutor-dubai" className="underline font-bold text-amber-300 hover:text-white">A-Level Physics tutors in Dubai</a>.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full px-4">
@@ -1089,6 +1089,11 @@ export default function PhysicsTutorDubaiPage() {
             label: 'Chemistry Tutor Dubai',
             href: '/chemistry-tutor-dubai',
             note: 'One-to-one IGCSE, GCSE, A-Level & IB chemistry tutoring in Dubai.'
+          },
+          {
+            label: 'Biology Tutor Dubai',
+            href: '/subjects/biology-tutor-dubai',
+            note: '1-to-1 IGCSE, A-Level & IB biology tuition in Dubai.'
           },
           {
             label: 'Physics Subject Hub',

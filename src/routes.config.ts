@@ -128,7 +128,8 @@ export const ROUTES: RouteConfig[] = [
       title: 'British Curriculum Tutors UAE | IGCSE & A-Level | Ustaad',
       description: 'Expert private tutoring for the British curriculum in Dubai & UAE. IGCSE, GCSE, A-Level across all subjects. Cambridge, Edexcel, AQA aligned. Book a free trial.',
       priority: 0.9,
-      changefreq: 'monthly'
+      changefreq: 'monthly',
+      lastmod: '2026-10-12'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Curriculum', url: '/curriculum' }, { name: 'British Curriculum', url: '/british-curriculum' }]
   },
@@ -136,10 +137,11 @@ export const ROUTES: RouteConfig[] = [
     path: '/igcse',
     component: 'IGCSEPage',
     seo: {
-      title: 'IGCSE Tutors UAE | Cambridge & Edexcel | Ustaad',
-      description: 'Expert private IGCSE tutoring in Dubai, Abu Dhabi & UAE. Cambridge & Edexcel IGCSE Maths, Physics, Chemistry, Biology & English. Book a free trial.',
+      title: 'IGCSE Tutors & Tuition UAE | Cambridge & Edexcel | Ustaad',
+      description: 'Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 30-minute trial.',
       priority: 0.95,
-      changefreq: 'monthly'
+      changefreq: 'monthly',
+      lastmod: '2026-10-09'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Curriculum', url: '/curriculum' }, { name: 'IGCSE', url: '/igcse' }]
   },
@@ -161,7 +163,8 @@ export const ROUTES: RouteConfig[] = [
       title: 'A-Level Tutors UAE | Dubai & Abu Dhabi | Ustaad',
       description: 'Expert private A-Level tutoring in Dubai, Abu Dhabi & UAE. AQA, Edexcel & Cambridge A-Level subjects. 1-to-1 sessions with proven grade results.',
       priority: 0.95,
-      changefreq: 'monthly'
+      changefreq: 'monthly',
+      lastmod: '2026-10-12'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Curriculum', url: '/curriculum' }, { name: 'A-Level', url: '/a-level' }]
   },
@@ -473,6 +476,17 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'IGCSE Maths Revision', url: '/blogs/igcse-maths-revision-low-marks' }]
   },
   {
+    path: '/blogs/silly-mistakes-maths-exams',
+    component: 'SillyMistakesMathsExamsBlog',
+    seo: {
+      title: 'Silly Mistakes in Maths Exams: How to Catch Them | Ustaad',
+      description: 'Why do silly mistakes in maths exams happen? A maths tutor shows how to find the first wrong step and use a 3-minute check to verify your answers.',
+      priority: 0.9,
+      changefreq: 'monthly'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' }, { name: 'Silly Mistakes in Maths Exams', url: '/blogs/silly-mistakes-maths-exams' }]
+  },
+  {
     path: '/blogs/exam-panic-before-exams-uae',
     component: 'ExamPanicBlog',
     seo: {
@@ -613,6 +627,30 @@ export const ROUTES: RouteConfig[] = [
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' }, { name: 'Sleep and Memory', url: '/blogs/sleep-and-memory-why-all-nighters-backfire' }]
   },
+  {
+    path: '/blogs/parent-teacher-meeting-questions-uae',
+    component: 'ParentTeacherMeetingBlog',
+    seo: {
+      title: 'Parent-Teacher Meeting Questions for UAE Parents | Ustaad',
+      description: 'Preparing for a parent-teacher meeting? Questions to ask about predicted grades, mocks and progress for IGCSE and A-Level students in the UAE.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-10-19'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'Parent-Teacher Meetings', url: '/blogs/parent-teacher-meeting-questions-uae' }]
+  },
+  {
+    path: '/blog/parent-teacher-meeting-questions-uae',
+    component: 'ParentTeacherMeetingBlog',
+    seo: {
+      title: 'Parent-Teacher Meeting Questions for UAE Parents | Ustaad',
+      description: 'Preparing for a parent-teacher meeting? Questions to ask about predicted grades, mocks and progress for IGCSE and A-Level students in the UAE.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-10-19'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'Parent-Teacher Meetings', url: '/blogs/parent-teacher-meeting-questions-uae' }]
+  },
 
 
   // City landings
@@ -752,11 +790,37 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Chemistry', url: '/chemistry' }, { name: 'Chemistry Tutor Dubai', url: '/chemistry-tutor-dubai' }]
   },
   {
+    path: '/subjects/biology-tutor-dubai',
+    component: 'BiologyTutorDubaiPage',
+    seo: {
+      title: 'Biology Tutor Dubai | IGCSE, A-Level & IB Biology | Ustaad',
+      description: '1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Book a free 30-minute trial with Ustaad.',
+      keywords: 'biology tutor Dubai, IB Biology tutor Dubai, IGCSE Biology tutor Dubai, A-Level Biology tutor Dubai, private Biology tutor Dubai, online Biology tutor UAE, IB Biology HL tutor, Biology IA help Dubai, Biology tuition Dubai, best Biology tutor in Dubai',
+      priority: 0.90,
+      changefreq: 'monthly',
+      lastmod: '2026-10-14'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Biology', url: '/biology' }, { name: 'Biology Tutor Dubai', url: '/subjects/biology-tutor-dubai' }]
+  },
+  {
+    path: '/biology-tutor-dubai',
+    component: 'BiologyTutorDubaiPage',
+    seo: {
+      title: 'Biology Tutor Dubai | IGCSE, A-Level & IB Biology | Ustaad',
+      description: '1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Book a free 30-minute trial with Ustaad.',
+      keywords: 'biology tutor Dubai, IB Biology tutor Dubai, IGCSE Biology tutor Dubai, A-Level Biology tutor Dubai, private Biology tutor Dubai, online Biology tutor UAE, IB Biology HL tutor, Biology IA help Dubai, Biology tuition Dubai, best Biology tutor in Dubai',
+      priority: 0.90,
+      changefreq: 'monthly',
+      lastmod: '2026-10-14'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Biology', url: '/biology' }, { name: 'Biology Tutor Dubai', url: '/subjects/biology-tutor-dubai' }]
+  },
+  {
     path: '/a-level-tutor-dubai',
     component: 'ALevelTutorDubaiPage',
     seo: {
-      title: 'A-Level Tutor Dubai | Cambridge & Edexcel Specialist Tutors',
-      description: 'Expert 1-on-1 A-Level tutoring in Dubai for Cambridge CIE, Edexcel & AQA. Maths, Further Maths, Physics, Chemistry, Biology & Economics. Book free trial.',
+      title: 'A-Level Tutors in Dubai | Cambridge, Edexcel & AQA | Ustaad',
+      description: 'Online 1-to-1 A-Level tuition in Dubai for Maths, Further Maths, Physics, Chemistry, Biology and Economics. Cambridge, Edexcel and AQA. Free trial.',
       keywords: 'A-Level tutor Dubai, A level tutoring Dubai, Cambridge A level tutor Dubai, Edexcel A level tutor Dubai, online A Level tuition Dubai, A Level maths physics chemistry tutor UAE',
       priority: 0.90,
       changefreq: 'monthly',
@@ -954,6 +1018,23 @@ export const ROUTES: RouteConfig[] = [
       { name: 'Blog', url: '/blogs' },
       { name: 'Parent Guidance', url: '/blogs/parent-guidance' },
       { name: 'How Much Should Parents Help With Homework?', url: '/blogs/how-much-should-parents-help-with-homework' }
+    ]
+  },
+  {
+    path: '/blogs/why-teenagers-procrastinate-on-revision',
+    component: 'WhyTeenagersProcrastinateBlog',
+    seo: {
+      title: 'Why Teenagers Procrastinate on Revision | Ustaad UAE',
+      description: "Your teenager won't start revising? Procrastination is rarely laziness. Learn the psychology behind it and 7 evidence-based ways UAE parents can help.",
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-10-09'
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blogs' },
+      { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' },
+      { name: 'Why Teenagers Procrastinate on Revision', url: '/blogs/why-teenagers-procrastinate-on-revision' }
     ]
   },
   {

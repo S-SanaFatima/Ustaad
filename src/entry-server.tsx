@@ -34,6 +34,7 @@ import ExamPanicBlog from "./app/ExamPanicBlog.tsx";
 import UAEExamsReturnBlog from "./app/UAEExamsReturnBlog.tsx";
 import ExamStaminaBlog from "./app/ExamStaminaBlog.tsx";
 import IGCSEMathsLowMarksBlog from "./app/IGCSEMathsLowMarksBlog.tsx";
+import SillyMistakesMathsExamsBlog from "./app/SillyMistakesMathsExamsBlog.tsx";
 import IGCSEBiology6MarkBlog from "./app/IGCSEBiology6MarkBlog.tsx";
 import IGCSEPage from "./app/IGCSEPage.tsx";
 import ChemistryLandingPage from "./app/ChemistryLandingPage.tsx";
@@ -50,6 +51,7 @@ import WhatDoesYInterceptMeanBlog from "./app/WhatDoesYInterceptMeanBlog.tsx";
 import IllusionOfCompetenceBlog from "./app/IllusionOfCompetenceBlog.tsx";
 import IGCSEvsGCSEBlog from "./app/IGCSEvsGCSEBlog.tsx";
 import HomeworkHelpBalanceBlog from "./app/HomeworkHelpBalanceBlog.tsx";
+import WhyTeenagersProcrastinateBlog from "./app/WhyTeenagersProcrastinateBlog.tsx";
 
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
 import MathsPage from "./app/MathsPage.tsx";
@@ -79,6 +81,7 @@ import IgcseTutorDubaiLanding from "./app/IgcseTutorDubaiPage.tsx";
 import MathsTutorDubaiLanding from "./app/MathsTutorDubaiPage.tsx";
 import PhysicsTutorDubaiPage from "./app/PhysicsTutorDubaiPage.tsx";
 import ChemistryTutorDubaiPage from "./app/ChemistryTutorDubaiPage.tsx";
+import BiologyTutorDubaiPage from "./app/BiologyTutorDubaiPage.tsx";
 import ALevelTutorLanding from "./app/ALevelTutorAbuDhabiPage.tsx";
 import ALevelTutorDubaiPage from "./app/ALevelTutorDubaiPage.tsx";
 import IBTutorAbuDhabiPage from "./app/IBTutorAbuDhabiPage.tsx";
@@ -130,6 +133,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   UAEExamsReturnBlog,
   ExamStaminaBlog,
   IGCSEMathsLowMarksBlog,
+  SillyMistakesMathsExamsBlog,
   IGCSEBiology6MarkBlog,
   IGCSEPhysicsFormulasBlog,
   IGCSEvsGCSEBlog,
@@ -141,11 +145,13 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   MathsTutorDubaiLanding,
   PhysicsTutorDubaiPage,
   ChemistryTutorDubaiPage,
+  BiologyTutorDubaiPage,
   ALevelTutorLanding,
   MockExamsUAEBlog,
   WhatDoesGradientMeanBlog,
   WhatDoesYInterceptMeanBlog,
   HomeworkHelpBalanceBlog,
+  WhyTeenagersProcrastinateBlog,
   IllusionOfCompetenceBlog,
   CommandWordsBlog,
   SleepAndMemoryBlog,

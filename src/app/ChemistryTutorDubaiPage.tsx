@@ -1992,7 +1992,7 @@ export default function ChemistryTutorDubaiPage() {
             variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
             className="text-blue-100/80 text-sm sm:text-base md:text-[17px] leading-relaxed max-w-2xl mb-6 md:mb-8 px-2 italic"
           >
-            One-to-one online chemistry tutoring for GCSE, IGCSE, A-Level and IB students, matched to your child&apos;s exact exam board and school syllabus.
+            One-to-one online chemistry tutoring for GCSE, IGCSE, <a href="/a-level-tutor-dubai" className="underline font-bold text-amber-300 hover:text-white">A-Level Chemistry tutors in Dubai</a> and IB students, matched to your child&apos;s exact exam board and school syllabus.
           </motion.p>
 
           {/* Hero CTAs */}
@@ -3015,6 +3015,11 @@ export default function ChemistryTutorDubaiPage() {
             label: 'Physics Tutor Dubai',
             href: '/physics-tutor-dubai',
             note: 'One-to-one mechanics, fields and IB/A-Level physics tutoring.'
+          },
+          {
+            label: 'Biology Tutor Dubai',
+            href: '/subjects/biology-tutor-dubai',
+            note: '1-to-1 IGCSE, A-Level & IB biology tuition in Dubai.'
           },
           {
             label: 'Maths Tutor Dubai',

@@ -1,28 +1,31 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import {
-  AlertTriangle, Atom, BookOpen, Briefcase, Brain, Calculator,
-  ChevronDown, ClipboardCheck, Clock, Dna, FileText, FlaskConical, GraduationCap,
-  HelpCircle, Landmark, Layers, Lightbulb, MapPin, MessageCircle, PenTool, Target, TrendingUp, XCircle,
+  Atom, BookOpen, Briefcase, Brain, Calculator,
+  Calendar, CheckCircle2, ChevronDown, Clock, Dna, FileText, FlaskConical, GraduationCap,
+  HelpCircle, Landmark, Layers, Lightbulb, MapPin, MessageCircle, PenTool, Target, TrendingUp, Users, XCircle,
+  School, Award,
 } from 'lucide-react';
-import { Layout, GradientHeadingText, FinalCTA, StatsBar, HeroCTABlock } from './shared';
+import { Layout, GradientHeadingText, FinalCTA, StatsBar, GoldButton, WhatsAppIcon, IGCSESubjectsCosmicSection, IGCSETutoringTreeSection, IGCSEFreeTrialWhiteboardSection, IGCSEWhyStudentsLoseMarksSection } from './shared';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
 const igcseSchemaFaqs = [
-  { q: "Which IGCSE subjects do you support?", a: "Mathematics, Physics, Chemistry, Biology, English, and Business across the IGCSE qualification. Additional Mathematics, Economics, and Computer Science are available on request." },
-  { q: "Do you support both Cambridge and Edexcel IGCSE subjects?", a: "Yes. Both boards are covered, with tutors paired to each specification." },
-  { q: "Can students receive support for more than one IGCSE subject?", a: "Yes. Many students work with Ustaad across several IGCSE subjects at once." },
-  { q: "What is the difference between Core and Extended IGCSE pathways?", a: "Extended is the deeper version with the top grades available. Core is the focused version covering essential topics." },
-  { q: "How are IGCSE subjects assessed?", a: "Methods vary by subject and board. Typical formats include written papers, multiple-choice papers, practical work or coursework, and data-response questions." },
-  { q: "Do you help students prepare for IGCSE examinations?", a: "Yes. Tutors work through topic revision, past paper practice, command words, and exam rehearsal across both boards." },
-  { q: "What is the difference between Cambridge IGCSE and Pearson Edexcel International GCSE?", a: "Both qualifications are internationally recognised, but specifications, paper structures, and assessment formats differ between boards." },
-  { q: "Is support available for students planning to study A-Level subjects?", a: "Yes. Ustaad helps students strengthen the IGCSE foundations needed for A-Level Mathematics, Physics, Chemistry, Biology, English, and Business." },
+  {
+    q: "What is the difference between IGCSE and GCSE?",
+    a: "GCSE is the qualification taught in schools in England. IGCSE is the international version, set by Cambridge and Pearson Edexcel and common in British-curriculum schools in the UAE. Our IGCSE vs GCSE guide compares the two."
+  },
+  {
+    q: "Can students receive support for more than one IGCSE subject?",
+    a: "Yes. Many students work with Ustaad across several IGCSE subjects at once."
+  },
+  {
+    q: "How are IGCSE subjects assessed?",
+    a: "Methods vary by subject and board. Typical formats include written papers, multiple-choice papers, practical work or coursework, and data-response questions."
+  },
 ];
 
 export default function IGCSEPage() {
-  const [boardExpanded, setBoardExpanded] = useState(false);
-  const [coreExtTab, setCoreExtTab] = useState<'core' | 'extended'>('core');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
@@ -32,108 +35,171 @@ export default function IGCSEPage() {
       floatingWhatsappAlt="Send a Cambridge IGCSE or Edexcel International GCSE syllabus question to Ustaad on WhatsApp for tutor-led specification help"
     >
       <SEOHead
-        title="IGCSE Tutors UAE | Cambridge and Edexcel | Ustaad"
-        description="One-to-one IGCSE tutoring for Cambridge and Edexcel students in Years 9 to 11 across the UAE."
+        title="IGCSE Tutors & Tuition UAE | Cambridge & Edexcel | Ustaad"
+        description="Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 30-minute trial."
         canonical="/igcse"
         ogImage="/UpdatedImages/year-10-igcse-cambridge-0580-edexcel-4ma1-mathematics-tutor-uae.webp"
         schema={[
           localBusinessSchema,
-          serviceSchema("IGCSE Tutoring UAE", "One-to-one IGCSE tutoring for Cambridge and Edexcel students across the UAE.", "/igcse"),
-          breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Curriculum", url: "/curriculum" }, { name: "IGCSE", url: "/igcse" }]),
+          serviceSchema(
+            "IGCSE Tutoring and Tuition in the UAE",
+            "Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 30-minute trial.",
+            "/igcse"
+          ),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Curriculum", url: "/curriculum" },
+            { name: "IGCSE", url: "/igcse" }
+          ]),
           faqSchema(igcseSchemaFaqs),
         ]}
       />
-      {/* ── HERO ── */}
-      <section className="relative w-full min-h-[600px] lg:min-h-[700px] overflow-hidden">
+
+      {/* ── 1. HERO ── */}
+      <section className="relative w-full min-h-[520px] lg:min-h-[600px] flex items-center overflow-hidden">
         <img
           src="/UpdatedImages/year-10-igcse-cambridge-0580-edexcel-4ma1-mathematics-tutor-uae.webp"
           alt="Ustaad tutor coaching a Year 10 IGCSE student through Cambridge 0580 and Edexcel 4MA1 Mathematics specification preparation"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: 'blur(2px)', transform: 'scale(1.05)' }}
-                width={1200} height={800} fetchPriority="high" />
+          width={1200}
+          height={800}
+          fetchPriority="high"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/50 sm:via-white/60 sm:to-black/40" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32 lg:pt-32 lg:pb-40">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14 w-full">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl pr-8 sm:pr-0">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-sm font-bold rounded-full mb-6 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.15)]">
-              <Landmark className="h-4 w-4" /> IGCSE
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-xs sm:text-sm font-bold rounded-full mb-3 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.15)]">
+              <Landmark className="h-3.5 w-3.5" /> IGCSE
             </div>
-            <h1 className="text-4xl lg:text-5xl xl:text-[64px] font-extrabold text-[#0a1f3d] mb-4 leading-[1.1] tracking-tight">
-              Cambridge and Edexcel,{' '}
-              <span className="bg-gradient-to-r from-[#1e5ba8] to-[#0a3a79] bg-clip-text text-transparent">Tutored with Precision.</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f3d] mb-2 sm:mb-3 leading-[1.12] tracking-tight">
+              IGCSE Tutors Across the UAE
             </h1>
-            <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
-            <p className="text-gray-700 text-lg mb-8 leading-relaxed max-w-xl">
-              One-to-one IGCSE tutoring for Cambridge and Edexcel students in Years 9 to 11 across the UAE.
+            <p className="text-base sm:text-lg lg:text-xl font-bold text-[#0f4a9b] mb-2.5 leading-snug">
+              Online IGCSE tuition for Cambridge and Edexcel, Years 9 to 11.
+            </p>
+            <div className="w-14 sm:w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3" />
+            <p className="text-gray-700 text-sm sm:text-base mb-3 sm:mb-4 leading-relaxed max-w-xl">
+              Each lesson is one-to-one and built around the papers your child will sit in Year 11.
             </p>
             {/* Cross-reference */}
-            <p className="text-gray-500 text-sm mb-8 leading-relaxed max-w-xl">
+            <p className="text-gray-500 text-xs sm:text-sm mb-5 leading-relaxed max-w-xl">
               Studying GCSE instead?{' '}
               <a href="/gcse" className="text-[#0f4a9b] font-semibold underline">Read about Ustaad's GCSE tutoring across AQA, OCR, and Pearson Edexcel.</a>{' '}
-              Based in Dubai or Abu Dhabi? <a href="/igcse-tutor-dubai" className="text-[#0f4a9b] font-semibold underline">IGCSE tutor Dubai</a> and <a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">Abu Dhabi</a> hubs available.
+              Based in Dubai or Abu Dhabi? See our <a href="/igcse-tutor-dubai" className="text-[#0f4a9b] font-semibold underline">IGCSE tutor Dubai</a> and <a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">IGCSE tutor Abu Dhabi</a> pages.
             </p>
-            <HeroCTABlock className="mb-4">
-              Book Your First IGCSE Lesson
-            </HeroCTABlock>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 mb-2.5">
+              <GoldButton
+                href="/contact#form"
+                className="w-auto self-start px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(199,162,74,0.35)] justify-center"
+              >
+                Book a Free IGCSE Trial
+              </GoldButton>
+              <a
+                href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20need%20an%20IGCSE%20tutor%20for"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ask on WhatsApp"
+                className="w-auto self-start inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm shadow-md transition-all duration-200 hover:-translate-y-0.5"
+              >
+                <WhatsAppIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <span>Ask on WhatsApp</span>
+              </a>
+            </div>
+            <p className="text-xs text-gray-500 font-medium tracking-wide">
+              No commitment. Cancel anytime.
+            </p>
           </motion.div>
         </div>
       </section>
 
       <StatsBar />
 
-      {/* ── COMMON IGCSE ACADEMIC CHALLENGES ── */}
-      <section className="py-20 bg-[#f8fafc] border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 lg:items-center">
+      {/* ── 2. IGCSE SUBJECTS WE TUTOR (3D COSMIC GLASSMORPHIC SECTION) ── */}
+      <IGCSESubjectsCosmicSection />
 
-            {/* Left: heading + description */}
-            <div className="lg:w-[200px] xl:w-[220px] flex-shrink-0">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-5">
-                <span className="text-[#0f4a9b] text-[11px] font-bold uppercase tracking-[0.15em]">Challenges</span>
+
+      {/* ── 3. HOW USTAAD TUTORS IGCSE STUDENTS (3D CONNECTED TREE INFOGRAPHIC) ── */}
+      <IGCSETutoringTreeSection />
+
+
+      {/* ── 4. SELECTED IGCSE TUTORS, NOT OPEN LISTINGS ── */}
+      <section className="py-10 sm:py-14 lg:py-16 bg-gradient-to-b from-[#f5f8fc] via-[#edf3f9] to-[#f8fafc] border-t border-b border-gray-100 relative overflow-hidden select-none">
+        {/* Ambient Lighting Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(255,255,255,0.85),transparent_70%)] pointer-events-none" />
+        <div className="absolute -top-24 -left-24 w-80 h-80 bg-blue-100/35 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-slate-200/40 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Cool Box Container */}
+          <div className="relative rounded-3xl bg-white/95 backdrop-blur-md border border-[#0f4a9b]/15 shadow-[0_20px_50px_rgba(15,74,155,0.08)] p-8 sm:p-12 lg:p-14 overflow-hidden text-center transition-all duration-300 hover:shadow-[0_25px_60px_rgba(15,74,155,0.12)]">
+            {/* Top Accent Gradient Line */}
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0f4a9b] via-[#C7A24A] to-[#0f4a9b]" />
+
+            {/* Ambient Radial Color Halos */}
+            <div className="absolute -top-16 -left-16 w-56 h-56 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -right-16 w-56 h-56 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            {/* ── COLORFUL BACKGROUND SCHOOL & ACADEMIC ICONS ── */}
+            <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+              {/* Top-Left: School Icon Badge (Royal Blue) */}
+              <div className="absolute top-5 left-5 sm:top-7 sm:left-8 flex items-center justify-center w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-gradient-to-br from-blue-500/15 to-blue-600/5 border border-blue-400/25 shadow-sm -rotate-12">
+                <School className="w-5 h-5 sm:w-6 sm:h-6 text-[#0f4a9b]" />
               </div>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-5 leading-tight">
-                <GradientHeadingText text="Common IGCSE Academic Challenges" />
-              </h2>
- <p className="text-gray-500 text-base leading-relaxed">
-                Common challenges IGCSE students meet between Year 9 and the final exams.
-              </p>
+
+              {/* Bottom-Left: Graduation Cap Badge (Purple) */}
+              <div className="absolute bottom-5 left-6 sm:bottom-8 sm:left-10 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-purple-500/15 to-indigo-600/5 border border-purple-400/25 shadow-sm rotate-6">
+                <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
+              </div>
+
+              {/* Top-Right: Award / Medal Badge (Gold / Amber) */}
+              <div className="absolute top-5 right-5 sm:top-7 sm:right-8 flex items-center justify-center w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-gradient-to-br from-amber-500/15 to-[#C7A24A]/10 border border-amber-400/30 shadow-sm rotate-12">
+                <Award className="w-5 h-5 sm:w-6 sm:h-6 text-[#C7A24A]" />
+              </div>
+
+              {/* Bottom-Right: Book / Syllabus Badge (Emerald) */}
+              <div className="absolute bottom-5 right-6 sm:bottom-8 sm:right-10 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-emerald-500/15 to-emerald-600/5 border border-emerald-400/25 shadow-sm -rotate-6">
+                <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600" />
+              </div>
+
+              {/* Mid-Left Subtle Check Badge (Teal) */}
+              <div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 left-3 items-center justify-center w-9 h-9 rounded-xl bg-teal-500/10 border border-teal-400/20 shadow-sm -rotate-6">
+                <CheckCircle2 className="w-4 h-4 text-teal-600" />
+              </div>
+
+              {/* Mid-Right Subtle Target Badge (Rose) */}
+              <div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 right-3 items-center justify-center w-9 h-9 rounded-xl bg-rose-500/10 border border-rose-400/20 shadow-sm rotate-6">
+                <Target className="w-4 h-4 text-rose-600" />
+              </div>
+
+              {/* Large Soft Background Watermark Doodles */}
+              <School className="absolute -top-6 left-1/3 w-32 h-32 text-[#0f4a9b]/[0.025] -rotate-12" />
+              <Award className="absolute -bottom-10 right-1/3 w-36 h-36 text-[#C7A24A]/[0.03] rotate-12" />
             </div>
 
-            {/* Right: 2×2 zero-margin grid */}
-            <div className="flex-1 border border-gray-200 rounded-2xl overflow-hidden">
-              {/* Row 1 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 border-b border-gray-200">
-                {[
-                  { title: "Heavy Subject Load",     desc: "Eight to ten subjects, each carrying its own revision schedule, paper structure, and exam demands.",                               icon: <AlertTriangle className="h-5 w-5" />, num: '01' },
-                  { title: "Boards Ask Differently", desc: <>Edexcel favours close-marked calculation;<br />Cambridge weights longer application questions more heavily.</>, icon: <Layers className="h-5 w-5" />,       num: '02' },
-                ].map((m, i) => (
-                  <div key={i} className="group relative flex flex-col gap-3 p-5 bg-white hover:bg-[#f7f9ff] transition-colors duration-200 overflow-hidden">
-                    <div className="absolute bottom-1 right-3 text-[7rem] font-black text-[#0f4a9b]/[0.06] leading-none pointer-events-none select-none tabular-nums">{m.num}</div>
-                    <div className="w-10 h-10 rounded-xl bg-[#f0f4ff] border border-[#0f4a9b]/12 flex items-center justify-center flex-shrink-0 relative z-10">
-                      <svg width="0" height="0" className="absolute"><defs><linearGradient id={`chalIcon${i}`} x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#1e5ba8" /><stop offset="100%" stopColor="#0a3a79" /></linearGradient></defs></svg>
-                      {React.cloneElement(m.icon, { style: { stroke: `url(#chalIcon${i})` } })}
-                    </div>
-                    <h3 className="text-base font-extrabold text-[#0a1f3d] relative z-10">{m.title}</h3>
-                    <p className="text-sm leading-relaxed text-gray-500 relative z-10">{m.desc}</p>
-                  </div>
-                ))}
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/20 rounded-full mb-3.5 sm:mb-4 shadow-sm">
+                <Users className="h-3.5 w-3.5 text-[#0f4a9b]" />
+                <span className="text-[#0f4a9b] text-[11px] font-extrabold uppercase tracking-[0.14em]">Our Tutors</span>
               </div>
-              {/* Row 2 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
-                {[
-                  { title: "Content Deepens",      desc: "Year 9 introduces topics, Year 10 extends them, Year 11 tests them under real exam conditions.",                          icon: <TrendingUp className="h-5 w-5" />, num: '03' },
-                  { title: "Different Exam Rules", desc: "Command words, paper structures, and assessment objectives vary across Cambridge and Edexcel.", icon: <FileText className="h-5 w-5" />,   num: '04' },
-                ].map((m, i) => (
-                  <div key={i} className="group relative flex flex-col gap-3 p-5 bg-white hover:bg-[#f7f9ff] transition-colors duration-200 overflow-hidden">
-                    <div className="absolute bottom-1 right-3 text-[7rem] font-black text-[#0f4a9b]/[0.06] leading-none pointer-events-none select-none tabular-nums">{m.num}</div>
-                    <div className="w-10 h-10 rounded-xl bg-[#f0f4ff] border border-[#0f4a9b]/12 flex items-center justify-center flex-shrink-0 relative z-10">
-                      <svg width="0" height="0" className="absolute"><defs><linearGradient id={`chalIcon${i + 2}`} x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#1e5ba8" /><stop offset="100%" stopColor="#0a3a79" /></linearGradient></defs></svg>
-                      {React.cloneElement(m.icon, { style: { stroke: `url(#chalIcon${i + 2})` } })}
-                    </div>
-                    <h3 className="text-base font-extrabold text-[#0a1f3d] relative z-10">{m.title}</h3>
-                    <p className="text-sm leading-relaxed text-gray-500 relative z-10">{m.desc}</p>
-                  </div>
-                ))}
+
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-2.5 sm:mb-3 leading-tight tracking-tight">
+                Selected IGCSE Tutors, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e6cd9]">Not Open Listings</span>
+              </h2>
+
+              <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-6 sm:mb-7 font-normal">
+                Open tutor listings let anyone advertise IGCSE lessons. Ustaad's tutors are selected for the subject and board they teach, and you can read their subjects and backgrounds on our tutors page.
+              </p>
+
+              <div className="relative inline-block z-10">
+                <a
+                  href="/tutors"
+                  className="inline-flex items-center justify-center px-7 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold text-sm sm:text-base text-white bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] hover:from-[#1a5bb8] hover:to-[#0f4a9b] shadow-[0_4px_16px_rgba(15,74,155,0.25)] hover:shadow-[0_6px_20px_rgba(15,74,155,0.35)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <span>Meet the IGCSE Tutors</span>
+                </a>
               </div>
             </div>
 
@@ -141,422 +207,465 @@ export default function IGCSEPage() {
         </div>
       </section>
 
-      {/* ── HOW USTAAD SUPPORTS IGCSE STUDENTS ── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-5">
-              <span className="text-[#0f4a9b] text-[11px] font-bold uppercase tracking-[0.15em]">Our Support</span>
+      {/* ── 5. HOW THE FREE IGCSE TRIAL WORKS (WHITEBOARD NOTEPAD SECTION) ── */}
+      <IGCSEFreeTrialWhiteboardSection />
+
+
+      {/* ── 6. WHY STRONG STUDENTS LOSE MARKS (EXAMINER DIAGNOSTICS) ── */}
+      <IGCSEWhyStudentsLoseMarksSection />
+
+      {/* ── 7. CAMBRIDGE OR EDEXCEL: BOARDS AND TIERS (WHITE BG, BLUE CARDS) ── */}
+      <section className="py-14 sm:py-20 lg:py-24 bg-[#ffffff] relative overflow-hidden border-b border-gray-100 select-none">
+        {/* Ambient Decorative Blurs */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#0f4a9b]/4 rounded-full blur-[120px] pointer-events-none select-none" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#C7A24A]/4 rounded-full blur-[100px] pointer-events-none select-none" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Header */}
+          <div className="text-center mb-10 sm:mb-12 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-3.5 shadow-2xs">
+              <GraduationCap className="h-3.5 w-3.5 text-[#0f4a9b]" />
+              <span className="text-[#0f4a9b] text-[11px] font-extrabold uppercase tracking-[0.15em]">Board Coverage</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4 leading-tight">
-              <GradientHeadingText text="How Ustaad Supports IGCSE Students" />
+            
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-3 leading-tight tracking-tight">
+              Cambridge or Edexcel:{' '}
+              <span className="text-[#0f4a9b]">Boards and Tiers</span>
             </h2>
- <p className="text-gray-500 text-base leading-relaxed">
-              Four ways Ustaad supports IGCSE students through Years 9 to 11.
+            
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed font-normal">
+              Two boards set IGCSE papers in UAE schools, and your child's tutor follows the one the school has chosen.
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
-            {/* Row 1 */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 border-b border-gray-200">
-              {[
-                { title: "Subject Planning",    desc: "A clear plan for revision, coursework, mock exams, and final exams across every IGCSE subject.",           icon: <Target className="h-5 w-5" />,    num: '01' },
-                { title: "Real Paper Practice", desc: "Past papers from recent years, marked against each board's official mark scheme.", icon: <FileText className="h-5 w-5" />,  num: '02' },
-              ].map((item, i) => (
-                <div key={i} className="group relative flex flex-col gap-3 p-7 bg-white hover:bg-[#f7f9ff] transition-colors duration-200 overflow-hidden">
-                  <div className="absolute bottom-1 right-3 text-[7rem] font-black text-[#0f4a9b]/[0.06] leading-none pointer-events-none select-none tabular-nums">{item.num}</div>
-                  <div className="w-10 h-10 rounded-xl bg-[#f0f4ff] border border-[#0f4a9b]/12 flex items-center justify-center flex-shrink-0 relative z-10">
-                    <svg width="0" height="0" className="absolute"><defs><linearGradient id={`suppIcon${i}`} x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#1e5ba8" /><stop offset="100%" stopColor="#0a3a79" /></linearGradient></defs></svg>
-                    {React.cloneElement(item.icon, { style: { stroke: `url(#suppIcon${i})` } })}
-                  </div>
-                  <h3 className="text-xl font-extrabold text-[#0a1f3d] leading-snug group-hover:text-[#0f4a9b] transition-colors duration-200 relative z-10">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed relative z-10">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-            {/* Row 2 */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
-              {[
-                { title: "Full Syllabus Coverage", desc: "Every chapter of the IGCSE syllabus covered in full, with no exceptions or skipped earlier topics.",              icon: <BookOpen className="h-5 w-5" />,      num: '03' },
-                { title: "Assessment Preparation", desc: "Preparation matched to how Cambridge and Edexcel design papers and assessments.", icon: <ClipboardCheck className="h-5 w-5" />, num: '04' },
-              ].map((item, i) => (
-                <div key={i} className="group relative flex flex-col gap-3 p-7 bg-white hover:bg-[#f7f9ff] transition-colors duration-200 overflow-hidden">
-                  <div className="absolute bottom-1 right-3 text-[7rem] font-black text-[#0f4a9b]/[0.06] leading-none pointer-events-none select-none tabular-nums">{item.num}</div>
-                  <div className="w-10 h-10 rounded-xl bg-[#f0f4ff] border border-[#0f4a9b]/12 flex items-center justify-center flex-shrink-0 relative z-10">
-                    <svg width="0" height="0" className="absolute"><defs><linearGradient id={`suppIcon${i + 2}`} x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#1e5ba8" /><stop offset="100%" stopColor="#0a3a79" /></linearGradient></defs></svg>
-                    {React.cloneElement(item.icon, { style: { stroke: `url(#suppIcon${i + 2})` } })}
-                  </div>
-                  <h3 className="text-xl font-extrabold text-[#0a1f3d] leading-snug group-hover:text-[#0f4a9b] transition-colors duration-200 relative z-10">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed relative z-10">{item.desc}</p>
-                </div>
-              ))}
+          {/* Desktop Comparison Table Blue Card */}
+          <div className="hidden md:block bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#0a2756] border-2 border-[#0f4a9b]/30 rounded-3xl overflow-hidden shadow-[0_16px_45px_rgba(15,74,155,0.16)] mb-8">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-white/15 bg-white/10">
+                    <th className="py-4 px-6 text-xs font-black text-white/70 uppercase tracking-wider w-1/4">Feature</th>
+                    <th className="py-4 px-6 text-sm sm:text-base font-extrabold text-[#f0d080] w-[37.5%]">Cambridge IGCSE</th>
+                    <th className="py-4 px-6 text-sm sm:text-base font-extrabold text-[#f0d080] w-[37.5%]">Pearson Edexcel International GCSE</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/10 text-sm sm:text-[14.5px] text-blue-100/90">
+                  <tr className="hover:bg-white/5 transition-colors">
+                    <td className="py-4 px-6 font-bold text-white/80 bg-white/5">Exam series</td>
+                    <td className="py-4 px-6">June and November</td>
+                    <td className="py-4 px-6">Summer (May to June), plus November for selected subjects</td>
+                  </tr>
+                  <tr className="hover:bg-white/5 transition-colors">
+                    <td className="py-4 px-6 font-bold text-white/80 bg-white/5">Grades</td>
+                    <td className="py-4 px-6">A* to G, or 9 to 1 where the school chooses it</td>
+                    <td className="py-4 px-6">9 to 1</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
+
+          {/* Mobile Dedicated Board Comparison Cards (Clean & High Readability) */}
+          <div className="block md:hidden space-y-4 mb-6">
+            {/* Cambridge Card */}
+            <div className="bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#0a2756] border-2 border-[#0f4a9b]/30 rounded-2xl p-5 shadow-[0_10px_30px_rgba(15,74,155,0.14)] text-left">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-extrabold text-[#f0d080] mb-3">
+                <GraduationCap className="h-3.5 w-3.5 text-[#f0d080]" />
+                Cambridge IGCSE
+              </div>
+              <div className="space-y-3 text-xs text-blue-100/90">
+                <div className="bg-white/5 rounded-xl p-3 border border-white/10">
+                  <span className="text-white/60 font-bold block uppercase text-[10px] tracking-wider mb-0.5">Exam series</span>
+                  <span className="font-semibold text-white">June and November</span>
+                </div>
+                <div className="bg-white/5 rounded-xl p-3 border border-white/10">
+                  <span className="text-white/60 font-bold block uppercase text-[10px] tracking-wider mb-0.5">Grades</span>
+                  <span className="font-semibold text-white">A* to G (or 9 to 1 where school chooses)</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Pearson Edexcel Card */}
+            <div className="bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#0a2756] border-2 border-[#0f4a9b]/30 rounded-2xl p-5 shadow-[0_10px_30px_rgba(15,74,155,0.14)] text-left">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-extrabold text-[#f0d080] mb-3">
+                <GraduationCap className="h-3.5 w-3.5 text-[#f0d080]" />
+                Pearson Edexcel International GCSE
+              </div>
+              <div className="space-y-3 text-xs text-blue-100/90">
+                <div className="bg-white/5 rounded-xl p-3 border border-white/10">
+                  <span className="text-white/60 font-bold block uppercase text-[10px] tracking-wider mb-0.5">Exam series</span>
+                  <span className="font-semibold text-white">Summer (May to June), plus November for selected subjects</span>
+                </div>
+                <div className="bg-white/5 rounded-xl p-3 border border-white/10">
+                  <span className="text-white/60 font-bold block uppercase text-[10px] tracking-wider mb-0.5">Grades</span>
+                  <span className="font-semibold text-white">9 to 1 (linear numerical scale)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Core and Extended Pathways Side by Side (Blue Cards) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            {/* Core Card */}
+            <div className="bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#0a2756] border-2 border-[#0f4a9b]/30 rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(15,74,155,0.14)] hover:border-[#f0d080]/50 hover:-translate-y-1 transition-all duration-300 group text-left">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/15 border border-white/20 rounded-full text-xs font-bold text-[#f0d080] uppercase tracking-wider mb-3 sm:mb-4">
+                  <Layers className="h-3.5 w-3.5 text-[#f0d080]" />
+                  Option A
+                </div>
+                <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2 group-hover:text-[#f0d080] transition-colors">Core Pathway</h3>
+                <p className="text-blue-100/90 text-xs sm:text-sm leading-relaxed font-normal">
+                  For students aiming at a steady pass on the core topics. Tutoring locks the essentials in and keeps confidence steady through the exam.
+                </p>
+              </div>
+            </div>
+
+            {/* Extended Card */}
+            <div className="bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#0a2756] border-2 border-[#0f4a9b]/30 rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(15,74,155,0.14)] hover:border-[#f0d080]/50 hover:-translate-y-1 transition-all duration-300 group text-left">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C7A24A]/25 border border-[#C7A24A]/40 rounded-full text-xs font-bold text-[#f0d080] uppercase tracking-wider mb-3 sm:mb-4">
+                  <TrendingUp className="h-3.5 w-3.5 text-[#f0d080]" />
+                  Option B
+                </div>
+                <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2 group-hover:text-[#f0d080] transition-colors">Extended Pathway</h3>
+                <p className="text-blue-100/90 text-xs sm:text-sm leading-relaxed font-normal">
+                  For students aiming at top grades across the full syllabus. Tutoring covers every topic and trains for the toughest exam questions.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* ── CAMBRIDGE & EDEXCEL COVERAGE ── */}
-      <section className="py-24 bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#0a3a79] relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-white/5 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#C7A24A]/5 rounded-full blur-[100px] pointer-events-none" />
+      {/* ── 8. IGCSE TO A-LEVEL TRANSITION (WHITE BG, BLUE CARD, DYNAMIC FONT SCROLL ANIMATIONS) ── */}
+      <section className="py-14 sm:py-20 lg:py-24 bg-[#ffffff] relative overflow-hidden border-b border-gray-100 select-none">
+        {/* Subtle Ambient Background Gradients */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0f4a9b]/4 rounded-full blur-[100px] pointer-events-none select-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#C7A24A]/4 rounded-full blur-[90px] pointer-events-none select-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 lg:items-center">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 lg:items-center justify-between">
 
-            {/* Left: badge + heading */}
-            <div className="lg:w-[320px] xl:w-[360px] flex-shrink-0">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/15 rounded-full mb-6">
-                <GraduationCap className="h-3.5 w-3.5 text-[#C7A24A]" />
-                <span className="text-white/70 text-[11px] font-bold uppercase tracking-[0.15em]">Board Coverage</span>
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
-                Cambridge &{' '}
-                <span className="bg-gradient-to-r from-[#C7A24A] to-[#f0d080] bg-clip-text text-transparent">Edexcel Coverage</span>
+            {/* Left: Heading with dynamic font and text scroll animations */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+                },
+              }}
+              className="lg:w-[360px] xl:w-[400px] flex-shrink-0 text-left"
+            >
+              {/* Animated Eyebrow Badge */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8, y: -10 },
+                  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4 } },
+                }}
+                className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-4 shadow-2xs"
+              >
+                <GraduationCap className="h-3.5 w-3.5 text-[#0f4a9b]" />
+                <span className="text-[#0f4a9b] text-[11px] font-extrabold uppercase tracking-[0.15em]">Next Steps</span>
+              </motion.div>
+              
+              {/* Animated Heading */}
+              <h2 className="text-3xl lg:text-4xl xl:text-[40px] font-extrabold text-[#0a1f3d] mb-3 leading-[1.15] tracking-tight">
+                <span className="inline-block overflow-hidden mr-2">
+                  <motion.span
+                    variants={{
+                      hidden: { y: "100%", opacity: 0 },
+                      visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.33, 1, 0.68, 1] } },
+                    }}
+                    className="inline-block"
+                  >
+                    IGCSE
+                  </motion.span>
+                </span>{' '}
+                <span className="inline-block overflow-hidden mr-2">
+                  <motion.span
+                    variants={{
+                      hidden: { y: "100%", opacity: 0 },
+                      visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.33, 1, 0.68, 1] } },
+                    }}
+                    className="inline-block"
+                  >
+                    to
+                  </motion.span>
+                </span>{' '}
+                <br />
+                <span className="inline-block overflow-hidden">
+                  <motion.span
+                    variants={{
+                      hidden: { y: "100%", opacity: 0, filter: "blur(4px)" },
+                      visible: { y: 0, opacity: 1, filter: "blur(0px)", transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] } },
+                    }}
+                    className="inline-block text-[#0f4a9b]"
+                  >
+                    A-Level Transition
+                  </motion.span>
+                </span>
               </h2>
-              <p className="text-blue-100/60 text-sm leading-relaxed">
-                Specification-matched tutoring for both major IGCSE boards.
-              </p>
-            </div>
+              
+              {/* Animated Subtitle */}
+              <motion.p
+                variants={{
+                  hidden: { opacity: 0, y: 15 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.25 } },
+                }}
+                className="text-gray-600 text-sm sm:text-base leading-relaxed font-normal"
+              >
+                How IGCSE results shape the A-Level choices and university options that follow.
+              </motion.p>
+            </motion.div>
 
-            {/* Right: single merged card with expand/collapse */}
-            <div className="flex-1">
-              <div className="bg-white/8 backdrop-blur-md border border-white/12 rounded-2xl p-8">
-                <div className="w-8 h-0.5 bg-gradient-to-r from-[#C7A24A] to-[#f0d080] rounded-full mb-5" />
-                <p className="text-blue-100/75 text-sm leading-relaxed text-justify">
-                  Ustaad supports students taking either Cambridge IGCSE or Pearson Edexcel International GCSE. Each child is taught by a tutor who knows the exact specification their school sits, so lessons follow the syllabus the student is studying.
-                </p>
+            {/* Right: Blue Gradient Card with repeating scroll animation */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+              variants={{
+                hidden: { opacity: 0, y: 35, scale: 0.96 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: { duration: 0.55, ease: "easeOut" },
+                },
+              }}
+              className="flex-1"
+            >
+              <div className="relative rounded-3xl p-7 sm:p-9 lg:p-10 bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#0a2756] border-2 border-[#0f4a9b]/30 shadow-[0_16px_45px_rgba(15,74,155,0.22)] overflow-hidden">
+                
+                {/* Decorative Ambient Background Glow inside Card */}
+                <div className="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-[#C7A24A]/15 rounded-full blur-2xl pointer-events-none" />
+
+                {/* Animated Gold Accent Indicator Line */}
+                <motion.div
+                  variants={{
+                    hidden: { width: 0, opacity: 0 },
+                    visible: { width: 44, opacity: 1, transition: { duration: 0.6, delay: 0.2 } },
+                  }}
+                  className="h-1 bg-gradient-to-r from-[#C7A24A] via-[#f5d77f] to-[#C7A24A] rounded-full mb-5 relative z-10 shadow-sm"
+                />
+
+                {/* Card Text Content with Animated Reveal */}
+                <motion.p
+                  variants={{
+                    hidden: { opacity: 0, y: 12 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.3 } },
+                  }}
+                  className="text-blue-50/95 text-sm sm:text-[15.5px] leading-relaxed font-normal relative z-10"
+                >
+                  At the end of Year 11, your child narrows from eight or more IGCSE subjects to three or four A-Levels. That choice shapes which university courses stay open. Strong IGCSE grades keep the right{' '}
+                  <a
+                    href="/a-level"
+                    className="font-bold underline decoration-[#f0d080] underline-offset-4 text-[#f0d080] hover:text-white transition-colors"
+                  >
+                    A-Level
+                  </a>{' '}
+                  combination in reach, and our tutors help families plan the mix with the chosen course in view.
+                </motion.p>
+
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>
       </section>
 
-      {/* ── IGCSE SUBJECTS WE SUPPORT ── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
-              <GradientHeadingText text="IGCSE Subjects We Support" />
-            </h2>
- <p className="text-gray-500 text-base lg:text-lg leading-relaxed">Six core IGCSE subjects across Cambridge and Edexcel boards, with additional support available on request.</p>
-          </div>
-          {(() => {
-            const subjects = [
-              { name: "Mathematics", desc: "Trigonometry · Vectors · Surface Area & Volume",       href: "/maths",     wm: <Calculator className="h-24 w-24 text-[#0f4a9b]/8" strokeWidth={1.2} /> },
-              { name: "Physics",     desc: "Magnetism · Radioactivity · Energy Transfer",           href: "/physics",   wm: <Atom className="h-24 w-24 text-[#0f4a9b]/8" strokeWidth={1.2} />       },
-              { name: "Chemistry",   desc: "Stoichiometry · Periodic Table · Acids & Salts",        href: "/chemistry", wm: <FlaskConical className="h-24 w-24 text-[#0f4a9b]/8" strokeWidth={1.2} /> },
-              { name: "Biology",     desc: "Enzymes · Respiration · Photosynthesis",                href: "/biology",   wm: <Dna className="h-24 w-24 text-[#0f4a9b]/8" strokeWidth={1.2} />        },
-              { name: "English",     desc: "Summary Writing · Directed Writing · Composition",      href: "/english",   wm: <BookOpen className="h-24 w-24 text-[#0f4a9b]/8" strokeWidth={1.2} />   },
-              { name: "Business",    desc: "Human Resources · Production · External Influences",    href: "/business",  wm: <Briefcase className="h-24 w-24 text-[#0f4a9b]/8" strokeWidth={1.2} />  },
-            ];
-            const Card = ({ subj, i }: { subj: typeof subjects[0], i: number }) => (
-              <a href={subj.href} className="group relative flex flex-col gap-3 p-7 bg-white hover:bg-[#f7f9ff] transition-colors duration-200 overflow-hidden">
-                <div className="absolute bottom-3 right-3 pointer-events-none select-none opacity-100">{subj.wm}</div>
-                <span className="text-sm font-bold text-[#0f4a9b] tabular-nums relative z-10">{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="text-xl font-extrabold text-[#0a1f3d] leading-snug group-hover:text-[#0f4a9b] transition-colors duration-200 relative z-10">{subj.name}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed relative z-10">{subj.desc}</p>
-              </a>
-            );
-            return (
-              <div className="max-w-5xl mx-auto mb-8 border border-gray-200 rounded-2xl overflow-hidden">
-                {/* Row 1 */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 border-b border-gray-200">
-                  {subjects.slice(0, 3).map((subj, i) => <Card key={i} subj={subj} i={i} />)}
-                </div>
-                {/* Row 2 */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
-                  {subjects.slice(3).map((subj, i) => <Card key={i + 3} subj={subj} i={i + 3} />)}
-                </div>
-              </div>
-            );
-          })()}
-          <div className="max-w-5xl mx-auto">
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#0a1f3d] via-[#0f4a9b] to-[#0a3a79] px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 shadow-[0_8px_32px_rgba(15,74,155,0.25)]">
-              <div className="absolute -top-8 -right-8 w-40 h-40 bg-[#C7A24A]/10 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-white/5 rounded-full blur-xl pointer-events-none" />
-              <div className="relative flex-shrink-0 w-10 h-10 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center shadow-[0_0_12px_rgba(255,255,255,0.1)]">
-                <Lightbulb className="h-5 w-5 text-[#C7A24A]" />
-              </div>
-              <div className="relative flex-1 min-w-0">
-                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#C7A24A] mb-0.5">Also Available</p>
-                <p className="text-white/90 text-sm font-medium leading-snug">
-                  Additional Mathematics, Economics, and Computer Science at IGCSE, available on request.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ── 9. IGCSE TUTORS IN EVERY EMIRATE ── */}
+      <section className="py-20 bg-[#F4F8FD] relative overflow-hidden isolate border-b border-gray-100">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(15,74,155,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,74,155,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
-      {/* ── WHY STRONG STUDENTS LOSE MARKS ── */}
-      <section className="py-20 bg-[#f8fafc] border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
-              <GradientHeadingText text="Why Strong Students Lose Marks" />
-            </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              Most lost marks have nothing to do with knowledge.
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/20 rounded-full mb-3">
+                <MapPin className="h-3.5 w-3.5 text-[#0f4a9b]" />
+                <span className="text-[#0f4a9b] text-[11px] font-extrabold uppercase tracking-[0.15em]">Across the UAE</span>
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight">
+                IGCSE Tutors{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">
+                  in Every Emirate
+                </span>
+              </h2>
+            </div>
+
+            <p className="text-gray-600 text-sm sm:text-base font-medium max-w-lg md:text-right leading-relaxed">
+              Online IGCSE lessons in all seven emirates, for Cambridge and Edexcel.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+
+          {/* Cards Grid / Mobile Horizontal Scroll */}
+          <div className="flex overflow-x-auto pb-4 pt-1 px-4 -mx-4 sm:mx-0 sm:px-0 sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 snap-x snap-mandatory scroll-smooth no-scrollbar">
             {[
               {
-                line1: "Misread",
-                line2: "the Question",
-                desc: "Read it one way, but it asked for something else.",
-                icon: <XCircle className="h-6 w-6 text-white" />,
-                wm: <XCircle className="h-28 w-28 text-[#0f4a9b]/8" strokeWidth={0.6} />,
+                city: "Abu Dhabi",
+                note: "Capital of the UAE",
+                image: "/images/emirates/abu-dhabi.jpg",
+                href: "/igcse-tutor-abu-dhabi",
               },
               {
-                line1: "Wrote",
-                line2: "it Wrong",
-                desc: "Content was strong, but layout and working cost the marks.",
-                icon: <PenTool className="h-6 w-6 text-white" />,
-                wm: <PenTool className="h-28 w-28 text-[#0f4a9b]/8" strokeWidth={0.6} />,
+                city: "Dubai",
+                note: "Most populous · All boards",
+                image: "/images/emirates/dubai.jpg",
+                href: "/igcse-tutor-dubai",
               },
               {
-                line1: "Time",
-                line2: "Ran Out",
-                desc: <>Early questions ate the time,<br />but the heavy ones got skipped.</>,
-                icon: <Clock className="h-6 w-6 text-white" />,
-                wm: <Clock className="h-28 w-28 text-[#0f4a9b]/8" strokeWidth={0.6} />,
+                city: "Sharjah",
+                note: "Growing IGCSE community",
+                image: "/images/emirates/sharjah.jpg",
+                href: "/contact#form",
               },
               {
-                line1: "Mind",
-                line2: "Went Blank",
-                desc: "Recall held in practice, but cracked when the pressure hit.",
-                icon: <Brain className="h-6 w-6 text-white" />,
-                wm: <Brain className="h-28 w-28 text-[#0f4a9b]/8" strokeWidth={0.6} />,
+                city: "Ajman",
+                note: "Cambridge & Edexcel",
+                image: "/images/emirates/ajman.jpg",
+                href: "/contact#form",
               },
-            ].map((m, i) => (
-              <div key={i} className="relative bg-white border border-[#0f4a9b]/10 rounded-[24px] p-8 pt-10 flex flex-col items-start text-left hover:shadow-[0_15px_40px_rgba(15,74,155,0.08)] hover:border-[#0f4a9b]/40 hover:ring-2 hover:ring-[#0f4a9b]/15 transition-all duration-300 overflow-hidden" style={{ minHeight: 180 }}>
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#0f4a9b]/50 to-transparent" />
-                <div className="w-12 h-12 bg-gradient-to-br from-[#0f4a9b] to-[#0a3a79] rounded-2xl flex items-center justify-center mb-5 shadow-[0_0_15px_rgba(15,74,155,0.4)] z-10 flex-shrink-0">{m.icon}</div>
-                <h3 className="text-lg font-extrabold text-[#0a1f3d] mb-1 z-10 leading-snug">{m.line1}<br />{m.line2}</h3>
-                <p className="text-gray-500 text-sm font-medium z-10">{m.desc}</p>
-                <div className="absolute right-4 bottom-4 pointer-events-none select-none">{m.wm}</div>
-              </div>
+              {
+                city: "Al Ain",
+                note: "Cambridge focused",
+                image: "/images/emirates/al-ain.jpg",
+                href: "/contact#form",
+              },
+              {
+                city: "Ras Al Khaimah",
+                note: "Northern Emirates",
+                image: "/images/emirates/ras-al-khaimah.jpg",
+                href: "/contact#form",
+              },
+              {
+                city: "Fujairah",
+                note: "East coast",
+                image: "/images/emirates/fujairah.jpg",
+                href: "/contact#form",
+              },
+              {
+                city: "Umm Al Quwain",
+                note: "Smallest by population",
+                image: "/images/emirates/umm-al-quwain.jpg",
+                href: "/contact#form",
+              },
+            ].map((item, i) => (
+              <motion.a
+                key={item.city}
+                href={item.href}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: i * 0.05 }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="relative rounded-3xl overflow-hidden border border-white/10 hover:border-[#C7A24A]/70 shadow-[0_12px_32px_rgba(7,19,36,0.35)] hover:shadow-[0_20px_45px_rgba(15,74,155,0.45)] transition-all duration-500 p-6 flex flex-col justify-between min-h-[200px] group select-none block shrink-0 w-[82vw] max-w-[310px] sm:w-auto sm:max-w-none snap-center"
+              >
+                {/* Real Photographic Background with Rich Dark Overlay */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={`${item.city} IGCSE Tutors`}
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071324]/95 via-[#0b1b33]/85 to-[#081528]/70 group-hover:via-[#0b1b33]/75 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(199,162,74,0.18),transparent_70%)] opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+
+                {/* Card Content - Top */}
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-tight group-hover:text-amber-100 transition-colors drop-shadow-sm">
+                        {item.city}
+                      </h3>
+                      <p className="text-xs font-semibold text-[#C7A24A] mt-1">
+                        {item.note}
+                      </p>
+                    </div>
+                    <div className="w-8 h-8 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-[#C7A24A] flex items-center justify-center shadow-inner group-hover:scale-110 group-hover:bg-[#C7A24A]/20 group-hover:border-[#C7A24A]/50 transition-all shrink-0">
+                      <MapPin className="h-4 w-4 text-[#C7A24A]" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Content - Bottom */}
+                <div className="relative z-10 mt-6 pt-3 border-t border-white/15">
+                  <p className="text-[10px] uppercase font-bold tracking-wider text-blue-200/80 mb-1.5">
+                    Curriculum Alignment
+                  </p>
+                  <div className="flex items-center gap-2.5 text-[11px] font-semibold text-white/95">
+                    <span className="inline-flex items-center gap-1">
+                      Cambridge <span className="text-[#C7A24A] font-bold">✓</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      Edexcel <span className="text-[#C7A24A] font-bold">✓</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      1-to-1 <span className="text-[#C7A24A] font-bold">✓</span>
+                    </span>
+                  </div>
+                </div>
+              </motion.a>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ── CORE AND EXTENDED PATHWAYS ── */}
-      <section className="py-20 bg-[#f8fafc] border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 lg:items-start max-w-6xl mx-auto">
-
-            {/* Left: heading */}
-            <div className="lg:w-[280px] xl:w-[320px] flex-shrink-0">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-5">
-                <Layers className="h-3.5 w-3.5 text-[#0f4a9b]" />
-                <span className="text-[#0f4a9b] text-[11px] font-bold uppercase tracking-[0.15em]">Pathways</span>
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4 leading-tight">
-                <GradientHeadingText text="Core and Extended Pathways" />
-              </h2>
-              <p className="text-gray-500 text-sm leading-relaxed">Two routes through a Cambridge IGCSE subject, picked to match your child's target grade.</p>
-            </div>
-
-            {/* Right: interactive toggle card */}
-            <div className="flex-1 bg-white rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(15,74,155,0.07)] border border-gray-200/80">
-              {/* Tab strip */}
-              <div className="grid grid-cols-2 divide-x divide-gray-100">
-                <button
-                  onClick={() => setCoreExtTab('core')}
-                  className={`px-6 py-4 flex items-center gap-3.5 transition-colors duration-200 ${coreExtTab === 'core' ? 'bg-gradient-to-r from-[#f0f4ff] to-[#f8faff]' : 'bg-white hover:bg-gray-50'}`}
-                >
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-200 ${coreExtTab === 'core' ? 'bg-gradient-to-br from-[#0f4a9b] to-[#1e5ba8] shadow-[0_2px_8px_rgba(15,74,155,0.3)]' : 'bg-gray-100'}`}>
-                    <Layers className={`h-4 w-4 ${coreExtTab === 'core' ? 'text-white' : 'text-gray-400'}`} />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#0f4a9b]/60 leading-none mb-0.5">Option A</p>
-                    <p className={`font-extrabold text-sm leading-none ${coreExtTab === 'core' ? 'text-[#0a1f3d]' : 'text-gray-400'}`}>Core Pathway</p>
-                  </div>
-                </button>
-                <button
-                  onClick={() => setCoreExtTab('extended')}
-                  className={`px-6 py-4 flex items-center gap-3.5 transition-colors duration-200 ${coreExtTab === 'extended' ? 'bg-gradient-to-r from-[#fffbf0] to-[#fffdf8]' : 'bg-white hover:bg-gray-50'}`}
-                >
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-200 ${coreExtTab === 'extended' ? 'bg-gradient-to-br from-[#C7A24A] to-[#A8892A] shadow-[0_2px_8px_rgba(199,162,74,0.35)]' : 'bg-gray-100'}`}>
-                    <TrendingUp className={`h-4 w-4 ${coreExtTab === 'extended' ? 'text-white' : 'text-gray-400'}`} />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#C7A24A]/70 leading-none mb-0.5">Option B</p>
-                    <p className={`font-extrabold text-sm leading-none ${coreExtTab === 'extended' ? 'text-[#0a1f3d]' : 'text-gray-400'}`}>Extended Pathway</p>
-                  </div>
-                </button>
-              </div>
-              {/* Gradient divider */}
-              <div className="h-px bg-gradient-to-r from-[#0f4a9b]/20 via-[#C7A24A]/20 to-[#0f4a9b]/20" />
-              {/* Body */}
-              <div className="p-8">
-                {coreExtTab === 'core' ? (
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    For students aiming at a steady pass on the core topics. Tutoring locks the essentials in and keeps confidence steady through the exam.
-                  </p>
-                ) : (
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    For students aiming at top grades across the full syllabus. Tutoring covers every topic and trains for the toughest exam questions.
-                  </p>
-                )}
-              </div>
-            </div>
-
+          {/* Mobile Swipe Hint (Clean text only, no dots, no arrows) */}
+          <div className="sm:hidden text-center mt-3 text-xs font-semibold text-gray-500 tracking-wide">
+            Swipe to see more
           </div>
         </div>
       </section>
 
-      {/* ── IGCSE TO A-LEVEL TRANSITION ── */}
-      <section className="py-24 bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#0a3a79] relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-white/5 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#C7A24A]/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-[#4a90d9]/8 rounded-full blur-[80px] pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 lg:items-center">
-
-            {/* Left: heading */}
-            <div className="lg:w-[320px] xl:w-[360px] flex-shrink-0">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/15 rounded-full mb-6">
-                <GraduationCap className="h-3.5 w-3.5 text-[#C7A24A]" />
-                <span className="text-white/70 text-[11px] font-bold uppercase tracking-[0.15em]">Next Steps</span>
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
-                IGCSE to{' '}
-                <span className="bg-gradient-to-r from-[#C7A24A] to-[#f0d080] bg-clip-text text-transparent">A-Level Transition</span>
-              </h2>
-              <p className="text-blue-100/60 text-sm leading-relaxed">How IGCSE results shape the A-Level choices and university options that follow.</p>
-            </div>
-
-            {/* Right: card */}
-            <div className="flex-1">
-              <div className="rounded-2xl p-8 shadow-[0_8px_40px_rgba(0,0,0,0.25)] border border-white/10" style={{background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)', backdropFilter: 'blur(16px)'}}>
-                <div className="w-8 h-0.5 bg-gradient-to-r from-[#C7A24A] to-[#f0d080] rounded-full mb-5" />
-                <p className="text-blue-100/85 text-sm leading-relaxed">
-                  At the end of Year 11, your child narrows from eight or more IGCSE subjects to three or four A-Levels. That choice shapes which university courses stay open. Ustaad's <a href="/a-level" className="font-semibold underline hover:text-white transition-colors" style={{color: '#C7A24A'}}>A-Level tutors</a> hold the IGCSE foundations steady so the right A-Level combination is still in reach, then help families plan the mix with the chosen course in view.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── IGCSE STUDENTS ACROSS THE UAE ── */}
-      <section className="py-24 bg-[#0a1f3d] relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#0f4a9b]/20 rounded-full blur-[160px] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/3 w-[500px] h-[300px] bg-[#C7A24A]/8 rounded-full blur-[120px] pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/15 rounded-full mb-5">
-                <MapPin className="h-3.5 w-3.5 text-[#C7A24A]" />
-                <span className="text-white/70 text-[11px] font-bold uppercase tracking-[0.15em]">Across the UAE</span>
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-white leading-tight">
-                IGCSE Students{' '}
-                <span className="bg-gradient-to-r from-[#C7A24A] to-[#f0d080] bg-clip-text text-transparent">Across the UAE</span>
-              </h2>
-            </div>
-            <p className="text-blue-100/50 text-sm leading-relaxed max-w-xs lg:text-right">
-              IGCSE is one of the most portable secondary qualifications in the world.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-12">
-            {[
-              { city: "Abu Dhabi",      note: "Capital · Anchor for ADEK schools", href: "/igcse-tutor-abu-dhabi" },
-              { city: "Dubai",          note: "Most populous · All boards", href: "/igcse-tutor-dubai" },
-              { city: "Sharjah",        note: "Growing IGCSE community" },
-              { city: "Ajman",          note: "Cambridge & Edexcel" },
-              { city: "Al Ain",         note: "Cambridge focused" },
-              { city: "Ras Al Khaimah", note: "Northern Emirates" },
-              { city: "Fujairah",       note: "East coast" },
-              { city: "Umm Al Quwain", note: "Smallest emirate" },
-            ].map((loc, i) => {
-              const inner = (
-                <>
-                  <div className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_6px_rgba(199,162,74,0.8)]" />
-                  <MapPin className="h-4 w-4 text-[#4a90d9] mb-2.5" strokeWidth={1.5} />
-                  <p className="text-white font-bold text-sm leading-tight">{loc.city}</p>
-                  <p className="text-white/35 text-[10px] mt-1 leading-snug">{loc.note}</p>
-                </>
-              );
-              return loc.href ? (
-                <a
-                  key={i}
-                  href={loc.href}
-                  className="group relative bg-white/5 hover:bg-white/10 border border-white/8 hover:border-[#C7A24A]/40 rounded-2xl px-4 py-4 transition-all duration-200 block overflow-hidden"
-                >
-                  {inner}
-                </a>
-              ) : (
-                <div
-                  key={i}
-                  className="group relative bg-white/5 hover:bg-white/10 border border-white/8 hover:border-white/20 rounded-2xl px-4 py-4 transition-all duration-200 cursor-default overflow-hidden"
-                >
-                  {inner}
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="bg-white/5 border border-white/8 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-[#0f4a9b] to-[#1e5ba8] flex items-center justify-center shadow-[0_0_16px_rgba(15,74,155,0.4)]">
-              <MapPin className="h-5 w-5 text-white" />
-            </div>
-            <p className="text-blue-100/70 text-sm leading-relaxed text-justify flex-1">
-              IGCSE is one of the most portable secondary qualifications in the world, which matters especially in the UAE. Many families relocate between emirates, between schools, or in and out of the country during the IGCSE years. Whether a student moves from a Cambridge IGCSE school in Dubai to an Edexcel International GCSE school in Abu Dhabi, or back to another country, the qualification travels with the student. Ustaad supports students through these transitions, switching tutors between Cambridge and Edexcel specifications when needed, so the student's learning carries forward.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── FAQ ── */}
-      <section id="faqs" className="py-8 lg:py-12 bg-white">
+      {/* ── 10. IGCSE TUTORING FAQS ── */}
+      <section id="faqs" className="py-12 lg:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[0.9fr_1.6fr] gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-[0.9fr_1.6fr] gap-12 lg:gap-16 items-start">
 
             {/* Left: Heading */}
-            <div className="flex flex-col items-center justify-center text-center">
-              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-sm font-bold rounded-full mb-6 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.15)]">
+            <div className="flex flex-col items-start text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0f4a9b]/10 to-[#0a3a79]/10 text-[#0f4a9b] text-sm font-bold rounded-full mb-6 border border-[#0f4a9b]/20 shadow-[0_0_15px_rgba(15,74,155,0.15)]">
                 <HelpCircle className="h-3.5 w-3.5" />
                 <span className="text-xs uppercase tracking-wider">Common Questions</span>
               </div>
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-[1.15] mb-2">
-                Frequently Asked{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Questions</span>
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-[1.15] mb-4">
+                <GradientHeadingText text="IGCSE Tutoring FAQs" />
               </h2>
-              <p className="text-gray-600 text-[15px] leading-relaxed">
+              <p className="text-gray-600 text-base leading-relaxed">
                 Common questions from parents and students about IGCSE tutoring.
               </p>
             </div>
 
             {/* Right: Accordion */}
-            <div className="flex flex-col gap-[10px]">
+            <div className="flex flex-col gap-[10px] w-full">
               {([
-                { q: "Which IGCSE subjects do you support?",
-                  a: <><a href="/maths" className="text-[#0f4a9b] font-semibold underline">Mathematics</a>, <a href="/physics" className="text-[#0f4a9b] font-semibold underline">Physics</a>, <a href="/chemistry" className="text-[#0f4a9b] font-semibold underline">Chemistry</a>, <a href="/biology" className="text-[#0f4a9b] font-semibold underline">Biology</a>, <a href="/english" className="text-[#0f4a9b] font-semibold underline">English</a>, and <a href="/business" className="text-[#0f4a9b] font-semibold underline">Business</a> across the IGCSE qualification. Additional Mathematics, Economics, and Computer Science are available on request.</> },
-                { q: "Do you support both Cambridge and Edexcel IGCSE subjects?",
-                  a: "Yes. Both boards are covered, with tutors paired to each specification." },
-                { q: "Can students receive support for more than one IGCSE subject?",
-                  a: "Yes. Many students work with Ustaad across several IGCSE subjects at once." },
-                { q: "What is the difference between Core and Extended IGCSE pathways?",
-                  a: "Extended is the deeper version with the top grades available. Core is the focused version covering essential topics." },
-                { q: "How are IGCSE subjects assessed?",
-                  a: "Methods vary by subject and board. Typical formats include written papers, multiple-choice papers, practical work or coursework, and data-response questions." },
-                { q: "Do you help students prepare for IGCSE examinations?",
-                  a: "Yes. Tutors work through topic revision, past paper practice, command words, and exam rehearsal across both boards." },
-                { q: "What is the difference between Cambridge IGCSE and Pearson Edexcel International GCSE?",
-                  a: "Both qualifications are internationally recognised, but specifications, paper structures, and assessment formats differ between boards." },
-                { q: "Is support available for students planning to study A-Level subjects?",
-                  a: <><a href="/a-level" className="text-[#0f4a9b] font-semibold underline">Yes. Ustaad helps students strengthen the IGCSE foundations needed for A-Level Mathematics, Physics, Chemistry, Biology, English, and Business.</a></> },
+                {
+                  q: "What is the difference between IGCSE and GCSE?",
+                  a: (
+                    <>
+                      GCSE is the qualification taught in schools in England. IGCSE is the international version, set by Cambridge and Pearson Edexcel and common in British-curriculum schools in the UAE. Our{' '}
+                      <a href="/blogs/igcse-vs-gcse-curriculum-differences-uae" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                        IGCSE vs GCSE guide
+                      </a>{' '}
+                      compares the two.
+                    </>
+                  ),
+                },
+                {
+                  q: "Can students receive support for more than one IGCSE subject?",
+                  a: "Yes. Many students work with Ustaad across several IGCSE subjects at once.",
+                },
+                {
+                  q: "How are IGCSE subjects assessed?",
+                  a: "Methods vary by subject and board. Typical formats include written papers, multiple-choice papers, practical work or coursework, and data-response questions.",
+                },
               ] as { q: string; a: React.ReactNode }[]).map((faq, i) => {
                 const isOpen = openFaq === i;
                 return (
@@ -627,11 +736,14 @@ export default function IGCSEPage() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
+      {/* ── 11. BOOK AN IGCSE TUTOR (FINAL CTA) ── */}
       <FinalCTA
         title="Book an IGCSE Tutor"
-        subtitle="Matched in minutes."
-        button1Text="Book Your First IGCSE Lesson" />
+        subtitle="One subject or several, Cambridge or Edexcel."
+        button1Text="Book a Free IGCSE Trial"
+        button1Href="/contact#form"
+        subtext1="No commitment. Cancel anytime."
+      />
 
     </Layout>
   );

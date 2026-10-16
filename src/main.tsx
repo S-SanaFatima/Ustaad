@@ -43,6 +43,7 @@ const loadHowItWorksPage = () => import('./app/HowItWorksPage');
 const loadBlogsPage = () => import('./app/BlogsPage');
 const loadIGCSEBiology6MarkBlog = () => import('./app/IGCSEBiology6MarkBlog');
 const loadIGCSEMathsLowMarksBlog = () => import('./app/IGCSEMathsLowMarksBlog');
+const loadSillyMistakesMathsExamsBlog = () => import('./app/SillyMistakesMathsExamsBlog');
 const loadExamPanicBlog = () => import('./app/ExamPanicBlog');
 const loadUAEExamsReturnBlog = () => import('./app/UAEExamsReturnBlog');
 const loadExamStaminaBlog = () => import('./app/ExamStaminaBlog');
@@ -73,6 +74,7 @@ const loadIgcseTutorDubaiLanding = () => import('./app/IgcseTutorDubaiPage');
 const loadMathsTutorDubaiLanding = () => import('./app/MathsTutorDubaiPage');
 const loadPhysicsTutorDubaiLanding = () => import('./app/PhysicsTutorDubaiPage');
 const loadChemistryTutorDubaiLanding = () => import('./app/ChemistryTutorDubaiPage');
+const loadBiologyTutorDubaiLanding = () => import('./app/BiologyTutorDubaiPage');
 const loadALevelTutorLanding = () => import('./app/ALevelTutorAbuDhabiPage');
 const loadALevelTutorDubaiPage = () => import('./app/ALevelTutorDubaiPage');
 const loadIBTutorLanding = () => import('./app/IBTutorAbuDhabiPage');
@@ -87,6 +89,8 @@ const loadCommandWordsBlog = () => import('./app/CommandWordsBlog');
 const loadSleepAndMemoryBlog = () => import('./app/SleepAndMemoryBlog');
 const loadWhatDoesYInterceptMeanBlog = () => import('./app/WhatDoesYInterceptMeanBlog');
 const loadHomeworkHelpBalanceBlog = () => import('./app/HomeworkHelpBalanceBlog');
+const loadWhyTeenagersProcrastinateBlog = () => import('./app/WhyTeenagersProcrastinateBlog');
+const loadParentTeacherMeetingBlog = () => import('./app/ParentTeacherMeetingBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
@@ -126,6 +130,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs': loadBlogsPage,
   '/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions': loadIGCSEBiology6MarkBlog,
   '/blogs/igcse-maths-revision-low-marks': loadIGCSEMathsLowMarksBlog,
+  '/blogs/silly-mistakes-maths-exams': loadSillyMistakesMathsExamsBlog,
   '/blogs/exam-panic-before-exams-uae': loadExamPanicBlog,
   '/blogs/uae-exams-return-students-never-sat-one': loadUAEExamsReturnBlog,
   '/blogs/exam-stamina-uae-students': loadExamStaminaBlog,
@@ -149,6 +154,10 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/what-does-y-intercept-mean-maths': loadWhatDoesYInterceptMeanBlog,
   '/blogs/how-much-should-parents-help-with-homework': loadHomeworkHelpBalanceBlog,
   '/blog/how-much-should-parents-help-with-homework': loadHomeworkHelpBalanceBlog,
+  '/blogs/why-teenagers-procrastinate-on-revision': loadWhyTeenagersProcrastinateBlog,
+  '/blog/why-teenagers-procrastinate-on-revision': loadWhyTeenagersProcrastinateBlog,
+  '/blogs/parent-teacher-meeting-questions-uae': loadParentTeacherMeetingBlog,
+  '/blog/parent-teacher-meeting-questions-uae': loadParentTeacherMeetingBlog,
   '/sciences': loadSciencesPage,
 
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
@@ -162,6 +171,8 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/maths-tutor-dubai': loadMathsTutorDubaiLanding,
   '/physics-tutor-dubai': loadPhysicsTutorDubaiLanding,
   '/chemistry-tutor-dubai': loadChemistryTutorDubaiLanding,
+  '/subjects/biology-tutor-dubai': loadBiologyTutorDubaiLanding,
+  '/biology-tutor-dubai': loadBiologyTutorDubaiLanding,
   '/a-level-tutor-dubai': loadALevelTutorDubaiPage,
   '/a-level-tutor-abu-dhabi': loadALevelTutorLanding,
   '/ib-tutor-abu-dhabi': loadIBTutorLanding,
@@ -212,6 +223,7 @@ const HowItWorksPage = lazy(loadHowItWorksPage);
 const BlogsPage = lazy(loadBlogsPage);
 const IGCSEBiology6MarkBlog = lazy(loadIGCSEBiology6MarkBlog);
 const IGCSEMathsLowMarksBlog = lazy(loadIGCSEMathsLowMarksBlog);
+const SillyMistakesMathsExamsBlog = lazy(loadSillyMistakesMathsExamsBlog);
 const ExamPanicBlog = lazy(loadExamPanicBlog);
 const UAEExamsReturnBlog = lazy(loadUAEExamsReturnBlog);
 const ExamStaminaBlog = lazy(loadExamStaminaBlog);
@@ -241,6 +253,8 @@ const CommandWordsBlog = lazy(loadCommandWordsBlog);
 const SleepAndMemoryBlog = lazy(loadSleepAndMemoryBlog);
 const WhatDoesYInterceptMeanBlog = lazy(loadWhatDoesYInterceptMeanBlog);
 const HomeworkHelpBalanceBlog = lazy(loadHomeworkHelpBalanceBlog);
+const WhyTeenagersProcrastinateBlog = lazy(loadWhyTeenagersProcrastinateBlog);
+const ParentTeacherMeetingBlog = lazy(loadParentTeacherMeetingBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
@@ -250,6 +264,7 @@ const IgcseTutorDubaiLanding = lazy(loadIgcseTutorDubaiLanding);
 const MathsTutorDubaiLanding = lazy(loadMathsTutorDubaiLanding);
 const PhysicsTutorDubaiLanding = lazy(loadPhysicsTutorDubaiLanding);
 const ChemistryTutorDubaiLanding = lazy(loadChemistryTutorDubaiLanding);
+const BiologyTutorDubaiLanding = lazy(loadBiologyTutorDubaiLanding);
 const ALevelTutorDubaiPage = lazy(loadALevelTutorDubaiPage);
 const ALevelTutorLanding = lazy(loadALevelTutorLanding);
 const IBTutorLanding = lazy(loadIBTutorLanding);
@@ -338,6 +353,7 @@ function AppRoutes() {
           <Route path="/blogs/parent-guidance"               element={<ParentGuidanceBlogsPage />} />
           <Route path="/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions"element={<IGCSEBiology6MarkBlog />} />
           <Route path="/blogs/igcse-maths-revision-low-marks"element={<IGCSEMathsLowMarksBlog />} />
+          <Route path="/blogs/silly-mistakes-maths-exams"    element={<SillyMistakesMathsExamsBlog />} />
           <Route path="/blogs/exam-panic-before-exams-uae"   element={<ExamPanicBlog />} />
           <Route path="/blogs/uae-exams-return-students-never-sat-one" element={<UAEExamsReturnBlog />} />
           <Route path="/blogs/exam-stamina-uae-students"      element={<ExamStaminaBlog />} />
@@ -361,6 +377,10 @@ function AppRoutes() {
           <Route path="/blogs/what-does-y-intercept-mean-maths" element={<WhatDoesYInterceptMeanBlog />} />
           <Route path="/blogs/how-much-should-parents-help-with-homework" element={<HomeworkHelpBalanceBlog />} />
           <Route path="/blog/how-much-should-parents-help-with-homework" element={<HomeworkHelpBalanceBlog />} />
+          <Route path="/blogs/why-teenagers-procrastinate-on-revision" element={<WhyTeenagersProcrastinateBlog />} />
+          <Route path="/blog/why-teenagers-procrastinate-on-revision" element={<WhyTeenagersProcrastinateBlog />} />
+          <Route path="/blogs/parent-teacher-meeting-questions-uae" element={<ParentTeacherMeetingBlog />} />
+          <Route path="/blog/parent-teacher-meeting-questions-uae" element={<ParentTeacherMeetingBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
 
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />
@@ -374,6 +394,8 @@ function AppRoutes() {
           <Route path="/maths-tutor-dubai"                    element={<MathsTutorDubaiLanding />} />
           <Route path="/physics-tutor-dubai"                  element={<PhysicsTutorDubaiLanding />} />
           <Route path="/chemistry-tutor-dubai"                element={<ChemistryTutorDubaiLanding />} />
+          <Route path="/subjects/biology-tutor-dubai"         element={<BiologyTutorDubaiLanding />} />
+          <Route path="/biology-tutor-dubai"                  element={<BiologyTutorDubaiLanding />} />
           <Route path="/a-level-tutor-dubai"                  element={<ALevelTutorDubaiPage />} />
           <Route path="/a-level-tutor-abu-dhabi"             element={<ALevelTutorLanding />} />
           <Route path="/ib-tutor-abu-dhabi"                  element={<IBTutorLanding />} />
@@ -404,18 +426,14 @@ async function bootstrap() {
   const container = document.getElementById("root")!;
   const path = normalizePath(window.location.pathname);
   const hasPrerender = container.innerHTML.trim() !== "";
-  // If Arabic is active, Google Translate rewrites DOM text before React loads — skip hydration.
-  const isTranslated = /(?:^|;\s*)googtrans=\/en\/ar(?:;|$)/.test(document.cookie);
-
   if (hasPrerender) {
     await preloadCurrentRoute();
   }
 
   const mount = () => createRoot(container).render(AppTree);
 
-  // Home: hydrate prerender for fast first paint. Subpages: client mount only —
-  // hydration mismatches (motion, translate, lazy chunks) were replacing About/etc. with Home.
-  if (hasPrerender && path === '/' && !isTranslated) {
+  // Home: hydrate prerender for fast first paint. Subpages: client mount only.
+  if (hasPrerender && path === '/') {
     let remounted = false;
     const root = hydrateRoot(container, AppTree, {
       onRecoverableError() {

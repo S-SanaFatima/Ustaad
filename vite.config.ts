@@ -34,6 +34,14 @@ export default defineConfig({
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
 
+  server: {
+    watch: {
+      ignored: ['**/dist/**', '**/.git/**', '**/node_modules/**'],
+    },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router', 'lucide-react', 'motion/react', 'react-helmet-async'],
+  },
   build: {
     emptyOutDir: false,
   },

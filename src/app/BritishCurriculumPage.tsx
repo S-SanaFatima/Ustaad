@@ -399,7 +399,7 @@ export default function BritishCurriculumPage() {
             </h1>
             <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-6" />
             <p className="text-gray-700 text-base sm:text-lg lg:text-xl mb-8 sm:mb-10 leading-relaxed max-w-xl font-normal">
-              One-to-one tutoring shaped around the academic standards, examination demands, and long-term expectations of the British Curriculum.
+              One-to-one tutoring shaped around the academic standards, examination demands, and long-term expectations of the British Curriculum, with specialist <a href="/igcse" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">IGCSE tutors in the UAE</a> and <a href="/a-level" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">A-Level educators</a>.
             </p>
             <HeroCTABlock className="mb-4">
               Book Your Free Trial

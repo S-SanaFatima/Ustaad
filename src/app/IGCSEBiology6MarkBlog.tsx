@@ -379,7 +379,7 @@ export default function IGCSEBiology6MarkBlog() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-gray-700 text-sm lg:text-[15px] leading-[1.8] [&_p]:text-justify [&_p]:mb-3 space-y-2 pt-6">
             <p>Your child knows the biology. They can define osmosis. They can list the stages of mitosis. They revise for hours. Yet the mock report keeps showing the same pattern: full marks on the short questions, and only two or three out of six on the long ones.</p>
-            <p>Sound familiar? For most UAE families sitting Cambridge IGCSE 0610 or Pearson Edexcel International GCSE 4BI1, this shortfall between effort and outcome is what pushes them to seek support. Once a student sees what each board actually rewards on a 6-mark question, the fix becomes clearer.</p>
+            <p>Sound familiar? For most UAE families sitting Cambridge IGCSE 0610 or Pearson Edexcel International GCSE 4BI1, working with an experienced <a href="/igcse" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">IGCSE Biology tutor</a> helps bridge this shortfall between effort and outcome. Once a student sees what each board actually rewards on a 6-mark question, the fix becomes clearer.</p>
             <p>The content on the syllabus does not need to change for a student to score better on long questions. What often needs to change is how the student meets the question. Individual results vary, and any student who is behind on the underlying content will need to close that gap alongside technique work.</p>
 
             {/* 01 */}

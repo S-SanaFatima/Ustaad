@@ -759,7 +759,11 @@ export default function CommandWordsBlog() {
               <a href="/blogs/igcse-preparation-past-papers-final-step" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                 why past papers are the final step, not the first
               </a>
-              , explains how to sequence them so command-word practice fits in at the right stage.
+              , explains how to sequence them so command-word practice fits in at the right stage. In calculation questions, pairing command word vigilance with a routine to catch{' '}
+              <a href="/blogs/silly-mistakes-maths-exams" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                silly mistakes in maths exams
+              </a>{' '}
+              protects easy marks from slipping away.
             </p>
           </div>
 

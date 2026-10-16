@@ -5,12 +5,10 @@ import { motion } from 'motion/react';
 // the flash: pre-rendered HTML visible → motion snaps to opacity:0 → fades back in.
 // After first mount this becomes false so SPA navigations animate normally.
 let isFirstMount = true;
-// Google Translate banner suppression styles are inlined below
 import TrustBar from './TrustBar';
 import Header from './Header';
 import Footer from './Footer';
 import FloatingWidget from './FloatingWidget';
-import { observeGoogleTranslateFields, patchGoogleTranslateFields } from '../../lib/googleTranslate';
 import { scrollToHashWhenReady } from '../../lib/scrollToHash';
 
 interface LayoutProps {
@@ -49,45 +47,8 @@ export default function Layout({ children, floatingCTAs, headerLogoAlt, footerLo
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Patch translate fields after hydration — observer during hydrate caused DOM drift → wrong page.
-    let translateTimer: ReturnType<typeof setTimeout> | undefined;
-    let stopObservingTranslate: (() => void) | undefined;
-
-    const startTranslateObserver = () => {
-      stopObservingTranslate = observeGoogleTranslateFields();
-    };
-
-    const loadGoogleTranslate = () => {
-      if (document.getElementById('gt-script')) return;
-
-      (window as any).googleTranslateElementInit = () => {
-        new (window as any).google.translate.TranslateElement(
-          { pageLanguage: 'en', includedLanguages: 'ar', autoDisplay: false },
-          'google_translate_element'
-        );
-        patchGoogleTranslateFields(document);
-      };
-      const s = document.createElement('script');
-      s.id = 'gt-script';
-      s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-      s.async = true;
-      document.body.appendChild(s);
-    };
-
-    const scheduleTranslate = () => {
-      if ('requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(loadGoogleTranslate, { timeout: 4000 });
-      } else {
-        translateTimer = setTimeout(loadGoogleTranslate, 2500);
-      }
-    };
-    scheduleTranslate();
-    translateTimer = setTimeout(startTranslateObserver, 3000);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      stopObservingTranslate?.();
-      if (translateTimer) clearTimeout(translateTimer);
     };
   }, []);
 
@@ -107,12 +68,8 @@ export default function Layout({ children, floatingCTAs, headerLogoAlt, footerLo
       </motion.main>
       <Footer logoAlt={footerLogoAlt} />
       {floatingCTAs ?? <FloatingWidget />}
-      <div id="google_translate_element" style={{ display: 'none' }} />
       <style>{`
         html { scroll-behavior: smooth; }
-        .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
-        body { top: 0 !important; }
-        .skiptranslate { display: none !important; }
       `}</style>
     </div>
   );

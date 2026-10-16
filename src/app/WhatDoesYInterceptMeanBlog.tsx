@@ -953,6 +953,14 @@ export default function WhatDoesYInterceptMeanBlog() {
               specifically drills these precision interpretation marks across algebra, coordinate geometry, and statistics.
             </p>
 
+            <p>
+              I show how to catch slips like these in my guide to{' '}
+              <a href="/blogs/silly-mistakes-maths-exams" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                silly mistakes in maths exams
+              </a>
+              .
+            </p>
+
             {/* 04 */}
             <SectionHeading num="04" id="when-intercept-means-something">
               When the intercept means something

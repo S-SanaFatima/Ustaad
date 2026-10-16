@@ -340,7 +340,7 @@ export default function HomeworkHelpBalanceBlog() {
             author: {
               name: BLOG.author,
               url: '/authors/nimra-shahzada',
-              jobTitle: 'Content Writer, Study and Exam Topics',
+              jobTitle: 'Writer on learning and the psychology of studying',
             },
             reviewer: {
               name: BLOG.reviewer,

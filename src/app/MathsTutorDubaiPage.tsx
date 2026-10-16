@@ -506,7 +506,7 @@ export default function MathsTutorDubaiPage() {
             variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
             className="text-blue-100/80 text-sm sm:text-base md:text-[17px] leading-relaxed max-w-2xl mb-6 md:mb-8 px-2 italic"
           >
-            One-to-one Maths tutoring for GCSE, IGCSE and A-Level students, matched to your child&apos;s exact exam board and school syllabus.
+            One-to-one Maths tutoring for GCSE, IGCSE and <a href="/a-level-tutor-dubai" className="underline font-bold text-amber-300 hover:text-white">A-Level Maths tuition in Dubai</a>, matched to your child&apos;s exact exam board and school syllabus.
           </motion.p>
 
           {/* Hero CTAs */}

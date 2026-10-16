@@ -35,11 +35,40 @@ function extractHeadTags(bodyHtml) {
   );
 
   // JSON-LD structured data — valid in body but head is preferred
-  cleaned = cleaned.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/gi, m => { tags.push(m); return ''; });
+  cleaned = cleaned.replace(/<script\s+[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, m => { tags.push(m); return ''; });
 
-  const uniqueTags = Array.from(new Set(tags.map(t => t.trim())));
+  // Standardize case and strictly deduplicate tags
+  const seenHreflang = new Set();
+  let seenCanonical = false;
+  const filteredTags = [];
 
-  return { tags: uniqueTags, cleanedHtml: cleaned };
+  for (const rawTag of tags) {
+    const tag = rawTag.trim().replace(/\bhrefLang=/gi, 'hreflang=').replace(/\bsrcSet=/gi, 'srcset=');
+    
+    // Canonical link deduplication
+    if (/rel="canonical"/i.test(tag)) {
+      if (seenCanonical) continue;
+      seenCanonical = true;
+      filteredTags.push(tag);
+      continue;
+    }
+
+    // Alternate hreflang link deduplication (keep only one per language code, e.g. en-ae, ar-ae, x-default)
+    const hreflangMatch = tag.match(/hreflang=["']([^"']+)["']/i);
+    if (hreflangMatch) {
+      const langKey = hreflangMatch[1].toLowerCase();
+      if (seenHreflang.has(langKey)) continue;
+      seenHreflang.add(langKey);
+      filteredTags.push(tag);
+      continue;
+    }
+
+    if (!filteredTags.includes(tag)) {
+      filteredTags.push(tag);
+    }
+  }
+
+  return { tags: filteredTags, cleanedHtml: cleaned };
 }
 
 async function prerender() {

@@ -13,7 +13,6 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { Layout, GradientHeadingText, GoldButton, BritishLandmarkWatermark, AmericanLandmarkWatermark, IBWorldWatermark, FinalCTA, StatsBar, CTA_SUBTEXT } from './shared';
 import SEOHead from './shared/SEOHead';
-import BackToSchoolPopup from './shared/BackToSchoolPopup';
 import { localBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, reviewsSchema, organizationSchema, websiteSchema } from './shared/schemas';
 import AskExpertSection from './AskExpertSection';
 import { ExplodedViewSection, AchievementCoinsSection, HowUstaadWorksSection, WhyFamiliesChooseSection, StudentStruggleSection, AcademicExpertiseSection } from './shared';
@@ -223,7 +222,6 @@ const homepageSEO = {
 
 export default function App() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [showWelcomePopup, setShowWelcomePopup] = useState(false);
   const logosMarqueeRef = useRef<HTMLDivElement>(null);
 
   const toggleFaq = (index: number) => {
@@ -241,14 +239,9 @@ export default function App() {
     container.appendChild(clone);
   }, []);
 
-  useEffect(() => {
-    setShowWelcomePopup(true);
-  }, []);
-
   return (
     <Layout>
       <SEOHead {...homepageSEO} />
-      <BackToSchoolPopup open={showWelcomePopup} onClose={() => setShowWelcomePopup(false)} />
       {/* Hero Section */}
       <section className="min-h-[calc(100dvh-84px)] lg:min-h-[calc(100dvh-92px)] flex items-center relative overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#0f4a9b]/5 to-[#0a3a79]/10 rounded-full blur-[100px] pointer-events-none"></div>

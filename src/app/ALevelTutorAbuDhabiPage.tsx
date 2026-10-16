@@ -401,7 +401,7 @@ export default function ALevelTutorAbuDhabiPage() {
             variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
             className="text-blue-100/80 text-[clamp(0.88rem,2vw,1.05rem)] leading-relaxed max-w-2xl mb-6 md:mb-8 px-4 italic font-medium"
           >
-            Live online A-Level tutors matched to Cambridge, Edexcel, OxfordAQA or OCR.
+            Live online A-Level tutors matched to Cambridge, Edexcel, OxfordAQA or OCR. Also supporting students in Dubai through our <a href="/a-level-tutor-dubai" className="underline font-bold text-amber-300 hover:text-white">A-Level tutors in Dubai</a>.
           </motion.p>
 
           <motion.div

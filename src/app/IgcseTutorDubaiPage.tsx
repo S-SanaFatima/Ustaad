@@ -1748,7 +1748,7 @@ export default function IgcseTutorDubaiPage() {
           </motion.h1>
 
           <motion.p variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }} className="text-blue-100/80 text-sm sm:text-base md:text-[17px] leading-relaxed max-w-2xl mb-6 md:mb-8 px-2 italic">
-            One-to-one tutoring with Cambridge and Edexcel specialists.
+            One-to-one tutoring with Cambridge and Edexcel specialists, alongside comprehensive <a href="/igcse" className="text-[#f0c96a] font-semibold underline hover:text-white transition-colors">IGCSE tutoring across the UAE</a>.
           </motion.p>
 
           <motion.div variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } }} className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 w-full max-w-md sm:max-w-none px-4">

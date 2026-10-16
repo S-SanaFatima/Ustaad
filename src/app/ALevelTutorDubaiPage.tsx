@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, type ReactNode } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import {
   Award, BookOpen, CheckCircle, ChevronDown, Clock, GraduationCap, MapPin,
   MessageCircle, PenTool, ShieldCheck, Sparkles, Star, Target,
@@ -60,7 +60,7 @@ const A_LEVEL_SUBJECTS: SubjectTrack[] = [
     badge: 'Pure · Mechanics · Statistics',
     icon: <Calculator className="w-6 h-6 text-[#0f4a9b]" />,
     boards: 'Edexcel 9MA0/9FM0 · Cambridge 9709 · AQA 7357',
-    coreTopics: ['Calculus & Differential Equations', 'Proof & Algebraic Structure', 'Vector 3D Geometry', 'Mechanics Resolving & Friction'],
+    coreTopics: ['Binomial Expansion', 'Parametric Equations', 'Proof by Induction', 'Numerical Methods'],
     challenges: 'Students know the formulas but drop 15–20 method marks when derivation steps are multi-layered or unguided.',
     strategy: 'We install rigorous line-by-line working protocols and structured verification checkpoints that protect every single method mark.',
     href: '/maths'
@@ -71,7 +71,7 @@ const A_LEVEL_SUBJECTS: SubjectTrack[] = [
     badge: 'Core · Fields · Quantum',
     icon: <Atom className="w-6 h-6 text-[#0f4a9b]" />,
     boards: 'Cambridge 9702 · Edexcel 9PH0 · AQA 7408 · OCR A',
-    coreTopics: ['Gravitational & Electric Fields', 'SHM & Oscillations', 'Wave Particle Duality', 'Practical Data Analysis & Uncertainties'],
+    coreTopics: ['Stationary Waves', 'Simple Harmonic Motion', 'Specific Heat Capacity', 'Practical Uncertainties'],
     challenges: 'Unseen question contexts create cognitive panic; students struggle to translate descriptive scenarios into solvable equations.',
     strategy: 'Visual free-body breakdowns, unit-consistency checks, and systematic drilling of 6-mark qualitative reasoning answers.',
     href: '/physics'
@@ -82,7 +82,7 @@ const A_LEVEL_SUBJECTS: SubjectTrack[] = [
     badge: 'Physical · Organic · Inorganic',
     icon: <FlaskConical className="w-6 h-6 text-[#0f4a9b]" />,
     boards: 'Edexcel 9CH0 · Cambridge 9701 · AQA 7405 · OCR A',
-    coreTopics: ['Organic Synthesis & Reaction Mechanisms', 'Thermodynamics & Born-Haber Cycles', 'Transition Metal Ligand Chemistry', 'Equilibrium & pH Buffers'],
+    coreTopics: ['Born-Haber Cycles', 'Buffer Solutions', 'Electrode Potentials', 'Nucleophilic Substitution'],
     challenges: 'Curly mechanism arrows missing electron pairs and vague explanations in energetics costing critical A/A* boundary marks.',
     strategy: 'Drilling exact IUPAC conventions, full mechanism arrow pathways, and precision mark-scheme keyword wording for every topic.',
     href: '/chemistry'
@@ -93,29 +93,29 @@ const A_LEVEL_SUBJECTS: SubjectTrack[] = [
     badge: 'Genetics · Biochemistry · Physiology',
     icon: <Dna className="w-6 h-6 text-[#0f4a9b]" />,
     boards: 'Cambridge 9700 · AQA 7402 · Edexcel 9BI0',
-    coreTopics: ['Photosynthesis & Cellular Respiration', 'Gene Expression & Epigenetics', 'Neurobiology & Synaptic Transmission', 'Synoptic 25-Mark Essays'],
+    coreTopics: ['Genetic Crosses', 'Kidney & Osmoregulation', 'Hardy-Weinberg Principle', 'Statistical Tests'],
     challenges: 'Detailed biological knowledge that fails to score because answers use conversational descriptions instead of mark-scheme keywords.',
     strategy: 'Targeted vocabulary mapping, comparative table structuring, and step-by-step training for the 25-mark synoptic essay in AQA.',
     href: '/biology'
   },
   {
     id: 'economics',
-    name: 'Economics & Business',
+    name: 'Economics',
     badge: 'Micro · Macro · Evaluation',
     icon: <LineChart className="w-6 h-6 text-[#0f4a9b]" />,
     boards: 'Edexcel 9EC0 · Cambridge 9708 · AQA 7136',
-    coreTopics: ['Market Failure & Government Intervention', 'Macroeconomic Policy Mixes', 'Monetary & Fiscal Transmission', '25-Mark Essay Evaluation Chains'],
+    coreTopics: ['Price Discrimination', 'Fiscal Policy', 'Exchange Rates', 'Evaluation Essays'],
     challenges: 'Essay answers that provide factual descriptions rather than two-sided economic evaluation chains with real-world context.',
     strategy: 'Teaching KAA (Knowledge, Application, Analysis) alongside rigorous EV (Evaluation) structures with verified contemporary UAE & global data.',
     href: '/economics'
   },
   {
     id: 'english',
-    name: 'English Literature & Language',
+    name: 'English Literature',
     badge: 'Comparative · Drama · Unseen',
     icon: <BookOpen className="w-6 h-6 text-[#0f4a9b]" />,
     boards: 'Edexcel 9ET0 · AQA 7712/7717 · Cambridge 9093/9695',
-    coreTopics: ['Paired-Text Comparative Structure', 'Critical Literary Perspectives', 'Unseen Poetry & Prose Commentary', 'NEA Coursework Structuring'],
+    coreTopics: ['Close Reading of Form', 'Critical Interpretations', 'Historical Context', 'Coursework Drafting'],
     challenges: 'Essays drifting into narrative plot summary under timed conditions instead of maintaining a sustained analytical line of reasoning.',
     strategy: 'Thesis-driven paragraph blueprints, embedded textual quotations, and examiner-rubric alignment for top-band literary criticism.',
     href: '/english'
@@ -132,7 +132,7 @@ const BOARD_DATA = {
       'Paper 3 practical laboratory skills and Paper 5 experimental design/data analysis require specialized exam training.',
       'Strict, highly specific mark schemes where synonym substitution often forfeits marks.'
     ],
-    schools: ['Dubai College', 'Repton School Dubai', 'GEMS Wellington International', 'Sunmarke School']
+    schools: ['Dubai College', 'Repton School Dubai', 'Sunmarke School']
   },
   edexcel: {
     name: 'Pearson Edexcel (UK & International)',
@@ -143,7 +143,7 @@ const BOARD_DATA = {
       'Practical Endorsement is internally assessed; written papers heavily test experimental method questions.',
       'Large data set questions in Statistics and calculus-heavy modeling in Physics.'
     ],
-    schools: ["JESS Arabian Ranches", "Kings' School Al Barsha", "Safa Community School", "Brighton College Dubai"]
+    schools: ['Brighton College Dubai', 'Safa Community School', 'Sunmarke School']
   },
   aqa: {
     name: 'AQA (UK & OxfordAQA)',
@@ -154,7 +154,7 @@ const BOARD_DATA = {
       'Biology 25-mark synoptic essay requires linking across at least 4 distinct specification areas.',
       'High grade-boundary volatility requiring sustained practice on Grade 9 / A* discriminator questions.'
     ],
-    schools: ['Hartland International', 'Horizon International School', 'Nord Anglia Dubai', 'Durham School Dubai']
+    schools: ['Hartland International', 'Horizon International School', 'Nord Anglia Dubai']
   }
 };
 
@@ -162,50 +162,50 @@ const PROTOCOL_STEPS = [
   {
     num: '01',
     title: 'Diagnostic & Paper Audit',
-    tagline: 'Pinpoint the exact marks lost',
-    desc: 'We review recent school test scripts and mock papers to identify whether lost marks stem from core topic gaps, weak method notation, or time-management collapse.',
-    icon: <Target className="w-5 h-5 text-[#0f4a9b]" strokeWidth={2} />,
-    deliverable: 'Diagnostic mark-loss breakdown report within 24 hours'
+    tagline: 'Pinpoint exact mark drops',
+    desc: 'We audit recent school scripts to determine whether dropped marks stem from conceptual blind spots, weak notation, or exam timing breakdown.',
+    icon: <Target className="w-4.5 h-4.5 text-[#0f4a9b]" strokeWidth={2.2} />,
+    deliverable: 'Personalised diagnostic mark audit'
   },
   {
     num: '02',
     title: 'First-Principles Rebuild',
-    tagline: 'Understanding before memorisation',
-    desc: 'Instead of passive worksheet drills, tutors rebuild foundational logic from the ground up so students understand the underlying mechanism and can tackle unseen question styles.',
-    icon: <Brain className="w-5 h-5 text-[#0f4a9b]" strokeWidth={2} />,
-    deliverable: 'Customized topic recovery plan matching your school scheme'
+    tagline: 'Master core foundational logic',
+    desc: 'Tutors rebuild fundamental reasoning from the ground up so students thoroughly grasp underlying mechanics and conquer unfamiliar questions.',
+    icon: <Brain className="w-4.5 h-4.5 text-[#0f4a9b]" strokeWidth={2.2} />,
+    deliverable: 'Personalised topic recovery roadmap'
   },
   {
     num: '03',
     title: 'Mark-Scheme Calibration',
-    tagline: 'Think like an examiner',
-    desc: 'Students learn the exact task verbs, keywords, and structural conventions rewarded by official College Board and UK exam board examiners to eliminate careless dropped marks.',
-    icon: <PenTool className="w-5 h-5 text-[#0f4a9b]" strokeWidth={2} />,
-    deliverable: 'Topic-by-topic examiner rubric mastery cards'
+    tagline: 'Decode examiner mark schemes',
+    desc: 'Students learn the exact command words, keywords, and structural conventions rewarded by Cambridge, Edexcel and AQA examiners to eliminate careless dropped marks.',
+    icon: <PenTool className="w-4.5 h-4.5 text-[#0f4a9b]" strokeWidth={2.2} />,
+    deliverable: 'Exam-board rubric mastery guides'
   },
   {
     num: '04',
     title: 'Timed Past-Paper Stamina',
-    tagline: 'Exam-room speed & composure',
-    desc: 'Weekly full-length and sectional timed paper practice under realistic exam conditions. Lessons analyze the exact reasons for every dropped mark until A* accuracy becomes second nature.',
-    icon: <Clock className="w-5 h-5 text-[#0f4a9b]" strokeWidth={2} />,
-    deliverable: 'Grade boundary trajectory tracking updated weekly'
+    tagline: 'Build timed exam composure',
+    desc: 'Weekly full-length timed past papers drill exam pacing under real conditions until producing A* accuracy feels completely instinctive.',
+    icon: <Clock className="w-4.5 h-4.5 text-[#0f4a9b]" strokeWidth={2.2} />,
+    deliverable: 'Weekly A* grade trajectory tracking'
   }
 ];
 
 const DUBAI_AREAS = [
-  { name: 'Downtown Dubai', sub: 'DIFC · Business Bay · City Walk' },
-  { name: 'Dubai Hills Estate', sub: 'Sidra · Maple · Parkway' },
-  { name: 'Arabian Ranches', sub: 'Ranches 1, 2 & 3 · Polo Homes' },
-  { name: 'Palm Jumeirah', sub: 'Fronds · Crescent · Shoreline' },
-  { name: 'Dubai Marina & JBR', sub: 'Marina Walk · Bluewaters' },
-  { name: 'Jumeirah', sub: 'Jumeirah 1, 2, 3 · Umm Suqeim' },
-  { name: 'Emirates Hills', sub: 'The Lakes · Meadows · Springs' },
-  { name: 'Jumeirah Golf Estates', sub: 'Whispering Pines · Orange Lake' },
-  { name: 'Al Barsha & Barsha Heights', sub: 'Near Kings & American Academy' },
-  { name: 'Meydan & MBR City', sub: 'District One · Sobha Hartland' },
-  { name: 'Mirdif & Uptown', sub: 'Near international schools' },
-  { name: 'JLT & Discovery Gardens', sub: 'Cluster community support' }
+  { name: 'Downtown Dubai', sub: 'DIFC · Business Bay · City Walk', image: '/images/communities/downtown-dubai.jpg' },
+  { name: 'Dubai Hills Estate', sub: 'Sidra · Maple · Parkway', image: '/images/communities/dubai-hills-estate.png' },
+  { name: 'Arabian Ranches', sub: 'Ranches 1, 2 & 3 · Polo Homes', image: '/images/communities/arabian-ranches.png' },
+  { name: 'Palm Jumeirah', sub: 'Fronds · Crescent · Shoreline', image: '/images/communities/palm-jumeirah.png' },
+  { name: 'Dubai Marina & JBR', sub: 'Marina Walk · Bluewaters', image: '/images/communities/dubai-marina.png' },
+  { name: 'Jumeirah', sub: 'Jumeirah 1, 2, 3 · Umm Suqeim', image: '/images/communities/jumeirah.png' },
+  { name: 'Emirates Hills', sub: 'The Lakes · Meadows · Springs', image: '/images/communities/emirates-hills.png' },
+  { name: 'Jumeirah Golf Estates', sub: 'Whispering Pines · Orange Lake', image: '/images/communities/jumeirah-golf-estates.png' },
+  { name: 'Al Barsha & Barsha Heights', sub: 'Near Kings & American Academy', image: '/images/communities/al-barsha.png' },
+  { name: 'Meydan & MBR City', sub: 'District One · Sobha Hartland', image: '/images/communities/meydan.jpg' },
+  { name: 'Mirdif & Uptown', sub: 'Near international schools', image: '/images/communities/mirdif.png' },
+  { name: 'JLT & Discovery Gardens', sub: 'Cluster community support', image: '/images/communities/jlt-discovery-gardens.jpg' }
 ];
 
 const DUBAI_REVIEWS = [
@@ -215,13 +215,6 @@ const DUBAI_REVIEWS = [
     school: 'Parent of Year 13 student at Dubai College',
     subject: 'Edexcel A-Level Mathematics & Further Maths (9MA0 / 9FM0)',
     text: "My son was hovering at a high B in his Year 12 mock exams and needed an A* for Imperial Mechanical Engineering. His Ustaad tutor completely rebuilt his calculus derivations and mechanics setup habits. He achieved an A* in both Maths and Further Maths and secured his firm university choice."
-  },
-  {
-    initials: 'SM',
-    name: 'Sarah M., Arabian Ranches',
-    school: 'Parent of Year 13 student at JESS Arabian Ranches',
-    subject: 'Cambridge A-Level Chemistry (9701) & Biology (9700)',
-    text: "The transition from GCSE to A-Level sciences was overwhelming for our daughter. Ustaad matched her with a board-specific tutor who broke down organic reaction mechanisms and taught her how to score full marks on practical Paper 5. She went from a C in January to an A in the summer."
   },
   {
     initials: 'FK',
@@ -234,113 +227,41 @@ const DUBAI_REVIEWS = [
 
 const DUBAI_FAQS = [
   {
-    q: "Which A-Level exam boards do your Dubai tutors support?",
-    a: "We support all major exam boards taught across British curriculum schools in Dubai: Pearson Edexcel (UK and International A-Levels), Cambridge International Assessment (CIE 9700 series), AQA, and OxfordAQA. Tutors are matched to the exact syllabus code your child's school follows."
-  },
-  {
-    q: "How do online A-Level sessions work, and how do they compare to in-person tuition?",
-    a: "Our online sessions are conducted 1-to-1 via high-definition video with an interactive shared digital whiteboard. The tutor shares real past exam papers, annotates diagrams, and walks through mark schemes live. Sessions are recorded so students can rewatch tricky derivations before school tests."
-  },
-  {
-    q: "When is the best time for a Dubai student to start A-Level tutoring?",
-    a: "September of Year 12 is ideal, as establishing strong analytical habits early prevents the common Grade 12 slump. However, we also run intensive mock preparation blocks starting in November/January and 6-week rapid exam drills leading into May/June exam papers."
-  },
-  {
-    q: "How do you help students with Year 12 predicted grades for UCAS and US admissions?",
-    a: "Predicted grades depend heavily on end-of-year assessments and Autumn Year 13 mock exams. We reverse-engineer the school's marking criteria, target the specific discriminator topics, and drill timed past papers so the student produces the evidence required for top A* and A predictions."
-  },
-  {
     q: "Can you accommodate Dubai school schedules, sports commitments, and travel?",
     a: "Yes. All sessions are scheduled flexibly after school hours (between 4:00 PM and 9:30 PM UAE time) and on weekends. Because lessons are online, students can maintain consistent weekly progress even when traveling for family holidays or school tournaments."
   },
   {
-    q: "What is included in the Free 30-Minute Trial Session?",
-    a: "In the free 30-minute diagnostic trial, the matched tutor works through a live past-paper problem with your child, evaluates their conceptual approach, identifies mark-scheme gaps, and outlines a targeted recovery plan. There is zero obligation to continue."
+    q: "Do you have an A-Level tuition centre in Dubai?",
+    a: "No. Every lesson is live and online, so your child joins from home anywhere in Dubai, from Jumeirah to Mirdif."
+  },
+  {
+    q: "My child's school uses different exam boards for different subjects. Can you cover all of them?",
+    a: "Yes. Each subject has its own tutor, chosen for that subject's board, so Edexcel Maths and Cambridge Physics can run side by side."
+  },
+  {
+    q: "Can my child have separate tutors for Maths and Further Maths?",
+    a: "Yes. Some students keep one tutor for both and others prefer two. We arrange whichever suits the workload."
+  },
+  {
+    q: "Do you tutor students who are resitting an A-Level?",
+    a: "Yes. Resit students follow a short plan built on the papers that cost them marks, timed to the next exam series for their board."
   }
 ];
 
-const DUBAI_SCHOOL_DOSSIERS = [
-  {
-    id: 'dc',
-    name: 'Dubai College',
-    location: 'Al Sufouh',
-    badge: 'Linear GCE & Cambridge',
-    curriculumInsight: 'Fast-paced academic curriculum that finishes syllabus content by February of Year 13 to enable 10+ weeks of rigorous past-paper mock blocks.',
-    boards: {
-      maths: 'Edexcel 9MA0 / 9FM0',
-      physics: 'Cambridge 9702',
-      chemistry: 'AQA 7405',
-      biology: 'Cambridge 9700',
-      economics: 'Edexcel 9EC0'
-    },
-    targetBoundary: 'A* typically requires 78–82% raw',
-    keyFocus: 'Advanced multi-step calculus & 25-mark essay synoptic chains'
-  },
-  {
-    id: 'jess',
-    name: 'JESS Arabian Ranches',
-    location: 'Arabian Ranches',
-    badge: 'Pearson Edexcel Hub',
-    curriculumInsight: 'Heavy emphasis on modeling applications, statistical large data sets, and continuous internal assessment checkpoints throughout Year 12.',
-    boards: {
-      maths: 'Edexcel 9MA0',
-      physics: 'Edexcel 9PH0',
-      chemistry: 'Edexcel 9CH0',
-      biology: 'Edexcel 9BI0',
-      economics: 'Edexcel 9EC0'
-    },
-    targetBoundary: 'A* typically requires 74–79% raw',
-    keyFocus: 'Internal assessment data analysis & synoptic Paper 3 mastery'
-  },
-  {
-    id: 'desc',
-    name: 'Dubai English Speaking College (DESC)',
-    location: 'Academic City',
-    badge: 'AQA & Edexcel Specialism',
-    curriculumInsight: 'Strict termly diagnostic mock exams used for UCAS predicted grades, requiring early Year 12 active recall and exam stamina.',
-    boards: {
-      maths: 'Edexcel 9MA0',
-      physics: 'AQA 7408',
-      chemistry: 'AQA 7405',
-      biology: 'AQA 7402',
-      economics: 'AQA 7136'
-    },
-    targetBoundary: 'A* typically requires 76–80% raw',
-    keyFocus: 'AQA multiple-choice precision & synoptic 25-mark essays'
-  },
-  {
-    id: 'nlcs',
-    name: 'NLCS Dubai',
-    location: 'Nad Al Sheba',
-    badge: 'Cambridge CIE & IB DP',
-    curriculumInsight: 'Rigorous staged AS/A2 assessment structure with emphasis on deep theoretical proofs and Paper 3 / Paper 5 laboratory design questions.',
-    boards: {
-      maths: 'Cambridge 9709',
-      physics: 'Cambridge 9702',
-      chemistry: 'Cambridge 9701',
-      biology: 'Cambridge 9700',
-      economics: 'Cambridge 9708'
-    },
-    targetBoundary: 'A* typically requires 82–88% raw',
-    keyFocus: 'Paper 3 experimental uncertainties & algebraic derivation'
-  },
-  {
-    id: 'repton',
-    name: 'Repton School Dubai',
-    location: 'Nad Al Sheba',
-    badge: 'Dual British Pathway',
-    curriculumInsight: 'Differentiated assessment models across pure sciences and humanities requiring tailored exam techniques for modular vs linear papers.',
-    boards: {
-      maths: 'Edexcel 9MA0',
-      physics: 'Cambridge 9702',
-      chemistry: 'Edexcel 9CH0',
-      biology: 'Cambridge 9700',
-      economics: 'Edexcel 9EC0'
-    },
-    targetBoundary: 'A* typically requires 75–81% raw',
-    keyFocus: 'Modular unit catch-up & exam timing pace'
-  }
+const A_LEVEL_DUBAI_SCHOOL_LOGOS = [
+  { name: 'Dubai College', file: 'dubai-college.png' },
+  { name: 'Repton School Dubai', file: 'repton-dubai.png' },
+  { name: 'Brighton College Dubai', file: 'brighton-college-dubai.png' },
+  { name: 'Sunmarke School', file: 'sunmarke.png' },
+  { name: 'Nord Anglia International School Dubai', file: 'nord-anglia-dubai.png' },
+  { name: 'Safa Community School', file: 'safa.png' },
+  { name: 'Hartland International School', file: 'hartland-international-school.png' },
+  { name: 'Horizon International School', file: 'horizon-international-school.png' },
 ];
+
+
+
+
 
 // ── 3D INTERACTIVE LAB DATA ──
 interface DissectorProblem {
@@ -437,12 +358,966 @@ const DISSECTOR_PROBLEMS: Record<string, DissectorProblem> = {
   }
 };
 
+function MobileHeroBackground() {
+  return (
+    <div className="md:hidden absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none">
+      <motion.div
+        animate={{ scale: [1, 1.15, 1], opacity: [0.35, 0.5, 0.35] }}
+        transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
+        className="absolute -top-12 left-1/2 -translate-x-1/2 w-[340px] h-[340px] bg-[#0f4a9b]/40 rounded-full blur-[100px]"
+      />
+      <motion.div
+        animate={{ scale: [1, 1.12, 1], opacity: [0.18, 0.28, 0.18] }}
+        transition={{ repeat: Infinity, duration: 7, ease: 'easeInOut', delay: 1 }}
+        className="absolute top-20 -right-10 w-[220px] h-[220px] bg-[#f0c96a]/25 rounded-full blur-[80px]"
+      />
+      <motion.div
+        animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
+        transition={{ repeat: Infinity, duration: 8, ease: 'easeInOut', delay: 2 }}
+        className="absolute bottom-24 -left-10 w-[200px] h-[200px] bg-[#22b8cd]/20 rounded-full blur-[75px]"
+      />
+
+      <svg
+        viewBox="0 0 380 620"
+        preserveAspectRatio="xMidYMid slice"
+        className="absolute inset-0 w-full h-full opacity-90"
+      >
+        <defs>
+          <linearGradient id="mobGoldGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#fde68a" />
+            <stop offset="100%" stopColor="#C7A24A" />
+          </linearGradient>
+
+          <radialGradient id="mobOrbGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#f0c96a" stopOpacity="0.3" />
+            <stop offset="60%" stopColor="#0f4a9b" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#060f22" stopOpacity="0" />
+          </radialGradient>
+
+          <filter id="mobGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {(() => {
+          const dots: ReactNode[] = [];
+          for (let x = 20; x < 380; x += 40) {
+            for (let y = 25; y < 620; y += 42) {
+              dots.push(
+                <circle
+                  key={`mbd_${x}_${y}`}
+                  cx={x}
+                  cy={y}
+                  r="1"
+                  fill="rgba(255,255,255,0.06)"
+                />
+              );
+            }
+          }
+          return dots;
+        })()}
+
+        <text x="24" y="46" fill="rgba(95,211,230,0.65)" fontSize="8.5" fontFamily="monospace" letterSpacing="0.1em">
+          DUBAI · 25.2048° N, 55.2708° E
+        </text>
+        <text x="24" y="60" fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="monospace" letterSpacing="0.08em">
+          AQA · EDEXCEL · CAMBRIDGE 1-TO-1
+        </text>
+
+        <line x1="20" y1="68" x2="360" y2="68" stroke="rgba(95,211,230,0.12)" strokeWidth="0.8" strokeDasharray="3 4" />
+        <line x1="20" y1="540" x2="360" y2="540" stroke="rgba(95,211,230,0.12)" strokeWidth="0.8" strokeDasharray="3 4" />
+        <line x1="20" y1="68" x2="20" y2="540" stroke="rgba(95,211,230,0.12)" strokeWidth="0.8" strokeDasharray="3 4" />
+        <line x1="360" y1="68" x2="360" y2="540" stroke="rgba(95,211,230,0.12)" strokeWidth="0.8" strokeDasharray="3 4" />
+
+        <g transform="translate(322, 102)">
+          <circle cx="0" cy="0" r="42" fill="url(#mobOrbGlow)" />
+          <motion.g
+            animate={{ rotate: 360 }}
+            transition={{ repeat: Infinity, duration: 24, ease: 'linear' }}
+          >
+            <circle cx="0" cy="0" r="32" fill="none" stroke="rgba(240,201,106,0.35)" strokeWidth="1" strokeDasharray="4 4" />
+            <circle cx="0" cy="0" r="22" fill="none" stroke="rgba(95,211,230,0.35)" strokeWidth="0.8" strokeDasharray="2 3" />
+            <circle cx="32" cy="0" r="2" fill="#f0c96a" />
+            <circle cx="-22" cy="0" r="1.5" fill="#5fd3e6" />
+          </motion.g>
+          <circle cx="0" cy="0" r="15" fill="rgba(240,201,106,0.12)" stroke="url(#mobGoldGrad)" strokeWidth="1.2" />
+          <text x="0" y="3.5" textAnchor="middle" fill="#f0c96a" fontSize="7.5" fontWeight="bold" fontFamily="sans-serif">
+            A-LEVEL
+          </text>
+        </g>
+
+        <circle cx="30" cy="500" r="3.5" fill="#22b8cd" />
+        <circle cx="30" cy="500" r="7" fill="none" stroke="#22b8cd" strokeWidth="0.8" opacity="0.6" />
+        <text x="44" y="504" fill="rgba(255,255,255,0.5)" fontSize="8.5" fontFamily="monospace">
+          Diagnostic (Baseline)
+        </text>
+
+        <motion.circle
+          cx="322"
+          cy="102"
+          r="4.5"
+          fill="#f0c96a"
+          filter="url(#mobGlow)"
+          animate={{ r: [4, 6.5, 4], opacity: [0.8, 1, 0.8] }}
+          transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
+        />
+        <text x="240" y="90" fill="#f0c96a" fontSize="10" fontFamily="monospace" fontWeight="bold">
+          Target: Grade A* ★
+        </text>
+
+        <text x="24" y="195" fill="rgba(95,211,230,0.35)" fontSize="11" fontFamily="monospace">
+          Cambridge 9709
+        </text>
+        <text x="24" y="320" fill="rgba(240,201,106,0.32)" fontSize="10.5" fontFamily="monospace">
+          Edexcel 9MA0 / 9CH0
+        </text>
+        <text x="24" y="440" fill="rgba(255,255,255,0.28)" fontSize="9" fontFamily="monospace">
+          AQA 7408 / 7402
+        </text>
+        <text x="230" y="475" fill="rgba(95,211,230,0.3)" fontSize="10" fontFamily="monospace">
+          OCR A
+        </text>
+      </svg>
+    </div>
+  );
+}
+
+const DUBAI_A_LEVEL_PRESSURE_POINTS = [
+  {
+    num: '01',
+    title: 'Mid-Course School Moves',
+    desc: 'Families who relocate to Dubai during Year 12 often find the new school follows a different board or teaches units in a different order.',
+    tag: 'Board Transition',
+    icon: TrendingUp,
+    badgeBg: 'bg-blue-50/90 text-[#0f4a9b] border-blue-200/60',
+    dotColor: 'bg-[#0f4a9b]',
+    glowColor: 'from-[#0f4a9b]/10 to-transparent'
+  },
+  {
+    num: '02',
+    title: 'Board-Specific Command Words',
+    desc: 'Cambridge 9709 Maths penalises lack of exact proofs, while Edexcel 9MA0 prioritises modeling interpretations. Generic revision fails on specific board rubrics.',
+    tag: 'Rubric Precision',
+    icon: FileText,
+    badgeBg: 'bg-indigo-50/90 text-indigo-600 border-indigo-200/60',
+    dotColor: 'bg-indigo-500',
+    glowColor: 'from-indigo-500/10 to-transparent'
+  },
+  {
+    num: '03',
+    title: 'Year 12 Predicted Grade Stakes',
+    desc: 'UCAS university applications are submitted in early Year 13. A single slip in Year 12 summer mocks permanently caps predicted grades before final exams are sat.',
+    tag: 'UCAS Trajectory',
+    icon: Target,
+    badgeBg: 'bg-amber-50/90 text-amber-700 border-amber-200/60',
+    dotColor: 'bg-amber-500',
+    glowColor: 'from-amber-500/10 to-transparent'
+  },
+  {
+    num: '04',
+    title: 'Practical Papers 3 & 5 Weighting',
+    desc: 'Science papers heavily assess practical design, error analysis, and percentage uncertainties. Students without laboratory confidence lose easy grade boundary margins.',
+    tag: 'Lab Margin Loss',
+    icon: FlaskConical,
+    badgeBg: 'bg-emerald-50/90 text-emerald-700 border-emerald-200/60',
+    dotColor: 'bg-emerald-500',
+    glowColor: 'from-emerald-500/10 to-transparent'
+  },
+  {
+    num: '05',
+    title: 'Synoptic Multi-Topic Questions',
+    desc: 'Final A2 papers combine disparate topics across two years into single 12-mark questions. Students who revise chapters in isolation freeze under synoptic pressure.',
+    tag: 'Synoptic Rigour',
+    icon: Layers,
+    badgeBg: 'bg-purple-50/90 text-purple-700 border-purple-200/60',
+    dotColor: 'bg-purple-500',
+    glowColor: 'from-purple-500/10 to-transparent'
+  },
+  {
+    num: '06',
+    title: 'Compressed Dubai Calendar',
+    desc: 'Term breaks, spring travel, and Ramadan condense the active study window. Without structured weekly pacing, revision is left dangerously late in April.',
+    tag: 'Pacing Strategy',
+    icon: Calendar,
+    badgeBg: 'bg-rose-50/90 text-rose-700 border-rose-200/60',
+    dotColor: 'bg-rose-500',
+    glowColor: 'from-rose-500/10 to-transparent'
+  }
+];
+
+function DubaiALevelSlipSection() {
+  return (
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#f8fafc] relative overflow-hidden border-b border-slate-100">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-4 sm:mb-5 max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-1.5 shadow-2xs">
+            <AlertTriangle className="w-3 h-3 text-[#0f4a9b]" />
+            <span className="text-[#0f4a9b] text-[10.5px] font-bold uppercase tracking-[0.14em]">
+              Diagnostic Insights
+            </span>
+          </div>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-1 tracking-tight">
+            <GradientHeadingText text="Why A-Level Marks Slip in Dubai Schools" />
+          </h2>
+          <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed max-w-xl mx-auto">
+            Achieving an 8 or 9 at GCSE is no guarantee of an A* at A-Level. Here are the six exact fault lines where students lose marks.
+          </p>
+        </div>
+
+        {/* Scrollable on Mobile, Responsive Centered Grid on Tablet & Desktop (Single Viewport Fit) */}
+        <div
+          className="w-full flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-5 items-stretch justify-center overflow-x-auto sm:overflow-visible snap-x snap-mandatory pt-0.5 pb-2.5 sm:pb-0 px-4 sm:px-0 -mx-4 sm:mx-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {DUBAI_A_LEVEL_PRESSURE_POINTS.map((pt) => {
+            const Icon = pt.icon;
+            return (
+              <div
+                key={pt.num}
+                className="group relative bg-white border border-slate-200/80 hover:border-[#0f4a9b]/35 rounded-2xl p-3.5 sm:p-4 lg:p-4.5 shadow-[0_2px_10px_rgba(15,74,155,0.03)] hover:shadow-lg hover:shadow-blue-900/5 transition-all duration-300 flex flex-col justify-between w-[84vw] max-w-[320px] sm:w-full sm:max-w-none shrink-0 sm:shrink snap-center overflow-hidden"
+              >
+                {/* Subtle cute ambient corner glow */}
+                <div
+                  className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${pt.glowColor} rounded-full blur-xl pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
+                />
+
+                <div className="relative z-10 flex items-center justify-between mb-2.5">
+                  <div
+                    className={`w-8 h-8 rounded-xl flex items-center justify-center border shadow-xs transition-transform duration-300 group-hover:scale-105 ${pt.badgeBg}`}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </div>
+                </div>
+
+                <div className="relative z-10 flex-1">
+                  <h3 className="text-[14px] sm:text-[14.5px] lg:text-[15px] font-bold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors leading-snug mb-1">
+                    {pt.title}
+                  </h3>
+                  <p className="text-slate-600 text-[11.5px] sm:text-xs leading-relaxed">
+                    {pt.desc}
+                  </p>
+                </div>
+
+                <div className="relative z-10 mt-2.5 pt-2 border-t border-slate-100 flex items-center">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100/80 text-slate-600 text-[10px] font-medium">
+                    {pt.tag}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Mobile Swipe Hint (No arrows, no dots) */}
+        <div className="sm:hidden flex items-center justify-center mt-3 mb-1">
+          <span className="px-3.5 py-1 rounded-full text-[11px] font-semibold text-slate-500 bg-slate-100/90 border border-slate-200/80 tracking-tight select-none">
+            Swipe to see more
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ReviewsScroller() {
+  const n = DUBAI_REVIEWS.length;
+  const [active, setActive] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startTimer = () => {
+    if (n <= 1) return;
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => setActive((i) => (i + 1) % n), 5500);
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [n]);
+
+  const go = (idx: number) => {
+    if (n <= 1) return;
+    setActive(((idx % n) + n) % n);
+    startTimer();
+  };
+
+  const prevIdx = (active - 1 + n) % n;
+  const nextIdx = (active + 1) % n;
+
+  const SideCard = ({ idx }: { idx: number }) => (
+    <button
+      type="button"
+      onClick={() => go(idx)}
+      className="hidden md:block w-[22%] shrink-0 text-left opacity-40 hover:opacity-70 transition duration-300 cursor-pointer"
+      aria-label={`Show review by ${DUBAI_REVIEWS[idx].name}`}
+    >
+      <div className="bg-white rounded-2xl p-4 border border-slate-100 shadow-xs relative overflow-hidden h-full">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#0f4a9b] to-[#C7A24A]" />
+        <div className="flex gap-0.5 mb-2">
+          {[1, 2, 3, 4, 5].map((j) => (
+            <Star key={j} className="h-3 w-3 fill-[#C7A24A] text-[#C7A24A]" />
+          ))}
+        </div>
+        <p className="text-slate-400 text-xs leading-relaxed line-clamp-3">&ldquo;{DUBAI_REVIEWS[idx].text}&rdquo;</p>
+        <div className="flex items-center gap-2 mt-3 pt-2 border-t border-slate-100">
+          <div
+            className="w-7 h-7 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#1e5ba8] flex items-center justify-center text-white font-bold text-[10px] notranslate shrink-0"
+            translate="no"
+          >
+            {DUBAI_REVIEWS[idx].initials}
+          </div>
+          <span className="font-bold text-[#0a1f3d] text-xs notranslate truncate" translate="no">
+            {DUBAI_REVIEWS[idx].name.split(',')[0]}
+          </span>
+        </div>
+      </div>
+    </button>
+  );
+
+  const r = DUBAI_REVIEWS[active];
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      <div className="flex items-stretch gap-3 lg:gap-4">
+        <SideCard idx={prevIdx} />
+
+        <div className="flex-1 min-w-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, x: 28 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -28 }}
+              transition={{ duration: 0.28, ease: 'easeInOut' }}
+              className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-[0_8px_32px_rgba(15,74,155,0.08)] relative overflow-hidden text-left"
+            >
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A]" />
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map((j) => (
+                    <Star key={j} className="h-4 w-4 fill-[#C7A24A] text-[#C7A24A]" />
+                  ))}
+                </div>
+                <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/8 px-3 py-1 rounded-full border border-[#0f4a9b]/15">
+                  Parent Testimonial
+                </span>
+              </div>
+              <p className="text-[#374151] text-[15px] sm:text-[16px] leading-relaxed mb-6 italic">
+                &ldquo;{r.text}&rdquo;
+              </p>
+              <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100">
+                <div
+                  className="w-11 h-11 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#1e5ba8] flex items-center justify-center text-white font-bold text-sm shadow-[0_2px_8px_rgba(15,74,155,0.28)] notranslate shrink-0"
+                  translate="no"
+                >
+                  {r.initials}
+                </div>
+                <div className="min-w-0">
+                  <div className="font-extrabold text-[#0a1f3d] text-[15px] notranslate truncate" translate="no">
+                    {r.name}
+                  </div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5 truncate">
+                    {r.school || r.subject} · Parent Feedback
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <SideCard idx={nextIdx} />
+      </div>
+
+      {/* Dots navigation */}
+      <div className="flex items-center justify-center gap-1.5 mt-5">
+        {DUBAI_REVIEWS.map((_, idx) => (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => go(idx)}
+            aria-label={`Go to review ${idx + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              active === idx ? 'w-6 bg-[#0f4a9b]' : 'w-1.5 bg-slate-300'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── MINIMAL ANIMATED VISUAL 01: Interactive Whiteboard & Markup ── */
+function MinimalWhiteboardVisual() {
+  return (
+    <div className="relative w-full h-24 rounded-2xl bg-gradient-to-br from-blue-50/70 via-slate-50 to-blue-50/30 border border-blue-100/70 p-3 flex items-center justify-between overflow-hidden">
+      {/* Light subtle grid background */}
+      <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#0f4a9b_0.75px,transparent_0.75px)] [background-size:12px_12px] pointer-events-none" />
+
+      {/* Left: Icon container */}
+      <div className="relative z-10 w-11 h-11 rounded-xl bg-white border border-blue-200/70 shadow-xs flex items-center justify-center text-[#0f4a9b] group-hover:scale-105 group-hover:border-[#0f4a9b]/40 group-hover:bg-blue-50/50 transition-all duration-300">
+        <Laptop className="w-5 h-5" />
+      </div>
+
+      {/* Middle: Minimal formula & animated pen stroke */}
+      <div className="relative z-10 flex-1 px-3">
+        <div className="flex items-center gap-1.5 mb-1.5">
+          <span className="font-mono text-xs font-bold text-[#0f4a9b] bg-white/95 px-2 py-0.5 rounded-md border border-blue-100 shadow-2xs">
+            dy/dx = 3x²
+          </span>
+          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">
+            +4 marks
+          </span>
+        </div>
+        {/* Animated wave underline */}
+        <div className="w-28 h-1.5 bg-blue-100/70 rounded-full overflow-hidden">
+          <motion.div
+            className="h-full bg-gradient-to-r from-[#0f4a9b] to-[#C7A24A] rounded-full"
+            animate={{ width: ['35%', '100%', '35%'] }}
+            transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+          />
+        </div>
+      </div>
+
+      {/* Right: Live cursor badge */}
+      <div className="relative z-10 hidden sm:flex items-center gap-1 px-2 py-1 rounded-full bg-white/95 border border-blue-100 text-[10px] font-semibold text-slate-600 shadow-2xs">
+        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+        Live Sync
+      </div>
+    </div>
+  );
+}
+
+/* ── MINIMAL ANIMATED VISUAL 02: Session Recordings for Revision ── */
+function MinimalRecordingVisual() {
+  return (
+    <div className="relative w-full h-24 rounded-2xl bg-gradient-to-br from-amber-50/60 via-slate-50 to-amber-50/20 border border-amber-100/70 p-3 flex items-center justify-between overflow-hidden">
+      {/* Light subtle glow */}
+      <div className="absolute -top-6 -right-6 w-20 h-20 bg-amber-200/20 rounded-full blur-xl pointer-events-none" />
+
+      {/* Left: Play Icon in white squircle */}
+      <div className="relative z-10 w-11 h-11 rounded-xl bg-white border border-amber-200/70 shadow-xs flex items-center justify-center text-amber-600 group-hover:scale-105 group-hover:border-amber-400/60 group-hover:bg-amber-50/50 transition-all duration-300">
+        <Video className="w-5 h-5" />
+      </div>
+
+      {/* Middle: Equalizer soundwaves (minimal animated) */}
+      <div className="relative z-10 flex-1 px-4 flex items-center justify-center gap-1">
+        {[
+          { h: 10, d: 0.1 },
+          { h: 22, d: 0.3 },
+          { h: 14, d: 0.15 },
+          { h: 26, d: 0.4 },
+          { h: 18, d: 0.2 },
+          { h: 12, d: 0.35 },
+        ].map((bar, i) => (
+          <motion.div
+            key={i}
+            className="w-1 bg-[#0f4a9b] rounded-full"
+            animate={{ height: [bar.h, bar.h * 1.5, bar.h] }}
+            transition={{ repeat: Infinity, duration: 1.2, delay: bar.d, ease: 'easeInOut' }}
+            style={{ height: bar.h }}
+          />
+        ))}
+      </div>
+
+      {/* Right: REC + 1080p Badge */}
+      <div className="relative z-10 flex flex-col items-end gap-1">
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-rose-50 text-rose-600 border border-rose-200/70 text-[10px] font-bold">
+          <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
+          REC
+        </span>
+        <span className="text-[10px] font-mono font-semibold text-slate-500">
+          1080p HD
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ── MINIMAL ANIMATED VISUAL 03: Weekly Parent Progress Notes ── */
+function MinimalProgressVisual() {
+  return (
+    <div className="relative w-full h-24 rounded-2xl bg-gradient-to-br from-emerald-50/60 via-slate-50 to-emerald-50/20 border border-emerald-100/70 p-3 flex items-center justify-between overflow-hidden">
+      {/* Light subtle glow */}
+      <div className="absolute -top-6 -right-6 w-20 h-20 bg-emerald-200/20 rounded-full blur-xl pointer-events-none" />
+
+      {/* Left: FileText Icon in white squircle */}
+      <div className="relative z-10 w-11 h-11 rounded-xl bg-white border border-emerald-200/70 shadow-xs flex items-center justify-center text-emerald-600 group-hover:scale-105 group-hover:border-emerald-400/60 group-hover:bg-emerald-50/50 transition-all duration-300">
+        <FileText className="w-5 h-5" />
+      </div>
+
+      {/* Middle: 3 Minimal Ascending Progress Bars */}
+      <div className="relative z-10 flex-1 px-4 flex items-end justify-center gap-3.5 h-12 pb-1">
+        <div className="flex flex-col items-center gap-1">
+          <motion.div
+            className="w-3.5 bg-blue-300 rounded-sm"
+            animate={{ height: [18, 20, 18] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            style={{ height: 18 }}
+          />
+          <span className="text-[9px] font-bold text-slate-500 font-mono">B</span>
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <motion.div
+            className="w-3.5 bg-[#C7A24A] rounded-sm"
+            animate={{ height: [26, 28, 26] }}
+            transition={{ repeat: Infinity, duration: 2, delay: 0.3 }}
+            style={{ height: 26 }}
+          />
+          <span className="text-[9px] font-bold text-slate-500 font-mono">A</span>
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <motion.div
+            className="w-3.5 bg-emerald-500 rounded-sm shadow-xs"
+            animate={{ height: [34, 38, 34] }}
+            transition={{ repeat: Infinity, duration: 2, delay: 0.6 }}
+            style={{ height: 34 }}
+          />
+          <span className="text-[9px] font-black text-emerald-700 font-mono">A*</span>
+        </div>
+      </div>
+
+      {/* Right: Target Badge */}
+      <div className="relative z-10 flex flex-col items-end gap-1">
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100/80 text-emerald-800 border border-emerald-200 text-[10px] font-bold">
+          <Check className="w-2.5 h-2.5 text-emerald-700" />
+          A* Pace
+        </span>
+        <span className="text-[10px] font-semibold text-slate-500">
+          Weekly Sync
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ── MINIMAL ANIMATED SESSION CARD CONTAINER ── */
+function MinimalSessionCard({
+  step,
+  title,
+  desc,
+  highlight,
+  badgeText,
+  renderVisual,
+}: {
+  step: string;
+  title: string;
+  desc: string;
+  highlight: string;
+  badgeText: string;
+  renderVisual: () => React.ReactNode;
+}) {
+  return (
+    <div className="group relative flex-1 flex flex-col justify-between bg-white rounded-3xl border border-slate-200/80 p-5 sm:p-6 shadow-[0_4px_20px_rgba(15,74,155,0.04)] hover:shadow-[0_12px_32px_rgba(15,74,155,0.08)] hover:border-[#0f4a9b]/30 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
+      {/* Top Accent Gradient Line */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A] group-hover:h-1.5 transition-all duration-300" />
+
+      {/* TOP ROW: Feature step & Category tag */}
+      <div className="flex items-center justify-between mb-3.5">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200/80 text-slate-700 text-[10.5px] font-bold">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#0f4a9b]" />
+          Feature {step}
+        </div>
+        <span className="text-[11px] font-semibold text-[#0f4a9b] bg-[#0f4a9b]/8 px-2.5 py-0.5 rounded-full border border-[#0f4a9b]/15">
+          {badgeText}
+        </span>
+      </div>
+
+      {/* Minimal Visual Header */}
+      <div className="mb-4">
+        {renderVisual()}
+      </div>
+
+      {/* CONTENT */}
+      <div className="flex-1 flex flex-col justify-start mb-4">
+        <h3 className="text-base sm:text-[17px] font-extrabold text-[#0a1f3d] mb-1.5 group-hover:text-[#0f4a9b] transition-colors leading-snug">
+          {title}
+        </h3>
+        <p className="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed">
+          {desc}
+        </p>
+      </div>
+
+      {/* FOOTER BADGE */}
+      <div className="pt-3.5 border-t border-slate-100 flex items-center">
+        <div className="flex items-center gap-1.5 text-xs font-bold text-[#0f4a9b]">
+          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+          <span className="tracking-tight text-slate-700">{highlight}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── ANIMATED SUBJECT INTERACTIVE VISUAL CANVAS ── */
+function SubjectVisualCanvas({ subjectId }: { subjectId: string }) {
+  if (subjectId === 'maths') {
+    return (
+      <div className="relative w-full h-full min-h-[160px] sm:min-h-[220px] flex items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50/70 via-slate-50 to-indigo-50/50 border border-blue-100/80 p-3 sm:p-4 overflow-hidden shadow-inner">
+        {/* Subtle coordinate grid */}
+        <svg className="absolute inset-0 w-full h-full opacity-35" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="mathsSubjGrid" width="18" height="18" patternUnits="userSpaceOnUse">
+              <path d="M 18 0 L 0 0 0 18" fill="none" stroke="#0f4a9b" strokeWidth="0.6" strokeOpacity="0.25" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#mathsSubjGrid)" />
+        </svg>
+
+        <svg viewBox="0 0 260 160" className="w-full h-full relative z-10 overflow-visible">
+          <defs>
+            <linearGradient id="mathsCurveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0f4a9b" />
+              <stop offset="50%" stopColor="#2563eb" />
+              <stop offset="100%" stopColor="#C7A24A" />
+            </linearGradient>
+            <linearGradient id="mathsFillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#0f4a9b" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#0f4a9b" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+
+          {/* Axes */}
+          <line x1="20" y1="130" x2="240" y2="130" stroke="#94a3b8" strokeWidth="1.2" />
+          <line x1="30" y1="20" x2="30" y2="140" stroke="#94a3b8" strokeWidth="1.2" />
+
+          {/* Shaded Integral Area */}
+          <path d="M 60 130 Q 110 30, 160 85 T 230 40 L 230 130 Z" fill="url(#mathsFillGrad)" />
+
+          {/* Animated Calculus Curve */}
+          <motion.path
+            d="M 30 120 Q 80 20, 130 85 T 235 35"
+            fill="none"
+            stroke="url(#mathsCurveGrad)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            animate={{ pathLength: [0.25, 1, 0.25] }}
+            transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+          />
+
+          {/* Floating Tangent Line */}
+          <motion.line
+            x1="85" y1="110" x2="155" y2="45"
+            stroke="#C7A24A"
+            strokeWidth="2"
+            strokeDasharray="4 3"
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ repeat: Infinity, duration: 2.2 }}
+          />
+
+          {/* Formula Badges */}
+          <g transform="translate(140, 20)">
+            <rect x="0" y="0" width="82" height="22" rx="6" fill="#ffffff" stroke="#0f4a9b" strokeWidth="1" />
+            <text x="41" y="14.5" textAnchor="middle" fill="#0f4a9b" fontSize="9" fontWeight="bold" fontFamily="monospace">
+              dy/dx = 3x² - 4
+            </text>
+          </g>
+          <g transform="translate(45, 24)">
+            <rect x="0" y="0" width="75" height="20" rx="5" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="1" />
+            <text x="37.5" y="13.5" textAnchor="middle" fill="#C7A24A" fontSize="8.5" fontWeight="bold" fontFamily="monospace">
+              ∫ 2x dx = x² + c
+            </text>
+          </g>
+        </svg>
+
+        {/* Live Indicator Tag */}
+        <div className="absolute bottom-2.5 left-3.5 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 border border-blue-200/80 shadow-2xs text-[10px] font-bold text-[#0f4a9b]">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          Pure Maths & Mechanics P3
+        </div>
+      </div>
+    );
+  }
+
+  if (subjectId === 'physics') {
+    return (
+      <div className="relative w-full h-full min-h-[160px] sm:min-h-[220px] flex items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-50/70 via-slate-50 to-blue-50/50 border border-indigo-100/80 p-3 sm:p-4 overflow-hidden shadow-inner">
+        <svg viewBox="0 0 260 160" className="w-full h-full relative z-10 overflow-visible">
+          {/* Orbital Ellipses */}
+          <motion.ellipse
+            cx="130" cy="80" rx="90" ry="38"
+            fill="none" stroke="#0f4a9b" strokeWidth="1.5" strokeDasharray="3 3"
+            animate={{ rotate: 360 }}
+            transition={{ repeat: Infinity, duration: 24, ease: 'linear' }}
+            style={{ originX: '130px', originY: '80px' }}
+          />
+          <motion.ellipse
+            cx="130" cy="80" rx="90" ry="38"
+            fill="none" stroke="#0284c7" strokeWidth="1.2"
+            animate={{ rotate: -360 }}
+            transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
+            style={{ originX: '130px', originY: '80px', transform: 'rotate(60deg)' }}
+          />
+
+          {/* Central Pulsing Nucleus */}
+          <circle cx="130" cy="80" r="16" fill="#0f4a9b" />
+          <motion.circle
+            cx="130" cy="80" r="22"
+            fill="none" stroke="#38bdf8" strokeWidth="1.5"
+            animate={{ scale: [0.9, 1.3, 0.9], opacity: [0.8, 0.2, 0.8] }}
+            transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+          />
+          <text x="130" y="84" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="bold">λ</text>
+
+          {/* Orbiting Quantum Particle */}
+          <motion.circle
+            cx="220" cy="80" r="5"
+            fill="#C7A24A" stroke="#ffffff" strokeWidth="1"
+            animate={{ rotate: 360 }}
+            transition={{ repeat: Infinity, duration: 6, ease: 'linear' }}
+            style={{ originX: '130px', originY: '80px' }}
+          />
+
+          {/* Floating Physics Tag */}
+          <g transform="translate(155, 20)">
+            <rect x="0" y="0" width="80" height="22" rx="6" fill="#ffffff" stroke="#0284c7" strokeWidth="1" />
+            <text x="40" y="14.5" textAnchor="middle" fill="#0284c7" fontSize="9" fontWeight="bold" fontFamily="monospace">
+              E = hf · p = h/λ
+            </text>
+          </g>
+          <g transform="translate(25, 24)">
+            <rect x="0" y="0" width="75" height="20" rx="5" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="1" />
+            <text x="37.5" y="13.5" textAnchor="middle" fill="#0f4a9b" fontSize="8.5" fontWeight="bold" fontFamily="monospace">
+              F = dp/dt
+            </text>
+          </g>
+        </svg>
+
+        <div className="absolute bottom-2.5 left-3.5 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 border border-indigo-200/80 shadow-2xs text-[10px] font-bold text-[#0f4a9b]">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+          Fields, Waves & Quantum Physics
+        </div>
+      </div>
+    );
+  }
+
+  if (subjectId === 'chemistry') {
+    return (
+      <div className="relative w-full h-full min-h-[160px] sm:min-h-[220px] flex items-center justify-center rounded-2xl bg-gradient-to-br from-amber-50/70 via-slate-50 to-orange-50/40 border border-amber-100/80 p-3 sm:p-4 overflow-hidden shadow-inner">
+        <svg viewBox="0 0 260 160" className="w-full h-full relative z-10 overflow-visible">
+          {/* Benzene Ring (Hexagon with delocalized pi circle) */}
+          <g transform="translate(130, 80)">
+            <motion.polygon
+              points="0,-38 33,-19 33,19 0,38 -33,19 -33,-19"
+              fill="none" stroke="#0f4a9b" strokeWidth="2.5"
+            />
+            {/* Inner Delocalized Circle */}
+            <motion.circle
+              cx="0" cy="0" r="22"
+              fill="none" stroke="#C7A24A" strokeWidth="2" strokeDasharray="5 3"
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 12, ease: 'linear' }}
+            />
+            <circle cx="0" cy="0" r="6" fill="#C7A24A" />
+
+            {/* Functional Group Bonds */}
+            <line x1="33" y1="-19" x2="52" y2="-30" stroke="#0f4a9b" strokeWidth="2" />
+            <text x="58" y="-28" fill="#0f4a9b" fontSize="10" fontWeight="bold">OH</text>
+
+            <line x1="-33" y1="19" x2="-52" y2="30" stroke="#0f4a9b" strokeWidth="2" />
+            <text x="-75" y="34" fill="#0f4a9b" fontSize="10" fontWeight="bold">NO₂</text>
+          </g>
+
+          {/* Curly Reaction Arrow */}
+          <motion.path
+            d="M 60 45 Q 85 20, 110 40"
+            fill="none" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3 3"
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+          />
+
+          {/* Badges */}
+          <g transform="translate(155, 18)">
+            <rect x="0" y="0" width="85" height="22" rx="6" fill="#ffffff" stroke="#f59e0b" strokeWidth="1" />
+            <text x="42.5" y="14.5" textAnchor="middle" fill="#d97706" fontSize="8.5" fontWeight="bold" fontFamily="monospace">
+              ΔG = ΔH - TΔS
+            </text>
+          </g>
+          <g transform="translate(25, 24)">
+            <rect x="0" y="0" width="75" height="20" rx="5" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="1" />
+            <text x="37.5" y="13.5" textAnchor="middle" fill="#0f4a9b" fontSize="8.5" fontWeight="bold" fontFamily="monospace">
+              pH = -log[H⁺]
+            </text>
+          </g>
+        </svg>
+
+        <div className="absolute bottom-2.5 left-3.5 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 border border-amber-200/80 shadow-2xs text-[10px] font-bold text-[#0f4a9b]">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+          Organic Mechanisms & Energetics
+        </div>
+      </div>
+    );
+  }
+
+  if (subjectId === 'biology') {
+    return (
+      <div className="relative w-full h-full min-h-[160px] sm:min-h-[220px] flex items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-50/70 via-slate-50 to-teal-50/40 border border-emerald-100/80 p-3 sm:p-4 overflow-hidden shadow-inner">
+        <svg viewBox="0 0 260 160" className="w-full h-full relative z-10 overflow-visible">
+          {/* DNA Strand Animation */}
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
+            const x = 36 + i * 27;
+            const delay = i * 0.22;
+            return (
+              <g key={i}>
+                <motion.line
+                  x1={x} y1="42" x2={x} y2="118"
+                  stroke="#cbd5e1" strokeWidth="1.2" strokeDasharray="2 2"
+                />
+                <motion.circle
+                  cx={x} cy="42" r="4.5" fill="#0f4a9b"
+                  animate={{ y: [0, 76, 0] }}
+                  transition={{ repeat: Infinity, duration: 3.2, delay, ease: 'easeInOut' }}
+                />
+                <motion.circle
+                  cx={x} cy="118" r="4.5" fill="#10b981"
+                  animate={{ y: [0, -76, 0] }}
+                  transition={{ repeat: Infinity, duration: 3.2, delay, ease: 'easeInOut' }}
+                />
+                <motion.line
+                  x1={x} y1="62" x2={x} y2="98"
+                  stroke="#C7A24A" strokeWidth="2" strokeLinecap="round"
+                  animate={{ opacity: [0.3, 1, 0.3], scaleY: [0.6, 1, 0.6] }}
+                  transition={{ repeat: Infinity, duration: 3.2, delay, ease: 'easeInOut' }}
+                />
+              </g>
+            );
+          })}
+
+          <g transform="translate(150, 18)">
+            <rect x="0" y="0" width="90" height="22" rx="6" fill="#ffffff" stroke="#10b981" strokeWidth="1" />
+            <text x="45" y="14.5" textAnchor="middle" fill="#059669" fontSize="8.5" fontWeight="bold" fontFamily="monospace">
+              25-Mark Synoptic Link
+            </text>
+          </g>
+          <g transform="translate(25, 18)">
+            <rect x="0" y="0" width="75" height="20" rx="5" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="1" />
+            <text x="37.5" y="13.5" textAnchor="middle" fill="#0f4a9b" fontSize="8.5" fontWeight="bold" fontFamily="monospace">
+              Gene Expression
+            </text>
+          </g>
+        </svg>
+
+        <div className="absolute bottom-2.5 left-3.5 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 border border-emerald-200/80 shadow-2xs text-[10px] font-bold text-[#0f4a9b]">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          Genetics & Physiology Precision
+        </div>
+      </div>
+    );
+  }
+
+  if (subjectId === 'economics') {
+    return (
+      <div className="relative w-full h-full min-h-[160px] sm:min-h-[220px] flex items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50/70 via-slate-50 to-emerald-50/40 border border-blue-100/80 p-3 sm:p-4 overflow-hidden shadow-inner">
+        <svg viewBox="0 0 260 160" className="w-full h-full relative z-10 overflow-visible">
+          {/* Axes */}
+          <line x1="30" y1="130" x2="230" y2="130" stroke="#94a3b8" strokeWidth="1.2" />
+          <line x1="40" y1="20" x2="40" y2="140" stroke="#94a3b8" strokeWidth="1.2" />
+          <text x="235" y="133" fill="#64748b" fontSize="9" fontWeight="bold">Q</text>
+          <text x="36" y="16" fill="#64748b" fontSize="9" fontWeight="bold">P</text>
+
+          {/* Supply Curve (Upward) */}
+          <line x1="55" y1="120" x2="205" y2="35" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" />
+          <text x="210" y="38" fill="#059669" fontSize="10" fontWeight="black">S</text>
+
+          {/* Demand Curve 1 (Downward) */}
+          <line x1="55" y1="35" x2="205" y2="120" stroke="#0f4a9b" strokeWidth="2.5" strokeLinecap="round" />
+          <text x="210" y="123" fill="#0f4a9b" fontSize="10" fontWeight="black">D₁</text>
+
+          {/* Shifting Demand Curve 2 */}
+          <motion.line
+            x1="85" y1="35" x2="235" y2="120"
+            stroke="#C7A24A" strokeWidth="1.8" strokeDasharray="4 3"
+            animate={{ opacity: [0.3, 1, 0.3] }}
+            transition={{ repeat: Infinity, duration: 2.5 }}
+          />
+
+          {/* Equilibrium Point Pulse */}
+          <circle cx="130" cy="78" r="5" fill="#0f4a9b" />
+          <motion.circle
+            cx="130" cy="78" r="10"
+            fill="none" stroke="#38bdf8" strokeWidth="1.5"
+            animate={{ scale: [1, 1.8, 1], opacity: [0.8, 0, 0.8] }}
+            transition={{ repeat: Infinity, duration: 1.8 }}
+          />
+          <text x="135" y="72" fill="#0a1f3d" fontSize="9" fontWeight="bold">E* (P*, Q*)</text>
+
+          {/* Badges */}
+          <g transform="translate(145, 18)">
+            <rect x="0" y="0" width="85" height="22" rx="6" fill="#ffffff" stroke="#0f4a9b" strokeWidth="1" />
+            <text x="42.5" y="14.5" textAnchor="middle" fill="#0f4a9b" fontSize="8.5" fontWeight="bold" fontFamily="monospace">
+              KAA + EV Chains
+            </text>
+          </g>
+        </svg>
+
+        <div className="absolute bottom-2.5 left-3.5 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 border border-blue-200/80 shadow-2xs text-[10px] font-bold text-[#0f4a9b]">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          Macro & Micro Evaluative Rigour
+        </div>
+      </div>
+    );
+  }
+
+  // English
+  return (
+    <div className="relative w-full h-full min-h-[160px] sm:min-h-[220px] flex items-center justify-center rounded-2xl bg-gradient-to-br from-purple-50/60 via-slate-50 to-blue-50/40 border border-purple-100/80 p-3 sm:p-4 overflow-hidden shadow-inner">
+      <svg viewBox="0 0 260 160" className="w-full h-full relative z-10 overflow-visible">
+        {/* Open Book Outline */}
+        <g transform="translate(50, 40)">
+          <rect x="0" y="0" width="70" height="75" rx="4" fill="#ffffff" stroke="#94a3b8" strokeWidth="1.2" />
+          <line x1="10" y1="18" x2="60" y2="18" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
+          <motion.line
+            x1="10" y1="30" x2="50" y2="30"
+            stroke="#f59e0b" strokeWidth="3" strokeLinecap="round"
+            animate={{ width: [20, 50, 20] }}
+            transition={{ repeat: Infinity, duration: 3 }}
+          />
+          <line x1="10" y1="42" x2="55" y2="42" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
+          <line x1="10" y1="54" x2="40" y2="54" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
+        </g>
+        <g transform="translate(130, 40)">
+          <rect x="0" y="0" width="70" height="75" rx="4" fill="#ffffff" stroke="#94a3b8" strokeWidth="1.2" />
+          <line x1="10" y1="18" x2="55" y2="18" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
+          <line x1="10" y1="30" x2="60" y2="30" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
+          <line x1="10" y1="42" x2="45" y2="42" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
+          <line x1="10" y1="54" x2="50" y2="54" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
+        </g>
+
+        {/* Big Stylized Quote Marks in Center */}
+        <text x="125" y="32" textAnchor="middle" fill="#C7A24A" fontSize="32" fontWeight="black" fontFamily="Georgia, serif">“ ”</text>
+
+        {/* Badges */}
+        <g transform="translate(145, 18)">
+          <rect x="0" y="0" width="90" height="22" rx="6" fill="#ffffff" stroke="#8b5cf6" strokeWidth="1" />
+          <text x="45" y="14.5" textAnchor="middle" fill="#7c3aed" fontSize="8.5" fontWeight="bold" fontFamily="monospace">
+            Band 5 Critical Analysis
+          </text>
+        </g>
+        <g transform="translate(25, 18)">
+          <rect x="0" y="0" width="75" height="20" rx="5" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="1" />
+          <text x="37.5" y="13.5" textAnchor="middle" fill="#0f4a9b" fontSize="8.5" fontWeight="bold" fontFamily="monospace">
+            AO1 · AO2 · AO3
+          </text>
+        </g>
+      </svg>
+
+      <div className="absolute bottom-2.5 left-3.5 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 border border-purple-200/80 shadow-2xs text-[10px] font-bold text-[#0f4a9b]">
+        <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse" />
+        Comparative Argument & Textual Rubric
+      </div>
+    </div>
+  );
+}
+
 export default function ALevelTutorDubaiPage() {
   const [selectedBoard, setSelectedBoard] = useState<'cambridge' | 'edexcel' | 'aqa'>('cambridge');
   const [selectedSubject, setSelectedSubject] = useState<string>('maths');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [calcCurrentGrade, setCalcCurrentGrade] = useState<'C' | 'B' | 'A'>('B');
-  const [calcTargetGrade, setCalcTargetGrade] = useState<'A' | 'A*'>('A*');
 
   // 3D Lab States
   const [active3DTab, setActive3DTab] = useState<'dissector' | 'ucas' | 'whiteboard'>('dissector');
@@ -452,38 +1327,10 @@ export default function ALevelTutorDubaiPage() {
   const [p2Score, setP2Score] = useState<number>(78);
   const [p3Score, setP3Score] = useState<number>(86);
 
-  // 3D School Dossier & Readiness States
-  const [selectedSchoolId, setSelectedSchoolId] = useState<string>('dc');
-  const [auditChecks, setAuditChecks] = useState<Record<string, boolean>>({
-    c1: true,
-    c2: true,
-    c3: false,
-    c4: false
-  });
-  const toggleAudit = (key: string) => setAuditChecks((prev) => ({ ...prev, [key]: !prev[key] }));
-  const activeSchool = DUBAI_SCHOOL_DOSSIERS.find((s) => s.id === selectedSchoolId) || DUBAI_SCHOOL_DOSSIERS[0];
-  const auditScore = Object.values(auditChecks).filter(Boolean).length * 25;
 
-  // 3D Tilt calculations
-  const [mousePos, setMousePos] = useState<{ x: number; y: number; rotateX: number; rotateY: number }>({
-    x: 50,
-    y: 50,
-    rotateX: 0,
-    rotateY: 0
-  });
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    const rotateY = ((x - 50) / 50) * 8; // -8 to +8 deg
-    const rotateX = -((y - 50) / 50) * 8; // -8 to +8 deg
-    setMousePos({ x, y, rotateX, rotateY });
-  };
 
-  const handleMouseLeave = () => {
-    setMousePos({ x: 50, y: 50, rotateX: 0, rotateY: 0 });
-  };
+
 
   // UCAS calculation
   const totalRaw = Math.round((p1Score + p2Score + p3Score) / 3);
@@ -518,8 +1365,8 @@ export default function ALevelTutorDubaiPage() {
   return (
     <Layout>
       <SEOHead
-        title="A-Level Tutor Dubai | Top Private A-Level Tutoring in Dubai | Ustaad"
-        description="Expert 1-to-1 online A-Level tutors in Dubai for Maths, Further Maths, Physics, Chemistry, Biology, Economics & English. AQA, Edexcel & Cambridge specialists. Free trial."
+        title="A-Level Tutors in Dubai | Cambridge, Edexcel & AQA | Ustaad"
+        description="Online 1-to-1 A-Level tuition in Dubai for Maths, Further Maths, Physics, Chemistry, Biology and Economics. Cambridge, Edexcel and AQA. Free trial."
         canonical="/a-level-tutor-dubai"
         ogImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
         preloadHeroImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
@@ -529,7 +1376,7 @@ export default function ALevelTutorDubaiPage() {
             city: 'Dubai',
             url: '/a-level-tutor-dubai',
             name: 'Ustaad — A-Level Tutor Dubai',
-            description: 'Expert 1-to-1 online A-Level tutors in Dubai for Maths, Physics, Chemistry, Biology, Economics and English. Cambridge, Edexcel & AQA specialists.'
+            description: 'Online 1-to-1 A-Level tuition in Dubai for Maths, Further Maths, Physics, Chemistry, Biology and Economics. Cambridge, Edexcel and AQA.'
           }),
           breadcrumbSchema([
             { name: 'Home', url: '/' },
@@ -541,204 +1388,169 @@ export default function ALevelTutorDubaiPage() {
             'Private 1-to-1 online A-Level tutoring in Dubai for Cambridge, Edexcel and AQA curriculums.',
             '/a-level-tutor-dubai'
           ),
-          faqSchema(DUBAI_FAQS),
-          reviewSchema('Ustaad — A-Level Tutoring Dubai', [
-            {
-              author: 'Tariq A.',
-              reviewBody: 'My son was hovering at a B in his Year 12 mock exams at Dubai College. Working with Ustaad rebuilt his calculus derivations and mechanics setup. He achieved A* in Maths and Further Maths.',
-              ratingValue: 5
-            }
-          ])
+          faqSchema(DUBAI_FAQS)
         ]}
       />
 
-      {/* ── HERO SECTION ── */}
-      <section className="relative min-h-[620px] lg:min-h-[700px] flex items-center bg-[#0a1628] text-white overflow-hidden py-16 lg:py-24">
-        {/* Ambient Glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-br from-[#0f4a9b]/35 to-[#C7A24A]/15 rounded-full blur-[140px] pointer-events-none" />
-        <GridBackground />
+      {/* ── HERO SECTION (USTAAD SIGNATURE NAVY & GOLD) ── */}
+      <section className="relative -mt-16 overflow-hidden bg-[#060f22] flex flex-col items-center justify-center md:min-h-[75vh]">
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+          {/* Desktop SVG background */}
+          <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full hidden md:block" aria-hidden="true">
+            <defs>
+              <linearGradient id="alDubaiGrowthGrad" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stopColor="#5fd3e6" stopOpacity="0.1" />
+                <stop offset="50%" stopColor="#5fd3e6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#22b8cd" stopOpacity="1" />
+              </linearGradient>
+              <linearGradient id="alDubaiHexGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#f0c96a" />
+                <stop offset="100%" stopColor="#C7A24A" />
+              </linearGradient>
+              <radialGradient id="alDubaiHexGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#f0c96a" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="#060f22" stopOpacity="0" />
+              </radialGradient>
+              <filter id="alDubaiPglow"><feGaussianBlur stdDeviation="3" /></filter>
+              <marker id="alDubaiArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="rgba(95,211,230,0.8)" />
+              </marker>
+            </defs>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
-            {/* Left Column: Heading & CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-7 flex flex-col items-start text-left"
-            >
-              {/* City Pill Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-6 shadow-inner">
-                <MapPin className="w-3.5 h-3.5 text-[#C7A24A]" />
-                <span className="text-xs font-extrabold uppercase tracking-wider text-blue-100">
-                  Private 1-to-1 A-Level Tuition · Dubai
-                </span>
-              </div>
+            {(() => {
+              const dots: ReactNode[] = [];
+              for (let x = 40; x < 1400; x += 55)
+                for (let y = 30; y < 600; y += 55)
+                  dots.push(<circle key={`ald_${x}_${y}`} cx={x} cy={y} r="1" fill="rgba(255,255,255,0.03)" />);
+              return dots;
+            })()}
 
-              {/* Main Heading */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[54px] font-extrabold text-white leading-[1.12] tracking-tight mb-5">
-                Expert A-Level Tutors <br className="hidden sm:inline" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#60a5fa] via-[#93c5fd] to-[#C7A24A]">
-                  in Dubai
-                </span>
-              </h1>
+            {/* Left growth trajectory line */}
+            <path d="M 40 480 Q 200 460 360 140" fill="none" stroke="url(#alDubaiGrowthGrad)" strokeWidth="3" filter="url(#alDubaiPglow)" />
+            <path d="M 40 480 Q 200 460 360 140" fill="none" stroke="url(#alDubaiGrowthGrad)" strokeWidth="1.5" markerEnd="url(#alDubaiArrow)" />
+            <line x1="30" y1="480" x2="380" y2="480" stroke="rgba(95,211,230,0.15)" strokeWidth="1" strokeDasharray="6 6" />
+            <line x1="40" y1="490" x2="40" y2="100" stroke="rgba(95,211,230,0.15)" strokeWidth="1" strokeDasharray="6 6" />
+            <text x="350" y="115" fill="rgba(95,211,230,0.85)" fontSize="13" fontFamily="monospace" fontWeight="bold">Target: Grade A*</text>
+            <text x="350" y="500" fill="rgba(255,255,255,0.4)" fontSize="11" fontFamily="monospace">Exam Week</text>
+            <text x="45" y="500" fill="rgba(255,255,255,0.4)" fontSize="11" fontFamily="monospace">Current</text>
 
-              {/* Gold Divider */}
-              <div className="w-20 h-1 bg-gradient-to-r from-[#C7A24A] via-[#E2C376] to-transparent rounded-full mb-6" />
+            {/* Right A-Level Hexagon badge */}
+            {(() => {
+              const HX = 1270;
+              const HY = 240;
+              const SIZE = 80;
+              const pts = [];
+              for (let i = 0; i < 6; i++) {
+                const angle_rad = (Math.PI / 180) * (60 * i - 30);
+                pts.push(`${HX + SIZE * Math.cos(angle_rad)},${HY + SIZE * Math.sin(angle_rad)}`);
+              }
+              return (
+                <>
+                  <circle cx={HX} cy={HY} r={SIZE * 1.5} fill="url(#alDubaiHexGlow)" />
+                  <polygon points={pts.join(' ')} fill="none" stroke="url(#alDubaiHexGrad)" strokeWidth="2" filter="url(#alDubaiPglow)" />
+                  <polygon points={pts.join(' ')} fill="none" stroke="rgba(240,201,106,0.5)" strokeWidth="1" strokeDasharray="4 4" />
+                  <circle cx={HX} cy={HY} r="25" fill="rgba(240,201,106,0.1)" stroke="#f0c96a" strokeWidth="1.5" />
+                  <text x={HX} y={HY + 6} textAnchor="middle" fill="#f0c96a" fontSize="14" fontWeight="900" fontFamily="sans-serif">A-LEVEL</text>
+                  <text x={HX - 100} y={HY - 65} fill="rgba(95,211,230,0.7)" fontSize="11" fontFamily="monospace">Cambridge 9709</text>
+                  <text x={HX + 45} y={HY - 75} fill="rgba(180,180,255,0.7)" fontSize="11" fontFamily="monospace">Edexcel 9MA0</text>
+                  <text x={HX + 60} y={HY + 75} fill="rgba(240,201,106,0.7)" fontSize="11" fontFamily="monospace">AQA · OCR A</text>
+                </>
+              );
+            })()}
+          </svg>
 
-              {/* Subtitle */}
-              <p className="text-base sm:text-lg text-slate-200 leading-relaxed mb-6 max-w-2xl">
-                Board-specialist private tutoring for Cambridge, Edexcel, and AQA. We bridge the gap between classroom teaching and examiner mark schemes to turn predicted grades into top-tier university offers.
-              </p>
+          {/* Clean ambient background glowing accents on mobile */}
+          <MobileHeroBackground />
+        </div>
 
-              {/* Key Trust Signals */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full mb-8">
-                <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-xs">
-                  <div className="w-7 h-7 rounded-lg bg-[#0f4a9b]/30 flex items-center justify-center shrink-0">
-                    <GraduationCap className="w-4 h-4 text-[#60a5fa]" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-200">Top 5% Vetted Tutors</span>
-                </div>
-                <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-xs">
-                  <div className="w-7 h-7 rounded-lg bg-[#0f4a9b]/30 flex items-center justify-center shrink-0">
-                    <ShieldCheck className="w-4 h-4 text-[#60a5fa]" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-200">Board-Specific Mastery</span>
-                </div>
-                <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-xs">
-                  <div className="w-7 h-7 rounded-lg bg-[#0f4a9b]/30 flex items-center justify-center shrink-0">
-                    <Trophy className="w-4 h-4 text-[#C7A24A]" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-200">Proven A* Track Record</span>
-                </div>
-              </div>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+          className="relative z-10 flex flex-col items-center text-center px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 md:pt-20 md:pb-14 max-w-5xl w-full"
+        >
+          {/* Eyebrow */}
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-3"
+            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}
+          >
+            <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#f0c96a' }} />
+            <span className="text-blue-100/90 text-[11px] sm:text-[12px] font-semibold tracking-wide">
+              ONLINE A-LEVEL TUITION · DUBAI
+            </span>
+          </motion.div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-4">
-                <GoldButton
+          {/* H1 */}
+          <motion.h1
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}
+            className="font-extrabold tracking-tight text-white leading-[1.08] mb-3 md:mb-5 text-[28px] sm:text-4xl md:text-5xl lg:text-[54px] max-w-[95%] sm:max-w-none"
+          >
+            A-Level Tutors in Dubai{' '}
+            <span className="block sm:inline" style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Who Turn Grades Around
+            </span>
+          </motion.h1>
+
+          {/* Lead */}
+          <motion.p
+            variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
+            className="text-blue-100/80 text-sm sm:text-base md:text-[17px] leading-relaxed max-w-2xl mb-6 md:mb-8 px-2 italic"
+          >
+            One-to-one A-Level tutoring for Cambridge, Edexcel and AQA students, matched to your child&apos;s exact exam board and school syllabus. Also looking for options nationwide? See our <a href="/a-level" className="underline font-bold text-amber-300 hover:text-white">A-Level tutoring across the UAE</a>.
+          </motion.p>
+
+          {/* Hero CTAs */}
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 w-full max-w-md sm:max-w-none px-4"
+          >
+            {/* Mobile CTAs */}
+            <div className="sm:hidden w-full flex flex-col items-center gap-3">
+              <a
+                href={BOOKING}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[15px] text-white transition-all hover:-translate-y-0.5 text-center active:scale-[0.98]"
+                style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 6px 20px rgba(15,74,155,0.45)' }}
+              >
+                Book Your Free Trial
+              </a>
+              <span className="text-blue-200/60 text-[11px]">✦ No Commitment · Cancel Anytime</span>
+              <a
+                href={WA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20 active:scale-[0.98]"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-white" /> WhatsApp Us
+              </a>
+            </div>
+
+            {/* Desktop CTAs */}
+            <div className="hidden sm:flex items-start justify-center gap-4">
+              <div className="flex flex-col items-center gap-1.5">
+                <a
                   href={BOOKING}
-                  className="px-8 py-4 text-sm font-extrabold shadow-[0_4px_25px_rgba(199,162,74,0.4)] text-center justify-center"
+                  className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
+                  style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}
                 >
-                  Book a Free Trial Session
-                </GoldButton>
+                  Book Your Free Trial
+                </a>
+                <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
+              </div>
+              <div className="flex flex-col items-center gap-1.5">
                 <a
                   href={WA_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-md transition-all duration-200"
+                  aria-label="Chat with Ustaad on WhatsApp"
+                  className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[14px] md:text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"
                 >
-                  <WhatsAppIcon className="w-4 h-4" />
-                  <span>Ask on WhatsApp</span>
+                  <WhatsAppIcon className="w-4 h-4 text-white" /> WhatsApp Us
                 </a>
               </div>
-
-              <p className="text-xs text-slate-400 font-medium">
-                30-Minute Diagnostic Lesson · Free of Charge · No Commitment
-              </p>
-            </motion.div>
-
-            {/* Right Column: Interactive Quick Simulator Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-5"
-            >
-              <div className="relative bg-gradient-to-b from-[#13233c] to-[#0d1a2d] border border-white/15 rounded-3xl p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
-                <div className="absolute top-0 right-0 w-36 h-36 bg-[#C7A24A]/10 rounded-full blur-2xl pointer-events-none" />
-                
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
-                  <div>
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#C7A24A] block mb-0.5">
-                      Interactive Target Planner
-                    </span>
-                    <h3 className="text-lg font-extrabold text-white">
-                      Dubai A-Level Grade Roadmap
-                    </h3>
-                  </div>
-                  <div className="w-10 h-10 rounded-xl bg-[#0f4a9b]/30 border border-[#0f4a9b]/50 flex items-center justify-center">
-                    <Sparkles className="w-5 h-5 text-[#60a5fa]" />
-                  </div>
-                </div>
-
-                {/* Grade Selectors */}
-                <div className="space-y-4 mb-6">
-                  <div>
-                    <label className="text-xs font-semibold text-slate-300 block mb-2">Current Mock Grade:</label>
-                    <div className="grid grid-cols-3 gap-2">
-                      {(['C', 'B', 'A'] as const).map((grade) => (
-                        <button
-                          key={grade}
-                          type="button"
-                          onClick={() => setCalcCurrentGrade(grade)}
-                          className={`py-2 px-3 rounded-xl text-xs font-extrabold transition-all ${
-                            calcCurrentGrade === grade
-                              ? 'bg-[#0f4a9b] text-white border border-[#60a5fa] shadow-[0_0_12px_rgba(15,74,155,0.6)]'
-                              : 'bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10'
-                          }`}
-                        >
-                          Grade {grade}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-semibold text-slate-300 block mb-2">Target Grade for UCAS / Offers:</label>
-                    <div className="grid grid-cols-2 gap-2">
-                      {(['A', 'A*'] as const).map((grade) => (
-                        <button
-                          key={grade}
-                          type="button"
-                          onClick={() => setCalcTargetGrade(grade)}
-                          className={`py-2 px-3 rounded-xl text-xs font-extrabold transition-all ${
-                            calcTargetGrade === grade
-                              ? 'bg-gradient-to-r from-[#C7A24A] to-[#A8892A] text-white border border-[#E2C376] shadow-[0_0_12px_rgba(199,162,74,0.5)]'
-                              : 'bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10'
-                          }`}
-                        >
-                          Target Grade {grade}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Dynamic Recommendation Output */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-4 space-y-2.5 mb-6">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-400 font-medium">Recommended Cadence:</span>
-                    <span className="text-white font-bold">
-                      {calcCurrentGrade === 'C' ? '2 sessions / week (90 mins)' : '1–2 sessions / week (60–90 mins)'}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-400 font-medium">Past Papers to Summer:</span>
-                    <span className="text-[#C7A24A] font-bold">
-                      {calcTargetGrade === 'A*' ? '18+ full timed papers + mark schemes' : '12+ full timed papers'}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-400 font-medium">Primary Focus Area:</span>
-                    <span className="text-blue-200 font-bold">
-                      {calcCurrentGrade === 'C' ? 'Foundations & Formula Derivations' : 'Mark Scheme Keywords & Pacing'}
-                    </span>
-                  </div>
-                </div>
-
-                <a
-                  href={BOOKING}
-                  className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8] hover:from-[#1e5ba8] hover:to-[#0f4a9b] text-white text-xs font-extrabold flex items-center justify-center gap-2 shadow-md transition-all duration-200"
-                >
-                  <span>Build This Plan With a Specialist</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Stats Bar */}
@@ -751,116 +1563,45 @@ export default function ALevelTutorDubaiPage() {
             Trusted by A-Level Families Across Premier Dubai British Schools
           </p>
         </div>
-        <SchoolsMarquee customLogos={DUBAI_SCHOOL_LOGOS} />
+        <SchoolsMarquee
+          title="Trusted by Families at Leading Dubai Schools"
+          logoList={A_LEVEL_DUBAI_SCHOOL_LOGOS}
+        />
       </section>
 
       {/* ── SECTION 02: THE 6 A-LEVEL PRESSURE POINTS IN DUBAI ── */}
-      <section className="py-20 bg-[#f8fafc]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-4">
-              <AlertTriangle className="w-3.5 h-3.5 text-[#0f4a9b]" />
-              <span className="text-[#0f4a9b] text-[11px] font-bold uppercase tracking-[0.15em]">
-                Diagnostic Insights
-              </span>
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
-              <GradientHeadingText text="Why A-Level Marks Slip in Dubai Schools" />
-            </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              Achieving an 8 or 9 at GCSE is no guarantee of an A* at A-Level. Here are the six exact fault lines where students lose marks.
-            </p>
-          </div>
+      <DubaiALevelSlipSection />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {[
-              {
-                num: '01',
-                title: 'The GCSE-to-A-Level Chasm',
-                desc: 'GCSE rewarded recall and short method steps. A-Level questions require sustained, unprompted derivation chains where a single sign slip costs 5+ marks.'
-              },
-              {
-                num: '02',
-                title: 'Board-Specific Command Words',
-                desc: 'Cambridge 9709 Maths penalises lack of exact proofs, while Edexcel 9MA0 prioritises modeling interpretations. Generic revision fails on specific board rubrics.'
-              },
-              {
-                num: '03',
-                title: 'Year 12 Predicted Grade Stakes',
-                desc: 'UCAS university applications are submitted in early Year 13. A single slip in Year 12 summer mocks permanently caps predicted grades before final exams are sat.'
-              },
-              {
-                num: '04',
-                title: 'Practical Papers 3 & 5 Weighting',
-                desc: 'Science papers heavily assess practical design, error analysis, and percentage uncertainties. Students without laboratory confidence lose easy grade boundary margins.'
-              },
-              {
-                num: '05',
-                title: 'Synoptic Multi-Topic Questions',
-                desc: 'Final A2 papers combine disparate topics across two years into single 12-mark questions. Students who revise chapters in isolation freeze under synoptic pressure.'
-              },
-              {
-                num: '06',
-                title: 'Compressed Dubai Calendar',
-                desc: 'Term breaks, spring travel, and Ramadan condense the active study window. Without structured weekly pacing, revision is left dangerously late in April.'
-              }
-            ].map((pt, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.2 }}
-                className="relative bg-white border border-gray-200/90 rounded-2xl p-7 shadow-xs hover:shadow-md hover:border-[#0f4a9b]/30 transition-all overflow-hidden flex flex-col"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-black text-[#0f4a9b]/25 tabular-nums">
-                    {pt.num}
-                  </span>
-                  <div className="w-8 h-8 rounded-lg bg-[#0f4a9b]/5 flex items-center justify-center">
-                    <span className="w-2 h-2 rounded-full bg-[#0f4a9b]" />
-                  </div>
-                </div>
-                <h3 className="text-lg font-extrabold text-[#0a1f3d] mb-2 leading-snug">
-                  {pt.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {pt.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 03: INTERACTIVE EXAM BOARD ALIGNMENT ── */}
-      <section className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-4">
-              <Layers className="w-3.5 h-3.5 text-[#0f4a9b]" />
-              <span className="text-[#0f4a9b] text-[11px] font-bold uppercase tracking-[0.15em]">
+      {/* ── SECTION 03: INTERACTIVE EXAM BOARD ALIGNMENT (SINGLE VIEWPORT FIT) ── */}
+      <section className="py-7 sm:py-8 lg:py-10 bg-white border-t border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-4 sm:mb-5 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-2 shadow-2xs">
+              <Layers className="w-3 h-3 text-[#0f4a9b]" />
+              <span className="text-[#0f4a9b] text-[10.5px] font-bold uppercase tracking-[0.14em]">
                 Specification Mastery
               </span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-1.5 tracking-tight">
               <GradientHeadingText text="Taught to Your School's Exact Exam Board" />
             </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
+            <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed max-w-xl mx-auto">
               We never teach generic syllabus content. Your tutor is matched to the specific board, specification code, and assessment series followed by your Dubai school.
             </p>
           </div>
 
           {/* Board Selector Tabs */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex p-1.5 rounded-2xl bg-gray-100 border border-gray-200">
+          <div className="flex justify-center mb-4 sm:mb-5">
+            <div className="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200/80 shadow-2xs">
               {(['cambridge', 'edexcel', 'aqa'] as const).map((bKey) => (
                 <button
                   key={bKey}
                   type="button"
                   onClick={() => setSelectedBoard(bKey)}
-                  className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all ${
+                  className={`px-3.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-[13px] font-bold transition-all ${
                     selectedBoard === bKey
-                      ? 'bg-white text-[#0f4a9b] shadow-sm'
-                      : 'text-gray-600 hover:text-[#0a1f3d]'
+                      ? 'bg-white text-[#0f4a9b] shadow-xs'
+                      : 'text-slate-600 hover:text-[#0a1f3d]'
                   }`}
                 >
                   {BOARD_DATA[bKey].name.split(' (')[0]}
@@ -872,48 +1613,48 @@ export default function ALevelTutorDubaiPage() {
           {/* Board Details Card */}
           <motion.div
             key={selectedBoard}
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35 }}
-            className="max-w-4xl mx-auto bg-gradient-to-br from-[#f8fafc] to-white border border-[#0f4a9b]/15 rounded-3xl p-8 sm:p-10 shadow-sm"
+            transition={{ duration: 0.25 }}
+            className="max-w-3xl mx-auto bg-gradient-to-br from-[#f8fafc] to-white border border-[#0f4a9b]/15 rounded-2xl p-4 sm:p-5 lg:p-6 shadow-sm"
           >
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-gray-200/80">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3.5 mb-3 border-b border-gray-100">
               <div>
-                <span className="text-xs font-bold text-[#0f4a9b] uppercase tracking-wider block mb-1">
+                <span className="text-[10px] font-bold text-[#0f4a9b] uppercase tracking-wider block mb-0.5">
                   Active Specification
                 </span>
-                <h3 className="text-2xl font-extrabold text-[#0a1f3d]">
+                <h3 className="text-lg sm:text-xl font-extrabold text-[#0a1f3d] leading-tight">
                   {BOARD_DATA[selectedBoard].name}
                 </h3>
               </div>
-              <div className="inline-flex items-center self-start px-3.5 py-1.5 rounded-full bg-[#0f4a9b]/10 text-[#0f4a9b] text-xs font-bold">
+              <div className="inline-flex items-center self-start sm:self-auto px-2.5 py-1 rounded-full bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 text-[#0f4a9b] text-[11px] font-bold">
                 {BOARD_DATA[selectedBoard].code}
               </div>
             </div>
 
-            <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+            <p className="text-gray-700 text-xs sm:text-[13px] leading-relaxed mb-3">
               {BOARD_DATA[selectedBoard].description}
             </p>
 
-            <div className="space-y-3 mb-8">
+            <div className="space-y-2 mb-4">
               {BOARD_DATA[selectedBoard].keyPoints.map((point, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="w-3.5 h-3.5 stroke-[3]" />
+                <div key={i} className="flex items-start gap-2.5">
+                  <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                    <Check className="w-2.5 h-2.5 stroke-[3]" />
                   </div>
-                  <span className="text-gray-700 text-sm leading-relaxed">{point}</span>
+                  <span className="text-gray-700 text-xs sm:text-[12.5px] leading-snug">{point}</span>
                 </div>
               ))}
             </div>
 
-            <div className="pt-6 border-t border-gray-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="pt-3 border-t border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div>
-                <span className="text-xs font-semibold text-gray-500 block mb-1">Commonly Sat At:</span>
-                <span className="text-xs font-bold text-[#0a1f3d]">
+                <span className="text-[10.5px] font-medium text-gray-500 block mb-0.5">Commonly Sat At:</span>
+                <span className="text-[11px] sm:text-xs font-bold text-[#0a1f3d]">
                   {BOARD_DATA[selectedBoard].schools.join(' · ')}
                 </span>
               </div>
-              <GoldButton href={BOOKING} className="text-xs px-6 py-3 shrink-0">
+              <GoldButton href={BOOKING} className="text-xs px-4 py-2 shrink-0">
                 Match My Child's Board
               </GoldButton>
             </div>
@@ -921,566 +1662,518 @@ export default function ALevelTutorDubaiPage() {
         </div>
       </section>
 
-      {/* ── SECTION 04: CORE A-LEVEL SUBJECT TRACKS ── */}
-      <section className="py-20 bg-[#f8fafc] border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-4">
-              <BookOpen className="w-3.5 h-3.5 text-[#0f4a9b]" />
-              <span className="text-[#0f4a9b] text-[11px] font-bold uppercase tracking-[0.15em]">
+      {/* ── SECTION 04: CORE A-LEVEL SUBJECT TRACKS (MINIMAL & ANIMATED) ── */}
+      <section className="py-5 sm:py-8 lg:py-10 bg-[#f8fafc] border-t border-gray-100 relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Header */}
+          <div className="text-center mb-3 sm:mb-5 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-1 shadow-2xs">
+              <BookOpen className="w-3 h-3 text-[#0f4a9b]" />
+              <span className="text-[#0f4a9b] text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.14em]">
                 Subject Excellence
               </span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
+            <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-0.5 tracking-tight">
               <GradientHeadingText text="Core A-Level Subjects We Tutor in Dubai" />
             </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              Explore subject-specific diagnostic focus, core curriculum units, and proven exam turnaround strategies.
+            <p className="text-gray-600 text-[11px] sm:text-[13px] leading-relaxed max-w-xl mx-auto">
+              Diagnostic mark-scheme mastery matched to your child's exact school syllabus.
             </p>
           </div>
 
-          {/* Subject Navigation Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto mb-10">
-            {A_LEVEL_SUBJECTS.map((subj) => (
-              <button
-                key={subj.id}
-                type="button"
-                onClick={() => setSelectedSubject(subj.id)}
-                className={`px-4 py-2 rounded-full text-xs font-extrabold transition-all ${
-                  selectedSubject === subj.id
-                    ? 'bg-[#0f4a9b] text-white shadow-md'
-                    : 'bg-white text-gray-700 border border-gray-200 hover:border-[#0f4a9b]/30'
-                }`}
-              >
-                {subj.name.split(' &')[0]}
-              </button>
-            ))}
-          </div>
-
-          {/* Active Subject Detail Card */}
-          <motion.div
-            key={activeSubject.id}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35 }}
-            className="max-w-5xl mx-auto bg-white border border-gray-200 rounded-3xl p-8 sm:p-10 shadow-sm"
-          >
-            <div className="grid lg:grid-cols-12 gap-8 items-start">
-              
-              {/* Left Column */}
-              <div className="lg:col-span-7 space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-[#0f4a9b]/10 flex items-center justify-center">
-                    {activeSubject.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-extrabold text-[#0a1f3d]">
-                      {activeSubject.name}
-                    </h3>
-                    <span className="text-xs font-semibold text-[#0f4a9b]">
-                      {activeSubject.boards}
-                    </span>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
-                    Key Topics Covered
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {activeSubject.coreTopics.map((topic, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs font-semibold text-gray-700 bg-gray-50 p-2.5 rounded-xl border border-gray-100">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#0f4a9b]" />
-                        <span>{topic}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-rose-500 mb-1.5">
-                    Where Dubai Students Drop Marks
-                  </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {activeSubject.challenges}
-                  </p>
-                </div>
-              </div>
-
-              {/* Right Column */}
-              <div className="lg:col-span-5 bg-gradient-to-br from-[#f8fafc] to-[#0f4a9b]/5 border border-[#0f4a9b]/10 rounded-2xl p-6 flex flex-col justify-between h-full">
-                <div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0f4a9b]/10 text-[#0f4a9b] text-[11px] font-extrabold mb-3">
-                    <Sparkle className="w-3 h-3" /> Ustaad Turnaround Method
-                  </div>
-                  <h4 className="text-base font-extrabold text-[#0a1f3d] mb-2">
-                    Mark-Scheme Focus
-                  </h4>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6">
-                    {activeSubject.strategy}
-                  </p>
-                </div>
-
-                <div className="space-y-3 pt-4 border-t border-gray-200/60">
-                  <a
-                    href={activeSubject.href}
-                    className="w-full py-3 px-4 rounded-xl bg-white border border-[#0f4a9b]/20 hover:border-[#0f4a9b] text-[#0f4a9b] text-xs font-bold flex items-center justify-between transition-colors"
-                  >
-                    <span>View Full {activeSubject.name} Hub</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                  <GoldButton href={BOOKING} className="w-full text-xs py-3 justify-center">
-                    Book a Free Trial in This Subject
-                  </GoldButton>
-                </div>
-              </div>
-
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── 3D INTERACTIVE A-LEVEL EXAM & MARK-SCHEME LAB ── */}
-      <section className="py-20 sm:py-24 bg-gradient-to-b from-[#0a1628] via-[#0d1e38] to-[#0a1628] text-white relative overflow-hidden [perspective:1400px]">
-        {/* Ambient 3D lighting */}
-        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#0f4a9b]/30 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-[#C7A24A]/20 rounded-full blur-[130px] pointer-events-none" />
-        <GridBackground />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Section Header */}
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-4 shadow-inner">
-              <Sparkles className="w-3.5 h-3.5 text-[#C7A24A]" />
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-blue-200">
-                Interactive 3D Diagnostic Experience
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
-              The A-Level Mark-Scheme <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#60a5fa] via-[#93c5fd] to-[#C7A24A]">
-                3D Interactive Laboratory
-              </span>
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed">
-              Explore step-by-step past paper dissection, test real grade boundary thresholds, and see how precision 1-on-1 tutoring secures the highest marks.
-            </p>
-
-            {/* 3D Mode Switcher */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
-              {[
-                { id: 'dissector', label: '3D Question Dissector', icon: <Layers className="w-4 h-4" /> },
-                { id: 'ucas', label: '3D Grade & UCAS Simulator', icon: <TrendingUp className="w-4 h-4" /> },
-                { id: 'whiteboard', label: '3D Live Lesson Simulator', icon: <Laptop className="w-4 h-4" /> }
-              ].map((tab) => (
+          {/* Animated Subject Navigation Buttons - Scroll on mobile */}
+          <div className="flex sm:flex-wrap items-center justify-start sm:justify-center gap-1.5 sm:gap-2 max-w-4xl mx-auto mb-3 sm:mb-5 overflow-x-auto no-scrollbar pb-1 px-1">
+            {A_LEVEL_SUBJECTS.map((subj) => {
+              const isSelected = selectedSubject === subj.id;
+              return (
                 <button
-                  key={tab.id}
+                  key={subj.id}
                   type="button"
-                  onClick={() => setActive3DTab(tab.id as any)}
-                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-extrabold transition-all duration-200 cursor-pointer ${
-                    active3DTab === tab.id
-                      ? 'bg-gradient-to-r from-[#C7A24A] to-[#A8892A] text-[#0a1628] shadow-[0_0_20px_rgba(199,162,74,0.4)] scale-105'
-                      : 'bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 hover:text-white'
+                  onClick={() => setSelectedSubject(subj.id)}
+                  className={`relative shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-[12.5px] font-bold transition-colors duration-200 ${
+                    isSelected
+                      ? 'text-white shadow-xs'
+                      : 'text-slate-600 hover:text-[#0a1f3d] bg-white border border-slate-200/80 hover:border-[#0f4a9b]/30'
                   }`}
                 >
-                  {tab.icon}
-                  <span>{tab.label}</span>
+                  {isSelected && (
+                    <motion.div
+                      layoutId="activeSubjPill"
+                      className="absolute inset-0 bg-[#0f4a9b] rounded-full"
+                      transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10 flex items-center gap-1.5">
+                    {subj.name.split(' &')[0]}
+                  </span>
                 </button>
-              ))}
+              );
+            })}
+          </div>
+
+          {/* Active Subject Detail Card with Animated Visual */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSubject.id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="relative max-w-5xl mx-auto bg-white border border-slate-200/80 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 lg:p-7 shadow-[0_4px_24px_rgba(15,74,155,0.04)] overflow-hidden"
+            >
+              {/* Top Accent Gradient Line */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A]" />
+
+              <div className="grid lg:grid-cols-12 gap-3.5 sm:gap-5 lg:gap-7 items-center">
+                
+                {/* Left Column: Subject Info & Specification Units */}
+                <div className="lg:col-span-6 space-y-2.5 sm:space-y-3.5">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-50 border border-slate-200/70 flex items-center justify-center text-[#0f4a9b] shadow-2xs shrink-0">
+                      {activeSubject.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-base sm:text-xl font-extrabold text-[#0a1f3d] leading-tight">
+                        {activeSubject.name}
+                      </h3>
+                      <span className="text-[10px] sm:text-[11px] font-semibold text-[#0f4a9b] bg-blue-50/80 px-2 sm:px-2.5 py-0.5 rounded-full border border-blue-100/60 inline-block mt-0.5">
+                        {activeSubject.boards}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Core Topics Chips - Full text, no truncation (...) */}
+                  <div>
+                    <span className="text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                      Specification Core Units
+                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
+                      {activeSubject.coreTopics.map((topic, i) => (
+                        <div
+                          key={i}
+                          className="flex items-start gap-1.5 text-[11px] sm:text-xs font-semibold text-slate-700 bg-slate-50/90 px-2.5 py-1.5 rounded-lg border border-slate-200/60 leading-snug"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#0f4a9b] shrink-0 mt-1" />
+                          <span className="break-words">{topic}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Compact Action Row without arrow */}
+                  <div className="flex flex-wrap items-center gap-3 pt-0.5">
+                    <GoldButton href={BOOKING} className="text-xs py-1.5 sm:py-2 px-3.5 sm:px-4 justify-center shadow-xs">
+                      Book Free Trial
+                    </GoldButton>
+                    <a
+                      href={activeSubject.href}
+                      className="text-xs font-bold text-[#0f4a9b] hover:text-[#0a1f3d] inline-flex items-center transition-colors"
+                    >
+                      Full {activeSubject.name.split(' &')[0]} Hub
+                    </a>
+                    {activeSubject.id === 'physics' && (
+                      <span className="text-xs text-slate-500">
+                        Looking for physics? See our{' '}
+                        <a
+                          href="/physics-tutor-dubai"
+                          className="font-bold text-[#0f4a9b] hover:text-[#0a1f3d] underline transition-colors"
+                        >
+                          Physics tutors in Dubai
+                        </a>.
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Right Column: Animated Subject Interactive Canvas */}
+                <div className="lg:col-span-6 h-[160px] sm:h-[220px] lg:h-[240px] flex items-center">
+                  <SubjectVisualCanvas subjectId={activeSubject.id} />
+                </div>
+
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* ── INTERACTIVE A-LEVEL EXAM & MARK-SCHEME LAB (WHITE CLASSY & SINGLE VIEWPORT FIT) ── */}
+      <section className="py-7 sm:py-8 lg:py-10 bg-white border-t border-slate-100 relative overflow-hidden">
+        {/* Subtle background ambient glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[260px] bg-gradient-to-b from-blue-50/70 via-indigo-50/20 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-10 w-96 h-96 bg-[#C7A24A]/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Compact Section Header */}
+          <div className="text-center mb-4 sm:mb-5 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-1.5 shadow-2xs">
+              <Sparkles className="w-3 h-3 text-[#C7A24A]" />
+              <span className="text-[#0f4a9b] text-[10.5px] font-bold uppercase tracking-[0.14em]">
+                Interactive Exam Laboratory
+              </span>
+            </div>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-1 tracking-tight">
+              <GradientHeadingText text="See an A-Level Question Marked Step by Step" />
+            </h2>
+            <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed max-w-xl mx-auto">
+              Explore step-by-step mark dissection, test raw grade thresholds, and experience real-time 1-on-1 intervention.
+            </p>
+
+            {/* Classy Mode Switcher Tabs */}
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-3.5">
+              {[
+                { id: 'dissector', label: 'Question Dissector', icon: <Layers className="w-3.5 h-3.5" /> },
+                { id: 'ucas', label: 'Grade & UCAS Simulator', icon: <TrendingUp className="w-3.5 h-3.5" /> },
+                { id: 'whiteboard', label: 'Live Lesson Simulator', icon: <Laptop className="w-3.5 h-3.5" /> }
+              ].map((tab) => {
+                const isActive = active3DTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActive3DTab(tab.id as any)}
+                    className={`relative inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-bold transition-colors cursor-pointer ${
+                      isActive
+                        ? 'text-white shadow-xs'
+                        : 'text-slate-600 hover:text-[#0a1f3d] bg-slate-50 border border-slate-200/80 hover:border-slate-300'
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeLabTabPill"
+                        className="absolute inset-0 bg-[#0f4a9b] rounded-full"
+                        transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                      />
+                    )}
+                    <span className="relative z-10 flex items-center gap-1.5">
+                      {tab.icon}
+                      <span>{tab.label}</span>
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* ── TAB 1: 3D QUESTION DISSECTOR ── */}
+          {/* TAB 1: QUESTION DISSECTOR */}
           {active3DTab === 'dissector' && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="max-w-5xl mx-auto"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+              className="max-w-5xl mx-auto bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 shadow-[0_8px_30px_rgba(15,74,155,0.06)] relative overflow-hidden"
             >
-              {/* Subject Selector */}
-              <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-                {Object.keys(DISSECTOR_PROBLEMS).map((key) => {
-                  const prob = DISSECTOR_PROBLEMS[key];
-                  return (
-                    <button
-                      key={key}
-                      type="button"
-                      onClick={() => {
-                        setDissectorSubj(key);
-                        setActiveLayer(0);
-                      }}
-                      className={`px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                        dissectorSubj === key
-                          ? 'bg-[#0f4a9b] text-white border border-blue-400 shadow-md'
-                          : 'bg-white/5 text-slate-400 border border-white/10 hover:text-white'
-                      }`}
-                    >
-                      {prob.subject}
-                    </button>
-                  );
-                })}
+              {/* Top Metallic Border Highlight */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A]" />
+
+              {/* Subject Selector Sub-Tabs */}
+              <div className="flex flex-wrap items-center justify-between gap-2.5 pb-3.5 mb-4 border-b border-slate-100">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {Object.keys(DISSECTOR_PROBLEMS).map((key) => {
+                    const prob = DISSECTOR_PROBLEMS[key];
+                    const isSubjSelected = dissectorSubj === key;
+                    return (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => {
+                          setDissectorSubj(key);
+                          setActiveLayer(0);
+                        }}
+                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                          isSubjSelected
+                            ? 'bg-[#0f4a9b] text-white shadow-2xs'
+                            : 'bg-slate-50 text-slate-600 hover:text-[#0a1f3d] border border-slate-200/70 hover:border-slate-300'
+                        }`}
+                      >
+                        {prob.subject.split(' &')[0]}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-blue-50/80 text-[#0f4a9b] text-[11px] font-bold border border-blue-100/70">
+                  <span>{DISSECTOR_PROBLEMS[dissectorSubj].board.split(' /')[0]}</span>
+                  <span>·</span>
+                  <span>{DISSECTOR_PROBLEMS[dissectorSubj].paper.split(' (')[0]}</span>
+                  <span className="text-amber-600 font-extrabold ml-1">({DISSECTOR_PROBLEMS[dissectorSubj].marks} Marks)</span>
+                </div>
               </div>
 
-              {/* 3D Interactive Tilt Card Container */}
-              <div
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                style={{
-                  transform: `rotateX(${mousePos.rotateX}deg) rotateY(${mousePos.rotateY}deg)`,
-                  transformStyle: 'preserve-3d',
-                  transition: 'transform 0.15s ease-out'
-                }}
-                className="relative bg-gradient-to-br from-[#0e213d]/90 via-[#0b1b33]/90 to-[#071324]/95 border border-blue-500/30 rounded-3xl p-6 sm:p-10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] backdrop-blur-xl"
-              >
-                {/* Dynamic Specular Lighting Sheen */}
-                <div
-                  className="absolute inset-0 rounded-3xl pointer-events-none opacity-40 transition-opacity duration-300"
-                  style={{
-                    background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(255,255,255,0.2), transparent 50%)`
-                  }}
-                />
+              {/* Problem Title */}
+              <h3 className="text-base sm:text-lg font-extrabold text-[#0a1f3d] mb-3">
+                {DISSECTOR_PROBLEMS[dissectorSubj].questionTitle}
+              </h3>
 
-                {/* Top Question Info Bar */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 mb-6 border-b border-white/10 relative z-10">
-                  <div style={{ transform: 'translateZ(25px)' }}>
-                    <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-blue-500/20 text-blue-300 text-[10px] font-mono uppercase tracking-wider mb-1.5 border border-blue-400/30">
-                      <span>{DISSECTOR_PROBLEMS[dissectorSubj].board}</span>
-                      <span>·</span>
-                      <span>{DISSECTOR_PROBLEMS[dissectorSubj].paper}</span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-white">
-                      {DISSECTOR_PROBLEMS[dissectorSubj].questionTitle}
-                    </h3>
+              {/* 2-Column Comparative Layout: Exam Prompt & Trap vs. Ustaad Mark-Scheme Solution */}
+              <div className="grid lg:grid-cols-12 gap-4 sm:gap-5 items-stretch mb-4">
+                
+                {/* Left: Original Prompt & Student Trap */}
+                <div className="lg:col-span-6 flex flex-col justify-between space-y-3 bg-slate-50/70 border border-slate-200/70 rounded-2xl p-4">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                      Original Exam Paper Prompt
+                    </span>
+                    <p className="text-xs sm:text-[12.5px] font-mono text-slate-800 leading-relaxed bg-white p-3 rounded-xl border border-slate-200/60 shadow-2xs">
+                      {DISSECTOR_PROBLEMS[dissectorSubj].questionStem}
+                    </p>
                   </div>
 
-                  <div style={{ transform: 'translateZ(30px)' }} className="flex items-center gap-2 self-start sm:self-auto">
-                    <span className="px-3 py-1.5 rounded-xl bg-[#C7A24A]/20 text-[#E2C376] text-xs font-black border border-[#C7A24A]/40 shadow-sm">
-                      {DISSECTOR_PROBLEMS[dissectorSubj].marks} Marks Available
+                  <div className="bg-rose-50/70 border border-rose-200/70 rounded-xl p-3 text-rose-900 text-xs leading-relaxed">
+                    <div className="flex items-center gap-1.5 font-bold text-rose-700 text-[11px] uppercase tracking-wider mb-1">
+                      <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                      <span>Mark-Loss Trap</span>
+                    </div>
+                    {DISSECTOR_PROBLEMS[dissectorSubj].studentTrap}
+                  </div>
+                </div>
+
+                {/* Right: Step-by-Step Mark Scheme Breakdown */}
+                <div className="lg:col-span-6 flex flex-col justify-between space-y-2.5 bg-emerald-50/30 border border-emerald-200/60 rounded-2xl p-4">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 block mb-1">
+                      Ustaad Step-by-Step Examiner Rubric
+                    </span>
+                    <div className="space-y-1.5 text-xs font-mono">
+                      <div className="bg-white/95 p-2 rounded-lg border border-emerald-100 shadow-2xs flex items-start gap-2">
+                        <span className="text-emerald-600 font-bold shrink-0">[M1]</span>
+                        <span className="text-slate-700">{DISSECTOR_PROBLEMS[dissectorSubj].ustaadSolution.step1}</span>
+                      </div>
+                      <div className="bg-white/95 p-2 rounded-lg border border-emerald-100 shadow-2xs flex items-start gap-2">
+                        <span className="text-emerald-600 font-bold shrink-0">[M2]</span>
+                        <span className="text-slate-700">{DISSECTOR_PROBLEMS[dissectorSubj].ustaadSolution.step2}</span>
+                      </div>
+                      <div className="bg-white/95 p-2 rounded-lg border border-emerald-100 shadow-2xs flex items-start gap-2">
+                        <span className="text-emerald-600 font-bold shrink-0">[A1]</span>
+                        <span className="text-slate-700">{DISSECTOR_PROBLEMS[dissectorSubj].ustaadSolution.step3}</span>
+                      </div>
+                      <div className="bg-emerald-50 p-2 rounded-lg border border-emerald-200 shadow-2xs flex items-start gap-2 font-bold text-emerald-900">
+                        <span className="text-amber-600 font-bold shrink-0">[Final]</span>
+                        <span>{DISSECTOR_PROBLEMS[dissectorSubj].ustaadSolution.final}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-[11px] italic text-slate-500 border-l-2 border-[#C7A24A] pl-2.5 py-0.5 mt-1">
+                    {DISSECTOR_PROBLEMS[dissectorSubj].examinerQuote}
+                  </p>
+                </div>
+
+              </div>
+
+              {/* Bottom Card Action Bar */}
+              <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+                <span className="text-slate-600 text-center sm:text-left">
+                  Master full past-paper questions with this line-by-line mark scheme precision.
+                </span>
+                <GoldButton href={BOOKING} className="text-xs px-5 py-2 shrink-0 shadow-xs">
+                  Book Free Diagnostic Session
+                </GoldButton>
+              </div>
+            </motion.div>
+          )}
+
+          {/* TAB 2: GRADE & UCAS SIMULATOR */}
+          {active3DTab === 'ucas' && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+              className="max-w-5xl mx-auto bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 shadow-[0_8px_30px_rgba(15,74,155,0.06)] relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A]" />
+
+              <div className="grid lg:grid-cols-12 gap-5 lg:gap-8 items-center">
+                
+                {/* Left: Sliders */}
+                <div className="lg:col-span-7 space-y-4">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#0f4a9b] block mb-0.5">
+                      Component Raw-Mark Modeler
+                    </span>
+                    <h3 className="text-lg sm:text-xl font-extrabold text-[#0a1f3d]">
+                      Simulate Your Predicted Component Scores
+                    </h3>
+                    <p className="text-slate-600 text-xs mt-0.5">
+                      Adjust your marks across Papers 1, 2, and 3 to test real grade boundary thresholds.
+                    </p>
+                  </div>
+
+                  <div className="space-y-3 bg-slate-50/70 border border-slate-200/70 rounded-2xl p-4">
+                    {/* Paper 1 Slider */}
+                    <div>
+                      <div className="flex items-center justify-between text-xs font-bold mb-1">
+                        <span className="text-slate-700">Paper 1 (Core / Pure):</span>
+                        <span className="text-[#0f4a9b] font-mono font-extrabold text-xs">{p1Score} / 100</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="40"
+                        max="100"
+                        value={p1Score}
+                        onChange={(e) => setP1Score(Number(e.target.value))}
+                        className="w-full accent-[#0f4a9b] cursor-pointer h-1.5 bg-slate-200 rounded-lg"
+                      />
+                    </div>
+
+                    {/* Paper 2 Slider */}
+                    <div>
+                      <div className="flex items-center justify-between text-xs font-bold mb-1">
+                        <span className="text-slate-700">Paper 2 (Applications):</span>
+                        <span className="text-[#0f4a9b] font-mono font-extrabold text-xs">{p2Score} / 100</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="40"
+                        max="100"
+                        value={p2Score}
+                        onChange={(e) => setP2Score(Number(e.target.value))}
+                        className="w-full accent-[#0f4a9b] cursor-pointer h-1.5 bg-slate-200 rounded-lg"
+                      />
+                    </div>
+
+                    {/* Paper 3 Slider */}
+                    <div>
+                      <div className="flex items-center justify-between text-xs font-bold mb-1">
+                        <span className="text-slate-700">Paper 3 (Synoptic / Options):</span>
+                        <span className="text-[#0f4a9b] font-mono font-extrabold text-xs">{p3Score} / 100</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="40"
+                        max="100"
+                        value={p3Score}
+                        onChange={(e) => setP3Score(Number(e.target.value))}
+                        className="w-full accent-[#0f4a9b] cursor-pointer h-1.5 bg-slate-200 rounded-lg"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="text-xs text-slate-600 flex items-center justify-between">
+                    <span className="flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-[#C7A24A]" />
+                      Weighted Aggregate: <strong className="text-[#0a1f3d] font-mono font-extrabold">{totalRaw}%</strong>
+                    </span>
+                    <span className="text-[11px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+                      Live Assessment Active
                     </span>
                   </div>
                 </div>
 
-                {/* Layer Navigator Tabs */}
-                <div style={{ transform: 'translateZ(35px)' }} className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
-                  {[
-                    { idx: 0, title: '1. Exam Stem', icon: '📄' },
-                    { idx: 1, title: '2. Mark-Loss Trap', icon: '⚠️' },
-                    { idx: 2, title: '3. Ustaad Method', icon: '✍️' },
-                    { idx: 3, title: '4. Examiner Report', icon: '🎓' }
-                  ].map((l) => (
-                    <button
-                      key={l.idx}
-                      type="button"
-                      onClick={() => setActiveLayer(l.idx)}
-                      className={`p-3 rounded-xl text-left text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
-                        activeLayer === l.idx
-                          ? 'bg-white text-[#0a1628] shadow-[0_0_15px_rgba(255,255,255,0.4)] scale-[1.02]'
-                          : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/5'
-                      }`}
-                    >
-                      <span>{l.icon}</span>
-                      <span className="truncate">{l.title}</span>
-                    </button>
-                  ))}
-                </div>
+                {/* Right: Projected Grade Badge & University Tier */}
+                <div className="lg:col-span-5 flex flex-col items-center text-center p-4 bg-gradient-to-br from-blue-50/50 via-slate-50 to-amber-50/30 border border-slate-200/80 rounded-2xl">
+                  <motion.div
+                    animate={{ scale: [1, 1.02, 1] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                    className="relative w-36 h-36 rounded-2xl bg-white border-2 border-[#C7A24A] shadow-[0_8px_24px_rgba(199,162,74,0.15)] flex flex-col items-center justify-center p-3 mb-3"
+                  >
+                    <span className="text-[9.5px] font-extrabold uppercase tracking-widest text-slate-400">
+                      Projected Grade
+                    </span>
+                    <span className="text-5xl font-black text-[#0a1f3d] my-0.5 tracking-tight">
+                      {predictedLetter}
+                    </span>
+                    <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-50 text-[10.5px] font-bold text-[#0f4a9b] border border-blue-100">
+                      <Trophy className="w-3 h-3 text-[#C7A24A]" />
+                      <span>{ucasPoints} UCAS Points</span>
+                    </div>
+                  </motion.div>
 
-                {/* Layer Viewport */}
-                <div style={{ transform: 'translateZ(40px)' }} className="min-h-[220px] bg-[#06101e]/80 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-center">
-                  {activeLayer === 0 && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                      <span className="text-[10px] font-mono text-blue-400 uppercase tracking-widest block mb-2">Original Exam Paper Prompt</span>
-                      <p className="text-base sm:text-lg font-mono text-slate-100 leading-relaxed bg-black/40 p-4 rounded-xl border border-white/5">
-                        {DISSECTOR_PROBLEMS[dissectorSubj].questionStem}
-                      </p>
-                      <span className="text-xs text-slate-400 mt-3 block">
-                        💡 Tip: Click on Layer 2 to see the exact derivation trap that costs students method marks.
-                      </span>
-                    </motion.div>
-                  )}
+                  <div className="space-y-1 mb-3">
+                    <span className="text-[11px] font-bold text-[#C7A24A] block">
+                      Eligible University Offer Tier:
+                    </span>
+                    <p className="text-xs text-slate-700 font-bold leading-snug">
+                      {offerTier}
+                    </p>
+                  </div>
 
-                  {activeLayer === 1 && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                      <div className="flex items-center gap-2 text-rose-400 font-extrabold text-xs uppercase tracking-wider mb-2">
-                        <AlertTriangle className="w-4 h-4" />
-                        <span>Common Dubai Student Mark-Loss Trap ({DISSECTOR_PROBLEMS[dissectorSubj].trapStats})</span>
-                      </div>
-                      <div className="bg-rose-950/40 border border-rose-500/30 rounded-xl p-5 text-rose-100 text-sm leading-relaxed">
-                        {DISSECTOR_PROBLEMS[dissectorSubj].studentTrap}
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {activeLayer === 2 && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">
-                      <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest block">Ustaad Step-by-Step Mark Scheme Breakdown</span>
-                      <div className="space-y-2 text-xs sm:text-sm font-mono text-emerald-200">
-                        <div className="bg-emerald-950/40 border border-emerald-500/20 p-3 rounded-lg flex items-start gap-2">
-                          <span className="text-emerald-400 font-bold shrink-0">[M1]</span>
-                          <span>{DISSECTOR_PROBLEMS[dissectorSubj].ustaadSolution.step1}</span>
-                        </div>
-                        <div className="bg-emerald-950/40 border border-emerald-500/20 p-3 rounded-lg flex items-start gap-2">
-                          <span className="text-emerald-400 font-bold shrink-0">[M2]</span>
-                          <span>{DISSECTOR_PROBLEMS[dissectorSubj].ustaadSolution.step2}</span>
-                        </div>
-                        <div className="bg-emerald-950/40 border border-emerald-500/20 p-3 rounded-lg flex items-start gap-2">
-                          <span className="text-emerald-400 font-bold shrink-0">[A1]</span>
-                          <span>{DISSECTOR_PROBLEMS[dissectorSubj].ustaadSolution.step3}</span>
-                        </div>
-                        <div className="bg-emerald-900/60 border border-emerald-400/40 p-3 rounded-lg flex items-start gap-2 text-white font-bold">
-                          <span className="text-[#C7A24A] font-bold shrink-0">[Final]</span>
-                          <span>{DISSECTOR_PROBLEMS[dissectorSubj].ustaadSolution.final}</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {activeLayer === 3 && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                      <span className="text-[10px] font-mono text-[#E2C376] uppercase tracking-widest block mb-2">Chief Examiner Official Feedback</span>
-                      <blockquote className="italic text-base text-slate-200 bg-white/5 border-l-4 border-[#C7A24A] p-5 rounded-r-xl">
-                        {DISSECTOR_PROBLEMS[dissectorSubj].examinerQuote}
-                      </blockquote>
-                      <div className="mt-4 flex items-center justify-between text-xs text-slate-400">
-                        <span>Verified across recent Dubai Exam Series</span>
-                        <span className="text-emerald-400 font-bold">100% Mark Scheme Compliant</span>
-                      </div>
-                    </motion.div>
-                  )}
-                </div>
-
-                {/* Bottom Card Action */}
-                <div style={{ transform: 'translateZ(30px)' }} className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10">
-                  <span className="text-xs text-slate-300">
-                    Want your child to master full {DISSECTOR_PROBLEMS[dissectorSubj].subject} papers with this precision?
-                  </span>
-                  <GoldButton href={BOOKING} className="text-xs px-6 py-2.5 shrink-0">
-                    Book a Free Diagnostic Session
+                  <GoldButton href={BOOKING} className="text-xs px-5 py-2 w-full justify-center shadow-xs">
+                    Lock in Your Target Grade
                   </GoldButton>
                 </div>
+
               </div>
             </motion.div>
           )}
 
-          {/* ── TAB 2: 3D GRADE & UCAS SIMULATOR ── */}
-          {active3DTab === 'ucas' && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="max-w-5xl mx-auto"
-            >
-              <div
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                style={{
-                  transform: `rotateX(${mousePos.rotateX}deg) rotateY(${mousePos.rotateY}deg)`,
-                  transformStyle: 'preserve-3d',
-                  transition: 'transform 0.15s ease-out'
-                }}
-                className="relative bg-gradient-to-br from-[#0c1f3a] via-[#09172c] to-[#06101e] border border-[#0f4a9b]/40 rounded-3xl p-6 sm:p-10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] backdrop-blur-xl"
-              >
-                <div className="grid lg:grid-cols-12 gap-8 items-center">
-                  
-                  {/* Left Column: Sliders */}
-                  <div style={{ transform: 'translateZ(30px)' }} className="lg:col-span-7 space-y-6">
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-blue-400 block mb-1">
-                        Component Raw-Mark Modeler
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-white">
-                        Simulate Component Marks
-                      </h3>
-                      <p className="text-slate-300 text-xs sm:text-sm mt-1">
-                        Adjust your raw scores across Papers 1, 2, and 3 to see how close you are to the next grade threshold.
-                      </p>
-                    </div>
-
-                    <div className="space-y-4 bg-white/5 border border-white/10 rounded-2xl p-5">
-                      {/* Paper 1 Slider */}
-                      <div>
-                        <div className="flex items-center justify-between text-xs font-bold mb-1.5">
-                          <span className="text-slate-200">Paper 1 (Core / Pure):</span>
-                          <span className="text-[#60a5fa] font-mono text-sm">{p1Score} / 100</span>
-                        </div>
-                        <input
-                          type="range"
-                          min="40"
-                          max="100"
-                          value={p1Score}
-                          onChange={(e) => setP1Score(Number(e.target.value))}
-                          className="w-full accent-[#C7A24A] cursor-pointer h-2 bg-slate-700 rounded-lg"
-                        />
-                      </div>
-
-                      {/* Paper 2 Slider */}
-                      <div>
-                        <div className="flex items-center justify-between text-xs font-bold mb-1.5">
-                          <span className="text-slate-200">Paper 2 (Applications / Synoptic):</span>
-                          <span className="text-[#60a5fa] font-mono text-sm">{p2Score} / 100</span>
-                        </div>
-                        <input
-                          type="range"
-                          min="40"
-                          max="100"
-                          value={p2Score}
-                          onChange={(e) => setP2Score(Number(e.target.value))}
-                          className="w-full accent-[#C7A24A] cursor-pointer h-2 bg-slate-700 rounded-lg"
-                        />
-                      </div>
-
-                      {/* Paper 3 Slider */}
-                      <div>
-                        <div className="flex items-center justify-between text-xs font-bold mb-1.5">
-                          <span className="text-slate-200">Paper 3 (Advanced / Options):</span>
-                          <span className="text-[#60a5fa] font-mono text-sm">{p3Score} / 100</span>
-                        </div>
-                        <input
-                          type="range"
-                          min="40"
-                          max="100"
-                          value={p3Score}
-                          onChange={(e) => setP3Score(Number(e.target.value))}
-                          className="w-full accent-[#C7A24A] cursor-pointer h-2 bg-slate-700 rounded-lg"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="text-xs text-slate-300 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-[#C7A24A]" />
-                      <span>Weighted Aggregate Score: <strong className="text-white font-mono text-sm">{totalRaw}%</strong></span>
-                    </div>
-                  </div>
-
-                  {/* Right Column: 3D Holographic Grade Shield */}
-                  <div style={{ transform: 'translateZ(45px)' }} className="lg:col-span-5 flex flex-col items-center text-center">
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.03, 1],
-                        rotateY: [0, 5, -5, 0]
-                      }}
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                      className={`relative w-44 h-44 sm:w-48 sm:h-48 rounded-3xl bg-gradient-to-br ${gradeColor} p-1 border-2 ${badgeBorder} flex flex-col items-center justify-center shadow-2xl mb-4`}
-                    >
-                      <div className="w-full h-full bg-[#0a1628]/85 rounded-[22px] flex flex-col items-center justify-center p-4">
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300">
-                          Projected Grade
-                        </span>
-                        <span className="text-5xl sm:text-6xl font-black text-white my-1 drop-shadow-md">
-                          {predictedLetter}
-                        </span>
-                        <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/10 text-[11px] font-bold text-blue-200">
-                          <Trophy className="w-3 h-3 text-[#C7A24A]" />
-                          <span>{ucasPoints} UCAS Points</span>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    <div className="space-y-1 max-w-xs">
-                      <span className="text-xs font-bold text-[#E2C376] block">
-                        Eligible University Offer Tier:
-                      </span>
-                      <p className="text-xs text-slate-200 font-semibold leading-snug">
-                        {offerTier}
-                      </p>
-                    </div>
-
-                    <GoldButton href={BOOKING} className="mt-5 text-xs px-6 py-2.5 w-full justify-center">
-                      Lock in Your Target Grade
-                    </GoldButton>
-                  </div>
-
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {/* ── TAB 3: 3D LIVE LESSON SIMULATOR ── */}
+          {/* TAB 3: LIVE LESSON SIMULATOR */}
           {active3DTab === 'whiteboard' && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="max-w-5xl mx-auto"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+              className="max-w-5xl mx-auto bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 shadow-[0_8px_30px_rgba(15,74,155,0.06)] relative overflow-hidden"
             >
-              <div
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                style={{
-                  transform: `rotateX(${mousePos.rotateX}deg) rotateY(${mousePos.rotateY}deg)`,
-                  transformStyle: 'preserve-3d',
-                  transition: 'transform 0.15s ease-out'
-                }}
-                className="relative bg-gradient-to-br from-[#0b1b33] to-[#06101e] border border-blue-400/30 rounded-3xl p-6 sm:p-10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] backdrop-blur-xl"
-              >
-                {/* Window Header */}
-                <div style={{ transform: 'translateZ(20px)' }} className="flex items-center justify-between pb-4 mb-6 border-b border-white/10 text-xs">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-rose-500" />
-                    <span className="w-3 h-3 rounded-full bg-amber-500" />
-                    <span className="w-3 h-3 rounded-full bg-emerald-500" />
-                    <span className="text-slate-400 font-mono text-[11px] ml-2">Ustaad Live Classroom · Dubai 1-to-1</span>
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A]" />
+
+              {/* Classroom Window Bar */}
+              <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100 text-xs">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                  <span className="text-slate-600 font-mono text-[11px] ml-2 font-medium">Ustaad Live Classroom · Dubai 1-to-1</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-emerald-700 font-bold text-[11px] bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Ultra-HD Audio/Video Active</span>
+                </div>
+              </div>
+
+              {/* Canvas & Sidebar */}
+              <div className="grid lg:grid-cols-12 gap-4 sm:gap-5 items-stretch">
+                
+                {/* Whiteboard Math Stream */}
+                <div className="lg:col-span-8 bg-slate-50/80 rounded-2xl p-4.5 border border-slate-200/70 font-mono text-xs sm:text-[12.5px] text-slate-800 flex flex-col justify-between space-y-2.5">
+                  <div className="space-y-2">
+                    <div className="text-slate-500 text-[10.5px] border-b border-slate-200/60 pb-1.5">
+                      // Calculus P3: Implicit Differentiation at Point P
+                    </div>
+                    <div className="text-[#0f4a9b] font-bold">
+                      f(x, y) = x³ + y³ - 6xy = 0
+                    </div>
+                    <div className="text-slate-600">
+                      d/dx [x³] + d/dx [y³] - 6 d/dx [xy] = 0
+                    </div>
+                    <div className="text-emerald-900 bg-emerald-50 p-2 rounded-lg border border-emerald-200/80 font-bold">
+                      3x² + 3y²(dy/dx) - 6(y + x(dy/dx)) = 0 <span className="text-[#C7A24A] ml-2 font-black">✓ Product rule applied</span>
+                    </div>
+                    <div className="text-slate-700">
+                      dy/dx [3y² - 6x] = 6y - 3x² ⇒ dy/dx = (2y - x²) / (y² - 2x)
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-emerald-400 font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                    <span>Live Ultra-HD Audio/Video Active</span>
+
+                  <div className="flex items-center justify-between pt-2.5 border-t border-slate-200/60 text-[10.5px] text-slate-500">
+                    <span>Digital Stylus Pressure-Sensitive Canvas</span>
+                    <span className="text-[#0f4a9b] font-bold">Latency: 12ms (Direct Co-Markup)</span>
                   </div>
                 </div>
 
-                {/* Simulated Digital Canvas */}
-                <div style={{ transform: 'translateZ(35px)' }} className="grid lg:grid-cols-12 gap-6 items-stretch">
-                  
-                  {/* Interactive Whiteboard Canvas */}
-                  <div className="lg:col-span-8 bg-[#040a14] rounded-2xl p-6 border border-white/10 font-mono text-xs sm:text-sm text-slate-100 flex flex-col justify-between min-h-[260px] relative overflow-hidden">
-                    <div className="space-y-3 relative z-10">
-                      <div className="text-slate-400 text-[11px] border-b border-white/5 pb-2">
-                        // Problem: Calculus P3 Implicit Differentiation (dy/dx at point P)
-                      </div>
-                      <div className="text-blue-300">
-                        f(x, y) = x³ + y³ - 6xy = 0
-                      </div>
-                      <div className="text-slate-200">
-                        d/dx [x³] + d/dx [y³] - 6 d/dx [xy] = 0
-                      </div>
-                      <div className="text-emerald-300 bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">
-                        3x² + 3y² (dy/dx) - 6(y + x (dy/dx)) = 0  <span className="text-[#C7A24A] font-bold ml-2">✓ Product rule applied</span>
-                      </div>
-                      <div className="text-amber-300">
-                        dy/dx [3y² - 6x] = 6y - 3x²  ⇒  dy/dx = (2y - x²) / (y² - 2x)
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between pt-4 mt-4 border-t border-white/10 text-[11px] text-slate-400">
-                      <span>Stylus: Apple Pencil 2 (Pressure-sensitive)</span>
-                      <span className="text-[#C7A24A] font-bold">Latency: 12ms (Direct Screen Mirror)</span>
-                    </div>
+                {/* Tutor Intervention Sidebar */}
+                <div className="lg:col-span-4 bg-blue-50/40 rounded-2xl p-4 border border-blue-100/70 flex flex-col justify-between space-y-3">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#C7A24A] block mb-1">
+                      Real-Time Interception
+                    </span>
+                    <h4 className="text-sm font-extrabold text-[#0a1f3d] mb-1.5">
+                      Tutor Correction Notes
+                    </h4>
+                    <p className="text-slate-600 text-xs leading-relaxed">
+                      Tutor immediately pauses the student during product rule expansion on 6xy, ensuring the negative sign distributes cleanly.
+                    </p>
                   </div>
 
-                  {/* Tutor Sidebar / Interception Notes */}
-                  <div className="lg:col-span-4 bg-white/5 rounded-2xl p-5 border border-white/10 flex flex-col justify-between space-y-4">
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-[#C7A24A] block mb-1">
-                        Real-Time Interception
-                      </span>
-                      <h4 className="text-sm font-extrabold text-white mb-2">
-                        Tutor Correction Notes
-                      </h4>
-                      <p className="text-slate-300 text-xs leading-relaxed">
-                        Notice how the tutor immediately paused the student when applying the product rule to 6xy, ensuring the negative sign was correctly distributed across both terms.
-                      </p>
-                    </div>
-
-                    <div className="p-3 rounded-xl bg-blue-950/50 border border-blue-400/30 text-xs text-blue-200">
-                      <strong>Session Result:</strong> Student identified implicit chain rule without hesitation on second attempt.
-                    </div>
-
-                    <GoldButton href={BOOKING} className="w-full text-xs py-2.5 justify-center">
-                      Try a Live 30-Min Session
-                    </GoldButton>
+                  <div className="p-2.5 rounded-xl bg-white border border-blue-200/70 text-[11px] text-[#0f4a9b] font-semibold">
+                    <strong>Session Result:</strong> Student identified implicit chain rule without hesitation.
                   </div>
 
+                  <GoldButton href={BOOKING} className="w-full text-xs py-2 justify-center shadow-xs">
+                    Try Live 30-Min Session
+                  </GoldButton>
                 </div>
+
               </div>
             </motion.div>
           )}
@@ -1488,365 +2181,256 @@ export default function ALevelTutorDubaiPage() {
         </div>
       </section>
 
-      {/* ── SECTION 05: 4-STAGE GRADE TURNAROUND PROTOCOL ── */}
-      <section className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-4">
-              <Compass className="w-3.5 h-3.5 text-[#0f4a9b]" />
-              <span className="text-[#0f4a9b] text-[11px] font-bold uppercase tracking-[0.15em]">
+      {/* ── SECTION 05: 4-STAGE GRADE TURNAROUND PROTOCOL (SINGLE VIEWPORT FIT & MINIMAL CLASSY) ── */}
+      <section className="py-7 sm:py-8 lg:py-10 bg-white border-t border-gray-100 relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Compact Section Header */}
+          <div className="text-center mb-5 sm:mb-6 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-1.5 shadow-2xs">
+              <Compass className="w-3 h-3 text-[#0f4a9b]" />
+              <span className="text-[#0f4a9b] text-[10.5px] font-bold uppercase tracking-[0.14em]">
                 The Ustaad Method
               </span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-1 tracking-tight">
               <GradientHeadingText text="The 4-Stage Grade Turnaround Protocol" />
             </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              How we move students from shaky conceptual grasp to confident, examiner-grade execution in 8 to 12 weeks.
+            <p className="text-gray-600 text-xs sm:text-[13px] leading-relaxed max-w-xl mx-auto">
+              How we move students from shaky conceptual grasp to confident, examiner-grade execution.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {/* Minimal Classy Cards (Single Viewport Fit on Desktop, Swipe on Mobile) */}
+          <div className="w-full flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 lg:gap-5 items-stretch justify-center overflow-x-auto sm:overflow-visible snap-x snap-mandatory pt-0.5 pb-2.5 sm:pb-0 px-4 sm:px-0 -mx-4 sm:mx-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {PROTOCOL_STEPS.map((step, idx) => (
               <div
                 key={idx}
-                className="relative bg-white border border-gray-200 rounded-3xl p-7 flex flex-col justify-between hover:shadow-lg hover:border-[#0f4a9b]/30 transition-all duration-200 group overflow-hidden"
+                className="w-[82vw] max-w-[290px] sm:w-full sm:max-w-none shrink-0 sm:shrink snap-center flex flex-col group relative bg-white border border-slate-200/80 hover:border-[#0f4a9b]/35 rounded-2xl sm:rounded-3xl p-4.5 sm:p-5 lg:p-5.5 justify-between shadow-[0_4px_20px_rgba(15,74,155,0.03)] hover:shadow-[0_12px_28px_rgba(15,74,155,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden"
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]" />
+                {/* Top Metallic Border Highlight */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A] group-hover:h-1.5 transition-all duration-300" />
+                
+                {/* Subtle Ambient Corner Glow */}
+                <div className="absolute -top-10 -right-10 w-24 h-24 bg-blue-500/5 group-hover:bg-[#C7A24A]/10 rounded-full blur-xl pointer-events-none transition-colors duration-500" />
+
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#0f4a9b]/10 flex items-center justify-center">
+                  {/* Top Meta Row */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200/70 flex items-center justify-center text-[#0f4a9b] group-hover:border-[#0f4a9b]/35 group-hover:bg-blue-50/40 group-hover:scale-105 transition-all duration-300 shadow-2xs">
                       {step.icon}
                     </div>
-                    <span className="text-xs font-black text-[#0f4a9b] uppercase tracking-wider">
+                    <span className="text-[10px] font-extrabold text-[#0f4a9b] uppercase tracking-wider bg-[#0f4a9b]/8 px-2.5 py-0.5 rounded-full border border-[#0f4a9b]/15">
                       Stage {step.num}
                     </span>
                   </div>
-                  <h3 className="text-lg font-extrabold text-[#0a1f3d] mb-1">
+
+                  {/* Title & Tagline with uniform vertical rhythm */}
+                  <h3 className="text-[15.5px] sm:text-[16px] lg:text-[16.5px] font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors leading-snug min-h-[44px] flex items-center mb-1">
                     {step.title}
                   </h3>
-                  <span className="text-xs font-bold text-[#C7A24A] block mb-3">
+                  <span className="text-[11.5px] font-bold text-[#C7A24A] block mb-2.5 tracking-tight">
                     {step.tagline}
                   </span>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6">
+
+                  {/* Balanced Description */}
+                  <p className="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed mb-4">
                     {step.desc}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-gray-100 text-[11px] font-semibold text-gray-500 flex items-center gap-1.5">
+
+                {/* Footer Deliverable */}
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-slate-700">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>{step.deliverable}</span>
+                  <span className="truncate">{step.deliverable}</span>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Mobile Swipe Hint (No arrows, no dots) */}
+          <div className="sm:hidden flex items-center justify-center mt-3 mb-1">
+            <span className="px-3.5 py-1 rounded-full text-[11px] font-semibold text-slate-500 bg-slate-100/90 border border-slate-200/80 tracking-tight select-none">
+              Swipe to see more
+            </span>
+          </div>
+
         </div>
       </section>
 
-      {/* ── SECTION 06: HOW ONLINE SESSIONS WORK ── */}
-      <section className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-4">
+      {/* ── SECTION 06: HOW ONLINE SESSIONS WORK (INTERACTIVE 3D ANIMATED) ── */}
+      <section className="py-14 sm:py-16 lg:py-20 bg-[#f8fafc] border-t border-gray-100 relative overflow-hidden">
+        {/* Subtle ambient lighting orbs */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[220px] bg-gradient-to-b from-[#0f4a9b]/8 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-10 w-80 h-80 bg-[#C7A24A]/8 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-12 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-3.5 shadow-2xs">
               <Video className="w-3.5 h-3.5 text-[#0f4a9b]" />
               <span className="text-[#0f4a9b] text-[11px] font-bold uppercase tracking-[0.15em]">
                 Live Learning Platform
               </span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-3">
               <GradientHeadingText text="How Live Online A-Level Tutoring Works" />
             </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
               Engineered specifically for rigorous mathematics working, chemical structures, and live mark-scheme dissection.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div className="bg-white border border-gray-200 rounded-2xl p-7 flex flex-col">
-              <div className="w-12 h-12 rounded-2xl bg-[#0f4a9b]/10 text-[#0f4a9b] flex items-center justify-center mb-5">
-                <Laptop className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-extrabold text-[#0a1f3d] mb-2">Interactive Whiteboard & Markup</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Tutor and student write simultaneously on past-paper PDFs and digital graph paper. No blurry phone photos or awkward webcam setups.
-              </p>
+          {/* Minimal Animated Interactive Cards */}
+          <div className="w-full flex md:grid md:grid-cols-3 gap-5 lg:gap-6 items-stretch justify-center overflow-x-auto md:overflow-visible snap-x snap-mandatory pt-1 pb-3 px-4 md:px-0 -mx-4 md:mx-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            
+            {/* Card 01: Interactive Whiteboard & Markup */}
+            <div className="w-[84vw] max-w-[340px] md:w-full md:max-w-none shrink-0 md:shrink snap-center flex flex-col">
+              <MinimalSessionCard
+                step="01"
+                title="Interactive Whiteboard & Markup"
+                desc="Tutor and student write simultaneously on past-paper PDFs and digital graph paper. No blurry phone photos or awkward webcam setups."
+                highlight="Tutor & Student Live Co-Markup"
+                badgeText="Real-Time Canvas"
+                renderVisual={() => <MinimalWhiteboardVisual />}
+              />
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-2xl p-7 flex flex-col">
-              <div className="w-12 h-12 rounded-2xl bg-[#0f4a9b]/10 text-[#0f4a9b] flex items-center justify-center mb-5">
-                <Video className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-extrabold text-[#0a1f3d] mb-2">Session Recordings for Revision</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Every online lesson is automatically recorded. Students can rewatch complex organic mechanisms or physics derivations 24 hours before school tests.
-              </p>
+            {/* Card 02: Session Recordings for Revision */}
+            <div className="w-[84vw] max-w-[340px] md:w-full md:max-w-none shrink-0 md:shrink snap-center flex flex-col">
+              <MinimalSessionCard
+                step="02"
+                title="Session Recordings for Revision"
+                desc="Every online lesson is automatically recorded. Students can rewatch complex organic mechanisms or physics derivations 24 hours before school tests."
+                highlight="Unlimited 24/7 Revision Access"
+                badgeText="1080p Cloud Vault"
+                renderVisual={() => <MinimalRecordingVisual />}
+              />
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-2xl p-7 flex flex-col">
-              <div className="w-12 h-12 rounded-2xl bg-[#0f4a9b]/10 text-[#0f4a9b] flex items-center justify-center mb-5">
-                <FileText className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-extrabold text-[#0a1f3d] mb-2">Weekly Parent Progress Notes</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Parents receive concise weekly updates detailing topics mastered, homework completed, and timed mock grade trajectories.
-              </p>
+            {/* Card 03: Weekly Parent Progress Notes */}
+            <div className="w-[84vw] max-w-[340px] md:w-full md:max-w-none shrink-0 md:shrink snap-center flex flex-col">
+              <MinimalSessionCard
+                step="03"
+                title="Weekly Parent Progress Notes"
+                desc="Parents receive concise weekly updates detailing topics mastered, homework completed, and timed mock grade trajectories."
+                highlight="Direct WhatsApp Weekly Reports"
+                badgeText="Weekly Pacing Sync"
+                renderVisual={() => <MinimalProgressVisual />}
+              />
             </div>
+
+          </div>
+
+          {/* Mobile Swipe Hint (No arrows, no dots) */}
+          <div className="md:hidden flex items-center justify-center mt-3 mb-1">
+            <span className="px-3.5 py-1 rounded-full text-[11px] font-semibold text-slate-500 bg-slate-100/90 border border-slate-200/80 tracking-tight select-none">
+              Swipe to see more
+            </span>
           </div>
         </div>
       </section>
+
+
+
+
 
       {/* ── SECTION 07: DUBAI AREAS COVERED ── */}
-      <section className="py-20 bg-[#0a1628] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 rounded-full mb-4">
-              <MapPin className="w-3.5 h-3.5 text-[#C7A24A]" />
-              <span className="text-[10px] font-bold text-white/80 uppercase tracking-wider">
-                Across Dubai
-              </span>
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">
-              Serving Families <span className="text-[#C7A24A]">Across Dubai</span>
-            </h2>
-            <p className="text-blue-100/70 text-sm sm:text-base leading-relaxed">
-              Online 1-to-1 A-Level lessons connecting students across all major residential communities in Dubai.
-            </p>
+      <section className="py-16 sm:py-20 bg-white border-y border-gray-100 overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-3.5 shadow-2xs">
+            <MapPin className="w-3.5 h-3.5 text-[#0f4a9b]" />
+            <span className="text-[11px] font-bold text-[#0f4a9b] uppercase tracking-wider">
+              Across Dubai
+            </span>
           </div>
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-3">
+            Serving Families <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Across Dubai</span>
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Online 1-to-1 A-Level lessons connecting students across all major residential communities in Dubai. Based in the capital? Connect with our <a href="/a-level-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold underline hover:text-[#0a254a]">A-Level tutors in Abu Dhabi</a>.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            {DUBAI_AREAS.map((area, idx) => (
+        {/* Auto-scrolling Row of Community Cards (Infinite Marquee) */}
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]">
+          <style>{`
+            @keyframes ustaad-communities-marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .ustaad-communities-marquee {
+              display: flex;
+              width: max-content;
+              gap: 1.25rem;
+              animation: ustaad-communities-marquee 45s linear infinite;
+            }
+            .ustaad-communities-marquee:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+          <div className="ustaad-communities-marquee py-3">
+            {[...DUBAI_AREAS, ...DUBAI_AREAS].map((area, idx) => (
               <div
                 key={idx}
-                className="bg-[#13233c] border border-white/10 rounded-2xl p-5 hover:border-[#C7A24A]/40 transition-colors"
+                className="group relative w-[290px] sm:w-[330px] h-[190px] sm:h-[210px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 shrink-0 border border-slate-200/80 cursor-default"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#0f4a9b]/30 flex items-center justify-center">
-                    <MapPin className="w-3.5 h-3.5 text-[#60a5fa]" />
-                  </div>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C7A24A]" />
-                </div>
-                <h3 className="text-white font-bold text-sm mb-1">{area.name}</h3>
-                <p className="text-slate-400 text-xs leading-snug">{area.sub}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                {/* Background photo */}
+                {area.image ? (
+                  <img
+                    src={area.image}
+                    alt={area.name}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] to-[#13233c]" />
+                )}
 
-      {/* ── SECTION 08: VERIFIED DUBAI REVIEWS ── */}
-      <section className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 rounded-full mb-4">
-              <Star className="w-3.5 h-3.5 text-[#C7A24A] fill-[#C7A24A]" />
-              <span className="text-[#0f4a9b] text-[11px] font-bold uppercase tracking-[0.15em]">
-                Parent Testimonials
-              </span>
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] mb-4">
-              <GradientHeadingText text="Proven Results in Dubai British Schools" />
-            </h2>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              Read how our board specialists helped Dubai students turn predicted grades into confirmed university admissions.
-            </p>
-          </div>
+                {/* Dark gradient overlay for pristine contrast and legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060f22]/95 via-[#060f22]/55 to-black/25" />
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {DUBAI_REVIEWS.map((rev, i) => (
-              <div
-                key={i}
-                className="bg-[#f8fafc] border border-gray-200/80 rounded-3xl p-7 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow duration-200"
-              >
-                <div>
-                  <div className="flex items-center gap-1 text-[#C7A24A] mb-4">
-                    {[...Array(5)].map((_, s) => (
-                      <Star key={s} className="w-4 h-4 fill-[#C7A24A]" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 text-sm leading-relaxed italic mb-6">
-                    "{rev.text}"
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-gray-200/60">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[#0f4a9b] text-white flex items-center justify-center font-extrabold text-xs">
-                      {rev.initials}
+                {/* Card Content */}
+                <div className="relative z-10 h-full p-5 flex flex-col justify-between text-left">
+                  <div className="flex items-center justify-between">
+                    <div className="w-8 h-8 rounded-xl bg-white/20 backdrop-blur-md border border-white/25 flex items-center justify-center text-white shadow-xs">
+                      <MapPin className="w-4 h-4 text-[#f0c96a]" />
                     </div>
-                    <div>
-                      <h3 className="text-xs font-extrabold text-[#0a1f3d]">{rev.name}</h3>
-                      <p className="text-[11px] text-[#0f4a9b] font-medium">{rev.school}</p>
-                      <p className="text-[10px] text-gray-400">{rev.subject}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3D INTERACTIVE DUBAI SCHOOL SPECIFICATION & READINESS DOSSIER ── */}
-      <section className="py-20 sm:py-24 bg-white border-t border-gray-100 relative overflow-hidden [perspective:1400px]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 mb-4">
-              <GraduationCap className="w-3.5 h-3.5 text-[#0f4a9b]" />
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#0f4a9b]">
-                Dubai School Intelligence
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f3d] tracking-tight mb-4">
-              <GradientHeadingText text="Dubai School A-Level Specification Dossier" />
-            </h2>
-            <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed">
-              Select your child's Dubai school to inspect their exact board specifications, syllabus pace, and test their current readiness score.
-            </p>
-
-            {/* School Selector Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
-              {DUBAI_SCHOOL_DOSSIERS.map((sch) => (
-                <button
-                  key={sch.id}
-                  type="button"
-                  onClick={() => setSelectedSchoolId(sch.id)}
-                  className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
-                    selectedSchoolId === sch.id
-                      ? 'bg-[#0f4a9b] text-white shadow-md scale-105'
-                      : 'bg-gray-50 text-gray-700 border border-gray-200 hover:border-[#0f4a9b]/40'
-                  }`}
-                >
-                  {sch.name}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 3D Interactive School Dossier Card */}
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              key={activeSchool.id}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35 }}
-              className="bg-gradient-to-br from-[#f8fafc] via-white to-[#0f4a9b]/5 border border-[#0f4a9b]/20 rounded-3xl p-7 sm:p-10 shadow-lg"
-            >
-              <div className="grid lg:grid-cols-12 gap-8 items-start">
-                
-                {/* Left Side: School Board Blueprint */}
-                <div className="lg:col-span-7 space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-gray-200">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <MapPin className="w-3.5 h-3.5 text-[#0f4a9b]" />
-                        <span className="text-xs font-bold text-gray-500">{activeSchool.location}, Dubai</span>
-                      </div>
-                      <h3 className="text-2xl font-extrabold text-[#0a1f3d]">
-                        {activeSchool.name}
-                      </h3>
-                    </div>
-                    <span className="self-start sm:self-auto px-3 py-1 rounded-full bg-[#0f4a9b]/10 text-[#0f4a9b] text-xs font-extrabold">
-                      {activeSchool.badge}
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10.5px] font-semibold text-white/90">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#f0c96a] animate-pulse" />
+                      Dubai
                     </span>
                   </div>
 
                   <div>
-                    <h4 className="text-xs font-extrabold uppercase tracking-wider text-gray-400 mb-3">
-                      Active Exam Board Specifications
-                    </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      <div className="p-3 rounded-xl bg-white border border-gray-200 shadow-2xs">
-                        <span className="text-[10px] font-bold text-gray-400 uppercase block">Mathematics</span>
-                        <span className="text-xs font-extrabold text-[#0a1f3d]">{activeSchool.boards.maths}</span>
-                      </div>
-                      <div className="p-3 rounded-xl bg-white border border-gray-200 shadow-2xs">
-                        <span className="text-[10px] font-bold text-gray-400 uppercase block">Physics</span>
-                        <span className="text-xs font-extrabold text-[#0a1f3d]">{activeSchool.boards.physics}</span>
-                      </div>
-                      <div className="p-3 rounded-xl bg-white border border-gray-200 shadow-2xs">
-                        <span className="text-[10px] font-bold text-gray-400 uppercase block">Chemistry</span>
-                        <span className="text-xs font-extrabold text-[#0a1f3d]">{activeSchool.boards.chemistry}</span>
-                      </div>
-                      <div className="p-3 rounded-xl bg-white border border-gray-200 shadow-2xs">
-                        <span className="text-[10px] font-bold text-gray-400 uppercase block">Economics / Biology</span>
-                        <span className="text-xs font-extrabold text-[#0a1f3d]">{activeSchool.boards.economics} · {activeSchool.boards.biology}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-[#0f4a9b]/5 border border-[#0f4a9b]/15 rounded-2xl p-4 space-y-1.5">
-                    <span className="text-xs font-extrabold text-[#0f4a9b] block">Curriculum Pacing Insight:</span>
-                    <p className="text-xs text-gray-700 leading-relaxed">
-                      {activeSchool.curriculumInsight}
+                    <h3 className="text-white font-extrabold text-[17px] sm:text-[18px] leading-snug mb-1 drop-shadow-sm group-hover:text-[#f0c96a] transition-colors">
+                      {area.name}
+                    </h3>
+                    <p className="text-blue-100/80 text-xs sm:text-[12.5px] leading-snug drop-shadow-sm">
+                      {area.sub}
                     </p>
                   </div>
                 </div>
-
-                {/* Right Side: Interactive Readiness Self-Audit */}
-                <div className="lg:col-span-5 bg-white rounded-2xl border border-gray-200 p-6 shadow-sm flex flex-col justify-between h-full space-y-6">
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#0f4a9b] block">
-                          Self-Diagnostic
-                        </span>
-                        <h4 className="text-base font-extrabold text-[#0a1f3d]">
-                          A* Exam Readiness Check
-                        </h4>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-2xl font-black text-[#0f4a9b] font-mono">{auditScore}%</span>
-                        <span className="text-[10px] text-gray-400 block">Readiness</span>
-                      </div>
-                    </div>
-
-                    {/* Progress Bar */}
-                    <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden mb-5">
-                      <motion.div
-                        className="h-full bg-gradient-to-r from-[#0f4a9b] to-[#C7A24A]"
-                        initial={{ width: 0 }}
-                        animate={{ width: `${auditScore}%` }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </div>
-
-                    <div className="space-y-2.5">
-                      {[
-                        { key: 'c1', label: 'Derives line-by-line calculus & mechanics proofs without prompts' },
-                        { key: 'c2', label: 'Uses exact exam board command keywords (e.g. state vs deduce)' },
-                        { key: 'c3', label: 'Finishes full 2-hour timed papers with 15 mins review buffer' },
-                        { key: 'c4', label: 'Logs recurring errors in a structured post-mock recovery sheet' }
-                      ].map((chk) => (
-                        <button
-                          key={chk.key}
-                          type="button"
-                          onClick={() => toggleAudit(chk.key)}
-                          className={`w-full p-2.5 rounded-xl text-left text-xs transition-all flex items-start gap-2.5 cursor-pointer ${
-                            auditChecks[chk.key]
-                              ? 'bg-emerald-50 border border-emerald-200 text-emerald-900 font-semibold'
-                              : 'bg-gray-50 border border-gray-200 text-gray-600 hover:bg-gray-100'
-                          }`}
-                        >
-                          <div className={`w-4 h-4 rounded-md flex items-center justify-center shrink-0 mt-0.5 ${
-                            auditChecks[chk.key] ? 'bg-emerald-600 text-white' : 'border border-gray-400'
-                          }`}>
-                            {auditChecks[chk.key] && <Check className="w-3 h-3 stroke-[3]" />}
-                          </div>
-                          <span>{chk.label}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <GoldButton href={BOOKING} className="w-full text-xs py-3 justify-center">
-                    Get Matched for {activeSchool.name}
-                  </GoldButton>
-                </div>
-
               </div>
-            </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
 
+      {/* ── SECTION 08: PARENT REVIEWS (From Dubai Families) ── */}
+      <section className="py-12 lg:py-16 relative overflow-hidden bg-[#f4f7fc] border-y border-slate-100">
+        <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#0f4a9b]/5 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[#C7A24A]/10 blur-3xl pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-bold text-[#0a1f3d] mb-3 shadow-xs">
+              <span className="text-[#C7A24A] tracking-tighter">★★★★★</span>
+              <span>5.0 ★ · Dubai Parent Feedback</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d]">
+              From <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Dubai Families</span>
+            </h2>
+          </div>
+          <ReviewsScroller />
         </div>
       </section>
 
@@ -1994,7 +2578,7 @@ export default function ALevelTutorDubaiPage() {
         subtitle="1-to-1 online lessons matched to your child's exact school, exam board, and target university grade."
         button1Text="Book a Free Trial Session"
         button1Href={BOOKING}
-        subtext1="No commitment. Matched within 24 hours."
+        subtext1="No commitment. Cancel anytime."
       />
     </Layout>
   );

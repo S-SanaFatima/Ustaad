@@ -317,7 +317,7 @@ export default function UAEExamsReturnBlog() {
             author: {
               name: 'Nimra Shahzada',
               url: '/authors/nimra-shahzada',
-              jobTitle: 'Content Writer, Study and Exam Topics',
+              jobTitle: 'Writer on learning and the psychology of studying',
               sameAs: 'https://www.linkedin.com/company/ustaad-ae',
             },
             reviewer: {

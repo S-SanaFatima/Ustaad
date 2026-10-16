@@ -209,7 +209,7 @@ export default function EditorialPage() {
     publisher: {
       '@type': 'EducationalOrganization',
       '@id': 'https://ustaad.ae/#organization',
-      name: 'Ustaad — Private Tutors UAE',
+      name: 'Ustaad',
       url: 'https://ustaad.ae',
     },
   };
@@ -226,7 +226,7 @@ export default function EditorialPage() {
           '@type': 'Person',
           name: 'Nimra Shahzada',
           url: 'https://ustaad.ae/authors/nimra-shahzada',
-          jobTitle: 'Content Writer, Study and Exam Topics',
+          jobTitle: 'Writer on learning and the psychology of studying',
         },
       },
       {
