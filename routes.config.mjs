@@ -79,6 +79,7 @@ export const ROUTES = [
   { path: '/blogs/how-much-should-parents-help-with-homework', component: 'HomeworkHelpBalanceBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-05' },
   { path: '/blogs/why-teenagers-procrastinate-on-revision', component: 'WhyTeenagersProcrastinateBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-09' },
   { path: '/blogs/silly-mistakes-maths-exams', component: 'SillyMistakesMathsExamsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-12' },
+  { path: '/blogs/parent-teacher-meeting-questions-uae', component: 'ParentTeacherMeetingBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-16' },
 
   // City × subject landings
   { path: '/maths-tutor-abu-dhabi', component: 'MathematicsLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },

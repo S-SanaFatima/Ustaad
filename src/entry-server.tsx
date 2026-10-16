@@ -52,6 +52,7 @@ import IllusionOfCompetenceBlog from "./app/IllusionOfCompetenceBlog.tsx";
 import IGCSEvsGCSEBlog from "./app/IGCSEvsGCSEBlog.tsx";
 import HomeworkHelpBalanceBlog from "./app/HomeworkHelpBalanceBlog.tsx";
 import WhyTeenagersProcrastinateBlog from "./app/WhyTeenagersProcrastinateBlog.tsx";
+import ParentTeacherMeetingBlog from "./app/ParentTeacherMeetingBlog.tsx";
 
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
 import MathsPage from "./app/MathsPage.tsx";
@@ -152,6 +153,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   WhatDoesYInterceptMeanBlog,
   HomeworkHelpBalanceBlog,
   WhyTeenagersProcrastinateBlog,
+  ParentTeacherMeetingBlog,
   IllusionOfCompetenceBlog,
   CommandWordsBlog,
   SleepAndMemoryBlog,
