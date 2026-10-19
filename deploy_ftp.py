@@ -18,7 +18,7 @@ class FTPUploader:
         self.ftp = None
         self.connect()
 
-    def connect(self, max_retries=5):
+    def connect(self, max_retries=10):
         if self.ftp:
             try:
                 self.ftp.close()
@@ -45,7 +45,7 @@ class FTPUploader:
                 except Exception as err:
                     print(f"Connection attempt {attempt} failed: {err}")
                     if attempt < max_retries:
-                        time.sleep(3 * attempt)
+                        time.sleep(min(15, 3 * attempt))
                     else:
                         print(f"❌ All connection attempts failed: {err}")
                         sys.exit(1)

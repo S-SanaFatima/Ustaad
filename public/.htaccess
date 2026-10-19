@@ -82,14 +82,15 @@ DirectoryIndex index.html
 RewriteEngine On
 RewriteBase /
 
-# Rewrite root requests directly to index.html
-RewriteRule ^$ /index.html [L]
-RewriteRule ^index\.html$ - [L]
-
 # --- Canonical Host & HTTPS Protocol (Single 301 Hop to https://ustaad.ae) ---
+# MUST BE FIRST before any internal file or root rewrites!
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
 RewriteRule ^(.*)$ https://ustaad.ae/$1 [R=301,L]
+
+# Rewrite root requests directly to index.html
+RewriteRule ^$ /index.html [L]
+RewriteRule ^index\.html$ - [L]
 
 # --- 1. Real Existing Files (Images, WebP, JS, CSS, fonts, direct .html) → Serve as-is immediately ---
 RewriteCond %{REQUEST_FILENAME} -f

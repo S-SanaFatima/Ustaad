@@ -117,8 +117,6 @@ export const localBusinessSchema = {
     "https://www.facebook.com/ustaad.ae",
     "https://www.linkedin.com/company/ustaad-ae",
   ],
-  aggregateRating: AGGREGATE_RATING,
-  review: reviewsNodes,
   additionalProperty: [
     { "@type": "PropertyValue", name: "Exam Success Rate", value: "90%+" },
     { "@type": "PropertyValue", name: "Parent Satisfaction Rate", value: "98%" },
@@ -448,12 +446,21 @@ export const reviewSchema = (
   const reviews = Array.isArray(itemNameOrReviews) ? itemNameOrReviews : (maybeReviews || []);
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Course",
     name: itemName,
+    description: `Private 1-to-1 tutoring and exam preparation for ${itemName} across Dubai, Abu Dhabi and the UAE.`,
+    provider: {
+      "@type": "EducationalOrganization",
+      "@id": `${BASE_URL}/#organization`,
+      name: "Ustaad",
+      url: BASE_URL,
+    },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
       reviewCount: Math.max(reviews.length, 1).toString(),
+      bestRating: "5",
+      worstRating: "1",
     },
     review: reviews.map((r) => ({
       "@type": "Review",
@@ -463,6 +470,7 @@ export const reviewSchema = (
         "@type": "Rating",
         ratingValue: (r.ratingValue || r.reviewRating || 5).toString(),
         bestRating: "5",
+        worstRating: "1",
       },
     })),
   };
