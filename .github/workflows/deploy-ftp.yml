@@ -45,3 +45,10 @@ jobs:
           local-dir: ./dist/client/
           server-dir: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}
           dangerous-clean-slate: false
+
+      # Notify Bing / Yandex / Seznam / Naver (IndexNow) about pages whose lastmod
+      # changed in the last 3 days. Google does not use IndexNow: use the
+      # Search Console "Request indexing" button for priority URLs instead.
+      - name: Ping IndexNow for recently updated pages
+        continue-on-error: true
+        run: node scripts/ping-bing.mjs --days=3

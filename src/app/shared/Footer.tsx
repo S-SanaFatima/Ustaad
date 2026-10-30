@@ -201,6 +201,7 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
                         onClick={() => toggleCity(city)}
                         className="w-full flex items-center justify-between text-xs font-semibold text-blue-200 hover:text-white transition py-1.5 text-left group"
                         aria-expanded={isOpen}
+                        aria-controls={`footer-city-${city.replace(/\s+/g, '-').toLowerCase()}`}
                         aria-label={`Toggle ${city} tutors`}
                       >
                         <span>{city}</span>
@@ -208,8 +209,8 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
                           className={`h-3 w-3 text-blue-300/70 group-hover:text-white transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
                         />
                       </button>
-                      {isOpen && (
-                        <ul className="mt-0.5 mb-2 ml-2 pl-2 border-l border-white/15 space-y-0.5">
+                      {/* Always rendered so crawlers see every city landing link; collapsed with CSS only */}
+                      <ul id={`footer-city-${city.replace(/\s+/g, '-').toLowerCase()}`} className={`${isOpen ? '' : 'hidden '}mt-0.5 mb-2 ml-2 pl-2 border-l border-white/15 space-y-0.5`}>
                           {tutors.map((t) => (
                             <li key={t.label}>
                               <a
@@ -222,7 +223,6 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
                             </li>
                           ))}
                         </ul>
-                      )}
                     </div>
                   );
                 }

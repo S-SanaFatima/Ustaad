@@ -532,6 +532,31 @@ export default function BlogsPage() {
 
           </div>
 
+          {/* Latest Articles: newest posts one click from the hub, so new URLs are discovered and crawled quickly */}
+          <div className="text-left mb-12 sm:mb-16">
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-6 font-serif text-center">Latest articles</h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {BLOGS.slice(0, 8).map((blog) => (
+                <li key={blog.slug}>
+                  <a
+                    href={`/blogs/${blog.slug}`}
+                    className="group flex h-full flex-col gap-1.5 bg-white rounded-2xl p-5 border border-slate-100 shadow-[0_4px_20px_rgba(15,74,155,0.04)] hover:shadow-[0_10px_30px_rgba(15,74,155,0.08)] hover:-translate-y-0.5 transition-all duration-300"
+                  >
+                    <span className={`self-start text-[10px] font-extrabold uppercase tracking-wide px-2.5 py-0.5 rounded-full border ${CATEGORY_META[blog.category].badgeStyle}`}>
+                      {blog.category}
+                    </span>
+                    <span className="text-[16px] font-extrabold text-[#0a1f3d] leading-snug group-hover:text-[#0f4a9b] transition-colors font-serif">
+                      {blog.title}
+                    </span>
+                    <span className="text-xs text-slate-500 font-medium">
+                      {blog.date} · {blog.readTime}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Revision Companion Section */}
           <div className="relative bg-white rounded-3xl p-8 lg:p-12 border border-slate-100 shadow-[0_8px_30px_rgba(15,74,155,0.06)] text-left flex flex-col gap-8 overflow-hidden group">
             {/* Decorative background elements */}

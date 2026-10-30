@@ -50,7 +50,7 @@ export const ROUTES = [
 
   // Other
   { path: '/exam-preparation', component: 'ExamPreparationPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/blogs', component: 'BlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-07-28' },
+  { path: '/blogs', component: 'BlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-10-30' },
   { path: '/blogs/academic-exam-skills', component: 'AcademicBlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-08-13' },
   { path: '/blogs/psychology-of-learning', component: 'PsychologyBlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-08-13' },
   { path: '/blogs/parent-guidance', component: 'ParentGuidanceBlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-08-13' },

@@ -6,9 +6,33 @@ const HOST = 'ustaad.ae';
 const BASE_URL = `https://${HOST}`;
 
 async function pingBingIndexNow() {
-  const urlList = ROUTES.filter(r => !r.noindex).map(r => {
-    return r.path === '/' ? `${BASE_URL}/` : `${BASE_URL}${r.path}`;
-  });
+  // Usage:
+  //   node scripts/ping-bing.mjs                 -> every indexable route
+  //   node scripts/ping-bing.mjs --days=3        -> only routes whose lastmod is within the last 3 days
+  //   node scripts/ping-bing.mjs --since=2026-10-01
+  //   node scripts/ping-bing.mjs /blogs/foo /a-level-tutor-al-ain   -> explicit paths
+  const args = process.argv.slice(2);
+  const daysArg = args.find(a => a.startsWith('--days='));
+  const sinceArg = args.find(a => a.startsWith('--since='));
+  const explicit = args.filter(a => a.startsWith('/'));
+
+  let since = null;
+  if (sinceArg) since = sinceArg.split('=')[1];
+  if (daysArg) {
+    const d = new Date(Date.now() - Number(daysArg.split('=')[1]) * 86400000);
+    since = d.toISOString().slice(0, 10);
+  }
+
+  const urlList = ROUTES
+    .filter(r => !r.noindex)
+    .filter(r => explicit.length ? explicit.includes(r.path) : true)
+    .filter(r => since ? (r.lastmod && r.lastmod >= since) : true)
+    .map(r => (r.path === '/' ? `${BASE_URL}/` : `${BASE_URL}${r.path}`));
+
+  if (urlList.length === 0) {
+    console.log(`[Bing IndexNow] No URLs matched${since ? ` lastmod >= ${since}` : ''}. Nothing to submit.`);
+    return 0;
+  }
 
   const payload = JSON.stringify({
     host: HOST,
