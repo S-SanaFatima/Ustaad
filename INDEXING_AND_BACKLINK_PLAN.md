@@ -130,6 +130,27 @@ Run a baseline backlink check first (Ahrefs Webmaster Tools is free for verified
 - Use the same business name, address, phone and website on every listing (this is called NAP consistency). Use exactly: **Ustaad Private Tutors UAE · 800 9005 · +971 56 124 9005 · https://ustaad.ae**.
 - Never buy links from link farms, PBNs or "1000 backlinks for $20" gigs. Google's spam policies treat these as manipulation and can demote the whole site.
 
+### 2.2a Priority link targets from Search Console data
+
+Search Console data from 27 Jul to 27 Oct 2026 shows these pages ranking at positions 5 to 25. A few good links can push them onto page one.
+
+| Search query | Page Google ranks now | Position | Page that should rank |
+| :--- | :--- | ---: | :--- |
+| chemistry tutor dubai | /chemistry | 10.8 | /chemistry-tutor-dubai (not indexed yet) |
+| a level tutoring dubai | /a-level | 5.8 | /a-level-tutor-dubai |
+| a level maths tutor dubai | /a-level | 8.8 | /a-level-tutor-dubai |
+| math tutor abu dhabi | /maths-tutor-abu-dhabi | 8.3 | Same page, with 377 impressions and a CTR under 1% |
+| ap preparation dubai, ap prep dubai | /ap | 6 to 7.6 | /ap |
+| gcse chemistry tutoring dubai | /chemistry | 8.7 | /chemistry-tutor-dubai |
+| biology tutor uae, biology tutors | /biology | 10.8 to 15.4 | /biology-tutor-dubai (needs re-crawl) |
+| private tutor uae, online tutoring uae | / | 7.5 to 11.8 | Homepage |
+| what is gradient in physics | /blogs/what-does-gradient-mean-maths-physics | 8.4 | Same post, with 2,758 impressions in 28 days |
+
+What to do with this:
+1. Point directory, profile and guest-post links at the **city pages** in the right-hand column, not at the general subject pages. That tells Google which page should rank for city searches.
+2. On /chemistry, /biology and /a-level, add one prominent contextual link to the Dubai and Abu Dhabi versions, using anchors like "chemistry tutor in Dubai".
+3. Rewrite the title and meta description of /maths-tutor-abu-dhabi and the gradient blog post. Both get many impressions but very few clicks.
+
 ### 2.3 Phase 1 (weeks 1 to 2): foundation citations
 
 These are quick, mostly free, and give Google trust signals for local search. Do all of them first.
