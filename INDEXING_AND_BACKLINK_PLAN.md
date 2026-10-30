@@ -3,7 +3,7 @@
 **Site:** https://ustaad.ae (Ustaad Private Tutors UAE, online and in-home tutoring for British, IB and American curricula)
 **Date:** 30 October 2026
 **Pages in sitemap:** 92 (all indexable, 0 audit errors)
-**Last known index status (21 Sep report):** Google 66+, Bing 111
+**Google index status (live Search Console check, 30 Oct 2026):** 79 of 92 indexed, 13 not indexed
 
 ---
 
@@ -20,51 +20,69 @@
 
 **Rule going forward:** every time a page's content changes, update its `lastmod` in `routes.config.mjs`. The sitemap, IndexNow ping and Google all depend on that date.
 
-### 1.2 Google: manual "Request indexing" queue
+### 1.2 Google: live index status and request queue
 
-Google ignores IndexNow, and its Indexing API is only for job posts and livestreams. The reliable route is Search Console's URL Inspection tool, which allows roughly 10 to 12 requests per day per property.
+All 92 sitemap URLs were checked with Search Console's URL Inspection API on 30 October 2026.
 
-Steps for each URL:
-1. Open Search Console, select the `ustaad.ae` property.
-2. Paste the URL into the top "Inspect any URL" bar.
-3. If it says "URL is not on Google", click **Test live URL**, then **Request indexing**.
-4. If it says "URL is on Google", skip it.
+| Status | Count |
+| :--- | ---: |
+| Submitted and indexed | 79 |
+| URL is unknown to Google | 6 |
+| Discovered, currently not indexed | 6 |
+| Alternate page with proper canonical tag | 1 |
+| Of the indexed pages, with a rich result error | 1 |
 
-**Day 1: commercial city pages and new hubs**
-1. https://ustaad.ae/a-level-tutor-al-ain
-2. https://ustaad.ae/ib-tutor-dubai
-3. https://ustaad.ae/biology-tutor-dubai
-4. https://ustaad.ae/a-level-tutor-dubai
-5. https://ustaad.ae/chemistry-tutor-dubai
-6. https://ustaad.ae/physics-tutor-dubai
-7. https://ustaad.ae/maths-tutor-dubai
-8. https://ustaad.ae/igcse-tutor-dubai
-9. https://ustaad.ae/gcse-tutor-dubai
-10. https://ustaad.ae/blogs
+**The 13 pages Google has not indexed yet**
 
-**Day 2: updated curriculum hubs and newest posts**
-1. https://ustaad.ae/a-level
-2. https://ustaad.ae/igcse
-3. https://ustaad.ae/british-curriculum
-4. https://ustaad.ae/ap
+| Page | Google status | Cause and fix |
+| :--- | :--- | :--- |
+| /a-level-tutor-al-ain | Unknown to Google | New on 28 Oct. Now linked from every footer. Request indexing. |
+| /chemistry-tutor-dubai | Unknown to Google | Only reachable through in-content links before. Now linked from every footer. Request indexing. |
+| /blogs/winter-break-revision-plan-uae-students | Unknown to Google | Published 30 Oct. Now on the blog hub. Request indexing. |
+| /blogs/how-to-read-examiner-reports-igcse-a-level | Unknown to Google | Published 26 Oct. Now on the blog hub. Request indexing. |
+| /blogs/why-chemistry-fades-from-memory | Unknown to Google | Older post Google never found. Add contextual links from /chemistry and the chemistry city pages. Request indexing. |
+| /blogs/gcse-revision-tips-uae-parents | Unknown to Google | Same. Add links from /gcse and the GCSE city pages. Request indexing. |
+| /biology-tutor-dubai | Alternate page with proper canonical tag | On the 19 Oct crawl the page declared `/subjects/biology-tutor-dubai` as its canonical. That bug is already fixed in code, and the build now outputs the correct self-canonical. Request indexing so Google re-crawls it. |
+| /ib-tutor-dubai | Discovered, not indexed | Google knows the URL but hasn't crawled it. Now linked from every footer. Request indexing. |
+| /blogs/maths-anxiety-teenagers-signs-causes-help | Discovered, not indexed | Now on the blog hub. Request indexing. |
+| /authors/nida-iqbal | Discovered, not indexed | Author pages are low-priority for Google. Make sure each byline links to the profile. Request indexing. |
+| /authors/saira-s | Discovered, not indexed | Same as above. |
+| /authors/ustaad-subject-specialists | Discovered, not indexed | Same as above. |
+| /privacy | Discovered, not indexed | Low value. Leave it for Google to crawl naturally. |
+
+**Rich result error:** /blogs/early-signs-chemistry-help-uae is indexed, but its 8 August crawl showed "Review has multiple aggregate ratings". The current build has no rating blocks on that page, so it only needs a re-crawl. After it is re-crawled, click **Validate fix** in Search Console under Enhancements > Review snippets.
+
+**How to request indexing.** Google ignores IndexNow, and its Indexing API is only for job posts and livestreams. Use Search Console's URL Inspection tool, which allows about 10 to 12 requests per day.
+1. Deploy this branch first, so Google sees the new footer and blog hub links.
+2. Open Search Console and select the `ustaad.ae` property.
+3. Paste each URL into the "Inspect any URL" bar at the top.
+4. Click **Test live URL**, then **Request indexing**.
+
+**Day 1 (after deploy)**
+1. https://ustaad.ae/biology-tutor-dubai
+2. https://ustaad.ae/chemistry-tutor-dubai
+3. https://ustaad.ae/ib-tutor-dubai
+4. https://ustaad.ae/a-level-tutor-al-ain
 5. https://ustaad.ae/blogs/winter-break-revision-plan-uae-students
 6. https://ustaad.ae/blogs/how-to-read-examiner-reports-igcse-a-level
-7. https://ustaad.ae/blogs/why-students-freeze-exam-questions-scaffolding-trap
-8. https://ustaad.ae/blogs/maths-anxiety-teenagers-signs-causes-help
-9. https://ustaad.ae/blogs/parent-teacher-meeting-questions-uae
-10. https://ustaad.ae/blogs/silly-mistakes-maths-exams
+7. https://ustaad.ae/blogs/maths-anxiety-teenagers-signs-causes-help
+8. https://ustaad.ae/blogs/why-chemistry-fades-from-memory
+9. https://ustaad.ae/blogs/gcse-revision-tips-uae-parents
+10. https://ustaad.ae/blogs
 
-**Day 3: remaining posts published since the last report**
-1. https://ustaad.ae/blogs/why-teenagers-procrastinate-on-revision
-2. https://ustaad.ae/blogs/how-much-should-parents-help-with-homework
-3. https://ustaad.ae/blogs/what-does-y-intercept-mean-maths
-4. https://ustaad.ae/blogs/sleep-and-memory-why-all-nighters-backfire
-5. https://ustaad.ae/blogs/command-words-igcse-a-level-exams
-6. https://ustaad.ae/blogs/illusion-of-competence-revision-false-confidence
-7. https://ustaad.ae/ib-tutor-abu-dhabi
-8. https://ustaad.ae/gcse-tutor-abu-dhabi
-9. https://ustaad.ae/biology-tutor-abu-dhabi
-10. https://ustaad.ae/authors/saira-s
+**Day 2**
+1. https://ustaad.ae/blogs/early-signs-chemistry-help-uae
+2. https://ustaad.ae/authors/nida-iqbal
+3. https://ustaad.ae/authors/saira-s
+4. https://ustaad.ae/authors/ustaad-subject-specialists
+5. https://ustaad.ae/ (homepage, so Google sees the new footer links quickly)
+
+**Pages indexed but crawled a long time ago.** These are indexed, but Google's last crawl predates recent edits. Request a re-crawl if you have spare daily quota:
+- /chemistry-tutor-abu-dhabi and /biology-tutor-abu-dhabi (last crawled 13 Aug)
+- /blogs/physics-understanding-vs-marks (4 Jul), /blogs/exam-panic-before-exams-uae (16 Jul)
+- /blogs/academic-exam-skills, /blogs/psychology-of-learning, /blogs/parent-guidance (14 Aug)
+
+**IndexNow key for OpenSEO.** OpenSEO created its own IndexNow key. This branch adds the file `public/d90272b0d0644d408fc4ea6c62d4de10.txt` so the site can host it. After deploy, submissions from OpenSEO to Bing and the other IndexNow engines will work. The existing key used by the deploy workflow keeps working too.
 
 **After the queue:**
 - In Search Console, open **Sitemaps** and resubmit `https://ustaad.ae/sitemap.xml`.
@@ -85,6 +103,8 @@ These posts have the fewest contextual links from other pages. Add one natural l
 | /blogs/a-level-tutoring-uae-independent-thinking | /a-level, /a-level-tutor-abu-dhabi, /a-level-tutor-al-ain |
 | /blogs/illusion-of-competence-revision-false-confidence | /exam-preparation, /blogs/igcse-maths-revision-low-marks |
 | /blogs/parent-teacher-meeting-questions-uae | /about, /blogs/private-tutoring-uae-parent-guide |
+| /blogs/why-chemistry-fades-from-memory | /chemistry, /chemistry-tutor-dubai, /chemistry-tutor-abu-dhabi |
+| /blogs/gcse-revision-tips-uae-parents | /gcse, /gcse-tutor-dubai, /gcse-tutor-abu-dhabi |
 | /authors/saira-s | Each post Saira wrote or reviewed should link to the profile in the byline |
 
 ---
