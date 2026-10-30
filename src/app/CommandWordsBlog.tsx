@@ -949,7 +949,7 @@ export default function CommandWordsBlog() {
               Find out which command words are costing your child marks
             </h3>
             <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed mb-6 max-w-xl mx-auto font-normal">
-              In a free 30-minute diagnostic session, an Ustaad tutor gives your child a timed question, marks it against the real mark scheme and shows you where the marks went. Often it is a command-word mismatch rather than a gap in knowledge.
+              In the first lesson, after a free 15-minute orientation, an Ustaad tutor gives your child a timed question, marks it against the real mark scheme and shows you where the marks went. Often it is a command-word mismatch rather than a gap in knowledge.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
               <a
@@ -957,7 +957,7 @@ export default function CommandWordsBlog() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white hover:brightness-110 transition text-sm w-full sm:w-auto shadow-md"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
               >
-                Book a Free Trial
+                Book First Session
               </a>
               <a
                 href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20read%20your%20guide%20on%20command%20words%20and%20would%20like%20a%20free%20diagnostic%20session%20for%20my%20child."

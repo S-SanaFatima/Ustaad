@@ -15,7 +15,7 @@ export default function ALevelFreeTrialWhiteboardSection() {
     },
     {
       num: '03',
-      title: 'Take Your Free 1-to-1 Lesson',
+      title: 'Take Your First 1-to-1 Session',
       text: 'Your child experiences a real 1-to-1 session on their current topic with no commitment.',
     },
   ];
@@ -36,7 +36,7 @@ export default function ALevelFreeTrialWhiteboardSection() {
             </span>
           </div>
           <h2 className="text-xl sm:text-3xl lg:text-[36px] font-black text-[#0a1f3d] mb-1.5 sm:mb-2 leading-tight tracking-tight">
-            How the Free A-Level Trial <span className="text-[#0f4a9b]">Works</span>
+            How Your First A-Level Session <span className="text-[#0f4a9b]">Works</span>
           </h2>
           <p className="text-gray-600 text-xs sm:text-sm lg:text-[15px] leading-relaxed font-normal">
             Three steps from first message to first lesson.

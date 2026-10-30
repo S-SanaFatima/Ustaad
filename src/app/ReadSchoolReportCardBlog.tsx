@@ -598,7 +598,13 @@ export default function ReadSchoolReportCardBlog() {
                 <span><strong className="text-[#0a1f3d]">When a subject-specific comment references a topic your child cannot explain at home.</strong></span>
               </li>
             </ol>
-            <p>Meetings work best when they are booked around a specific question. 'I want to understand what changed in chemistry between term one and term two' is answerable. 'I am worried about the report' is harder to respond to.</p>
+            <p>
+              Meetings work best when they are booked around a specific question. 'I want to understand what changed in chemistry between term one and term two' is answerable. 'I am worried about the report' is harder to respond to. Our guide to{' '}
+              <a href="/blogs/parent-teacher-meeting-questions-uae" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                parent-teacher meeting questions
+              </a>{' '}
+              lists what to ask in each subject.
+            </p>
 
             <InlineImage
               src="/images/blogs/parent_teacher_report_meeting.png"
@@ -749,7 +755,7 @@ export default function ReadSchoolReportCardBlog() {
                 <a href="/contact#form"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white hover:brightness-110 transition text-sm sm:w-auto"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial
+                Book Your First Session
               </a>
                 <p className="text-xs text-white/60 font-medium">No commitment. Cancel anytime.</p>
               </div>

@@ -188,9 +188,9 @@ const FAQ_ITEMS: { q: string; a: React.ReactNode; aText: string }[] = [
     aText: 'Most students notice a change in confidence and clarity within four to six sessions. Grade improvement typically shows within one term of consistent sessions.',
   },
   {
-    q: 'What happens in the free trial session?',
-    a: <>The trial session focuses on the student&apos;s actual work — a topic they are currently studying or a past paper question they found difficult. There is no scripted demo. <a href="/contact#form" className="text-[#0f4a9b] font-medium hover:underline">Book a free trial →</a></>,
-    aText: "The trial session focuses on the student's actual work — a topic they are currently studying or a past paper question they found difficult. There is no scripted demo.",
+    q: 'What happens in the first session?',
+    a: <>The first session focuses on the student&apos;s actual work — a topic they are currently studying or a past paper question they found difficult. There is no scripted demo. <a href="/contact#form" className="text-[#0f4a9b] font-medium hover:underline">Book your first session →</a></>,
+    aText: "The first session focuses on the student's actual work — a topic they are currently studying or a past paper question they found difficult. There is no scripted demo.",
   },
   {
     q: 'My child has exams in a few weeks. Is it too late to start?',
@@ -206,7 +206,7 @@ const FAQ_ITEMS: { q: string; a: React.ReactNode; aText: string }[] = [
 
 const homepageSEO = {
   title: "Private Tutors UAE | IGCSE, IB & A-Level | Ustaad",
-  description: "Trusted private tutors in the UAE for IGCSE, A-Level, IB, and American curriculum students. Online 1-to-1 across all emirates. Free trial.",
+  description: "Trusted private tutors in the UAE for IGCSE, A-Level, IB, and American curriculum students. Online 1-to-1 across all emirates. Free 15-min orientation with the first lesson.",
   canonical: "/",
   ogImage: "/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp",
   schema: [
@@ -271,7 +271,7 @@ export default function App() {
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <div className="flex flex-col items-start gap-2 w-fit">
                     <GoldButton className="w-fit px-8 py-3.5 text-sm hero-cta">
-                      Book Your Free Trial
+                      Book Your First Session
                     </GoldButton>
                     <p className="text-xs text-gray-400 font-medium text-left tracking-wide">{CTA_SUBTEXT}</p>
                   </div>

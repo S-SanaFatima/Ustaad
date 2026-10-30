@@ -24,7 +24,7 @@ const CONFIGS: Record<string, LandingConfig> = {
     path: '/biology-tutor-abu-dhabi',
     subject: 'Biology',
     title: 'Biology Tutor Abu Dhabi | IGCSE, A-Level & IB | Ustaad',
-    description: 'One-to-one Biology tutors in Abu Dhabi for IGCSE, A-Level, IB, and AP. Cell biology, genetics, ecology, and exam technique. Book a free trial.',
+    description: 'One-to-one Biology tutors in Abu Dhabi for IGCSE, A-Level, IB, and AP. Cell biology, genetics, ecology, and exam technique. Free 15-min orientation with the first lesson.',
     h1: 'Biology Tutor Abu Dhabi',
     intro: 'Private Biology tutors in Abu Dhabi who rebuild topic gaps, drill past-paper command words, and prepare students for IGCSE, A-Level, IB, and AP assessments.',
     heroAlt: 'Biology tutor working one-to-one with an Abu Dhabi student on IGCSE biology diagrams',
@@ -59,7 +59,7 @@ const CONFIGS: Record<string, LandingConfig> = {
     path: '/igcse-tutor-abu-dhabi',
     subject: 'IGCSE',
     title: 'IGCSE Tutor Abu Dhabi | Private IGCSE Tutoring — Ustaad',
-    description: 'Private IGCSE tutors in Abu Dhabi for Maths, Physics, Chemistry, Biology, English and more. Cambridge and Edexcel aligned. Book a free trial.',
+    description: 'Private IGCSE tutors in Abu Dhabi for Maths, Physics, Chemistry, Biology, English and more. Cambridge and Edexcel aligned. Free 15-min orientation with the first lesson.',
     h1: 'IGCSE Tutor Abu Dhabi',
     intro: 'Curriculum-specialist IGCSE tutors in Abu Dhabi for Cambridge and Edexcel boards — subject matching, past-paper drills, and steady progress before mocks.',
     heroAlt: 'IGCSE tutor guiding an Abu Dhabi student through Cambridge past paper practice',
@@ -140,7 +140,7 @@ function CityLanding({ config }: { config: LandingConfig }) {
                 </li>
               ))}
             </ul>
-            <GoldButton href="/contact#form" className="px-8 py-3.5 text-sm">Book Your Free Trial</GoldButton>
+            <GoldButton href="/contact#form" className="px-8 py-3.5 text-sm">Book Your First Session</GoldButton>
           </div>
           <img
             src={config.heroImage}

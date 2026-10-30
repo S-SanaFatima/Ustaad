@@ -391,7 +391,7 @@ const data: SubjectPageProps = {
   heroTitle:        "Detailed Engineering. Clean Drawings.",
   heroSubtitle:     "Project-based engineering tutoring for IGCSE, A-Level, BTEC, and foundation students.",
   heroDesc:         "",
-  heroCTAText:      "Book Your Free Trial Lesson",
+  heroCTAText:      "Book Your First Session",
   heroCTAMicrocopy: "Engineering that simply works.",
 
   topicsTitle: "", topicsDesc: "", topics: [],
@@ -417,7 +417,7 @@ const data: SubjectPageProps = {
 
   finalCtaTitle:    "Uncover the Engineering Habit Gap",
   finalCtaSubtitle: "When engineering revision feels solid yet exam marks stall, a short check finds the habit costing each mark.",
-  finalCtaButton:   "Book Your Free Trial Lesson",
+  finalCtaButton:   "Book Your First Session",
   finalCtaSubtext:  "Engineering that simply works.",
 
   floatingIcon: <Wrench className="h-4 w-4" />,

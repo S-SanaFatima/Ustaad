@@ -720,7 +720,7 @@ export default function WhatDoesGradientMeanBlog() {
             
             <p>Ustaad supports Maths and Physics students across the UAE through diagnostic, concept-led learning aligned to IGCSE, A-Level, and IB curricula.{' '}
               <a href="/contact#form" className="text-[#0f4a9b] font-semibold hover:underline">
-                Book a free trial with Tabraiz Khan
+                Book your first session with Tabraiz Khan
               </a>{' '}
               to find out exactly where the gaps are.
             </p>
@@ -730,9 +730,9 @@ export default function WhatDoesGradientMeanBlog() {
               <a href="/contact#form"
                 className="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-white text-sm hover:brightness-110 transition"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial with Tabraiz Khan
+                Book Your First Session with Tabraiz Khan
               </a>
-              <p className="text-xs text-gray-500 font-medium">Free 30-min trial. No commitment.</p>
+              <p className="text-xs text-gray-500 font-medium">No commitment. Cancel anytime.</p>
             </div>
 
           </div>
@@ -786,7 +786,7 @@ export default function WhatDoesGradientMeanBlog() {
           {/* Bottom CTA */}
           <div className="mt-8 mb-12 rounded-2xl p-6 lg:p-8 text-center text-white shadow-xl"
             style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 60%, #1e5ba8 100%)' }}>
-            <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2">Book a Free Trial with Tabraiz Khan</h3>
+            <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2">Book First Session with Tabraiz Khan</h3>
             <p className="text-white/80 mb-5 max-w-lg mx-auto text-sm leading-relaxed">
               Work one-to-one with Cambridge Certified specialist <a href="/tutors/tabraiz-khan" className="text-[#F5D77F] font-bold underline hover:text-white">Tabraiz Khan</a> to master graph interpretation and exam problem-solving across IGCSE, GCSE, A-Level, and IB Maths &amp; Physics.
             </p>
@@ -795,11 +795,11 @@ export default function WhatDoesGradientMeanBlog() {
                 <a href="/contact#form"
                   className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm shadow-md"
                   style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                  Book Free Trial with Tabraiz
+                  Book First Session with Tabraiz
                 </a>
-                <p className="text-xs text-white/60 font-medium">Free 30-min trial · Cancel anytime</p>
+                <p className="text-xs text-white/60 font-medium">No commitment · Cancel anytime</p>
               </div>
-              <a href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20free%20trial%20session%20with%20Tabraiz%20Khan%20for%20Maths." target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20first%20session%20with%20Tabraiz%20Khan%20for%20Maths." target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md">
                 <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> WhatsApp for Maths with Tabraiz
               </a>

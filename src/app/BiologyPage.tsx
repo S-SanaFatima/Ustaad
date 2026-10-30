@@ -278,7 +278,7 @@ const customResultsSection = (
           <MapPin className="h-5 w-5 text-[#0f4a9b]" />
         </div>
         <p className="text-white/70 text-sm leading-relaxed">
-          Biology worry settles at home and confidence builds for families across Dubai, Abu Dhabi, and the UAE.
+          Biology worry settles at home and confidence builds for families across Dubai, Abu Dhabi, and the UAE. Connect with our dedicated <a href="/biology-tutor-dubai" className="text-[#C7A24A] font-semibold underline hover:text-white transition-colors">Biology tutors in Dubai</a> for 1-to-1 IGCSE, A-Level, and IB exam preparation.
         </p>
       </div>
     </div>
@@ -360,7 +360,7 @@ const data: SubjectPageProps = {
   heroTitle:        "Confident Biology. Higher Scores.",
   heroSubtitle:     "Tailored biology tuition for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
-  heroCTAText:      "Book Your Free Trial Lesson",
+  heroCTAText:      "Book Your First Session",
   heroCTAMicrocopy: "Biology, made to stick.",
 
   topicsTitle: "", topicsDesc: "", topics: [],
@@ -386,13 +386,13 @@ const data: SubjectPageProps = {
 
   finalCtaTitle:    "See Where Grades Quietly Drop",
   finalCtaSubtitle: "When biology revision feels solid yet exam scores stall, a short check reveals the habit costing marks.",
-  finalCtaButton:   "Book Your Free Trial Lesson",
+  finalCtaButton:   "Book Your First Session",
   finalCtaSubtext:  "Biology, made to stick.",
 
   floatingIcon: <Dna className="h-4 w-4" />,
   seo: {
     title: "Biology Tutors UAE | IGCSE, A-Level, IB Biology | Ustaad",
-    description: "Expert private Biology tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level, IB SL/HL, AP Biology. 1-to-1 sessions with proven exam results. Book a free trial.",
+    description: "Expert private Biology tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level, IB SL/HL, AP Biology. 1-to-1 sessions with proven exam results. Free 15-min orientation with the first lesson.",
     canonical: "/biology",
     schema: [
       localBusinessSchema,

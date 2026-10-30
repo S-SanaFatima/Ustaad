@@ -154,7 +154,7 @@ export default function AmericanCurriculumPage() {
               Online tutoring for American Curriculum students across Middle School, High School, and with specialist <a href="/ap" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">AP tutors in the UAE</a>.
             </p>
             <HeroCTABlock>
-              Book Your Free Trial
+              Book Your First Session
             </HeroCTABlock>
           </motion.div>
         </div>
@@ -412,7 +412,7 @@ export default function AmericanCurriculumPage() {
       <FinalCTA
         title="Book Your American Curriculum Tutor"
         subtitle="American Curriculum, your grade."
-        button1Text="Book Your Free Trial" />
+        button1Text="Book Your First Session" />
     </Layout>
   );
 }

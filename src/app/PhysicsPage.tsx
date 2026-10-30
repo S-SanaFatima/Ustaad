@@ -396,7 +396,7 @@ const data: SubjectPageProps = {
   heroTitle:        "Clear Physics. Real Marks.",
   heroSubtitle:     "Specialist physics coaching for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
-  heroCTAText:      "Book Your Free Trial Lesson",
+  heroCTAText:      "Book Your First Session",
   heroCTAMicrocopy: "Physics that finally clicks.",
 
   topicsTitle: "", topicsDesc: "", topics: [],
@@ -422,13 +422,13 @@ const data: SubjectPageProps = {
 
   finalCtaTitle:    "Pinpoint the Concepts Holding Results Back",
   finalCtaSubtitle: "When classroom physics does not land on the timed paper, a short check finds the habit costing marks.",
-  finalCtaButton:   "Book Your Free Trial Lesson",
+  finalCtaButton:   "Book Your First Session",
   finalCtaSubtext:  "Physics that finally clicks.",
 
   floatingIcon: <Atom className="h-4 w-4" />,
   seo: {
     title: "Physics Tutors UAE | IGCSE, A-Level, IB Physics | Ustaad",
-    description: "Expert private Physics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level, IB SL/HL, AP Physics. 1-to-1 sessions with proven exam results. Book a free trial.",
+    description: "Expert private Physics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level, IB SL/HL, AP Physics. 1-to-1 sessions with proven exam results. Free 15-min orientation with the first lesson.",
     canonical: "/physics",
     schema: [
       localBusinessSchema,

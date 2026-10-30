@@ -52,6 +52,10 @@ export const AUTHORS: Author[] = [
     photoAlt: 'Nimra Shahzada, Writer on learning and the psychology of studying at Ustaad UAE',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
+      { title: 'Winter Break Revision Plan for UAE Students: How to Rest, Reset and Be Ready for the New Term', href: '/blogs/winter-break-revision-plan-uae-students', role: 'authored' },
+      { title: "How to Read an Examiner's Report: The Secret Document That Turns B Grades into A*s", href: '/blogs/how-to-read-examiner-reports-igcse-a-level', role: 'authored' },
+      { title: 'The Scaffolding Trap: Why Students Freeze on Exam Questions', href: '/blogs/why-students-freeze-exam-questions-scaffolding-trap', role: 'authored' },
+      { title: 'Maths Anxiety in Teenagers: Why Your Child Says "I\'m Just Bad at Maths" (and How to Help)', href: '/blogs/maths-anxiety-teenagers-signs-causes-help', role: 'authored' },
       { title: "Parent-Teacher Meetings in the UAE: What to Ask When Your Child Is in IGCSE or A-Level", href: '/blogs/parent-teacher-meeting-questions-uae', role: 'authored' },
       { title: "Why Teenagers Procrastinate on Revision (And Why It Isn't Laziness)", href: '/blogs/why-teenagers-procrastinate-on-revision', role: 'authored' },
       { title: 'Sleep and Memory: Why All-Nighters Backfire for UAE Students', href: '/blogs/sleep-and-memory-why-all-nighters-backfire', role: 'authored' },

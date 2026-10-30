@@ -30,7 +30,7 @@ export default function IBCurriculumPage() {
     { q: "Which IB subjects does Ustaad support?", a: <><a href="/maths" className="text-[#0f4a9b] font-semibold underline">Mathematics</a> (AA and AI), <a href="/physics" className="text-[#0f4a9b] font-semibold underline">Physics</a>, <a href="/chemistry" className="text-[#0f4a9b] font-semibold underline">Chemistry</a>, <a href="/biology" className="text-[#0f4a9b] font-semibold underline">Biology</a>, <a href="/english" className="text-[#0f4a9b] font-semibold underline">English</a>, and <a href="/economics" className="text-[#0f4a9b] font-semibold underline">Economics</a> across SL and HL.</> },
     { q: "Does Ustaad support TOK essays and CAS reflection?", a: <>Yes. <a href="/exam-preparation" className="text-[#0f4a9b] font-semibold underline">TOK essay planning and CAS reflection writing</a> are covered separately from subject tutoring.</> },
     { q: "Is the IB Diploma recognised by UAE universities?", a: "Yes. Most UAE universities accept the IB Diploma; minimum points and subject requirements vary by university." },
-    { q: "Does Ustaad support IB students across the UAE?", a: "Yes. Students across all seven emirates are supported online and at home." },
+    { q: "Does Ustaad support IB students across the UAE?", a: <>Yes. Students across all seven emirates are supported online and at home. Looking for dedicated tuition in Dubai? See our specialist <a href="/ib-tutor-dubai" className="text-[#0f4a9b] font-semibold underline">IB tutors in Dubai</a>.</> },
   ];
   return (
     <Layout>
@@ -404,7 +404,7 @@ export default function IBCurriculumPage() {
 
           <div className="bg-white/5 border border-white/8 rounded-2xl px-8 py-6">
             <p className="text-blue-100/70 text-sm leading-relaxed text-justify">
-              IB students across Abu Dhabi, Dubai, Sharjah, Ajman, Al Ain, Ras Al Khaimah, and Fujairah work within a framework that asks for more than content knowledge. From <a href="/myp" className="text-[#4a90d9] font-semibold underline">MYP</a> through DP, students engage with assessment criteria, research tasks, academic writing, reflection, and sustained independent learning. Schools in Khalifa City, Yas Island, Saadiyat Island, Reem Island, Dubai Hills, Arabian Ranches, and Palm Jumeirah follow the same IB criteria as international peers. Ustaad supports IB students through one-to-one tutoring that strengthens concepts, addresses subject gaps, and improves performance against IB assessment criteria.
+              IB students across Abu Dhabi, Dubai, Sharjah, Ajman, Al Ain, Ras Al Khaimah, and Fujairah work within a framework that asks for more than content knowledge. From <a href="/myp" className="text-[#4a90d9] font-semibold underline">MYP</a> through DP, students engage with assessment criteria, research tasks, academic writing, reflection, and sustained independent learning. Schools in Khalifa City, Yas Island, Saadiyat Island, Reem Island, Dubai Hills, Arabian Ranches, and Palm Jumeirah follow the same IB criteria as international peers. Ustaad supports IB students through one-to-one tutoring that strengthens concepts, addresses subject gaps, and improves performance against IB assessment criteria. For families in Dubai or Abu Dhabi, see our <a href="/ib-tutor-dubai" className="text-[#4a90d9] font-semibold underline">IB tutors in Dubai</a> and <a href="/ib-tutor-abu-dhabi" className="text-[#4a90d9] font-semibold underline">IB tutors in Abu Dhabi</a>.
             </p>
           </div>
         </div>

@@ -50,13 +50,61 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'winter-break-revision-plan-uae-students',
+    image: '/images/blogs/winter-break-revision-plan-uae-family.webp',
+    alt: 'Parent and teenager agreeing a winter break revision plan at a table with morning light',
+    category: 'Parent Guidance',
+    title: 'Winter Break Revision Plan for UAE Students: How to Rest, Reset and Be Ready for the New Term',
+    description: 'UAE winter break runs 14 Dec to 3 Jan. A realistic three-week revision plan for IGCSE and A-Level students, with rest built in, before mocks.',
+    date: '30 Oct 2026',
+    readTime: '10 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
+    slug: 'how-to-read-examiner-reports-igcse-a-level',
+    image: '/images/blogs/how-to-read-examiner-reports-igcse-a-level-hero.webp',
+    alt: 'Secondary school student in the UAE reviewing an official Cambridge examiner report alongside past paper questions',
+    category: 'Academic',
+    title: "How to Read an Examiner's Report: The Secret Document That Turns B Grades into A*s",
+    description: "Mark schemes tell you what the answer is. Examiner reports tell you why thousands of students lost marks on it. Here is how Cambridge, Edexcel, and IB students in the UAE can use them to stop bleeding marks.",
+    date: '26 Oct 2026',
+    readTime: '10 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
+    slug: 'why-students-freeze-exam-questions-scaffolding-trap',
+    image: '/images/blogs/why-students-freeze-exam-questions-scaffolding-trap.webp',
+    alt: 'Year 11 student in Dubai pausing over a chemistry exam question at her desk',
+    category: 'Psychology of Learning',
+    title: 'The Scaffolding Trap: Why Students Freeze on Exam Questions',
+    description: 'Your child follows every lesson but freezes on exam questions? Learn how the scaffolding trap works and how UAE parents can build exam independence.',
+    date: '23 Oct 2026',
+    readTime: '9 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
+    slug: 'maths-anxiety-teenagers-signs-causes-help',
+    image: '/images/blogs/maths-anxiety-teenager-uae.webp',
+    alt: 'Teenage student looking uneasy at a maths worksheet at a home desk in the UAE',
+    category: 'Psychology of Learning',
+    title: 'Maths Anxiety in Teenagers: Why Your Child Says "I\'m Just Bad at Maths" (and How to Help)',
+    description: "Does your child say they're bad at maths? Learn the signs of maths anxiety in teenagers, what causes it, and practical ways UAE parents can help.",
+    date: '20 Oct 2026',
+    readTime: '10 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'parent-teacher-meeting-questions-uae',
     image: '/images/blogs/parent-teacher-meeting-uae-secondary-school.jpg',
     alt: 'Parent and teacher talking at a table during a secondary-school parent-teacher meeting in the UAE',
     category: 'Parent Guidance',
     title: 'Parent-Teacher Meetings in the UAE: What to Ask When Your Child Is in IGCSE or A-Level',
     description: 'Preparing for a parent-teacher meeting? Questions to ask about predicted grades, mocks and progress for IGCSE and A-Level students in the UAE.',
-    date: '19 Oct 2026',
+    date: '16 Oct 2026',
     readTime: '10 min read',
     author: 'Nimra Shahzada',
     featured: true,
@@ -527,10 +575,10 @@ export default function BlogsPage() {
 
       <FinalCTA
         title="Find the gaps holding your child back"
-        subtitle="Book a free 30 minute session with our specialists. We will pinpoint exactly where the gaps are and show you where to focus next."
-        button1Text="Book a Free Trial"
+        subtitle="Every first lesson starts with 15 free minutes to pinpoint the gaps and agree where to focus next."
+        button1Text="Book First Session"
         button2Text="Chat on WhatsApp"
-        button2Href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20a%20free%20session%20to%20discuss%20my%20child%27s%20learning%20gaps."
+        button2Href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20a%20session%20to%20discuss%20my%20child%27s%20learning%20gaps."
       />
     </Layout>
   );

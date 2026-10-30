@@ -1225,7 +1225,7 @@ function TabraizTutorCard() {
                   </a>
                 </div>
                 <p className="text-[10px] text-gray-500 leading-tight">
-                  Free 30-minute trial. No card required. He teaches{' '}
+                  Book your first session. He teaches{' '}
                   <a href="/maths-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a1f3d]">
                     maths in Abu Dhabi
                   </a>{' '}
@@ -1682,9 +1682,9 @@ export default function PhysicsLanding() {
       a: <>Yes. We schedule around school hours, mock windows, exam leave, UAE public holidays and Ramadan, in Abu Dhabi time.</>,
     },
     {
-      q: 'What happens in the free physics trial?',
-      plain: 'Thirty minutes with a matched tutor, and it is a diagnostic rather than a sales call. Your child works a real exam question while the tutor watches where the marks go, and you leave with a starting point and a plan. No card required.',
-      a: <>Thirty minutes with a matched tutor, and it is a diagnostic rather than a sales call. Your child works a real exam question while the tutor watches where the marks go, and you leave with a starting point and a plan. No card required.</>,
+      q: 'What happens in the free 15-minute orientation?',
+      plain: 'Every first lesson includes 15 free minutes with a matched tutor to meet and discuss learning goals, followed by an honest look at where marks are lost. You leave with a clear starting point and plan.',
+      a: <>Every first lesson includes 15 free minutes with a matched tutor to meet and discuss learning goals, followed by an honest look at where marks are lost. You leave with a clear starting point and plan.</>,
     },
   ];
 
@@ -1692,7 +1692,7 @@ export default function PhysicsLanding() {
     <Layout>
       <SEOHead
         title="IGCSE & A-Level Physics Tutor | Abu Dhabi & UAE | Ustaad"
-        description="One-to-one IGCSE and A-Level physics tutoring for Abu Dhabi families, taught online across the UAE. Cambridge 0625, Edexcel 4PH1 and A-Level 9702, including the practical papers. Free 30-minute trial."
+        description="One-to-one IGCSE and A-Level physics tutoring for Abu Dhabi families, taught online across the UAE. Cambridge 0625, Edexcel 4PH1 and A-Level 9702, including the practical papers. Free 15-min orientation with the first lesson."
         canonical="/physics-tutor-abu-dhabi"
         placename="Abu Dhabi, UAE"
         schema={[
@@ -1935,7 +1935,7 @@ export default function PhysicsLanding() {
               <a href={BOOKING}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5"
                 style={{ background:'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow:'0 4px 16px rgba(15,74,155,0.5)' }}>
-                Book Your Free Trial
+                Book Your First Session
               </a>
               <span className="text-blue-200/50 text-[11px] -my-1">or</span>
               <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20">
@@ -1949,7 +1949,7 @@ export default function PhysicsLanding() {
                 <a href={BOOKING}
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
                   style={{ background:'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow:'0 4px 18px rgba(15,74,155,0.55)' }}>
-                  Book Your Free Trial
+                  Book Your First Session
                 </a>
                 <p className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
@@ -2631,7 +2631,7 @@ export default function PhysicsLanding() {
 
           <div className="flex justify-center">
             <GoldButton href={BOOKING} className="px-5 py-2 text-xs sm:text-sm font-bold shadow-sm">
-              Book Diagnostic Trial
+              Book Diagnostic Session
             </GoldButton>
           </div>
         </div>
@@ -2746,13 +2746,13 @@ export default function PhysicsLanding() {
 
       {/* SECTION 14 — CLOSING CALL TO ACTION */}
       <FinalCTA
-        title="Book a free physics trial in Abu Dhabi"
+        title="Book a first physics session in Abu Dhabi"
         subtitle=""
         subtitleNode={null}
-        button1Text="Book Your Free Trial"
+        button1Text="Book Your First Session"
         button1Href={BOOKING}
         button2Text="Ask on WhatsApp"
-        subtext2="Free 30-min trial · No card required"
+        subtext2="Free 15-min orientation with the first lesson"
       />
 
       {/* SECTION 15 — CONNECTED LEARNING PATHWAYS */}

@@ -119,8 +119,8 @@ const FAQS = [
     a: 'Yes. Board switches mid-IGCSE are common in Abu Dhabi as families change schools. We move your child to a tutor who teaches the new specification and carry forward the topics already covered, so nothing restarts from zero.',
   },
   {
-    q: 'Do you offer in-person IGCSE tutoring in Abu Dhabi, or only online?',
-    a: 'Both. Many Abu Dhabi families choose online 1-to-1 for flexibility around school and traffic, while others prefer in-person sessions at home. We match you to a tutor who fits the format you want.',
+    q: 'Is IGCSE tutoring in Abu Dhabi online?',
+    a: 'Yes. Every IGCSE lesson is online and 1-to-1, which many Abu Dhabi families prefer for flexibility around school and traffic. We match your child with a tutor for their exam board.',
   },
   {
     q: 'When should my child start IGCSE tutoring?',
@@ -409,7 +409,7 @@ function CoreVsExtendedDecisionSection() {
               className="mt-6 w-full inline-flex items-center justify-center px-4 py-3 rounded-xl font-bold text-xs sm:text-sm text-[#0a1f3d] transition-all hover:brightness-110"
               style={{ background: 'linear-gradient(135deg, #f0c96a, #c9a24c)' }}
             >
-              Request Free Diagnostic Assessment
+              Request Diagnostic Assessment
             </a>
           </div>
         </div>
@@ -741,7 +741,7 @@ export default function IGCSETutorAbuDhabiPage() {
     <Layout>
       <SEOHead
         title="IGCSE Tutor Abu Dhabi | Cambridge, Edexcel & OxfordAQA"
-        description="1-to-1 IGCSE tutors Abu Dhabi. Cambridge, Edexcel, OxfordAQA. Each tutor carefully vetted by our academic and operations team. Free 30-min trial."
+        description="1-to-1 IGCSE tutors Abu Dhabi. Cambridge, Edexcel, OxfordAQA. Each tutor carefully vetted by our academic and operations team. Free 15-min orientation with the first lesson."
         canonical="/igcse-tutor-abu-dhabi"
         ogImage="/UpdatedImages/igcse-abudhabi-hero.jpg"
         placename="Abu Dhabi, UAE"
@@ -905,7 +905,7 @@ export default function IGCSETutorAbuDhabiPage() {
               <a href={BOOKING}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}>
-                Book Your Free Trial
+                Book Your First Session
               </a>
               <p className="text-blue-200/60 text-[11px] -mt-0.5 mb-0.5">No commitment. Cancel anytime.</p>
               <span className="text-blue-200/50 text-[11px] -my-1">or</span>
@@ -919,7 +919,7 @@ export default function IGCSETutorAbuDhabiPage() {
                 <a href={BOOKING}
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
                   style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}>
-                  Book Your Free Trial
+                  Book Your First Session
                 </a>
                 <p className="text-blue-200/60 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
@@ -1382,7 +1382,7 @@ export default function IGCSETutorAbuDhabiPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-extrabold text-[#0a1f3d] mb-2">Where Our IGCSE Students Live</h2>
-            <p className="text-xs sm:text-sm text-gray-600">Online and home tutoring across all primary Abu Dhabi districts.</p>
+            <p className="text-xs sm:text-sm text-gray-600">Online tutoring for families in every Abu Dhabi district.</p>
           </div>
 
           <div className="overflow-x-auto bg-white rounded-2xl border border-slate-200/80 shadow-sm max-w-4xl mx-auto">
@@ -1698,7 +1698,7 @@ export default function IGCSETutorAbuDhabiPage() {
       <FinalCTA
         title="Start IGCSE Support Today"
         subtitle="No commitment. Weekend and evening slots. UAE-registered since 2015."
-        button1Text="Book Free Trial"
+        button1Text="Book First Session"
         subtext1=""
         button2Text="Ask Question on WhatsApp"
         subtext2=""

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const HIDDEN_PATHS = ['/contact', '/privacy', '/terms', '/sitemap'];
-const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20my%20first%2030-minute%20session%20with%20a%20subject%20and%20curriculum-fit%20tutor.';
+const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20my%20first%20session%20with%20a%20subject%20and%20curriculum-fit%20tutor.';
 
 function fireGA(event: string, path: string) {
   if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -167,7 +167,7 @@ export default function FloatingWidget() {
               ×
             </button>
             <h3 id="ask-widget-title" style={{ fontSize: 16, fontWeight: 700, color: '#0b1f3a', margin: '0 0 8px' }}>
-              Book your first 30-minute session
+              Book your first session
             </h3>
             <p style={{ fontSize: 14, color: '#333', margin: '0 0 16px', lineHeight: 1.4 }}>
               Meet a subject and curriculum-fit tutor who will pinpoint the gaps and map the next steps.
@@ -211,7 +211,7 @@ export default function FloatingWidget() {
               className="hidden md:block"
               style={{ padding: '8px 14px', borderRadius: 24, background: '#ffffff', color: '#0b1f3a', fontSize: 13, fontWeight: 500, boxShadow: '0 4px 12px rgba(11,31,58,0.12)', border: 'none', cursor: 'pointer', whiteSpace: 'nowrap' }}
             >
-              Book a free session
+              Book first session
             </button>
 
             {/* Circle trigger with dismiss X */}
@@ -219,7 +219,7 @@ export default function FloatingWidget() {
               <button
                 ref={triggerRef}
                 onClick={handleExpand}
-                aria-label="Book a free session"
+                aria-label="Book first session"
                 aria-expanded={false}
                 aria-controls="ask-widget-card"
                 className={pulseDone ? '' : 'ask-widget-pulse'}

@@ -58,11 +58,11 @@ export const TUTORS: Record<string, TutorProfile> = {
     subhead: 'Cambridge Certified Teacher with 9 years teaching Maths, Physics and Statistics across IGCSE, GCSE, A-Level, IB and American curricula.',
     quickChips: [
       'Replies in ~12 min on WhatsApp',
-      'Free 30-min trial',
+      'Free 15-min orientation',
       'Cambridge Certified',
     ],
     trialUrl: '/contact#form',
-    waUrl: 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Tabraiz%20Khan%20for%20a%20trial%20lesson.',
+    waUrl: 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Tabraiz%20Khan%20for%20the%20first%20lesson.',
     trustItems: [
       { label: 'Experience', value: '9 Years', type: 'experience' },
       { label: 'Subjects', value: 'Maths, Physics, Statistics', type: 'subjects' },
@@ -76,7 +76,7 @@ export const TUTORS: Record<string, TutorProfile> = {
       bullets: [
         "Cambridge Certified Teacher with a Master's in Statistics.",
         '9 years teaching Maths, Physics and Statistics.',
-        'Rare fit for students juggling all three subjects, especially at IB HL and A-Level.',
+        'Rare fit for students juggling all three subjects, especially for students needing IB tutoring in Dubai at HL and A-Level.',
         'Analytical style: concept first, then technique, then the exam paper.',
         'Parents notice homework becomes less of a battle within the first few weeks.',
         'Teaches online across Dubai, Abu Dhabi and the wider UAE.',
@@ -117,7 +117,7 @@ export const TUTORS: Record<string, TutorProfile> = {
       },
       {
         q: 'Which exam boards does Tabraiz handle?',
-        a: "Cambridge, Edexcel, AQA, IAL and IB (both SL and HL), plus the American curriculum. If your school uses a variant we haven't listed, mention it in your enquiry and we will confirm fit before the trial.",
+        a: "Cambridge, Edexcel, AQA, IAL and IB (both SL and HL), plus the American curriculum. If your school uses a variant we haven't listed, mention it in your enquiry and we will confirm fit before the first lesson.",
       },
       {
         q: 'Is he a good fit for IB HL students?',
@@ -128,14 +128,14 @@ export const TUTORS: Record<string, TutorProfile> = {
         a: "All of Tabraiz's Ustaad lessons run online. Families across Dubai, Abu Dhabi and the wider UAE can book him without commute time.",
       },
       {
-        q: 'How quickly can we get a trial booked?',
-        a: 'Most trials with Tabraiz are scheduled within 2 to 3 days of your enquiry, subject to his open slots that week. Weekend mornings fill fastest. Message us on WhatsApp for the fastest response.',
+        q: 'How quickly can the first lesson be booked?',
+        a: 'Most first lessons with Tabraiz are scheduled within 2 to 3 days of your enquiry, subject to his open slots that week. Weekend mornings fill fastest. Message us on WhatsApp for the fastest response.',
       },
     ],
     seo: {
       title: 'Tabraiz Khan · Maths, Physics & Statistics Tutor Dubai | Ustaad',
       description:
-        'Tabraiz Khan is a Cambridge Certified Maths, Physics and Statistics tutor at Ustaad with 9 years teaching across IGCSE, GCSE, A-Level, IB and American curricula. Book a free trial today.',
+        'Tabraiz Khan is a Cambridge Certified Maths, Physics and Statistics tutor at Ustaad with 9 years teaching across IGCSE, GCSE, A-Level, IB and American curricula. Book your first session today.',
     },
   },
 
@@ -148,10 +148,10 @@ export const TUTORS: Record<string, TutorProfile> = {
     subhead: 'Maths tutor with 10+ years teaching IGCSE, GCSE and A-Level. Focus on structure, calm pacing, and real exam confidence.',
     quickChips: [
       'Replies in ~12 min on WhatsApp',
-      'Free 30-min trial',
+      'Free 15-min orientation',
     ],
     trialUrl: '/contact#form',
-    waUrl: 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Fahad%20Khan%20for%20a%20trial%20lesson.',
+    waUrl: 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Fahad%20Khan%20for%20the%20first%20lesson.',
     trustItems: [
       { label: 'Experience', value: '10+ Years', type: 'experience' },
       { label: 'Subject', value: 'Mathematics', type: 'subjects' },
@@ -198,21 +198,21 @@ export const TUTORS: Record<string, TutorProfile> = {
       },
       {
         q: 'Which exam boards does Fahad handle?',
-        a: 'Cambridge and Edexcel. If your school uses a different Maths board, mention it in your enquiry and we will confirm before the trial.',
+        a: 'Cambridge and Edexcel. If your school uses a different Maths board, mention it in your enquiry and we will confirm before the first lesson.',
       },
       {
         q: "Can we switch tutors if Fahad isn't the right fit?",
-        a: "Yes. The 30-minute trial is designed for exactly that decision. If Fahad is not the right match, we will pair you with another Ustaad tutor at no extra cost.",
+        a: "Yes. The first lesson is designed for exactly that decision. If Fahad is not the right match, we will pair you with another Ustaad tutor at no extra cost.",
       },
       {
-        q: 'How quickly can we get a trial booked?',
-        a: 'Most trials with Fahad are scheduled within 2 to 3 days of your enquiry, subject to his open slots that week. Message us on WhatsApp for the fastest response.',
+        q: 'How quickly can the first lesson be booked?',
+        a: 'Most first lessons with Fahad are scheduled within 2 to 3 days of your enquiry, subject to his open slots that week. Message us on WhatsApp for the fastest response.',
       },
     ],
     seo: {
       title: 'Fahad Khan · Maths Tutor Dubai & UAE | Ustaad',
       description:
-        'Fahad Khan is a specialized Maths tutor at Ustaad with 10+ years experience teaching IGCSE, GCSE and A-Level. Book a free 30-minute trial lesson today.',
+        'Fahad Khan is a specialized Maths tutor at Ustaad with 10+ years experience teaching IGCSE, GCSE and A-Level. Free 15-min orientation with the first lesson.',
     },
   },
 };

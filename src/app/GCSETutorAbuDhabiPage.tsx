@@ -223,12 +223,12 @@ export default function GCSETutorAbuDhabiPage() {
 
           <motion.div variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } }} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full px-4">
             <div className="sm:hidden w-full max-w-[340px] flex flex-col items-center gap-2.5 p-3.5 rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)' }}>
-              <a href={BOOKING} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}>Book Your Free Trial</a>
+              <a href={BOOKING} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}>Book Your First Session</a>
               <a href={WA_URL} className="text-blue-200/80 text-[12px] underline flex items-center justify-center gap-1"><MessageCircle className="w-3 h-3" /> WhatsApp Us</a>
             </div>
 
             <div className="hidden sm:flex items-center justify-center gap-4">
-              <a href={BOOKING} className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}>Book Your Free Trial</a>
+              <a href={BOOKING} className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}>Book Your First Session</a>
               <span className="text-blue-200/50">or</span>
               <a href={WA_URL} className="inline-flex items-center justify-center gap-2 px-7 h-12 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
             </div>
@@ -265,14 +265,14 @@ export default function GCSETutorAbuDhabiPage() {
       <section className="py-14 lg:py-18 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-3">Trial Outcomes</div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3">What Your Free First Lesson Delivers</h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">Four concrete outcomes your child and you leave the trial holding.</p>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-3">First Session Outcomes</div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3">What Your First Lesson Delivers</h2>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">Four concrete outcomes your child and you leave the first session holding.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
             {[
               { title: 'Mock Paper Review', desc: 'Your child\'s latest mock walked through, question by question, live.' },
-              { title: 'Weak Topic Named', desc: 'One specific weak topic named before the trial lesson ends.' },
+              { title: 'Weak Topic Named', desc: 'One specific weak topic named before the first lesson ends.' },
               { title: 'Target Grade Set', desc: 'The gap between mock grade and school target confirmed in numbers.' },
               { title: 'Weekly Slot Booked', desc: 'A recurring Abu Dhabi weekly slot agreed before the call closes.' },
             ].map((item, i) => (
@@ -450,13 +450,13 @@ export default function GCSETutorAbuDhabiPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-4">Start Online GCSE Support</h2>
-            <p className="text-gray-600 text-[15px]">Two free ways to begin, both delivered live online.</p>
+            <p className="text-gray-600 text-[15px]">Two ways to begin, both delivered live online.</p>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 mb-12">
             <div className="bg-[#f4f7fc] p-8 rounded-[24px] border border-[#0f4a9b]/10 flex flex-col items-center text-center hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] hover:-translate-y-1 transition-all duration-300">
               <div className="w-16 h-16 rounded-full bg-[#f0c96a]/20 text-[#b8883f] flex items-center justify-center mb-5"><Star className="w-8 h-8 fill-current" /></div>
-              <h3 className="text-[18px] font-extrabold text-[#0a1f3d] mb-2">Free First Lesson</h3>
-              <p className="text-[14px] text-gray-500 mb-6 leading-relaxed">Thirty online minutes with a matched GCSE tutor, at no cost.</p>
+              <h3 className="text-[18px] font-extrabold text-[#0a1f3d] mb-2">Free 15-min orientation</h3>
+              <p className="text-[14px] text-gray-500 mb-6 leading-relaxed">15 extra minutes on the first lesson to meet your GCSE tutor.</p>
               <a href={BOOKING} className="w-full bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] hover:brightness-110 text-white py-3 rounded-xl font-bold transition transform flex items-center justify-center gap-2 shadow-[0_4px_14px_rgba(199,162,74,0.3)] hover:shadow-lg hover:shadow-[#C7A24A]/40 hover:-translate-y-0.5 active:scale-95">Book First Lesson</a>
             </div>
             <div className="bg-white p-8 rounded-[24px] shadow-[0_8px_30px_rgba(37,211,102,0.08)] border border-[#25D366]/20 flex flex-col items-center text-center hover:shadow-[0_12px_40px_rgba(37,211,102,0.15)] hover:-translate-y-1 transition-all duration-300">

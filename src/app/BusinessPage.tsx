@@ -360,7 +360,7 @@ const data: SubjectPageProps = {
   heroTitle:        "Practical Business. Real Decisions.",
   heroSubtitle:     "Grounded business studies for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
-  heroCTAText:      "Book Your Free Trial Lesson",
+  heroCTAText:      "Book Your First Session",
   heroCTAMicrocopy: "Business made simple here.",
 
   topicsTitle: "", topicsDesc: "", topics: [],
@@ -386,7 +386,7 @@ const data: SubjectPageProps = {
 
   finalCtaTitle:    "Spot What's Limiting Business Marks",
   finalCtaSubtitle: "When business answers feel right at home but slip on the paper, the gap is usually structure, not content. A short paper check finds the exact habit losing the mark.",
-  finalCtaButton:   "Book Your Free Trial Lesson",
+  finalCtaButton:   "Book Your First Session",
   finalCtaSubtext:  "Business made simple here.",
 
   floatingIcon: <Briefcase className="h-4 w-4" />,

@@ -374,7 +374,7 @@ export function StudyHabits3DSection() {
         </div>
 
         {/* Swipe indicator on mobile */}
-        <SwipeIndicator text="Swipe across all 3 guides" className="mt-4" />
+        <SwipeIndicator text="Swipe across all 3 guides" hideArrows hideDots className="mt-4" />
       </div>
     </section>
   );

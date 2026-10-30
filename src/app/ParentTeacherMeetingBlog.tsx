@@ -44,9 +44,9 @@ const BLOG = {
   heroAlt:
     'Parent and teacher talking at a table during a secondary-school parent-teacher meeting in the UAE',
   heroCaption: 'A good parent-teacher meeting is short, specific and ends with a plan.',
-  datePublished: '2026-10-19',
-  dateModified: '2026-10-19',
-  publishedText: '19 Oct 2026',
+  datePublished: '2026-10-16',
+  dateModified: '2026-10-16',
+  publishedText: '16 Oct 2026',
   author: 'Nimra Shahzada',
   authorFull: 'Nimra Shahzada | Writer on learning and the psychology of studying',
   authorRole: 'Writer on learning and the psychology of studying',
@@ -99,10 +99,10 @@ const TOC_ITEMS = [
   { label: 'Three questions that work in every subject', id: 'three-questions-that-work-in-every-subject' },
   { label: 'Questions by subject', id: 'questions-by-subject' },
   { label: 'Grades, predictions and exams: which grade is it?', id: 'grades-predictions-and-exams' },
-  { label: 'Decoding what teachers say', id: 'decoding-what-teachers-say' },
+  { label: 'What teachers’ comments often mean', id: 'decoding-what-teachers-say' },
   { label: 'Beyond marks: confidence, wellbeing and effort', id: 'beyond-marks-confidence-wellbeing-effort' },
   { label: 'If you only get five minutes', id: 'if-you-only-get-five-minutes' },
-  { label: 'The 24-hour follow-up', id: 'the-24-hour-follow-up' },
+  { label: 'After the meeting: the next day', id: 'the-24-hour-follow-up' },
   { label: 'When the answers are unclear, or you disagree', id: 'when-answers-unclear-or-disagree' },
   { label: 'Frequently asked questions', id: 'faqs' },
   { label: 'Sources and further reading', id: 'sources' }
@@ -449,7 +449,7 @@ Kind regards,
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
             <p>
-              A primary-school meeting is usually one conversation with one teacher who sees your child all day. A secondary-school meeting for an IGCSE or A-Level student is different in four ways:
+              A primary-school meeting is usually one conversation with one teacher who sees your child all day. A secondary-school meeting for an IGCSE or A-Level student is different in three ways:
             </p>
             <ul className="space-y-2.5 my-3 pl-2">
               <li className="flex items-start gap-2">
@@ -472,12 +472,6 @@ Kind regards,
                 <span className="text-[#0f4a9b] font-bold mt-0.5">&bull;</span>
                 <div>
                   <strong className="text-[#0a1f3d]">More independent children:</strong> Teenagers tell you less at home. &ldquo;What did you do today?&rdquo; gets &ldquo;Nothing&rdquo; far more often than it did at eight years old.
-                </div>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#0f4a9b] font-bold mt-0.5">&bull;</span>
-                <div>
-                  <strong className="text-[#0a1f3d]">Less contact as children get older:</strong> School leaders quoted in a Gulf News report estimated that attendance at these meetings falls as students move up the school, from very high in primary to around half in the senior years. That is exactly when the information matters most.
                 </div>
               </li>
             </ul>
@@ -636,8 +630,8 @@ Kind regards,
                     Silly Mistakes in Maths Exams
                   </a>{' '}
                   &bull;{' '}
-                  <a href="/blogs/igcse-maths-low-marks-good-student" className="underline hover:text-[#0a3a79]">
-                    When Good Students Score Low in IGCSE Maths
+                  <a href="/blogs/igcse-maths-revision-low-marks" className="underline hover:text-[#0a3a79]">
+                    Why IGCSE Maths Students Lose Marks After Revision
                   </a>
                 </p>
               </div>
@@ -652,16 +646,16 @@ Kind regards,
                 </p>
                 <p className="text-xs text-[#0f4a9b] font-medium">
                   Related reading:{' '}
-                  <a href="/blogs/command-words-gcse-science" className="underline hover:text-[#0a3a79]">
-                    Command Words in GCSE &amp; IGCSE Science
+                  <a href="/blogs/command-words-igcse-a-level-exams" className="underline hover:text-[#0a3a79]">
+                    Command Words in IGCSE and A-Level Exams
                   </a>{' '}
                   &bull;{' '}
-                  <a href="/blogs/how-to-answer-igcse-biology-6-mark-questions" className="underline hover:text-[#0a3a79]">
+                  <a href="/blogs/why-igcse-biology-students-lose-marks-on-6-mark-questions" className="underline hover:text-[#0a3a79]">
                     6-Mark Questions in Biology
                   </a>{' '}
                   &bull;{' '}
-                  <a href="/blogs/early-signs-chemistry-struggles" className="underline hover:text-[#0a3a79]">
-                    Early Signs of Chemistry Struggles
+                  <a href="/blogs/early-signs-chemistry-help-uae" className="underline hover:text-[#0a3a79]">
+                    Early Signs Your Child Needs Help in Chemistry
                   </a>
                 </p>
               </div>
@@ -742,13 +736,13 @@ Kind regards,
             </div>
 
             <p>
-              In Year 11 and Year 13, also ask about exam tiers (Foundation vs Higher in maths and science) and coursework or NEA weighting. If a student is sitting the wrong tier, their grade ceiling is hard-capped.
+              In Year 10 and 11, also ask which tier your child is entered for: Core or Extended in Cambridge IGCSE, Foundation or Higher in Edexcel Maths. A lower-tier entry cannot reach the top grades. A-Levels have no tiers, so in Year 12 and 13 ask about coursework or NEA weighting instead.
             </p>
           </div>
 
-          {/* ── 06. Decoding what teachers say ── */}
+          {/* ── 06. What teachers' comments often mean ── */}
           <SectionHeading num="06" id="decoding-what-teachers-say">
-            Decoding what teachers say
+            What teachers&rsquo; comments often mean
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
             <p>
@@ -825,11 +819,11 @@ Kind regards,
                 <span className="text-[#0f4a9b] font-bold mt-0.5">&bull;</span>
                 <div>
                   <strong className="text-[#0a1f3d]">Exam room stamina vs homework performance:</strong> Many teenagers do well at home but lock up in timed exam halls. Check out our guides on{' '}
-                  <a href="/blogs/exam-panic-secondary-students" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                  <a href="/blogs/exam-panic-before-exams-uae" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                     handling exam panic
                   </a>{' '}
                   and{' '}
-                  <a href="/blogs/exam-stamina-fatigue-long-papers" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                  <a href="/blogs/exam-stamina-uae-students" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                     exam stamina
                   </a>.
                 </div>
@@ -838,7 +832,7 @@ Kind regards,
                 <span className="text-[#0f4a9b] font-bold mt-0.5">&bull;</span>
                 <div>
                   <strong className="text-[#0a1f3d]">Sleep and screen routines:</strong> UAE teenagers frequently report staying up late on messaging groups or studying past midnight. Research consistently shows that sleep loss damages working memory and recall. Read our breakdown on{' '}
-                  <a href="/blogs/sleep-and-memory-students" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                  <a href="/blogs/sleep-and-memory-why-all-nighters-backfire" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                     sleep, memory and exams
                   </a>.
                 </div>
@@ -895,9 +889,9 @@ Kind regards,
             </div>
           </div>
 
-          {/* ── 09. The 24-hour follow-up ── */}
+          {/* ── 09. After the meeting: the next day ── */}
           <SectionHeading num="09" id="the-24-hour-follow-up">
-            The 24-hour follow-up
+            After the meeting: the next day
           </SectionHeading>
           <div className="space-y-3.5 text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify">
             <p>
@@ -919,7 +913,7 @@ Kind regards,
               <li className="flex items-start gap-2">
                 <span className="font-bold text-[#0f4a9b]">3.</span>
                 <div>
-                  <strong className="text-[#0a1f3d]">Send a 3-line confirmation email:</strong> Teachers see 60+ parents in an evening. A polite, written summary creates an agreed record and sets a check-in point.
+                  <strong className="text-[#0a1f3d]">Send a 3-line confirmation email:</strong> A teacher may meet dozens of families in one evening. A polite, written summary creates an agreed record and sets a check-in point.
                 </div>
               </li>
             </ol>
@@ -982,7 +976,15 @@ Kind regards,
               <li className="flex items-start gap-2">
                 <span className="text-[#0f4a9b] font-bold mt-0.5">&bull;</span>
                 <div>
-                  <strong className="text-[#0a1f3d]">Consider outside help for a specific gap:</strong> If a teacher names a particular topic or skill (such as 6-mark biology explanations, or calculus method marks), a short, targeted block of support can help. Our{' '}
+                  <strong className="text-[#0a1f3d]">Consider outside help for a specific gap:</strong> If a teacher names a particular topic or skill (such as 6-mark biology explanations, or calculus method marks), a short, targeted block of support from an{' '}
+                  <a href="/igcse" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                    IGCSE tutor
+                  </a>{' '}
+                  or{' '}
+                  <a href="/a-level" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                    A-Level tutor
+                  </a>{' '}
+                  can help. Our{' '}
                   <a href="/blogs/private-tutoring-uae-parent-guide" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                     private tutoring guide
                   </a>{' '}
@@ -1051,8 +1053,7 @@ Kind regards,
             <p>&bull; <strong>Hill, N. E., &amp; Tyson, D. F. (2009).</strong> Parental involvement in middle school: A meta-analytic assessment of the strategies that promote achievement. <em>Developmental Psychology</em>.</p>
             <p>&bull; <strong>Wilder, S. (2014).</strong> Effects of parental involvement on academic achievement: A meta-synthesis. <em>Educational Review</em>.</p>
             <p>&bull; <strong>Jeynes, W. H. (2007).</strong> The relationship between parental involvement and urban secondary school student academic achievement: A meta-analysis. <em>Urban Education</em>.</p>
-            <p>&bull; <strong>Gulf News:</strong> Schools report high parent attendance in parent-teacher meetings. (Archive report quoting UAE school principals on attendance patterns across primary and secondary phases).</p>
-            <p>&bull; <strong>Cambridge International &amp; Pearson Edexcel:</strong> Published guidance on tiers, grading criteria, and exam entries for IGCSE, International GCSE and A-Level.</p>
+            <p>&bull; <a href="https://www.cambridgeinternational.org" target="_blank" rel="noopener noreferrer" className="font-bold underline text-[#0f4a9b] hover:text-[#0a3a79]">Cambridge International</a> &amp; <a href="https://qualifications.pearson.com/en/qualifications/edexcel-international-gcses.html" target="_blank" rel="noopener noreferrer" className="font-bold underline text-[#0f4a9b] hover:text-[#0a3a79]">Pearson Edexcel</a>: Published guidance on tiers, grading criteria, and exam entries for IGCSE, International GCSE and A-Level.</p>
           </div>
 
           {/* Related Guides on Parent Guidance */}
@@ -1135,7 +1136,7 @@ Kind regards,
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-xs sm:text-sm w-full sm:w-auto shadow-md"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
               >
-                Book a Free Trial
+                Book First Session
               </a>
               <a
                 href={WA_URL}

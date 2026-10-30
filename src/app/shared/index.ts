@@ -66,4 +66,6 @@ export { default as IGCSEWhyStudentsLoseMarksSection } from './IGCSEWhyStudentsL
 export { default as ALevelFreeTrialWhiteboardSection } from './ALevelFreeTrialWhiteboardSection';
 export { default as APFreeTrialWhiteboardSection } from './APFreeTrialWhiteboardSection';
 export * from './BiologyDiagnosticApproach3D';
+export { default as OrientationStrip } from './OrientationStrip';
+
 

@@ -90,7 +90,7 @@ const UAE_EMIRATES = [
     tutors: "50+ Tutors",
     note: "Garden City",
     image: "/images/emirates/al-ain.jpg",
-    href: "/contact#form",
+    href: "/a-level-tutor-al-ain",
     tags: "al ain garden city oasis jebel hafeet cambridge edexcel",
   },
   {
@@ -126,14 +126,14 @@ export default function ALevelPage() {
     <Layout>
       <SEOHead
         title="A-Level Tutors in Dubai, Abu Dhabi & UAE | Ustaad"
-        description="Online 1-to-1 AS and A-Level tutors for Cambridge, Edexcel, AQA and OCR. Maths, Physics, Chemistry, Biology and more. Free 30-minute trial."
+        description="Online 1-to-1 AS and A-Level tutors for Cambridge, Edexcel, AQA and OCR. Maths, Physics, Chemistry, Biology and more. Free 15-min orientation with the first lesson."
         canonical="/a-level"
         ogImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
         schema={[
           localBusinessSchema,
           serviceSchema(
             "Private A-Level Tutoring UAE",
-            "Online 1-to-1 AS and A-Level tutors for Cambridge, Edexcel, AQA and OCR. Maths, Physics, Chemistry, Biology and more. Free 30-minute trial.",
+            "Online 1-to-1 AS and A-Level tutors for Cambridge, Edexcel, AQA and OCR. Maths, Physics, Chemistry, Biology and more. Free 15-min orientation with the first lesson.",
             "/a-level"
           ),
           breadcrumbSchema([
@@ -186,9 +186,13 @@ export default function ALevelPage() {
               <a href="/a-level-tutor-dubai" className="underline font-bold hover:text-[#0a1f3d]">
                 Based in Dubai? See our A-Level Tutor Dubai page.
               </a>{' '}
-              Based in Abu Dhabi? See our dedicated{' '}
+              Based in Abu Dhabi? See our{' '}
               <a href="/a-level-tutor-abu-dhabi" className="underline font-bold hover:text-[#0a1f3d]">
                 A-Level Tutor Abu Dhabi
+              </a>{' '}
+              page. Based in Al Ain? See our{' '}
+              <a href="/a-level-tutor-al-ain" className="underline font-bold hover:text-[#0a1f3d]">
+                A-Level Tutor Al Ain
               </a>{' '}
               page.
             </p>
@@ -199,7 +203,7 @@ export default function ALevelPage() {
                 href="/contact#form"
                 className="w-auto self-start px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(199,162,74,0.35)] text-center justify-center"
               >
-                Book a Free A-Level Trial
+                Book First A-Level Session
               </GoldButton>
               <a
                 href={WA_URL}
@@ -843,21 +847,22 @@ export default function ALevelPage() {
                 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight flex flex-wrap gap-x-2.5"
               >
                 {["Quality", "A-Level", "Tutoring", "at", "a"].map((word, idx) => (
-                  <motion.span
-                    key={idx}
-                    variants={{
-                      hidden: { opacity: 0, y: 16, filter: "blur(5px)" },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        filter: "blur(0px)",
-                        transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-                      },
-                    }}
-                    className="inline-block"
-                  >
-                    {word}
-                  </motion.span>
+                  <span key={idx}>
+                    <motion.span
+                      variants={{
+                        hidden: { opacity: 0, y: 16, filter: "blur(5px)" },
+                        visible: {
+                          opacity: 1,
+                          y: 0,
+                          filter: "blur(0px)",
+                          transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+                        },
+                      }}
+                      className="inline-block"
+                    >
+                      {word}
+                    </motion.span>{" "}
+                  </span>
                 ))}
                 <motion.span
                   variants={{
@@ -1398,7 +1403,7 @@ export default function ALevelPage() {
       <FinalCTA
         title="Book an A-Level Tutor"
         subtitle="Your offer, on track."
-        button1Text="Book a Free A-Level Trial"
+        button1Text="Book First A-Level Session"
         button1Href="/contact#form"
         subtext1="No commitment. Cancel anytime."
       />

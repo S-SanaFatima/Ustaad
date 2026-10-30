@@ -7,7 +7,7 @@ const PHASES = [
     phase: 'PHASE 01',
     period: 'Sep to Dec',
     title: 'Diagnostic and Rebuild',
-    desc: "A free 30-minute diagnostic spots weak topics and command-word gaps. Lessons rebuild foundations in line with your school's teaching order.",
+    desc: "The first lesson, with its free 15-minute orientation, spots weak topics and command-word gaps. Lessons rebuild foundations in line with your school's teaching order.",
     milestone: 'Term 1 Diagnostic',
     paintColor: '#0f4a9b',
     paintGradient: 'linear-gradient(135deg, #0f4a9b, #1e5ba8)',

@@ -142,7 +142,7 @@ export default function ChemistryLandingPage() {
           </div>
 
           <motion.div variants={{ hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-            <a href={BOOKING} className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-full font-bold text-white transition-all hover:-translate-y-0.5 bg-gradient-to-r from-[#1e5bb3] to-[#0a3a79]">Book Your Free Trial</a>
+            <a href={BOOKING} className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-full font-bold text-white transition-all hover:-translate-y-0.5 bg-gradient-to-r from-[#1e5bb3] to-[#0a3a79]">Book Your First Session</a>
             <a href={WA_URL} className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-full font-bold text-white transition-all hover:-translate-y-0.5 bg-[#25D366] hover:bg-[#1eb657] shadow-[0_4px_14px_rgba(37,211,102,0.3)]"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
           </motion.div>
         </motion.div>
@@ -422,7 +422,7 @@ export default function ChemistryLandingPage() {
             </div>
           </div>
           
-          <a href={BOOKING} className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-bold text-white transition-all bg-[#a58638] hover:bg-[#8e722f] shadow-sm">Book a Free Trial to Find the Gap</a>
+          <a href={BOOKING} className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-bold text-white transition-all bg-[#a58638] hover:bg-[#8e722f] shadow-sm">Book First Session to Find the Gap</a>
         </div>
       </section>
 
@@ -463,9 +463,9 @@ export default function ChemistryLandingPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative -top-10">
           <div className="rounded-3xl p-10 text-center shadow-lg bg-[#0a3a79]">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">Ready to Fix Chemistry?</h2>
-            <p className="text-blue-100/90 text-[15px] mb-8 max-w-lg mx-auto">Book a free trial and we will match your child with a chemistry specialist in Abu Dhabi.</p>
+            <p className="text-blue-100/90 text-[15px] mb-8 max-w-lg mx-auto">Book your first session and we will match your child with a chemistry specialist in Abu Dhabi.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={BOOKING} className="inline-flex items-center justify-center px-8 h-12 rounded-xl font-bold text-white transition-all bg-[#a58638] hover:bg-[#8e722f] shadow-[0_0_20px_rgba(165,134,56,0.5)]">Book Your Free Trial</a>
+              <a href={BOOKING} className="inline-flex items-center justify-center px-8 h-12 rounded-xl font-bold text-white transition-all bg-[#a58638] hover:bg-[#8e722f] shadow-[0_0_20px_rgba(165,134,56,0.5)]">Book Your First Session</a>
               <a href={WA_URL} target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-xl font-bold text-white transition-all bg-[#25D366] hover:bg-[#1eb657] shadow-[0_4px_14px_rgba(37,211,102,0.3)]"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
               <a href="mailto:support@ustaad.ae" className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-xl font-bold text-white border border-white/20 hover:bg-white/10 transition-all">support@ustaad.ae</a>
             </div>

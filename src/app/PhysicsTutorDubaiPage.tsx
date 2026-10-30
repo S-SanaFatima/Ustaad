@@ -678,7 +678,7 @@ export default function PhysicsTutorDubaiPage() {
               className="inline-flex items-center justify-center gap-2 px-7 h-11 rounded-full font-bold text-sm sm:text-base text-white transition-all hover:-translate-y-0.5 shadow-lg"
               style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}
             >
-              Book Your Free Trial
+              Book Your First Session
             </a>
             <a
               href={WA_URL}
@@ -917,7 +917,7 @@ export default function PhysicsTutorDubaiPage() {
                   </div>
 
                   <p className="text-[9.5px] text-slate-400 text-center leading-normal">
-                    Free 30-min trial · Zero card required · 1-to-1 in Dubai &amp; Online
+                    Free 15-min orientation · 1-to-1 online in Dubai
                   </p>
                 </div>
 
@@ -1070,7 +1070,7 @@ export default function PhysicsTutorDubaiPage() {
         title="Start Physics Support in Dubai Today"
         subtitle=""
         subtitleNode={null}
-        button1Text="Book First Free Trial"
+        button1Text="Book First Session"
         button1Href={BOOKING}
         subtext1=""
         button2Text="Ask on WhatsApp"
@@ -1092,7 +1092,7 @@ export default function PhysicsTutorDubaiPage() {
           },
           {
             label: 'Biology Tutor Dubai',
-            href: '/subjects/biology-tutor-dubai',
+            href: '/biology-tutor-dubai',
             note: '1-to-1 IGCSE, A-Level & IB biology tuition in Dubai.'
           },
           {

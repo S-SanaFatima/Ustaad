@@ -154,7 +154,7 @@ export default function SubjectsPage() {
     <Layout>
       <SEOHead
         title="Private Subject Tutors UAE | IGCSE, A-Level, IB, AP | Ustaad"
-        description="Private 1-to-1 subject tutors in the UAE for IGCSE, A-Level, IB and AP. Maths, Sciences, English, Commerce. Free 30-minute trial. Since 2015."
+        description="Private 1-to-1 subject tutors in the UAE for IGCSE, A-Level, IB and AP. Maths, Sciences, English, Commerce. Free 15-min orientation with the first lesson. Since 2015."
         canonical="/subjects"
         ogImage="/UpdatedImages/private-subject-tutoring-igcse-ib-a-level-uae.webp"
         schema={[localBusinessSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Subjects", url: "/subjects" }])]}
@@ -177,7 +177,7 @@ export default function SubjectsPage() {
                 Subject-focused 1-to-1 tutoring across IGCSE, GCSE, A-Level, IB, and AP, developed for real exam and coursework demands.
               </p>
               <HeroCTABlock className="mb-4">
-                Book Your Free Trial
+                Book Your First Session
               </HeroCTABlock>
             </motion.div>
 
@@ -276,7 +276,7 @@ export default function SubjectsPage() {
           </div>
 
           {/* Swipe indicator on mobile */}
-          <SwipeIndicator text="Swipe horizontally to explore all subjects" className="mt-4" />
+          <SwipeIndicator text="Swipe horizontally to explore all subjects" hideArrows hideDots className="mt-4" />
         </div>
       </section>
 
@@ -351,7 +351,7 @@ export default function SubjectsPage() {
           </div>
 
           {/* Swipe indicator on mobile */}
-          <SwipeIndicator text="Swipe across all 3 benefits" className="mt-4" />
+          <SwipeIndicator text="Swipe across all 3 benefits" hideArrows hideDots className="mt-4" />
         </div>
       </section>
 

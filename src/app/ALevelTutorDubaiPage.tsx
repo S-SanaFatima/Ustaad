@@ -1366,7 +1366,7 @@ export default function ALevelTutorDubaiPage() {
     <Layout>
       <SEOHead
         title="A-Level Tutors in Dubai | Cambridge, Edexcel & AQA | Ustaad"
-        description="Online 1-to-1 A-Level tuition in Dubai for Maths, Further Maths, Physics, Chemistry, Biology and Economics. Cambridge, Edexcel and AQA. Free trial."
+        description="Online 1-to-1 A-Level tuition in Dubai for Maths, Further Maths, Physics, Chemistry, Biology and Economics. Cambridge, Edexcel and AQA. Free 15-min orientation with the first lesson."
         canonical="/a-level-tutor-dubai"
         ogImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
         preloadHeroImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
@@ -1512,7 +1512,7 @@ export default function ALevelTutorDubaiPage() {
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[15px] text-white transition-all hover:-translate-y-0.5 text-center active:scale-[0.98]"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 6px 20px rgba(15,74,155,0.45)' }}
               >
-                Book Your Free Trial
+                Book Your First Session
               </a>
               <span className="text-blue-200/60 text-[11px]">✦ No Commitment · Cancel Anytime</span>
               <a
@@ -1533,7 +1533,7 @@ export default function ALevelTutorDubaiPage() {
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
                   style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}
                 >
-                  Book Your Free Trial
+                  Book Your First Session
                 </a>
                 <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
               </div>
@@ -1764,7 +1764,7 @@ export default function ALevelTutorDubaiPage() {
                   {/* Compact Action Row without arrow */}
                   <div className="flex flex-wrap items-center gap-3 pt-0.5">
                     <GoldButton href={BOOKING} className="text-xs py-1.5 sm:py-2 px-3.5 sm:px-4 justify-center shadow-xs">
-                      Book Free Trial
+                      Book First Session
                     </GoldButton>
                     <a
                       href={activeSubject.href}
@@ -1968,7 +1968,7 @@ export default function ALevelTutorDubaiPage() {
                   Master full past-paper questions with this line-by-line mark scheme precision.
                 </span>
                 <GoldButton href={BOOKING} className="text-xs px-5 py-2 shrink-0 shadow-xs">
-                  Book Free Diagnostic Session
+                  Book First Session
                 </GoldButton>
               </div>
             </motion.div>
@@ -2170,7 +2170,7 @@ export default function ALevelTutorDubaiPage() {
                   </div>
 
                   <GoldButton href={BOOKING} className="w-full text-xs py-2 justify-center shadow-xs">
-                    Try Live 30-Min Session
+                    Book First Session
                   </GoldButton>
                 </div>
 
@@ -2347,7 +2347,7 @@ export default function ALevelTutorDubaiPage() {
             Serving Families <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Across Dubai</span>
           </h2>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Online 1-to-1 A-Level lessons connecting students across all major residential communities in Dubai. Based in the capital? Connect with our <a href="/a-level-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold underline hover:text-[#0a254a]">A-Level tutors in Abu Dhabi</a>.
+            Online 1-to-1 A-Level lessons connecting students across all major residential communities in Dubai. Also serving the capital with our <a href="/a-level-tutor-abu-dhabi" className="text-[#0f4a9b] font-bold underline hover:text-[#0a254a]">A-Level tutors in Abu Dhabi</a> and the Garden City with our dedicated <a href="/a-level-tutor-al-ain" className="text-[#0f4a9b] font-bold underline hover:text-[#0a254a]">A-Level tutors in Al Ain</a>.
           </p>
         </div>
 
@@ -2576,7 +2576,7 @@ export default function ALevelTutorDubaiPage() {
       <FinalCTA
         title="Book an A-Level Tutor in Dubai"
         subtitle="1-to-1 online lessons matched to your child's exact school, exam board, and target university grade."
-        button1Text="Book a Free Trial Session"
+        button1Text="Book First Session"
         button1Href={BOOKING}
         subtext1="No commitment. Cancel anytime."
       />

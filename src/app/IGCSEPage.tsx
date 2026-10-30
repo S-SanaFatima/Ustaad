@@ -36,14 +36,14 @@ export default function IGCSEPage() {
     >
       <SEOHead
         title="IGCSE Tutors & Tuition UAE | Cambridge & Edexcel | Ustaad"
-        description="Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 30-minute trial."
+        description="Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 15-min orientation with the first lesson."
         canonical="/igcse"
         ogImage="/UpdatedImages/year-10-igcse-cambridge-0580-edexcel-4ma1-mathematics-tutor-uae.webp"
         schema={[
           localBusinessSchema,
           serviceSchema(
             "IGCSE Tutoring and Tuition in the UAE",
-            "Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 30-minute trial.",
+            "Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 15-min orientation with the first lesson.",
             "/igcse"
           ),
           breadcrumbSchema([
@@ -95,7 +95,7 @@ export default function IGCSEPage() {
                 href="/contact#form"
                 className="w-auto self-start px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(199,162,74,0.35)] justify-center"
               >
-                Book a Free IGCSE Trial
+                Book First IGCSE Session
               </GoldButton>
               <a
                 href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20need%20an%20IGCSE%20tutor%20for"
@@ -334,6 +334,25 @@ export default function IGCSEPage() {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Dubai & Abu Dhabi IGCSE Tutoring Banner */}
+          <div className="mt-8 bg-gradient-to-r from-slate-50 to-blue-50/50 border border-slate-200/80 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-[#0f4a9b]/10 text-[#0f4a9b] flex items-center justify-center shrink-0">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-sm font-bold text-[#0a1f3d]">Looking for local one-to-one IGCSE tutors in Dubai?</p>
+                <p className="text-xs text-gray-600">Connect with Cambridge and Edexcel specialists across all Dubai communities.</p>
+              </div>
+            </div>
+            <a
+              href="/igcse-tutor-dubai"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#0f4a9b] hover:bg-[#1a5bb8] shadow-sm transition whitespace-nowrap self-start sm:self-auto"
+            >
+              IGCSE Tutor Dubai
+            </a>
           </div>
 
         </div>
@@ -740,7 +759,7 @@ export default function IGCSEPage() {
       <FinalCTA
         title="Book an IGCSE Tutor"
         subtitle="One subject or several, Cambridge or Edexcel."
-        button1Text="Book a Free IGCSE Trial"
+        button1Text="Book First IGCSE Session"
         button1Href="/contact#form"
         subtext1="No commitment. Cancel anytime."
       />

@@ -321,7 +321,7 @@ export default function APPage() {
     {
       num: '03',
       title: 'Try a Real AP Question',
-      desc: 'In 30 free minutes online, the tutor works through a recent free-response question with your child. You then decide whether to continue.',
+      desc: 'In the first lesson, the tutor works through a recent free-response question with your child. You then decide whether to continue.',
     },
   ];
 
@@ -407,14 +407,14 @@ export default function APPage() {
     <Layout>
       <SEOHead
         title="AP Tutors in Dubai & Abu Dhabi | AP Exam Prep UAE | Ustaad"
-        description="Online 1-to-1 AP tutors for Statistics, Physics, Chemistry, Biology and Economics. AP classes and exam prep through to May. Free 30-minute trial."
+        description="Online 1-to-1 AP tutors for Statistics, Physics, Chemistry, Biology and Economics. AP classes and exam prep through to May. Free 15-min orientation with the first lesson."
         canonical="/ap"
         ogImage="/UpdatedImages/Ap-img.webp"
         schema={[
           localBusinessSchema,
           serviceSchema(
             'AP Tutoring in Dubai and the UAE',
-            'Online 1-to-1 AP tutors for Statistics, Physics, Chemistry, Biology and Economics. AP classes and exam prep through to May. Free 30-minute trial.',
+            'Online 1-to-1 AP tutors for Statistics, Physics, Chemistry, Biology and Economics. AP classes and exam prep through to May. Free 15-min orientation with the first lesson.',
             '/ap'
           ),
           breadcrumbSchema([
@@ -468,7 +468,7 @@ export default function APPage() {
                 href="/contact#form"
                 className="w-auto self-start px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(199,162,74,0.35)] text-center justify-center"
               >
-                Book a Free AP Trial
+                Book First AP Session
               </GoldButton>
               <a
                 href={WA_URL}
@@ -1317,7 +1317,7 @@ export default function APPage() {
       <FinalCTA
         title="Book an AP Tutor"
         subtitle="Online, matched to your child's AP course."
-        button1Text="Book a Free AP Trial"
+        button1Text="Book First AP Session"
         button1Href="/contact#form"
         subtext1="No commitment. Cancel anytime."
       />

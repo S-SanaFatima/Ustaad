@@ -99,4 +99,4 @@ If you're struggling with specific topics, a specialist IGCSE Maths tutor can:
 
 ---
 
-**Ready to ace your IGCSE Maths?** Book a free trial session with our expert tutors and get a personalized revision plan tailored to your target grade.
+**Ready to ace your IGCSE Maths?** Book your first session with our expert tutors, starting with a free 15-minute orientation and a personalized revision plan tailored to your target grade.

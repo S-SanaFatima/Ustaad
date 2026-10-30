@@ -328,7 +328,7 @@ function UaeAssistance3DSwitcher() {
       accentColor: '#0f4a9b',
       title: 'Trusted by 2,500+ Families',
       text: 'Our tutoring team supports students across British (IGCSE, GCSE, A-Level), IB (MYP, DP), and American (AP) curricula, along with SAT preparation. All enquiries receive a fast 15-minute response.',
-      pills: ['15-Min Response', 'Board-Matched Tutors', 'Online & In-Person', 'UAE School Calendar'],
+      pills: ['15-Min Response', 'Board-Matched Tutors', 'Online 1-to-1', 'UAE School Calendar'],
     },
     {
       Icon: MapPin,
@@ -1627,7 +1627,7 @@ export default function IgcseTutorDubaiPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const serviceNode = {
-    ...serviceSchema('IGCSE Tutoring Dubai', 'Expert online IGCSE tutors in Dubai. Cambridge and Edexcel specialists. Private 1-to-1 live lessons and free trial.', '/igcse-tutor-dubai'),
+    ...serviceSchema('IGCSE Tutoring Dubai', 'Expert online IGCSE tutors in Dubai. Cambridge and Edexcel specialists. Private 1-to-1 live lessons and free 15-min orientation.', '/igcse-tutor-dubai'),
     areaServed: { '@type': 'City', name: 'Dubai' },
   };
 
@@ -1635,7 +1635,7 @@ export default function IgcseTutorDubaiPage() {
     <Layout>
       <SEOHead
         title="IGCSE Tutor Dubai | Cambridge & Edexcel Specialists | Ustaad"
-        description="Expert online IGCSE tutors in Dubai for Cambridge and Edexcel. Private 1-to-1 tutoring for Mathematics, Sciences, English and Business. Book a free trial today."
+        description="Expert online IGCSE tutors in Dubai for Cambridge and Edexcel. Private 1-to-1 tutoring for Mathematics, Sciences, English and Business. Free 15-min orientation with the first lesson."
         canonical="/igcse-tutor-dubai"
         ogImage="/UpdatedImages/private-subject-tutoring-igcse-ib-a-level-uae.webp"
         placename="Dubai, UAE"
@@ -1644,7 +1644,7 @@ export default function IgcseTutorDubaiPage() {
             city: 'Dubai',
             url: '/igcse-tutor-dubai',
             name: 'Ustaad, IGCSE Tutor Dubai',
-            description: 'Expert online IGCSE tutors in Dubai. Cambridge and Edexcel specialists. Private 1-to-1 lessons, recorded sessions, and free trial.',
+            description: 'Expert online IGCSE tutors in Dubai. Cambridge and Edexcel specialists. Private 1-to-1 lessons, recorded sessions, and free 15-min orientation.',
           }),
           breadcrumbSchema([
             { name: 'Home', url: '/' },
@@ -1758,7 +1758,7 @@ export default function IgcseTutorDubaiPage() {
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[15px] text-white transition-all hover:-translate-y-0.5 text-center active:scale-[0.98]"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 6px 20px rgba(15,74,155,0.45)' }}
               >
-                Book Your Free Trial
+                Book Your First Session
               </a>
               <span className="text-blue-200/60 text-[11px]">✦ No Commitment · Cancel Anytime</span>
               <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20 active:scale-[0.98]">
@@ -1773,7 +1773,7 @@ export default function IgcseTutorDubaiPage() {
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
                   style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}
                 >
-                  Book Your Free Trial
+                  Book Your First Session
                 </a>
                 <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
               </div>
@@ -1996,7 +1996,7 @@ export default function IgcseTutorDubaiPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-4">
-              Book your free IGCSE trial in Dubai
+              Book your first IGCSE session in Dubai
             </h2>
             <p className="text-gray-600 text-[15px]">
               Tell us the subject, year group and school. We match a specialist fast.
@@ -2009,15 +2009,15 @@ export default function IgcseTutorDubaiPage() {
               <div className="w-16 h-16 rounded-full bg-[#f0c96a]/20 text-[#b8883f] flex items-center justify-center mb-5 mx-auto">
                 <Star className="w-8 h-8 fill-current" />
               </div>
-              <h3 className="text-[18px] font-extrabold text-[#0a1f3d] mb-2">Free First Lesson</h3>
+              <h3 className="text-[18px] font-extrabold text-[#0a1f3d] mb-2">Free 15-min orientation</h3>
               <p className="text-[14px] text-gray-500 mb-6 leading-relaxed flex-1">
-                Thirty online minutes with a matched IGCSE tutor to see if it&apos;s the right fit.
+                15 extra minutes on the first lesson to meet your IGCSE tutor.
               </p>
               <a
                 href={BOOKING}
                 className="mt-auto w-full min-h-[48px] bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] hover:brightness-110 text-white py-3 px-4 rounded-xl font-bold transition flex items-center justify-center gap-2 shadow-[0_4px_14px_rgba(199,162,74,0.3)] hover:-translate-y-0.5"
               >
-                Book a Free Trial Lesson
+                Book First Session
               </a>
             </div>
 

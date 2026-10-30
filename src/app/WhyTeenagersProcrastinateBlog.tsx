@@ -980,7 +980,7 @@ export default function WhyTeenagersProcrastinateBlog() {
             <ul className="list-disc pl-5 space-y-2 text-gray-700">
               <li>Difficulty focusing, organising or starting tasks across all areas of life, not only revision, lasting for months</li>
               <li>Persistent low mood, loss of interest in things they used to enjoy, or withdrawal from friends</li>
-              <li>Anxiety so strong that sitting down to work brings tears, panic or physical symptoms</li>
+              <li>Anxiety so strong that sitting down to work brings tears, panic or physical symptoms (in subjects like mathematics, this often presents as <a href="/blogs/maths-anxiety-teenagers-signs-causes-help" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">maths anxiety</a>)</li>
               <li>Significant changes in sleep or appetite</li>
               <li>A strong belief that they are "stupid" or "hopeless" that does not shift</li>
             </ul>
@@ -1016,6 +1016,10 @@ export default function WhyTeenagersProcrastinateBlog() {
           <div className="my-8 p-5 rounded-2xl border border-slate-200 bg-white">
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#0f4a9b] mb-3">Related Guides on Psychology of Learning</h3>
             <div className="space-y-2 text-xs">
+              <a href="/blogs/maths-anxiety-teenagers-signs-causes-help" className="flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-50 text-gray-700 hover:text-[#0f4a9b] transition group">
+                <span className="font-semibold">Maths Anxiety in Teenagers: Signs, Causes and Practical Help</span>
+                <ArrowRight className="h-3.5 w-3.5 text-gray-400 group-hover:text-[#0f4a9b] group-hover:translate-x-0.5 transition" />
+              </a>
               <a href="/blogs/sleep-and-memory-why-all-nighters-backfire" className="flex items-center justify-between p-2.5 rounded-lg hover:bg-slate-50 text-gray-700 hover:text-[#0f4a9b] transition group">
                 <span className="font-semibold">Sleep and Memory: Why All-Nighters Backfire for UAE Students</span>
                 <ArrowRight className="h-3.5 w-3.5 text-gray-400 group-hover:text-[#0f4a9b] group-hover:translate-x-0.5 transition" />
@@ -1096,7 +1100,7 @@ export default function WhyTeenagersProcrastinateBlog() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-xs sm:text-sm w-full sm:w-auto shadow-md"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
               >
-                Book a Free Trial Session
+                Book First Session
               </a>
               <a
                 href="https://wa.me/971561249005?text=Hello%20Ustaad%20team,%20I%20have%20a%20question%20about%20revision%20planning%20and%20tutoring."

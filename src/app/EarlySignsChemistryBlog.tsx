@@ -386,7 +386,7 @@ export default function EarlySignsChemistryBlog() {
             <SectionHeading num="06" id="when-to-bring-in-support">When to Bring in Support</SectionHeading>
             <p>If two or more of the six signs are present for longer than three weeks, and your child is heading into IGCSE 0620, A-Level, IB Chemistry, or AP Chemistry, that is the point where a diagnostic conversation is useful. Not a full course. A single session with someone who can identify whether the gap is in bonding, calculations, or exam technique.</p>
             <p>Early support works because the fix is usually small at that stage. Waiting turns a small fix into a term-long rebuild.</p>
-            <p>At Ustaad, families in Abu Dhabi and Dubai often reach out at this stage precisely because their child has not dropped yet. That is the right window. A free trial session lets a specialist tutor identify the gap in one sitting and tell the parent honestly whether ongoing support is needed. Explore <a href="/chemistry" className="text-[#0f4a9b] font-semibold hover:underline">chemistry tutoring at Ustaad</a> or, if you are in Abu Dhabi, <a href="/chemistry-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">chemistry tutor Abu Dhabi</a> for the local option.</p>
+            <p>At Ustaad, families in Abu Dhabi and Dubai often reach out at this stage precisely because their child has not dropped yet. That is the right window. A first session lets a specialist tutor identify the gap in one sitting and tell the parent honestly whether ongoing support is needed. Explore <a href="/chemistry" className="text-[#0f4a9b] font-semibold hover:underline">chemistry tutoring at Ustaad</a> or, if you are in Abu Dhabi, <a href="/chemistry-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">chemistry tutor Abu Dhabi</a> for the local option.</p>
 
             {/* 07 */}
             <SectionHeading num="07" id="a-note-from-an-education-counsellor">A Note From an Education Counsellor</SectionHeading>
@@ -455,7 +455,7 @@ export default function EarlySignsChemistryBlog() {
                 <a href="/contact#form"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white hover:brightness-110 transition text-sm sm:w-auto"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial
+                Book Your First Session
               </a>
                 <p className="text-xs text-white/60 font-medium">No commitment. Cancel anytime.</p>
               </div>

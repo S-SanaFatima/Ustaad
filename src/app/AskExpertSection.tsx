@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { TypewriterHeadingText } from './shared';
 
-const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20my%20first%2030-minute%20session%20with%20a%20subject%20and%20curriculum-fit%20tutor.';
+const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20my%20first%20session%20with%20a%20subject%20and%20curriculum-fit%20tutor.';
 
 const EXAMPLES = [
   {

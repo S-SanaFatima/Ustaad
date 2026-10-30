@@ -360,7 +360,7 @@ const data: SubjectPageProps = {
   heroTitle:        "Reliable Data. Useful Conclusions.",
   heroSubtitle:     "Hands-on statistics tutoring for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
-  heroCTAText:      "Book Your Free Trial Lesson",
+  heroCTAText:      "Book Your First Session",
   heroCTAMicrocopy: "Plain numbers, clear answers.",
 
   topicsTitle: "", topicsDesc: "", topics: [],
@@ -386,7 +386,7 @@ const data: SubjectPageProps = {
 
   finalCtaTitle:    "Expose the Habit Limiting Marks",
   finalCtaSubtitle: "When statistics revision feels solid yet exam marks stall, a short check finds the habit costing each mark.",
-  finalCtaButton:   "Book Your Free Trial Lesson",
+  finalCtaButton:   "Book Your First Session",
   finalCtaSubtext:  "Plain numbers, clear answers.",
 
   floatingIcon: <BarChart3 className="h-4 w-4" />,

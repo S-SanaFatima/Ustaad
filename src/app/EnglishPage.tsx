@@ -414,7 +414,7 @@ const data: SubjectPageProps = {
   heroTitle:        "Crisp Writing. Higher Bands.",
   heroSubtitle:     "Focused English instruction for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
-  heroCTAText:      "Book Your Free Trial Lesson",
+  heroCTAText:      "Book Your First Session",
   heroCTAMicrocopy: "English without the guesswork.",
 
   topicsTitle: "", topicsDesc: "", topics: [],
@@ -440,7 +440,7 @@ const data: SubjectPageProps = {
 
   finalCtaTitle:    "Diagnose the Habit Limiting Bands",
   finalCtaSubtitle: "When essays sound good aloud yet feedback says band 5, more essays alone will not move the grade.",
-  finalCtaButton:   "Book Your Free Trial Lesson",
+  finalCtaButton:   "Book Your First Session",
   finalCtaSubtext:  "English without the guesswork.",
 
   floatingIcon: <BookOpen className="h-4 w-4" />,

@@ -399,7 +399,7 @@ const examFAQs = [
   { q: "Do you help with mock exams as well as final exams?", a: "Yes. Mocks count just as much because they reveal real gaps before the final paper. We sit and review each mock with your child the same week it ends." },
   { q: "Do you support stress and anxiety around exams?",  a: "Yes. Many strong students lose marks to nerves rather than knowledge. We share simple breathing, sleep, and morning routines that work in the lead-up to exam day." },
   { q: "Are sessions one-to-one or in groups?",            a: "Every session is one-to-one with a specialist matched to your child's exam board. Group sessions are not offered for exam prep because each child's gaps differ." },
-  { q: "Are sessions online, in-person, or both?",         a: "Both options are open. Face-to-face sessions cover Dubai and Abu Dhabi, while online sessions support families throughout the northern emirates with the same paper-by-paper format." },
+  { q: "Are exam preparation sessions online?",            a: "Yes. All exam preparation is live, online and 1-to-1, with the same paper-by-paper format for families in every emirate." },
   { q: "How quickly can my child be matched with a tutor?",a: "Inside 24 to 48 hours. The first session opens with a quick paper audit, so your child has a clear plan from day one." },
 ];
 
@@ -468,7 +468,7 @@ const data: SubjectPageProps = {
   heroTitle:        "Smart Prep. Steadier Nerves.",
   heroSubtitle:     "Step-by-step exam prep for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
-  heroCTAText:      "Book Your Free Trial Lesson",
+  heroCTAText:      "Book Your First Session",
   heroCTAMicrocopy: "Be ready, not nervous.",
 
   topicsTitle: "", topicsDesc: "", topics: [],
@@ -494,7 +494,7 @@ const data: SubjectPageProps = {
 
   finalCtaTitle:    "Reveal What Holds the Mark",
   finalCtaSubtitle: "When your child knows the content yet keeps losing paper marks, a short check reveals the costly habit.",
-  finalCtaButton:   "Book Your Free Trial Lesson",
+  finalCtaButton:   "Book Your First Session",
   finalCtaSubtext:  "Be ready, not nervous.",
 
   floatingIcon: <ClipboardCheck className="h-4 w-4" />,

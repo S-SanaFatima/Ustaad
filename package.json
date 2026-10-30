@@ -9,7 +9,9 @@
     "build:client": "vite build --outDir dist/client --ssrManifest",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx",
     "build:spa": "vite build",
-    "audit": "node scripts/audit-site.mjs"
+    "audit": "node scripts/audit-site.mjs",
+    "index": "node google_indexer.mjs",
+    "index:force": "node google_indexer.mjs --force"
   },
   "dependencies": {
     "gsap": "^3.15.0",

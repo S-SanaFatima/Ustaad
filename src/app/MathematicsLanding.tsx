@@ -351,7 +351,7 @@ function StepsCarousel() {
     {
       num: 1,
       icon: <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-[#0b3d80]" strokeWidth={2} />,
-      title: 'Free 30-minute trial session',
+      title: 'First lesson + free orientation',
       desc: 'Your child meets the shortlisted tutor. We identify the exact topics losing marks.',
     },
     {
@@ -908,9 +908,9 @@ export default function MathematicsLanding() {
           <motion.h1
             variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}
             className="font-extrabold tracking-tight text-white leading-[1.05] mb-3 md:mb-5 text-[clamp(1.5rem,5vw,3.4rem)] max-w-[90%] sm:max-w-none">
-            Where Maths{' '}
+            Maths Tutor in{' '}
             <span style={{ background:'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>
-              Finally Makes Sense
+              Abu Dhabi
             </span>
           </motion.h1>
 
@@ -931,7 +931,7 @@ export default function MathematicsLanding() {
               <a href={BOOKING}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5"
                 style={{ background:'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow:'0 4px 16px rgba(15,74,155,0.5)' }}>
-                Book Your Free Trial
+                Book Your First Session
               </a>
               <span className="text-blue-200/50 text-[11px] -my-1">or</span>
               <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><WhatsAppIcon className="w-4 h-4" /> WhatsApp Us</a>
@@ -944,7 +944,7 @@ export default function MathematicsLanding() {
                 <a href={BOOKING}
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
                   style={{ background:'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow:'0 4px 18px rgba(15,74,155,0.55)' }}>
-                  Book Your Free Trial
+                  Book Your First Session
                 </a>
                 <p className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
@@ -1091,8 +1091,8 @@ export default function MathematicsLanding() {
           >
             <Eyebrow icon={<Sparkles className="h-3.5 w-3.5" />} text="Academic Expertise" dark />
             <h2 className="text-2xl lg:text-3xl font-extrabold text-white leading-[1.1] mb-3">
-              Unlock Maths.{' '}
-              <span style={{ background:'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>Excel Across Subjects</span>
+              Where Strong Maths{' '}
+              <span style={{ background:'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>Powers Other Subjects</span>
             </h2>
             <p className="text-blue-100/75 text-[15px] leading-relaxed max-w-2xl mx-auto mb-8">
               Strong maths helps Abu Dhabi students handle calculations across science and engineering subjects.
@@ -1473,13 +1473,13 @@ export default function MathematicsLanding() {
               <div className="space-y-0.5 flex-1">
                 <p className="text-gray-700 text-xs sm:text-[13px] leading-relaxed">
                   <span className="font-extrabold text-[#0a1f3d]">Not sure who's the right fit? </span>
-                  Book a free 30-minute trial and we'll match your child with the tutor who fits their board, year group and learning style.
+                  Book a first session and we'll match your child with the tutor who fits their board, year group and learning style.
                 </p>
               </div>
 
               <div className="flex flex-wrap items-center justify-center gap-2 shrink-0">
                 <GoldButton href={BOOKING} className="px-4 py-1.5 text-xs font-bold">
-                  Book Free Trial
+                  Book First Session
                 </GoldButton>
                 <a
                   href="/tutors"
@@ -1579,7 +1579,7 @@ export default function MathematicsLanding() {
             {/* CTA */}
             <div className="relative z-10 flex justify-start">
               <GoldButton href={BOOKING} className="px-5 py-2.5 text-sm">
-                Book a Free Trial
+                Book First Session
               </GoldButton>
             </div>
           </motion.div>
@@ -1758,10 +1758,10 @@ export default function MathematicsLanding() {
         title="Start Maths Support Today"
         subtitleNode={
           <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl mx-auto">
-            Book your free trial with an Abu Dhabi maths tutor this week.
+            Book your first session with an Abu Dhabi maths tutor this week.
           </p>
         }
-        button1Text="Book Your Free Trial"
+        button1Text="Book Your First Session"
         button1Href={BOOKING}
         button2Text="Ask Your Question"
         subtext2="Stuck on a topic? Send it across."

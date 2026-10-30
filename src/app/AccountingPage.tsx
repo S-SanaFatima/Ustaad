@@ -385,7 +385,7 @@ const data: SubjectPageProps = {
   heroTitle:        "Precise Numbers. Cleaner Books.",
   heroSubtitle:     "Methodical accounting tutoring for IGCSE, A-Level, and university foundation students.",
   heroDesc:         "",
-  heroCTAText:      "Book Your Free Trial Lesson",
+  heroCTAText:      "Book Your First Session",
   heroCTAMicrocopy: "Accounting that adds up.",
 
   topicsTitle: "", topicsDesc: "", topics: [],
@@ -411,13 +411,13 @@ const data: SubjectPageProps = {
 
   finalCtaTitle:    "See the Real Number Gap",
   finalCtaSubtitle: "When numbers look right but scores stall, a short script review finds the habit costing each mark.",
-  finalCtaButton:   "Book Your Free Trial Lesson",
+  finalCtaButton:   "Book Your First Session",
   finalCtaSubtext:  "Accounting that adds up.",
 
   floatingIcon: <ClipboardCheck className="h-4 w-4" />,
   seo: {
     title: "Accounting Tutors UAE | IGCSE & A-Level | Ustaad",
-    description: "Expert private Accounting tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level Accounting. Double-entry, financial statements, ratio analysis. Book a free trial.",
+    description: "Expert private Accounting tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level Accounting. Double-entry, financial statements, ratio analysis. Free 15-min orientation with the first lesson.",
     canonical: "/accounting",
     schema: [
       localBusinessSchema,

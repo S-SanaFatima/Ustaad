@@ -401,7 +401,7 @@ export default function TutorProfilePage({ tutorSlug }: { tutorSlug?: string }) 
                   className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-extrabold text-sm sm:text-base text-white bg-gradient-to-r from-[#C7A24A] via-[#A8892A] to-[#7A5E10] shadow-[0_8px_24px_rgba(199,162,74,0.35)] hover:brightness-110 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-center"
                 >
                   <Calendar className="w-4 h-4 text-white" />
-                  <span>Book a Free Trial</span>
+                  <span>Book First Session</span>
                 </a>
 
                 <a
@@ -554,7 +554,19 @@ export default function TutorProfilePage({ tutorSlug }: { tutorSlug?: string }) 
                   >
                     ✓
                   </motion.span>
-                  <span>{bullet}</span>
+                  <span>
+                    {typeof bullet === 'string' && bullet.includes('IB tutoring in Dubai') ? (
+                      <>
+                        {bullet.split('IB tutoring in Dubai')[0]}
+                        <a href="/ib-tutor-dubai" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                          IB tutoring in Dubai
+                        </a>
+                        {bullet.split('IB tutoring in Dubai')[1]}
+                      </>
+                    ) : (
+                      bullet
+                    )}
+                  </span>
                 </motion.li>
               ))}
             </motion.ul>
@@ -1057,7 +1069,7 @@ export default function TutorProfilePage({ tutorSlug }: { tutorSlug?: string }) 
                 variants={titleContainerVariants}
                 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] tracking-tight mb-3.5 leading-tight"
               >
-                How a trial with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79]">{tutor.name}</span> works.
+                How the first lesson with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79]">{tutor.name}</span> works.
               </motion.h2>
               <motion.p
                 variants={curriculumItemVariants}
@@ -1130,12 +1142,12 @@ export default function TutorProfilePage({ tutorSlug }: { tutorSlug?: string }) 
                     Pick a slot with {tutor.name}
                   </h3>
                   <p className="text-[#3a4f6e] text-sm sm:text-[15px] leading-relaxed font-medium">
-                    We share his open slots, you choose one that fits your child's routine. The trial runs 30 minutes, free of charge.
+                    We share his open slots, you choose one that fits your child's routine. The first lesson starts with 15 free minutes to get to know your child.
                   </p>
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-bold text-[#C7A24A] group-hover:text-[#A8892A] transition-colors">
-                  <span>100% Free · No Card Required</span>
+                  <span>15 Free Minutes on the First Lesson</span>
                 </div>
               </motion.div>
 
@@ -1165,7 +1177,7 @@ export default function TutorProfilePage({ tutorSlug }: { tutorSlug?: string }) 
                     Continue only if it clicks
                   </h3>
                   <p className="text-[#3a4f6e] text-sm sm:text-[15px] leading-relaxed font-medium">
-                    After the trial you decide. If it's not the right fit, we'll match you with a different Ustaad tutor at no cost.
+                    After the first lesson you decide. If it's not the right fit, we'll match you with a different Ustaad tutor at no cost.
                   </p>
                 </div>
 
@@ -1210,7 +1222,7 @@ export default function TutorProfilePage({ tutorSlug }: { tutorSlug?: string }) 
                 variants={curriculumItemVariants}
                 className="text-[#475467] text-sm sm:text-base leading-relaxed font-medium max-w-xl mx-auto"
               >
-                Clear answers to common questions about lesson setup, trial format, and scheduling.
+                Clear answers to common questions about lesson setup, the first lesson, and scheduling.
               </motion.p>
             </div>
 
@@ -1324,7 +1336,7 @@ export default function TutorProfilePage({ tutorSlug }: { tutorSlug?: string }) 
                 variants={curriculumItemVariants}
                 className="text-white/85 text-sm sm:text-base leading-relaxed mb-7 max-w-md mx-auto font-normal"
               >
-                Start with a free 30-minute trial. No card. No commitment. Just a chance to see how your child works with him.
+                His first lesson includes 15 free minutes to get to know your child and agree where to start.
               </motion.p>
 
               <motion.div
@@ -1335,7 +1347,7 @@ export default function TutorProfilePage({ tutorSlug }: { tutorSlug?: string }) 
                   href={tutor.trialUrl}
                   className="inline-flex items-center justify-center px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl font-extrabold text-sm sm:text-base text-white bg-gradient-to-r from-[#C7A24A] via-[#B8933D] to-[#A8892A] shadow-[0_8px_24px_rgba(199,162,74,0.35)] hover:brightness-110 hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
                 >
-                  <span>Book a Free Trial</span>
+                  <span>Book First Session</span>
                 </a>
 
                 <a

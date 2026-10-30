@@ -9,6 +9,7 @@ import TrustBar from './TrustBar';
 import Header from './Header';
 import Footer from './Footer';
 import FloatingWidget from './FloatingWidget';
+import OrientationStrip from './OrientationStrip';
 import { scrollToHashWhenReady } from '../../lib/scrollToHash';
 
 interface LayoutProps {
@@ -68,6 +69,7 @@ export default function Layout({ children, floatingCTAs, headerLogoAlt, footerLo
       </motion.main>
       <Footer logoAlt={footerLogoAlt} />
       {floatingCTAs ?? <FloatingWidget />}
+      <OrientationStrip />
       <style>{`
         html { scroll-behavior: smooth; }
       `}</style>

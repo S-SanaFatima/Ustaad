@@ -72,11 +72,7 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
       city: 'Al Ain',
       cityHref: '/tutors?city=al-ain',
       tutors: [
-        { label: 'IGCSE Tutors Al Ain', href: '/tutors?city=al-ain&curriculum=igcse' },
-        { label: 'Maths Tutors Al Ain', href: '/tutors?city=al-ain&subject=maths' },
-        { label: 'Physics Tutors Al Ain', href: '/tutors?city=al-ain&subject=physics' },
-        { label: 'Chemistry Tutors Al Ain', href: '/tutors?city=al-ain&subject=chemistry' },
-        { label: 'Biology Tutors Al Ain', href: '/tutors?city=al-ain&subject=biology' },
+        { label: 'A-Level Tutor Al Ain', href: '/a-level-tutor-al-ain' },
       ],
     },
     {
@@ -84,10 +80,11 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
       cityHref: '/tutors?city=dubai',
       tutors: [
         { label: 'A-Level Tutor Dubai', href: '/a-level-tutor-dubai' },
+        { label: 'IB Tutor Dubai', href: '/ib-tutor-dubai' },
         { label: 'Maths Tutor Dubai', href: '/maths-tutor-dubai' },
         { label: 'Physics Tutor Dubai', href: '/physics-tutor-dubai' },
         { label: 'Chemistry Tutor Dubai', href: '/chemistry-tutor-dubai' },
-        { label: 'Biology Tutor Dubai', href: '/subjects/biology-tutor-dubai' },
+        { label: 'Biology Tutor Dubai', href: '/biology-tutor-dubai' },
         { label: 'GCSE Tutor Dubai', href: '/gcse-tutor-dubai' },
         { label: 'IGCSE Tutor Dubai', href: '/igcse-tutor-dubai' },
       ],
@@ -194,7 +191,7 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
             <h3 className="font-bold text-sm mb-4 tracking-wide text-white uppercase border-b border-white/20 pb-2">{"Tutors Near Me"}</h3>
             <div className="space-y-0.5">
               {cityTutors.map(({ city, cityHref, tutors }) => {
-                const isExpandable = tutors.length > 0 && (city === 'Abu Dhabi' || city === 'Dubai');
+                const isExpandable = tutors.length > 0 && (city === 'Abu Dhabi' || city === 'Dubai' || city === 'Al Ain');
                 if (isExpandable) {
                   const isOpen = !!openCities[city];
                   return (
@@ -306,13 +303,13 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
                   <div className="text-[10px] text-blue-300">Student Support</div>
                 </div>
               </a>
-              <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer" aria-label="Book your free trial session with Ustaad on WhatsApp" className="flex items-center gap-3 hover:text-white transition group">
+              <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer" aria-label="Book your first session with Ustaad on WhatsApp" className="flex items-center gap-3 hover:text-white transition group">
                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#C7A24A] transition-colors shrink-0">
                   <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="Chat with Ustaad on WhatsApp" className="h-4 w-4" width={16} height={16} />
                 </div>
                 <div>
                   <div className="text-white font-bold notranslate" translate="no">+971 56 124 9005</div>
-                  <div className="text-[10px] text-blue-300">Book Your Free Trial</div>
+                  <div className="text-[10px] text-blue-300">Book Your First Session</div>
                 </div>
               </a>
               <div className="flex items-center gap-3 group">

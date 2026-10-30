@@ -919,7 +919,7 @@ export default function IllusionOfCompetenceBlog() {
             <RecognitionVsRecallIllustrationSVG />
 
             <p>
-              Re-reading trains recognition. Exams test recall. A student can be excellent at the first and still fail at the second, and they will not find out until it is too late to fix.
+              Re-reading trains recognition. Exams test recall. A student can be excellent at the first and still fail at the second, and they will not find out until it is too late to fix. When the gap shows up as freezing on exam questions, our guide to <a href="/blogs/why-students-freeze-exam-questions-scaffolding-trap" className="text-[#0f4a9b] font-semibold underline">the scaffolding trap</a> explains why.
             </p>
           </div>
 
@@ -1352,7 +1352,7 @@ export default function IllusionOfCompetenceBlog() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm w-full sm:w-auto shadow-md"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
               >
-                Book a Free Trial
+                Book First Session
               </a>
               <a
                 href="https://wa.me/971561249005"

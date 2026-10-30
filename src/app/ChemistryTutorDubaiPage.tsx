@@ -38,7 +38,7 @@ import {
 } from './shared/schemas';
 import { chemistryDiagnosticLottie } from './chemistryDiagnosticLottie';
 
-const BOOKING_URL = '/contact?offer=free-trial#form';
+const BOOKING_URL = '/contact#form';
 const WA_URL =
   'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27m%20looking%20for%20a%20Chemistry%20tutor%20in%20Dubai.%20Could%20we%20discuss%20how%20you%20can%20help%20my%20child%3F';
 
@@ -1049,7 +1049,7 @@ const CHEMISTRY_FAQS = [
   },
   {
     q: 'Can I try a lesson before committing?',
-    a: 'Yes. The 30-minute free trial is a real diagnostic with a matched chemistry tutor.',
+    a: 'Yes. Every first lesson includes 15 free minutes with a matched chemistry tutor to discuss gaps and agree on a plan before the session begins.',
   },
 ];
 
@@ -1726,7 +1726,7 @@ export default function ChemistryTutorDubaiPage() {
     <Layout>
       <SEOHead
         title="Chemistry Tutor Dubai | IGCSE, GCSE, A-Level & IB | Ustaad"
-        description="One-to-one online chemistry tutors in Dubai for IGCSE, GCSE, A-Level and IB. Fix mole calculations, organic and 6-mark answers. Book a free trial."
+        description="One-to-one online chemistry tutors in Dubai for IGCSE, GCSE, A-Level and IB. Fix mole calculations, organic and 6-mark answers. Free 15-min orientation with the first lesson."
         keywords="chemistry tutor Dubai, IGCSE chemistry tutor Dubai, GCSE chemistry tutor Dubai, A-Level chemistry tutor Dubai, IB chemistry tutor Dubai, online chemistry tuition Dubai, private chemistry tutor UAE"
         canonical="/chemistry-tutor-dubai"
         placename="Dubai, UAE"
@@ -2007,7 +2007,7 @@ export default function ChemistryTutorDubaiPage() {
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[15px] text-white transition-all hover:-translate-y-0.5 text-center active:scale-[0.98]"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 6px 20px rgba(15,74,155,0.45)' }}
               >
-                Book Your Free Trial
+                Book Your First Session
               </a>
               <span className="text-blue-200/60 text-[11px]">✦ No Commitment · Cancel Anytime</span>
               <a
@@ -2028,7 +2028,7 @@ export default function ChemistryTutorDubaiPage() {
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
                   style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 20px rgba(15,74,155,0.6)' }}
                 >
-                  Book Your Free Trial
+                  Book Your First Session
                 </a>
                 <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
               </div>
@@ -2573,20 +2573,20 @@ export default function ChemistryTutorDubaiPage() {
       </section>
 
       {/* ==========================================
-          SECTION 07: FREE TRIAL (4 STEPS)
+          SECTION 07: FIRST LESSON ORIENTATION (4 STEPS)
       ========================================== */}
       <section className="py-10 sm:py-14 lg:py-16 bg-[#F4F8FB] relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 text-[#0f4a9b] text-[11px] font-mono uppercase tracking-widest mb-2">
               <Clock className="w-3.5 h-3.5 text-[#C7A24A]" />
-              <span>FREE TRIAL</span>
+              <span>ORIENTATION</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-              Thirty free minutes that <span className="text-[#0f4a9b]">tell you everything</span>
+              15 free minutes that <span className="text-[#0f4a9b]">shape the first chemistry lesson</span>
             </h2>
             <p className="text-slate-600 text-sm sm:text-base">
-              Free, and a real diagnostic, not a sales call, identifying{' '}
+              A real diagnostic, not a sales call, identifying{' '}
               <a href="/blogs/early-signs-chemistry-help-uae" className="text-[#0f4a9b] font-semibold hover:underline">
                 the early signs a child needs chemistry help
               </a>.
@@ -2672,7 +2672,7 @@ export default function ChemistryTutorDubaiPage() {
                 {/* Micro note */}
                 <div className="z-10 pt-1">
                   <p className="text-xs font-bold text-[#0a1f3d]">
-                    30-Minute Live Specialist Assessment
+                    Live Specialist Assessment
                   </p>
                   <p className="text-[11px] text-slate-500 mt-0.5 font-medium">
                     Diagnostic calculation · No sales pitch
@@ -2979,7 +2979,7 @@ export default function ChemistryTutorDubaiPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <div className="max-w-2xl mx-auto space-y-4">
             <h2 className="text-3xl sm:text-4xl font-black text-[#0a1f3d] leading-tight">
-              Book your free chemistry trial in <span className="text-[#0f4a9b]">Dubai</span>
+              Book your first chemistry session in <span className="text-[#0f4a9b]">Dubai</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               Tell us the subject, year group and school. We match a chemistry specialist fast.
@@ -2990,7 +2990,7 @@ export default function ChemistryTutorDubaiPage() {
                 href={BOOKING_URL}
                 className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1e5bb3] to-[#0f4a9b] hover:from-[#256fd8] hover:to-[#1258b5] text-white font-bold text-sm shadow-md transition active:scale-[0.99]"
               >
-                Book a Free Trial Lesson
+                Book First Session
               </a>
               <a
                 href={WA_URL}
@@ -3018,7 +3018,7 @@ export default function ChemistryTutorDubaiPage() {
           },
           {
             label: 'Biology Tutor Dubai',
-            href: '/subjects/biology-tutor-dubai',
+            href: '/biology-tutor-dubai',
             note: '1-to-1 IGCSE, A-Level & IB biology tuition in Dubai.'
           },
           {

@@ -338,6 +338,7 @@ function MarkSchemeDecoder() {
       problem: "Describing what is happening when the mark scheme specifically requires explaining the underlying biological mechanism.",
       solution: "Decipher command verbs immediately: 'Describe' = state trend & quote data; 'Explain' = biological mechanism (e.g. active site conformational change); 'Evaluate' = balance evidence vs limitations.",
       markGained: "+2 to +3 marks per question",
+      shortBadge: "+2–3 marks",
       example: "✗ Weak: \"Rate falls after 45°C.\" (0/3 marks)\n✓ Precise: \"Kinetic heat breaks hydrogen and ionic bonds, denaturing tertiary active site shape so substrate cannot bind.\" (3/3 marks)"
     },
     {
@@ -347,6 +348,7 @@ function MarkSchemeDecoder() {
       problem: "Writing isolated biological facts without causal connectors, capping answers in Level 1 (1–2 marks).",
       solution: "Master our 'Cause → Mechanism → Effect' framework to consistently secure Level 3 mark bands (5–6 marks).",
       markGained: "+3 to +4 marks in 6-markers",
+      shortBadge: "+3–4 marks",
       example: "Weak: \"Insulin released. Glycogen formed. Glucose drops.\"\nTop mark: \"High blood glucose → β-cells secrete insulin → binds liver receptors → activates enzymes converting soluble glucose to insoluble glycogen → restores set-point.\""
     },
     {
@@ -356,6 +358,7 @@ function MarkSchemeDecoder() {
       problem: "Everyday conversational words lose marks on Cambridge, Edexcel and IB mark schemes.",
       solution: "Substitute vague terms with exact syllabus terminology: 'denatures' not 'dies'; 'complementary in shape' not 'fits'; 'lower water potential' not 'stronger concentration'.",
       markGained: "+1 mark per point",
+      shortBadge: "+1 mark",
       example: "Mark schemes award 0 marks for \"enzymes die\". Only \"active site undergoes irreversible denaturation\" earns credit."
     },
     {
@@ -365,6 +368,7 @@ function MarkSchemeDecoder() {
       problem: "Describing graphs vaguely as 'increasing rapidly' without calculating percentage change or quoting paired units.",
       solution: "Train data precision: calculate percentage difference [(Δ/initial) × 100], gradient rates (Δy/Δx), and always quote paired coordinate data with units.",
       markGained: "+2 marks in Papers 4 & 6",
+      shortBadge: "+2 marks",
       example: "✗ Weak: \"Activity was high at pH 7 but dropped at pH 9.\"\n✓ Precise: \"Peaked at 24 cm³/min at optimum pH 7.0, dropping 75% to 6 cm³/min at pH 9.0 due to altered charge of active site amino acids.\""
     }
   ];
@@ -411,7 +415,7 @@ function MarkSchemeDecoder() {
                       {card.title}
                     </span>
                     <span className={`text-[9px] font-mono px-1.5 py-0.2 rounded shrink-0 ${isActive ? 'bg-white/15 text-white' : 'bg-slate-200 text-slate-700'}`}>
-                      {card.markGained.split(' ')[0]} {card.markGained.split(' ')[1]}
+                      {card.shortBadge}
                     </span>
                   </div>
                   <p className={`text-[10px] sm:text-[11px] leading-tight line-clamp-1 ${isActive ? 'text-blue-100' : 'text-slate-500'}`}>
@@ -879,7 +883,7 @@ function BiologyTwoYearTimeline() {
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0a1f3d] mb-2 tracking-tight">
-            Two Years, <span className="text-[#0f4a9b]">One Timeline</span>
+            What Happens in Each Term <span className="text-[#0f4a9b]">of the Biology Course</span>
           </h2>
           
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -977,15 +981,15 @@ function PracticalSkillsAndIA() {
   const practicalCards = [
     {
       num: "01",
-      tag: "Criterion B · Experimental",
+      tag: "RESEARCH DESIGN",
       title: "Research Question & Variables",
       icon: <Target className="w-4 h-4 text-[#0f4a9b]" />,
-      desc: "Writing a focused, testable hypothesis with explicitly controlled biological variables for Criterion B.",
+      desc: "Writing a focused, testable hypothesis with explicitly controlled biological variables.",
       keyFocus: "Controlled Variables"
     },
     {
       num: "02",
-      tag: "Criterion C · Data Precision",
+      tag: "DATA ANALYSIS",
       title: "Data & Uncertainties",
       icon: <Calculator className="w-4 h-4 text-[#059669]" />,
       desc: "Consistent decimal precision, standard deviations, and justified error bars that prove biological slopes.",
@@ -993,7 +997,7 @@ function PracticalSkillsAndIA() {
     },
     {
       num: "03",
-      tag: "Statistics · Analytical Rigor",
+      tag: "STATISTICS",
       title: "Statistical Testing",
       icon: <BarChart2 className="w-4 h-4 text-[#d97706]" />,
       desc: "Computing Student's t-test for comparing two means, Chi-squared (χ²) ratios, and Spearman's rank.",
@@ -1001,7 +1005,7 @@ function PracticalSkillsAndIA() {
     },
     {
       num: "04",
-      tag: "Criterion D · Critical Review",
+      tag: "CONCLUSION & EVALUATION",
       title: "Conclusion & Evaluation",
       icon: <FileCheck className="w-4 h-4 text-[#4f46e5]" />,
       desc: "Evaluating conclusions against raw data, apparatus errors vs biological variability, and improvements.",
@@ -1020,7 +1024,7 @@ function PracticalSkillsAndIA() {
           </div>
 
           <h2 className="text-lg sm:text-2xl font-extrabold text-[#0a1f3d] leading-tight mb-1">
-            The Biology practical work <span className="text-[#0f4a9b]">examiners actually assess</span>
+            Practicals, Paper 6 <span className="text-[#0f4a9b]">and the IB Internal Assessment</span>
           </h2>
           
           <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed max-w-2xl mx-auto">
@@ -1175,7 +1179,7 @@ function BiologyDecisionHelper() {
           </div>
 
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-            HL or SL? <span className="text-[#0f4a9b]">Four honest questions</span>
+            Choosing IB Biology <span className="text-[#0f4a9b]">HL or SL</span>
           </h2>
           
           <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
@@ -1400,7 +1404,7 @@ function BiologyDecisionHelper() {
           </h3>
           
           <p className="text-blue-100/90 text-xs sm:text-[13px] leading-relaxed max-w-2xl mx-auto">
-            A-Level Biology (Cambridge 9700 / Edexcel IAL) requires bridging the gap from simple GCSE recall to synoptic essay writing (Paper 5) and advanced practical skills (Paper 3 / Paper 5). The course moves quickly; establishing diagnostic support early prevents cumulative topic debt.
+            A-Level Biology (Cambridge 9700 / Edexcel IAL) moves from GCSE recall to longer explained answers, data analysis and practical skills. With Cambridge, that means Paper 3 (Advanced Practical Skills) and Paper 5 (Planning, Analysis and Evaluation). The course moves quickly, so early support stops gaps from building up.
           </p>
         </div>
 
@@ -1586,7 +1590,7 @@ function BiologyCurriculumPathways() {
       linkLabel: "Explore A-Level Biology",
       pillars: [
         "Cambridge 9700 & Pearson Edexcel IAL syllabus",
-        "Synoptic essay planning & Paper 5 data analysis",
+        "Long-answer technique & Paper 5 planning and analysis",
         "Targeted medicine & bioscience university prep"
       ]
     },
@@ -1625,7 +1629,7 @@ function BiologyCurriculumPathways() {
           </div>
 
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] tracking-tight mb-1.5">
-            The Biology Journey <span className="text-[#0f4a9b]">With Ustaad</span>
+            Biology Support <span className="text-[#0f4a9b]">by Curriculum</span>
           </h2>
           
           <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
@@ -1701,7 +1705,7 @@ function BiologyCurriculumPathways() {
         <div className="text-center mt-5 sm:mt-6">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#0a1f3d] text-[11px] sm:text-xs font-bold border border-slate-200/90 shadow-2xs">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-            <span>100% Dubai Syllabus Aligned · Cambridge, Edexcel &amp; IB Diploma</span>
+            <span>Matched to your school’s Cambridge, Edexcel or IB Diploma syllabus</span>
           </span>
         </div>
 
@@ -1839,7 +1843,7 @@ function WorkedQuestionShowcase() {
           </div>
 
           <h2 className="text-lg sm:text-2xl font-extrabold text-[#0a1f3d] leading-tight mb-1">
-            Inside a <span className="text-[#0f4a9b]">6-Mark Biology Question</span>
+            A 6-Mark Biology Answer, <span className="text-[#0f4a9b]">Marked Point by Point</span>
           </h2>
           
           <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
@@ -1936,7 +1940,7 @@ function CurriculumTransition() {
     },
     {
       past: "End-of-year papers testing syllabus recall",
-      present: "Two-year IA coursework & evaluative analysis"
+      present: "One IA investigation, worth 20% of the IB grade"
     }
   ];
 
@@ -1951,7 +1955,7 @@ function CurriculumTransition() {
           </div>
 
           <h2 className="text-lg sm:text-2xl font-extrabold text-[#0a1f3d] leading-tight mb-1 sm:mb-1.5">
-            Moving into IB or A-Level <span className="text-[#0f4a9b]">partway through</span>
+            Switching to <span className="text-[#0f4a9b]">IB or A-Level Biology</span>
           </h2>
           
           <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed">
@@ -1990,13 +1994,6 @@ function CurriculumTransition() {
 
 /* ── Section 14: Reviews Slider ── */
 const PARENT_REVIEWS = [
-  {
-    text: "Our daughter was getting 5s in IB Biology HL at Dubai College because she kept writing descriptions instead of explanations. After four sessions targeting command words and biochemical linking, her Paper 2 technique transformed completely.",
-    name: "Dr. K. Al-Mansoor",
-    initials: "KM",
-    location: "Al Barsha, Dubai",
-    subject: "IB Biology HL · Dubai College"
-  },
   {
     text: "The IA coaching alone was worth every dirham. Her tutor helped refine her research question on catalase inhibition and showed her how to run proper Chi-squared and t-tests with error bars. Outstanding precision.",
     name: "S. Crawford",
@@ -2127,7 +2124,7 @@ function ParentsSlider() {
 const FAQS = [
   {
     q: "How much does a Biology tutor cost in Dubai?",
-    plain: "Biology tutoring fees in Dubai depend on the level of study (IGCSE, A-Level, or IB DP) and whether the student requires intensive coursework or IA coaching. For up-to-date session rates and package options, please visit our pricing page or contact our team directly for a transparent quote.",
+    plain: "Biology tutoring fees in Dubai depend on the level of study (IGCSE, A-Level, or IB DP) and whether the student requires intensive coursework or IA coaching. For up-to-date session rates and package options, please visit our contact page or speak with our academic advisory team on WhatsApp for a transparent quote.",
     a: <>Biology tutoring fees in Dubai depend on the level of study (IGCSE, A-Level, or IB DP) and whether the student requires intensive coursework or IA coaching. For up-to-date session rates and package options, please visit our <a href="/contact" className="text-[#0f4a9b] font-semibold underline">contact page</a> or speak with our academic advisory team on WhatsApp for a transparent quote.</>
   },
   {
@@ -2157,8 +2154,8 @@ const FAQS = [
   },
   {
     q: "Are the lessons online or in Dubai?",
-    plain: "All Ustaad lessons are delivered 1-to-1 online via our dedicated interactive digital whiteboards. This allows families across Dubai (including Emirates Hills, Jumeirah, Downtown, Arabian Ranches, and Dubai Marina) to work directly with senior exam-board specialists without commute times, while enabling session recordings for revision.",
-    a: <>All Ustaad lessons are delivered 1-to-1 online via our dedicated interactive digital whiteboards. This allows families across Dubai (including Emirates Hills, Jumeirah, Downtown, Arabian Ranches, and Dubai Marina) to work directly with senior exam-board specialists without commute times, while enabling session recordings for revision.</>
+    plain: "All Ustaad lessons are delivered 1-to-1 online via our dedicated interactive digital whiteboards. This allows families across Dubai (including Emirates Hills, Jumeirah, Downtown, Arabian Ranches, and Dubai Marina) to work directly with senior exam-board specialists without commute times.",
+    a: <>All Ustaad lessons are delivered 1-to-1 online via our dedicated interactive digital whiteboards. This allows families across Dubai (including Emirates Hills, Jumeirah, Downtown, Arabian Ranches, and Dubai Marina) to work directly with senior exam-board specialists without commute times.</>
   },
   {
     q: "Is a Biology tutor useful for a medicine or biomedical application?",
@@ -2172,8 +2169,8 @@ const FAQS = [
   },
   {
     q: "Who will actually teach my child?",
-    plain: "Your child will be matched with a verified, degree-qualified biology specialist with extensive experience teaching British and IB curricula in UAE schools. Every tutor passes our rigorous four-stage screening process, assessing syllabus mastery, pedagogical clarity, and exam-board alignment before their first lesson.",
-    a: <>Your child will be matched with a verified, degree-qualified biology specialist with extensive experience teaching British and IB curricula in UAE schools. Every tutor passes our rigorous four-stage screening process, assessing syllabus mastery, pedagogical clarity, and exam-board alignment before their first lesson. You can <a href="/tutors" className="text-[#0f4a9b] font-semibold underline">meet our faculty</a> or book a trial to begin.</>
+    plain: "Your child will be matched with a verified, degree-qualified biology specialist with extensive experience teaching British and IB curricula in UAE schools. Every tutor is checked by our academic team for syllabus knowledge, teaching clarity and exam-board experience before their first lesson.",
+    a: <>Your child will be matched with a verified, degree-qualified biology specialist with extensive experience teaching British and IB curricula in UAE schools. Every tutor is checked by our academic team for syllabus knowledge, teaching clarity and exam-board experience before their first lesson. You can <a href="/tutors" className="text-[#0f4a9b] font-semibold underline">meet our faculty</a> or book your first session to begin.</>
   }
 ];
 
@@ -2184,27 +2181,36 @@ export default function BiologyTutorDubaiPage() {
     <Layout>
       <SEOHead
         title="Biology Tutor Dubai | IGCSE, A-Level & IB Biology | Ustaad"
-        description="1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Book a free 30-minute trial with Ustaad."
-        canonical="/subjects/biology-tutor-dubai"
+        description="1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Free 15-min orientation with the first lesson."
+        canonical="/biology-tutor-dubai"
         placename="Dubai, UAE"
         schema={[
           cityLocalBusinessSchema({
             city: 'Dubai',
-            url: '/subjects/biology-tutor-dubai',
+            url: '/biology-tutor-dubai',
             name: 'Ustaad | Biology Tutor Dubai',
-            description: '1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Book a free 30-minute trial with Ustaad.',
+            description: '1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Free 15-min orientation with the first lesson.',
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Abu Dhabi",
+              addressRegion: "Abu Dhabi",
+              addressCountry: "AE",
+            },
           }),
           breadcrumbSchema([
             { name: 'Home', url: '/' },
             { name: 'Biology', url: '/biology' },
-            { name: 'Biology Tutor Dubai', url: '/subjects/biology-tutor-dubai' },
+            { name: 'Biology Tutor Dubai', url: '/biology-tutor-dubai' },
           ]),
-          serviceSchema('Private Biology Tutoring Dubai', 'Expert 1-to-1 Biology tutors in Dubai for IGCSE, A-Level, and IB DP students. Specialised in 6-mark questions, data handling, and Internal Assessments.', '/subjects/biology-tutor-dubai'),
+          serviceSchema('Private Biology Tutoring Dubai', 'Expert 1-to-1 Biology tutors in Dubai for IGCSE, A-Level, and IB DP students. Specialised in 6-mark questions, data handling, and Internal Assessments.', '/biology-tutor-dubai'),
           courseSchema({
             courseName: 'IGCSE, A-Level & IB Biology Tutoring Dubai',
             description: 'Specialist 1-to-1 biology tuition in Dubai for Cambridge 0610, Edexcel, A-Level 9700 and IB DP Biology.',
-            url: '/subjects/biology-tutor-dubai',
+            url: '/biology-tutor-dubai',
             city: 'Dubai',
+            courseMode: 'online',
+            includeLocation: false,
+            includeRating: false,
           }),
           faqSchema(FAQS.map(f => ({ q: f.q, a: f.plain }))),
         ]}
@@ -2216,9 +2222,9 @@ export default function BiologyTutorDubaiPage() {
         
         <div className="relative z-10 flex flex-col items-center text-center px-4 pt-20 pb-3 sm:pt-24 sm:pb-4 max-w-4xl w-full">
           <h1 className="font-extrabold tracking-tight text-white leading-[1.12] mb-3 text-[clamp(1.75rem,4.5vw,3.1rem)] max-w-3xl">
-            Biology Tutor Dubai,{' '}
+            Biology Tutors in Dubai{' '}
             <span style={{ background: 'linear-gradient(92deg,#34d399 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              Built for Exam Precision
+              for IGCSE, A-Level and IB
             </span>
           </h1>
 
@@ -2232,7 +2238,7 @@ export default function BiologyTutorDubaiPage() {
               className="inline-flex items-center justify-center gap-2 px-7 h-11 rounded-full font-bold text-sm sm:text-base text-white transition-all hover:-translate-y-0.5 shadow-lg"
               style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}
             >
-              Book Your Free Trial
+              Book Your First Session
             </a>
             <a
               href={WA_URL}
@@ -2249,13 +2255,9 @@ export default function BiologyTutorDubaiPage() {
       {/* SECTION 02: STATS BAR */}
       <StatsBar />
 
-      <div className="py-2.5 bg-slate-100/70 text-center text-xs text-slate-600 border-b border-slate-200/80">
-        Supporting Biology students across Dubai's leading British, IB and international schools since 2015.
-      </div>
-
       {/* SECTION 03: LOGO STRIP & EXAM BOARD BADGES */}
       <SchoolsMarquee
-        logoList={DUBAI_SCHOOL_LOGOS}
+        logoList={DUBAI_SCHOOL_LOGOS.filter((s) => s.file !== 'victory_heights.png')}
         header={
           <div className="text-center mb-4 max-w-2xl mx-auto px-4">
             <p className="text-xs sm:text-sm font-bold text-[#0a1f3d] leading-relaxed">
@@ -2312,9 +2314,9 @@ export default function BiologyTutorDubaiPage() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
             <div>
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-tight">
-                What Dubai Parents{' '}
+                Parent Feedback{' '}
                 <span style={{ background: 'linear-gradient(92deg,#34d399 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  Say
+                  on Biology Tutoring
                 </span>
               </h2>
             </div>
@@ -2340,7 +2342,7 @@ export default function BiologyTutorDubaiPage() {
                 <HelpCircle className="h-3.5 w-3.5" /> Common Questions
               </div>
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
-                What Dubai <span className="text-[#0f4a9b]">parents ask</span>
+                Biology Tutoring Questions <span className="text-[#0f4a9b]">From Dubai Parents</span>
               </h2>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                 Clear, honest guidance on Biology tuition across Dubai international schools.
@@ -2435,10 +2437,10 @@ export default function BiologyTutorDubaiPage() {
 
       {/* SECTION 16: FINAL CTA */}
       <FinalCTA
-        title="Start Biology Support in Dubai Today"
+        title="Book Your First Biology Session"
         subtitle=""
         subtitleNode={null}
-        button1Text="Book First Free Trial"
+        button1Text="Book First Session"
         button1Href={BOOKING}
         subtext1=""
         button2Text="Ask on WhatsApp"

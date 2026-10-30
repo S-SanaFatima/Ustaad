@@ -837,7 +837,11 @@ export default function SillyMistakesMathsExamsBlog() {
               Go back to the opening: <code className="font-mono text-red-600 font-bold">x = 3</code> was wrong because of one line, and the line was easy to find once it was traced. Trace your working, test the vulnerable step and verify the final answer. Over time, your error log shows which skills deserve more attention.
             </p>
             <p>
-              If your child keeps running into trouble with particular skills, such as negative signs, fractions or brackets,{' '}
+              If your child keeps running into trouble with particular skills, such as negative signs, fractions or brackets, or experiences freezing and{' '}
+              <a href="/blogs/maths-anxiety-teenagers-signs-causes-help" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                maths anxiety
+              </a>{' '}
+              on multi-step questions,{' '}
               <a href="/maths" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                 1-to-1 maths tutoring
               </a>{' '}
@@ -856,21 +860,21 @@ export default function SillyMistakesMathsExamsBlog() {
           {/* CTA Box */}
           <div className="my-10 p-6 rounded-2xl bg-gradient-to-br from-[#0a1f3d] to-[#0f4a9b] text-white shadow-lg">
             <div className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-white/10 text-[#fef08a] text-[11px] font-bold uppercase tracking-wider mb-3">
-              Free 30-Minute Trial
+              Free 15-Min Orientation
             </div>
             <h3 className="text-xl sm:text-2xl font-bold mb-2">Can your child find the first wrong step?</h3>
             <p className="text-blue-100 text-xs sm:text-sm leading-relaxed mb-6">
-              In a free 30-minute trial, Fahad Khan works through worked equations with your child, shows where the first incorrect step tends to occur, and explains which checks would catch it. Lessons are online and 1-to-1, for families in every emirate.
+              In the first lesson, Fahad Khan spends 15 free minutes getting to know your child, then works through worked equations with your child, shows where the first incorrect step tends to occur, and explains which checks would catch it. Lessons are online and 1-to-1, for families in every emirate.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
               <a
                 href="/contact#form"
                 className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-bold text-[#0a1f3d] bg-gradient-to-r from-[#C7A24A] via-[#dfba63] to-[#C7A24A] hover:brightness-105 transition text-xs sm:text-sm shadow-sm"
               >
-                <span>Book a Free Trial</span>
+                <span>Book First Session</span>
               </a>
               <a
-                href="https://wa.me/971561249005?text=Hi%20Fahad%2C%20I%27d%20like%20to%20book%20a%20free%20trial%20to%20help%20my%20child%20catch%20silly%20mistakes%20in%20maths%20exams."
+                href="https://wa.me/971561249005?text=Hi%20Fahad%2C%20I%27d%20like%20to%20book%20a%20session%20to%20help%20my%20child%20catch%20silly%20mistakes%20in%20maths%20exams."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl font-bold text-white bg-[#25D366] hover:bg-[#20ba59] transition text-xs sm:text-sm shadow-sm"

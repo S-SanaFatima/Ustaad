@@ -1023,7 +1023,7 @@ const WAYPOINTS = [
     iconBg: 'from-[#7A5E10] via-[#A8892A] to-[#C7A24A]',
     accentColor: '#C7A24A',
     title: 'Comprehensive Private Tutoring Across All UAE Emirates',
-    desc: 'Our online tutoring platform connects families in Abu Dhabi, Dubai, Sharjah, and Al Ain with vetted subject specialists for one-on-one sessions. Book your 30-minute free trial session today to get started.',
+    desc: 'Our online tutoring platform connects families in Abu Dhabi, Dubai, Sharjah, and Al Ain with vetted subject specialists for one-on-one sessions. Every first lesson starts with a free 15-minute orientation.',
   },
   {
     num: '03',
@@ -1344,15 +1344,15 @@ export default function ContactPage() {
     { q: "How does Ustaad match tutors to students?", a: "Each tutor is matched to a student's curriculum, subject, year level, learning style, and preferred study schedule. We pair every student with one tutor who knows that exam system end to end." },
     { q: "Are lesson timings flexible for school students in the UAE?", a: "Yes. Sessions are planned around school hours, mock weeks, weekend activities, assessment cycles, and Ramadan timings. Online tutoring makes scheduling easier for families in Dubai, Abu Dhabi, Sharjah, Al Ain, and across the wider UAE." },
     { q: "What's the fastest way to reach the Ustaad team?", a: "WhatsApp is the quickest route for parents and students across Abu Dhabi, Dubai, Sharjah, Al Ain, Ras Al Khaimah, Fujairah, and the wider UAE. You can also use the contact form on this page if you prefer." },
-    { q: "What happens after I submit my contact request?", a: "Our academic coordination team reviews your child's curriculum, year group, and subject requirements within 15 minutes during working hours. We then select a specialist tutor whose timetable matches your preferred lesson slots and introduce them to your family for a 30-minute free trial session." },
-    { q: "Is there any obligation after the free trial session?", a: "None at all. The 30-minute trial is completely free and carries no financial or commitment obligation. It gives you a chance to see how our tutor works with your child before making any decisions." }
+    { q: "What happens after I submit my contact request?", a: "Our academic coordination team reviews your child's curriculum, year group, and subject requirements within 15 minutes during working hours. We then select a specialist tutor whose timetable matches your preferred lesson slots and introduce them to your family before the first lesson." },
+    { q: "Is there any obligation after the first lesson?", a: "None at all. You decide after the first lesson whether to continue." }
   ];
 
   return (
     <Layout>
       <SEOHead
-        title="Contact Ustaad | Book a Free Trial Session, UAE Tutoring"
-        description="Get in touch with Ustaad to book your free trial tutoring session. Reach us by phone or WhatsApp across Dubai, Abu Dhabi & all UAE emirates."
+        title="Contact Ustaad | Book First Session, UAE Tutoring"
+        description="Get in touch with Ustaad to book your first tutoring session. Reach us by phone or WhatsApp across Dubai, Abu Dhabi & all UAE emirates."
         canonical="/contact"
         ogImage="/UpdatedImages/contact-ustaad-private-tutors-book-free-trial-uae.webp"
         schema={[localBusinessSchema, breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Contact", url: "/contact" }])]}
@@ -1387,7 +1387,7 @@ export default function ContactPage() {
             >
               <img
                 src="/UpdatedImages/contact-ustaad-private-tutors-book-free-trial-uae.webp"
-                alt="Book a free trial with an Ustaad private tutor in Dubai Abu Dhabi Sharjah or online across all seven UAE Emirates"
+                alt="Book your first session with an Ustaad private tutor in Dubai Abu Dhabi Sharjah or online across all seven UAE Emirates"
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                 width={1200} height={800} fetchPriority="high" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f4a9b]/30 via-transparent to-transparent" />
@@ -1413,7 +1413,7 @@ export default function ContactPage() {
             {[
               {
                 title: "WhatsApp",
-                desc: "Book a free trial lesson • Quick replies",
+                desc: "Book your first session • Quick replies",
                 icon: <WhatsAppIcon className="h-4 w-4 sm:h-6 sm:w-6 text-[#25D366]" />,
                 iconBg: "bg-emerald-50/80 border border-emerald-100 text-[#25D366]",
                 cta: "Chat on WhatsApp",
@@ -1628,7 +1628,7 @@ export default function ContactPage() {
               }
               backTitle="Instant Reply"
               backDesc="Replies within minutes for lesson inquiries and academic support."
-              backFeatures={["Trial Lessons", "Scheduling", "Quick Replies", "Academic Support"]}
+              backFeatures={["First Lessons", "Scheduling", "Quick Replies", "Academic Support"]}
               backActionHref="https://wa.me/971561249005"
               backActionText="WhatsApp Chat"
               backActionClass="bg-[#25D366] hover:bg-[#20ba59] text-white shadow-[0_6px_20px_rgba(37,211,102,0.3)]"

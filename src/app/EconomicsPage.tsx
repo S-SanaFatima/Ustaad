@@ -384,7 +384,7 @@ const data: SubjectPageProps = {
   heroTitle:        "Modern Economics. Clean Answers.",
   heroSubtitle:     "Practical economics support for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
-  heroCTAText:      "Book Your Free Trial Lesson",
+  heroCTAText:      "Book Your First Session",
   heroCTAMicrocopy: "Economics, simply explained.",
 
   topicsTitle: "", topicsDesc: "", topics: [],
@@ -410,13 +410,13 @@ const data: SubjectPageProps = {
 
   finalCtaTitle:    "Identify What's Costing Marks",
   finalCtaSubtitle: "When economics revision feels solid yet the paper feels different, a check shows the habit costing marks.",
-  finalCtaButton:   "Book Your Free Trial Lesson",
+  finalCtaButton:   "Book Your First Session",
   finalCtaSubtext:  "Economics, simply explained.",
 
   floatingIcon: <LineChart className="h-4 w-4" />,
   seo: {
     title: "Economics Tutors UAE | IGCSE, A-Level, IB Economics | Ustaad",
-    description: "Expert private Economics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level, IB Economics SL/HL. Clear diagrams, strong evaluation skills. Book a free trial.",
+    description: "Expert private Economics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level, IB Economics SL/HL. Clear diagrams, strong evaluation skills. Free 15-min orientation with the first lesson.",
     canonical: "/economics",
     schema: [
       localBusinessSchema,

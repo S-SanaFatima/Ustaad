@@ -132,10 +132,10 @@ export default function ParentGuidanceBlogsPage() {
       
       <FinalCTA
         title="Find the gaps holding your child back"
-        subtitle="Book a free 30 minute session with our specialists. We will pinpoint exactly where the gaps are and show you where to focus next."
-        button1Text="Book a Free Trial"
+        subtitle="Every first lesson starts with 15 free minutes to pinpoint the gaps and agree where to focus next."
+        button1Text="Book First Session"
         button2Text="Chat on WhatsApp"
-        button2Href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20a%20free%20session%20to%20discuss%20my%20child%27s%20learning%20gaps."
+        button2Href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20a%20session%20to%20discuss%20my%20child%27s%20learning%20gaps."
       />
     </Layout>
   );

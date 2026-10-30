@@ -25,11 +25,11 @@ const data: SubjectPageProps = {
   heroTitle:    "Stronger Maths. Better Results.",
   heroSubtitle: "One-to-one mathematics tutoring for IGCSE, A-Level, IB, and AP students.",
   heroDesc:     "",
-  heroCTAText:  "Book Your Free Trial Lesson",
+  heroCTAText:  "Book Your First Session",
   heroCTAMicrocopy: "Stronger maths starts here.",
   finalCtaTitle:   "Pinpoint the Concepts Holding Results Back",
   finalCtaSubtitle: "If classroom understanding is not landing on the paper, another worksheet will not close the gap. A short diagnostic session pinpoints exactly what is holding your child's grade back.",
-  finalCtaButton:  "Book Your Free Trial Lesson",
+  finalCtaButton:  "Book Your First Session",
   finalCtaSubtext: "Stronger maths starts here.",
   topicsTitle:  "Core Areas of Mathematics",
   topicsDesc:   "Built on logic and structure. Clarity in every step.",
@@ -85,7 +85,7 @@ const data: SubjectPageProps = {
   floatingIcon: <Calculator className="h-4 w-4" />,
   seo: {
     title: "Maths Tutors UAE | IGCSE, A-Level, IB & AP | Ustaad",
-    description: "Expert private Maths tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB AA/AI, AP Calculus. 1-to-1 sessions, proven results. Book a free trial.",
+    description: "Expert private Maths tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB AA/AI, AP Calculus. 1-to-1 sessions, proven results. Free 15-min orientation with the first lesson.",
     canonical: "/maths",
     schema: [
       localBusinessSchema,
@@ -94,7 +94,7 @@ const data: SubjectPageProps = {
       faqSchema([
         { q: "What Maths levels do you tutor in UAE?", a: "We cover all levels: IGCSE, GCSE, A-Level (Pure, Stats, Mechanics), IB AA SL/HL, IB AI SL/HL, AP Calculus AB/BC, and Further Mathematics." },
         { q: "How do you help students who struggle with Maths?", a: "We diagnose exact topic gaps, rebuild from foundations, and build method clarity so students solve problems independently, not by memorising steps." },
-        { q: "Do you offer Maths tutoring in Dubai and Abu Dhabi?", a: "Yes. We provide 1-to-1 online Maths tutoring to students across Dubai, Abu Dhabi, Sharjah, and all UAE Emirates." },
+        { q: "Are Ustaad mathematics sessions online?", a: "Yes. Every maths session is live, online and 1-to-1, for families in every emirate." },
       ]),
     ],
   },
@@ -578,8 +578,8 @@ const mathFAQs = [
     a: "Yes, though leaning on the calculator often makes a student skip critical written lines. We train students to use models like the TI-84 Plus or Casio fx-CG50 as verification tools, so the written script still contains every step the examiner needs to award full credit."
   },
   {
-    q: "Are Ustaad mathematics sessions online, in-person, or both?",
-    a: "We deliver face-to-face sessions across Dubai and Abu Dhabi, and our online sessions reach families throughout the northern emirates."
+    q: "Are Ustaad mathematics sessions online?",
+    a: "Yes. Every maths session is live, online and 1-to-1, for families in every emirate."
   },
   {
     q: "What are the rates for a private mathematics tutor in Dubai?",

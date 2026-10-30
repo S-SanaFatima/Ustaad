@@ -416,7 +416,7 @@ export default function IBTutorAbuDhabiPage() {
     <Layout>
       <SEOHead
         title="IB Tutor Abu Dhabi | MYP, DP SL & HL | Math AA/AI + Physics"
-        description="IB tutor Abu Dhabi where one tutor connects Math AA/AI, Physics and Statistics. MYP to DP HL. Vetted by our academic and operations team. Free trial."
+        description="IB tutor Abu Dhabi where one tutor connects Math AA/AI, Physics and Statistics. MYP to DP HL. Vetted by our academic and operations team. Free 15-min orientation with the first lesson."
         canonical="/ib-tutor-abu-dhabi"
         schema={[
           cityLocalBusinessSchema('Abu Dhabi', 'IB Tutoring'),
@@ -522,7 +522,7 @@ export default function IBTutorAbuDhabiPage() {
             variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
             className="flex flex-wrap items-center justify-center gap-2 mb-5"
           >
-            {['MYP', 'Diploma', 'SL & HL', 'IA, EE & TOK help', 'First Session Free'].map((tag) => (
+            {['MYP', 'Diploma', 'SL & HL', 'IA, EE & TOK help', 'Free 15-Min Orientation'].map((tag) => (
               <span
                 key={tag}
                 className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-[12px] font-semibold text-blue-100/80"
@@ -561,7 +561,7 @@ export default function IBTutorAbuDhabiPage() {
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5 text-center"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}
               >
-                Claim a Free IB Session
+                Book First IB Session
               </a>
               <span className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</span>
               <a
@@ -582,7 +582,7 @@ export default function IBTutorAbuDhabiPage() {
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
                   style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}
                 >
-                  Claim a Free IB Session
+                  Book First IB Session
                 </a>
                 <p className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
@@ -1235,10 +1235,10 @@ export default function IBTutorAbuDhabiPage() {
             className="text-center mb-12 max-w-2xl mx-auto"
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#C7A24A]/35 bg-[#C7A24A]/10 text-[#A8892A] text-[11px] font-extrabold uppercase tracking-[0.14em] mb-5">
-              After the free session
+              After the first session
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1f3d] mb-4">
-              What You Keep After the Free Session
+              What You Keep After the First Session
             </h2>
             <div className="w-14 h-[3px] mx-auto rounded-full bg-gradient-to-r from-[#C7A24A] to-[#A8892A] mb-5" />
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
@@ -1316,7 +1316,7 @@ export default function IBTutorAbuDhabiPage() {
             className="text-center mt-10"
           >
             <GoldButton href={BOOKING} className="px-8 py-3.5 text-[15px] shadow-[0_0_24px_rgba(199,162,74,0.35)]">
-              Claim Your Free IB Session
+              Book First IB Session
             </GoldButton>
           </motion.div>
         </div>
@@ -1741,7 +1741,7 @@ export default function IBTutorAbuDhabiPage() {
           {/* Footnote */}
           <div className="mt-12 text-center max-w-xl mx-auto">
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-              If two or more signals ring true, the free first session is the quickest way to know whether tutoring will help.
+              If two or more signals ring true, the first session is the quickest way to know whether tutoring will help.
             </p>
           </div>
         </div>
@@ -1962,7 +1962,7 @@ export default function IBTutorAbuDhabiPage() {
               Start Your IB Support
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">
-              Two free ways to begin, both delivered live online.
+              Two ways to begin, both delivered live online.
             </p>
           </motion.div>
 
@@ -1979,7 +1979,7 @@ export default function IBTutorAbuDhabiPage() {
                 <div className="w-12 h-12 rounded-2xl bg-[#0f4a9b]/10 flex items-center justify-center mb-5 border border-[#0f4a9b]/20 text-[#0f4a9b]">
                   <GraduationCap className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-2">Free First Lesson</h3>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-2">Free 15-min orientation</h3>
                 <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6">
                   Thirty online minutes with a matched IB tutor, at no cost.
                 </p>
@@ -1990,7 +1990,7 @@ export default function IBTutorAbuDhabiPage() {
                 className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5 text-center"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}
               >
-                Book Your Free Trial
+                Book Your First Session
               </a>
             </motion.div>
 
@@ -2026,7 +2026,7 @@ export default function IBTutorAbuDhabiPage() {
           </div>
 
           <p className="text-center text-xs font-semibold text-gray-500 mb-6">
-            First session free. Evening, weekend and Ramadan slots. Serving Abu Dhabi families, delivered online across the UAE. Ustaad has operated in the UAE since 2015.
+            Free 15-min orientation. Evening, weekend and Ramadan slots. Serving Abu Dhabi families, delivered online across the UAE. For students based in Dubai, see our dedicated <a href="/ib-tutor-dubai" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">IB Tutor Dubai</a> support. Ustaad has operated in the UAE since 2015.
           </p>
         </div>
       </section>
@@ -2048,6 +2048,11 @@ export default function IBTutorAbuDhabiPage() {
             label: 'Chemistry Tutor Abu Dhabi',
             href: '/chemistry-tutor-abu-dhabi',
             note: 'DP Chemistry SL & HL reaction mechanism and internal assessment prep.'
+          },
+          {
+            label: 'IB Tutor Dubai',
+            href: '/ib-tutor-dubai',
+            note: '1-to-1 IB DP & MYP tutors serving students across Dubai communities.'
           },
         ]}
         curricula={[

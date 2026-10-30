@@ -139,11 +139,13 @@ export const cityLocalBusinessSchema = ({
   url,
   name,
   description,
+  address,
 }: {
   city: string;
   url: string;
   name?: string;
   description?: string;
+  address?: object;
 }) => {
   const geo = CITY_GEO[city] ?? CITY_GEO["Abu Dhabi"];
   return {
@@ -161,7 +163,7 @@ export const cityLocalBusinessSchema = ({
     priceRange: "AED 150–350 per session",
     currenciesAccepted: "AED",
     paymentAccepted: "Credit Card, Bank Transfer, Cash",
-    address: {
+    address: address ?? {
       "@type": "PostalAddress",
       streetAddress: `Home and online private tutoring across ${city}`,
       addressLocality: city,
@@ -371,11 +373,17 @@ export const courseSchema = ({
   description,
   url,
   city = "Abu Dhabi",
+  courseMode = ["onsite", "online"],
+  includeLocation = true,
+  includeRating = true,
 }: {
   courseName: string;
   description: string;
   url: string;
   city?: string;
+  courseMode?: string | string[];
+  includeLocation?: boolean;
+  includeRating?: boolean;
 }) => ({
   "@context": "https://schema.org",
   "@type": "Course",
@@ -390,25 +398,29 @@ export const courseSchema = ({
   },
   hasCourseInstance: {
     "@type": "CourseInstance",
-    courseMode: ["onsite", "online"],
+    courseMode,
     courseWorkload: "PT1H",
-    location: {
-      "@type": "Place",
-      name: `${city}, United Arab Emirates`,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: `Private tutoring across ${city}`,
-        addressLocality: city,
-        addressCountry: "AE",
+    ...(includeLocation && {
+      location: {
+        "@type": "Place",
+        name: `${city}, United Arab Emirates`,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: `Private tutoring across ${city}`,
+          addressLocality: city,
+          addressCountry: "AE",
+        },
       },
-    },
+    }),
   },
   offers: {
     "@type": "Offer",
     category: "Paid",
     priceCurrency: "AED",
   },
-  aggregateRating: AGGREGATE_RATING,
+  ...(includeRating && {
+    aggregateRating: AGGREGATE_RATING,
+  }),
 });
 
 export const personSchema = (p: PersonInput) => ({

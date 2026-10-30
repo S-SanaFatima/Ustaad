@@ -50,7 +50,7 @@ const TOC_ITEMS = [
   { label: 'How good A-Level tutoring in the UAE develops independent thinkers', id: 'how-good-a-level-tutoring-in-the-uae-develops-independent-thinkers' },
   { label: 'Practical tips for parents', id: 'practical-tips-for-parents' },
   { label: 'Frequently asked questions', id: 'frequently-asked-questions' },
-  { label: 'Book a free A-Level trial', id: 'book-a-free-a-level-trial' },
+  { label: 'Book First A-Level Session', id: 'book-a-free-a-level-trial' },
   { label: 'Sources and further reading', id: 'sources-and-further-reading' },
 ];
 
@@ -659,9 +659,9 @@ export default function ALevelIndependentThinkingBlog() {
             <FAQAccordion />
 
             {/* Section 09 */}
-            <SectionHeading num="09" id="book-a-free-a-level-trial">Book a free A-Level trial</SectionHeading>
+            <SectionHeading num="09" id="book-a-free-a-level-trial">Book First A-Level Session</SectionHeading>
             <p>
-              Ready to help your teenager think for themselves rather than drill in circles? Book a free trial session of online A-Level tutoring in the UAE. In that first hour, your child's tutor runs a short diagnostic to find where the reasoning breaks down, gives personalised feedback on a real exam question, and maps a simple study plan you keep. There is no obligation, and you leave with the plan either way.
+              Ready to help your teenager think for themselves rather than drill in circles? Book a first session of online A-Level tutoring in the UAE. It opens with 15 free minutes to meet the tutor; in the hour that follows, your child's tutor runs a short diagnostic to find where the reasoning breaks down, gives personalised feedback on a real exam question, and maps a simple study plan you keep. There is no obligation, and you leave with the plan either way.
             </p>
 
             {/* Section 10 */}
@@ -754,7 +754,7 @@ export default function ALevelIndependentThinkingBlog() {
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl font-extrabold text-white hover:brightness-110 transition text-sm shadow-md border border-white/10"
                   style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
                 >
-                  Book Your Free Trial
+                  Book Your First Session
                 </a>
                 <p className="text-xs text-white/60 font-medium">No commitment. Cancel anytime.</p>
                 </div>

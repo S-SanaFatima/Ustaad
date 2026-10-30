@@ -1051,8 +1051,8 @@ export default function BiologyLanding() {
     },
     {
       q: 'How much does biology tutoring cost in Abu Dhabi?',
-      plain: 'Rates depend on year group and how many sessions per week. Every family gets a free 30-minute diagnostic lesson first, and a transparent rate quote before any commitment.',
-      a: <>Rates depend on year group and how many sessions per week. Every family gets a free 30-minute diagnostic lesson first, and a transparent rate quote before any commitment.</>
+      plain: 'Rates depend on year group and how many sessions per week. Every first lesson includes a free 15-minute orientation, and a transparent rate quote before any commitment.',
+      a: <>Rates depend on year group and how many sessions per week. Every first lesson includes a free 15-minute orientation, and a transparent rate quote before any commitment.</>
     },
     {
       q: 'Is online biology tutoring effective for practical skills?',
@@ -1081,7 +1081,7 @@ export default function BiologyLanding() {
     <Layout>
       <SEOHead
         title="Biology Tutor Abu Dhabi | IGCSE, A-Level & IB | Ustaad"
-        description="Specialist 1-to-1 biology tutors in Abu Dhabi for IGCSE, A-Level and IB. Master genetics, physiology and IA. Ideal for medicine pathways. Free trial."
+        description="Specialist 1-to-1 biology tutors in Abu Dhabi for IGCSE, A-Level and IB. Master genetics, physiology and IA. Ideal for medicine pathways. Free 15-min orientation with the first lesson."
         canonical="/biology-tutor-abu-dhabi"
         ogImage="/UpdatedImages/private-subject-tutoring-igcse-ib-a-level-uae.webp"
         placename="Abu Dhabi, UAE"
@@ -1261,7 +1261,7 @@ export default function BiologyLanding() {
               <a href={BOOKING}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5"
                 style={{ background:'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow:'0 4px 16px rgba(15,74,155,0.5)' }}>
-                Book Your Free Trial
+                Book Your First Session
               </a>
               <span className="text-blue-200/50 text-[11px] -my-1">or</span>
               <a href={WA_URL} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20"><MessageCircle className="w-4 h-4" /> WhatsApp Us</a>
@@ -1273,7 +1273,7 @@ export default function BiologyLanding() {
                 <a href={BOOKING}
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
                   style={{ background:'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow:'0 4px 18px rgba(15,74,155,0.55)' }}>
-                  Book Your Free Trial
+                  Book Your First Session
                 </a>
                 <p className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
@@ -1520,7 +1520,7 @@ export default function BiologyLanding() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { num: '01', title: 'Diagnostic Lesson', desc: 'Free diagnostic lesson identifies each student\'s biology learning gaps and current exam-readiness level.' },
+              { num: '01', title: 'Diagnostic Lesson', desc: 'The first lesson identifies each student\'s biology learning gaps and current exam-readiness level.' },
               { num: '02', title: 'Topic Rebuild', desc: 'Weak topics reworked in the school\'s teaching order, with diagrams the student redraws, not just reads.' },
               { num: '03', title: 'Exam Practice', desc: 'Fortnightly past paper practice marked together using the official mark scheme, error by error.' },
               { num: '04', title: 'Coursework Coaching', desc: 'IB IA design and A-Level essay drills across the highest-mark criteria.' }
@@ -1821,7 +1821,7 @@ export default function BiologyLanding() {
               </div>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <GoldButton href={BOOKING} className="px-7 py-3.5 text-sm font-semibold rounded-lg bg-[#0f4a9b] text-white hover:bg-[#0a3a79] transition duration-200 shadow-lg">Book Your Free Trial</GoldButton>
+              <GoldButton href={BOOKING} className="px-7 py-3.5 text-sm font-semibold rounded-lg bg-[#0f4a9b] text-white hover:bg-[#0a3a79] transition duration-200 shadow-lg">Book Your First Session</GoldButton>
               <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg text-sm font-bold text-white bg-[#25D366] hover:bg-[#128C7E] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                 <Phone className="h-4 w-4" /> WhatsApp Us
               </a>
@@ -1897,13 +1897,13 @@ export default function BiologyLanding() {
         title="Start Biology Support Today"
         subtitleNode={
           <div className="text-gray-600 text-[15px] leading-relaxed max-w-2xl mx-auto">
-            <p>Book your free trial with a private biology tutor Abu Dhabi families trust.</p>
+            <p>Book your first session with a private biology tutor Abu Dhabi families trust.</p>
             <p className="text-[13px] text-gray-500 mt-2">
               Or speak with student support: <a href="tel:8009005" className="font-semibold text-[#0f4a9b]">800 9005 (USTAAD)</a>.
             </p>
           </div>
         }
-        button1Text="Book Your Free Trial"
+        button1Text="Book Your First Session"
         button1Href={BOOKING} />
 
       {/* RELATED CONTENT SECTION */}
@@ -1955,7 +1955,7 @@ export default function BiologyLanding() {
             className="fixed bottom-0 left-0 right-0 z-[9990] h-[64px] bg-[#0a1f3d] border-t border-white/10 px-4 py-2 flex items-center justify-between gap-3 md:hidden"
           >
             <a href={BOOKING} className="flex-1 h-10 inline-flex items-center justify-center bg-[#0f4a9b] text-white text-[13px] font-bold rounded-lg hover:bg-[#0a3a79] transition">
-              Book Trial
+              Book First Session
             </a>
             <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer" className="flex-1 h-10 inline-flex items-center justify-center bg-[#25D366] text-white text-[13px] font-bold rounded-lg hover:brightness-95 transition gap-1.5">
               <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.832L.057 23.477a.5.5 0 0 0 .608.61l5.801-1.525A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.37l-.36-.213-3.44.905.919-3.355-.234-.375A9.818 9.818 0 1 1 12 21.818z"/></svg>

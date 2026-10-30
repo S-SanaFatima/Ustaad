@@ -16,7 +16,7 @@ export default function APFreeTrialWhiteboardSection() {
     {
       num: '03',
       title: 'Try a Real AP Question',
-      text: 'In 30 free minutes online, the tutor works through a recent free-response question with your child.',
+      text: 'In the first lesson, the tutor works through a recent free-response question with your child.',
     },
   ];
 
@@ -36,10 +36,10 @@ export default function APFreeTrialWhiteboardSection() {
             </span>
           </div>
           <h2 className="text-xl sm:text-3xl lg:text-[36px] font-black text-[#0a1f3d] mb-1.5 sm:mb-2 leading-tight tracking-tight">
-            How the Free AP Trial <span className="text-[#0f4a9b]">Works</span>
+            How Your First AP Session <span className="text-[#0f4a9b]">Works</span>
           </h2>
           <p className="text-gray-600 text-xs sm:text-sm lg:text-[15px] leading-relaxed font-normal">
-            Three steps, and the first lesson costs nothing.
+            Three steps, with 15 free minutes added to the first lesson.
           </p>
         </div>
 

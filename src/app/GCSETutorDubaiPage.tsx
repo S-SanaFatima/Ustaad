@@ -1172,7 +1172,7 @@ export default function GCSETutorDubaiPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const serviceNode = {
-    ...serviceSchema('GCSE Tutoring Dubai', 'Expert online GCSE tutors in Dubai. AQA, Edexcel and OCR specialists. Private 1-to-1, recorded lessons, free trial.', '/gcse-tutor-dubai'),
+    ...serviceSchema('GCSE Tutoring Dubai', 'Expert online GCSE tutors in Dubai. AQA, Edexcel and OCR specialists. Private 1-to-1, recorded lessons, free 15-min orientation.', '/gcse-tutor-dubai'),
     areaServed: { '@type': 'City', name: 'Dubai' },
   };
 
@@ -1180,7 +1180,7 @@ export default function GCSETutorDubaiPage() {
     <Layout>
       <SEOHead
         title="GCSE Tutor Dubai | AQA, Edexcel & OCR | Ustaad"
-        description="Expert online GCSE tutors in Dubai. AQA, Edexcel & OCR specialists. Private 1-to-1, recorded lessons, free trial. Trusted UAE families since 2015."
+        description="Expert online GCSE tutors in Dubai. AQA, Edexcel & OCR specialists. Private 1-to-1, recorded lessons. Free 15-min orientation with the first lesson. Trusted UAE families since 2015."
         canonical="/gcse-tutor-dubai"
         ogImage="/UpdatedImages/gcse-tutor-abu-dhabi-online-year-11-session.webp"
         placename="Dubai, UAE"
@@ -1189,7 +1189,7 @@ export default function GCSETutorDubaiPage() {
             city: 'Dubai',
             url: '/gcse-tutor-dubai',
             name: 'Ustaad, GCSE Tutor Dubai',
-            description: 'Expert online GCSE tutors in Dubai. AQA, Edexcel and OCR specialists. Private 1-to-1, recorded lessons, free trial.',
+            description: 'Expert online GCSE tutors in Dubai. AQA, Edexcel and OCR specialists. Private 1-to-1, recorded lessons, free 15-min orientation.',
           }),
           breadcrumbSchema([
             { name: 'Home', url: '/' },
@@ -1300,7 +1300,7 @@ export default function GCSETutorDubaiPage() {
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[15px] text-white transition-all hover:-translate-y-0.5 text-center active:scale-[0.98]"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 6px 20px rgba(15,74,155,0.45)' }}
               >
-                Book Your Free Trial
+                Book Your First Session
               </a>
               <span className="text-blue-200/60 text-[11px]">✦ No Commitment · Cancel Anytime</span>
               <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#25D366]/20 active:scale-[0.98]">
@@ -1315,7 +1315,7 @@ export default function GCSETutorDubaiPage() {
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
                   style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}
                 >
-                  Book Your Free Trial
+                  Book Your First Session
                 </a>
                 <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
               </div>
@@ -1506,7 +1506,7 @@ export default function GCSETutorDubaiPage() {
       {/* ── 3D INTERACTIVE COMPARISON BOOK (Closed by default, opens on tap) ── */}
       <InteractiveComparisonBook3D />
 
-      {/* ── FREE TRIAL ── */}
+      {/* ── FIRST SESSION TIMELINE ── */}
       <FreeTrialTimelineSection location="Dubai" />
 
       {/* ── GRADE MOVEMENT ── */}
@@ -1946,15 +1946,15 @@ export default function GCSETutorDubaiPage() {
       <section className="py-16 sm:py-20 bg-white border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-4">Book your free GCSE trial in Dubai</h2>
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-4">Book your first GCSE session in Dubai</h2>
             <p className="text-gray-600 text-[15px]">Tell us the subject, year group and school. We match a specialist fast.</p>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 mb-12 items-stretch">
             <div className="bg-[#f4f7fc] p-8 rounded-[24px] border border-[#0f4a9b]/10 flex flex-col h-full text-center hover:shadow-[0_12px_32px_rgba(15,74,155,0.12)] hover:-translate-y-1 transition-all duration-300">
               <div className="w-16 h-16 rounded-full bg-[#f0c96a]/20 text-[#b8883f] flex items-center justify-center mb-5 mx-auto"><Star className="w-8 h-8 fill-current" /></div>
-              <h3 className="text-[18px] font-extrabold text-[#0a1f3d] mb-2">Free First Lesson</h3>
-              <p className="text-[14px] text-gray-500 mb-6 leading-relaxed flex-1">Thirty online minutes with a matched GCSE tutor to see if it&apos;s the right fit.</p>
-              <a href={BOOKING} className="mt-auto w-full min-h-[48px] bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] hover:brightness-110 text-white py-3 px-4 rounded-xl font-bold transition flex items-center justify-center gap-2 shadow-[0_4px_14px_rgba(199,162,74,0.3)] hover:-translate-y-0.5">Book a Free Trial Lesson</a>
+              <h3 className="text-[18px] font-extrabold text-[#0a1f3d] mb-2">Free 15-min orientation</h3>
+              <p className="text-[14px] text-gray-500 mb-6 leading-relaxed flex-1">15 extra minutes on the first lesson to meet your GCSE tutor.</p>
+              <a href={BOOKING} className="mt-auto w-full min-h-[48px] bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] hover:brightness-110 text-white py-3 px-4 rounded-xl font-bold transition flex items-center justify-center gap-2 shadow-[0_4px_14px_rgba(199,162,74,0.3)] hover:-translate-y-0.5">Book First Session</a>
             </div>
             <div className="bg-white p-8 rounded-[24px] shadow-[0_8px_30px_rgba(37,211,102,0.08)] border border-[#25D366]/20 flex flex-col h-full text-center hover:shadow-[0_12px_40px_rgba(37,211,102,0.15)] hover:-translate-y-1 transition-all duration-300">
               <div className="w-16 h-16 rounded-full bg-[#25D366]/10 text-[#25D366] flex items-center justify-center mb-5 mx-auto"><WhatsAppIcon className="w-8 h-8 text-[#25D366]" /></div>

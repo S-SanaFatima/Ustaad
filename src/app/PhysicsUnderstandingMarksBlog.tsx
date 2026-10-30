@@ -334,7 +334,7 @@ export default function PhysicsUnderstandingMarksBlog() {
             {/* 01 */}
             <SectionHeading num="01" id="why-understanding-doesnt-transfer">Why Understanding at Home Doesn't Always Show Up in Exam Marks</SectionHeading>
             <p>Home revision typically rewards recognition. A student reads through a worked example, follows the logic, and feels confident because the steps make sense. But feeling that something makes sense is not the same as being able to produce it independently on a blank page.</p>
-            <p>Exams demand retrieval. The student must access knowledge on cue, under time pressure, without the textbook, and often in a format slightly different from anything they practised. Two students with comparable knowledge often achieve very different marks not because one understands more, but because one has practised retrieval and the other has not.</p>
+            <p>Exams demand retrieval. The student must access knowledge on cue, under time pressure, without the textbook, and often in a format slightly different from anything they practised. Two students with comparable knowledge often achieve very different marks not because one understands more, but because one has practised retrieval and the other has not. Our guide to <a href="/blogs/why-students-freeze-exam-questions-scaffolding-trap" className="text-[#0f4a9b] font-semibold hover:underline">why students freeze on exam questions</a> covers the classroom side of this gap.</p>
 
             <NarrativeBox label="Case Study, Year 11 Physics, Abu Dhabi British School, Cambridge 0625">
               <p>A Year 11 student scored 88% on chapter tests done at home over the course of the year. She revised every topic, highlighted her notes, and could walk her mother through worked examples in the evenings. Her first school mock came back at 61%.</p>
@@ -389,7 +389,7 @@ export default function PhysicsUnderstandingMarksBlog() {
             <SectionHeading num="05" id="when-anxiety-interrupts">When Anxiety Interrupts Thinking</SectionHeading>
             <p>Exam anxiety works against performance in a specific, measurable way. Worry consumes working memory. When a student is anxious, even when they appear composed, part of their cognitive capacity is occupied by worry rather than the question in front of them.</p>
             <p>This is why students sometimes describe knowing the answer but being unable to access it during the exam. The knowledge is there. The retrieval pathway is blocked by competing cognitive load from anxiety.</p>
-            <p>Students with higher exam anxiety often perform significantly better in low-stakes practice than in formal exams. The gap is not a measure of what they know. It is a measure of how much working memory anxiety is consuming. For a broader look at how this anxiety builds across the term, see{' '}
+            <p>Students with higher exam anxiety often perform significantly better in low-stakes practice than in formal exams. The gap is not a measure of what they know. It is a measure of how much working memory anxiety is consuming. When combined with mathematical problem solving, this often overlaps with <a href="/blogs/maths-anxiety-teenagers-signs-causes-help" className="text-[#0f4a9b] font-semibold hover:underline">maths anxiety</a>, where working memory is drained before calculation even begins. For a broader look at how this anxiety builds across the term, see{' '}
               <a href="/blogs/exam-panic-before-exams-uae" className="text-[#0f4a9b] font-semibold hover:underline">What UAE Parents Miss About Exam Panic</a>.</p>
 
             {/* 06 */}
@@ -422,7 +422,7 @@ export default function PhysicsUnderstandingMarksBlog() {
               <a href="/contact#form"
                 className="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-white text-sm hover:brightness-110 transition"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial
+                Book Your First Session
               </a>
               <p className="text-xs text-gray-500 font-medium">No commitment. Cancel anytime.</p>
             </div>
@@ -483,7 +483,7 @@ export default function PhysicsUnderstandingMarksBlog() {
                 <a href="/contact#form"
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial
+                Book Your First Session
               </a>
                 <p className="text-xs text-white/60 font-medium">No commitment. Cancel anytime.</p>
               </div>

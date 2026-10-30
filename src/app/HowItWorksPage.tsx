@@ -355,10 +355,10 @@ const PAIRING_FRAMEWORK_DATA = [
   },
   {
     id: 2,
-    title: "30-Min Free Trial",
+    title: "First Lesson",
     shortBadge: "Zero-Risk Evaluation",
-    tag: "Rapport & Tools Trial",
-    desc: "A zero-commitment trial session lets student and parent evaluate tutor rapport, teaching style, and digital whiteboard tools.",
+    tag: "Rapport & Tools Check",
+    desc: "The first lesson opens with 15 free minutes for introductions, so student and parent can judge rapport and teaching style.",
     icon: Zap,
   },
   {
@@ -1042,7 +1042,7 @@ function TutorScreeningSection() {
                     <path d="M2 6.5 L5 9.5 L10 3" />
                   </svg>
                 </span>
-                <span>Complimentary first session. No card, no commitment.</span>
+                <span>15 free minutes added to the first lesson.</span>
               </li>
             </ul>
 
@@ -1055,7 +1055,7 @@ function TutorScreeningSection() {
                   background: 'linear-gradient(135deg, #E6C575, #C7A24A 55%, #9E7B28)',
                 }}
               >
-                <span>Book a Free Trial</span>
+                <span>Book First Session</span>
               </a>
 
               <span className="text-xs sm:text-sm text-[#FBF9F4]/75 font-medium text-center sm:text-left">
@@ -1743,7 +1743,7 @@ export default function HowItWorksPage() {
     <Layout>
       <SEOHead 
         title="How It Works | Ustaad Private Tutoring Process UAE" 
-        description="Discover how Ustaad's 1-to-1 private tutoring works. Diagnostic assessment, personalised plan, curriculum-aligned sessions, and tracked progress. Book your free trial today." 
+        description="Discover how Ustaad's 1-to-1 private tutoring works. Diagnostic assessment, personalised plan, curriculum-aligned sessions, and tracked progress. Free 15-min orientation with the first lesson." 
         canonical="/how-it-works" 
         ogImage="/UpdatedImages/how-ustaad-private-tutoring-works-uae-families.webp" 
         preloadHeroImage="/UpdatedImages/how-ustaad-private-tutoring-works-uae-families.webp"
@@ -1768,7 +1768,7 @@ export default function HowItWorksPage() {
                 A calm, patient way of teaching, planned around how UAE students learn across a full school year, not against it.
               </p>
               <HeroCTABlock className="mb-4">
-                Book Your Free Trial
+                Book Your First Session
               </HeroCTABlock>
             </motion.div>
 

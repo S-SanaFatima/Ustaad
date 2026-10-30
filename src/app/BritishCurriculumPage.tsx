@@ -402,7 +402,7 @@ export default function BritishCurriculumPage() {
               One-to-one tutoring shaped around the academic standards, examination demands, and long-term expectations of the British Curriculum, with specialist <a href="/igcse" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">IGCSE tutors in the UAE</a> and <a href="/a-level" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">A-Level educators</a>.
             </p>
             <HeroCTABlock className="mb-4">
-              Book Your Free Trial
+              Book Your First Session
             </HeroCTABlock>
           </motion.div>
         </div>
@@ -582,7 +582,7 @@ export default function BritishCurriculumPage() {
           </div>
 
           {/* Swipe indicator on mobile */}
-          <SwipeIndicator text="Swipe across all 6 subjects" className="mt-4" />
+          <SwipeIndicator text="Swipe across all 6 subjects" hideArrows hideDots className="mt-4" />
         </div>
       </section>
 
@@ -777,7 +777,7 @@ export default function BritishCurriculumPage() {
       <FinalCTA
         title="Find Your British Curriculum Tutor"
         subtitle="Matched in minutes."
-        button1Text="Book Your Free Trial" />
+        button1Text="Book Your First Session" />
 
     </Layout>
   );

@@ -26,7 +26,7 @@ import {
 const SECTIONS = [
   { id: 'acceptance-terms', title: '1. Acceptance of Terms & Website Scope', icon: FileText },
   { id: 'tutoring-services', title: '2. Tutoring Services & Curricula Covered', icon: GraduationCap },
-  { id: 'trial-session-policy', title: '3. Free Trial Session Policy', icon: Sparkles },
+  { id: 'trial-session-policy', title: '3. Orientation & First Lesson Policy', icon: Sparkles },
   { id: 'scheduling-attendance', title: '4. Scheduling, Attendance & Punctuality', icon: Clock },
   { id: 'cancellation-rescheduling', title: '5. 24-Hour Cancellation & Rescheduling', icon: RefreshCw },
   { id: 'tutor-replacement', title: '6. Tutor Replacement & Match Guarantee', icon: CheckCircle2 },
@@ -72,7 +72,7 @@ export default function TermsPage() {
     <Layout>
       <SEOHead
         title="Terms of Use | Ustaad UAE · Tutoring Agreement & Service Terms"
-        description="Official Terms of Use for Ustaad UAE private tutoring services. Transparent policies on free trial sessions, 24-hour rescheduling, tutor replacement guarantee, and UAE governing law."
+        description="Official Terms of Use for Ustaad UAE private tutoring services. Transparent policies on tutoring sessions and orientations, 24-hour rescheduling, tutor replacement guarantee, and UAE governing law."
         canonical="/terms"
         placename="United Arab Emirates"
         ogType="website"
@@ -122,7 +122,7 @@ export default function TermsPage() {
             </h1>
 
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-left">
-              Welcome to Ustaad. These Terms of Use govern all academic 1-to-1 tutoring sessions, diagnostic assessments, trial lessons, and digital study materials provided to families across the United Arab Emirates (Dubai, Abu Dhabi, Sharjah, and all Northern Emirates).
+              Welcome to Ustaad. These Terms of Use govern all academic 1-to-1 tutoring sessions, diagnostic assessments, lessons, orientations, and digital study materials provided to families across the United Arab Emirates (Dubai, Abu Dhabi, Sharjah, and all Northern Emirates).
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-y-2.5 gap-x-4 sm:gap-x-6 text-xs text-gray-500 pt-4 border-t border-slate-200">
@@ -149,10 +149,10 @@ export default function TermsPage() {
                 <Sparkles className="w-5 h-5" />
               </div>
               <h2 className="text-[14.5px] font-extrabold text-[#0a1f3d] group-hover:text-[#0f4a9b] transition-colors mb-1">
-                Free Trial Session
+                Orientation &amp; First Lesson
               </h2>
               <p className="text-xs text-slate-600 leading-relaxed">
-                One complimentary 30-minute diagnostic session with zero financial commitment or upfront card details.
+                Every first lesson includes a complimentary 15-minute orientation to meet the tutor, discuss syllabus requirements, and agree on a learning roadmap.
               </p>
             </div>
 
@@ -288,7 +288,7 @@ export default function TermsPage() {
                   </div>
                   <h3 className="text-sm font-bold mb-1.5">Have a question about your agreement?</h3>
                   <p className="text-xs text-blue-100 mb-4 leading-relaxed">
-                    Our student support team is ready to assist with package modifications, schedule shifts, or trial requests.
+                    Our student support team is ready to assist with package modifications, schedule shifts, or lesson requests.
                   </p>
                   <div className="space-y-2">
                     <a
@@ -354,7 +354,7 @@ export default function TermsPage() {
                     <li><strong>American Curriculum &amp; AP:</strong> US Common Core standards and Advanced Placement (<a href="/ap" className="text-[#0f4a9b] font-semibold hover:underline">AP</a>) subject exams.</li>
                   </ul>
                   <p>
-                    Tutoring is conducted via interactive, live 1-to-1 virtual whiteboard classrooms or organized in-person sessions where permitted and arranged.
+                    Tutoring is conducted via interactive, live 1-to-1 virtual whiteboard classrooms.
                   </p>
                 </div>
               </article>
@@ -366,15 +366,15 @@ export default function TermsPage() {
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <h2 className="text-base sm:text-lg font-bold text-[#0a1f3d]">
-                    3. Free Trial Session Policy
+                    3. Orientation &amp; First Lesson Policy
                   </h2>
                 </div>
                 <div className="text-sm sm:text-[14.5px] text-slate-700 leading-[1.75] space-y-3.5">
                   <p>
-                    To ensure full confidence in tutor compatibility and teaching methodology before any financial commitment, Ustaad offers <strong>one 30-minute free trial session per family per newly requested subject</strong>.
+                    To ensure full confidence in tutor compatibility and teaching methodology, Ustaad provides <strong>a 15-minute complimentary orientation with the first lesson</strong>.
                   </p>
                   <div className="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200 text-xs sm:text-sm text-emerald-950">
-                    <strong>Zero Obligation:</strong> Trial lessons do not require credit card details. If you conclude that the tutor or online format is not the ideal fit for your child, you owe nothing and will not be charged.
+                    <strong>No Upfront Card Required:</strong> First lesson bookings do not require credit card details. You decide after the first lesson whether to proceed.
                   </div>
                 </div>
               </article>
@@ -602,7 +602,7 @@ export default function TermsPage() {
             Ready to find the right private tutor for your child?
           </h2>
           <p className="text-xs sm:text-sm text-gray-600 mb-6 max-w-xl mx-auto leading-relaxed">
-            Book a free 30-minute diagnostic session with an expert tutor matched to your exact curriculum, syllabus code, and grade level.
+            Book your first session with orientation with an expert tutor matched to your exact curriculum, syllabus code, and grade level.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-md sm:max-w-none mx-auto">
             <a
@@ -610,10 +610,10 @@ export default function TermsPage() {
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-white font-bold text-xs sm:text-sm hover:brightness-110 hover:shadow-lg hover:shadow-[#C7A24A]/30 transition shadow-md transform hover:-translate-y-0.5 active:scale-95 text-center"
               style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
             >
-              Book Your Free Trial Session
+              Book Your First Session
             </a>
             <a
-              href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20free%20trial%20session."
+              href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20first%20session."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#25d366] text-white font-bold text-xs sm:text-sm hover:bg-[#20bd5a] transition shadow-md text-center"

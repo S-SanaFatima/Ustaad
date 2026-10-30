@@ -359,7 +359,7 @@ const data: SubjectPageProps = {
   heroTitle:        "Finance Tutoring For Stronger Performance",
   heroSubtitle:     "Real-world money skills for teenagers stepping into early adult life.",
   heroDesc:         "",
-  heroCTAText:      "Book Your Free Trial Lesson",
+  heroCTAText:      "Book Your First Session",
   heroCTAMicrocopy: "Money sense for life.",
 
   topicsTitle: "", topicsDesc: "", topics: [],
@@ -385,13 +385,13 @@ const data: SubjectPageProps = {
 
   finalCtaTitle:    "Where Smart Money Habits Begin",
   finalCtaSubtitle: "Money habits set in teen years shape adult choices later. A first session shows your child where to start.",
-  finalCtaButton:   "Book Your Free Trial Lesson",
+  finalCtaButton:   "Book Your First Session",
   finalCtaSubtext:  "Money sense for life.",
 
   floatingIcon: <DollarSign className="h-4 w-4" />,
   seo: {
     title: "Finance Tutors UAE | A-Level, IB & University | Ustaad",
-    description: "Expert private Finance tutoring in Dubai, Abu Dhabi & UAE. A-Level, IB, and university-level Finance. 1-to-1 sessions with expert tutors. Book a free trial.",
+    description: "Expert private Finance tutoring in Dubai, Abu Dhabi & UAE. A-Level, IB, and university-level Finance. 1-to-1 sessions with expert tutors. Free 15-min orientation with the first lesson.",
     canonical: "/finance",
     schema: [localBusinessSchema, serviceSchema("Private Finance Tutoring UAE", "1-to-1 Finance tutoring for A-Level, IB, and university students across UAE.", "/finance"), breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Subjects", url: "/subjects" }, { name: "Finance", url: "/finance" }]), faqSchema(financeFAQs)],
   },

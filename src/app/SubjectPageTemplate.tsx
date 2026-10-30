@@ -71,7 +71,7 @@ export default function SubjectPageTemplate(p: SubjectPageProps) {
               <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-5 sm:mb-7 leading-relaxed max-w-2xl mx-auto">{p.heroDesc}</p>
               <div className="flex flex-col items-center gap-2 mb-6 sm:mb-8">
                 <GoldButton className="px-7 py-3 text-sm shadow-[0_0_15px_rgba(199,162,74,0.3)]">
-                  {p.heroCTAText ?? 'Book Your Free Trial'}
+                  {p.heroCTAText ?? 'Book Your First Session'}
                 </GoldButton>
                 <p className="text-xs text-gray-400 font-medium tracking-wide">{CTA_SUBTEXT}</p>
               </div>
@@ -322,7 +322,7 @@ export default function SubjectPageTemplate(p: SubjectPageProps) {
       {/* ── FINAL CTA ── */}
       <FinalCTA
         title={p.finalCtaTitle ?? "Better Results Start Here"}
-        subtitle={p.finalCtaSubtitle ?? "Book your free trial session today."}
+        subtitle={p.finalCtaSubtitle ?? "Book your first session today."}
         button1Text={p.finalCtaButton ?? "Start Your First Session"}
         subtext1={CTA_SUBTEXT}
       />

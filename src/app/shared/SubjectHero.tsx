@@ -35,7 +35,7 @@ export default function SubjectHero({
   curriculum = "IGCSE, GCSE, A-Level, IB & American curriculum",
   location = "Dubai & Abu Dhabi",
   primaryCtaHref = "/contact",
-  primaryCtaText = "Book Your Free Trial",
+  primaryCtaText = "Book Your First Session",
   secondaryCtaHref,
   secondaryCtaText
 }: SubjectHeroProps) {

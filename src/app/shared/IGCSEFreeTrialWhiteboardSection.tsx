@@ -16,7 +16,7 @@ export default function IGCSEFreeTrialWhiteboardSection() {
     {
       num: '03',
       title: 'Start With Your Chosen Topic',
-      text: 'The free lesson is online. Your child chooses the topic, and the tutor teaches it from the beginning.',
+      text: 'Your first lesson is online. Your child chooses the topic, and the tutor teaches it from the beginning.',
     },
   ];
 
@@ -36,10 +36,10 @@ export default function IGCSEFreeTrialWhiteboardSection() {
             </span>
           </div>
           <h2 className="text-xl sm:text-3xl lg:text-[36px] font-black text-[#0a1f3d] mb-1.5 sm:mb-2 leading-tight tracking-tight">
-            How the Free IGCSE Trial <span className="text-[#0f4a9b]">Works</span>
+            How Your First IGCSE Session <span className="text-[#0f4a9b]">Works</span>
           </h2>
           <p className="text-gray-600 text-xs sm:text-sm lg:text-[15px] leading-relaxed font-normal">
-            Book in three steps; the first 30 minutes are free.
+            Book in three steps; get matched with an expert tutor.
           </p>
         </div>
 

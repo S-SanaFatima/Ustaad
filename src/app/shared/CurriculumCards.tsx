@@ -29,7 +29,7 @@ export default function CurriculumCards({
   subtitle, 
   description, 
   showCTA = true,
-  ctaText = "Book Your Free Trial",
+  ctaText = "Book Your First Session",
   expandable = false
 }: CurriculumCardsProps) {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);

@@ -105,7 +105,7 @@ export function DubaiCurriculumAnalysisSection() {
         </div>
 
         {/* Swipe indicator on mobile */}
-        <SwipeIndicator text="Swipe across all 4 points" className="mt-4" />
+        <SwipeIndicator text="Swipe across all 4 points" hideArrows hideDots className="mt-4" />
       </div>
     </section>
   );

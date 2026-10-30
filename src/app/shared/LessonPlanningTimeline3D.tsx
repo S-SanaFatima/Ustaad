@@ -476,7 +476,7 @@ export function LessonPlanningTimeline3D() {
           </div>
 
           {/* Swipe indicator on mobile */}
-          <SwipeIndicator text="Swipe across all 3 steps" className="mt-4" />
+          <SwipeIndicator text="Swipe across all 3 steps" hideArrows hideDots className="mt-4" />
         </div>
       </div>
     </section>

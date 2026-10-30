@@ -159,7 +159,7 @@ export default function CurriculumPage() {
               <div className="w-16 h-1 bg-gradient-to-r from-[#C7A24A] to-[#A8892A] rounded-full mb-3.5 sm:mb-5" />
               <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-5 sm:mb-7 leading-relaxed max-w-xl">Every curriculum has its own style of teaching, so we guide students in the way they already learn at school.</p>
               <HeroCTABlock className="mb-4">
-                Book Your Free Trial
+                Book Your First Session
               </HeroCTABlock>
             </motion.div>
 
@@ -252,7 +252,7 @@ export default function CurriculumPage() {
               
               <div className="flex flex-col gap-2 mt-auto z-10">
                 <a href="/british-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] bg-white hover:bg-slate-50 border-2 border-slate-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-all text-center shadow-sm">View Curriculum</a>
-                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_4px_15px_rgba(199,162,74,0.3)] hover:shadow-[0_8px_25px_rgba(199,162,74,0.5)]" href="/contact?intent=trial&source=curriculum-british">Book Your Free Trial</GoldButton>
+                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_4px_15px_rgba(199,162,74,0.3)] hover:shadow-[0_8px_25px_rgba(199,162,74,0.5)]" href="/contact?intent=trial&source=curriculum-british">Book Your First Session</GoldButton>
               </div>
             </motion.div>
 
@@ -300,7 +300,7 @@ export default function CurriculumPage() {
               
               <div className="flex flex-col gap-2 mt-auto z-10">
                 <a href="/american-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] bg-white hover:bg-slate-50 border-2 border-slate-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-all text-center shadow-sm">View Curriculum</a>
-                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_4px_15px_rgba(199,162,74,0.3)] hover:shadow-[0_8px_25px_rgba(199,162,74,0.5)]" href="/contact?intent=trial&source=curriculum-american">Book Your Free Trial</GoldButton>
+                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_4px_15px_rgba(199,162,74,0.3)] hover:shadow-[0_8px_25px_rgba(199,162,74,0.5)]" href="/contact?intent=trial&source=curriculum-american">Book Your First Session</GoldButton>
               </div>
             </motion.div>
 
@@ -348,7 +348,7 @@ export default function CurriculumPage() {
               
               <div className="flex flex-col gap-2 mt-auto z-10">
                 <a href="/ib-curriculum" className="w-full py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-[#0a1f3d] bg-white hover:bg-slate-50 border-2 border-slate-200 rounded-xl hover:border-[#0f4a9b] hover:text-[#0f4a9b] transition-all text-center shadow-sm">View Curriculum</a>
-                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_4px_15px_rgba(199,162,74,0.3)] hover:shadow-[0_8px_25px_rgba(199,162,74,0.5)]" href="/contact?intent=trial&source=curriculum-ib">Book Your Free Trial</GoldButton>
+                <GoldButton className="w-full py-2.5 sm:py-3 text-xs sm:text-sm shadow-[0_4px_15px_rgba(199,162,74,0.3)] hover:shadow-[0_8px_25px_rgba(199,162,74,0.5)]" href="/contact?intent=trial&source=curriculum-ib">Book Your First Session</GoldButton>
               </div>
             </motion.div>
 
@@ -400,7 +400,7 @@ export default function CurriculumPage() {
           </div>
 
           {/* Swipe indicator on mobile */}
-          <SwipeIndicator text="Swipe across all curricula" className="mt-4" />
+          <SwipeIndicator text="Swipe across all curricula" hideArrows hideDots className="mt-4" />
         </div>
       </section>
 
@@ -595,7 +595,7 @@ export default function CurriculumPage() {
           </div>
 
           {/* Swipe indicator on mobile */}
-          <SwipeIndicator text="Swipe across all 3 pathways" className="mt-4" />
+          <SwipeIndicator text="Swipe across all 3 pathways" hideArrows hideDots className="mt-4" />
         </div>
       </section>
 
@@ -743,7 +743,7 @@ export default function CurriculumPage() {
                     Major Emirates Covered
                   </h3>
                   <p className="text-xs text-gray-500 leading-relaxed mb-3">
-                    Specialist online and in-person private tutors matched to local UAE school sessions.
+                    Specialist online private tutors matched to local UAE school sessions.
                   </p>
                 </div>
 
@@ -975,7 +975,7 @@ export default function CurriculumPage() {
               </p>
             </div>
             <GoldButton href="/contact#form" className="w-full sm:w-auto px-5 py-2.5 text-xs shadow-xs flex-shrink-0 font-bold justify-center text-center">
-              Book a Free Trial Session
+              Book First Session
             </GoldButton>
           </div>
 

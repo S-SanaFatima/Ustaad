@@ -1079,7 +1079,7 @@ export function Subject3DCard({ subject }: { subject: SubjectItem }) {
           </p>
         </div>
 
-        {/* 3. Bottom CTA Action (Single-CTA rule: Explore [Subject] →) */}
+        {/* 3. Bottom CTA Action (Single-CTA rule: Explore [Subject]) */}
         <div
           className="relative z-20 mt-4 pt-3 border-t border-slate-100 flex items-center justify-between"
           style={{ transform: 'translateZ(20px)' }}
@@ -1092,7 +1092,6 @@ export function Subject3DCard({ subject }: { subject: SubjectItem }) {
             }`}
           >
             <span>{subject.cta}</span>
-            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </span>
         </div>
       </motion.a>

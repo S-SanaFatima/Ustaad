@@ -66,7 +66,7 @@ export function BiologyDiagnosticApproach() {
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] tracking-tight mb-3">
-            Our 3-Step <span className="text-[#0f4a9b]">Diagnostic Approach</span>
+            How Biology Lessons <span className="text-[#0f4a9b]">Are Planned</span>
           </h2>
           
           <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">

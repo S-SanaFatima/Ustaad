@@ -401,7 +401,7 @@ export default function ALevelTutorAbuDhabiPage() {
             variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
             className="text-blue-100/80 text-[clamp(0.88rem,2vw,1.05rem)] leading-relaxed max-w-2xl mb-6 md:mb-8 px-4 italic font-medium"
           >
-            Live online A-Level tutors matched to Cambridge, Edexcel, OxfordAQA or OCR. Also supporting students in Dubai through our <a href="/a-level-tutor-dubai" className="underline font-bold text-amber-300 hover:text-white">A-Level tutors in Dubai</a>.
+            Live online A-Level tutors matched to Cambridge, Edexcel, OxfordAQA or OCR. Also supporting students in Dubai through our <a href="/a-level-tutor-dubai" className="underline font-bold text-amber-300 hover:text-white">A-Level tutors in Dubai</a> and Al Ain through our dedicated <a href="/a-level-tutor-al-ain" className="underline font-bold text-amber-300 hover:text-white">A-Level tutors in Al Ain</a>.
           </motion.p>
 
           <motion.div
@@ -414,7 +414,7 @@ export default function ALevelTutorAbuDhabiPage() {
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5 text-center"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}
               >
-                Book Your Free Trial
+                Book Your First Session
               </a>
               <span className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</span>
               <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="text-blue-200/90 text-[12px] font-semibold underline flex items-center justify-center gap-1">
@@ -429,7 +429,7 @@ export default function ALevelTutorAbuDhabiPage() {
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
                   style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}
                 >
-                  Book Your Free Trial
+                  Book Your First Session
                 </a>
                 <p className="text-blue-200/50 text-[11px]">No commitment. Cancel anytime.</p>
               </div>
@@ -833,10 +833,10 @@ export default function ALevelTutorAbuDhabiPage() {
             className="text-center mb-10 max-w-2xl mx-auto"
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-3">
-              Trial Outcomes
+              First Lesson Outcomes
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3">
-              What the Free First Lesson Delivers
+              What the First Lesson Delivers
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">
               Four concrete outputs your child and you walk away holding.
@@ -848,7 +848,7 @@ export default function ALevelTutorAbuDhabiPage() {
               { title: "Offer Letter Match", desc: "Target course and offer grade captured in your child's plan." },
               { title: "Two-Year Roadmap", desc: "The twenty-four month journey mapped, not just next week's homework." },
               { title: "Predicted Grade Path", desc: "Gap between current mock and offer grade shown in numbers." },
-              { title: "Recurring Slot Booked", desc: "Weekly Abu Dhabi time slot agreed before the trial ends." }
+              { title: "Recurring Slot Booked", desc: "Weekly Abu Dhabi time slot agreed before the first lesson ends." }
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -1313,7 +1313,7 @@ export default function ALevelTutorAbuDhabiPage() {
           {/* Diagnostic Note */}
           <div className="max-w-3xl mx-auto text-center">
             <div className="p-4 rounded-2xl bg-[#0f4a9b]/5 border border-[#0f4a9b]/15 text-[#0f4a9b] text-xs sm:text-sm font-semibold">
-              ✦ If two or more signals ring true, the free first lesson is the fastest way to know if tutoring will help.
+              ✦ If two or more signals ring true, the first lesson is the fastest way to know if tutoring will help.
             </div>
           </div>
 
@@ -1553,7 +1553,7 @@ export default function ALevelTutorAbuDhabiPage() {
               Start Your A-Level Support
             </h2>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">
-              Two free ways to begin, both delivered live online.
+              Two ways to begin, both delivered live online.
             </p>
           </motion.div>
 
@@ -1570,9 +1570,9 @@ export default function ALevelTutorAbuDhabiPage() {
                 <div className="w-12 h-12 rounded-2xl bg-[#0f4a9b]/10 flex items-center justify-center mb-5 border border-[#0f4a9b]/20 text-[#0f4a9b]">
                   <GraduationCap className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-2">Free First Lesson</h3>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-[#0a1f3d] mb-2">Free 15-min orientation</h3>
                 <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6">
-                  Thirty online minutes with a matched A-Level tutor, at no cost.
+                  15 extra minutes on the first lesson to meet your A-Level tutor.
                 </p>
               </div>
 
@@ -1581,7 +1581,7 @@ export default function ALevelTutorAbuDhabiPage() {
                 className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full font-bold text-[14px] text-white transition-all hover:-translate-y-0.5 text-center"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}
               >
-                Book Your Free Trial
+                Book Your First Session
               </a>
             </motion.div>
 
@@ -1647,6 +1647,11 @@ export default function ALevelTutorAbuDhabiPage() {
             label: 'A-Level tutors across the UAE',
             href: '/a-level',
             note: 'One-to-one AS and A-Level tutoring across Cambridge, Edexcel, AQA and OCR.'
+          },
+          {
+            label: 'A-Level Tutor Al Ain',
+            href: '/a-level-tutor-al-ain',
+            note: 'Dedicated Sixth Form specialists for Cambridge & Edexcel in the Garden City.'
           },
           {
             label: 'IGCSE Tutor Abu Dhabi',

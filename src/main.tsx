@@ -1,6 +1,6 @@
 import { lazy, Suspense, Component, type ReactNode } from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import "./styles/index.css";
 import "./styles/fonts.css";
@@ -76,8 +76,10 @@ const loadPhysicsTutorDubaiLanding = () => import('./app/PhysicsTutorDubaiPage')
 const loadChemistryTutorDubaiLanding = () => import('./app/ChemistryTutorDubaiPage');
 const loadBiologyTutorDubaiLanding = () => import('./app/BiologyTutorDubaiPage');
 const loadALevelTutorLanding = () => import('./app/ALevelTutorAbuDhabiPage');
+const loadALevelTutorAlAinPage = () => import('./app/ALevelTutorAlAinPage');
 const loadALevelTutorDubaiPage = () => import('./app/ALevelTutorDubaiPage');
 const loadIBTutorLanding = () => import('./app/IBTutorAbuDhabiPage');
+const loadIBTutorDubaiLanding = () => import('./app/IBTutorDubaiPage');
 const loadAcademicBlogsPage = () => import('./app/AcademicBlogsPage');
 const loadPsychologyBlogsPage = () => import('./app/PsychologyBlogsPage');
 const loadTutorProfilePage = () => import('./app/TutorProfilePage');
@@ -91,9 +93,16 @@ const loadWhatDoesYInterceptMeanBlog = () => import('./app/WhatDoesYInterceptMea
 const loadHomeworkHelpBalanceBlog = () => import('./app/HomeworkHelpBalanceBlog');
 const loadWhyTeenagersProcrastinateBlog = () => import('./app/WhyTeenagersProcrastinateBlog');
 const loadParentTeacherMeetingBlog = () => import('./app/ParentTeacherMeetingBlog');
+const loadMathsAnxietyTeenagersBlog = () => import('./app/MathsAnxietyTeenagersBlog');
+const loadWhyStudentsFreezeExamQuestionsBlog = () => import('./app/WhyStudentsFreezeExamQuestionsBlog');
+const loadHowToReadExaminerReportsBlog = () => import('./app/HowToReadExaminerReportsBlog');
+const loadWinterBreakRevisionPlanBlog = () => import('./app/WinterBreakRevisionPlanBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
+  '/blogs/winter-break-revision-plan-uae-students': loadWinterBreakRevisionPlanBlog,
+  '/blog/winter-break-revision-plan-uae-students': loadWinterBreakRevisionPlanBlog,
+  '/blogs/how-to-read-examiner-reports-igcse-a-level': loadHowToReadExaminerReportsBlog,
   '/': loadApp,
   '/about': loadAboutPage,
   '/curriculum': loadCurriculumPage,
@@ -158,6 +167,10 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blog/why-teenagers-procrastinate-on-revision': loadWhyTeenagersProcrastinateBlog,
   '/blogs/parent-teacher-meeting-questions-uae': loadParentTeacherMeetingBlog,
   '/blog/parent-teacher-meeting-questions-uae': loadParentTeacherMeetingBlog,
+  '/blogs/maths-anxiety-teenagers-signs-causes-help': loadMathsAnxietyTeenagersBlog,
+  '/blog/maths-anxiety-teenagers-signs-causes-help': loadMathsAnxietyTeenagersBlog,
+  '/blogs/why-students-freeze-exam-questions-scaffolding-trap': loadWhyStudentsFreezeExamQuestionsBlog,
+  '/blog/why-students-freeze-exam-questions-scaffolding-trap': loadWhyStudentsFreezeExamQuestionsBlog,
   '/sciences': loadSciencesPage,
 
   '/maths-tutor-abu-dhabi': loadMathematicsLanding,
@@ -171,11 +184,13 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/maths-tutor-dubai': loadMathsTutorDubaiLanding,
   '/physics-tutor-dubai': loadPhysicsTutorDubaiLanding,
   '/chemistry-tutor-dubai': loadChemistryTutorDubaiLanding,
-  '/subjects/biology-tutor-dubai': loadBiologyTutorDubaiLanding,
   '/biology-tutor-dubai': loadBiologyTutorDubaiLanding,
   '/a-level-tutor-dubai': loadALevelTutorDubaiPage,
   '/a-level-tutor-abu-dhabi': loadALevelTutorLanding,
+  '/a-level-tutor-al-ain': loadALevelTutorAlAinPage,
   '/ib-tutor-abu-dhabi': loadIBTutorLanding,
+  '/curriculum/ib-tutor-dubai': loadIBTutorDubaiLanding,
+  '/ib-tutor-dubai': loadIBTutorDubaiLanding,
   '/editorial': loadEditorialPage,
   '/authors/saira-s': loadAuthorPage,
   '/authors/nimra-shahzada': loadAuthorPage,
@@ -255,6 +270,10 @@ const WhatDoesYInterceptMeanBlog = lazy(loadWhatDoesYInterceptMeanBlog);
 const HomeworkHelpBalanceBlog = lazy(loadHomeworkHelpBalanceBlog);
 const WhyTeenagersProcrastinateBlog = lazy(loadWhyTeenagersProcrastinateBlog);
 const ParentTeacherMeetingBlog = lazy(loadParentTeacherMeetingBlog);
+const MathsAnxietyTeenagersBlog = lazy(loadMathsAnxietyTeenagersBlog);
+const WhyStudentsFreezeExamQuestionsBlog = lazy(loadWhyStudentsFreezeExamQuestionsBlog);
+const HowToReadExaminerReportsBlog = lazy(loadHowToReadExaminerReportsBlog);
+const WinterBreakRevisionPlanBlog = lazy(loadWinterBreakRevisionPlanBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
@@ -267,7 +286,9 @@ const ChemistryTutorDubaiLanding = lazy(loadChemistryTutorDubaiLanding);
 const BiologyTutorDubaiLanding = lazy(loadBiologyTutorDubaiLanding);
 const ALevelTutorDubaiPage = lazy(loadALevelTutorDubaiPage);
 const ALevelTutorLanding = lazy(loadALevelTutorLanding);
+const ALevelTutorAlAinPage = lazy(loadALevelTutorAlAinPage);
 const IBTutorLanding = lazy(loadIBTutorLanding);
+const IBTutorDubaiLanding = lazy(loadIBTutorDubaiLanding);
 const AcademicBlogsPage = lazy(loadAcademicBlogsPage);
 const PsychologyBlogsPage = lazy(loadPsychologyBlogsPage);
 const ParentGuidanceBlogsPage = lazy(loadParentGuidanceBlogsPage);
@@ -381,6 +402,14 @@ function AppRoutes() {
           <Route path="/blog/why-teenagers-procrastinate-on-revision" element={<WhyTeenagersProcrastinateBlog />} />
           <Route path="/blogs/parent-teacher-meeting-questions-uae" element={<ParentTeacherMeetingBlog />} />
           <Route path="/blog/parent-teacher-meeting-questions-uae" element={<ParentTeacherMeetingBlog />} />
+          <Route path="/blogs/maths-anxiety-teenagers-signs-causes-help" element={<MathsAnxietyTeenagersBlog />} />
+          <Route path="/blog/maths-anxiety-teenagers-signs-causes-help" element={<MathsAnxietyTeenagersBlog />} />
+          <Route path="/blogs/why-students-freeze-exam-questions-scaffolding-trap" element={<WhyStudentsFreezeExamQuestionsBlog />} />
+          <Route path="/blog/why-students-freeze-exam-questions-scaffolding-trap" element={<WhyStudentsFreezeExamQuestionsBlog />} />
+          <Route path="/blogs/how-to-read-examiner-reports-igcse-a-level" element={<HowToReadExaminerReportsBlog />} />
+          <Route path="/blog/how-to-read-examiner-reports-igcse-a-level" element={<HowToReadExaminerReportsBlog />} />
+          <Route path="/blogs/winter-break-revision-plan-uae-students" element={<WinterBreakRevisionPlanBlog />} />
+          <Route path="/blog/winter-break-revision-plan-uae-students" element={<WinterBreakRevisionPlanBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
 
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />
@@ -394,11 +423,14 @@ function AppRoutes() {
           <Route path="/maths-tutor-dubai"                    element={<MathsTutorDubaiLanding />} />
           <Route path="/physics-tutor-dubai"                  element={<PhysicsTutorDubaiLanding />} />
           <Route path="/chemistry-tutor-dubai"                element={<ChemistryTutorDubaiLanding />} />
-          <Route path="/subjects/biology-tutor-dubai"         element={<BiologyTutorDubaiLanding />} />
+          <Route path="/subjects/biology-tutor-dubai"         element={<Navigate to="/biology-tutor-dubai" replace />} />
           <Route path="/biology-tutor-dubai"                  element={<BiologyTutorDubaiLanding />} />
           <Route path="/a-level-tutor-dubai"                  element={<ALevelTutorDubaiPage />} />
           <Route path="/a-level-tutor-abu-dhabi"             element={<ALevelTutorLanding />} />
+          <Route path="/a-level-tutor-al-ain"                 element={<ALevelTutorAlAinPage />} />
           <Route path="/ib-tutor-abu-dhabi"                  element={<IBTutorLanding />} />
+          <Route path="/curriculum/ib-tutor-dubai"           element={<Navigate to="/ib-tutor-dubai" replace />} />
+          <Route path="/ib-tutor-dubai"                      element={<IBTutorDubaiLanding />} />
           <Route path="/editorial"                           element={<EditorialPage />} />
           <Route path="/authors/saira-s"                     element={<AuthorPage />} />
           <Route path="/authors/nimra-shahzada"              element={<AuthorPage />} />

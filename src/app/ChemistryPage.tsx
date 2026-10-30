@@ -239,7 +239,7 @@ const customPracticesSection = (
 /* ─── §8 UAE — dark section ─── */
 const uaeLocations = [
   { name: "Abu Dhabi",      desc: "Capital • Most schools",    icon: <MapPin className="h-4 w-4" /> },
-  { name: "Dubai",          desc: "Largest city • All boards", icon: <MapPin className="h-4 w-4" /> },
+  { name: "Dubai",          desc: "Largest city • All boards", icon: <MapPin className="h-4 w-4" />, href: "/chemistry-tutor-dubai" },
   { name: "Sharjah",        desc: "Growing IGCSE community",   icon: <MapPin className="h-4 w-4" /> },
   { name: "Ajman",          desc: "Cambridge & Edexcel",       icon: <MapPin className="h-4 w-4" /> },
   { name: "Al Ain",         desc: "Cambridge focused",         icon: <MapPin className="h-4 w-4" /> },
@@ -261,26 +261,53 @@ const customResultsSection = (
         </h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {uaeLocations.map((loc, i) => (
-          <div key={i} className="relative bg-[#162238] border border-white/10 rounded-xl p-5 hover:border-[#C7A24A]/30 transition-colors">
-            <div className="flex items-start justify-between mb-3">
-              <div className="w-8 h-8 bg-[#0f4a9b]/20 rounded-lg flex items-center justify-center">
-                <span className="text-[#0f4a9b]">{loc.icon}</span>
+        {uaeLocations.map((loc, i) => {
+          const cardBody = (
+            <>
+              <div className="flex items-start justify-between mb-3">
+                <div className="w-8 h-8 bg-[#0f4a9b]/20 rounded-lg flex items-center justify-center">
+                  <span className="text-[#0f4a9b]">{loc.icon}</span>
+                </div>
+                <div className="w-2 h-2 bg-[#C7A24A] rounded-full" />
               </div>
-              <div className="w-2 h-2 bg-[#C7A24A] rounded-full" />
+              <h3 className="text-white font-bold text-base mb-1">{loc.name}</h3>
+              <p className="text-white/50 text-xs">{loc.desc}</p>
+            </>
+          );
+          return loc.href ? (
+            <a
+              key={i}
+              href={loc.href}
+              className="relative bg-[#162238] border border-[#C7A24A]/40 rounded-xl p-5 hover:border-[#C7A24A] hover:bg-[#1a2942] transition-colors block"
+            >
+              {cardBody}
+            </a>
+          ) : (
+            <div key={i} className="relative bg-[#162238] border border-white/10 rounded-xl p-5 hover:border-[#C7A24A]/30 transition-colors">
+              {cardBody}
             </div>
-            <h3 className="text-white font-bold text-base mb-1">{loc.name}</h3>
-            <p className="text-white/50 text-xs">{loc.desc}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
-      <div className="bg-[#162238] border border-white/10 rounded-xl p-6 flex items-center gap-4">
-        <div className="w-10 h-10 bg-[#0f4a9b]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-          <MapPin className="h-5 w-5 text-[#0f4a9b]" />
+      <div className="bg-[#162238] border border-white/10 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 bg-[#0f4a9b]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+            <MapPin className="h-5 w-5 text-[#0f4a9b]" />
+          </div>
+          <p className="text-white/70 text-sm leading-relaxed">
+            Chemistry stress eases at home and exam confidence steadies for families across Dubai, Abu Dhabi, and the UAE. Connect with our dedicated{' '}
+            <a href="/chemistry-tutor-dubai" className="text-[#C7A24A] font-semibold underline hover:text-white transition-colors">
+              Chemistry tutor Dubai
+            </a>{' '}
+            for 1-to-1 IGCSE, A-Level, and IB exam preparation.
+          </p>
         </div>
-        <p className="text-white/70 text-sm leading-relaxed">
-          Chemistry stress eases at home and exam confidence steadies for families across Dubai, Abu Dhabi, and the UAE.
-        </p>
+        <a
+          href="/chemistry-tutor-dubai"
+          className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0f4a9b] hover:bg-[#1459a8] text-white text-xs font-bold rounded-lg transition whitespace-nowrap self-start sm:self-auto shrink-0"
+        >
+          Chemistry Tutor Dubai
+        </a>
       </div>
     </div>
   </section>
@@ -396,7 +423,7 @@ const data: SubjectPageProps = {
   heroTitle:        "Calmer Chemistry. Stronger Grades.",
   heroSubtitle:     "Dedicated chemistry mentoring for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
-  heroCTAText:      "Book Your Free Trial Lesson",
+  heroCTAText:      "Book Your First Session",
   heroCTAMicrocopy: "Where chemistry makes sense.",
 
   topicsTitle: "", topicsDesc: "", topics: [],
@@ -422,7 +449,7 @@ const data: SubjectPageProps = {
 
   finalCtaTitle:    "See Where the Marks Vanish",
   finalCtaSubtitle: "When chemistry makes sense in lessons yet not on the page, a short check finds the costly habit.",
-  finalCtaButton:   "Book Your Free Trial Lesson",
+  finalCtaButton:   "Book Your First Session",
   finalCtaSubtext:  "Where chemistry makes sense.",
 
   floatingIcon: <FlaskConical className="h-4 w-4" />,

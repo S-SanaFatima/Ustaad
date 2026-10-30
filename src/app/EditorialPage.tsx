@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react';
 import {
-  Sparkles, ArrowRight, ShieldCheck, BookOpen,
+  Sparkles, ShieldCheck, BookOpen,
   Award, PenLine, Eye, FileCheck, GraduationCap, BadgeCheck,
   Users, Layers, Quote,
 } from 'lucide-react';
@@ -38,7 +38,7 @@ const PROCESS_STEPS = [
     icon: BookOpen,
     title: 'Publish',
     desc: 'The byline stays honest. You always know who wrote it and who approved it.',
-    tone: 'from-[#0a3a79] to-[#061428]',
+    tone: 'from-[#0f4a9b] to-[#0a3a79]',
   },
 ];
 
@@ -80,7 +80,7 @@ const TEAM = [
     objectPosition: 'center',
     bio: 'A practising Cambridge examiner who marks IGCSE and A-Level papers and tutors 1-to-1 with Ustaad. Exam boards restrict examiners from publicising their role, so we share the board and level instead of a name. Every article they write is checked by our editorial team before it goes live.',
     topics: ['Cambridge IGCSE', 'A-Level', 'Mark schemes', 'Exam technique'],
-    linkText: 'Read their guide →',
+    linkText: 'Read their guide',
     linkHref: '/blogs/command-words-igcse-a-level-exams',
   },
   {
@@ -283,10 +283,10 @@ export default function EditorialPage() {
       />
 
       <article className="bg-white">
-        <section className="relative overflow-hidden bg-gradient-to-br from-[#060f22] via-[#0a1f3d] to-[#0f4a9b] text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[#0a3a79] via-[#0f4a9b] to-[#07244f] text-white">
           <div className="absolute inset-0 pointer-events-none opacity-40" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)', backgroundSize: '22px 22px' }} />
           <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-[#C7A24A]/15 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-32 -left-16 w-96 h-96 rounded-full bg-[#5fd3e6]/10 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-32 -left-16 w-96 h-96 rounded-full bg-[#0f4a9b]/35 blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12 lg:pt-20 lg:pb-16">
             <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
@@ -300,7 +300,7 @@ export default function EditorialPage() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f0c96a] to-[#C7A24A]">every Ustaad article</span>
               </h1>
 
-              <p className="text-blue-100/85 text-base sm:text-lg leading-relaxed max-w-2xl mb-8">
+              <p className="text-blue-100/90 text-base sm:text-lg leading-relaxed max-w-2xl mb-8">
                 Every study guide is written by a real person, a named group of teachers or a practising examiner, and checked by a qualified reviewer before it goes live. Here is who writes, who checks, and how we keep the advice honest for UAE families.
               </p>
 
@@ -310,9 +310,9 @@ export default function EditorialPage() {
                 </GoldButton>
                 <a
                   href="/contact#form"
-                  className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-bold border border-white/25 bg-white/5 hover:bg-white/10 text-white transition"
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-bold border border-white/25 bg-white/10 hover:bg-white/20 text-white transition backdrop-blur-xs"
                 >
-                  Book a free trial
+                  Book First Session
                 </a>
               </div>
 
@@ -320,12 +320,12 @@ export default function EditorialPage() {
                 {TRUST_BADGES.map(({ icon: Icon, label }) => (
                   <div
                     key={label}
-                    className="flex items-center gap-2.5 rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm px-3.5 py-3"
+                    className="flex items-center gap-2.5 rounded-2xl border border-white/20 bg-white/10 hover:bg-white/15 backdrop-blur-md px-3.5 py-3 transition-colors shadow-xs"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-[#C7A24A]/20 text-[#f0c96a] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-xl bg-[#C7A24A]/25 text-[#f0c96a] flex items-center justify-center shrink-0 shadow-xs">
                       <Icon className="h-4 w-4" />
                     </div>
-                    <span className="text-xs sm:text-[13px] font-semibold text-white/90 leading-snug">{label}</span>
+                    <span className="text-xs sm:text-[13px] font-semibold text-white/95 leading-snug">{label}</span>
                   </div>
                 ))}
               </div>
@@ -471,13 +471,13 @@ export default function EditorialPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.35 }}
                   transition={{ duration: 0.45 }}
-                  className="group relative overflow-hidden rounded-[1.75rem] border border-[#0f4a9b]/15 bg-gradient-to-br from-[#061428] via-[#0a1f3d] to-[#0f4a9b] text-white shadow-[0_16px_40px_rgba(10,31,61,0.18)] scroll-mt-24"
+                  className="group relative overflow-hidden rounded-[1.75rem] border border-[#0f4a9b]/35 bg-gradient-to-br from-[#0a3a79] via-[#0f4a9b] to-[#07244f] text-white shadow-[0_16px_40px_rgba(15,74,155,0.22)] scroll-mt-24"
                 >
                   <div className="absolute top-0 right-0 w-64 h-64 bg-[#C7A24A]/15 rounded-full blur-3xl pointer-events-none" />
-                  <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#0f4a9b]/35 rounded-full blur-2xl pointer-events-none" />
                   <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6 p-6 sm:p-8">
                     <div className="shrink-0 flex items-center gap-4">
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-white/10 border border-white/20 backdrop-blur-sm flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-br from-[#0f4a9b]/40 to-[#0a1f3d]/60 border border-white/25 backdrop-blur-sm flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
                         <GraduationCap className="h-10 w-10 sm:h-11 sm:w-11 text-[#f0c96a]" />
                       </div>
                       <div className="md:hidden">
@@ -489,7 +489,7 @@ export default function EditorialPage() {
                             {member.name}
                           </a>
                         </h3>
-                        <p className="text-sm font-semibold text-blue-100/80 mt-0.5">{member.subtitle || member.role}</p>
+                        <p className="text-sm font-semibold text-blue-100/90 mt-0.5">{member.subtitle || member.role}</p>
                       </div>
                     </div>
 
@@ -503,16 +503,16 @@ export default function EditorialPage() {
                             {member.name}
                           </a>
                         </h3>
-                        <p className="text-sm font-semibold text-blue-100/85 mt-1">{member.subtitle || member.role}</p>
+                        <p className="text-sm font-semibold text-blue-100/90 mt-1">{member.subtitle || member.role}</p>
                       </div>
-                      <p className="text-sm sm:text-[15px] text-blue-100/80 leading-relaxed mb-4 max-w-3xl">
+                      <p className="text-sm sm:text-[15px] text-blue-100/90 leading-relaxed mb-4 max-w-3xl">
                         {member.bio}
                       </p>
                       <div className="flex flex-wrap items-center gap-2 mb-4">
                         {member.topics.map((topic) => (
                           <span
                             key={topic}
-                            className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/10 text-white border border-white/15"
+                            className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/15 text-white border border-white/25"
                           >
                             {topic}
                           </span>
@@ -520,7 +520,7 @@ export default function EditorialPage() {
                       </div>
                       <a
                         href={member.linkHref || member.href}
-                        className="inline-flex items-center text-sm font-bold text-[#f0c96a] hover:underline transition-all"
+                        className="inline-flex items-center text-sm font-bold text-[#f0c96a] hover:text-white hover:underline transition-all"
                       >
                         {member.linkText || 'View contributor profile'}
                       </a>
@@ -671,10 +671,10 @@ export default function EditorialPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.35 }}
               transition={{ duration: 0.5 }}
-              className="rounded-3xl border border-[#0f4a9b]/15 bg-gradient-to-br from-[#0a1f3d] via-[#0f3a7a] to-[#1e5ba8] p-6 sm:p-8 text-white overflow-hidden relative group/cta"
+              className="rounded-3xl border border-[#0f4a9b]/35 bg-gradient-to-br from-[#0a3a79] via-[#0f4a9b] to-[#07244f] p-6 sm:p-8 text-white overflow-hidden relative group/cta shadow-[0_16px_40px_rgba(15,74,155,0.22)]"
             >
               <div className="absolute top-0 right-0 w-56 h-56 bg-[#C7A24A]/15 rounded-full blur-3xl pointer-events-none group-hover/cta:bg-[#C7A24A]/25 transition-colors duration-500" />
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#0f4a9b]/30 rounded-full blur-2xl pointer-events-none" />
               <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
                 <div className="max-w-xl">
                   <div className="inline-flex items-center gap-2 text-[#f0c96a] text-xs font-bold uppercase tracking-wider mb-2">
@@ -684,7 +684,7 @@ export default function EditorialPage() {
                   <h3 className="text-xl sm:text-2xl font-extrabold mb-2">See the articles this team writes</h3>
                   <p className="text-white/75 text-sm leading-relaxed">
                     Study guides, exam tips, and parent advice, updated regularly. Open a writer profile, then{' '}
-                    <a href="/contact#form" className="text-[#f0c96a] font-semibold underline underline-offset-2 hover:text-white transition">book a free trial</a>{' '}
+                    <a href="/contact#form" className="text-[#f0c96a] font-semibold underline underline-offset-2 hover:text-white transition">book your first session</a>{' '}
                     if you want the same problems checked with your child.
                   </p>
                 </div>
@@ -712,10 +712,10 @@ export default function EditorialPage() {
 
       <FinalCTA
         title="Want advice matched to your child's board?"
-        subtitle="Book a free session. We will look at the same gaps you are reading about, with a tutor who knows the exact curriculum."
-        button1Text="Book a Free Trial"
+        subtitle="Book your first session. We will look at the same gaps you are reading about, with a tutor who knows the exact curriculum."
+        button1Text="Book First Session"
         button2Text="Chat on WhatsApp"
-        button2Href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20a%20free%20session."
+        button2Href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20book%20a%20first%20session."
       />
     </Layout>
   );

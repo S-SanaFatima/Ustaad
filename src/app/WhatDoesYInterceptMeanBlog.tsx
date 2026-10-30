@@ -1102,7 +1102,7 @@ export default function WhatDoesYInterceptMeanBlog() {
               to make sure foundational concepts are solidified first.
             </p>
 
-            {/* Section CTA / Free Trial */}
+            {/* Section CTA */}
             <div className="my-8 rounded-2xl p-6 lg:p-8 text-center text-white shadow-xl"
               style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 60%, #1e5ba8 100%)' }}>
               <span className="inline-block px-3 py-1 bg-white/10 rounded-full text-xs font-bold text-[#F5D77F] uppercase tracking-wider mb-2.5 border border-white/15">
@@ -1112,7 +1112,7 @@ export default function WhatDoesYInterceptMeanBlog() {
                 Can your child explain every number on the graph?
               </h3>
               <p className="text-white/85 mb-6 max-w-lg mx-auto text-sm leading-relaxed">
-                In a free 30-minute trial, <a href="/tutors/fahad-khan" className="text-[#F5D77F] font-bold underline hover:text-white">Fahad Khan</a> works through a real-life graph question with your child and shows where the interpretation marks are being missed. Lessons are online and 1-to-1, for families in every emirate.
+                In a 1-to-1 session, <a href="/tutors/fahad-khan" className="text-[#F5D77F] font-bold underline hover:text-white">Fahad Khan</a> works through a real-life graph question with your child and shows where the interpretation marks are being missed. Lessons are online and 1-to-1, for families in every emirate.
               </p>
               <div className="flex flex-col items-center gap-2.5">
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-3 w-full sm:w-auto">
@@ -1121,10 +1121,10 @@ export default function WhatDoesYInterceptMeanBlog() {
                     className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm shadow-md h-11"
                     style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
                   >
-                    Book a Free Trial
+                    Book First Session
                   </a>
                   <a
-                    href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20free%20trial%20session%20with%20Fahad%20Khan%20for%20Maths."
+                    href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20first%20session%20with%20Fahad%20Khan%20for%20Maths."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md h-11"
@@ -1133,7 +1133,7 @@ export default function WhatDoesYInterceptMeanBlog() {
                     Ask on WhatsApp
                   </a>
                 </div>
-                <span className="text-[11px] text-white/70 font-medium">Free 30-min trial · No commitment</span>
+                <span className="text-[11px] text-white/70 font-medium">No commitment · Cancel anytime</span>
               </div>
             </div>
 

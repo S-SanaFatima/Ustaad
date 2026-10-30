@@ -352,7 +352,7 @@ export default function PrivacyPage() {
                   <ul className="space-y-2 pl-4 list-disc text-slate-700">
                     <li><strong>Parent/Guardian Contact Details:</strong> Full name, verified mobile phone number, WhatsApp contact handle, and email address.</li>
                     <li><strong>Student Academic Information:</strong> Year group/grade level, school attended in the UAE, curriculum studied (e.g. British IGCSE/A-Level, IB MYP/DP, American AP/Common Core), examination board syllabus codes, target grades, and specific topic bottlenecks.</li>
-                    <li><strong>Assessment &amp; Feedback Records:</strong> Notes recorded during trial sessions, diagnostic test scores, homework progress logs, and parental feedback discussions.</li>
+                    <li><strong>Assessment &amp; Feedback Records:</strong> Notes recorded during orientation and lessons, diagnostic test scores, homework progress logs, and parental feedback discussions.</li>
                   </ul>
                   <div className="mt-3 p-3.5 rounded-xl bg-blue-50/70 border border-blue-200/70 text-xs text-[#0a1f3d]">
                     <strong>Financial Data Note:</strong> Ustaad does <em>not</em> store or process credit card numbers or banking passwords on this website. All invoicing and tuition transactions are arranged directly and securely via official corporate banking channels.
@@ -479,7 +479,7 @@ export default function PrivacyPage() {
                   </p>
                   <ul className="space-y-2 pl-4 list-disc text-slate-700">
                     <li><strong>Rigorous Educator Vetting:</strong> All tutors undergo identity verification, academic credential audits, and teaching background checks.</li>
-                    <li><strong>Parental Supervision:</strong> Parents are welcome to attend online trial lessons and receive session summaries. Direct 1-to-1 chat between tutors and minor students outside of official study materials is discouraged.</li>
+                    <li><strong>Parental Supervision:</strong> Parents are welcome to attend online lessons and receive session summaries. Direct 1-to-1 chat between tutors and minor students outside of official study materials is discouraged.</li>
                     <li><strong>Protected Virtual Classrooms:</strong> Interactive whiteboard sessions occur within secure, encrypted virtual rooms accessible only by authorized participants.</li>
                   </ul>
                 </div>
@@ -614,7 +614,7 @@ export default function PrivacyPage() {
             Have questions about private tutoring for your child?
           </h2>
           <p className="text-xs sm:text-sm text-gray-600 mb-6 max-w-xl mx-auto leading-relaxed">
-            Speak with an academic counsellor to assess your child's syllabus needs, schedule a trial session, or discuss tutor qualifications.
+            Speak with an academic counsellor to assess your child's syllabus needs, schedule a first session, or discuss tutor qualifications.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-md sm:max-w-none mx-auto">
             <a
@@ -622,7 +622,7 @@ export default function PrivacyPage() {
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-white font-bold text-xs sm:text-sm hover:brightness-110 hover:shadow-lg hover:shadow-[#C7A24A]/30 transition shadow-md transform hover:-translate-y-0.5 active:scale-95 text-center"
               style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
             >
-              Book Your Free Trial Session
+              Book Your First Session
             </a>
             <a
               href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20have%20a%20question%20about%20tutoring."

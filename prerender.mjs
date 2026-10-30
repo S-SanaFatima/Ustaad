@@ -40,6 +40,7 @@ function extractHeadTags(bodyHtml) {
   // Standardize case and strictly deduplicate tags
   const seenHreflang = new Set();
   let seenCanonical = false;
+  const seenSchemas = new Set();
   const filteredTags = [];
 
   for (const rawTag of tags) {
@@ -53,14 +54,33 @@ function extractHeadTags(bodyHtml) {
       continue;
     }
 
-    // Alternate hreflang link deduplication (keep only one per language code, e.g. en-ae, ar-ae, x-default)
+    // Alternate hreflang link deduplication (en-ae and x-default only; strictly exclude ar-ae until Arabic pages exist)
     const hreflangMatch = tag.match(/hreflang=["']([^"']+)["']/i);
     if (hreflangMatch) {
       const langKey = hreflangMatch[1].toLowerCase();
+      if (langKey === 'ar-ae' || tag.includes('/ar/')) {
+        // Exclude Arabic hreflang completely until Arabic pages exist
+        continue;
+      }
       if (seenHreflang.has(langKey)) continue;
       seenHreflang.add(langKey);
       filteredTags.push(tag);
       continue;
+    }
+
+    // JSON-LD structured data deduplication
+    if (/type=["']application\/ld\+json["']/i.test(tag)) {
+      try {
+        const jsonContent = tag.replace(/<script[^>]*>/i, '').replace(/<\/script>/i, '');
+        const parsed = JSON.parse(jsonContent);
+        const schemaKey = parsed['@id'] || parsed['@type'] || JSON.stringify(parsed);
+        if (seenSchemas.has(schemaKey)) continue;
+        seenSchemas.add(schemaKey);
+        filteredTags.push(tag);
+        continue;
+      } catch (e) {
+        // If malformed or unparseable, don't include duplicate
+      }
     }
 
     if (!filteredTags.includes(tag)) {
@@ -136,6 +156,18 @@ async function prerender() {
   if (fs.existsSync(updatedImagesSrc) && !fs.existsSync(updatedImagesDest)) {
     fs.cpSync(updatedImagesSrc, updatedImagesDest, { recursive: true });
     console.log(`[prerender] ✓ Created lowercase /updatedimages alias directory for Linux host compatibility`);
+  }
+
+  // Ensure obsolete prerendered directories are removed from build output so they can be 301 redirected by server
+  const obsoleteDirs = [
+    path.resolve(clientDir, 'curriculum', 'ib-tutor-dubai'),
+    path.resolve(clientDir, 'subjects', 'biology-tutor-dubai'),
+  ];
+  for (const dir of obsoleteDirs) {
+    if (fs.existsSync(dir)) {
+      fs.rmSync(dir, { recursive: true, force: true });
+      console.log(`[prerender] ✓ Removed obsolete prerendered directory: ${path.relative(clientDir, dir)}`);
+    }
   }
 
   console.log(`\n[prerender] Done! ${routes.length} pages pre-rendered.`);

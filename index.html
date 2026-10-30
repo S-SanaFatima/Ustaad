@@ -39,7 +39,7 @@
       <meta name="twitter:description" content="Get matched with expert tutors for your curriculum. British, American, and IB support with one-to-one online sessions." />
       <meta name="twitter:image" content="https://ustaad.ae/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp" />
 
-      <!-- Google Analytics GA4 — deferred until first user interaction -->
+      <!-- Google Analytics GA4 — deferred strictly until first user interaction -->
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -55,14 +55,13 @@
             document.head.appendChild(s);
             gtag('js', new Date());
             gtag('config', 'G-GVS4FL9ZCZ');
-            ['scroll','click','keydown','touchstart'].forEach(function (e) {
+            ['scroll','click','keydown','touchstart','mousemove','pointerdown'].forEach(function (e) {
               window.removeEventListener(e, loadGA, { capture: true });
             });
           }
-          ['scroll','click','keydown','touchstart'].forEach(function (e) {
+          ['scroll','click','keydown','touchstart','mousemove','pointerdown'].forEach(function (e) {
             window.addEventListener(e, loadGA, { once: true, passive: true, capture: true });
           });
-          setTimeout(loadGA, 4000);
         })();
       </script>
 

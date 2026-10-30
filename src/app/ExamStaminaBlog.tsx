@@ -926,7 +926,7 @@ export default function ExamStaminaBlog() {
                   className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm w-full sm:w-auto shadow-md"
                   style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
                 >
-                  Book a Free Trial
+                  Book First Session
                 </a>
                 <a
                   href="https://wa.me/971561249005"

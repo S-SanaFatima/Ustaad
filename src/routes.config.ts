@@ -44,8 +44,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/contact',
     component: 'ContactPage',
     seo: {
-      title: 'Contact Ustaad | Book Free Trial Session UAE | Ustaad',
-      description: 'Get in touch with Ustaad to book your free trial tutoring session. Reach us by phone or WhatsApp across Dubai, Abu Dhabi & all UAE emirates.',
+      title: 'Contact Ustaad | Book First Session UAE | Ustaad',
+      description: 'Get in touch with Ustaad to book your first tutoring session. Reach us by phone or WhatsApp across Dubai, Abu Dhabi & all UAE emirates.',
       priority: 0.8,
       changefreq: 'monthly'
     },
@@ -67,7 +67,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'TutorProfilePage',
     seo: {
       title: 'Tabraiz Khan · Maths, Physics & Statistics Tutor Dubai | Ustaad',
-      description: 'Tabraiz Khan is a Cambridge Certified Maths, Physics and Statistics tutor at Ustaad with 9 years teaching across IGCSE, GCSE, A-Level, IB and American curricula. Book a free trial today.',
+      description: 'Tabraiz Khan is a Cambridge Certified Maths, Physics and Statistics tutor at Ustaad with 9 years teaching across IGCSE, GCSE, A-Level, IB and American curricula. Book your first session today.',
       priority: 0.8,
       changefreq: 'monthly'
     },
@@ -78,7 +78,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'TutorProfilePage',
     seo: {
       title: 'Fahad Khan · Maths Tutor Dubai & UAE | Ustaad',
-      description: 'Fahad Khan is a specialized Maths tutor at Ustaad with 10+ years experience teaching IGCSE, GCSE and A-Level. Book a free 30-minute trial lesson today.',
+      description: 'Fahad Khan is a specialized Maths tutor at Ustaad with 10+ years experience teaching IGCSE, GCSE and A-Level. Book your first lesson today.',
       priority: 0.8,
       changefreq: 'monthly'
     },
@@ -100,7 +100,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'HowItWorksPage',
     seo: {
       title: 'How It Works | Ustaad Private Tutoring Process UAE',
-      description: "Discover how Ustaad's 1-to-1 private tutoring works. Diagnostic assessment, personalised plan, curriculum-aligned sessions, and tracked progress. Book your free trial today.",
+      description: "Discover how Ustaad's 1-to-1 private tutoring works. Diagnostic assessment, personalised plan, curriculum-aligned sessions, and tracked progress. Book your first session today.",
       priority: 0.7,
       changefreq: 'monthly'
     },
@@ -126,7 +126,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'BritishCurriculumPage',
     seo: {
       title: 'British Curriculum Tutors UAE | IGCSE & A-Level | Ustaad',
-      description: 'Expert private tutoring for the British curriculum in Dubai & UAE. IGCSE, GCSE, A-Level across all subjects. Cambridge, Edexcel, AQA aligned. Book a free trial.',
+      description: 'Expert private tutoring for the British curriculum in Dubai & UAE. IGCSE, GCSE, A-Level across all subjects. Cambridge, Edexcel, AQA aligned. Book your first session.',
       priority: 0.9,
       changefreq: 'monthly',
       lastmod: '2026-10-12'
@@ -138,7 +138,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'IGCSEPage',
     seo: {
       title: 'IGCSE Tutors & Tuition UAE | Cambridge & Edexcel | Ustaad',
-      description: 'Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 30-minute trial.',
+      description: 'Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 15-min orientation with the first lesson.',
       priority: 0.95,
       changefreq: 'monthly',
       lastmod: '2026-10-09'
@@ -150,7 +150,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'GCSEPage',
     seo: {
       title: 'GCSE Tutors UAE | AQA, OCR & Pearson Edexcel | Ustaad',
-      description: 'Expert private GCSE tutoring in Dubai, Abu Dhabi & UAE. All GCSE subjects covered. 1-to-1 sessions aligned to AQA, Edexcel, Cambridge. Book a free trial today.',
+      description: 'Expert private GCSE tutoring in Dubai, Abu Dhabi & UAE. All GCSE subjects covered. 1-to-1 sessions aligned to AQA, Edexcel, Cambridge. Book your first session today.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -175,7 +175,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'IBCurriculumPage',
     seo: {
       title: 'IB Curriculum Tutors UAE | IB MYP & Diploma | Ustaad',
-      description: 'Expert private IB tutoring in Dubai & Abu Dhabi. IB MYP and DP SL/HL subjects with IB-specialist tutors. Proven grade results. Book a free trial.',
+      description: 'Expert private IB tutoring in Dubai & Abu Dhabi. IB MYP and DP SL/HL subjects with IB-specialist tutors. Proven grade results. Book your first session.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -186,7 +186,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'MYPPage',
     seo: {
       title: 'MYP Tutors UAE | IB Middle Years Programme | Ustaad',
-      description: 'Expert private IB MYP tutoring in Dubai & Abu Dhabi. Criteria-based assessment and E-Assessment prep for all MYP subjects. Book a free trial.',
+      description: 'Expert private IB MYP tutoring in Dubai & Abu Dhabi. Criteria-based assessment and E-Assessment prep for all MYP subjects. Book your first session.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -197,7 +197,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'DPSLPage',
     seo: {
       title: 'DP Standard Level Tutors UAE | IB SL Tutoring | Ustaad',
-      description: 'Expert private IB DP SL tutoring in Dubai & Abu Dhabi. All IB Diploma Standard Level subjects with specialist 1-to-1 tutors. Book a free trial.',
+      description: 'Expert private IB DP SL tutoring in Dubai & Abu Dhabi. All IB Diploma Standard Level subjects with specialist 1-to-1 tutors. Book your first session.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -208,7 +208,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'DPHLPage',
     seo: {
       title: 'DP Higher Level Tutors UAE | IB HL Tutoring | Ustaad',
-      description: 'Expert private IB DP HL tutoring in Dubai & Abu Dhabi. Depth, rigor, and top scores for all IB Diploma Higher Level subjects. Book a free trial.',
+      description: 'Expert private IB DP HL tutoring in Dubai & Abu Dhabi. Depth, rigor, and top scores for all IB Diploma Higher Level subjects. Book your first session.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -232,7 +232,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'APPage',
     seo: {
       title: 'AP Tutors in Dubai & Abu Dhabi | AP Exam Prep UAE | Ustaad',
-      description: 'Online 1-to-1 AP tutors for Statistics, Physics, Chemistry, Biology and Economics. AP classes and exam prep through to May. Free 30-minute trial.',
+      description: 'Online 1-to-1 AP tutors for Statistics, Physics, Chemistry, Biology and Economics. AP classes and exam prep through to May. Free 15-min orientation with the first lesson.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -267,7 +267,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'MathsPage',
     seo: {
       title: 'Maths Tutors UAE | IGCSE, A-Level, IB & AP | Ustaad',
-      description: 'Expert private Maths tutoring in Dubai & Abu Dhabi. IGCSE, A-Level, IB & AP Mathematics. Algebra, Calculus & Statistics. Book a free trial.',
+      description: 'Expert private Maths tutoring in Dubai & Abu Dhabi. IGCSE, A-Level, IB & AP Mathematics. Algebra, Calculus & Statistics. Book your first session.',
       priority: 0.95,
       changefreq: 'monthly'
     },
@@ -278,7 +278,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'PhysicsPage',
     seo: {
       title: 'Physics Tutors UAE | IGCSE, A-Level, IB Physics — Ustaad',
-      description: 'Expert private Physics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Physics. Mechanics, Electricity, Quantum. Proven results. Book a free trial.',
+      description: 'Expert private Physics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Physics. Mechanics, Electricity, Quantum. Proven results. Book your first session.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -289,7 +289,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'ChemistryPage',
     seo: {
       title: 'Chemistry Tutors UAE | IGCSE, A-Level, IB Chemistry — Ustaad',
-      description: 'Expert private Chemistry tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Chemistry. Organic, Inorganic, Physical. Lab prep. Book a free trial.',
+      description: 'Expert private Chemistry tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Chemistry. Organic, Inorganic, Physical. Lab prep. Book your first session.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -322,7 +322,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'EconomicsPage',
     seo: {
       title: 'Economics Tutors UAE | IGCSE, A-Level, IB Economics — Ustaad',
-      description: 'Expert private Economics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Economics. Micro, Macro, Development, International. Book a free trial.',
+      description: 'Expert private Economics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Economics. Micro, Macro, Development, International. Book your first session.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -333,7 +333,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'BusinessPage',
     seo: {
       title: 'Business Studies Tutors UAE | IGCSE, A-Level & IB | Ustaad',
-      description: 'Expert private Business Studies tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Business. Marketing, Finance, HR, Operations. Book a free trial.',
+      description: 'Expert private Business Studies tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Business. Marketing, Finance, HR, Operations. Book your first session.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -344,7 +344,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'AccountingPage',
     seo: {
       title: 'Accounting Tutors UAE | IGCSE & A-Level | Ustaad',
-      description: 'Expert private Accounting tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Accounting. Financial, Management, Cost accounting. Book a free trial.',
+      description: 'Expert private Accounting tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Accounting. Financial, Management, Cost accounting. Book your first session.',
       priority: 0.8,
       changefreq: 'monthly'
     },
@@ -355,7 +355,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'FinancePage',
     seo: {
       title: 'Finance Tutors UAE | A-Level, IB & University | Ustaad',
-      description: 'Expert private Finance tutoring in Dubai, Abu Dhabi & UAE. A-Level, IB, University Finance. Corporate finance, Investment, Financial markets. Book a free trial.',
+      description: 'Expert private Finance tutoring in Dubai, Abu Dhabi & UAE. A-Level, IB, University Finance. Corporate finance, Investment, Financial markets. Book your first session.',
       priority: 0.8,
       changefreq: 'monthly'
     },
@@ -377,7 +377,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'EngineeringPage',
     seo: {
       title: 'Engineering Tutors UAE | A-Level & University | Ustaad',
-      description: 'Expert private Engineering tutoring in Dubai, Abu Dhabi & UAE. A-Level, University Engineering. Mechanical, Electrical, Civil fundamentals. Book a free trial.',
+      description: 'Expert private Engineering tutoring in Dubai, Abu Dhabi & UAE. A-Level, University Engineering. Mechanical, Electrical, Civil fundamentals. Book your first session.',
       priority: 0.8,
       changefreq: 'monthly'
     },
@@ -388,7 +388,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'SciencesPage',
     seo: {
       title: 'Sciences Tutors UAE | Physics, Chemistry & Biology — Ustaad',
-      description: 'Expert private sciences tutoring in Dubai, Abu Dhabi & UAE. Physics, Chemistry, and Biology for IGCSE, GCSE, A-Level, and IB. Book a free trial.',
+      description: 'Expert private sciences tutoring in Dubai, Abu Dhabi & UAE. Physics, Chemistry, and Biology for IGCSE, GCSE, A-Level, and IB. Book your first session.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -635,7 +635,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'Preparing for a parent-teacher meeting? Questions to ask about predicted grades, mocks and progress for IGCSE and A-Level students in the UAE.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-10-19'
+      lastmod: '2026-10-16'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'Parent-Teacher Meetings', url: '/blogs/parent-teacher-meeting-questions-uae' }]
   },
@@ -647,7 +647,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'Preparing for a parent-teacher meeting? Questions to ask about predicted grades, mocks and progress for IGCSE and A-Level students in the UAE.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-10-19'
+      lastmod: '2026-10-16'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'Parent-Teacher Meetings', url: '/blogs/parent-teacher-meeting-questions-uae' }]
   },
@@ -670,7 +670,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'PhysicsLanding',
     seo: {
       title: 'IGCSE & A-Level Physics Tutor | Abu Dhabi & UAE | Ustaad',
-      description: 'One-to-one IGCSE and A-Level physics tutoring for Abu Dhabi families, taught online across the UAE. Cambridge 0625, Edexcel 4PH1 and A-Level 9702, including the practical papers. Free 30-minute trial.',
+      description: 'One-to-one IGCSE and A-Level physics tutoring for Abu Dhabi families, taught online across the UAE. Cambridge 0625, Edexcel 4PH1 and A-Level 9702, including the practical papers. Free 15-min orientation with the first lesson.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -681,7 +681,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'ChemistryLandingPage',
     seo: {
       title: 'Chemistry Tutor Abu Dhabi | IGCSE, A-Level & IB | Ustaad',
-      description: 'Expert 1-to-1 chemistry tutors in Abu Dhabi for IGCSE, A-Level, and IB. Fix mole calculations, organic mechanisms, and past paper technique. Book a free trial.',
+      description: 'Expert 1-to-1 chemistry tutors in Abu Dhabi for IGCSE, A-Level, and IB. Fix mole calculations, organic mechanisms, and past paper technique. Book your first session.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -692,7 +692,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'BiologyTutorAbuDhabiPage',
     seo: {
       title: 'Biology Tutor Abu Dhabi | Expert IGCSE, A-Level & IB Tutors | Ustaad',
-      description: 'Specialist 1-to-1 biology tutors in Abu Dhabi for Cambridge 0610, Edexcel, IB HL, and A-Level. Medicine prep, IA support, and targeted topic rebuilds. Book a free diagnostic.',
+      description: 'Specialist 1-to-1 biology tutors in Abu Dhabi for Cambridge 0610, Edexcel, IB HL, and A-Level. Medicine prep, IA support, and targeted topic rebuilds. Free 15-min orientation with the first lesson.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -703,7 +703,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'IBTutorAbuDhabiPage',
     seo: {
       title: 'IB Tutor Abu Dhabi | MYP, DP SL & HL | Math AA/AI + Physics',
-      description: 'IB tutor Abu Dhabi where one tutor connects Math AA/AI, Physics and Statistics. MYP to DP HL. Vetted by our academic and operations team. Free trial.',
+      description: 'IB tutor Abu Dhabi where one tutor connects Math AA/AI, Physics and Statistics. MYP to DP HL. Vetted by our academic and operations team.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -714,7 +714,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'IGCSETutorLanding',
     seo: {
       title: 'IGCSE Tutor Abu Dhabi | Private IGCSE Tutoring – Ustaad',
-      description: 'Private IGCSE tutors in Abu Dhabi for Maths, Physics, Chemistry, Biology, English and more. Cambridge and Edexcel aligned. Book a free trial.',
+      description: 'Private IGCSE tutors in Abu Dhabi for Maths, Physics, Chemistry, Biology, English and more. Cambridge and Edexcel aligned. Book your first session.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -725,7 +725,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'GCSETutorLanding',
     seo: {
       title: 'GCSE Tutor Abu Dhabi | Private GCSE Tutoring — Ustaad',
-      description: 'Private GCSE tutors in Abu Dhabi for Maths, Physics, Chemistry, Biology, English and more. AQA, OCR, and Edexcel aligned. Book a free trial.',
+      description: 'Private GCSE tutors in Abu Dhabi for Maths, Physics, Chemistry, Biology, English and more. AQA, OCR, and Edexcel aligned. Book your first session.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -736,7 +736,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'GCSETutorDubaiLanding',
     seo: {
       title: 'GCSE Tutor Dubai | AQA, Edexcel & OCR | Ustaad',
-      description: 'Expert online GCSE tutors in Dubai. AQA, Edexcel & OCR specialists. Private 1-to-1, recorded lessons, free trial. Trusted UAE families since 2015.',
+      description: 'Expert online GCSE tutors in Dubai. AQA, Edexcel & OCR specialists. Private 1-to-1, recorded lessons. Book your first session. Trusted UAE families since 2015.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -747,7 +747,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'IgcseTutorDubaiLanding',
     seo: {
       title: 'IGCSE Tutor Dubai | Cambridge & Edexcel Specialists | Ustaad',
-      description: 'Expert online IGCSE tutors in Dubai for Cambridge and Edexcel. Private 1-to-1 tutoring for Mathematics, Sciences, English and Business. Book a free trial today.',
+      description: 'Expert online IGCSE tutors in Dubai for Cambridge and Edexcel. Private 1-to-1 tutoring for Mathematics, Sciences, English and Business. Book your first session today.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -758,7 +758,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'MathsTutorDubaiLanding',
     seo: {
       title: 'Maths Tutor Dubai | Online GCSE, IGCSE & A-Level Maths Tuition | Ustaad',
-      description: 'One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Book a free trial lesson with Ustaad.',
+      description: 'One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Book your first lesson with Ustaad.',
       priority: 0.90,
       changefreq: 'monthly',
       lastmod: '2026-09-16'
@@ -781,7 +781,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'ChemistryTutorDubaiPage',
     seo: {
       title: 'Chemistry Tutor Dubai | IGCSE, GCSE, A-Level & IB | Ustaad',
-      description: 'One-to-one online chemistry tutors in Dubai for IGCSE, GCSE, A-Level and IB. Fix mole calculations, organic and 6-mark answers. Book a free trial.',
+      description: 'One-to-one online chemistry tutors in Dubai for IGCSE, GCSE, A-Level and IB. Fix mole calculations, organic and 6-mark answers. Book your first session.',
       keywords: 'chemistry tutor Dubai, IGCSE chemistry tutor Dubai, GCSE chemistry tutor Dubai, A-Level chemistry tutor Dubai, IB chemistry tutor Dubai, online chemistry tuition Dubai, private chemistry tutor UAE',
       priority: 0.90,
       changefreq: 'monthly',
@@ -790,43 +790,43 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Chemistry', url: '/chemistry' }, { name: 'Chemistry Tutor Dubai', url: '/chemistry-tutor-dubai' }]
   },
   {
-    path: '/subjects/biology-tutor-dubai',
-    component: 'BiologyTutorDubaiPage',
-    seo: {
-      title: 'Biology Tutor Dubai | IGCSE, A-Level & IB Biology | Ustaad',
-      description: '1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Book a free 30-minute trial with Ustaad.',
-      keywords: 'biology tutor Dubai, IB Biology tutor Dubai, IGCSE Biology tutor Dubai, A-Level Biology tutor Dubai, private Biology tutor Dubai, online Biology tutor UAE, IB Biology HL tutor, Biology IA help Dubai, Biology tuition Dubai, best Biology tutor in Dubai',
-      priority: 0.90,
-      changefreq: 'monthly',
-      lastmod: '2026-10-14'
-    },
-    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Biology', url: '/biology' }, { name: 'Biology Tutor Dubai', url: '/subjects/biology-tutor-dubai' }]
-  },
-  {
     path: '/biology-tutor-dubai',
     component: 'BiologyTutorDubaiPage',
     seo: {
       title: 'Biology Tutor Dubai | IGCSE, A-Level & IB Biology | Ustaad',
-      description: '1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Book a free 30-minute trial with Ustaad.',
+      description: '1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Free 15-min orientation with the first lesson.',
       keywords: 'biology tutor Dubai, IB Biology tutor Dubai, IGCSE Biology tutor Dubai, A-Level Biology tutor Dubai, private Biology tutor Dubai, online Biology tutor UAE, IB Biology HL tutor, Biology IA help Dubai, Biology tuition Dubai, best Biology tutor in Dubai',
       priority: 0.90,
       changefreq: 'monthly',
       lastmod: '2026-10-14'
     },
-    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Biology', url: '/biology' }, { name: 'Biology Tutor Dubai', url: '/subjects/biology-tutor-dubai' }]
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Biology', url: '/biology' }, { name: 'Biology Tutor Dubai', url: '/biology-tutor-dubai' }]
   },
   {
     path: '/a-level-tutor-dubai',
     component: 'ALevelTutorDubaiPage',
     seo: {
       title: 'A-Level Tutors in Dubai | Cambridge, Edexcel & AQA | Ustaad',
-      description: 'Online 1-to-1 A-Level tuition in Dubai for Maths, Further Maths, Physics, Chemistry, Biology and Economics. Cambridge, Edexcel and AQA. Free trial.',
+      description: 'Online 1-to-1 A-Level tuition in Dubai for Maths, Further Maths, Physics, Chemistry, Biology and Economics. Cambridge, Edexcel and AQA. Book your first session.',
       keywords: 'A-Level tutor Dubai, A level tutoring Dubai, Cambridge A level tutor Dubai, Edexcel A level tutor Dubai, online A Level tuition Dubai, A Level maths physics chemistry tutor UAE',
       priority: 0.90,
       changefreq: 'monthly',
       lastmod: '2026-10-07'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'A-Level', url: '/a-level' }, { name: 'A-Level Tutor Dubai', url: '/a-level-tutor-dubai' }]
+  },
+  {
+    path: '/ib-tutor-dubai',
+    component: 'IBTutorDubaiPage',
+    seo: {
+      title: 'IB Tutor Dubai | 1-to-1 IB DP & MYP Tutors | Ustaad',
+      description: 'Private IB tutors in Dubai for DP SL/HL and MYP. Get expert help with the IA, Extended Essay and exams. Free 15-min orientation with the first lesson.',
+      keywords: 'IB tutor Dubai, IB DP tutor Dubai, private IB tutor Dubai, online IB tutor UAE, IB Maths tutor Dubai, IB Physics tutor Dubai, IB Chemistry tutor Dubai, IB Biology tutor Dubai, IB Economics tutor Dubai, IB IA help Dubai, IB Extended Essay help, MYP tutor Dubai, IB HL / SL tutor',
+      priority: 0.95,
+      changefreq: 'weekly',
+      lastmod: '2026-10-21'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IB Curriculum', url: '/ib-curriculum' }, { name: 'IB Tutor Dubai', url: '/ib-tutor-dubai' }]
   },
   {
     path: '/a-level-tutor-abu-dhabi',
@@ -838,6 +838,19 @@ export const ROUTES: RouteConfig[] = [
       changefreq: 'monthly'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'A-Level Tutor Abu Dhabi', url: '/a-level-tutor-abu-dhabi' }]
+  },
+  {
+    path: '/a-level-tutor-al-ain',
+    component: 'ALevelTutorAlAinPage',
+    seo: {
+      title: 'Online A-Level Tutor Al Ain | Cambridge, Edexcel & AQA | Ustaad',
+      description: 'Private 1-to-1 online A-Level tutors in Al Ain for Cambridge, Pearson Edexcel & OxfordAQA. Supporting students from AABA, AAESS, AAIS & GES in Year 12 & 13. Book a free consultation.',
+      keywords: 'A-Level tutor Al Ain, A Level tutoring Al Ain, online A Level tuition Al Ain, Cambridge A Level tutor Al Ain, Edexcel A Level tutor Al Ain, A Level maths tutor Al Ain, A Level physics tutor Al Ain, A Level chemistry tutor Al Ain, private tutor Al Ain British curriculum, Al Ain sixth form tuition',
+      priority: 0.90,
+      changefreq: 'monthly',
+      lastmod: '2026-10-28'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'A-Level', url: '/a-level' }, { name: 'A-Level Tutor Al Ain', url: '/a-level-tutor-al-ain' }]
   },
   {
     path: '/editorial',
@@ -1038,6 +1051,74 @@ export const ROUTES: RouteConfig[] = [
     ]
   },
   {
+    path: '/blogs/maths-anxiety-teenagers-signs-causes-help',
+    component: 'MathsAnxietyTeenagersBlog',
+    seo: {
+      title: 'Maths Anxiety in Teenagers: Signs, Causes and Help | Ustaad',
+      description: "Does your child say they're bad at maths? Learn the signs of maths anxiety in teenagers, what causes it, and practical ways UAE parents can help.",
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-10-20'
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blogs' },
+      { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' },
+      { name: 'Maths Anxiety in Teenagers', url: '/blogs/maths-anxiety-teenagers-signs-causes-help' }
+    ]
+  },
+  {
+    path: '/blogs/why-students-freeze-exam-questions-scaffolding-trap',
+    component: 'WhyStudentsFreezeExamQuestionsBlog',
+    seo: {
+      title: 'The Scaffolding Trap: Why Students Freeze on Exam Questions | Ustaad',
+      description: 'Your child follows every lesson but freezes on exam questions? Learn how the scaffolding trap works and how UAE parents can build exam independence.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-10-23'
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blogs' },
+      { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' },
+      { name: 'The Scaffolding Trap', url: '/blogs/why-students-freeze-exam-questions-scaffolding-trap' }
+    ]
+  },
+  {
+    path: '/blogs/how-to-read-examiner-reports-igcse-a-level',
+    component: 'HowToReadExaminerReportsBlog',
+    seo: {
+      title: "How to Read an Examiner's Report: The Secret Document That Turns B Grades into A*s | Ustaad",
+      description: "Learn how to use Cambridge CAIE, Pearson Edexcel and IB examiner reports to jump grade boundaries. Includes a printable past paper error-log template.",
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-10-26'
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blogs' },
+      { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' },
+      { name: "How to Read an Examiner's Report", url: '/blogs/how-to-read-examiner-reports-igcse-a-level' }
+    ]
+  },
+  {
+    path: '/blogs/winter-break-revision-plan-uae-students',
+    component: 'WinterBreakRevisionPlanBlog',
+    seo: {
+      title: 'Winter Break Revision Plan for UAE Students 2026 | Ustaad',
+      description: 'UAE winter break runs 14 Dec to 3 Jan. A realistic three-week revision plan for IGCSE and A-Level students, with rest built in, before mocks.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-10-30'
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blogs' },
+      { name: 'Parent Guidance', url: '/blogs/parent-guidance' },
+      { name: 'Winter Break Revision Plan', url: '/blogs/winter-break-revision-plan-uae-students' }
+    ]
+  },
+  {
     path: '/privacy',
     component: 'PrivacyPage',
     seo: {
@@ -1054,7 +1135,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'TermsPage',
     seo: {
       title: 'Terms of Use | Ustaad UAE · Tutoring Agreement & Service Terms',
-      description: 'Official Terms of Use for Ustaad UAE private tutoring services. Transparent policies on free trial sessions, 24-hour rescheduling, tutor replacement guarantee, and UAE governing law.',
+      description: 'Official Terms of Use for Ustaad UAE private tutoring services. Transparent policies on tutoring sessions and orientations, 24-hour rescheduling, tutor replacement guarantee, and UAE governing law.',
       priority: 0.3,
       changefreq: 'monthly',
       lastmod: '2026-09-11'

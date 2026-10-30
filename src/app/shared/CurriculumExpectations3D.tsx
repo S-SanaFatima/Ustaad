@@ -644,7 +644,7 @@ export function CurriculumExpectations3D() {
         </div>
 
         {/* Swipe indicator on mobile */}
-        <SwipeIndicator text="Swipe across all curricula" className="-mt-6 mb-8" />
+        <SwipeIndicator text="Swipe across all curricula" hideArrows hideDots className="-mt-6 mb-8" />
 
         {/* Closing Highlight Statement (Exact content preserved) */}
         <div className="max-w-4xl mx-auto">

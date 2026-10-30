@@ -92,6 +92,10 @@ RewriteRule ^(.*)$ https://ustaad.ae/$1 [R=301,L]
 RewriteRule ^$ /index.html [L]
 RewriteRule ^index\.html$ - [L]
 
+# --- Early 301 Redirects (Take precedence over physical files & prerendered directories) ---
+RewriteRule ^curriculum/ib-tutor-dubai/?$ /ib-tutor-dubai [R=301,L]
+RewriteRule ^subjects/biology-tutor-dubai/?$ /biology-tutor-dubai [R=301,L]
+
 # --- 1. Real Existing Files (Images, WebP, JS, CSS, fonts, direct .html) → Serve as-is immediately ---
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
@@ -101,6 +105,10 @@ RewriteRule ^ - [L]
 RewriteRule ^ar/gcse-tutor-dubai/?$ /gcse-tutor-dubai [R=301,L]
 RewriteRule ^ar/?$ / [R=301,L]
 RewriteRule ^ar/(.*)$ /$1 [R=301,L]
+
+# Specific curriculum/subject migrations
+RewriteRule ^curriculum/ib-tutor-dubai/?$ /ib-tutor-dubai [R=301,L]
+RewriteRule ^subjects/biology-tutor-dubai/?$ /biology-tutor-dubai [R=301,L]
 
 # Alias & Old Slug 301 Redirects
 RewriteRule ^apply-now/?$ /contact [R=301,L]

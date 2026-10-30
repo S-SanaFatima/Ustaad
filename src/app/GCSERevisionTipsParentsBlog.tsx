@@ -446,7 +446,7 @@ export default function GCSERevisionTipsParentsBlog() {
             <p>Extracurriculars are worth protecting rather than cutting. Sport and music keep a teenager functioning, and children who drop everything in September tend to burn out by February. Trimming in the final six weeks is reasonable. Clearing the calendar in Year 11 usually isn't.</p>
             <p>Ramadan is worth planning for, though not for the reason most parents assume. It doesn't land near the exam window: papers run from mid-May into June, while Ramadan currently falls in February and moves around ten days earlier each year. What it overlaps with is mock season and the pre-Easter revision block, arguably the two most useful periods in the year. Mocks are where weak topics get identified, and the weeks after are where that gets acted on.</p>
             <p>So treat it as a lighter, differently-timed period rather than a write-off or a normal month. Shift sessions to whatever slot works with adjusted school hours and later evenings, shorten them, and protect consistency over volume. Twenty focused minutes most days beats an ambitious plan abandoned in week one. If mocks fall inside it, ask the school early how they're scheduling them, since arrangements vary.</p>
-            <p>Travel over long holidays is the other common disruption. It's usually more effective to accept that a two-week trip will involve very little studying, and to plan around it, than to pack textbooks that never get opened and generate guilt for the whole holiday.</p>
+            <p>Travel over long holidays is the other common disruption. It's usually more effective to accept that a two-week trip will involve very little studying, and to plan around it with a realistic <a href="/blogs/winter-break-revision-plan-uae-students" className="text-[#0f4a9b] font-semibold hover:underline">winter break revision plan</a>, than to pack textbooks that never get opened and generate guilt for the whole holiday.</p>
 
             <InlineImage
               src="/images/blogs/revision-timetable-routine.jpg"
@@ -579,7 +579,7 @@ export default function GCSERevisionTipsParentsBlog() {
                 <a href="/contact#form"
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial
+                Book Your First Session
               </a>
                 <p className="text-xs text-white/60 font-medium">No commitment. Cancel anytime.</p>
               </div>

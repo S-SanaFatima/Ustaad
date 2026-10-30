@@ -771,7 +771,7 @@ export default function SleepAndMemoryBlog() {
               <li className="flex items-start gap-2.5 text-xs text-gray-700">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0f4a9b] mt-1.5 shrink-0" />
                 <span>
-                  <strong>Check mock timetables:</strong> Ask the school early about how mocks are being scheduled around Ramadan, since arrangements vary across UAE schools.
+                  <strong>Check mock timetables:</strong> Ask the school early about how mocks are being scheduled around Ramadan, and use a structured <a href="/blogs/winter-break-revision-plan-uae-students" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">winter break revision plan</a> in December so January starts calmly.
                 </span>
               </li>
             </ul>
@@ -1013,7 +1013,7 @@ export default function SleepAndMemoryBlog() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-xs sm:text-sm w-full sm:w-auto shadow-md"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}
               >
-                Book a Free Trial Session
+                Book First Session
               </a>
               <a
                 href="https://wa.me/971561249005?text=Hello%20Ustaad%20team,%20I%20have%20a%20question%20about%20revision%20planning%20and%20tutoring."

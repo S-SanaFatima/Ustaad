@@ -115,7 +115,7 @@ export default function AuthorPage() {
                   <span key={s} className="px-3 py-1 rounded-full text-xs font-bold bg-[#0f4a9b]/8 text-[#0f4a9b] border border-[#0f4a9b]/15">{s}</span>
                 ))}
               </div>
-              <GoldButton href="/contact#form" className="px-6 py-3 text-sm">Book a Free Trial</GoldButton>
+              <GoldButton href="/contact#form" className="px-6 py-3 text-sm">Book First Session</GoldButton>
             </div>
           </div>
 

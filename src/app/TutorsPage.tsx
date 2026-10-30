@@ -4,18 +4,18 @@ import { motion, AnimatePresence } from 'motion/react';
 import {
   Award, BookOpen, ChevronDown, ChevronLeft, ChevronRight, ClipboardList, Clock, Flag, Globe, GraduationCap, Landmark,
   Lightbulb, MessageCircle, MessageSquare, PenLine, Phone, RotateCw, ShieldCheck, Star, Target, TrendingUp, UserCheck,
-  Users, CheckCircle2, ArrowRight
+  Users, CheckCircle2
 } from 'lucide-react';
-import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock, FAQAccordion } from './shared';
+import { Layout, GradientHeadingText, GoldButton, FinalCTA, StatsBar, HeroCTABlock, FAQAccordion, SwipeIndicator } from './shared';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, faqSchema } from './shared/schemas';
 
 const tutorsSchemaFaqs = [
   { q: "How does Ustaad select its private tutors?", a: "Every Ustaad tutor passes a four-part evaluation: curriculum knowledge test, live teaching assessment, subject qualification review, and professional-standards check. Our screening aligns with KHDA and ADEK expectations." },
   { q: "Are Ustaad tutors qualified to teach IGCSE, A-Level, IB and AP?", a: "Yes. Our tutors are subject specialists with verified academic qualifications and teaching experience in their exam boards: CIE, Edexcel, AQA, Cambridge IB, and College Board AP." },
-  { q: "Can I choose or change my child's tutor?", a: "Yes. After the free trial you can request a different tutor if the fit isn't right. We'll re-match at no cost." },
+  { q: "Can I choose or change my child's tutor?", a: "Yes. After the first lesson you can request a different tutor if the fit isn't right. We'll re-match at no cost." },
   { q: "Are Ustaad lessons online or in person?", a: "Ustaad specialises in online one-to-one tutoring. This lets us match students in any Emirate to the best-fit tutor without location limits, and lessons are recordable for revision." },
-  { q: "How does the free trial lesson work?", a: "The trial is one full lesson at your family's chosen time. No commitment to continue. Your child meets the matched tutor, works on a real topic, and you decide whether to proceed after." },
+  { q: "How does the free orientation work?", a: "Every new student gets 15 free minutes added to their first 1-hour lesson to meet the tutor and agree where to start." },
   { q: "Do tutors follow the student's school and syllabus?", a: "Yes. Tutors work from your child's actual school scheme of work, past-paper set, and upcoming assessments, not a generic curriculum." },
   { q: "Do you offer past-paper practice and exam preparation?", a: "Yes. Regular past-paper practice is built into every course, with intensive exam-prep blocks scheduled before mocks and finals." },
   { q: "What happens if my child misses a lesson?", a: "Lessons can be rescheduled with 24 hours' notice. Missed sessions are never forfeited." },
@@ -100,7 +100,7 @@ export default function TutorsPage() {
     <Layout>
       <SEOHead
         title="Private Tutors in Dubai & UAE — IGCSE, A-Level, IB & AP | Ustaad"
-        description="Meet Ustaad's curriculum-specialist private tutors in Dubai, Abu Dhabi and across the UAE. Expert 1-to-1 tutoring for IGCSE, GCSE, A-Level, IB (MYP/SL/HL) and AP. Free trial, no commitment."
+        description="Meet Ustaad's curriculum-specialist private tutors in Dubai, Abu Dhabi and across the UAE. Expert 1-to-1 tutoring for IGCSE, GCSE, A-Level, IB (MYP/SL/HL) and AP. Free 15-min orientation with the first lesson."
         canonical="/tutors"
         ogImage="/UpdatedImages/tutor-page.webp"
         schema={[
@@ -128,7 +128,7 @@ export default function TutorsPage() {
                 Every Ustaad tutor is evaluated for curriculum command, subject depth, and clear teaching before joining our UAE faculty.
               </p>
               <HeroCTABlock className="mb-4">
-                Book Your Free Trial
+                Book Your First Session
               </HeroCTABlock>
             </motion.div>
 
@@ -407,7 +407,7 @@ export default function TutorsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 max-w-5xl mx-auto">
+          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 max-w-5xl mx-auto overflow-x-auto sm:overflow-visible pb-3 sm:pb-0 snap-x snap-mandatory scrollbar-none -mx-4 px-4 sm:mx-auto sm:px-0">
             {[
               { 
                 step: "01", 
@@ -425,10 +425,10 @@ export default function TutorsPage() {
               },
               { 
                 step: "03", 
-                title: "Free Trial Lesson", 
-                desc: "Experience an initial online trial session to assess tutor rapport, teaching clarity, and student engagement.", 
+                title: "First Lesson + Orientation", 
+                desc: "The first lesson opens with 15 free minutes to meet the tutor and agree the gaps to fix first.", 
                 icon: BookOpen,
-                highlight: "Zero-Commitment Trial"
+                highlight: "15 Free Minutes"
               },
               { 
                 step: "04", 
@@ -442,7 +442,7 @@ export default function TutorsPage() {
               return (
                 <div
                   key={index}
-                  className="rounded-2xl border border-slate-200/80 bg-white hover:border-[#0f4a9b]/40 hover:shadow-md p-4 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group"
+                  className="w-[80vw] max-w-[280px] sm:w-auto flex-shrink-0 sm:flex-shrink snap-center rounded-2xl border border-slate-200/80 bg-white hover:border-[#0f4a9b]/40 hover:shadow-md p-4 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group"
                 >
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#C7A24A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   
@@ -475,6 +475,9 @@ export default function TutorsPage() {
             })}
           </div>
 
+          {/* Swipe indicator on mobile */}
+          <SwipeIndicator text="Swipe across all 4 steps" hideArrows hideDots className="mt-4" />
+
         </div>
       </section>
 
@@ -494,7 +497,7 @@ export default function TutorsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 max-w-5xl mx-auto">
+          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 max-w-5xl mx-auto overflow-x-auto sm:overflow-visible pb-3 sm:pb-0 snap-x snap-mandatory scrollbar-none -mx-4 px-4 sm:mx-auto sm:px-0">
             {[
               { 
                 step: "01",
@@ -523,7 +526,7 @@ export default function TutorsPage() {
             ].map((item, idx) => {
               const IconComp = item.icon;
               return (
-                <div key={idx} className="bg-white rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md border border-gray-200/70 transition-all flex flex-col justify-between relative overflow-hidden group">
+                <div key={idx} className="w-[80vw] max-w-[280px] sm:w-auto flex-shrink-0 sm:flex-shrink snap-center bg-white rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md border border-gray-200/70 transition-all flex flex-col justify-between relative overflow-hidden group">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f4a9b] via-[#C7A24A] to-[#0f4a9b]" />
                   <div>
                     <div className="flex items-center justify-between mb-3">
@@ -546,6 +549,9 @@ export default function TutorsPage() {
               );
             })}
           </div>
+
+          {/* Swipe indicator on mobile */}
+          <SwipeIndicator text="Swipe across all 4 stages" hideArrows hideDots className="mt-4" />
 
         </div>
       </section>
@@ -583,8 +589,8 @@ export default function TutorsPage() {
                   We believe 1-to-1 teaching done with genuine subject depth permanently transforms a student's confidence and grade trajectory.
                 </p>
               </div>
-              <a href="/editorial" className="text-xs text-[#0f4a9b] font-bold underline hover:text-[#0a3a79] inline-flex items-center gap-1">
-                Meet our editorial &amp; review team <ArrowRight className="w-3.5 h-3.5" />
+              <a href="/editorial" className="text-xs text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">
+                Meet our editorial &amp; review team
               </a>
             </div>
 
@@ -605,7 +611,7 @@ export default function TutorsPage() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Ask</span>
               </h2>
               <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                Clear answers to common questions parents ask before scheduling their first trial session.
+                Clear answers to common questions parents ask before scheduling their first session.
               </p>
             </div>
             <div>
@@ -669,7 +675,7 @@ function MeetTutorsSection() {
               ✓
             </div>
             <span className="text-xs font-semibold text-[#0a1f3d] leading-snug">
-              Free 30-min trial session
+              Free 15-min orientation
             </span>
           </div>
         </div>
@@ -851,7 +857,7 @@ function MeetTutorsSection() {
               {[
                 "1. Send brief: Year, board, & stuck topics.",
                 "2. We shortlist a tutor from our screened pool.",
-                "3. Free 30-min trial. Continue only if it clicks."
+                "3. First lesson with a free 15-min orientation."
               ].map((txt, i) => (
                 <div key={i} className="text-xs text-white/90 leading-snug flex items-start gap-2">
                   <span className="w-4 h-4 rounded-full bg-[#C7A24A]/25 text-[#C7A24A] border border-[#C7A24A]/40 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">

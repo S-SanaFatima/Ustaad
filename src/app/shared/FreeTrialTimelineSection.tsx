@@ -177,13 +177,13 @@ export function FreeTrialTimelineSection({ location = 'Dubai' }: FreeTrialTimeli
         {/* Header Block with exact copy */}
         <div className="text-center mb-10 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0f4a9b]/5 border border-[#0f4a9b]/10 text-[#0f4a9b] rounded-full text-xs font-bold mb-3">
-            Free Trial
+            First Session
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-3">
-            Thirty free minutes that tell you everything
+            A diagnostic first session that tells you everything
           </h2>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed italic">
-            Free, and a real diagnostic, not a sales call.
+            A real diagnostic session, not a sales call.
           </p>
         </div>
 

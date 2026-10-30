@@ -53,6 +53,10 @@ import IGCSEvsGCSEBlog from "./app/IGCSEvsGCSEBlog.tsx";
 import HomeworkHelpBalanceBlog from "./app/HomeworkHelpBalanceBlog.tsx";
 import WhyTeenagersProcrastinateBlog from "./app/WhyTeenagersProcrastinateBlog.tsx";
 import ParentTeacherMeetingBlog from "./app/ParentTeacherMeetingBlog.tsx";
+import MathsAnxietyTeenagersBlog from "./app/MathsAnxietyTeenagersBlog.tsx";
+import WhyStudentsFreezeExamQuestionsBlog from "./app/WhyStudentsFreezeExamQuestionsBlog.tsx";
+import HowToReadExaminerReportsBlog from "./app/HowToReadExaminerReportsBlog.tsx";
+import WinterBreakRevisionPlanBlog from "./app/WinterBreakRevisionPlanBlog.tsx";
 
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
 import MathsPage from "./app/MathsPage.tsx";
@@ -84,8 +88,10 @@ import PhysicsTutorDubaiPage from "./app/PhysicsTutorDubaiPage.tsx";
 import ChemistryTutorDubaiPage from "./app/ChemistryTutorDubaiPage.tsx";
 import BiologyTutorDubaiPage from "./app/BiologyTutorDubaiPage.tsx";
 import ALevelTutorLanding from "./app/ALevelTutorAbuDhabiPage.tsx";
+import ALevelTutorAlAinPage from "./app/ALevelTutorAlAinPage.tsx";
 import ALevelTutorDubaiPage from "./app/ALevelTutorDubaiPage.tsx";
 import IBTutorAbuDhabiPage from "./app/IBTutorAbuDhabiPage.tsx";
+import IBTutorDubaiPage from "./app/IBTutorDubaiPage.tsx";
 import TutorProfilePage from "./app/TutorProfilePage.tsx";
 
 // Component registry - maps component names to actual components
@@ -104,6 +110,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   TutorProfilePage,
   BiologyTutorAbuDhabiPage,
   IBTutorAbuDhabiPage,
+  IBTutorDubaiPage,
   BiologyPage,
   BlogsPage,
   BritishCurriculumPage,
@@ -148,12 +155,17 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   ChemistryTutorDubaiPage,
   BiologyTutorDubaiPage,
   ALevelTutorLanding,
+  ALevelTutorAlAinPage,
   MockExamsUAEBlog,
   WhatDoesGradientMeanBlog,
   WhatDoesYInterceptMeanBlog,
   HomeworkHelpBalanceBlog,
   WhyTeenagersProcrastinateBlog,
   ParentTeacherMeetingBlog,
+  MathsAnxietyTeenagersBlog,
+  WhyStudentsFreezeExamQuestionsBlog,
+  HowToReadExaminerReportsBlog,
+  WinterBreakRevisionPlanBlog,
   IllusionOfCompetenceBlog,
   CommandWordsBlog,
   SleepAndMemoryBlog,

@@ -29,8 +29,8 @@ const BLOG = {
 
 const FAQS = [
   {
-    q: 'How many trial sessions should I try before choosing a tutor in Abu Dhabi?',
-    a: 'One well-watched trial is usually enough to sense the fit, though a second helps if your child was nervous or the subject is tricky. Watch how the tutor listens and adapts, not just how much they cover.',
+    q: 'How many sessions should I try before choosing a tutor in Abu Dhabi?',
+    a: 'One well-watched first lesson is usually enough to sense the fit, though a second helps if your child was nervous or the subject is tricky. Watch how the tutor listens and adapts, not just how much they cover.',
   },
   {
     q: 'Is an online tutor as good as an in-person tutor in Abu Dhabi?',
@@ -378,7 +378,7 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             <div className="my-6 rounded-2xl border border-[#0f4a9b]/15 bg-[#f8fafd] p-5 text-center">
               <p className="text-sm font-semibold text-[#0a1f3d] mb-2">Print it and take it with you</p>
               <p className="text-xs text-gray-600 leading-relaxed mb-3">
-                Download the free Parent Tutor Interview Worksheet (PDF) so you can write down each tutor&apos;s answers during a trial session and compare them side by side.
+                Download the free Parent Tutor Interview Worksheet (PDF) so you can write down each tutor&apos;s answers during your first session and compare them side by side.
               </p>
               <a href="/downloads/ustaad-parent-tutor-interview-worksheet.pdf" download="ustaad-parent-tutor-interview-worksheet.pdf" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white transition hover:brightness-110"
@@ -697,7 +697,7 @@ export default function HirePrivateTutorAbuDhabiBlog() {
               'Do I sense warmth, respect, and calm?',
               'Does my child seem at ease with them?',
             ]} />
-            <p>Trust is not a soft extra here. Children learn far more readily from someone they feel safe with, and you usually sense that ease within one conversation. This is exactly what a free trial session is for: it lets you and your child feel the fit before you commit to anything.</p>
+            <p>Trust is not a soft extra here. Children learn far more readily from someone they feel safe with, and you usually sense that ease within one conversation. This is exactly what the first lesson is for: it lets you and your child feel the fit before you commit to anything.</p>
             <ParentTakeaway>Trust your impression of the person, not only their paperwork. If the ease is not there, keep looking.</ParentTakeaway>
 
             <SectionHeading id="good-tutor-vs-red-flag">A good tutor vs a red flag, at a glance</SectionHeading>
@@ -810,17 +810,17 @@ export default function HirePrivateTutorAbuDhabiBlog() {
             style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 60%, #1e5ba8 100%)' }}>
             <h3 className="text-lg lg:text-xl font-extrabold text-white mb-2">See the fit for yourself</h3>
             <p className="text-white/75 mb-5 max-w-lg mx-auto text-sm leading-relaxed">
-              You do not have to judge a tutor from a profile alone. Ustaad matches your child with an experienced, vetted private tutor in Abu Dhabi who fits their curriculum, their pace, and their personality, whether you are in Khalifa City, Al Reem Island, Saadiyat Island, or Yas Island, or learning online across the UAE. Then we give you a free trial session to test the fit.
+              You do not have to judge a tutor from a profile alone. Ustaad matches your child with an experienced, vetted private tutor in Abu Dhabi who fits their curriculum, their pace, and their personality, whether you are in Khalifa City, Al Reem Island, Saadiyat Island, or Yas Island, or learning online across the UAE. The first lesson opens with 15 free minutes to meet the tutor and test the fit.
             </p>
             <p className="text-white/70 mb-5 max-w-lg mx-auto text-xs leading-relaxed">
-              Bring these ten questions to that first lesson. If the match is right, you will feel it. If it is not, you have lost nothing but an hour, and learned exactly what to ask next time.
+              Bring these ten questions to that first lesson. If the match is right, you will feel it. If it is not, you will know exactly what to ask next time.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-3">
               <div className="flex flex-col items-center gap-1.5">
                 <a href="/contact#form"
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm"
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your Free Trial
+                Book Your First Session
               </a>
                 <p className="text-xs text-white/60 font-medium">No commitment. Cancel anytime.</p>
               </div>

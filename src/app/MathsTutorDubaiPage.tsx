@@ -366,7 +366,7 @@ export default function MathsTutorDubaiPage() {
   const serviceNode = {
     ...serviceSchema(
       'Maths Tutor Dubai',
-      'One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Book a free trial lesson with Ustaad.',
+      'One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Free 15-min orientation with the first lesson.',
       '/maths-tutor-dubai'
     ),
     areaServed: { '@type': 'City', name: 'Dubai' },
@@ -376,7 +376,7 @@ export default function MathsTutorDubaiPage() {
     <Layout>
       <SEOHead
         title="Maths Tutor Dubai | Online GCSE, IGCSE & A-Level Maths Tuition | Ustaad"
-        description="One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Book a free trial lesson with Ustaad."
+        description="One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Free 15-min orientation with the first lesson."
         canonical="/maths-tutor-dubai"
         ogImage="/UpdatedImages/gcse-tutor-abu-dhabi-online-year-11-session.webp"
         placename="Dubai, UAE"
@@ -385,7 +385,7 @@ export default function MathsTutorDubaiPage() {
             city: 'Dubai',
             url: '/maths-tutor-dubai',
             name: 'Ustaad, Maths Tutor Dubai',
-            description: 'One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Book a free trial lesson with Ustaad.',
+            description: 'One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Free 15-min orientation with the first lesson.',
           }),
           breadcrumbSchema([
             { name: 'Home', url: '/' },
@@ -521,7 +521,7 @@ export default function MathsTutorDubaiPage() {
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-[15px] text-white transition-all hover:-translate-y-0.5 text-center active:scale-[0.98]"
                 style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 6px 20px rgba(15,74,155,0.45)' }}
               >
-                Book Your Free Trial
+                Book Your First Session
               </a>
               <span className="text-blue-200/60 text-[11px]">✦ No Commitment · Cancel Anytime</span>
               <a
@@ -542,7 +542,7 @@ export default function MathsTutorDubaiPage() {
                   className="inline-flex items-center justify-center gap-2 px-7 md:px-8 h-12 rounded-full font-bold text-[15px] md:text-base text-white transition-all hover:-translate-y-0.5"
                   style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 18px rgba(15,74,155,0.55)' }}
                 >
-                  Book Your Free Trial
+                  Book Your First Session
                 </a>
                 <p className="text-blue-200/50 text-[11px]">✦ No Commitment · Cancel Anytime</p>
               </div>
@@ -572,7 +572,7 @@ export default function MathsTutorDubaiPage() {
       {/* ── SQUEEZE SECTION: GSAP PINNED HORIZONTAL GALLERY (Why Maths Slips in Dubai's Mixed-Curriculum Classrooms) ── */}
       <DubaiCurriculumAnalysisSection />
 
-      {/* ── FREE TRIAL (Thirty Free Minutes That Tell You Everything) ── */}
+      {/* ── ORIENTATION & FIRST LESSON (15 Free Minutes Before the Maths Starts) ── */}
       <section className="py-14 sm:py-20 bg-[#f4f7fc] border-b border-slate-200/80 relative overflow-hidden select-none">
         {/* Soft background ambient glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-gradient-to-tr from-[#0f4a9b]/10 via-[#C7A24A]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -580,13 +580,13 @@ export default function MathsTutorDubaiPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 text-[#0f4a9b] rounded-full text-xs font-bold mb-2">
-              FREE TRIAL
+              ORIENTATION
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0a1f3d] mb-2 tracking-tight">
-              Thirty Free Minutes That Tell You Everything
+              15 Free Minutes Before the Maths Starts
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Free, and a real diagnostic, not a sales call.
+              Introductions first, then an honest look at the gaps.
             </p>
           </div>
 
@@ -1239,7 +1239,7 @@ export default function MathsTutorDubaiPage() {
                     View profile
                   </a>
                   <a
-                    href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Fahad%20Khan%20for%20a%20trial%20lesson."
+                    href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Fahad%20Khan%20for%20the%20first%20lesson."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center px-3 py-2 rounded-lg bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] text-white font-bold text-xs hover:shadow-sm hover:scale-[1.02] transition-all duration-300 text-center"
@@ -1327,7 +1327,7 @@ export default function MathsTutorDubaiPage() {
                     View profile
                   </a>
                   <a
-                    href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Tabraiz%20Khan%20for%20a%20trial%20lesson."
+                    href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27d%20like%20to%20request%20Tabraiz%20Khan%20for%20the%20first%20lesson."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center px-3 py-2 rounded-lg bg-gradient-to-r from-[#0f4a9b] to-[#0a3a79] text-white font-bold text-xs hover:shadow-sm hover:scale-[1.02] transition-all duration-300 text-center"
@@ -1500,7 +1500,7 @@ export default function MathsTutorDubaiPage() {
       <section className="py-16 sm:py-20 bg-white border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-4">Book your free Maths trial in Dubai</h2>
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] mb-4">Book your first Maths session in Dubai</h2>
             <p className="text-gray-600 text-[15px]">Tell us the subject, year group and school. We match a specialist fast.</p>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 mb-12 items-stretch">
@@ -1508,15 +1508,15 @@ export default function MathsTutorDubaiPage() {
               <div className="w-16 h-16 rounded-full bg-[#f0c96a]/20 text-[#b8883f] flex items-center justify-center mb-5 mx-auto">
                 <Star className="w-8 h-8 fill-current" />
               </div>
-              <h3 className="text-[18px] font-extrabold text-[#0a1f3d] mb-2">Free First Lesson</h3>
+              <h3 className="text-[18px] font-extrabold text-[#0a1f3d] mb-2">Free 15-min orientation</h3>
               <p className="text-[14px] text-gray-500 mb-6 leading-relaxed flex-1">
-                Thirty online minutes with a matched Maths tutor to see if it&apos;s the right fit.
+                15 extra minutes on the first lesson to meet your Maths tutor.
               </p>
               <a
                 href={BOOKING}
                 className="mt-auto w-full min-h-[48px] bg-gradient-to-l from-[#C7A24A] via-[#A8892A] to-[#7A5E10] hover:brightness-110 text-white py-3 px-4 rounded-xl font-bold transition flex items-center justify-center gap-2 shadow-[0_4px_14px_rgba(199,162,74,0.3)] hover:-translate-y-0.5"
               >
-                Book a Free Trial Lesson
+                Book First Session
               </a>
             </div>
             <div className="bg-white p-8 rounded-[24px] shadow-[0_8px_30px_rgba(37,211,102,0.08)] border border-[#25D366]/20 flex flex-col h-full text-center hover:shadow-[0_12px_40px_rgba(37,211,102,0.15)] hover:-translate-y-1 transition-all duration-300">
