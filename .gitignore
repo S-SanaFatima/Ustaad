@@ -7,4 +7,11 @@ scratch/
 temp_images/
 *.tar
 *.tar.gz
+open-seo/
+service_account.json
+indexing_history.json
 
+__pycache__/
+.ftp_deploy_manifest.json
+*.bak
+.agents/

@@ -16,7 +16,7 @@ export const organizationSchema = {
   "description": "Premium private 1-to-1 tutoring across the UAE for IGCSE, GCSE, A-Level, IB and American curriculum students.",
   "areaServed": "AE",
   "sameAs": [
-    "https://www.facebook.com/ustaadAE",
+    "https://www.facebook.com/share/1DaNLFKHg1/",
     "https://www.instagram.com/ustaad.ae",
     "https://www.linkedin.com/company/ustaad-ae"
   ]
@@ -41,14 +41,6 @@ const OPENING_HOURS = [
     closes: "22:00",
   },
 ];
-
-const AGGREGATE_RATING = {
-  "@type": "AggregateRating",
-  ratingValue: "5.0",
-  reviewCount: "20",
-  bestRating: "5",
-  worstRating: "1",
-};
 
 const CITY_GEO: Record<string, { lat: string; lng: string; region: string }> = {
   "Abu Dhabi": { lat: "24.4539", lng: "54.3773", region: "Abu Dhabi" },
@@ -114,7 +106,7 @@ export const localBusinessSchema = {
   },
   sameAs: [
     "https://www.instagram.com/ustaad.ae",
-    "https://www.facebook.com/ustaad.ae",
+    "https://www.facebook.com/share/1DaNLFKHg1/",
     "https://www.linkedin.com/company/ustaad-ae",
   ],
   additionalProperty: [
@@ -165,7 +157,6 @@ export const cityLocalBusinessSchema = ({
     paymentAccepted: "Credit Card, Bank Transfer, Cash",
     address: address ?? {
       "@type": "PostalAddress",
-      streetAddress: `Home and online private tutoring across ${city}`,
       addressLocality: city,
       addressRegion: geo.region,
       addressCountry: "AE",
@@ -176,7 +167,7 @@ export const cityLocalBusinessSchema = ({
       longitude: geo.lng,
     },
     openingHoursSpecification: OPENING_HOURS,
-    areaServed: { "@type": "City", name: city },
+    areaServed: "United Arab Emirates",
     parentOrganization: {
       "@type": "EducationalOrganization",
       "@id": `${BASE_URL}/#organization`,
@@ -373,9 +364,8 @@ export const courseSchema = ({
   description,
   url,
   city = "Abu Dhabi",
-  courseMode = ["onsite", "online"],
-  includeLocation = true,
-  includeRating = true,
+  courseMode = "online",
+  includeLocation = false,
 }: {
   courseName: string;
   description: string;
@@ -406,7 +396,6 @@ export const courseSchema = ({
         name: `${city}, United Arab Emirates`,
         address: {
           "@type": "PostalAddress",
-          streetAddress: `Private tutoring across ${city}`,
           addressLocality: city,
           addressCountry: "AE",
         },
@@ -418,9 +407,6 @@ export const courseSchema = ({
     category: "Paid",
     priceCurrency: "AED",
   },
-  ...(includeRating && {
-    aggregateRating: AGGREGATE_RATING,
-  }),
 });
 
 export const personSchema = (p: PersonInput) => ({
@@ -452,38 +438,24 @@ export const itemListSchema = (
 
 export const reviewSchema = (
   itemNameOrReviews: string | Array<{ author: string; reviewBody: string; ratingValue?: number; reviewRating?: number }>,
-  maybeReviews?: Array<{ author: string; reviewBody: string; ratingValue?: number; reviewRating?: number }>
+  _maybeReviews?: Array<{ author: string; reviewBody: string; ratingValue?: number; reviewRating?: number }>
 ) => {
   const itemName = typeof itemNameOrReviews === 'string' ? itemNameOrReviews : 'Ustaad Tutoring UAE';
-  const reviews = Array.isArray(itemNameOrReviews) ? itemNameOrReviews : (maybeReviews || []);
   return {
     "@context": "https://schema.org",
     "@type": "Course",
     name: itemName,
-    description: `Private 1-to-1 tutoring and exam preparation for ${itemName} across Dubai, Abu Dhabi and the UAE.`,
+    description: `Private 1-to-1 online tutoring and exam preparation for ${itemName} across Dubai, Abu Dhabi and the UAE.`,
     provider: {
       "@type": "EducationalOrganization",
       "@id": `${BASE_URL}/#organization`,
       name: "Ustaad",
       url: BASE_URL,
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: Math.max(reviews.length, 1).toString(),
-      bestRating: "5",
-      worstRating: "1",
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "online",
+      courseWorkload: "PT1H",
     },
-    review: reviews.map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.author },
-      reviewBody: r.reviewBody,
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: (r.ratingValue || r.reviewRating || 5).toString(),
-        bestRating: "5",
-        worstRating: "1",
-      },
-    })),
   };
 };

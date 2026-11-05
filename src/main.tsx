@@ -77,6 +77,7 @@ const loadChemistryTutorDubaiLanding = () => import('./app/ChemistryTutorDubaiPa
 const loadBiologyTutorDubaiLanding = () => import('./app/BiologyTutorDubaiPage');
 const loadALevelTutorLanding = () => import('./app/ALevelTutorAbuDhabiPage');
 const loadALevelTutorAlAinPage = () => import('./app/ALevelTutorAlAinPage');
+const loadIGCSETutorAlAinPage = () => import('./app/IGCSETutorAlAinPage');
 const loadALevelTutorDubaiPage = () => import('./app/ALevelTutorDubaiPage');
 const loadIBTutorLanding = () => import('./app/IBTutorAbuDhabiPage');
 const loadIBTutorDubaiLanding = () => import('./app/IBTutorDubaiPage');
@@ -97,9 +98,12 @@ const loadMathsAnxietyTeenagersBlog = () => import('./app/MathsAnxietyTeenagersB
 const loadWhyStudentsFreezeExamQuestionsBlog = () => import('./app/WhyStudentsFreezeExamQuestionsBlog');
 const loadHowToReadExaminerReportsBlog = () => import('./app/HowToReadExaminerReportsBlog');
 const loadWinterBreakRevisionPlanBlog = () => import('./app/WinterBreakRevisionPlanBlog');
+const loadChatGPTForStudyingBlog = () => import('./app/ChatGPTForStudyingBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
+  '/blogs/chatgpt-for-studying-does-ai-hurt-memory': loadChatGPTForStudyingBlog,
+  '/blog/chatgpt-for-studying-does-ai-hurt-memory': loadChatGPTForStudyingBlog,
   '/blogs/winter-break-revision-plan-uae-students': loadWinterBreakRevisionPlanBlog,
   '/blog/winter-break-revision-plan-uae-students': loadWinterBreakRevisionPlanBlog,
   '/blogs/how-to-read-examiner-reports-igcse-a-level': loadHowToReadExaminerReportsBlog,
@@ -188,6 +192,8 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/a-level-tutor-dubai': loadALevelTutorDubaiPage,
   '/a-level-tutor-abu-dhabi': loadALevelTutorLanding,
   '/a-level-tutor-al-ain': loadALevelTutorAlAinPage,
+  '/al-ain/igcse-tutor-al-ain': loadIGCSETutorAlAinPage,
+  '/igcse-tutor-al-ain': loadIGCSETutorAlAinPage,
   '/ib-tutor-abu-dhabi': loadIBTutorLanding,
   '/curriculum/ib-tutor-dubai': loadIBTutorDubaiLanding,
   '/ib-tutor-dubai': loadIBTutorDubaiLanding,
@@ -274,6 +280,7 @@ const MathsAnxietyTeenagersBlog = lazy(loadMathsAnxietyTeenagersBlog);
 const WhyStudentsFreezeExamQuestionsBlog = lazy(loadWhyStudentsFreezeExamQuestionsBlog);
 const HowToReadExaminerReportsBlog = lazy(loadHowToReadExaminerReportsBlog);
 const WinterBreakRevisionPlanBlog = lazy(loadWinterBreakRevisionPlanBlog);
+const ChatGPTForStudyingBlog = lazy(loadChatGPTForStudyingBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
@@ -287,6 +294,7 @@ const BiologyTutorDubaiLanding = lazy(loadBiologyTutorDubaiLanding);
 const ALevelTutorDubaiPage = lazy(loadALevelTutorDubaiPage);
 const ALevelTutorLanding = lazy(loadALevelTutorLanding);
 const ALevelTutorAlAinPage = lazy(loadALevelTutorAlAinPage);
+const IGCSETutorAlAinPage = lazy(loadIGCSETutorAlAinPage);
 const IBTutorLanding = lazy(loadIBTutorLanding);
 const IBTutorDubaiLanding = lazy(loadIBTutorDubaiLanding);
 const AcademicBlogsPage = lazy(loadAcademicBlogsPage);
@@ -410,6 +418,8 @@ function AppRoutes() {
           <Route path="/blog/how-to-read-examiner-reports-igcse-a-level" element={<HowToReadExaminerReportsBlog />} />
           <Route path="/blogs/winter-break-revision-plan-uae-students" element={<WinterBreakRevisionPlanBlog />} />
           <Route path="/blog/winter-break-revision-plan-uae-students" element={<WinterBreakRevisionPlanBlog />} />
+          <Route path="/blogs/chatgpt-for-studying-does-ai-hurt-memory" element={<ChatGPTForStudyingBlog />} />
+          <Route path="/blog/chatgpt-for-studying-does-ai-hurt-memory" element={<ChatGPTForStudyingBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
 
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />
@@ -428,6 +438,11 @@ function AppRoutes() {
           <Route path="/a-level-tutor-dubai"                  element={<ALevelTutorDubaiPage />} />
           <Route path="/a-level-tutor-abu-dhabi"             element={<ALevelTutorLanding />} />
           <Route path="/a-level-tutor-al-ain"                 element={<ALevelTutorAlAinPage />} />
+          <Route path="/al-ain/igcse-tutor-al-ain"             element={<Navigate to="/igcse-tutor-al-ain" replace />} />
+            <Route path="/igcse-a-level"                         element={<Navigate to="/igcse" replace />} />
+            <Route path="/igcse-a-levels"                        element={<Navigate to="/igcse" replace />} />
+            <Route path="/a-levels"                              element={<Navigate to="/a-level" replace />} />
+          <Route path="/igcse-tutor-al-ain"                    element={<IGCSETutorAlAinPage />} />
           <Route path="/ib-tutor-abu-dhabi"                  element={<IBTutorLanding />} />
           <Route path="/curriculum/ib-tutor-dubai"           element={<Navigate to="/ib-tutor-dubai" replace />} />
           <Route path="/ib-tutor-dubai"                      element={<IBTutorDubaiLanding />} />

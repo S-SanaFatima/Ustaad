@@ -661,7 +661,11 @@ export default function CommandWordsBlog() {
               , and command words are one of the biggest reasons it happens. Building this habit into timed practice is a large part of how we approach{' '}
               <a href="/exam-preparation" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                 exam preparation with a 1-to-1 tutor
-              </a>.
+              </a>. To see which command words cost marks in a real exam series, read the examiner report for that paper. Our guide on{' '}
+              <a href="/blogs/how-to-read-examiner-reports-igcse-a-level" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                how to read an examiner report
+              </a>{' '}
+              shows where to find one.
             </p>
           </div>
 

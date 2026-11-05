@@ -319,7 +319,7 @@ const chemFAQs = [
   { q: "Is chemistry tutoring suitable for students who fell behind?",           a: "Yes. Many chemistry students arrive needing earlier topics tidied up first. Tutors rebuild the basics quickly before moving on to harder content." },
   { q: "How do you support lab work and practical write-ups?",                  a: "Lab work is walked through step by step. Tutors cover apparatus, method, observation language, and the write-up style each board credits with marks." },
   { q: "What kind of update do parents get after each chemistry session?",      a: "Parents receive a short note covering the topic taught, the student's progress on it, and one or two practice tasks for the week ahead." },
-  { q: "Can the tutor align lessons with the school teacher's plan?",           a: "Yes. The tutor can mirror the school's teaching order if requested, so home tutoring supports rather than competes with what is happening in class." },
+  { q: "Can the tutor align lessons with the school teacher's plan?",           a: "Yes. The tutor can mirror the school's teaching order if requested, so tutoring supports rather than competes with what is happening in class." },
   { q: "How do you prepare students for top chemistry grades?",                 a: "Top chemistry grades come from very clean working and a deep grasp of mechanism logic. Tutors build those two together across every session." },
 ];
 

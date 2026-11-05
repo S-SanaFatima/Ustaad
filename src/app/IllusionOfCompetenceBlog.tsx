@@ -933,7 +933,7 @@ export default function IllusionOfCompetenceBlog() {
               When you re-read a chapter for the third time, it feels easy. The words flow, the diagrams look familiar, and nothing surprises you. Psychologists call this <em>fluency</em>, and the brain treats it as a signal: this feels easy, therefore I must know it.
             </p>
             <p>
-              That signal is unreliable. Ease of processing tells you the material is familiar. It does not tell you that you can retrieve it, apply it, or explain it. The student is mistaking visual familiarity for understanding.
+              That signal is unreliable. Ease of processing tells you the material is familiar. It does not tell you that you can retrieve it, apply it, or explain it. The student is mistaking visual familiarity for understanding—the same trap that happens when students use <a href="/blogs/chatgpt-for-studying-does-ai-hurt-memory" className="text-[#0f4a9b] font-semibold underline">ChatGPT for studying</a> by reading AI-generated explanations instead of attempting the question first.
             </p>
           </div>
 

@@ -328,21 +328,21 @@ export default function App() {
                 title: "British Curriculum",
                 desc: "Structured academic support for students following UK educational pathways.",
                 icon: <BookOpen className="h-6 w-6 text-white" strokeWidth={2.5} />,
-                watermark: <BritishLandmarkWatermark className="w-28 h-28 opacity-[0.50]" />,
+                watermark: <BritishLandmarkWatermark className="w-full h-full" />,
                 href: "/british-curriculum",
               },
               {
                 title: "American Curriculum",
                 desc: "Focused guidance designed around coursework, assessments, and progression.",
                 icon: <GraduationCap className="h-6 w-6 text-white" strokeWidth={2.5} />,
-                watermark: <AmericanLandmarkWatermark className="w-28 h-28 opacity-[0.50]" />,
+                watermark: <AmericanLandmarkWatermark className="w-full h-full" />,
                 href: "/american-curriculum",
               },
               {
                 title: "IB Curriculum",
                 desc: "Subject support built for academically demanding and globally recognized programmes.",
                 icon: <Library className="h-6 w-6 text-white" strokeWidth={2.5} />,
-                watermark: <IBWorldWatermark className="w-28 h-28 text-[#0f4a9b] opacity-[0.50]" />,
+                watermark: <IBWorldWatermark className="w-full h-full text-[#0f4a9b]" />,
                 href: "/ib-curriculum",
               }
             ].map((curr, i) => (

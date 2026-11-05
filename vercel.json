@@ -11,6 +11,12 @@
       "destination": "https://ustaad.ae/:path*",
       "permanent": true
     },
+    { "source": "/subjects/biology-tutor-dubai", "destination": "/biology-tutor-dubai", "permanent": true },
+    { "source": "/al-ain/igcse-tutor-al-ain", "destination": "/igcse-tutor-al-ain", "permanent": true },
+    { "source": "/igcse-a-level", "destination": "/igcse", "permanent": true },
+    { "source": "/igcse-a-levels", "destination": "/igcse", "permanent": true },
+    { "source": "/a-levels", "destination": "/a-level", "permanent": true },
+    { "source": "/curriculum/ib-tutor-dubai", "destination": "/ib-tutor-dubai", "permanent": true },
     { "source": "/ar/gcse-tutor-dubai", "destination": "/gcse-tutor-dubai", "permanent": true },
     { "source": "/ar", "destination": "/", "permanent": true },
     { "source": "/ar/:path*", "destination": "/:path*", "permanent": true },

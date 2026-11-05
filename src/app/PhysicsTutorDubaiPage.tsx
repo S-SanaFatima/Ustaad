@@ -574,8 +574,13 @@ export default function PhysicsTutorDubaiPage() {
     }
   ];
 
-  // 4. Seven Dubai FAQs from PDF Guide
+  // 4. Eight Dubai FAQs from PDF Guide
   const faqs: { q: string; a: React.ReactNode; plain: string }[] = [
+    {
+      q: 'Do you also tutor IGCSE and A-Level physics, or only IB?',
+      plain: 'Both. Our Dubai physics tutors teach IGCSE and GCSE (Cambridge, Pearson Edexcel and AQA), AS and A-Level, and IB DP and MYP. When you first message us, tell us the board and paper your child sits, and we match a tutor who already teaches that specification.',
+      a: <>Both. Our Dubai physics tutors teach IGCSE and GCSE (Cambridge, Pearson Edexcel and AQA), AS and A-Level, and IB DP and MYP. When you first message us, tell us the board and paper your child sits, and we match a tutor who already teaches that specification.</>
+    },
     {
       q: 'What is the Internal Assessment, and how much does it affect the final grade?',
       plain: 'The IA is an investigation your child designs, runs and writes up over several weeks, assessed on the research question, the data and the evaluation rather than on getting a tidy result. It carries a significant share of the DP Physics grade and is completed long before the exams, which makes it the most controllable mark on the course.',
@@ -616,8 +621,8 @@ export default function PhysicsTutorDubaiPage() {
   return (
     <Layout>
       <SEOHead
-        title="Physics Tutor Dubai | IB DP & A-Level Physics Tuition | Ustaad"
-        description="Expert 1-to-1 IB DP and A-Level physics tutors in Dubai. Specialized in MYP Sciences, DP Themes A–E, Internal Assessment (IA) data analysis, and exam precision."
+        title="Physics Tutor Dubai | IGCSE, A-Level & IB Physics | Ustaad"
+        description="1-to-1 physics tutors for Dubai students in IGCSE, GCSE, A-Level and IB DP, from required practicals to the IA. Taught online. 15-min orientation included."
         canonical="/physics-tutor-dubai"
         placename="Dubai, UAE"
         schema={[
@@ -625,7 +630,7 @@ export default function PhysicsTutorDubaiPage() {
             city: 'Dubai',
             url: '/physics-tutor-dubai',
             name: 'Ustaad | Physics Tutor Dubai',
-            description: 'Expert 1-to-1 IB DP and A-Level physics tutors in Dubai. Specialized in MYP Sciences, DP Themes A–E, Internal Assessment (IA) data analysis, and exam precision.',
+            description: '1-to-1 physics tutors for Dubai students in IGCSE, GCSE, A-Level and IB DP, from required practicals to the IA. Taught online. 15-min orientation included.',
           }),
           breadcrumbSchema([
             { name: 'Home', url: '/' },
@@ -662,9 +667,9 @@ export default function PhysicsTutorDubaiPage() {
           </div>
 
           <h1 className="font-extrabold tracking-tight text-white leading-[1.12] mb-3 text-[clamp(1.75rem,4.5vw,3.1rem)] max-w-3xl">
-            Physics Tutor Dubai,{' '}
+            Physics Tutor in Dubai{' '}
             <span style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              Built For Exam Precision
+              for IGCSE, A-Level and IB
             </span>
           </h1>
 
@@ -929,6 +934,23 @@ export default function PhysicsTutorDubaiPage() {
 
       {/* SECTION 09: HL OR SL: FOUR HONEST QUESTIONS (SCROLL-DRIVEN TOP-TO-BOTTOM MOTION) */}
       <PhysicsHlSlFourQuestionsScroll />
+
+      {/* IGCSE, GCSE AND A-LEVEL PHYSICS IN DUBAI */}
+      <section className="py-10 sm:py-12 bg-white border-t border-slate-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-4">
+            IGCSE, GCSE and A-Level Physics in Dubai
+          </h2>
+          <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p>
+              Many Dubai students take physics on a British board long before IB, and some never move to IB at all. AQA GCSE Physics (8463) builds ten required practicals into its written papers, so a student who only watched the experiment in class loses marks on method and uncertainty questions. Pearson Edexcel International A-Level Physics tests practical skills on paper too, in units WPH13 and WPH16.
+            </p>
+            <p>
+              Our tutors plan around the board your child&apos;s school follows. Lessons work through the practical write-ups that cost marks, the six-mark explanations and the multi-step calculations where one slip in units ends the answer. Every lesson is live, one-to-one and online, so it fits around school and travel.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 10: THE PHYSICS JOURNEY WITH USTAAD (3D ANIMATED LIGHT THEME) */}
       <PhysicsCurriculumJourney3D />

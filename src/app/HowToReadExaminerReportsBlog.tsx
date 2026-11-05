@@ -22,17 +22,17 @@ import { breadcrumbSchema, articleSchema } from './shared/schemas';
 import { WhatsAppIcon } from './shared/WhatsAppIcon';
 
 const BLOG = {
-  title: "How to Read an Examiner's Report: The Secret Document That Turns B Grades into A*s | Ustaad",
-  titleLine1: "How to Read an Examiner's Report:",
-  titleLine2: "The Secret Document That Turns B Grades into A*s",
-  h1: "How to Read an Examiner's Report: The Secret Document That Turns B Grades into A*s",
+  title: 'How to Read an Examiner Report: IGCSE, A-Level and IB | Ustaad',
+  titleLine1: 'How to Read an Examiner Report',
+  titleLine2: 'for IGCSE, A-Level and IB',
+  h1: 'How to Read an Examiner Report for IGCSE, A-Level and IB',
   subtitle:
-    "Mark schemes tell you what the answer is. Examiner reports tell you why thousands of students lost marks on it. Here is how Cambridge, Edexcel, and IB students in the UAE can use them to stop bleeding marks.",
+    'Mark schemes tell you what the answer is. Examiner reports tell you why students lost marks on it. Here is how Cambridge, Edexcel and IB students in the UAE can use them after every past paper.',
   categoryBadge: 'USTAAD UAE · ACADEMIC & EXAM SKILLS',
   slug: 'how-to-read-examiner-reports-igcse-a-level',
   canonical: '/blogs/how-to-read-examiner-reports-igcse-a-level',
   description:
-    "Learn how to use Cambridge CAIE, Pearson Edexcel and IB examiner reports to jump grade boundaries. Includes a printable past paper error-log template.",
+    'Learn where to find Cambridge, Edexcel and IB examiner reports and how to use them after each past paper. Includes a free printable error log.',
   heroImage: '/images/blogs/how-to-read-examiner-reports-igcse-a-level-hero.webp',
   heroAlt: 'Secondary school student in the UAE reviewing an official Cambridge examiner report alongside past paper questions',
   heroCaption:
@@ -40,9 +40,10 @@ const BLOG = {
   datePublished: '2026-10-26',
   dateModified: '2026-10-26',
   publishedText: '26 October 2026',
-  author: 'Nimra Shahzada',
-  authorRole: 'Writer on learning and the psychology of studying',
-  authorUrl: '/authors/nimra-shahzada',
+  author: 'Cambridge A-Level Chemistry Examiner, name withheld on request',
+  authorSchemaName: 'Cambridge A-Level Chemistry Examiner (name withheld)',
+  authorRole: 'Ustaad Subject Specialists',
+  authorUrl: '/authors/ustaad-subject-specialists',
   reviewer: 'Ustaad Editorial Team',
   reviewerRole: 'Curriculum & Academic Review Board',
   reviewerUrl: '/editorial',
@@ -71,7 +72,7 @@ const FAQ_SCHEMA_DATA = {
       name: "What is an Examiner Report, and how does it differ from a Mark Scheme?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "A mark scheme shows the acceptable answers, keywords, and mark allocations. An Examiner Report (published by Cambridge, Pearson Edexcel, AQA, or the IB after every exam series) is written by the Chief Examiner. It provides a question-by-question analysis of candidate performance, explaining which misconceptions were widespread, where high-achieving students dropped marks, and why specific common phrasings were awarded zero.",
+        text: "A mark scheme shows the acceptable answers, keywords, and mark allocations. An examiner report (published by Cambridge, Pearson Edexcel and the IB after every exam series) is written by the Principal Examiner. It provides a question-by-question analysis of candidate performance, explaining which misconceptions were widespread, where high-achieving students dropped marks, and why specific common phrasings were awarded zero.",
       },
     },
     {
@@ -79,7 +80,7 @@ const FAQ_SCHEMA_DATA = {
       name: "Where can students in Dubai and Abu Dhabi find official Examiner Reports?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "For Cambridge (CAIE), reports are published on the School Support Hub and public revision hubs (e.g. PapaCambridge, Dynamic Papers, or your school portal under 'Examiner Reports' or 'Report on the Examination'). For Pearson Edexcel, they are listed alongside question papers under 'Examiner Reports'. For IB Diploma, teachers access Subject Reports on My IB, and copies are shared via school portals.",
+        text: "For Cambridge, reports are on the School Support Hub for registered schools, so ask your subject teacher. For Pearson Edexcel, they are listed with the question papers under Exam materials on the Pearson qualifications website. For the IB, teachers find subject reports on the Programme Resource Centre through My IB.",
       },
     },
     {
@@ -111,7 +112,7 @@ const FAQ_SCHEMA_DATA = {
       name: "How does 1-to-1 tutoring help with examiner feedback?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "An experienced tutor acts as an active examiner beside the student. Instead of merely re-explaining the topic, the mentor reviews the student's handwritten scripts, diagnoses the psychological or structural reason behind the lost mark, and enforces board-specific phrasing that guarantees the mark scheme criteria are fulfilled.",
+        text: "An experienced tutor acts as an active examiner beside the student. Instead of merely re-explaining the topic, the mentor reviews the student's handwritten scripts, finds the reason behind each lost mark, and practises the board-specific phrasing the mark scheme rewards.",
       },
     },
   ],
@@ -120,11 +121,11 @@ const FAQ_SCHEMA_DATA = {
 const FAQS = [
   {
     q: "What is an Examiner Report, and how does it differ from a Mark Scheme?",
-    a: "A mark scheme shows the acceptable answers, keywords, and mark allocations. An Examiner Report (published by Cambridge, Pearson Edexcel, AQA, or the IB after every exam series) is written by the Chief Examiner. It provides a question-by-question analysis of candidate performance, explaining which misconceptions were widespread, where high-achieving students dropped marks, and why specific common phrasings were awarded zero."
+    a: "A mark scheme shows the acceptable answers, keywords, and mark allocations. An examiner report (published by Cambridge, Pearson Edexcel and the IB after every exam series) is written by the Principal Examiner. It provides a question-by-question analysis of candidate performance, explaining which misconceptions were widespread, where high-achieving students dropped marks, and why specific common phrasings were awarded zero."
   },
   {
     q: "Where can students in Dubai and Abu Dhabi find official Examiner Reports?",
-    a: "For Cambridge (CAIE), reports are published on the School Support Hub and public revision hubs (e.g. PapaCambridge, Dynamic Papers, or your school portal under 'Examiner Reports' or 'Report on the Examination'). For Pearson Edexcel, they are listed alongside question papers under 'Examiner Reports'. For IB Diploma, teachers access Subject Reports on My IB, and copies are shared via school portals."
+    a: "For Cambridge, reports are on the School Support Hub for registered schools, so ask your subject teacher. For Pearson Edexcel, they are listed with the question papers under Exam materials on the Pearson qualifications website. For the IB, teachers find subject reports on the Programme Resource Centre through My IB."
   },
   {
     q: "When should a student start reading Examiner Reports during revision?",
@@ -140,20 +141,21 @@ const FAQS = [
   },
   {
     q: "How does 1-to-1 tutoring help with examiner feedback?",
-    a: "An experienced tutor acts as an active examiner beside the student. Instead of merely re-explaining the topic, the mentor reviews the student's handwritten scripts, diagnoses the psychological or structural reason behind the lost mark, and enforces board-specific phrasing that guarantees the mark scheme criteria are fulfilled."
+    a: "An experienced tutor acts as an active examiner beside the student. Instead of merely re-explaining the topic, the mentor reviews the student's handwritten scripts, finds the reason behind each lost mark, and practises the board-specific phrasing the mark scheme rewards."
   }
 ];
 
 const TOC_ITEMS = [
-  { label: 'The document top students read (and 96% ignore)', id: 'the-document-top-students-read' },
+  { label: 'The document most students never open', id: 'the-document-top-students-read' },
   { label: 'Mark scheme vs examiner report: the critical distinction', id: 'mark-scheme-vs-examiner-report' },
   { label: 'Where to find official reports (Cambridge, Edexcel, IB)', id: 'where-to-find-reports' },
-  { label: 'The 4 recurring traps Chief Examiners report every summer', id: 'four-recurring-examiner-traps' },
+  { label: 'Four traps examiner reports keep pointing out', id: 'four-recurring-examiner-traps' },
   { label: 'The 3-Pass Past Paper Protocol (Black, Green, Purple pen)', id: 'the-three-pass-protocol' },
-  { label: 'Attachment 01: Past Paper Error-Log & Audit Matrix', id: 'interactive-attachment-error-log' },
+  { label: 'Attachment 01: Past Paper Error-Log & Audit Sheet (PDF)', id: 'interactive-attachment-error-log' },
   { label: 'Turning examiner critiques into high-yield flashcards', id: 'turning-critiques-into-flashcards' },
   { label: 'How 1-to-1 mentorship fixes script habits before exam day', id: 'how-mentorship-fixes-script-habits' },
   { label: 'Frequently asked questions', id: 'faqs' },
+  { label: 'Sources and further reading', id: 'sources' },
 ];
 
 function SectionHeading({ num, children, id }: { num: string; children: React.ReactNode; id?: string }) {
@@ -272,7 +274,7 @@ export default function HowToReadExaminerReportsBlog() {
             { name: 'Home', url: '/' },
             { name: 'Blog', url: '/blogs' },
             { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' },
-            { name: "How to Read an Examiner's Report", url: canonical },
+            { name: BLOG.h1, url: canonical },
           ]),
           articleSchema({
             title: BLOG.h1,
@@ -281,9 +283,8 @@ export default function HowToReadExaminerReportsBlog() {
             datePublished: BLOG.datePublished,
             dateModified: BLOG.dateModified,
             author: {
-              name: BLOG.author,
+              name: BLOG.authorSchemaName,
               url: BLOG.authorUrl,
-              role: BLOG.authorRole,
             },
             reviewer: {
               name: BLOG.reviewer,
@@ -309,7 +310,7 @@ export default function HowToReadExaminerReportsBlog() {
             Academic &amp; Exam Skills
           </a>
           <ChevronRightIcon className="h-3 w-3" />
-          <span className="text-[#0f4a9b] font-semibold truncate max-w-[180px]">How to Read an Examiner's Report</span>
+          <span className="text-[#0f4a9b] font-semibold truncate max-w-[220px]">{BLOG.h1}</span>
         </div>
       </div>
 
@@ -343,9 +344,9 @@ export default function HowToReadExaminerReportsBlog() {
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   <span className="font-medium">Written by:</span>{' '}
-                  <a href={BLOG.authorUrl} className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">{BLOG.author}</a>
+                  <span className="text-[#0a1f3d] font-semibold">{BLOG.author}</span>
                   <span className="block sm:inline">
-                    {' '}<a href={BLOG.authorUrl} className="text-gray-500 hover:text-[#0f4a9b]">| {BLOG.authorRole}</a>
+                    {' '}| <a href={BLOG.authorUrl} className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">{BLOG.authorRole}</a>
                   </span>
                 </span>
               </div>
@@ -381,8 +382,11 @@ export default function HowToReadExaminerReportsBlog() {
               <img
                 src={BLOG.heroImage}
                 alt={BLOG.heroAlt}
+                width={1376}
+                height={774}
                 className="w-full h-full object-cover block"
                 loading="eager"
+                fetchPriority="high"
               />
             </div>
             {BLOG.heroCaption && (
@@ -406,17 +410,17 @@ export default function HowToReadExaminerReportsBlog() {
 
             {/* SECTION 01 */}
             <SectionHeading num="01" id="the-document-top-students-read">
-              The document top students read (and 96% ignore)
+              The document most students never open
             </SectionHeading>
 
             <p>
-              Every August, after more than 300,000 Cambridge (CAIE) and Pearson Edexcel papers have been marked and grade boundaries set, each Principal Examiner writes an unsparing, question-by-question post-mortem. It is formally titled the <strong>Examiner Report</strong> (or <em>Report on the Examination</em>).
+              After each exam series, once papers are marked and grade boundaries set, the Principal Examiner for each paper writes a question-by-question review of how candidates performed. Cambridge calls it an examiner report, Pearson Edexcel an examiners&apos; report, and the IB a subject report.
             </p>
             <p>
-              In top British and IB curriculum international schools across Dubai and Abu Dhabi, from Dubai College and JESS to Cranleigh and BSAK, academic heads of department spend whole inset days dissecting these reports line-by-line. They look for the exact trends where their cohorts slipped.
+              Many heads of department read these reports closely to see where their students slipped.
             </p>
             <p>
-              Yet among candidates themselves, fewer than four in a hundred ever download one.
+              Students, though, rarely open one.
             </p>
             <p>
               Most students treat past papers like vending machines: complete questions, count up marks against the mark scheme, assume a 64% simply means <em>"I need to revise more definitions,"</em> and immediately print another paper. As highlighted in our guide on <a href="/blogs/igcse-preparation-past-papers-final-step" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">why past papers are the final step</a>, that repetition feels industrious, but it repeats identical cognitive mistakes across eight papers in a row.
@@ -432,7 +436,7 @@ export default function HowToReadExaminerReportsBlog() {
               </div>
               <div className="px-4 py-3.5 text-sm text-gray-700 leading-[1.75] text-left space-y-2">
                 <p>
-                  Senior examiners do not grade papers to catch students out, but they are legally constrained by board standardisation. When 60% of candidates write the word <em>"equal"</em> instead of <em>"constant"</em> in chemistry equilibrium, examiners cannot award discretion marks. That nuance lives exclusively in the Examiner Report.
+                  Examiners do not mark to catch students out, but they must apply the mark scheme in the same way to every script. If many candidates write that concentrations at equilibrium are <em>"equal"</em> rather than <em>"constant"</em>, the examiner cannot give the mark, and the report is where that pattern is explained.
                 </p>
               </div>
             </div>
@@ -443,7 +447,7 @@ export default function HowToReadExaminerReportsBlog() {
             </SectionHeading>
 
             <p>
-              To understand why relying solely on mark schemes stalls grades at a B (Grade 6), compare what each document reveals about the exact same examination question:
+              To see what each document adds, compare what they show about the same question:
             </p>
 
             <div className="overflow-x-auto my-6 border border-slate-200 rounded-xl">
@@ -471,11 +475,6 @@ export default function HowToReadExaminerReportsBlog() {
                     <td className="p-2.5 text-slate-600">Zero commentary on timing or reading habits.</td>
                     <td className="p-2.5 text-slate-800 bg-blue-50/30 font-medium">Highlights which parts were skipped under time pressure.</td>
                   </tr>
-                  <tr>
-                    <td className="p-2.5 font-semibold text-slate-800">Grade Jump</td>
-                    <td className="p-2.5 text-slate-600">Helps reach Grade 5 or 6 (foundation baseline).</td>
-                    <td className="p-2.5 text-slate-800 bg-blue-50/30 font-medium">Bridges the gap between Grade 7 and Grade 9 (or B to A*).</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
@@ -486,6 +485,8 @@ export default function HowToReadExaminerReportsBlog() {
                 <img
                   src="/images/blogs/past-paper-audit-diagnostic-desk.webp"
                   alt="Student study desk in the UAE with past paper exam papers, mark schemes, and examiner reports"
+                  width={1376}
+                  height={774}
                   className="w-full h-full object-cover block"
                   loading="lazy"
                 />
@@ -511,7 +512,7 @@ export default function HowToReadExaminerReportsBlog() {
                   Cambridge Assessment International Education (CAIE for IGCSE &amp; A-Level)
                 </h4>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Look under <em>Past Papers &amp; Resources</em> on past paper repositories (PapaCambridge, BestExamHelp, or GCE Guide). Look for files ending in <code>_er.pdf</code> (e.g. <code>0580_s24_er.pdf</code> for Summer 2024 IGCSE Maths). CAIE produces one consolidated PDF containing reports for every paper variant (P11, P12, P21, P22, etc.).
+                  Cambridge publishes examiner reports on its School Support Hub for registered schools, so ask your subject teacher for them. The files end in <code>_er.pdf</code> (e.g. <code>0580_s24_er.pdf</code> for the June 2024 IGCSE Maths series), and one PDF covers every paper variant (P11, P12, P21, P22, etc.).
                 </p>
               </div>
 
@@ -521,7 +522,7 @@ export default function HowToReadExaminerReportsBlog() {
                   Pearson Edexcel (IGCSE &amp; International A-Level)
                 </h4>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Search the Pearson qualifications portal under your subject's <em>Specification and sample assessments</em>, then <em>Exam materials</em>, and open <em>Examiner Reports</em>. Edexcel provides detailed question-by-question statistical graphs showing the mean score achieved on every individual question.
+                  Search the Pearson qualifications portal under your subject&apos;s <em>Specification and sample assessments</em>, then <em>Exam materials</em>, and open <em>Examiner Reports</em>. Each report goes through the paper question by question and notes where candidates lost marks.
                 </p>
               </div>
 
@@ -531,70 +532,70 @@ export default function HowToReadExaminerReportsBlog() {
                   International Baccalaureate (IB DP &amp; MYP)
                 </h4>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  The IB publishes official <em>Subject Reports</em> for May and November examination sessions. These are distributed to DP Coordinators via <em>My IB</em> and shared internally via ManageBac or school portals. Ask your subject teacher directly for the May 2024 and May 2025 Subject Reports.
+                  The IB publishes subject reports for the May and November sessions on its Programme Resource Centre, which teachers reach through My IB. Ask your subject teacher for the latest May and November reports.
                 </p>
               </div>
             </div>
 
             {/* SECTION 04 */}
             <SectionHeading num="04" id="four-recurring-examiner-traps">
-              The 4 recurring traps Chief Examiners report every summer
+              Four traps examiner reports keep pointing out
             </SectionHeading>
 
             <p>
-              Across twenty years of Examiner Reports in sciences, mathematics, humanities, and languages, four behavioural errors account for more than 60% of lost marks among otherwise well-prepared students:
+              Examiner reports across sciences, maths, humanities and languages keep returning to four habits that cost well-prepared students marks:
             </p>
 
             <div className="space-y-3.5 my-5">
               <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
                 <span className="text-[10px] font-mono font-bold text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                  Trap 01 · 15-20% Mark Loss
+                  TRAP 01
                 </span>
                 <h4 className="font-bold text-[#0a1f3d] text-sm sm:text-base mt-2 mb-1">The "Textbook Brain Dump"</h4>
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                   When a question starts with <em>"Using the data in Table 1..."</em> or <em>"Referring to Figure 3..."</em>, candidates write pristine textbook explanations without citing a single figure, coordinate, or trend from the provided stimulus.
                 </p>
                 <p className="mt-2 text-[11px] font-semibold text-slate-700">
-                  <strong>Examiner verdict:</strong> "Candidates showed strong factual knowledge but failed to access Level 2 application marks."
+                  <strong>Typical report comment:</strong> candidates showed strong factual knowledge but missed the application marks.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
                 <span className="text-[10px] font-mono font-bold text-amber-600 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                  Trap 02 · 10-15% Mark Loss
+                  TRAP 02
                 </span>
                 <h4 className="font-bold text-[#0a1f3d] text-sm sm:text-base mt-2 mb-1">The Casual "Explain"</h4>
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                  Treating <em>"Describe"</em> and <em>"Explain"</em> as identical. Students accurately state <em>what</em> happened (e.g. "the rate decreases"), but leave out the biological or physical <em>mechanism</em> (e.g. "fewer successful collisions per second"). Master these distinctions in our guide to <a href="/blogs/command-words-igcse-a-level-exams" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">exam command words</a>.
+                  Treating <em>"Describe"</em> and <em>"Explain"</em> as identical. Students accurately state <em>what</em> happened (e.g. "the rate decreases"), but leave out the scientific <em>mechanism</em> (e.g. "fewer successful collisions per second"). Master these distinctions in our guide to <a href="/blogs/command-words-igcse-a-level-exams" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">exam command words</a>.
                 </p>
                 <p className="mt-2 text-[11px] font-semibold text-slate-700">
-                  <strong>Examiner verdict:</strong> "Candidates described the graph shape but offered zero scientific reasons for the change."
+                  <strong>Typical report comment:</strong> candidates described the graph shape but gave no scientific reason for the change.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
                 <span className="text-[10px] font-mono font-bold text-blue-600 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                  Trap 03 · 8-12% Mark Loss
+                  TRAP 03
                 </span>
                 <h4 className="font-bold text-[#0a1f3d] text-sm sm:text-base mt-2 mb-1">Premature Rounding &amp; Precision</h4>
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                  Rounding intermediate working steps to 2 decimal places in multi-step physics and maths problems. By the final line, compounding rounding errors push the answer just outside the mark scheme's tolerance range.
+                  Rounding intermediate working steps to 2 decimal places in multi-step physics and maths problems. By the final line, compounding rounding errors push the answer just outside the mark scheme&apos;s tolerance range.
                 </p>
                 <p className="mt-2 text-[11px] font-semibold text-slate-700">
-                  <strong>Examiner verdict:</strong> "Premature rounding on line 3 cost candidates the final accuracy mark despite correct methods."
+                  <strong>Typical report comment:</strong> early rounding cost candidates the final accuracy mark despite correct methods.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
                 <span className="text-[10px] font-mono font-bold text-purple-600 bg-purple-50 border border-purple-200 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                  Trap 04 · 5-10% Mark Loss
+                  TRAP 04
                 </span>
                 <h4 className="font-bold text-[#0a1f3d] text-sm sm:text-base mt-2 mb-1">Negative Qualifier Blindness</h4>
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                  Under exam adrenaline, the eyes glide right past negative modifiers: <em>"Which of the following is NOT a feature..."</em> or <em>"Explain why this reaction does NOT proceed..."</em>. This cognitive phenomenon is part of <a href="/blogs/why-students-freeze-exam-questions-scaffolding-trap" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">the scaffolding trap that makes students freeze on exams</a>.
+                  Under exam adrenaline, the eyes glide right past negative modifiers: <em>"Which of the following is NOT a feature..."</em> or <em>"Explain why this reaction does NOT proceed..."</em>. Underlining NOT, EXCEPT and LEAST before answering stops most of these slips.
                 </p>
                 <p className="mt-2 text-[11px] font-semibold text-slate-700">
-                  <strong>Examiner verdict:</strong> "A significant number answered the affirmative question rather than the negative prompt."
+                  <strong>Typical report comment:</strong> many candidates answered the positive version of the question instead of the negative one.
                 </p>
               </div>
             </div>
@@ -605,7 +606,7 @@ export default function HowToReadExaminerReportsBlog() {
             </SectionHeading>
 
             <p>
-              To stop burning through past papers with minimal retention, high-achieving candidates follow the <strong>3-Pass Protocol</strong>. It transforms passive testing into deliberate diagnostic repair:
+              To stop burning through past papers with minimal retention, use the <strong>3-Pass Protocol</strong>. It turns passive testing into targeted repair:
             </p>
 
             <div className="space-y-3.5 my-5">
@@ -640,7 +641,7 @@ export default function HowToReadExaminerReportsBlog() {
                 <div>
                   <h4 className="font-bold text-purple-950 text-sm">Pass 3: Examiner Report Audit (Purple Pen)</h4>
                   <p className="text-xs text-purple-900/80 mt-0.5">
-                    Open the Examiner Report for that exact session. Scroll only to the questions you marked zero or partial credit in Pass 2. Read the Chief Examiner's commentary. Note down whether your mistake was a rare slip or one of the cohort's recurring traps.
+                    Open the Examiner Report for that exact session. Scroll only to the questions you marked zero or partial credit in Pass 2. Read the Principal Examiner&apos;s comments. Note down whether your mistake was a rare slip or one of the cohort&apos;s recurring traps.
                   </p>
                 </div>
               </div>
@@ -652,6 +653,8 @@ export default function HowToReadExaminerReportsBlog() {
                 <img
                   src="/images/blogs/three-pass-protocol-study-desk.webp"
                   alt="High school student in the UAE using black, green, and purple pens to audit exam past papers alongside the examiner report"
+                  width={1376}
+                  height={774}
                   className="w-full h-full object-cover block"
                   loading="lazy"
                 />
@@ -738,7 +741,7 @@ export default function HowToReadExaminerReportsBlog() {
                   Flashcard 2 · Economics &amp; Business
                 </span>
                 <p className="text-xs font-bold text-slate-800 mb-1.5">
-                  Front: What is the single word missing that stops evaluation marks in an 8-mark question?
+                  Front: What is usually missing when an 8-mark answer gets no evaluation marks?
                 </p>
                 <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-xs text-emerald-950 font-medium">
                   <strong>Back:</strong> A judgment criterion: "However, the success depends primarily on [interest rates / consumer confidence] because..."
@@ -758,7 +761,7 @@ export default function HowToReadExaminerReportsBlog() {
               That rationalisation is dangerous because the real examiner in June will be just as unforgiving.
             </p>
             <p>
-              This is where experienced private mentorship creates disproportionate gains. When an <a href="/tutors" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Ustaad tutor</a> sits with an IGCSE or A-Level student in Dubai or Abu Dhabi, they don't simply reteach a syllabus chapter from scratch. They review the student's actual handwritten past papers, annotate the script with board-specific criteria, and run targeted 5-minute drills until full credit is earned on demand. Explore our dedicated <a href="/exam-preparation" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">exam preparation tutoring</a> to target script gaps early.
+              This is where experienced private mentorship creates disproportionate gains. When an <a href="/tutors" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">Ustaad tutor</a> sits with an IGCSE or A-Level student in Dubai or Abu Dhabi, they don&apos;t simply reteach a syllabus chapter from scratch. They review the student&apos;s actual handwritten past papers, annotate the script with board-specific criteria, and run targeted 5-minute drills until full credit is earned on demand. Explore our dedicated <a href="/exam-preparation" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">exam preparation tutoring</a> to target script gaps early.
             </p>
 
             {/* Editorial Image 3: 1-to-1 script diagnostic session */}
@@ -767,6 +770,8 @@ export default function HowToReadExaminerReportsBlog() {
                 <img
                   src="/images/blogs/examiner-script-diagnostic-mentorship.webp"
                   alt="Student in Dubai working 1-to-1 with an Ustaad tutor reviewing handwritten exam scripts against mark scheme standards"
+                  width={1376}
+                  height={774}
                   className="w-full h-full object-cover block"
                   loading="lazy"
                 />
@@ -782,7 +787,7 @@ export default function HowToReadExaminerReportsBlog() {
               style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 60%, #1e5ba8 100%)' }}
             >
               <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#C7A24A]/20 border border-[#C7A24A]/30 text-[#f0c96a] rounded-full mb-3 text-[10px] font-extrabold tracking-wider uppercase">
-                FIRST SESSION DIAGNOSTIC
+                FIRST SESSION
               </div>
               <h3 className="text-base sm:text-xl font-extrabold text-white mb-2 leading-snug max-w-lg mx-auto">
                 Is your child losing marks to content gaps, or examiner traps?
@@ -883,15 +888,60 @@ export default function HowToReadExaminerReportsBlog() {
               })}
             </div>
 
+            {/* SECTION 10: SOURCES AND FURTHER READING */}
+            <SectionHeading num="10" id="sources">
+              Sources and further reading
+            </SectionHeading>
+            <div className="text-xs text-gray-500 space-y-2 leading-relaxed">
+              <p>
+                <a
+                  href="https://schoolsupporthub.cambridgeinternational.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]"
+                >
+                  Cambridge International: School Support Hub (past papers and examiner reports)
+                </a>
+              </p>
+              <p>
+                <a
+                  href="https://qualifications.pearson.com/en/support/support-topics/exams/past-papers.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]"
+                >
+                  Pearson Edexcel: past papers, mark schemes and examiners&apos; reports
+                </a>
+              </p>
+              <p>
+                <a
+                  href="https://resources.ibo.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]"
+                >
+                  International Baccalaureate: Programme Resource Centre (subject reports)
+                </a>
+              </p>
+            </div>
+
           </div>
 
           {/* ── AUTHOR BOX ── */}
           <div className="mt-10 p-5 rounded-2xl bg-slate-50 border border-slate-200">
             <h3 className="font-bold text-[#0a1f3d] text-sm mb-1">
-              Written by <a href={BLOG.authorUrl} className="hover:underline text-[#0f4a9b]">{BLOG.author}</a>
+              Written by a Cambridge A-Level Chemistry examiner
             </h3>
             <p className="text-xs text-slate-600 leading-relaxed mb-1.5">
-              Nimra writes about the study problems UAE parents and students experience at home: children who revise diligently for hours but still lose marks, exam timing panic, and bridging the gap between textbook understanding and exam-board mark schemes.
+              A practising Cambridge International A-Level Chemistry examiner who marks candidates&apos; scripts in each exam series and sees the patterns examiner reports describe from the inside. They asked us not to publish their name, so we show their board and role instead, as set out in our{' '}
+              <a href="/editorial" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                editorial standards
+              </a>
+              .{' '}
+              <a href="/authors/ustaad-subject-specialists" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+                View contributor profile
+              </a>
+              .
             </p>
             <div className="text-[11px] text-slate-500">
               Curriculum Review by <a href={BLOG.reviewerUrl} className="font-semibold text-[#0f4a9b] hover:underline">Ustaad Editorial Team</a> · Verified for Cambridge, Pearson Edexcel and IB alignment.
@@ -911,7 +961,7 @@ export default function HowToReadExaminerReportsBlog() {
                 <div>
                   <span className="text-[9.5px] font-bold text-[#0f4a9b] uppercase tracking-wider block mb-1">Exam Technique</span>
                   <h4 className="font-bold text-xs text-slate-900 group-hover:text-[#0f4a9b] transition leading-snug">
-                    The One Word in Every Exam Question That Decides Your Marks
+                    Command Words: The One Word in Every IGCSE and A-Level Question That Decides the Marks
                   </h4>
                 </div>
                 <span className="text-[11px] font-bold text-[#0f4a9b] mt-2.5 inline-flex items-center gap-1">
@@ -941,7 +991,7 @@ export default function HowToReadExaminerReportsBlog() {
                 <div>
                   <span className="text-[9.5px] font-bold text-[#C7A24A] uppercase tracking-wider block mb-1">Maths Checking</span>
                   <h4 className="font-bold text-xs text-slate-900 group-hover:text-[#C7A24A] transition leading-snug">
-                    Silly Mistakes in Maths Exams: 3-Minute Checking Routine
+                    Silly Mistakes in Maths Exams: Why They Happen and a 3-Minute Checking Routine
                   </h4>
                 </div>
                 <span className="text-[11px] font-bold text-[#C7A24A] mt-2.5 inline-flex items-center gap-1">

@@ -277,8 +277,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/physics',
     component: 'PhysicsPage',
     seo: {
-      title: 'Physics Tutors UAE | IGCSE, A-Level, IB Physics — Ustaad',
-      description: 'Expert private Physics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Physics. Mechanics, Electricity, Quantum. Proven results. Book your first session.',
+      title: 'Physics Tutors UAE | IGCSE, A-Level, IB & AP | Ustaad',
+      description: 'Online 1-to-1 physics tutoring for students across the UAE, from IGCSE and GCSE to A-Level, IB and AP. 15-min orientation with your first lesson.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -769,8 +769,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/physics-tutor-dubai',
     component: 'PhysicsTutorDubaiPage',
     seo: {
-      title: 'Physics Tutor Dubai | IGCSE, A-Level & IB Physics Tuition | Ustaad',
-      description: 'Expert 1-to-1 physics tutors in Dubai for Cambridge 0625, Edexcel, A-Level and IB DP Physics. Rebuild weak topics, drill past papers, and achieve top exam grades.',
+      title: 'Physics Tutor Dubai | IGCSE, A-Level & IB Physics | Ustaad',
+      description: '1-to-1 physics tutors for Dubai students in IGCSE, GCSE, A-Level and IB DP, from required practicals to the IA. Taught online. 15-min orientation included.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -851,6 +851,33 @@ export const ROUTES: RouteConfig[] = [
       lastmod: '2026-10-28'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'A-Level', url: '/a-level' }, { name: 'A-Level Tutor Al Ain', url: '/a-level-tutor-al-ain' }]
+  },
+  {
+    path: '/al-ain/igcse-tutor-al-ain',
+    component: 'IGCSETutorAlAinPage',
+    seo: {
+      title: 'IGCSE Tutor Al Ain | Online 1-to-1 IGCSE Tutors | Ustaad',
+      description: 'Online 1-to-1 IGCSE tutors for Al Ain students in Years 9-11. Cambridge and Edexcel Maths, Sciences and English. Free 15-min orientation with your first lesson.',
+      keywords: 'IGCSE tutor Al Ain, IGCSE tutors Al Ain, private IGCSE tutor Al Ain, online IGCSE tutor UAE, Cambridge IGCSE tutor Al Ain, Edexcel IGCSE tutor Al Ain, IGCSE Maths tutor Al Ain, IGCSE Physics tutor Al Ain, IGCSE Chemistry tutor Al Ain, IGCSE Biology tutor Al Ain, IGCSE English tutor Al Ain, GCSE tutor Al Ain, IGCSE exam preparation Al Ain, Core vs Extended IGCSE, IGCSE Paper 6 help, Year 9 to IGCSE transition, IGCSE subject choices, IGCSE resit support UAE',
+      priority: 0.85,
+      changefreq: 'monthly',
+      lastmod: '2026-11-04',
+      noindex: true
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IGCSE', url: '/igcse' }, { name: 'IGCSE Tutor Al Ain', url: '/igcse-tutor-al-ain' }]
+  },
+  {
+    path: '/igcse-tutor-al-ain',
+    component: 'IGCSETutorAlAinPage',
+    seo: {
+      title: 'IGCSE Tutor Al Ain | Online 1-to-1 IGCSE Tutors | Ustaad',
+      description: 'Online 1-to-1 IGCSE tutors for Al Ain students in Years 9-11. Cambridge and Edexcel Maths, Sciences and English. Free 15-min orientation with your first lesson.',
+      keywords: 'IGCSE tutor Al Ain, IGCSE tutors Al Ain, private IGCSE tutor Al Ain, online IGCSE tutor UAE, Cambridge IGCSE tutor Al Ain, Edexcel IGCSE tutor Al Ain, IGCSE Maths tutor Al Ain, IGCSE Physics tutor Al Ain, IGCSE Chemistry tutor Al Ain, IGCSE Biology tutor Al Ain, IGCSE English tutor Al Ain, GCSE tutor Al Ain, IGCSE exam preparation Al Ain, Core vs Extended IGCSE, IGCSE Paper 6 help',
+      priority: 0.90,
+      changefreq: 'monthly',
+      lastmod: '2026-11-04'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IGCSE', url: '/igcse' }, { name: 'IGCSE Tutor Al Ain', url: '/igcse-tutor-al-ain' }]
   },
   {
     path: '/editorial',
@@ -1088,8 +1115,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/blogs/how-to-read-examiner-reports-igcse-a-level',
     component: 'HowToReadExaminerReportsBlog',
     seo: {
-      title: "How to Read an Examiner's Report: The Secret Document That Turns B Grades into A*s | Ustaad",
-      description: "Learn how to use Cambridge CAIE, Pearson Edexcel and IB examiner reports to jump grade boundaries. Includes a printable past paper error-log template.",
+      title: 'How to Read an Examiner Report: IGCSE, A-Level and IB | Ustaad',
+      description: 'Learn where to find Cambridge, Edexcel and IB examiner reports and how to use them after each past paper. Includes a free printable error log.',
       priority: 0.9,
       changefreq: 'monthly',
       lastmod: '2026-10-26'
@@ -1098,14 +1125,14 @@ export const ROUTES: RouteConfig[] = [
       { name: 'Home', url: '/' },
       { name: 'Blog', url: '/blogs' },
       { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' },
-      { name: "How to Read an Examiner's Report", url: '/blogs/how-to-read-examiner-reports-igcse-a-level' }
+      { name: 'How to Read an Examiner Report for IGCSE, A-Level and IB', url: '/blogs/how-to-read-examiner-reports-igcse-a-level' }
     ]
   },
   {
     path: '/blogs/winter-break-revision-plan-uae-students',
     component: 'WinterBreakRevisionPlanBlog',
     seo: {
-      title: 'Winter Break Revision Plan for UAE Students 2026 | Ustaad',
+      title: 'Winter Break Revision Plan for UAE Students 2026-27 | Ustaad',
       description: 'UAE winter break runs 14 Dec to 3 Jan. A realistic three-week revision plan for IGCSE and A-Level students, with rest built in, before mocks.',
       priority: 0.9,
       changefreq: 'monthly',
@@ -1116,6 +1143,23 @@ export const ROUTES: RouteConfig[] = [
       { name: 'Blog', url: '/blogs' },
       { name: 'Parent Guidance', url: '/blogs/parent-guidance' },
       { name: 'Winter Break Revision Plan', url: '/blogs/winter-break-revision-plan-uae-students' }
+    ]
+  },
+  {
+    path: '/blogs/chatgpt-for-studying-does-ai-hurt-memory',
+    component: 'ChatGPTForStudyingBlog',
+    seo: {
+      title: 'ChatGPT for Studying: Does AI Hurt Memory? | Ustaad',
+      description: "Does ChatGPT hurt students' memory? See what research shows, plus 6 rules to use AI for revision without losing what you learn. A guide for UAE families.",
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-11-02'
+    },
+    breadcrumbs: [
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blogs' },
+      { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' },
+      { name: 'ChatGPT for Studying: Does AI Hurt Memory?', url: '/blogs/chatgpt-for-studying-does-ai-hurt-memory' }
     ]
   },
   {
