@@ -35,7 +35,9 @@ jobs:
           echo "Built $(find dist/client -type f | wc -l) files"
 
       # Requires GitHub secrets: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
-      # Optional secret: FTP_SERVER_DIR (default /public_html/)
+      # Optional secret: FTP_SERVER_DIR (default ./). The cPanel FTP account
+      # devsynx@ustaad.ae already opens in /home/ustaad/public_html, so ./ is the
+      # live site root. Using /public_html/ here uploads into a nested folder.
       - name: Upload to FTP (public_html)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -43,7 +45,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/client/
-          server-dir: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
           dangerous-clean-slate: false
 
       # Notify Bing / Yandex / Seznam / Naver (IndexNow) about pages whose lastmod
