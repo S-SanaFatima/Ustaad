@@ -37,7 +37,7 @@ export default function OrientationStrip() {
   const isHiddenPage = HIDDEN_PATHS.some(
     p => location.pathname === p || location.pathname.startsWith(p + '/')
   );
-  const isNoDotsPage = location.pathname.startsWith('/a-level-tutor-al-ain');
+  const isNoDotsPage = location.pathname.includes('al-ain');
 
   // Reset dismissal on route change so strip stays accessible
   useEffect(() => {

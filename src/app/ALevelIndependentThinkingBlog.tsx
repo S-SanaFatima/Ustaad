@@ -528,7 +528,7 @@ export default function ALevelIndependentThinkingBlog() {
             </Blockquote>
 
             <p>
-              With a background in psychology, I read this stall as an emotional pattern as much as an academic one. Teenagers who have always been rewarded for neat, correct answers can develop a real fear of the blank page. Every past paper studied with the answers open beside it sends one quiet message: the right method already exists, so find it, do not create it. Over a year, this teaches dependence. The student gets good at spotting solutions and anxious about producing their own.
+              With a background in psychology, I read this stall as an emotional pattern as much as an academic one. Teenagers who have always been rewarded for neat, correct answers can develop a real fear of the blank page. Every past paper studied with the answers open beside it—or by <a href="/blogs/chatgpt-for-studying-does-ai-hurt-memory" className="text-[#0f4a9b] font-bold underline">using AI to revise</a> without trying the problem first—sends one quiet message: the right method already exists, so find it, do not create it. Over a year, this teaches dependence. The student gets good at spotting solutions and anxious about producing their own.
             </p>
             <p>
               When a dependent student sees a question they do not recognise, their first thought is not "what do I know that applies here?", but "I haven't been taught this." They stop trying to solve the problem and instead try to remember the solution. If memory fails, they freeze. This is the ceiling where grades stop improving, no matter how many hours they study.

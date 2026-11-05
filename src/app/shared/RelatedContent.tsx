@@ -93,7 +93,7 @@ export default function RelatedContent({
   subjects = [],
   curricula = [],
   title = 'Connected Learning Pathways',
-  subtitle = 'Explore complementary subjects and accredited curricula tailored for Dubai & UAE students.',
+  subtitle = 'Explore complementary subjects and accredited curricula tailored for students across the UAE.',
 }: Props) {
   if (!subjects.length && !curricula.length) return null;
 

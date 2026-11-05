@@ -419,7 +419,12 @@ export default function IBTutorAbuDhabiPage() {
         description="IB tutor Abu Dhabi where one tutor connects Math AA/AI, Physics and Statistics. MYP to DP HL. Vetted by our academic and operations team. Free 15-min orientation with the first lesson."
         canonical="/ib-tutor-abu-dhabi"
         schema={[
-          cityLocalBusinessSchema('Abu Dhabi', 'IB Tutoring'),
+          cityLocalBusinessSchema({
+            city: 'Abu Dhabi',
+            url: '/ib-tutor-abu-dhabi',
+            name: 'Ustaad — IB Tutor Abu Dhabi',
+            description: 'Expert MYP and Diploma tutoring for Abu Dhabi students.',
+          }),
           breadcrumbSchema([
             { name: 'Home', url: 'https://ustaad.ae' },
             { name: 'IB Curriculum', url: 'https://ustaad.ae/ib-curriculum' },

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Award, BookOpen, Clock, GraduationCap,
@@ -6,7 +6,7 @@ import {
   Atom, FlaskConical, Dna, LineChart,
   CheckCircle2, ChevronDown, Check,
   Sparkles, Compass, Briefcase, Scale, RotateCw,
-  Layers, PenTool
+  Layers, PenTool, Star, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { Layout, WhatsAppIcon, StatsBar } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -20,55 +20,476 @@ import {
 const BOOKING = "/contact#form";
 const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27m%20looking%20for%20an%20A-Level%20tutor%20in%20Al%20Ain.%20Could%20we%20discuss%20how%20you%20can%20help%20my%20child%3F';
 
-/* ── HERO BACKGROUND (Clean Ambient Glow & Subtle Al Ain Dune Silhouette) ── */
+/* ── HERO BACKGROUND (Bespoke Animated Al Ain Sixth-Form Horizon & Orbital Specification Canvas) ── */
 const AlAinAlevelHeroBackground = () => (
   <div className="absolute inset-0 w-full h-full pointer-events-none select-none overflow-hidden z-0" aria-hidden="true">
-    {/* Soft Static Ambient Glows */}
-    <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[540px] h-[540px] bg-[#0f4a9b]/35 rounded-full blur-[130px]" />
-    <div className="absolute top-10 -right-10 w-[380px] h-[380px] bg-[#f0c96a]/15 rounded-full blur-[110px]" />
-    <div className="absolute bottom-10 -left-10 w-[360px] h-[360px] bg-[#22b8cd]/15 rounded-full blur-[100px]" />
+    {/* Soft Breathing Ambient Glow Orbs — GPU hardware-accelerated radial gradients */}
+    <div
+      className="absolute -top-24 left-1/2 -translate-x-1/2 w-[580px] h-[580px] rounded-full blur-[90px] pointer-events-none opacity-40 will-change-transform"
+      style={{
+        background: 'radial-gradient(circle, rgba(15,74,155,0.45) 0%, rgba(15,74,155,0) 70%)',
+        transform: 'translate3d(-50%, 0, 0)',
+      }}
+    />
+    <div
+      className="absolute top-8 -right-12 w-[420px] h-[420px] rounded-full blur-[80px] pointer-events-none opacity-20 will-change-transform"
+      style={{
+        background: 'radial-gradient(circle, rgba(240,201,106,0.3) 0%, rgba(240,201,106,0) 70%)',
+        transform: 'translate3d(0, 0, 0)',
+      }}
+    />
+    <div
+      className="absolute bottom-6 -left-12 w-[400px] h-[400px] rounded-full blur-[80px] pointer-events-none opacity-20 will-change-transform"
+      style={{
+        background: 'radial-gradient(circle, rgba(34,184,205,0.3) 0%, rgba(34,184,205,0) 70%)',
+        transform: 'translate3d(0, 0, 0)',
+      }}
+    />
+    <div
+      className="absolute top-1/3 left-1/4 w-[320px] h-[320px] rounded-full blur-[75px] pointer-events-none opacity-15 will-change-transform"
+      style={{
+        background: 'radial-gradient(circle, rgba(99,102,241,0.25) 0%, rgba(99,102,241,0) 70%)',
+        transform: 'translate3d(0, 0, 0)',
+      }}
+    />
 
-    {/* SVG Canvas with subtle grid & Al Ain dune silhouette */}
+    {/* Desktop Animated SVG Canvas */}
     <svg
-      viewBox="0 0 1400 580"
+      viewBox="0 0 1440 580"
       preserveAspectRatio="xMidYMid slice"
-      className="absolute inset-0 w-full h-full opacity-60 md:opacity-100"
+      className="hidden md:block absolute inset-0 w-full h-full"
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="alAinDuneGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#f0c96a" stopOpacity="0.12" />
+        <linearGradient id="alAinArcGold" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#22b8cd" stopOpacity="0.15" />
+          <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#f0c96a" stopOpacity="0.85" />
+        </linearGradient>
+
+        <linearGradient id="alAinCurveArea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f0c96a" stopOpacity="0.14" />
+          <stop offset="55%" stopColor="#22b8cd" stopOpacity="0.05" />
           <stop offset="100%" stopColor="#060f22" stopOpacity="0" />
         </linearGradient>
 
-        <pattern id="alain-clean-grid" width="48" height="48" patternUnits="userSpaceOnUse">
-          <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(255,255,255,0.025)" strokeWidth="0.5" />
+        <linearGradient id="alAinHorizonFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f0c96a" stopOpacity="0.12" />
+          <stop offset="60%" stopColor="#0f4a9b" stopOpacity="0.06" />
+          <stop offset="100%" stopColor="#060f22" stopOpacity="0" />
+        </linearGradient>
+
+        <linearGradient id="alAinRidgeCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#22b8cd" stopOpacity="0" />
+          <stop offset="30%" stopColor="#22b8cd" stopOpacity="0.35" />
+          <stop offset="70%" stopColor="#f0c96a" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#f0c96a" stopOpacity="0" />
+        </linearGradient>
+
+        <filter id="alAinSoftGlow" x="-25%" y="-25%" width="150%" height="150%">
+          <feGaussianBlur stdDeviation="3.5" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+
+        <pattern id="alain-architectural-grid" width="52" height="52" patternUnits="userSpaceOnUse">
+          <path d="M 52 0 L 0 0 0 52" fill="none" stroke="rgba(255,255,255,0.028)" strokeWidth="0.6" />
+          <circle cx="52" cy="52" r="0.8" fill="rgba(240,201,106,0.14)" />
         </pattern>
       </defs>
 
-      <rect width="100%" height="100%" fill="url(#alain-clean-grid)" />
+      {/* Architectural Coordinate Grid */}
+      <rect width="100%" height="100%" fill="url(#alain-architectural-grid)" />
 
-      {/* Subtle Al Ain Dune / Horizon Silhouette at Bottom */}
-      <g opacity="0.35" transform="translate(0, 430)">
+      {/* Top Academic Telemetry & Meridian Guide */}
+      <g opacity="0.42">
+        <line x1="60" y1="36" x2="1380" y2="36" stroke="rgba(255,255,255,0.06)" strokeWidth="0.75" strokeDasharray="3 6" />
+        <text x="68" y="28" fill="rgba(148,163,184,0.45)" fontSize="8.5" fontFamily="monospace" letterSpacing="1.6">
+          AL AIN · 24.2075° N, 55.7447° E · SIXTH FORM (YEAR 12 AS &amp; YEAR 13 A2)
+        </text>
+        <text x="1372" y="28" textAnchor="end" fill="rgba(240,201,106,0.45)" fontSize="8.5" fontFamily="monospace" letterSpacing="1.6">
+          CAIE 9709 / 9702 / 9701 · EDEXCEL IAL · OXFORDAQA
+        </text>
+      </g>
+
+      {/* ── LEFT FLANK: AS-to-A2 Synoptic Elevation & Calculus Tangent Bridge (x = 45..330) ── */}
+      <g opacity="0.58">
+        {/* Coordinate Axes for AS -> A2 Elevation */}
+        <line x1="58" y1="420" x2="325" y2="420" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+        <line x1="58" y1="115" x2="58" y2="420" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+
+        {/* Horizontal Grade Threshold Guides */}
+        <line x1="58" y1="340" x2="310" y2="340" stroke="rgba(255,255,255,0.05)" strokeWidth="0.75" strokeDasharray="3 5" />
+        <line x1="58" y1="245" x2="310" y2="245" stroke="rgba(34,184,205,0.12)" strokeWidth="0.75" strokeDasharray="3 5" />
+        <line x1="58" y1="145" x2="310" y2="145" stroke="rgba(240,201,106,0.18)" strokeWidth="0.75" strokeDasharray="3 5" />
+
+        {/* Shaded Integral Area Under the Curve */}
         <path
-          d="M 0 150 Q 220 105 460 135 T 920 115 T 1400 145 L 1400 180 L 0 180 Z"
-          fill="url(#alAinDuneGrad)"
+          d="M 58 385 C 125 375, 165 315, 205 245 C 245 175, 275 150, 310 135 L 310 420 L 58 420 Z"
+          fill="url(#alAinCurveArea)"
+        />
+
+        {/* Secondary Baseline Curve (Unguided Trajectory) */}
+        <path
+          d="M 58 385 C 135 380, 210 355, 310 315"
+          fill="none"
+          stroke="rgba(148,163,184,0.22)"
+          strokeWidth="1.2"
+          strokeDasharray="4 4"
+        />
+
+        {/* Primary AS -> A2 Mastery Curve */}
+        <path
+          d="M 58 385 C 125 375, 165 315, 205 245 C 245 175, 275 150, 310 135"
+          fill="none"
+          stroke="url(#alAinArcGold)"
+          strokeWidth="2.4"
+          filter="url(#alAinSoftGlow)"
+        />
+
+        {/* Calculus Tangent Line at Inflection Point */}
+        <line
+          x1="145"
+          y1="332"
+          x2="255"
+          y2="162"
+          stroke="rgba(34,184,205,0.38)"
+          strokeWidth="1"
+          strokeDasharray="2 3"
+        />
+
+        {/* Animated Pulses Travelling Along the AS -> A2 Curve */}
+        <motion.circle
+          r="3.5"
+          fill="#f0c96a"
+          filter="url(#alAinSoftGlow)"
+          animate={{
+            cx: [58, 135, 205, 265, 310],
+            cy: [385, 352, 245, 162, 135],
+            opacity: [0.2, 0.95, 1, 0.95, 0.2]
+          }}
+          transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.circle
+          r="2.5"
+          fill="#22b8cd"
+          animate={{
+            cx: [310, 265, 205, 135, 58],
+            cy: [135, 162, 245, 352, 385],
+            opacity: [0.15, 0.7, 0.85, 0.7, 0.15]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+        />
+
+        {/* Milestone Node 1: AS Foundation */}
+        <g transform="translate(95, 374)">
+          <circle cx="0" cy="0" r="4" fill="#22b8cd" />
+          <circle cx="0" cy="0" r="8" fill="none" stroke="#22b8cd" strokeWidth="0.8" opacity="0.45" />
+          <text x="12" y="4" fill="rgba(226,232,240,0.55)" fontSize="9.5" fontFamily="monospace">
+            Year 12 · AS Core
+          </text>
+        </g>
+
+        {/* Milestone Node 2: Synoptic Step-Up */}
+        <g transform="translate(205, 245)">
+          <circle cx="0" cy="0" r="4.5" fill="#38bdf8" />
+          <motion.circle
+            cx="0"
+            cy="0"
+            r="10"
+            fill="none"
+            stroke="#38bdf8"
+            strokeWidth="1"
+            animate={{ scale: [1, 1.45, 1], opacity: [0.55, 0.1, 0.55] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <rect x="-112" y="-26" width="102" height="20" rx="4" fill="rgba(10,25,54,0.75)" stroke="rgba(56,189,248,0.28)" strokeWidth="0.7" />
+          <text x="-61" y="-13" textAnchor="middle" fill="rgba(186,230,253,0.8)" fontSize="8.5" fontFamily="monospace">
+            dy/dx · Paper 4 &amp; 5
+          </text>
+        </g>
+
+        {/* Milestone Node 3: Year 13 A* / A Target */}
+        <g transform="translate(310, 135)">
+          <circle cx="0" cy="0" r="5" fill="#f0c96a" filter="url(#alAinSoftGlow)" />
+          <motion.circle
+            cx="0"
+            cy="0"
+            r="12"
+            fill="none"
+            stroke="#f0c96a"
+            strokeWidth="1.1"
+            animate={{ scale: [1, 1.5, 1], opacity: [0.65, 0.12, 0.65] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <rect x="-125" y="-32" width="118" height="22" rx="5" fill="rgba(10,25,54,0.82)" stroke="rgba(240,201,106,0.4)" strokeWidth="0.8" />
+          <text x="-66" y="-18" textAnchor="middle" fill="#f0c96a" fontSize="9.5" fontFamily="monospace" fontWeight="bold">
+            Year 13 · Grade A* / A
+          </text>
+        </g>
+
+        {/* Subtle Mathematical & Scientific Formula Watermarks on Left Flank */}
+        <text x="68" y="132" fill="rgba(240,201,106,0.32)" fontSize="10.5" fontFamily="monospace">
+          ∫ f(x)dx = F(b) − F(a)
+        </text>
+        <text x="68" y="442" fill="rgba(148,163,184,0.38)" fontSize="8.5" fontFamily="monospace" letterSpacing="1">
+          MODULAR (IAL) &amp; LINEAR (CAIE) PROGRESSION
+        </text>
+      </g>
+
+      {/* ── RIGHT FLANK: Sixth-Form Concentric Astrolabe & Specification Dial (cx = 1255, cy = 265) ── */}
+      <g opacity="0.58">
+        {/* Outer Static Degree Scale Ring */}
+        <circle
+          cx="1255"
+          cy="265"
+          r="132"
+          fill="none"
+          stroke="rgba(255,255,255,0.06)"
+          strokeWidth="1"
+        />
+        <circle
+          cx="1255"
+          cy="265"
+          r="142"
+          fill="none"
+          stroke="rgba(240,201,106,0.14)"
+          strokeWidth="0.7"
+          strokeDasharray="2 8"
+        />
+
+        {/* Slowly Rotating Outer Orbital Ring */}
+        <motion.g
+          animate={{ rotate: 360 }}
+          transition={{ duration: 48, repeat: Infinity, ease: 'linear' }}
+          style={{ transformOrigin: '1255px 265px' }}
+        >
+          <circle
+            cx="1255"
+            cy="265"
+            r="112"
+            fill="none"
+            stroke="rgba(240,201,106,0.26)"
+            strokeWidth="1.1"
+            strokeDasharray="10 6 2 6"
+          />
+          <circle cx="1255" cy="153" r="3.5" fill="#f0c96a" filter="url(#alAinSoftGlow)" />
+          <circle cx="1367" cy="265" r="3" fill="#22b8cd" />
+          <circle cx="1255" cy="377" r="3" fill="#f0c96a" />
+          <circle cx="1143" cy="265" r="3" fill="#38bdf8" />
+        </motion.g>
+
+        {/* Counter-Rotating Inner Meridian Ring & Geometric Compass Star */}
+        <motion.g
+          animate={{ rotate: -360 }}
+          transition={{ duration: 36, repeat: Infinity, ease: 'linear' }}
+          style={{ transformOrigin: '1255px 265px' }}
+        >
+          <circle
+            cx="1255"
+            cy="265"
+            r="78"
+            fill="none"
+            stroke="rgba(34,184,205,0.28)"
+            strokeWidth="1"
+            strokeDasharray="6 4"
+          />
+          {/* 8-Pointed Oasis Star / Compass Geometry */}
+          <rect
+            x="1205"
+            y="215"
+            width="100"
+            height="100"
+            rx="6"
+            fill="none"
+            stroke="rgba(240,201,106,0.18)"
+            strokeWidth="0.85"
+          />
+          <rect
+            x="1205"
+            y="215"
+            width="100"
+            height="100"
+            rx="6"
+            fill="none"
+            stroke="rgba(34,184,205,0.18)"
+            strokeWidth="0.85"
+            transform="rotate(45 1255 265)"
+          />
+        </motion.g>
+
+        {/* Crosshair Axis Lines */}
+        <line x1="1110" y1="265" x2="1400" y2="265" stroke="rgba(255,255,255,0.06)" strokeWidth="0.75" />
+        <line x1="1255" y1="120" x2="1255" y2="410" stroke="rgba(255,255,255,0.06)" strokeWidth="0.75" />
+
+        {/* Central Hub Badge */}
+        <circle cx="1255" cy="265" r="34" fill="rgba(8,22,48,0.88)" stroke="rgba(240,201,106,0.45)" strokeWidth="1.2" />
+        <text x="1255" y="261" textAnchor="middle" fill="#f0c96a" fontSize="10" fontFamily="monospace" fontWeight="bold">
+          1-TO-1
+        </text>
+        <text x="1255" y="274" textAnchor="middle" fill="rgba(186,230,253,0.8)" fontSize="8" fontFamily="monospace">
+          AL AIN
+        </text>
+
+        {/* Floating Specification Badges Around the Astrolabe */}
+        <motion.g
+          animate={{ y: [-3, 3, -3] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <rect x="1185" y="102" width="140" height="24" rx="6" fill="rgba(10,25,54,0.82)" stroke="rgba(240,201,106,0.38)" strokeWidth="0.8" />
+          <text x="1255" y="118" textAnchor="middle" fill="#f0c96a" fontSize="9.5" fontFamily="monospace" fontWeight="bold">
+            CAIE 9709 · 9702 · 9701
+          </text>
+        </motion.g>
+
+        <motion.g
+          animate={{ y: [3, -3, 3] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        >
+          <rect x="1180" y="405" width="150" height="24" rx="6" fill="rgba(10,25,54,0.82)" stroke="rgba(34,184,205,0.38)" strokeWidth="0.8" />
+          <text x="1255" y="421" textAnchor="middle" fill="#67e8f9" fontSize="9.5" fontFamily="monospace" fontWeight="bold">
+            Edexcel IAL · Modular
+          </text>
+        </motion.g>
+
+        <g transform="translate(1092, 200)">
+          <rect x="0" y="0" width="68" height="20" rx="4" fill="rgba(10,25,54,0.75)" stroke="rgba(255,255,255,0.14)" strokeWidth="0.7" />
+          <text x="34" y="13" textAnchor="middle" fill="rgba(226,232,240,0.75)" fontSize="8.5" fontFamily="monospace">
+            P1–P5 · S1 · M1
+          </text>
+        </g>
+
+        <g transform="translate(1348, 315)">
+          <rect x="0" y="0" width="66" height="20" rx="4" fill="rgba(10,25,54,0.75)" stroke="rgba(240,201,106,0.24)" strokeWidth="0.7" />
+          <text x="33" y="13" textAnchor="middle" fill="rgba(240,201,106,0.8)" fontSize="8.5" fontFamily="monospace">
+            UCAS · UAEU
+          </text>
+        </g>
+      </g>
+
+      {/* ── BOTTOM HORIZON: Multi-Layered Jebel Hafeet & Garden City Contour Waves ── */}
+      <g opacity="0.48" transform="translate(0, 425)">
+        {/* Distant Mountain & Dune Ridge */}
+        <path
+          d="M 0 120 Q 190 68 390 102 T 780 86 T 1140 62 T 1440 105 L 1440 160 L 0 160 Z"
+          fill="url(#alAinHorizonFill)"
         />
         <path
-          d="M 0 150 Q 220 105 460 135 T 920 115 T 1400 145"
+          d="M 0 120 Q 190 68 390 102 T 780 86 T 1140 62 T 1440 105"
           fill="none"
-          stroke="rgba(240,201,106,0.18)"
-          strokeWidth="1"
-          strokeDasharray="4 4"
+          stroke="url(#alAinRidgeCyan)"
+          strokeWidth="1.3"
+        />
+
+        {/* Secondary Topographic Contour Line */}
+        <path
+          d="M 0 136 Q 240 94 510 122 T 980 102 T 1440 126"
+          fill="none"
+          stroke="rgba(240,201,106,0.2)"
+          strokeWidth="0.9"
+          strokeDasharray="5 5"
         />
       </g>
     </svg>
 
-    {/* Mobile Ambient Glow */}
+    {/* Mobile Clean Ambient Glow & Blueprint Grid Canvas (Refined for Mobile Clarity) */}
     <div className="md:hidden absolute inset-0 w-full h-full">
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-[#0f4a9b]/40 rounded-full blur-[80px]" />
-      <div className="absolute top-1/2 -right-8 w-[220px] h-[220px] bg-[#f0c96a]/18 rounded-full blur-[70px]" />
-      <div className="absolute bottom-6 -left-8 w-[220px] h-[220px] bg-[#22b8cd]/18 rounded-full blur-[70px]" />
+      {/* Soft Ambient Radiance Orbs — GPU hardware-accelerated radial gradients */}
+      <div
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[280px] h-[280px] rounded-full blur-[55px] pointer-events-none opacity-35"
+        style={{
+          background: 'radial-gradient(circle, rgba(15,74,155,0.45) 0%, rgba(15,74,155,0) 70%)',
+          transform: 'translate3d(-50%, 0, 0)',
+        }}
+      />
+      <div
+        className="absolute top-1/3 -right-10 w-[200px] h-[200px] rounded-full blur-[45px] pointer-events-none opacity-20"
+        style={{
+          background: 'radial-gradient(circle, rgba(240,201,106,0.3) 0%, rgba(240,201,106,0) 70%)',
+          transform: 'translate3d(0, 0, 0)',
+        }}
+      />
+      <div
+        className="absolute bottom-10 -left-10 w-[200px] h-[200px] rounded-full blur-[45px] pointer-events-none opacity-20"
+        style={{
+          background: 'radial-gradient(circle, rgba(34,184,205,0.3) 0%, rgba(34,184,205,0) 70%)',
+          transform: 'translate3d(0, 0, 0)',
+        }}
+      />
+
+      <svg
+        viewBox="0 0 360 540"
+        preserveAspectRatio="xMidYMid slice"
+        className="absolute inset-0 w-full h-full opacity-65 pointer-events-none"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern id="alain-grid-mob" width="36" height="36" patternUnits="userSpaceOnUse">
+            <path d="M 36 0 L 0 0 0 36" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="0.6" />
+            <circle cx="36" cy="36" r="0.6" fill="rgba(240,201,106,0.14)" />
+          </pattern>
+          <linearGradient id="alAinMobHorizon" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#f0c96a" stopOpacity="0.12" />
+            <stop offset="60%" stopColor="#0f4a9b" stopOpacity="0.05" />
+            <stop offset="100%" stopColor="#060f22" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+
+        {/* Architectural Grid */}
+        <rect width="100%" height="100%" fill="url(#alain-grid-mob)" />
+
+        {/* Mobile Top Telemetry Bar */}
+        <g opacity="0.45">
+          <text x="16" y="24" fill="rgba(148,163,184,0.6)" fontSize="7" fontFamily="monospace" letterSpacing="1.1">
+            AL AIN · 24.2° N · AS &amp; A2
+          </text>
+          <text x="344" y="24" textAnchor="end" fill="rgba(240,201,106,0.6)" fontSize="7" fontFamily="monospace" letterSpacing="1">
+            CAIE · EDEXCEL IAL
+          </text>
+          <line x1="16" y1="30" x2="344" y2="30" stroke="rgba(255,255,255,0.06)" strokeWidth="0.6" strokeDasharray="3 4" />
+        </g>
+
+        {/* Minimal Corner Astrolabe Accent (Static, Clean, Non-intrusive) */}
+        <g opacity="0.35" transform="translate(320, 85)">
+          <circle cx="0" cy="0" r="42" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
+          <circle cx="0" cy="0" r="32" fill="none" stroke="rgba(240,201,106,0.2)" strokeWidth="0.8" strokeDasharray="6 4" />
+          <circle cx="0" cy="0" r="14" fill="rgba(8,22,48,0.8)" stroke="rgba(240,201,106,0.3)" strokeWidth="0.8" />
+          <text x="0" y="3" textAnchor="middle" fill="#f0c96a" fontSize="6.5" fontFamily="monospace" fontWeight="bold">
+            A* / A
+          </text>
+        </g>
+
+        {/* Elegant Subtle Watermark Formulas Along Margins */}
+        <text x="16" y="100" fill="rgba(240,201,106,0.22)" fontSize="7" fontFamily="monospace">
+          ∫ f(x)dx · dy/dx
+        </text>
+        <text x="16" y="440" fill="rgba(56,189,248,0.22)" fontSize="7" fontFamily="monospace">
+          9709 · 9702 · 9701
+        </text>
+        <text x="344" y="440" textAnchor="end" fill="rgba(240,201,106,0.22)" fontSize="7" fontFamily="monospace">
+          UCAS · UAEU
+        </text>
+
+        {/* Bottom Jebel Hafeet Horizon Contour Wave */}
+        <g opacity="0.45" transform="translate(0, 460)">
+          <path
+            d="M 0 50 Q 80 25 160 40 T 300 28 T 360 42 L 360 80 L 0 80 Z"
+            fill="url(#alAinMobHorizon)"
+          />
+          <path
+            d="M 0 50 Q 80 25 160 40 T 300 28 T 360 42"
+            fill="none"
+            stroke="rgba(34,184,205,0.3)"
+            strokeWidth="1"
+          />
+          <path
+            d="M 0 60 Q 90 40 180 52 T 360 48"
+            fill="none"
+            stroke="rgba(240,201,106,0.2)"
+            strokeWidth="0.75"
+            strokeDasharray="4 4"
+          />
+        </g>
+      </svg>
     </div>
   </div>
 );
@@ -146,27 +567,27 @@ const AL_AIN_SCHOOLS = [
   {
     name: 'Brighton College Al Ain',
     alt: 'Brighton College Al Ain British curriculum school logo',
-    logo: '/images/schools/al-ain/brighton-college-al-ain.png'
+    logo: '/images/schools/al-ain/brighton-college-al-ain.webp'
   },
   {
     name: 'Al Ain British Academy',
     alt: 'Al Ain British Academy Aldar Academies logo',
-    logo: '/images/schools/al-ain/al-ain-british-academy-crest.png'
+    logo: '/images/schools/al-ain/al-ain-british-academy-crest.webp'
   },
   {
     name: 'Al Ain English Speaking School',
     alt: 'Al Ain English Speaking School AAESS logo',
-    logo: '/images/schools/al-ain/aaess.png'
+    logo: '/images/schools/al-ain/aaess.webp'
   },
   {
     name: 'Belvedere International School',
     alt: 'Belvedere International School Al Ain logo',
-    logo: '/images/schools/al-ain/belvedere-international.png'
+    logo: '/images/schools/al-ain/belvedere-international.webp'
   },
   {
     name: 'Global English School, Al Muwaiji',
     alt: 'Global English School Al Muwaiji Al Ain Cambridge AS and A Level logo',
-    logo: '/images/schools/al-ain/global-english-school.png'
+    logo: '/images/schools/al-ain/global-english-school.webp'
   }
 ];
 
@@ -209,6 +630,174 @@ const AL_AIN_A_LEVEL_FAQS: AlAinFaqItem[] = [
   }
 ];
 
+/* ── DATA: VERIFIED PARENT REVIEWS (AL AIN A-LEVEL) ── */
+const AL_AIN_A_LEVEL_REVIEWS = [
+  {
+    name: 'Mariam Al Dhaheri, Al Ain',
+    initials: 'MA',
+    subject: 'Cambridge International A-Level Maths & Physics · Verified Google Review',
+    stars: 5,
+    text: 'My son attends Brighton College Al Ain and found the jump into Year 12 Maths and Physics quite steep. His Ustaad tutor structured weekly past paper practice and went through the exact mark schemes line by line. His confidence improved remarkably, and he scored an A in his recent mock.',
+  },
+  {
+    name: 'Dr. Tariq M., Falaj Hazzaa, Al Ain',
+    initials: 'TM',
+    subject: 'Edexcel A-Level Chemistry & Biology · Verified Google Review',
+    stars: 5,
+    text: 'Living in Al Ain, finding high-calibre A-Level science tutors locally was always a challenge before Ustaad. The online sessions saved hours of commuting, and the tutor knew Edexcel International A-Level specifications inside out. Highly recommended for sixth formers.',
+  },
+  {
+    name: 'Sarah Jenkins, Zakher, Al Ain',
+    initials: 'SJ',
+    subject: 'Cambridge A-Level Further Maths · Verified Google Review',
+    stars: 5,
+    text: "Our daughter was taking Further Mathematics which required specialised support her school couldn't offer 1-to-1. Ustaad paired her with a tutor who was exceptional with complex calculus and mechanics. She went into her Year 13 papers fully prepared.",
+  },
+];
+
+function AlAinAlevelReviewsScroller() {
+  const n = AL_AIN_A_LEVEL_REVIEWS.length;
+  const [active, setActive] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startTimer = () => {
+    if (n <= 1) return;
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => setActive((i) => (i + 1) % n), 6000);
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [n]);
+
+  const go = (idx: number) => {
+    if (n <= 1) return;
+    setActive(((idx % n) + n) % n);
+    startTimer();
+  };
+
+  const prevIdx = (active - 1 + n) % n;
+  const nextIdx = (active + 1) % n;
+
+  const SideCard = ({ idx }: { idx: number }) => (
+    <button
+      type="button"
+      onClick={() => go(idx)}
+      className="hidden md:block w-[22%] shrink-0 text-left opacity-40 hover:opacity-70 transition duration-300 cursor-pointer"
+      aria-label={`Show review by ${AL_AIN_A_LEVEL_REVIEWS[idx].name}`}
+    >
+      <div className="bg-white rounded-2xl p-4 border border-slate-100 shadow-xs relative overflow-hidden h-full">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#0f4a9b] to-[#C7A24A]" />
+        <div className="flex gap-0.5 mb-2">
+          {[1, 2, 3, 4, 5].map((j) => (
+            <Star key={j} className="h-3 w-3 fill-[#C7A24A] text-[#C7A24A]" />
+          ))}
+        </div>
+        <p className="text-slate-400 text-xs leading-relaxed line-clamp-3">
+          &ldquo;{AL_AIN_A_LEVEL_REVIEWS[idx].text}&rdquo;
+        </p>
+        <div className="flex items-center gap-2 mt-3 pt-2 border-t border-slate-100">
+          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#1e5ba8] flex items-center justify-center text-white font-bold text-[10px] notranslate shrink-0" translate="no">
+            {AL_AIN_A_LEVEL_REVIEWS[idx].initials}
+          </div>
+          <span className="font-bold text-[#0a1f3d] text-xs notranslate truncate" translate="no">
+            {AL_AIN_A_LEVEL_REVIEWS[idx].name.split(',')[0]}
+          </span>
+        </div>
+      </div>
+    </button>
+  );
+
+  const r = AL_AIN_A_LEVEL_REVIEWS[active];
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      <div className="flex items-stretch gap-3 lg:gap-4">
+        <SideCard idx={prevIdx} />
+
+        <div className="flex-1 min-w-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, x: 28 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -28 }}
+              transition={{ duration: 0.28, ease: 'easeInOut' }}
+              className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-[0_8px_32px_rgba(15,74,155,0.08)] relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A]" />
+              <div className="flex items-center justify-between mb-3.5">
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map((j) => (
+                    <Star key={j} className="h-4 w-4 fill-[#C7A24A] text-[#C7A24A]" />
+                  ))}
+                </div>
+                <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/8 px-3 py-1 rounded-full border border-[#0f4a9b]/15">
+                  Google · Verified Parent
+                </span>
+              </div>
+              <p className="text-[#374151] text-[15px] sm:text-base leading-relaxed mb-5 italic">
+                &ldquo;{r.text}&rdquo;
+              </p>
+              <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100">
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#1e5ba8] flex items-center justify-center text-white font-bold text-sm shadow-[0_2px_8px_rgba(15,74,155,0.28)] notranslate shrink-0" translate="no">
+                  {r.initials}
+                </div>
+                <div className="min-w-0">
+                  <div className="font-extrabold text-[#0a1f3d] text-[15px] notranslate truncate" translate="no">
+                    {r.name}
+                  </div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5 truncate">
+                    {r.subject.replace('Verified Google review · ', '')}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <SideCard idx={nextIdx} />
+      </div>
+
+      {/* Navigation Controls */}
+      <div className="flex items-center justify-center gap-3 mt-5">
+        <button
+          type="button"
+          onClick={() => go(active - 1)}
+          aria-label="Previous review"
+          className="w-8 h-8 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-[#0f4a9b] hover:bg-[#0f4a9b] hover:text-white hover:border-[#0f4a9b] transition-all cursor-pointer"
+        >
+          <ChevronLeft className="h-4 w-4" />
+        </button>
+        <div className="flex items-center gap-1.5">
+          {AL_AIN_A_LEVEL_REVIEWS.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => go(i)}
+              aria-label={`Go to review ${i + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                i === active ? 'w-6 bg-[#0f4a9b]' : 'w-1.5 bg-slate-200 hover:bg-slate-300'
+              }`}
+            />
+          ))}
+        </div>
+        <button
+          type="button"
+          onClick={() => go(active + 1)}
+          aria-label="Next review"
+          className="w-8 h-8 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-[#0f4a9b] hover:bg-[#0f4a9b] hover:text-white hover:border-[#0f4a9b] transition-all cursor-pointer"
+        >
+          <ChevronRight className="h-4 w-4" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
 /* ── DATA: RELATED PATHWAYS (8 interactive micro-cards) ── */
 const RELATED_PATHWAYS = [
   {
@@ -223,7 +812,7 @@ const RELATED_PATHWAYS = [
   {
     title: 'A-Level Physics Tutor',
     sub: 'Fields, Waves & Practical',
-    href: '/physics-tutor-dubai',
+    href: '/physics-tutor-abu-dhabi',
     icon: Atom,
     bg: 'bg-cyan-50 border border-cyan-100',
     color: 'text-cyan-700',
@@ -232,7 +821,7 @@ const RELATED_PATHWAYS = [
   {
     title: 'A-Level Chemistry Tutor',
     sub: 'Organic & Physical Prep',
-    href: '/chemistry-tutor-dubai',
+    href: '/chemistry-tutor-abu-dhabi',
     icon: FlaskConical,
     bg: 'bg-emerald-50 border border-emerald-100',
     color: 'text-emerald-700',
@@ -241,7 +830,7 @@ const RELATED_PATHWAYS = [
   {
     title: 'A-Level Biology Tutor',
     sub: 'Genetics, Data & Essays',
-    href: '/biology-tutor-dubai',
+    href: '/biology-tutor-abu-dhabi',
     icon: Dna,
     bg: 'bg-rose-50 border border-rose-100',
     color: 'text-rose-700',
@@ -383,8 +972,8 @@ export default function ALevelTutorAlAinPage() {
         title="A-Level Tutor Al Ain | Online Year 12 & 13 Support | Ustaad"
         description="Online 1-to-1 A-Level lessons for Year 12 and 13 students in Al Ain, matched to Cambridge, Edexcel or OxfordAQA, with no drive to Abu Dhabi."
         canonical="/a-level-tutor-al-ain"
+        robots="index, follow"
         ogImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
-        preloadHeroImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
         placename="Al Ain, Abu Dhabi, UAE"
         schema={[
           alAinLocalBusinessSchema,
@@ -441,7 +1030,7 @@ export default function ALevelTutorAlAinPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 h-11 rounded-full font-bold text-xs sm:text-sm text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-md shadow-[#25D366]/20"
             >
-              <WhatsAppIcon className="w-4 h-4" /> WhatsApp a Tutor
+              <WhatsAppIcon className="w-4 h-4" /> WhatsApp Us
             </a>
           </div>
 
@@ -943,8 +1532,13 @@ export default function ALevelTutorAlAinPage() {
                 <img
                   src={school.logo}
                   alt={school.alt}
-                  className="max-h-16 sm:max-h-20 max-w-[150px] sm:max-w-[160px] w-auto object-contain transition-all duration-300 group-hover:scale-105"
+                  width="160"
+                  height="80"
+                  className={`max-h-16 sm:max-h-20 max-w-[150px] sm:max-w-[160px] w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
+                    school.name.includes("Belvedere") ? "scale-115 sm:scale-120" : ""
+                  }`}
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}
@@ -1285,8 +1879,12 @@ export default function ALevelTutorAlAinPage() {
                 <div className="flex items-center gap-4 mb-3.5">
                   <div className="relative shrink-0">
                     <img
-                      src="/images/tutors/fahad-khan.jpg"
+                      src="/images/tutors/fahad-khan-thumb.webp"
                       alt="Fahad Khan, A-Level Mathematics Tutor at Ustaad"
+                      width="72"
+                      height="72"
+                      loading="lazy"
+                      decoding="async"
                       className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-white shadow-xs group-hover:scale-102 transition-transform duration-200"
                     />
                   </div>
@@ -1341,8 +1939,12 @@ export default function ALevelTutorAlAinPage() {
                 <div className="flex items-center gap-4 mb-3.5">
                   <div className="relative shrink-0">
                     <img
-                      src="/images/tutors/tabraiz-khan.jpg"
+                      src="/images/tutors/tabraiz-khan-thumb.webp"
                       alt="Tabraiz Khan, Cambridge Certified Maths, Physics and Statistics Tutor at Ustaad"
+                      width="72"
+                      height="72"
+                      loading="lazy"
+                      decoding="async"
                       className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-white shadow-xs group-hover:scale-102 transition-transform duration-200"
                     />
                   </div>
@@ -1383,6 +1985,22 @@ export default function ALevelTutorAlAinPage() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── SECTION: VERIFIED REVIEWS FROM AL AIN FAMILIES ── */}
+      <section className="py-14 sm:py-20 bg-gradient-to-b from-[#f8fafc] to-white relative overflow-hidden border-t border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-bold text-[#0a1f3d] mb-3 shadow-xs">
+              <span className="text-[#C7A24A] tracking-tighter">★★★★★</span>
+              <span>5.0 · Verified Google reviews</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d]">
+              From <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Al Ain Sixth-Form Families</span>
+            </h2>
+          </div>
+          <AlAinAlevelReviewsScroller />
         </div>
       </section>
 

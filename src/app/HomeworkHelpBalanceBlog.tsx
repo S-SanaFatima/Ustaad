@@ -576,7 +576,7 @@ export default function HomeworkHelpBalanceBlog() {
             />
 
             <p>
-              The right-hand column is not always wrong in isolation, a tired child on a Thursday night sometimes just needs to get to bed, but if it becomes the pattern, the homework stops being a signal of what the child can do, for the child, the teacher, or you.
+              The right-hand column is not always wrong in isolation, a tired child on a Thursday night sometimes just needs to get to bed, but if it becomes the pattern, the homework stops being a signal of what the child can do, for the child, the teacher, or you. (The same test applies to <a href="/blogs/chatgpt-for-studying-does-ai-hurt-memory" className="text-[#0f4a9b] font-semibold underline">ChatGPT for studying</a> and AI homework help.)
             </p>
           </div>
 

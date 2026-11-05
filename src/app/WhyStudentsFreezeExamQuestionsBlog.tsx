@@ -518,7 +518,7 @@ export default function WhyStudentsFreezeExamQuestionsBlog() {
           </p>
 
           <p>
-            A scaffolding <em>trap</em> develops when the supports are never systematically removed before the examination. Instead of building self-reliant cognitive paths, the student becomes dependent on subtle environmental crutches:
+            A scaffolding <em>trap</em> develops when the supports are never systematically removed before the examination (especially when <a href="/blogs/chatgpt-for-studying-does-ai-hurt-memory" className="text-[#0f4a9b] font-semibold underline">using AI to revise</a> or get instant answers). Instead of building self-reliant cognitive paths, the student becomes dependent on subtle environmental crutches:
           </p>
 
           <div className="my-6 rounded-2xl border border-slate-200 overflow-hidden shadow-xs bg-white text-xs sm:text-[13px]">
@@ -782,6 +782,12 @@ export default function WhyStudentsFreezeExamQuestionsBlog() {
               </span>
             </li>
           </ul>
+          <p className="text-sm lg:text-[15px] text-gray-700 leading-[1.8] text-justify mt-3.5">
+            After each mixed past paper, the examiner report shows which questions most candidates found hard and why. See our guide to{' '}
+            <a href="/blogs/how-to-read-examiner-reports-igcse-a-level" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
+              reading examiner reports
+            </a>.
+          </p>
 
           {/* 08. Frequently asked questions */}
           <SectionHeading num="08" id="faqs">

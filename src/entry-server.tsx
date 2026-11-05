@@ -57,6 +57,7 @@ import MathsAnxietyTeenagersBlog from "./app/MathsAnxietyTeenagersBlog.tsx";
 import WhyStudentsFreezeExamQuestionsBlog from "./app/WhyStudentsFreezeExamQuestionsBlog.tsx";
 import HowToReadExaminerReportsBlog from "./app/HowToReadExaminerReportsBlog.tsx";
 import WinterBreakRevisionPlanBlog from "./app/WinterBreakRevisionPlanBlog.tsx";
+import ChatGPTForStudyingBlog from "./app/ChatGPTForStudyingBlog.tsx";
 
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
 import MathsPage from "./app/MathsPage.tsx";
@@ -89,6 +90,7 @@ import ChemistryTutorDubaiPage from "./app/ChemistryTutorDubaiPage.tsx";
 import BiologyTutorDubaiPage from "./app/BiologyTutorDubaiPage.tsx";
 import ALevelTutorLanding from "./app/ALevelTutorAbuDhabiPage.tsx";
 import ALevelTutorAlAinPage from "./app/ALevelTutorAlAinPage.tsx";
+import IGCSETutorAlAinPage from "./app/IGCSETutorAlAinPage.tsx";
 import ALevelTutorDubaiPage from "./app/ALevelTutorDubaiPage.tsx";
 import IBTutorAbuDhabiPage from "./app/IBTutorAbuDhabiPage.tsx";
 import IBTutorDubaiPage from "./app/IBTutorDubaiPage.tsx";
@@ -156,6 +158,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   BiologyTutorDubaiPage,
   ALevelTutorLanding,
   ALevelTutorAlAinPage,
+  IGCSETutorAlAinPage,
   MockExamsUAEBlog,
   WhatDoesGradientMeanBlog,
   WhatDoesYInterceptMeanBlog,
@@ -166,6 +169,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   WhyStudentsFreezeExamQuestionsBlog,
   HowToReadExaminerReportsBlog,
   WinterBreakRevisionPlanBlog,
+  ChatGPTForStudyingBlog,
   IllusionOfCompetenceBlog,
   CommandWordsBlog,
   SleepAndMemoryBlog,

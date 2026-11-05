@@ -237,9 +237,9 @@ const customPracticesSection = (
 );
 
 /* ─── §8 UAE — dark section ─── */
-const uaeLocations = [
-  { name: "Abu Dhabi",      desc: "Capital • Most schools",    icon: <MapPin className="h-4 w-4" /> },
-  { name: "Dubai",          desc: "Largest city • All boards", icon: <MapPin className="h-4 w-4" /> },
+const uaeLocations: { name: string; desc: string; icon: React.ReactNode; href?: string; anchor?: string }[] = [
+  { name: "Abu Dhabi",      desc: "Capital • Most schools",    icon: <MapPin className="h-4 w-4" />, href: "/physics-tutor-abu-dhabi", anchor: "Physics tutor in Abu Dhabi" },
+  { name: "Dubai",          desc: "Largest city • All boards", icon: <MapPin className="h-4 w-4" />, href: "/physics-tutor-dubai",     anchor: "Physics tutor in Dubai" },
   { name: "Sharjah",        desc: "Growing IGCSE community",   icon: <MapPin className="h-4 w-4" /> },
   { name: "Ajman",          desc: "Cambridge & Edexcel",       icon: <MapPin className="h-4 w-4" /> },
   { name: "Al Ain",         desc: "Cambridge focused",         icon: <MapPin className="h-4 w-4" /> },
@@ -271,6 +271,11 @@ const customResultsSection = (
             </div>
             <h3 className="text-white font-bold text-base mb-1">{loc.name}</h3>
             <p className="text-white/50 text-xs">{loc.desc}</p>
+            {loc.href && loc.anchor && (
+              <a href={loc.href} className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#C7A24A] hover:underline">
+                {loc.anchor}
+              </a>
+            )}
           </div>
         ))}
       </div>
@@ -393,7 +398,7 @@ const physicsRelatedReading = (
 const data: SubjectPageProps = {
   badgeIcon:        <Atom className="h-4 w-4" />,
   heroBadgeLabel:   "Physics Specialist",
-  heroTitle:        "Clear Physics. Real Marks.",
+  heroTitle:        "Physics Tutors Across the UAE: Clear Physics, Real Marks",
   heroSubtitle:     "Specialist physics coaching for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
   heroCTAText:      "Book Your First Session",
@@ -427,8 +432,8 @@ const data: SubjectPageProps = {
 
   floatingIcon: <Atom className="h-4 w-4" />,
   seo: {
-    title: "Physics Tutors UAE | IGCSE, A-Level, IB Physics | Ustaad",
-    description: "Expert private Physics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level, IB SL/HL, AP Physics. 1-to-1 sessions with proven exam results. Free 15-min orientation with the first lesson.",
+    title: "Physics Tutors UAE | IGCSE, A-Level, IB & AP | Ustaad",
+    description: "Online 1-to-1 physics tutoring for students across the UAE, from IGCSE and GCSE to A-Level, IB and AP. 15-min orientation with your first lesson.",
     canonical: "/physics",
     schema: [
       localBusinessSchema,

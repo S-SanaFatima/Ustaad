@@ -546,7 +546,11 @@ export default function IGCSEPreparationPastPapersBlog() {
             </Blockquote>
 
             <p>
-              Only now, with the foundation set, the walls up and the interior fitted, does the roof make sense. This is where IGCSE past papers finally earn their reputation. Sat under proper timed conditions and marked honestly against the scheme, they test whether the whole structure holds together on the day. They build stamina, they sharpen timing, and they show precisely where the rain gets in.
+              Only now, with the foundation set, the walls up and the interior fitted, does the roof make sense. This is where IGCSE past papers finally earn their reputation. Sat under proper timed conditions and marked honestly against the scheme, they test whether the whole structure holds together on the day. They build stamina, they sharpen timing, and they show precisely where the rain gets in. Once a paper is marked, the examiner report for that series explains why candidates lost marks on each question. Our guide to{' '}
+              <a href="/blogs/how-to-read-examiner-reports-igcse-a-level" className="text-[#0f4a9b] font-bold underline">
+                reading examiner reports
+              </a>{' '}
+              shows how to use one.
             </p>
             <p>
               Notice what a paper does and does not do. It reveals a weak topic; it does not teach the topic. It exposes a misread command word; it does not, by itself, fix the habit. A roof keeps out the weather, but it was never designed to build the rooms below it. Used at the right moment, they are the most powerful tool in the whole process. Used too early, they simply photograph an unfinished house.

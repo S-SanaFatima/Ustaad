@@ -3,22 +3,56 @@ import sys
 import time
 import ftplib
 import getpass
+import hashlib
+import json
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 FTP_HOST = "ftp.ustaad.ae"
 FTP_PORT = 21
 FTP_USER = "devsynx@ustaad.ae"
 LOCAL_DIR = os.path.abspath("dist/client")
+MANIFEST_FILE = os.path.abspath(".ftp_deploy_manifest.json")
 
-class FTPUploader:
+def calculate_md5(file_path):
+    hash_md5 = hashlib.md5()
+    with open(file_path, "rb") as f:
+        for chunk in iter(lambda: f.read(65536), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
+
+def load_manifest():
+    if os.path.exists(MANIFEST_FILE):
+        try:
+            with open(MANIFEST_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return {}
+    return None
+
+def save_manifest(manifest):
+    try:
+        with open(MANIFEST_FILE, "w", encoding="utf-8") as f:
+            json.dump(manifest, f, indent=2)
+    except Exception as e:
+        print(f"[Warning] Failed to save manifest: {e}")
+
+class FastFTPUploader:
     def __init__(self, host, port, user, password):
         self.host = host
         self.port = port
         self.user = user
         self.password = password
         self.ftp = None
+        self.known_remote_dirs = set()
         self.connect()
 
-    def connect(self, max_retries=10):
+    def connect(self, max_retries=5):
         if self.ftp:
             try:
                 self.ftp.close()
@@ -32,7 +66,7 @@ class FTPUploader:
                 self.ftp.connect(self.host, self.port, timeout=30)
                 self.ftp.login(self.user, self.password)
                 self.ftp.prot_p()
-                print("✓ Connected securely using FTPS (Explicit TLS).")
+                print("[OK] Connected securely using FTPS (Explicit TLS).")
                 break
             except Exception as e:
                 print(f"Notice: FTPS connection error ({e}), trying standard FTP...")
@@ -40,20 +74,18 @@ class FTPUploader:
                     self.ftp = ftplib.FTP()
                     self.ftp.connect(self.host, self.port, timeout=30)
                     self.ftp.login(self.user, self.password)
-                    print("✓ Connected using standard FTP.")
+                    print("[OK] Connected using standard FTP.")
                     break
                 except Exception as err:
                     print(f"Connection attempt {attempt} failed: {err}")
                     if attempt < max_retries:
-                        time.sleep(min(15, 3 * attempt))
+                        time.sleep(min(10, 2 * attempt))
                     else:
-                        print(f"❌ All connection attempts failed: {err}")
+                        print(f"[ERROR] All connection attempts failed: {err}")
                         sys.exit(1)
         
-        try:
-            self.ftp.cwd("public_html")
-        except Exception:
-            pass
+        # Account root is already the website root directory
+        pass
 
     def ensure_connected(self):
         try:
@@ -64,35 +96,32 @@ class FTPUploader:
             self.connect()
 
     def create_dir_if_needed(self, remote_dir):
-        if not remote_dir:
+        if not remote_dir or remote_dir in self.known_remote_dirs:
             return
-        parts = remote_dir.strip("/").split("/")
+        parts = remote_dir.replace("\\", "/").strip("/").split("/")
         curr = ""
         for part in parts:
+            if not part:
+                continue
             curr = f"{curr}/{part}".strip("/")
-            try:
-                self.ftp.mkd(curr)
-            except Exception:
-                pass
+            if curr not in self.known_remote_dirs:
+                try:
+                    self.ftp.mkd(curr)
+                except Exception:
+                    pass
+                self.known_remote_dirs.add(curr)
 
-    def upload_file(self, local_path, remote_path, retries=5):
-        local_size = os.path.getsize(local_path)
-        
-        # Check size to skip already uploaded files
-        try:
-            remote_size = self.ftp.size(remote_path)
-            if remote_size == local_size:
-                return "skipped"
-        except Exception:
-            pass
+    def upload_file(self, local_path, remote_path, retries=3):
+        dir_name = os.path.dirname(remote_path).replace("\\", "/")
+        if dir_name:
+            self.create_dir_if_needed(dir_name)
 
         for attempt in range(1, retries + 1):
             try:
                 self.ensure_connected()
                 with open(local_path, "rb") as f:
                     self.ftp.storbinary(f"STOR {remote_path}", f)
-                time.sleep(0.02)  # Tiny pause to avoid socket exhaustion
-                return "uploaded"
+                return True
             except Exception as e:
                 print(f"\n[Warning] Attempt {attempt}/{retries} failed for {remote_path}: {e}")
                 time.sleep(attempt * 1.5)
@@ -100,10 +129,28 @@ class FTPUploader:
         
         raise RuntimeError(f"Failed to upload {remote_path} after {retries} attempts.")
 
-def collect_all_files(local_dir):
-    file_list = []
-    for root, dirs, files in os.walk(local_dir):
-        rel_dir = os.path.relpath(root, local_dir)
+def main():
+    if not os.path.exists(LOCAL_DIR):
+        print(f"Error: Build output directory '{LOCAL_DIR}' does not exist.")
+        print("Please run 'npm run build' first.")
+        sys.exit(1)
+
+    password = (
+        (sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("--") else None) or
+        os.environ.get("FTP_PASSWORD") or
+        "Allah512!!"
+    )
+
+    force_all = "--all" in sys.argv or "--force" in sys.argv
+    existing_manifest = load_manifest()
+    is_first_manifest = existing_manifest is None
+
+    manifest = existing_manifest if existing_manifest is not None else {}
+
+    # Collect all local files
+    all_local_files = []
+    for root, dirs, files in os.walk(LOCAL_DIR):
+        rel_dir = os.path.relpath(root, LOCAL_DIR).replace("\\", "/")
         if rel_dir == ".":
             rel_dir = ""
         for file in files:
@@ -111,59 +158,95 @@ def collect_all_files(local_dir):
                 continue
             local_path = os.path.join(root, file)
             remote_path = f"{rel_dir}/{file}".strip("/") if rel_dir else file
-            file_list.append((local_path, remote_path))
+            remote_path = remote_path.replace("\\", "/")
+            all_local_files.append((local_path, remote_path))
+
+    # Newly modified files in public to ensure they get uploaded
+    new_public_names = {
+        "f5c6d7cd01004daf8bfeaddec908cf92.txt",
+        "images/biology/bio_card3_crisp.png",
+        "images/biology/bio_card3_clean.png",
+        "images/blogs/igcse-maths-exam-pressure-points-uae.webp",
+        "images/blogs/maths-anxiety-teenager-uae.webp",
+        "images/blogs/parent-teen-calm-conversation-about-maths.webp",
+        "images/blogs/student-writing-worries-before-maths-test.webp",
+        "images/blogs/teenager-explaining-maths-step-aloud.webp",
+        "images/blogs/why-students-freeze-exam-questions-scaffolding-trap.jpg",
+        "images/blogs/why-students-freeze-exam-questions-scaffolding-trap.webp",
+        "images/blogs/retrieval-practice-4-step-protocol.webp",
+        "images/ustaad-online-orientation-session.jpg",
+    }
+
+    files_to_upload = []
+    already_synced_count = 0
+
+    print("Analyzing local files against deployment manifest...")
+    for local_path, remote_path in all_local_files:
+        current_md5 = calculate_md5(local_path)
+
+        # First run seed: if manifest didn't exist, we know untouched public static images are already on the server
+        if is_first_manifest and not force_all:
+            is_html = remote_path.endswith(".html")
+            is_asset = remote_path.startswith("assets/")
+            is_seo = remote_path in ["sitemap.xml", "robots.txt", "f5c6d7cd01004daf8bfeaddec908cf92.txt"]
+            is_new_public = any(remote_path.endswith(np) for np in new_public_names)
+
+            if not (is_html or is_asset or is_seo or is_new_public):
+                manifest[remote_path] = current_md5
+                already_synced_count += 1
+                continue
+
+        if not force_all and manifest.get(remote_path) == current_md5:
+            already_synced_count += 1
+        else:
+            files_to_upload.append((local_path, remote_path, current_md5))
 
     # Priority sort: assets & non-html first, html last
     def priority_sort(item):
-        _, remote_path = item
+        _, remote_path, _ = item
         if remote_path.startswith("assets/"):
             return (0, remote_path)
         if not remote_path.endswith(".html"):
             return (1, remote_path)
         return (2, remote_path)
 
-    return sorted(file_list, key=priority_sort)
+    files_to_upload.sort(key=priority_sort)
+    to_upload_count = len(files_to_upload)
 
-def main():
-    if not os.path.exists(LOCAL_DIR):
-        print(f"Error: Build output directory '{LOCAL_DIR}' does not exist.")
-        print("Please run 'npm run build' first.")
-        sys.exit(1)
+    print(f"\n============================================================")
+    print(f"Total Local Files : {len(all_local_files)}")
+    print(f"Already Synced    : {already_synced_count} (skipped instantly)")
+    print(f"Pending Upload    : {to_upload_count} (only new/modified)")
+    print(f"============================================================\n")
 
-    password = sys.argv[1] if len(sys.argv) > 1 else getpass.getpass(f"Enter FTP Password for {FTP_USER}: ")
+    if to_upload_count == 0:
+        print("[SUCCESS] All files are already up-to-date on the server!")
+        save_manifest(manifest)
+        return
 
-    all_files = collect_all_files(LOCAL_DIR)
-    total_count = len(all_files)
-    print(f"Found {total_count} files to synchronize from {LOCAL_DIR}.\n")
+    uploader = FastFTPUploader(FTP_HOST, FTP_PORT, FTP_USER, password)
 
-    uploader = FTPUploader(FTP_HOST, FTP_PORT, FTP_USER, password)
-    
-    # Pre-create all needed remote directories
-    created_dirs = set()
-    for _, remote_path in all_files:
-        dir_name = os.path.dirname(remote_path)
-        if dir_name and dir_name not in created_dirs:
-            uploader.create_dir_if_needed(dir_name)
-            created_dirs.add(dir_name)
-
-    print(f"\nStarting deployment...\n" + "=" * 60)
-    
     uploaded_count = 0
-    skipped_count = 0
+    start_time = time.time()
 
-    for idx, (local_path, remote_path) in enumerate(all_files, 1):
-        status = uploader.upload_file(local_path, remote_path)
-        pct = (idx / total_count) * 100
-        if status == "uploaded":
-            uploaded_count += 1
-            print(f"[{idx}/{total_count} - {pct:.1f}%] [UPLOADED] {remote_path}")
-        else:
-            skipped_count += 1
-            print(f"[{idx}/{total_count} - {pct:.1f}%] [EXISTS]   {remote_path}")
+    for idx, (local_path, remote_path, file_md5) in enumerate(files_to_upload, 1):
+        pct = (idx / to_upload_count) * 100
+        uploader.upload_file(local_path, remote_path)
+        manifest[remote_path] = file_md5
+        uploaded_count += 1
+        print(f"[{idx}/{to_upload_count} - {pct:.1f}%] [UPLOADED] {remote_path}")
 
+        # Save manifest progress every 15 files
+        if idx % 15 == 0:
+            save_manifest(manifest)
+
+    save_manifest(manifest)
+    elapsed = time.time() - start_time
+
+    print(f"\n" + "=" * 60)
+    print(f"[SUCCESS] Fast Deployment Complete in {elapsed:.1f}s!")
+    print(f"Uploaded: {uploaded_count} files | Skipped Unchanged: {already_synced_count} files")
     print("=" * 60)
-    print(f"🎉 Deployment Complete!")
-    print(f"Total Files: {total_count} | Uploaded: {uploaded_count} | Unchanged: {skipped_count}")
 
     try:
         uploader.ftp.quit()

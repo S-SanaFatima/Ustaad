@@ -25,7 +25,7 @@ const WA_URL =
 const THEME_GRADIENT = 'linear-gradient(90deg, #0f4a9b 0%, #1e5ba8 100%)';
 
 const BLOG = {
-  title: 'Winter Break Revision Plan for UAE Students 2026 | Ustaad',
+  title: 'Winter Break Revision Plan for UAE Students 2026-27 | Ustaad',
   h1: 'Winter Break Revision Plan for UAE Students: How to Rest, Reset and Be Ready for the New Term',
   titleLine1: 'Winter Break Revision Plan for UAE Students:',
   titleLine2: 'How to Rest, Reset and Be Ready for the New Term',
@@ -312,82 +312,6 @@ function TOC({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => void }
   );
 }
 
-/* IMAGE 2: Coded Reset, Repair, Rehearse timeline (navy & gold palette) */
-function ResetRepairRehearseTimeline() {
-  const weeks = [
-    {
-      step: 'WEEK 01',
-      dates: '14 to 20 Dec',
-      title: 'Reset',
-      summary: 'Proper rest and normal sleep. Gather marked papers and sort topics into red, amber and green.',
-      sessions: '3 sessions, 20 to 30 min',
-    },
-    {
-      step: 'WEEK 02',
-      dates: '21 to 27 Dec',
-      title: 'Repair',
-      summary: 'Active recall on red topics with the book closed, check against notes, fix gaps and log mistakes.',
-      sessions: '4 sessions, 45 to 60 min',
-    },
-    {
-      step: 'WEEK 03',
-      dates: '28 Dec to 3 Jan',
-      title: 'Rehearse',
-      summary: 'Mixed recall across topics, one timed section in exam conditions, and shift to school sleep times.',
-      sessions: '3 sessions, about 60 min',
-    },
-  ];
-
-  return (
-    <figure
-      className="my-7 text-left"
-      role="img"
-      aria-label="Three-week timeline showing Reset, Repair and Rehearse from 14 December to 3 January"
-    >
-      <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-[#0a1f3d] via-[#0f4a9b] to-[#07244f] text-white shadow-md border border-[#C7A24A]/30">
-        <div className="text-center mb-5">
-          <span className="text-[10px] font-mono font-bold tracking-widest text-[#f0c96a] uppercase bg-white/10 px-3 py-1 rounded-full border border-[#C7A24A]/30">
-            THREE-WEEK WINTER BREAK TIMELINE
-          </span>
-          <h3 className="text-base sm:text-lg font-extrabold text-white mt-2">
-            Reset, Repair, Rehearse (14 Dec to 3 Jan)
-          </h3>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 items-stretch">
-          {weeks.map((item) => (
-            <div
-              key={item.step}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-[#C7A24A]/30 flex flex-col justify-between h-full text-left"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-2.5">
-                  <span className="text-[10px] font-mono font-black text-[#0a1f3d] bg-[#f0c96a] px-2 py-0.5 rounded shrink-0">
-                    {item.step}
-                  </span>
-                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#f0c96a] whitespace-nowrap">
-                    <Calendar className="w-3.5 h-3.5 shrink-0" />
-                    {item.dates}
-                  </span>
-                </div>
-                <p className="text-base font-extrabold text-white mb-1.5 leading-snug">{item.title}</p>
-                <p className="text-xs text-blue-100 leading-relaxed mb-3.5 text-left">{item.summary}</p>
-              </div>
-              <div className="pt-2.5 border-t border-white/15 flex items-center gap-1.5 text-[11px] font-bold text-[#f0c96a] whitespace-nowrap">
-                <Clock className="w-3.5 h-3.5 shrink-0" />
-                <span>{item.sessions}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <figcaption className="mt-2.5 text-center text-xs text-gray-400 italic leading-relaxed px-2">
-        Three weeks, three jobs. The first one is rest.
-      </figcaption>
-    </figure>
-  );
-}
-
 /* IMAGE 3: Coded Red, Amber, Green topic sort */
 function RedAmberGreenTriageGraphic() {
   const columns = [
@@ -610,6 +534,7 @@ export default function WinterBreakRevisionPlanBlog() {
                 height={774}
                 className="w-full h-full object-cover block"
                 loading="eager"
+                fetchPriority="high"
               />
             </div>
             <figcaption className="mt-2 text-center text-xs text-gray-400 italic">
@@ -645,28 +570,56 @@ export default function WinterBreakRevisionPlanBlog() {
               Under the UAE Ministry of Education&apos;s three-year calendar, the 2026-27 winter break runs from Monday 14 December 2026 to Sunday 3 January 2027, with students returning on Monday 4 January 2027. That is 21 days, a week shorter than last year&apos;s four-week break (8 December 2025 to 4 January 2026). The spring break has also been trimmed to one week, from 5 to 11 April 2027, and the school year ends on 2 July 2027.
             </p>
             <p>
-              Most private schools follow this calendar, but some differ, so check your own school&apos;s dates.
+              Most private schools follow this calendar, but private schools in Sharjah and some Indian and Pakistani curriculum schools set their own dates, so check your school&apos;s calendar.
             </p>
 
-            <div className="my-5 overflow-x-auto rounded-2xl border border-slate-200 shadow-xs">
-              <table className="w-full text-left text-xs border-collapse">
-                <thead>
+            <div className="my-5 overflow-hidden rounded-2xl border border-slate-200 shadow-xs text-left">
+              <table className="block sm:table w-full text-left text-xs border-collapse">
+                <thead className="hidden sm:table-header-group">
                   <tr className="bg-[#0a1f3d] text-white">
-                    <th className="p-3 font-bold border-b border-slate-700">When</th>
-                    <th className="p-3 font-bold border-b border-slate-700">What happens</th>
-                    <th className="p-3 font-bold border-b border-slate-700">Why it matters</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[24%]">When</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[38%]">What happens</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[38%]">Why it matters</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 bg-white">
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b] whitespace-nowrap">14 Dec to 3 Jan</td>
-                    <td className="p-3 text-slate-700">Winter break (21 days)</td>
-                    <td className="p-3 text-slate-600">The longest window for focused catch-up in the school year</td>
+                <tbody className="block sm:table-row-group divide-y divide-slate-200 sm:divide-slate-100 bg-white">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="When"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      14 Dec to 3 Jan
+                    </td>
+                    <td
+                      data-label="What happens"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Winter break (21 days)
+                    </td>
+                    <td
+                      data-label="Why it matters"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      The longest window for focused catch-up in the school year
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b] whitespace-nowrap">From 4 Jan</td>
-                    <td className="p-3 text-slate-700">Term resumes. Mocks at many schools fall in January or February, but dates vary</td>
-                    <td className="p-3 text-slate-600">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="When"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      From 4 Jan
+                    </td>
+                    <td
+                      data-label="What happens"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Term resumes. Mocks at many schools fall in January or February, but dates vary
+                    </td>
+                    <td
+                      data-label="Why it matters"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
                       Results can feed predicted grades and tier decisions (see our guide to{' '}
                       <a href="/blogs/mock-exams-uae-not-what-they-were" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                         UAE mock exams
@@ -674,20 +627,65 @@ export default function WinterBreakRevisionPlanBlog() {
                       )
                     </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b] whitespace-nowrap">Around 8 Feb to early Mar</td>
-                    <td className="p-3 text-slate-700">Ramadan is expected, subject to moon sighting</td>
-                    <td className="p-3 text-slate-600">Routines shift, sessions get shorter</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="When"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Around 8 Feb to early Mar
+                    </td>
+                    <td
+                      data-label="What happens"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Ramadan is expected, subject to moon sighting
+                    </td>
+                    <td
+                      data-label="Why it matters"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Routines shift, sessions get shorter
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b] whitespace-nowrap">5 to 11 Apr</td>
-                    <td className="p-3 text-slate-700">Spring break (one week)</td>
-                    <td className="p-3 text-slate-600">Too short for a big catch-up</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="When"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      5 to 11 Apr
+                    </td>
+                    <td
+                      data-label="What happens"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Spring break (one week)
+                    </td>
+                    <td
+                      data-label="Why it matters"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Too short for a big catch-up
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b] whitespace-nowrap">May to June</td>
-                    <td className="p-3 text-slate-700">Main IGCSE and A-Level exam series</td>
-                    <td className="p-3 text-slate-600">The break is the last long stretch before the run-in</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="When"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      May to June
+                    </td>
+                    <td
+                      data-label="What happens"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Main IGCSE and A-Level exam series
+                    </td>
+                    <td
+                      data-label="Why it matters"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      The break is the last long stretch before the run-in
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -736,40 +734,94 @@ export default function WinterBreakRevisionPlanBlog() {
               Think of the break as three weeks, each with a different job.
             </p>
 
-            <div className="my-5 overflow-x-auto rounded-2xl border border-slate-200 shadow-xs">
-              <table className="w-full text-left text-xs border-collapse">
-                <thead>
+            <div className="my-5 overflow-hidden rounded-2xl border border-slate-200 shadow-xs text-left">
+              <table className="block sm:table w-full text-left text-xs border-collapse">
+                <thead className="hidden sm:table-header-group">
                   <tr className="bg-[#0a1f3d] text-white">
-                    <th className="p-3 font-bold border-b border-slate-700">Week</th>
-                    <th className="p-3 font-bold border-b border-slate-700">Job</th>
-                    <th className="p-3 font-bold border-b border-slate-700">What to do</th>
-                    <th className="p-3 font-bold border-b border-slate-700">Time</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[22%]">Week</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[12%]">Job</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[44%]">What to do</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[22%]">Time</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 bg-white">
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b] whitespace-nowrap">Week 1 (Mon 14 to Sun 20 Dec)</td>
-                    <td className="p-3 font-bold text-[#0a1f3d]">Reset</td>
-                    <td className="p-3 text-slate-600">
+                <tbody className="block sm:table-row-group divide-y divide-slate-200 sm:divide-slate-100 bg-white">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Week"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Week 1 (Mon 14 to Sun 20 Dec)
+                    </td>
+                    <td
+                      data-label="Job"
+                      className="block sm:table-cell sm:p-3.5 font-bold text-[#0a1f3d] sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Reset
+                    </td>
+                    <td
+                      data-label="What to do"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
                       A few days of proper rest and normal sleep. Gather marked papers and the mock topic list. Sort topics into red, amber and green (section 04). Two or three gentle recall sessions.
                     </td>
-                    <td className="p-3 text-slate-700 font-medium whitespace-nowrap">3 sessions, 20 to 30 min</td>
+                    <td
+                      data-label="Time"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 font-medium sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      3 sessions, 20 to 30 min
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b] whitespace-nowrap">Week 2 (Mon 21 to Sun 27 Dec)</td>
-                    <td className="p-3 font-bold text-[#0a1f3d]">Repair</td>
-                    <td className="p-3 text-slate-600">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Week"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Week 2 (Mon 21 to Sun 27 Dec)
+                    </td>
+                    <td
+                      data-label="Job"
+                      className="block sm:table-cell sm:p-3.5 font-bold text-[#0a1f3d] sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Repair
+                    </td>
+                    <td
+                      data-label="What to do"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
                       Work on the red topics: close the book, write what you remember, check against notes, fix the gaps, and record mistakes. Keep at least one full day of no revision.
                     </td>
-                    <td className="p-3 text-slate-700 font-medium whitespace-nowrap">4 sessions, 45 to 60 min</td>
+                    <td
+                      data-label="Time"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 font-medium sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      4 sessions, 45 to 60 min
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b] whitespace-nowrap">Week 3 (Mon 28 Dec to Sun 3 Jan)</td>
-                    <td className="p-3 font-bold text-[#0a1f3d]">Rehearse</td>
-                    <td className="p-3 text-slate-600">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Week"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Week 3 (Mon 28 Dec to Sun 3 Jan)
+                    </td>
+                    <td
+                      data-label="Job"
+                      className="block sm:table-cell sm:p-3.5 font-bold text-[#0a1f3d] sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Rehearse
+                    </td>
+                    <td
+                      data-label="What to do"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
                       Mixed recall across topics, then one timed section or paper in exam conditions (correct board and tier), marked honestly. Move to school-day sleep times from about 1 January.
                     </td>
-                    <td className="p-3 text-slate-700 font-medium">3 sessions, about 60 min, one of them timed</td>
+                    <td
+                      data-label="Time"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 font-medium sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      3 sessions, about 60 min, one of them timed
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -782,25 +834,53 @@ export default function WinterBreakRevisionPlanBlog() {
               <strong className="text-[#0a1f3d]">How much, by year group.</strong> These are starting points, not rules. If your school has set holiday work, do that first.
             </p>
 
-            <div className="my-5 overflow-x-auto rounded-2xl border border-slate-200 shadow-xs">
-              <table className="w-full text-left text-xs border-collapse">
-                <thead>
+            <div className="my-5 overflow-hidden rounded-2xl border border-slate-200 shadow-xs text-left">
+              <table className="block sm:table w-full text-left text-xs border-collapse">
+                <thead className="hidden sm:table-header-group">
                   <tr className="bg-[#0a1f3d] text-white">
-                    <th className="p-3 font-bold border-b border-slate-700">Year group</th>
-                    <th className="p-3 font-bold border-b border-slate-700">Suggested total across the break</th>
-                    <th className="p-3 font-bold border-b border-slate-700">Focus</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[24%]">Year group</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[34%]">Suggested total across the break</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[42%]">Focus</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 bg-white">
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">Years 7 and 8</td>
-                    <td className="p-3 text-slate-700">Light: reading and a few short tasks</td>
-                    <td className="p-3 text-slate-600">Keep curiosity alive. No formal revision needed</td>
+                <tbody className="block sm:table-row-group divide-y divide-slate-200 sm:divide-slate-100 bg-white">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Year group"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Years 7 and 8
+                    </td>
+                    <td
+                      data-label="Suggested total across the break"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Light: reading and a few short tasks
+                    </td>
+                    <td
+                      data-label="Focus"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Keep curiosity alive. No formal revision needed
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">Years 9 and 10</td>
-                    <td className="p-3 text-slate-700">About 3 to 4 hours</td>
-                    <td className="p-3 text-slate-600">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Year group"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Years 9 and 10
+                    </td>
+                    <td
+                      data-label="Suggested total across the break"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      About 3 to 4 hours
+                    </td>
+                    <td
+                      data-label="Focus"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
                       Fill gaps from term 1 and build the habit (see{' '}
                       <a href="/blogs/gcse-revision-tips-uae-parents" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
                         GCSE &amp; IGCSE revision tips
@@ -808,27 +888,69 @@ export default function WinterBreakRevisionPlanBlog() {
                       )
                     </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">Year 11</td>
-                    <td className="p-3 text-slate-700">About 8 to 10 hours</td>
-                    <td className="p-3 text-slate-600">Mock topics, weak areas, one timed section</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Year group"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Year 11
+                    </td>
+                    <td
+                      data-label="Suggested total across the break"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      About 8 to 10 hours
+                    </td>
+                    <td
+                      data-label="Focus"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Mock topics, weak areas, one timed section
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">Year 12</td>
-                    <td className="p-3 text-slate-700">About 6 to 8 hours</td>
-                    <td className="p-3 text-slate-600">Consolidate term 1 content and any set coursework</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Year group"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Year 12
+                    </td>
+                    <td
+                      data-label="Suggested total across the break"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      About 6 to 8 hours
+                    </td>
+                    <td
+                      data-label="Focus"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Consolidate term 1 content and any set coursework
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">Year 13 and IB Diploma</td>
-                    <td className="p-3 text-slate-700">About 10 to 12 hours, plus coursework or IA deadlines</td>
-                    <td className="p-3 text-slate-600">Mock preparation alongside applications and coursework</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Year group"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1.5 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Year 13 and IB Diploma
+                    </td>
+                    <td
+                      data-label="Suggested total across the break"
+                      className="block sm:table-cell sm:p-3.5 text-slate-700 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      About 10 to 12 hours, plus coursework or IA deadlines
+                    </td>
+                    <td
+                      data-label="Focus"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      Mock preparation alongside applications and coursework
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-
-            {/* IMAGE 2: Coded Reset, Repair, Rehearse Timeline */}
-            <ResetRepairRehearseTimeline />
           </div>
 
           {/* ── 04. Choosing what to revise ── */}
@@ -869,35 +991,6 @@ export default function WinterBreakRevisionPlanBlog() {
 
             {/* IMAGE 3: Coded Red, Amber, Green Topic Triage */}
             <RedAmberGreenTriageGraphic />
-
-            <div className="my-5 overflow-x-auto rounded-2xl border border-slate-200 shadow-xs">
-              <table className="w-full text-left text-xs border-collapse">
-                <thead>
-                  <tr className="bg-[#0a1f3d] text-white">
-                    <th className="p-3 font-bold border-b border-slate-700">Colour</th>
-                    <th className="p-3 font-bold border-b border-slate-700">Meaning</th>
-                    <th className="p-3 font-bold border-b border-slate-700">What to do</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 bg-white">
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-rose-700">Red</td>
-                    <td className="p-3 text-slate-700">Cannot do it without notes, or loses marks here repeatedly</td>
-                    <td className="p-3 text-slate-600">Revise first, and revisit at least twice during the break</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-amber-700">Amber</td>
-                    <td className="p-3 text-slate-700">Can do it slowly, or with errors</td>
-                    <td className="p-3 text-slate-600">One session each, then mark and log mistakes</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-emerald-700">Green</td>
-                    <td className="p-3 text-slate-700">Confident, accurate, quick</td>
-                    <td className="p-3 text-slate-600">A quick recall check only</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
 
             <p>
               <strong className="text-[#0a1f3d]">Put the highest-mark red topics first.</strong> Students naturally start with the topics they enjoy. A break plan works best when the first sessions go to the topics that are both weak and heavily marked.
@@ -961,36 +1054,68 @@ export default function WinterBreakRevisionPlanBlog() {
               Most UAE families travel at least part of the break. Plan around it, rather than pretending it will not happen.
             </p>
 
-            <div className="my-5 overflow-x-auto rounded-2xl border border-slate-200 shadow-xs">
-              <table className="w-full text-left text-xs border-collapse">
-                <thead>
+            <div className="my-5 overflow-hidden rounded-2xl border border-slate-200 shadow-xs text-left">
+              <table className="block sm:table w-full text-left text-xs border-collapse">
+                <thead className="hidden sm:table-header-group">
                   <tr className="bg-[#0a1f3d] text-white">
-                    <th className="p-3 font-bold border-b border-slate-700">Your situation</th>
-                    <th className="p-3 font-bold border-b border-slate-700">Plan</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[30%]">Your situation</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[70%]">Plan</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 bg-white">
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">Staying in the UAE</td>
-                    <td className="p-3 text-slate-600">
+                <tbody className="block sm:table-row-group divide-y divide-slate-200 sm:divide-slate-100 bg-white">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-1.5 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Your situation"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Staying in the UAE
+                    </td>
+                    <td
+                      data-label="Plan"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
                       Use mornings for revision, before the day&apos;s activities. Two or three blocks a week is enough. Do the full three-week plan
                     </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">Away for about a week</td>
-                    <td className="p-3 text-slate-600">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-1.5 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Your situation"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Away for about a week
+                    </td>
+                    <td
+                      data-label="Plan"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
                       Do Week 1 before you leave and part of Week 2 or 3 when you return. While away, one 20-minute recall session a day on a notebook or phone flashcards, with no heavy books
                     </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">Away for most of the break</td>
-                    <td className="p-3 text-slate-600">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-1.5 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Your situation"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Away for most of the break
+                    </td>
+                    <td
+                      data-label="Plan"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
                       Minimum plan: three 20 to 25-minute recall sessions a week, plus one 45-minute session in the last three days. Return to school-day sleep times before you fly back, if you can
                     </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">Anywhere with a stable connection</td>
-                    <td className="p-3 text-slate-600">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-1.5 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Your situation"
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Anywhere with a stable connection
+                    </td>
+                    <td
+                      data-label="Plan"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
                       Online 1-to-1 sessions can continue from wherever you are. Check your tutor&apos;s availability and time zones
                     </td>
                   </tr>
@@ -1004,8 +1129,8 @@ export default function WinterBreakRevisionPlanBlog() {
 
             {/* IMAGE 5: Travelling light */}
             <InlineImage
-              src="/images/blogs/student-revising-while-travelling-hotel-desk-v3.webp"
-              alt="UAE student reviewing notes and attending a 1-to-1 online session at a desk"
+              src="/images/blogs/teenager-revising-slim-folder-hotel-desk-winter-break.webp"
+              alt="Teenager revising from one slim folder at a hotel desk during the winter break"
               caption="One slim folder with priority topics and a few marked papers is enough when travelling."
             />
           </div>
@@ -1019,34 +1144,84 @@ export default function WinterBreakRevisionPlanBlog() {
               The best break plans are agreed together, not imposed. A five-minute conversation before the break saves a fortnight of arguments.
             </p>
 
-            <div className="my-5 overflow-x-auto rounded-2xl border border-slate-200 shadow-xs">
-              <table className="w-full text-left text-xs border-collapse">
-                <thead>
+            <div className="my-5 overflow-hidden rounded-2xl border border-slate-200 shadow-xs text-left">
+              <table className="block sm:table w-full text-left text-xs border-collapse">
+                <thead className="hidden sm:table-header-group">
                   <tr className="bg-[#0a1f3d] text-white">
-                    <th className="p-3 font-bold border-b border-slate-700">Agree on...</th>
-                    <th className="p-3 font-bold border-b border-slate-700">For example</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[28%]">Agree on...</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[72%]">For example</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 bg-white">
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">The revision window</td>
-                    <td className="p-3 text-slate-600">&ldquo;10:00 to 11:00 on Tuesday, Wednesday, Thursday and Sunday&rdquo;</td>
+                <tbody className="block sm:table-row-group divide-y divide-slate-200 sm:divide-slate-100 bg-white">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-1.5 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Agree on..."
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      The revision window
+                    </td>
+                    <td
+                      data-label="For example"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      &ldquo;10:00 to 11:00 on Tuesday, Wednesday, Thursday and Sunday&rdquo;
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">The minimum</td>
-                    <td className="p-3 text-slate-600">&ldquo;Three 25-minute recall sessions in week 1&rdquo;</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-1.5 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Agree on..."
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      The minimum
+                    </td>
+                    <td
+                      data-label="For example"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      &ldquo;Three 25-minute recall sessions in week 1&rdquo;
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">Protected rest</td>
-                    <td className="p-3 text-slate-600">&ldquo;Fridays and any day we are out all day&rdquo;</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-1.5 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Agree on..."
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      Protected rest
+                    </td>
+                    <td
+                      data-label="For example"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      &ldquo;Fridays and any day we are out all day&rdquo;
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">The phone</td>
-                    <td className="p-3 text-slate-600">&ldquo;In the hallway basket during sessions&rdquo;</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-1.5 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Agree on..."
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      The phone
+                    </td>
+                    <td
+                      data-label="For example"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      &ldquo;In the hallway basket during sessions&rdquo;
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 font-bold text-[#0f4a9b]">The check-in</td>
-                    <td className="p-3 text-slate-600">&ldquo;Sunday evening, ten minutes: what did you do and what&apos;s next?&rdquo;</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-1.5 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Agree on..."
+                      className="block sm:table-cell sm:p-3.5 font-extrabold text-[#0f4a9b] sm:align-top pb-1 sm:pb-3.5 border-b border-slate-100 sm:border-none"
+                    >
+                      The check-in
+                    </td>
+                    <td
+                      data-label="For example"
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      &ldquo;Sunday evening, ten minutes: what did you do and what&apos;s next?&rdquo;
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -1062,26 +1237,56 @@ export default function WinterBreakRevisionPlanBlog() {
 
             <p className="font-bold text-[#0a1f3d]">What to say:</p>
 
-            <div className="my-5 overflow-x-auto rounded-2xl border border-slate-200 shadow-xs">
-              <table className="w-full text-left text-xs border-collapse">
-                <thead>
+            <div className="my-5 overflow-hidden rounded-2xl border border-slate-200 shadow-xs text-left">
+              <table className="block sm:table w-full text-left text-xs border-collapse">
+                <thead className="hidden sm:table-header-group">
                   <tr className="bg-[#0a1f3d] text-white">
-                    <th className="p-3 font-bold border-b border-slate-700">Instead of...</th>
-                    <th className="p-3 font-bold border-b border-slate-700">Try...</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[45%]">Instead of...</th>
+                    <th className="p-3.5 font-bold border-b border-slate-700 align-top w-[55%]">Try...</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 bg-white">
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 text-slate-600 font-medium">&ldquo;You&apos;ll revise every day, no exceptions.&rdquo;</td>
-                    <td className="p-3 text-[#0f4a9b] font-semibold">&ldquo;Let&apos;s agree three or four short sessions and protect the rest.&rdquo;</td>
+                <tbody className="block sm:table-row-group divide-y divide-slate-200 sm:divide-slate-100 bg-white">
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Instead of..."
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 font-medium sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      &ldquo;You&apos;ll revise every day, no exceptions.&rdquo;
+                    </td>
+                    <td
+                      data-label="Try..."
+                      className="block sm:table-cell sm:p-3.5 text-[#0f4a9b] font-semibold sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-[#0f4a9b]/60 before:mb-0.5 sm:before:hidden"
+                    >
+                      &ldquo;Let&apos;s agree three or four short sessions and protect the rest.&rdquo;
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 text-slate-600 font-medium">&ldquo;You&apos;ve done nothing all week!&rdquo;</td>
-                    <td className="p-3 text-[#0f4a9b] font-semibold">&ldquo;What&apos;s one 25-minute thing you could do before lunch?&rdquo;</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Instead of..."
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 font-medium sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      &ldquo;You&apos;ve done nothing all week!&rdquo;
+                    </td>
+                    <td
+                      data-label="Try..."
+                      className="block sm:table-cell sm:p-3.5 text-[#0f4a9b] font-semibold sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-[#0f4a9b]/60 before:mb-0.5 sm:before:hidden"
+                    >
+                      &ldquo;What&apos;s one 25-minute thing you could do before lunch?&rdquo;
+                    </td>
                   </tr>
-                  <tr className="hover:bg-slate-50/80">
-                    <td className="p-3 text-slate-600 font-medium">&ldquo;Your friends are all revising.&rdquo;</td>
-                    <td className="p-3 text-[#0f4a9b] font-semibold">&ldquo;What would make this break feel balanced for you?&rdquo;</td>
+                  <tr className="block sm:table-row p-4 sm:p-0 space-y-2 sm:space-y-0 hover:bg-slate-50/80">
+                    <td
+                      data-label="Instead of..."
+                      className="block sm:table-cell sm:p-3.5 text-slate-600 font-medium sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-slate-400 before:mb-0.5 sm:before:hidden"
+                    >
+                      &ldquo;Your friends are all revising.&rdquo;
+                    </td>
+                    <td
+                      data-label="Try..."
+                      className="block sm:table-cell sm:p-3.5 text-[#0f4a9b] font-semibold sm:align-top before:content-[attr(data-label)] before:block before:text-[10px] before:font-extrabold before:uppercase before:tracking-wider before:text-[#0f4a9b]/60 before:mb-0.5 sm:before:hidden"
+                    >
+                      &ldquo;What would make this break feel balanced for you?&rdquo;
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -1095,7 +1300,7 @@ export default function WinterBreakRevisionPlanBlog() {
             <InlineImage
               src="/images/blogs/family-winter-break-rest-outdoors-uae-v3.webp"
               alt="UAE student completing a short winter break session while parents relax nearby in a Dubai home"
-              caption="Protecting proper rest and family time makes the short revision blocks far more effective."
+              caption="A short session fits around family time, not in place of it."
             />
           </div>
 
@@ -1231,10 +1436,37 @@ export default function WinterBreakRevisionPlanBlog() {
           </SectionHeading>
           <div className="text-xs sm:text-sm text-slate-600 space-y-2.5 leading-relaxed my-4 bg-[#f8fafd] p-5 rounded-2xl border border-slate-200">
             <p>
-              <strong>UAE Ministry of Education:</strong> Academic calendar for public and private schools, 2026-27 to 2028-29 (winter break 14 December 2026 to 3 January 2027, spring break 5 to 11 April 2027).
+              <strong>UAE Ministry of Education:</strong>{' '}
+              <a
+                href="https://www.moe.gov.ae/En/MediaCenter/News/Pages/MOE-announces-the-academic-calendar-for-the-next-3-years.aspx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]"
+              >
+                Academic calendar for public and private schools, 2026-27 to 2028-29
+              </a>{' '}
+              (winter break 14 December 2026 to 3 January 2027, spring break 5 to 11 April 2027).
             </p>
             <p>
-              <strong>Gulf News:</strong> UAE approves school dates for 2026-2029 across public and private sectors, and UAE school calendar 2026-2029: holidays and key exceptions explained.
+              <strong>Gulf News:</strong>{' '}
+              <a
+                href="https://gulfnews.com/uae/education/uae-approves-school-dates-for-2026-2029-across-public-and-private-sectors-1.500453075"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]"
+              >
+                UAE approves school dates for 2026-2029 across public and private sectors
+              </a>
+              , and{' '}
+              <a
+                href="https://gulfnews.com/uae/education/uae-school-calendar-20262029-holidays-key-exceptions-explained-1.500453522"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]"
+              >
+                UAE school calendar 2026-2029: holidays and key exceptions explained
+              </a>
+              .
             </p>
             <p>
               <strong>Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., &amp; Rohrer, D. (2006).</strong> Distributed practice in verbal recall tasks: A review and quantitative synthesis. <em>Psychological Bulletin</em>.
@@ -1251,33 +1483,21 @@ export default function WinterBreakRevisionPlanBlog() {
             <p>
               <strong>Gollwitzer, P. M., &amp; Sheeran, P. (2006).</strong> Implementation intentions and goal achievement: A meta-analysis of effects and processes. <em>Advances in Experimental Social Psychology</em>.
             </p>
-            <p>
-              <strong>Related:</strong>{' '}
-              <a href="/blogs/mock-exams-uae-not-what-they-were" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
-                UAE Mock Exams: Why They Count More Than Before
-              </a>
-            </p>
-            <p>
-              <strong>Related:</strong>{' '}
-              <a href="/blogs/gcse-revision-tips-uae-parents" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">
-                GCSE &amp; IGCSE Revision Tips for UAE Parents
-              </a>
-            </p>
           </div>
 
-          {/* CTA block: Diagnostic Session */}
+          {/* CTA block: First Session */}
           <div
             className="my-10 rounded-2xl p-6 sm:p-8 border border-white/10 text-white text-center relative overflow-hidden shadow-xl"
             style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 60%, #1e5ba8 100%)' }}
           >
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#C7A24A]/20 border border-[#C7A24A]/30 text-[#f0c96a] rounded-full mb-3 text-[10px] font-extrabold tracking-wider uppercase">
-              DIAGNOSTIC SESSION
+              FIRST SESSION
             </div>
             <h3 className="text-lg sm:text-2xl font-extrabold text-white mb-2 leading-snug max-w-xl mx-auto">
               Want a break plan built around your child&apos;s mock topics?
             </h3>
             <p className="text-xs sm:text-sm text-white/85 leading-relaxed mb-6 max-w-lg mx-auto">
-              Every first Ustaad lesson starts with 15 free minutes to pinpoint the gaps and agree where to focus next. Sessions are online and 1-to-1, for families in every emirate, so they can continue from wherever you spend the break. No commitment. Cancel anytime.
+              Every first 1-hour lesson includes a free 15-minute orientation, so your child and their tutor can agree where to focus first. Sessions are online and 1-to-1, for families in every emirate, so they can continue from wherever you spend the break. No commitment. Cancel anytime.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
               <a

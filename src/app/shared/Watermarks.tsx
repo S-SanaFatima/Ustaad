@@ -1,9 +1,9 @@
 export const BritishLandmarkWatermark = ({ className = "" }: { className?: string }) => (
-  <img src="/british.png" alt="" aria-hidden="true" className={className} style={{ objectFit: 'contain', opacity: 0.15, filter: 'brightness(0) saturate(100%) invert(22%) sepia(85%) saturate(1500%) hue-rotate(195deg) brightness(90%) contrast(95%)' }} />
+  <img src="/british.png" alt="British Curriculum Big Ben Landmark" aria-hidden="true" className={className} style={{ objectFit: 'contain' }} />
 );
 
 export const AmericanLandmarkWatermark = ({ className = "" }: { className?: string }) => (
-  <img src="/american.png" alt="" aria-hidden="true" className={className} style={{ objectFit: 'contain', opacity: 0.15, filter: 'brightness(0) saturate(100%) invert(22%) sepia(85%) saturate(1500%) hue-rotate(195deg) brightness(90%) contrast(95%)' }} />
+  <img src="/american.png" alt="American Curriculum Statue of Liberty Landmark" aria-hidden="true" className={className} style={{ objectFit: 'contain' }} />
 );
 
 export const IBWorldWatermark = ({ className = "" }: { className?: string }) => (

@@ -94,6 +94,9 @@ RewriteRule ^index\.html$ - [L]
 
 # --- Early 301 Redirects (Take precedence over physical files & prerendered directories) ---
 RewriteRule ^curriculum/ib-tutor-dubai/?$ /ib-tutor-dubai [R=301,L]
+RewriteRule ^igcse-a-level/?$ /igcse [R=301,L]
+RewriteRule ^igcse-a-levels/?$ /igcse [R=301,L]
+RewriteRule ^a-levels/?$ /a-level [R=301,L]
 RewriteRule ^subjects/biology-tutor-dubai/?$ /biology-tutor-dubai [R=301,L]
 
 # --- 1. Real Existing Files (Images, WebP, JS, CSS, fonts, direct .html) → Serve as-is immediately ---

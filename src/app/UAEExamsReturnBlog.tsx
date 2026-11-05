@@ -838,7 +838,7 @@ export default function UAEExamsReturnBlog() {
                 A short diagnostic session does one thing: it puts your child in front of a timed section of their own board&apos;s paper, marks it honestly, and tells you which of the five skills above needs work. No teaching on the first day. Just a clear picture of where the gap is.
               </p>
               <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                We match students across the UAE with tutors who know their exact board and tier (Cambridge, Pearson Edexcel, OxfordAQA or IB) in Dubai, Abu Dhabi, Sharjah and every emirate, in person or online. If you have never hired support before,{' '}
+                We match students across the UAE with tutors who know their exact board and tier (Cambridge, Pearson Edexcel, OxfordAQA or IB) in Dubai, Abu Dhabi, Sharjah and every emirate, all online. If you have never hired support before,{' '}
                 <a href="/blogs/10-questions-hiring-private-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">ten honest questions to ask first</a>{' '}
                 will help you judge the fit. Abu Dhabi families looking for British-curriculum timing practice can also start with{' '}
                 <a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">IGCSE tutoring in Abu Dhabi</a>{' '}

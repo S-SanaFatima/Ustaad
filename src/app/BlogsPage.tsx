@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'chatgpt-for-studying-does-ai-hurt-memory',
+    image: '/images/blogs/chatgpt-for-studying-teenager-uae.webp',
+    alt: 'Teenage student at a desk with a notebook and a laptop, deciding whether to try the problem first',
+    category: 'Psychology of Learning',
+    title: 'ChatGPT for Studying: Does AI Hurt Memory? How UAE Students Can Use It the Smart Way',
+    description: "Does ChatGPT hurt students' memory? See what research shows, plus 6 rules to use AI for revision without losing what you learn. A guide for UAE families.",
+    date: '2 Nov 2026',
+    readTime: '11 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'winter-break-revision-plan-uae-students',
     image: '/images/blogs/winter-break-revision-plan-uae-family.webp',
     alt: 'Parent and teenager agreeing a winter break revision plan at a table with morning light',
@@ -66,11 +78,11 @@ export const BLOGS: BlogPost[] = [
     image: '/images/blogs/how-to-read-examiner-reports-igcse-a-level-hero.webp',
     alt: 'Secondary school student in the UAE reviewing an official Cambridge examiner report alongside past paper questions',
     category: 'Academic',
-    title: "How to Read an Examiner's Report: The Secret Document That Turns B Grades into A*s",
-    description: "Mark schemes tell you what the answer is. Examiner reports tell you why thousands of students lost marks on it. Here is how Cambridge, Edexcel, and IB students in the UAE can use them to stop bleeding marks.",
+    title: 'How to Read an Examiner Report for IGCSE, A-Level and IB',
+    description: 'Mark schemes tell you what the answer is. Examiner reports tell you why students lost marks on it. Here is how Cambridge, Edexcel and IB students in the UAE can use them after every past paper.',
     date: '26 Oct 2026',
     readTime: '10 min read',
-    author: 'Nimra Shahzada',
+    author: 'Ustaad Subject Specialists',
     featured: true,
   },
   {

@@ -73,6 +73,7 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
       cityHref: '/tutors?city=al-ain',
       tutors: [
         { label: 'A-Level Tutor Al Ain', href: '/a-level-tutor-al-ain' },
+        { label: 'IGCSE Tutor Al Ain', href: '/igcse-tutor-al-ain' },
       ],
     },
     {
@@ -147,7 +148,7 @@ export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string }
   ];
 
   const socialLinks = [
-    { label: 'Facebook', href: 'https://www.facebook.com/ustaadAE', bgColor: 'bg-[#1877F2]', icon: Facebook },
+    { label: 'Facebook', href: 'https://www.facebook.com/share/1DaNLFKHg1/', bgColor: 'bg-[#1877F2]', icon: Facebook },
     { label: 'Instagram', href: 'https://www.instagram.com/ustaad.ae', bgColor: 'bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737]', icon: Instagram },
     { label: 'X/Twitter', href: 'https://x.com/ustaadAE', bgColor: 'bg-black', icon: Twitter },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/company/ustaaduae/', bgColor: 'bg-[#0A66C2]', icon: Linkedin },
