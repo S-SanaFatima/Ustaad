@@ -1146,6 +1146,18 @@ export const ROUTES: RouteConfig[] = [
     ]
   },
   {
+    path: '/blogs/area-under-graph-meaning-physics-maths',
+    component: 'AreaUnderGraphBlog',
+    seo: {
+      title: 'Area Under a Graph: What It Means in Physics & Maths | Ustaad',
+      description: 'What the area under a velocity-time, force-extension or current-time graph represents, how to calculate it, and how to estimate it under curves. IGCSE, GCSE and A-Level.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-11-06'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic', url: '/blogs/academic-exam-skills' }, { name: 'Area Under a Graph', url: '/blogs/area-under-graph-meaning-physics-maths' }]
+  },
+  {
     path: '/blogs/chatgpt-for-studying-does-ai-hurt-memory',
     component: 'ChatGPTForStudyingBlog',
     seo: {

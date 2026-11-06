@@ -15,7 +15,7 @@ const BLOG = {
   heroAlt: 'Secondary student in Dubai attending an online one-to-one tutoring session with a specialist teacher explaining motion formulas on a digital board',
   heroCaption: 'One-to-one online coaching breaks down the physical meaning behind kinematics formulas and graph gradients.',
   datePublished: '2026-09-18',
-  dateModified: '2026-09-18',
+  dateModified: '2026-11-06',
   author: 'Tabraiz Khan',
   authorFull: 'Tabraiz Khan | Cambridge Certified Maths & Physics Specialist, Ustaad UAE',
   authorUrl: '/tutors/tabraiz-khan',
@@ -715,7 +715,10 @@ export default function WhatDoesGradientMeanBlog() {
             <p>That one sentence is worth more at exam time than another hour of practising the calculation itself, because the calculation was never the part students were losing marks on. Once a student checks the axes before they touch the formula, distance-time, velocity-time, and every other graph they meet (in maths, physics, economics, or biology) starts reading the same way. To understand how starting values behave and avoid common extrapolation mistakes, explore our companion guide on{' '}
               <a href="/blogs/what-does-y-intercept-mean-maths" className="text-[#0f4a9b] font-semibold hover:underline">
                 the other number in y = mx + c
-              </a>.
+              </a>. And once the gradient makes sense, the next step is{' '}
+              <a href="/blogs/area-under-graph-meaning-physics-maths" className="text-[#0f4a9b] font-semibold hover:underline">
+                what the area under a graph means
+              </a>, which turns a velocity-time graph into a distance.
             </p>
             
             <p>Ustaad supports Maths and Physics students across the UAE through diagnostic, concept-led learning aligned to IGCSE, A-Level, and IB curricula.{' '}

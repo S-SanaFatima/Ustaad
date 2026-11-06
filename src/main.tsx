@@ -99,9 +99,12 @@ const loadWhyStudentsFreezeExamQuestionsBlog = () => import('./app/WhyStudentsFr
 const loadHowToReadExaminerReportsBlog = () => import('./app/HowToReadExaminerReportsBlog');
 const loadWinterBreakRevisionPlanBlog = () => import('./app/WinterBreakRevisionPlanBlog');
 const loadChatGPTForStudyingBlog = () => import('./app/ChatGPTForStudyingBlog');
+const loadAreaUnderGraphBlog = () => import('./app/AreaUnderGraphBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
+  '/blogs/area-under-graph-meaning-physics-maths': loadAreaUnderGraphBlog,
+  '/blog/area-under-graph-meaning-physics-maths': loadAreaUnderGraphBlog,
   '/blogs/chatgpt-for-studying-does-ai-hurt-memory': loadChatGPTForStudyingBlog,
   '/blog/chatgpt-for-studying-does-ai-hurt-memory': loadChatGPTForStudyingBlog,
   '/blogs/winter-break-revision-plan-uae-students': loadWinterBreakRevisionPlanBlog,
@@ -281,6 +284,7 @@ const WhyStudentsFreezeExamQuestionsBlog = lazy(loadWhyStudentsFreezeExamQuestio
 const HowToReadExaminerReportsBlog = lazy(loadHowToReadExaminerReportsBlog);
 const WinterBreakRevisionPlanBlog = lazy(loadWinterBreakRevisionPlanBlog);
 const ChatGPTForStudyingBlog = lazy(loadChatGPTForStudyingBlog);
+const AreaUnderGraphBlog = lazy(loadAreaUnderGraphBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
@@ -420,6 +424,8 @@ function AppRoutes() {
           <Route path="/blog/winter-break-revision-plan-uae-students" element={<WinterBreakRevisionPlanBlog />} />
           <Route path="/blogs/chatgpt-for-studying-does-ai-hurt-memory" element={<ChatGPTForStudyingBlog />} />
           <Route path="/blog/chatgpt-for-studying-does-ai-hurt-memory" element={<ChatGPTForStudyingBlog />} />
+          <Route path="/blogs/area-under-graph-meaning-physics-maths" element={<AreaUnderGraphBlog />} />
+          <Route path="/blog/area-under-graph-meaning-physics-maths" element={<AreaUnderGraphBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
 
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />

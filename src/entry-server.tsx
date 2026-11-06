@@ -58,6 +58,7 @@ import WhyStudentsFreezeExamQuestionsBlog from "./app/WhyStudentsFreezeExamQuest
 import HowToReadExaminerReportsBlog from "./app/HowToReadExaminerReportsBlog.tsx";
 import WinterBreakRevisionPlanBlog from "./app/WinterBreakRevisionPlanBlog.tsx";
 import ChatGPTForStudyingBlog from "./app/ChatGPTForStudyingBlog.tsx";
+import AreaUnderGraphBlog from "./app/AreaUnderGraphBlog.tsx";
 
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
 import MathsPage from "./app/MathsPage.tsx";
@@ -170,6 +171,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   HowToReadExaminerReportsBlog,
   WinterBreakRevisionPlanBlog,
   ChatGPTForStudyingBlog,
+  AreaUnderGraphBlog,
   IllusionOfCompetenceBlog,
   CommandWordsBlog,
   SleepAndMemoryBlog,

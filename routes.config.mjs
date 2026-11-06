@@ -71,7 +71,7 @@ export const ROUTES = [
   { path: '/blogs/igcse-preparation-past-papers-final-step', component: 'IGCSEPreparationPastPapersBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-27' },
   { path: '/blogs/gcse-revision-tips-uae-parents', component: 'GCSERevisionTipsParentsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-31' },
   { path: '/blogs/mock-exams-uae-not-what-they-were', component: 'MockExamsUAEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-14' },
-  { path: '/blogs/what-does-gradient-mean-maths-physics', component: 'WhatDoesGradientMeanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-18' },
+  { path: '/blogs/what-does-gradient-mean-maths-physics', component: 'WhatDoesGradientMeanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-06' },
   { path: '/blogs/illusion-of-competence-revision-false-confidence', component: 'IllusionOfCompetenceBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-21' },
   { path: '/blogs/command-words-igcse-a-level-exams', component: 'CommandWordsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-25' },
   { path: '/blogs/sleep-and-memory-why-all-nighters-backfire', component: 'SleepAndMemoryBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-28' },
@@ -85,6 +85,7 @@ export const ROUTES = [
   { path: '/blogs/how-to-read-examiner-reports-igcse-a-level', component: 'HowToReadExaminerReportsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-26' },
   { path: '/blogs/winter-break-revision-plan-uae-students', component: 'WinterBreakRevisionPlanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-30' },
   { path: '/blogs/chatgpt-for-studying-does-ai-hurt-memory', component: 'ChatGPTForStudyingBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-02' },
+  { path: '/blogs/area-under-graph-meaning-physics-maths', component: 'AreaUnderGraphBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-06' },
 
   // City × subject landings
   { path: '/maths-tutor-abu-dhabi', component: 'MathematicsLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },

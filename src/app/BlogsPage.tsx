@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'area-under-graph-meaning-physics-maths',
+    image: '/images/blogs/area-under-velocity-time-graph-hero.jpg',
+    alt: 'Velocity-time graph with the area under the line shaded and split into a triangle, a rectangle and a second triangle',
+    category: 'Academic',
+    title: 'What Does the Area Under a Graph Mean? Velocity-Time, Force-Extension and More, Explained',
+    description: 'What the area under a velocity-time, force-extension or current-time graph represents, how to calculate it, and how to estimate it under curves.',
+    date: '6 Nov 2026',
+    readTime: '9 min read',
+    author: 'Tabraiz Khan',
+    featured: true,
+  },
+  {
     slug: 'chatgpt-for-studying-does-ai-hurt-memory',
     image: '/images/blogs/chatgpt-for-studying-teenager-uae.webp',
     alt: 'Teenage student at a desk with a notebook and a laptop, deciding whether to try the problem first',
