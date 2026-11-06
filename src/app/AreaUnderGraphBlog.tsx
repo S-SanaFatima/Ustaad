@@ -437,9 +437,9 @@ export default function AreaUnderGraphBlog() {
               sameAs: 'https://www.linkedin.com/company/ustaad-ae',
             },
             reviewer: {
-              name: 'Nida Iqbal',
-              url: '/authors/nida-iqbal',
-              jobTitle: 'MPhil in Education Leadership and Management',
+              name: 'Nimra Shahzada',
+              url: '/authors/nimra-shahzada',
+              jobTitle: 'Content Lead & Academic Consultant, Ustaad UAE',
               sameAs: 'https://www.linkedin.com/company/ustaad-ae',
             },
             image: BLOG.heroImage,
@@ -497,9 +497,9 @@ export default function AreaUnderGraphBlog() {
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   <span className="font-medium">Reviewed by:</span>{' '}
-                  <a href="/authors/nida-iqbal" className="text-[#0f4a9b] font-semibold underline">Nida Iqbal</a>
+                  <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline">Nimra Shahzada</a>
                   <span className="block sm:inline">
-                    {' '}<a href="/authors/nida-iqbal" className="text-gray-500 hover:text-[#0f4a9b]">| MPhil in Education Leadership and Management</a>
+                    {' '}<a href="/authors/nimra-shahzada" className="text-gray-500 hover:text-[#0f4a9b]">| Content Lead &amp; Academic Consultant, Ustaad UAE</a>
                   </span>
                 </span>
               </div>
@@ -789,9 +789,9 @@ export default function AreaUnderGraphBlog() {
                 <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#A8892A] border border-[#C7A24A]/20 bg-[#C7A24A]/6">Reviewed By</span>
               </div>
               <p className="font-extrabold text-[#0a1f3d] text-sm mb-1 pr-24 mt-4">
-                <a href="/authors/nida-iqbal" className="hover:text-[#0f4a9b] hover:underline">Nida Iqbal</a> | MPhil in Education Leadership and Management
+                <a href="/authors/nimra-shahzada" className="hover:text-[#0f4a9b] hover:underline">Nimra Shahzada</a> | Content Lead &amp; Academic Consultant
               </p>
-              <p className="text-xs text-gray-500 leading-relaxed text-justify">Nida Iqbal reviewed this article for pedagogical accuracy, checking the worked examples and terminology against Cambridge IGCSE, Edexcel GCSE and A-Level Physics and Maths specifications.</p>
+              <p className="text-xs text-gray-500 leading-relaxed text-justify">Nimra Shahzada reviewed this article as part of Ustaad’s editorial process, checking that each explanation is clear and easy to follow for students and parents. She holds a Bachelor’s degree in Psychology and leads content at Ustaad UAE.</p>
             </div>
           </div>
 
@@ -808,20 +808,18 @@ export default function AreaUnderGraphBlog() {
             <p className="text-white/80 mb-5 max-w-lg mx-auto text-sm leading-relaxed">
               Work one-to-one with Cambridge Certified specialist <a href="/tutors/tabraiz-khan" className="text-[#F5D77F] font-bold underline hover:text-white">Tabraiz Khan</a> to master graph questions, from gradients to areas, across IGCSE, GCSE, A-Level and IB Maths &amp; Physics.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-3">
-              <div className="flex flex-col items-center gap-1.5">
-                <a href="/contact#form"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-bold text-white hover:brightness-110 transition text-sm shadow-md"
-                  style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                  Book First Session with Tabraiz
-                </a>
-                <p className="text-xs text-white/60 font-medium">No commitment · Cancel anytime</p>
-              </div>
-              <a href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20first%20session%20with%20Tabraiz%20Khan%20for%20Physics." target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] border border-transparent rounded-full font-bold text-white transition text-sm shadow-md">
-                <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="WhatsApp" className="h-4 w-4" /> WhatsApp for Physics with Tabraiz
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
+              <a href="/contact#form"
+                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto sm:min-w-[210px] h-11 px-6 rounded-full font-bold text-white hover:brightness-110 transition text-sm shadow-md whitespace-nowrap"
+                style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
+                Book First Session
+              </a>
+              <a href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20first%20session%20with%20Tabraiz%20Khan%20for%20Physics." target="_blank" rel="noopener noreferrer" aria-label="Book a first session with Tabraiz Khan on WhatsApp"
+                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto sm:min-w-[210px] h-11 px-6 bg-[#25D366] hover:bg-[#20bd5a] rounded-full font-bold text-white transition text-sm shadow-md whitespace-nowrap">
+                <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="" className="h-4 w-4" /> WhatsApp Tabraiz
               </a>
             </div>
+            <p className="mt-3 text-xs text-white/60 font-medium">No commitment · Cancel anytime</p>
           </div>
 
           <div className="mt-6 mb-8 px-4 py-4 rounded-2xl bg-[#f8fafd] border border-[#0f4a9b]/10 text-center">
