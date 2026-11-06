@@ -14,7 +14,7 @@
 | Problem | Effect on indexing | Fix |
 | :--- | :--- | :--- |
 | Footer city links (all 17 Abu Dhabi, Dubai and Al Ain landing pages) were only rendered after a click | The prerendered HTML Googlebot reads had **zero** sitewide links to the highest-value commercial pages. Each one relied on 3 to 12 in-content links. | `Footer.tsx` now always renders the lists and collapses them with CSS. Every page now links to all 17 city pages. |
-| Blog hub linked only to the 3 category pages | New posts were 2 clicks from the hub and 3 from the homepage, so they waited longer in "Discovered, not indexed". | `BlogsPage.tsx` now shows the 8 newest posts, so each new article is 1 click from the hub. |
+| Blog hub linked only to the 3 category pages | New posts were 2 clicks from the hub and 3 from the homepage, so they waited longer in "Discovered, not indexed". | A latest-posts list was added, then removed on 6 Nov 2026 at the owner's request. New posts still reach Google through the category pages, the sitemap and IndexNow. |
 | `npm run index` pointed at `google_indexer.mjs`, which does not exist | The command failed silently for anyone following it. | Now runs the IndexNow script for pages changed in the last 3 days. `npm run index:all` sends every URL. |
 | IndexNow was manual only | Bing, Yandex, Seznam and Naver learned about new pages only when someone remembered to ping. | The deploy workflow now pings IndexNow after every FTP deploy for pages whose `lastmod` is in the last 3 days. |
 
