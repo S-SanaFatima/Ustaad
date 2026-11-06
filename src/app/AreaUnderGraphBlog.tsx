@@ -533,7 +533,7 @@ export default function AreaUnderGraphBlog() {
           <div className="text-gray-700 text-sm lg:text-[15px] leading-[1.8] [&_p]:text-justify [&_p]:mb-3 [&_li]:text-justify break-words">
 
             {/* Quick answer for featured snippets */}
-            <div className="my-5 p-4 rounded-xl bg-[#0a1f3d] text-white">
+            <div className="my-5 p-4 rounded-xl text-white shadow-md" style={{ background: THEME_GRADIENT }}>
               <span className="block text-[10px] uppercase tracking-[0.14em] text-[#F5D77F] font-extrabold mb-1.5">Quick Answer</span>
               <p className="!text-left !mb-0 text-[13.5px] leading-relaxed text-white/90">
                 The area under a graph is the y-quantity multiplied by the x-quantity. On a <strong className="text-white">velocity-time graph</strong> it is the <strong className="text-white">distance travelled</strong> (m/s × s = m). On a <strong className="text-white">force-extension graph</strong> it is the <strong className="text-white">work done</strong>, or elastic potential energy (N × m = J). On a <strong className="text-white">current-time graph</strong> it is the <strong className="text-white">charge</strong> that flowed (A × s = C).
@@ -814,9 +814,9 @@ export default function AreaUnderGraphBlog() {
                 style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
                 Book First Session
               </a>
-              <a href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20first%20session%20with%20Tabraiz%20Khan%20for%20Physics." target="_blank" rel="noopener noreferrer" aria-label="Book a first session with Tabraiz Khan on WhatsApp"
+              <a href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20first%20Physics%20session." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Ustaad to book a first session"
                 className="inline-flex items-center justify-center gap-2 w-full sm:w-auto sm:min-w-[210px] h-11 px-6 bg-[#25D366] hover:bg-[#20bd5a] rounded-full font-bold text-white transition text-sm shadow-md whitespace-nowrap">
-                <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="" className="h-4 w-4" /> WhatsApp Tabraiz
+                <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="" className="h-4 w-4" /> WhatsApp Us
               </a>
             </div>
             <p className="mt-3 text-xs text-white/60 font-medium">No commitment · Cancel anytime</p>
