@@ -23,7 +23,7 @@ import { Layout, WhatsAppIcon, SwipeIndicator } from './shared';
 
 
 import SEOHead from './shared/SEOHead';
-import { breadcrumbSchema, faqSchema, localBusinessSchema, personSchema } from './shared/schemas';
+import { breadcrumbSchema, faqSchema, localBusinessSchema, profilePageSchema } from './shared/schemas';
 import { getTutorBySlug, TUTORS } from '../content/tutors';
 
 const aboutSectionContainerVariants: Variants = {
@@ -279,7 +279,7 @@ export default function TutorProfilePage({ tutorSlug }: { tutorSlug?: string }) 
   const schemas = [
     localBusinessSchema,
     breadcrumbSchema(breadcrumbs),
-    personSchema({
+    profilePageSchema({
       name: tutor.name,
       url: `https://ustaad.ae/tutors/${tutor.slug}`,
       image: `https://ustaad.ae${tutor.photo}`,

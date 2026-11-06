@@ -963,6 +963,17 @@ export default function ALevelTutorAlAinPage() {
       '@id': 'https://ustaad.ae/#organization',
       name: 'Ustaad',
       url: 'https://ustaad.ae'
+    },
+    url: 'https://ustaad.ae/a-level-tutor-al-ain',
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'online',
+      courseWorkload: 'PT1H'
+    },
+    offers: {
+      '@type': 'Offer',
+      category: 'Paid',
+      priceCurrency: 'AED'
     }
   };
 

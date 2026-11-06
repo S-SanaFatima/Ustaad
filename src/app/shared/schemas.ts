@@ -457,5 +457,10 @@ export const reviewSchema = (
       courseMode: "online",
       courseWorkload: "PT1H",
     },
+    offers: {
+      "@type": "Offer",
+      category: "Paid",
+      priceCurrency: "AED",
+    },
   };
 };
