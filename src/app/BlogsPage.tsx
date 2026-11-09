@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'how-to-choose-igcse-subjects-uae',
+    image: '/images/blogs/choose-igcse-subjects-student-options-desk-dubai.webp',
+    alt: 'Year 9 student at a study desk in Dubai comparing two IGCSE subject option sheets with a highlighter',
+    category: 'Parent Guidance',
+    title: 'How to Help Your Child Choose IGCSE Subjects: A UAE Parent Guide to Year 9 Options',
+    description: 'Core and option subjects, triple vs combined science, Maths tiers, and how to keep A-Level doors open when choosing IGCSE subjects.',
+    date: '9 Nov 2026',
+    readTime: '11 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'area-under-graph-meaning-physics-maths',
     image: '/images/blogs/area-under-velocity-time-graph-hero.jpg',
     alt: 'Velocity-time graph with the area under the line shaded and split into a triangle, a rectangle and a second triangle',

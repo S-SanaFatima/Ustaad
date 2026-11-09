@@ -1146,6 +1146,18 @@ export const ROUTES: RouteConfig[] = [
     ]
   },
   {
+    path: '/blogs/how-to-choose-igcse-subjects-uae',
+    component: 'ChooseIGCSESubjectsBlog',
+    seo: {
+      title: 'How to Choose IGCSE Subjects: A UAE Parent Guide | Ustaad',
+      description: 'Choosing IGCSE subjects in Year 9? A UAE parent guide to core and option subjects, triple vs combined science, how many IGCSEs, and keeping A-Level doors open.',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-11-09'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'How to Choose IGCSE Subjects', url: '/blogs/how-to-choose-igcse-subjects-uae' }]
+  },
+  {
     path: '/blogs/area-under-graph-meaning-physics-maths',
     component: 'AreaUnderGraphBlog',
     seo: {

@@ -100,9 +100,12 @@ const loadHowToReadExaminerReportsBlog = () => import('./app/HowToReadExaminerRe
 const loadWinterBreakRevisionPlanBlog = () => import('./app/WinterBreakRevisionPlanBlog');
 const loadChatGPTForStudyingBlog = () => import('./app/ChatGPTForStudyingBlog');
 const loadAreaUnderGraphBlog = () => import('./app/AreaUnderGraphBlog');
+const loadChooseIGCSESubjectsBlog = () => import('./app/ChooseIGCSESubjectsBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
+  '/blogs/how-to-choose-igcse-subjects-uae': loadChooseIGCSESubjectsBlog,
+  '/blog/how-to-choose-igcse-subjects-uae': loadChooseIGCSESubjectsBlog,
   '/blogs/area-under-graph-meaning-physics-maths': loadAreaUnderGraphBlog,
   '/blog/area-under-graph-meaning-physics-maths': loadAreaUnderGraphBlog,
   '/blogs/chatgpt-for-studying-does-ai-hurt-memory': loadChatGPTForStudyingBlog,
@@ -285,6 +288,7 @@ const HowToReadExaminerReportsBlog = lazy(loadHowToReadExaminerReportsBlog);
 const WinterBreakRevisionPlanBlog = lazy(loadWinterBreakRevisionPlanBlog);
 const ChatGPTForStudyingBlog = lazy(loadChatGPTForStudyingBlog);
 const AreaUnderGraphBlog = lazy(loadAreaUnderGraphBlog);
+const ChooseIGCSESubjectsBlog = lazy(loadChooseIGCSESubjectsBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
@@ -426,6 +430,8 @@ function AppRoutes() {
           <Route path="/blog/chatgpt-for-studying-does-ai-hurt-memory" element={<ChatGPTForStudyingBlog />} />
           <Route path="/blogs/area-under-graph-meaning-physics-maths" element={<AreaUnderGraphBlog />} />
           <Route path="/blog/area-under-graph-meaning-physics-maths" element={<AreaUnderGraphBlog />} />
+          <Route path="/blogs/how-to-choose-igcse-subjects-uae" element={<ChooseIGCSESubjectsBlog />} />
+          <Route path="/blog/how-to-choose-igcse-subjects-uae" element={<ChooseIGCSESubjectsBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
 
           <Route path="/maths-tutor-abu-dhabi"               element={<MathematicsLanding />} />

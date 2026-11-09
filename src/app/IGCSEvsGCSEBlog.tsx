@@ -58,6 +58,12 @@ const TOC_ITEMS = [
 
 const RELATED = [
   {
+    slug: 'how-to-choose-igcse-subjects-uae',
+    category: 'Parent Guidance',
+    title: 'How to Help Your Child Choose IGCSE Subjects',
+    description: 'Core and option subjects, triple vs combined science, Maths tiers and keeping A-Level doors open in Year 9.',
+  },
+  {
     slug: 'igcse-maths-revision-low-marks',
     category: 'IGCSE Maths',
     title: 'Why IGCSE Maths Students Suffer Low Marks After Revision',
