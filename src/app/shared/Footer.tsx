@@ -91,11 +91,6 @@ const COMPANY = [
   ['Blog', '/blogs'], ['Contact', '/contact'], ['Careers', 'mailto:career@ustaad.ae'],
 ];
 
-const ArrowUpRight = () => (
-  <svg className="uf-tile__arr uf-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M7 17L17 7" /><path d="M8 7h9v9" />
-  </svg>
-);
 const WaIcon = ({ size = 18, stroke = 'currentColor' }: { size?: number; stroke?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z" />
@@ -301,7 +296,6 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
                                 <a className="uf-tile" href={t.href} {...(t.ga ? { 'data-ga-event': 'footer_landing_click' } : {})}>
                                   <span className="uf-tile__top" aria-hidden="true">
                                     <span className="uf-tile__num">{String(idx + 1).padStart(2, '0')}</span>
-                                    <ArrowUpRight />
                                   </span>
                                   <span className="uf-tile__sym" aria-hidden="true">{t.sym}</span>
                                   <span className="uf-tile__text">
