@@ -1,422 +1,430 @@
-import { useState } from 'react';
-import {
-  Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, ChevronDown, Clock, Mail,
-} from 'lucide-react';
+import { useEffect, useRef, useState, type KeyboardEvent, type MouseEvent } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
+import './footer.css';
 
-export default function Footer({ logoAlt = "Ustaad logo" }: { logoAlt?: string } = {}) {
-  const [openCities, setOpenCities] = useState<Record<string, boolean>>({});
+/*
+ * Footer — "Find a tutor in your emirate".
+ * SEO: every emirate panel is server-rendered. Inactive panels are hidden only with the
+ * `hidden` attribute, so all 18 landing-page URLs are in the HTML of every page.
+ */
 
-  const toggleCity = (cityName: string) => {
-    setOpenCities(prev => ({ ...prev, [cityName]: !prev[cityName] }));
+type Tile = { href: string; sym: string; title: string; city: string; ga?: boolean };
+type Group = { label: string; span: number; tiles?: Tile[]; note?: 'alain' | 'other' };
+type Emirate = { id: string; name: string; count?: number; groups: Group[] };
+
+const WA_URL = 'https://wa.me/971561249005';
+
+const EMIRATES: Emirate[] = [
+  {
+    id: 'ad', name: 'Abu Dhabi', count: 8,
+    groups: [
+      { label: 'By subject', span: 4, tiles: [
+        { href: '/maths-tutor-abu-dhabi', sym: 'Ma', title: 'Maths tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/physics-tutor-abu-dhabi', sym: 'Ph', title: 'Physics tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/chemistry-tutor-abu-dhabi', sym: 'Ch', title: 'Chemistry tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/biology-tutor-abu-dhabi', sym: 'Bi', title: 'Biology tutor', city: 'Abu Dhabi', ga: true },
+      ] },
+      { label: 'By curriculum', span: 4, tiles: [
+        { href: '/igcse-tutor-abu-dhabi', sym: 'IG', title: 'IGCSE tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/gcse-tutor-abu-dhabi', sym: 'GC', title: 'GCSE tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/a-level-tutor-abu-dhabi', sym: 'AL', title: 'A-Level tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/ib-tutor-abu-dhabi', sym: 'IB', title: 'IB tutor', city: 'Abu Dhabi', ga: true },
+      ] },
+    ],
+  },
+  {
+    id: 'du', name: 'Dubai', count: 8,
+    groups: [
+      { label: 'By subject', span: 4, tiles: [
+        { href: '/maths-tutor-dubai', sym: 'Ma', title: 'Maths tutor', city: 'Dubai', ga: true },
+        { href: '/physics-tutor-dubai', sym: 'Ph', title: 'Physics tutor', city: 'Dubai', ga: true },
+        { href: '/chemistry-tutor-dubai', sym: 'Ch', title: 'Chemistry tutor', city: 'Dubai', ga: true },
+        { href: '/biology-tutor-dubai', sym: 'Bi', title: 'Biology tutor', city: 'Dubai', ga: true },
+      ] },
+      { label: 'By curriculum', span: 4, tiles: [
+        { href: '/igcse-tutor-dubai', sym: 'IG', title: 'IGCSE tutor', city: 'Dubai', ga: true },
+        { href: '/gcse-tutor-dubai', sym: 'GC', title: 'GCSE tutor', city: 'Dubai', ga: true },
+        { href: '/a-level-tutor-dubai', sym: 'AL', title: 'A-Level tutor', city: 'Dubai', ga: true },
+        { href: '/ib-tutor-dubai', sym: 'IB', title: 'IB tutor', city: 'Dubai', ga: true },
+      ] },
+    ],
+  },
+  {
+    id: 'aa', name: 'Al Ain', count: 2,
+    groups: [
+      { label: 'By curriculum', span: 2, tiles: [
+        { href: '/a-level-tutor-al-ain', sym: 'AL', title: 'A-Level tutor', city: 'Al Ain', ga: true },
+        { href: '/igcse-tutor-al-ain', sym: 'IG', title: 'IGCSE tutor', city: 'Al Ain', ga: true },
+      ] },
+      { label: 'Other subjects', span: 6, note: 'alain' },
+    ],
+  },
+  {
+    id: 'ot', name: 'Other emirates',
+    groups: [
+      { label: 'Northern Emirates', span: 5, tiles: [
+        { href: '/tutors?city=sharjah', sym: 'Sh', title: 'Sharjah', city: 'Online tutors' },
+        { href: '/tutors?city=ajman', sym: 'Aj', title: 'Ajman', city: 'Online tutors' },
+        { href: '/tutors?city=ras-al-khaimah', sym: 'RK', title: 'Ras Al Khaimah', city: 'Online tutors' },
+        { href: '/tutors?city=fujairah', sym: 'Fj', title: 'Fujairah', city: 'Online tutors' },
+        { href: '/tutors?city=umm-al-quwain', sym: 'UQ', title: 'Umm Al Quwain', city: 'Online tutors' },
+      ] },
+      { label: 'How it works there', span: 3, note: 'other' },
+    ],
+  },
+];
+
+const SUBJECTS = [
+  ['Maths', '/maths'], ['English', '/english'], ['Physics', '/physics'], ['Economics', '/economics'],
+  ['Chemistry', '/chemistry'], ['Business', '/business'], ['Biology', '/biology'], ['Accounting', '/accounting'],
+  ['Sciences', '/sciences'], ['Finance', '/finance'], ['Engineering', '/engineering'], ['Statistics', '/statistics'],
+];
+
+const CURRICULA = [
+  { hub: ['British curriculum', '/british-curriculum'], items: [['IGCSE', '/igcse'], ['GCSE', '/gcse'], ['A-Level', '/a-level']] },
+  { hub: ['IB curriculum', '/ib-curriculum'], items: [['MYP', '/myp'], ['DP SL', '/dp-sl'], ['DP HL', '/dp-hl']] },
+  { hub: ['American curriculum', '/american-curriculum'], items: [['Middle School', '/middle-school'], ['High School', '/high-school'], ['AP', '/ap']] },
+];
+
+const COMPANY = [
+  ['About us', '/about'], ['How it works', '/how-it-works'], ['Our tutors', '/tutors'], ['Editorial', '/editorial'],
+  ['Blog', '/blogs'], ['Contact', '/contact'], ['Careers', 'mailto:career@ustaad.ae'],
+];
+
+const ArrowUpRight = () => (
+  <svg className="uf-tile__arr uf-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M7 17L17 7" /><path d="M8 7h9v9" />
+  </svg>
+);
+const WaIcon = ({ size = 18, stroke = 'currentColor' }: { size?: number; stroke?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z" />
+  </svg>
+);
+const Chevron = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+);
+
+function NoteCard({ kind, index }: { kind: 'alain' | 'other'; index: number }) {
+  if (kind === 'alain') {
+    return (
+      <div className="uf-note" style={{ ['--i' as string]: index }}>
+        <div>
+          <p className="uf-note__title">Need Maths, Physics, Chemistry, Biology or IB in Al Ain?</p>
+          <p className="uf-note__text">Our tutors teach online, so the same specialists work with Al Ain families. Tell us the subject and year group and we will suggest a match.</p>
+        </div>
+        <a className="uf-btn-wa" href={WA_URL} target="_blank" rel="noopener noreferrer" data-ga-event="footer_whatsapp_click">
+          <WaIcon /> WhatsApp Us
+        </a>
+      </div>
+    );
+  }
+  return (
+    <div className="uf-note uf-note--stack" style={{ ['--i' as string]: index }}>
+      <p className="uf-note__text">Every session is online and 1-to-1, so families in Sharjah and the Northern Emirates work with the same curriculum specialists.</p>
+      <a className="uf-btn-wa" href={WA_URL} target="_blank" rel="noopener noreferrer" data-ga-event="footer_whatsapp_click">
+        <WaIcon size={16} /> WhatsApp Us
+      </a>
+    </div>
+  );
+}
+
+export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string } = {}) {
+  const [active, setActive] = useState(0);
+  const [jsReady, setJsReady] = useState(false);
+  const [motion, setMotion] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [openCols, setOpenCols] = useState<Record<string, boolean>>({});
+  const [progress, setProgress] = useState(0);
+
+  const rootRef = useRef<HTMLElement>(null);
+  const tablistRef = useRef<HTMLDivElement>(null);
+  const indRef = useRef<HTMLSpanElement>(null);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [indReady, setIndReady] = useState(false);
+
+  // Enable JS-only behaviour after hydration (no-JS keeps every panel and column open).
+  useEffect(() => {
+    setJsReady(true);
+    setMotion(!window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }, []);
+
+  // Sliding tab indicator.
+  useEffect(() => {
+    const place = () => {
+      const tab = tabRefs.current[active];
+      const ind = indRef.current;
+      if (!tab || !ind) return;
+      ind.style.width = `${tab.offsetWidth}px`;
+      ind.style.transform = `translateX(${tab.offsetLeft}px)`;
+    };
+    place();
+    const raf = requestAnimationFrame(() => setIndReady(true));
+    const list = tablistRef.current;
+    let ro: ResizeObserver | undefined;
+    if (list && 'ResizeObserver' in window) { ro = new ResizeObserver(place); ro.observe(list); }
+    document.fonts?.ready.then(place).catch(() => {});
+    return () => { cancelAnimationFrame(raf); ro?.disconnect(); };
+  }, [active, jsReady]);
+
+  // Curve draws once the footer scrolls into view.
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    if (!('IntersectionObserver' in window)) { setVisible(true); return; }
+    const io = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) { setVisible(true); io.disconnect(); }
+    }, { threshold: 0.12 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // Back-to-top scroll-progress ring.
+  useEffect(() => {
+    let ticking = false;
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+      ticking = false;
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const selectTab = (i: number, focus: boolean) => {
+    setActive(i);
+    const tab = tabRefs.current[i];
+    if (focus) tab?.focus();
+    const list = tablistRef.current;
+    if (tab && list && list.scrollWidth > list.clientWidth) {
+      list.scrollTo({ left: tab.offsetLeft - 20, behavior: motion ? 'smooth' : 'auto' });
+    }
   };
 
-  const quickLinks = [
-    { key: 'about', href: '/about' },
-    { key: 'curriculum', href: '/curriculum' },
-    { key: 'subjects', href: '/subjects' },
-    { key: 'tutors', href: '/tutors' },
-    { key: 'editorial', href: '/editorial' },
-    { key: 'blogs', href: '/blogs' },
-    { key: 'contact', href: '/contact' },
-    { key: 'howWorks', href: '/how-it-works' },
-  ];
+  const onTabKey = (e: KeyboardEvent<HTMLButtonElement>, i: number) => {
+    const n = EMIRATES.length;
+    let next: number | null = null;
+    if (e.key === 'ArrowRight') next = (i + 1) % n;
+    else if (e.key === 'ArrowLeft') next = (i - 1 + n) % n;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = n - 1;
+    if (next !== null) { e.preventDefault(); selectTab(next, true); }
+  };
 
-  const subjectLinks = [
-    { key: 'maths', href: '/maths' },
-    { key: 'physics', href: '/physics' },
-    { key: 'chemistry', href: '/chemistry' },
-    { key: 'biology', href: '/biology' },
-    { key: 'sciences', href: '/sciences' },
-    { key: 'english', href: '/english' },
-    { key: 'business', href: '/business' },
-    { key: 'economics', href: '/economics' },
-    { key: 'accounting', href: '/accounting' },
-    { key: 'engineering', href: '/engineering' },
-    { key: 'finance', href: '/finance' },
-    { key: 'statistics', href: '/statistics' },
-    { key: 'examPrep', href: '/exam-preparation' },
-  ];
+  const onFooterClick = (e: MouseEvent<HTMLElement>) => {
+    const a = (e.target as HTMLElement).closest('[data-ga-event]') as HTMLAnchorElement | null;
+    const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+    if (a && typeof gtag === 'function') {
+      gtag('event', a.getAttribute('data-ga-event'), {
+        link_url: a.href,
+        link_text: (a.textContent || '').replace(/\s+/g, ' ').trim(),
+        location: 'footer',
+      });
+    }
+  };
 
-  const curriculaLinks = [
-    { key: 'pages.curriculum.cards.british.title', href: '/british-curriculum', isPage: true },
-    { key: 'nav.igcse', href: '/igcse' },
-    { key: 'nav.gcse', href: '/gcse' },
-    { key: 'nav.alevel', href: '/a-level' },
-    { key: 'pages.curriculum.cards.american.title', href: '/american-curriculum', isPage: true },
-    { key: 'nav.middleSchool', href: '/middle-school' },
-    { key: 'nav.highSchool', href: '/high-school' },
-    { key: 'nav.ap', href: '/ap' },
-    { key: 'pages.curriculum.cards.ib.title', href: '/ib-curriculum', isPage: true },
-    { key: 'nav.myp', href: '/myp' },
-    { key: 'nav.dpsl', href: '/dp-sl' },
-    { key: 'nav.dphl', href: '/dp-hl' },
-  ];
+  const toggleCol = (id: string) => setOpenCols((p) => ({ ...p, [id]: !p[id] }));
+  const CIRC = 125.66;
 
-  const cityTutors = [
-    {
-      city: 'Abu Dhabi',
-      cityHref: '/tutors?city=abu-dhabi',
-      tutors: [
-        { label: 'A-Level Tutor Abu Dhabi', href: '/a-level-tutor-abu-dhabi' },
-        { label: 'IB Tutor Abu Dhabi', href: '/ib-tutor-abu-dhabi' },
-        { label: 'IGCSE Tutor Abu Dhabi', href: '/igcse-tutor-abu-dhabi' },
-        { label: 'GCSE Tutor Abu Dhabi', href: '/gcse-tutor-abu-dhabi' },
-        { label: 'Maths Tutor Abu Dhabi', href: '/maths-tutor-abu-dhabi' },
-        { label: 'Physics Tutor Abu Dhabi', href: '/physics-tutor-abu-dhabi' },
-        { label: 'Chemistry Tutor Abu Dhabi', href: '/chemistry-tutor-abu-dhabi' },
-        { label: 'Biology Tutor Abu Dhabi', href: '/biology-tutor-abu-dhabi' },
-      ],
-    },
-    {
-      city: 'Al Ain',
-      cityHref: '/tutors?city=al-ain',
-      tutors: [
-        { label: 'A-Level Tutor Al Ain', href: '/a-level-tutor-al-ain' },
-        { label: 'IGCSE Tutor Al Ain', href: '/igcse-tutor-al-ain' },
-      ],
-    },
-    {
-      city: 'Dubai',
-      cityHref: '/tutors?city=dubai',
-      tutors: [
-        { label: 'A-Level Tutor Dubai', href: '/a-level-tutor-dubai' },
-        { label: 'IB Tutor Dubai', href: '/ib-tutor-dubai' },
-        { label: 'Maths Tutor Dubai', href: '/maths-tutor-dubai' },
-        { label: 'Physics Tutor Dubai', href: '/physics-tutor-dubai' },
-        { label: 'Chemistry Tutor Dubai', href: '/chemistry-tutor-dubai' },
-        { label: 'Biology Tutor Dubai', href: '/biology-tutor-dubai' },
-        { label: 'GCSE Tutor Dubai', href: '/gcse-tutor-dubai' },
-        { label: 'IGCSE Tutor Dubai', href: '/igcse-tutor-dubai' },
-      ],
-    },
-    {
-      city: 'Sharjah',
-      cityHref: '/tutors?city=sharjah',
-      tutors: [
-        { label: 'IGCSE Tutors Sharjah', href: '/tutors?city=sharjah&curriculum=igcse' },
-        { label: 'Maths Tutors Sharjah', href: '/tutors?city=sharjah&subject=maths' },
-        { label: 'Physics Tutors Sharjah', href: '/tutors?city=sharjah&subject=physics' },
-        { label: 'Chemistry Tutors Sharjah', href: '/tutors?city=sharjah&subject=chemistry' },
-        { label: 'Biology Tutors Sharjah', href: '/tutors?city=sharjah&subject=biology' },
-      ],
-    },
-    {
-      city: 'Ajman',
-      cityHref: '/tutors?city=ajman',
-      tutors: [
-        { label: 'IGCSE Tutors Ajman', href: '/tutors?city=ajman&curriculum=igcse' },
-        { label: 'Maths Tutors Ajman', href: '/tutors?city=ajman&subject=maths' },
-        { label: 'Physics Tutors Ajman', href: '/tutors?city=ajman&subject=physics' },
-        { label: 'Chemistry Tutors Ajman', href: '/tutors?city=ajman&subject=chemistry' },
-        { label: 'Biology Tutors Ajman', href: '/tutors?city=ajman&subject=biology' },
-      ],
-    },
-    {
-      city: 'Ras Al Khaimah',
-      cityHref: '/tutors?city=ras-al-khaimah',
-      tutors: [
-        { label: 'IGCSE Tutors Ras Al Khaimah', href: '/tutors?city=ras-al-khaimah&curriculum=igcse' },
-        { label: 'Maths Tutors Ras Al Khaimah', href: '/tutors?city=ras-al-khaimah&subject=maths' },
-        { label: 'Physics Tutors Ras Al Khaimah', href: '/tutors?city=ras-al-khaimah&subject=physics' },
-        { label: 'Chemistry Tutors Ras Al Khaimah', href: '/tutors?city=ras-al-khaimah&subject=chemistry' },
-        { label: 'Biology Tutors Ras Al Khaimah', href: '/tutors?city=ras-al-khaimah&subject=biology' },
-      ],
-    },
-    {
-      city: 'Fujairah',
-      cityHref: '/tutors?city=fujairah',
-      tutors: [
-        { label: 'IGCSE Tutors Fujairah', href: '/tutors?city=fujairah&curriculum=igcse' },
-        { label: 'Maths Tutors Fujairah', href: '/tutors?city=fujairah&subject=maths' },
-        { label: 'Physics Tutors Fujairah', href: '/tutors?city=fujairah&subject=physics' },
-        { label: 'Chemistry Tutors Fujairah', href: '/tutors?city=fujairah&subject=chemistry' },
-        { label: 'Biology Tutors Fujairah', href: '/tutors?city=fujairah&subject=biology' },
-      ],
-    },
-    {
-      city: 'Umm Al Quwain',
-      cityHref: '/tutors?city=umm-al-quwain',
-      tutors: [
-        { label: 'IGCSE Tutors Umm Al Quwain', href: '/tutors?city=umm-al-quwain&curriculum=igcse' },
-        { label: 'Maths Tutors Umm Al Quwain', href: '/tutors?city=umm-al-quwain&subject=maths' },
-        { label: 'Physics Tutors Umm Al Quwain', href: '/tutors?city=umm-al-quwain&subject=physics' },
-        { label: 'Chemistry Tutors Umm Al Quwain', href: '/tutors?city=umm-al-quwain&subject=chemistry' },
-        { label: 'Biology Tutors Umm Al Quwain', href: '/tutors?city=umm-al-quwain&subject=biology' },
-      ],
-    },
-  ];
+  const rootCls = ['uf', jsReady && 'uf--js', jsReady && motion && 'uf--motion', visible && 'is-visible'].filter(Boolean).join(' ');
 
-  const socialLinks = [
-    { label: 'Facebook', href: 'https://www.facebook.com/share/1DaNLFKHg1/', bgColor: 'bg-[#1877F2]', icon: Facebook },
-    { label: 'Instagram', href: 'https://www.instagram.com/ustaad.ae', bgColor: 'bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737]', icon: Instagram },
-    { label: 'X/Twitter', href: 'https://x.com/ustaadAE', bgColor: 'bg-black', icon: Twitter },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/ustaaduae/', bgColor: 'bg-[#0A66C2]', icon: Linkedin },
-  ];
+  const colHead = (id: string, label: string) => (
+    <h2 className="uf-col__title">
+      <span className="uf-col__label">{label}</span>
+      <button className="uf-acc" type="button" aria-expanded={!!openCols[id]} aria-controls={`uf-list-${id}`} onClick={() => toggleCol(id)}>
+        {label} <Chevron />
+      </button>
+    </h2>
+  );
 
   return (
-    <footer className="bg-[#0a3a79] pt-16 pb-8 text-white text-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 lg:gap-8 mb-12 items-start">
-          {/* Brand Column */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-1">
-            <img src="/ustaad-private-tutors-uae-logo.png" srcSet="/ustaad-private-tutors-uae-logo.png 300w" sizes="190px" alt={logoAlt} className="h-12 object-contain mb-4 brightness-0 invert" />
-            <p className="text-blue-200 text-xs leading-relaxed font-medium">
-              Premium private tutoring across the UAE since 2015. Expert 1-to-1 tutoring for British, American, and IB curriculum students in Dubai, Abu Dhabi, Sharjah and every Emirate.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-bold text-sm mb-4 tracking-wide text-white uppercase border-b border-white/20 pb-2">{"Quick Links"}</h3>
-            <ul className="space-y-2.5 font-medium text-blue-200 text-xs">
-              {quickLinks.map((link) => (
-                <li key={link.key}>
-                  <a href={link.href} className="hover:text-white transition">
-                    {link.key === 'about' ? 'About' : 
-                     link.key === 'curriculum' ? 'Curriculum' :
-                     link.key === 'subjects' ? 'Subjects' :
-                     link.key === 'tutors' ? 'Tutors' :
-                     link.key === 'editorial' ? 'Editorial' :
-                     link.key === 'blogs' ? 'Blogs' :
-                     link.key === 'contact' ? 'Contact Us' : 'How It Works'}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Tutors Near Me */}
-          <div>
-            <h3 className="font-bold text-sm mb-4 tracking-wide text-white uppercase border-b border-white/20 pb-2">{"Tutors Near Me"}</h3>
-            <div className="space-y-0.5">
-              {cityTutors.map(({ city, cityHref, tutors }) => {
-                const isExpandable = tutors.length > 0 && (city === 'Abu Dhabi' || city === 'Dubai' || city === 'Al Ain');
-                if (isExpandable) {
-                  const isOpen = !!openCities[city];
-                  return (
-                    <div key={city} className="mb-1">
-                      <button
-                        type="button"
-                        onClick={() => toggleCity(city)}
-                        className="w-full flex items-center justify-between text-xs font-semibold text-blue-200 hover:text-white transition py-1.5 text-left group"
-                        aria-expanded={isOpen}
-                        aria-controls={`footer-city-${city.replace(/\s+/g, '-').toLowerCase()}`}
-                        aria-label={`Toggle ${city} tutors`}
-                      >
-                        <span>{city}</span>
-                        <ChevronDown
-                          className={`h-3 w-3 text-blue-300/70 group-hover:text-white transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-                        />
-                      </button>
-                      {/* Always rendered so crawlers see every city landing link; collapsed with CSS only */}
-                      <ul id={`footer-city-${city.replace(/\s+/g, '-').toLowerCase()}`} className={`${isOpen ? '' : 'hidden '}mt-0.5 mb-2 ml-2 pl-2 border-l border-white/15 space-y-0.5`}>
-                          {tutors.map((t) => (
-                            <li key={t.label}>
-                              <a
-                                href={t.href}
-                                className="flex items-center gap-1.5 text-[11px] font-medium text-blue-200/80 hover:text-white transition py-1 leading-snug group/item"
-                              >
-                                <span className="w-1 h-1 rounded-full bg-blue-400/40 group-hover/item:bg-white/60 transition flex-shrink-0" />
-                                {t.label}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                    </div>
-                  );
-                }
-
-                return (
-                  <div key={city} className="py-1.5">
-                    <a
-                      href={cityHref}
-                      className="text-xs font-medium text-blue-200 hover:text-white transition"
-                    >
-                      {city}
-                    </a>
-                  </div>
-                );
-              })}
+    <footer ref={rootRef} className={rootCls} onClick={onFooterClick}>
+      {/* Tier 1: Find a tutor */}
+      <section className="uf-finder" aria-labelledby="uf-find-title">
+        <div className="uf__wrap">
+          <div className="uf-finder__head">
+            <div>
+              <p className="uf-eyebrow">Tutors near you</p>
+              <h2 className="uf-finder__title" id="uf-find-title">Find a tutor in your emirate</h2>
+              <p className="uf-finder__intro">Pick your emirate, then the subject or curriculum your child needs. Every session is online and 1&#8209;to&#8209;1.</p>
             </div>
-          </div>
 
-          {/* Subjects */}
-          <div>
-            <h3 className="font-bold text-sm mb-4 tracking-wide text-white uppercase border-b border-white/20 pb-2">{"Subjects"}</h3>
-            <ul className="space-y-2.5 font-medium text-blue-200 text-xs">
-              {subjectLinks.map((link) => (
-                <li key={link.key}>
-                  <a href={link.href} className="hover:text-white transition">
-                    {link.key === 'maths' ? 'Maths' : 
-                     link.key === 'physics' ? 'Physics' :
-                     link.key === 'chemistry' ? 'Chemistry' :
-                     link.key === 'biology' ? 'Biology' :
-                     link.key === 'sciences' ? 'Sciences' :
-                     link.key === 'english' ? 'English' :
-                     link.key === 'business' ? 'Business' :
-                     link.key === 'economics' ? 'Economics' :
-                     link.key === 'accounting' ? 'Accounting' :
-                     link.key === 'engineering' ? 'Engineering' :
-                     link.key === 'finance' ? 'Finance' :
-                     link.key === 'statistics' ? 'Statistics' : 'Exam Preparation'}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Curriculum */}
-          <div>
-            <h3 className="font-bold text-sm mb-4 tracking-wide text-white uppercase border-b border-white/20 pb-2">{"Curriculum"}</h3>
-            <ul className="space-y-2.5 font-medium text-blue-200 text-xs">
-              {curriculaLinks.map((link) => (
-                <li key={link.key}>
-                  <a href={link.href} className="hover:text-white transition">
-                    {link.key === 'pages.curriculum.cards.british.title' ? 'British Curriculum' :
-                     link.key === 'nav.igcse' ? 'IGCSE' :
-                     link.key === 'nav.gcse' ? 'GCSE' :
-                     link.key === 'nav.alevel' ? 'A-Level' :
-                     link.key === 'pages.curriculum.cards.american.title' ? 'American Curriculum' :
-                     link.key === 'nav.middleSchool' ? 'Middle School' :
-                     link.key === 'nav.highSchool' ? 'High School' :
-                     link.key === 'nav.ap' ? 'AP' :
-                     link.key === 'pages.curriculum.cards.ib.title' ? 'IB Curriculum' :
-                     link.key === 'nav.myp' ? 'MYP' :
-                     link.key === 'nav.dpsl' ? 'DP SL' : 'DP HL'}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="font-bold text-sm mb-4 tracking-wide text-white uppercase border-b border-white/20 pb-2">{"Contact"}</h3>
-            <div className="space-y-3 font-medium text-blue-200 text-xs">
-              <a href="tel:8009005" className="flex items-center gap-3 hover:text-white transition group">
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#C7A24A] transition-colors shrink-0">
-                  <Phone className="h-3.5 w-3.5" />
-                </div>
-                <div>
-                  <div className="text-white font-bold notranslate" translate="no">800 9005 (USTAAD)</div>
-                  <div className="text-[10px] text-blue-300">Student Support</div>
-                </div>
-              </a>
-              <a href="https://wa.me/971561249005" target="_blank" rel="noopener noreferrer" aria-label="Book your first session with Ustaad on WhatsApp" className="flex items-center gap-3 hover:text-white transition group">
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#C7A24A] transition-colors shrink-0">
-                  <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="Chat with Ustaad on WhatsApp" className="h-4 w-4" width={16} height={16} />
-                </div>
-                <div>
-                  <div className="text-white font-bold notranslate" translate="no">+971 56 124 9005</div>
-                  <div className="text-[10px] text-blue-300">Book Your First Session</div>
-                </div>
-              </a>
-              <div className="flex items-center gap-3 group">
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#C7A24A] transition-colors shrink-0">
-                  <Mail className="h-3.5 w-3.5" />
-                </div>
-                <div className="flex flex-col gap-0.5">
-                  <div className="text-white font-bold text-xs notranslate" translate="no">career@ustaad.ae</div>
-                  <div className="text-[9px] text-blue-300">Join us Today!</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#C7A24A] transition-colors shrink-0">
-                  <Mail className="h-3.5 w-3.5" />
-                </div>
-                <div className="flex flex-col gap-0.5">
-                  <div className="text-white font-bold text-xs notranslate" translate="no">support@ustaad.ae</div>
-                  <div className="text-[9px] text-blue-300">Parents Support</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#C7A24A] transition-colors shrink-0">
-                  <Mail className="h-3.5 w-3.5" />
-                </div>
-                <div className="flex flex-col gap-0.5">
-                  <div className="text-white font-bold text-xs notranslate" translate="no">care@ustaad.ae</div>
-                  <div className="text-[9px] text-blue-300">Parents Care</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#C7A24A] transition-colors shrink-0">
-                  <Clock className="h-3.5 w-3.5" />
-                </div>
-                <div>
-                  <div className="text-white font-bold">24/7 Support</div>
-                  <div className="text-[10px] text-blue-300">Always Available</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#C7A24A] transition-colors shrink-0">
-                  <MapPin className="h-3.5 w-3.5" />
-                </div>
-                <div>
-                  <div className="text-white font-bold">United Arab Emirates</div>
-                  <div className="text-[10px] text-blue-300">Dubai • Abu Dhabi • Sharjah • All Emirates</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Follow Us - Vertical list with colored icons */}
-          <div>
-            <h3 className="font-bold text-sm mb-4 tracking-wide text-white uppercase border-b border-white/20 pb-2">{"Follow Us"}</h3>
-            <div className="flex flex-col gap-3">
-              {socialLinks.map(({ label, href, bgColor, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 group"
-                  aria-label={label}
+            <div ref={tablistRef} className={`uf-tabs${indReady ? ' is-ready' : ''}`} role="tablist" aria-label="Choose an emirate">
+              <span ref={indRef} className="uf-tabs__ind" aria-hidden="true" />
+              {EMIRATES.map((em, i) => (
+                <button
+                  key={em.id}
+                  ref={(el) => { tabRefs.current[i] = el; }}
+                  className="uf-tab"
+                  type="button"
+                  role="tab"
+                  id={`uf-tab-${em.id}`}
+                  aria-controls={`uf-panel-${em.id}`}
+                  aria-selected={active === i}
+                  tabIndex={active === i ? 0 : -1}
+                  onClick={() => selectTab(i, false)}
+                  onKeyDown={(e) => onTabKey(e, i)}
                 >
-                  <div className={`w-9 h-9 rounded-full ${bgColor} flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform`}>
-                    <Icon className="h-4 w-4" />
-                  </div>
-                  <span className="text-blue-200 text-xs font-medium group-hover:text-white transition notranslate" translate="no">{label}</span>
-                </a>
+                  {em.name}
+                  {em.count !== undefined && (
+                    <span className="uf-tab__count" aria-label={`${em.count} pages`}>{em.count}</span>
+                  )}
+                </button>
               ))}
             </div>
           </div>
-        </div>
 
-        
-
-        {/* Back to top + Language, centered */}
-        <div className="flex justify-center items-center gap-4 mb-6">
-          <button 
-            className="bg-gradient-to-r from-[#C7A24A] to-[#A8892A] text-white w-10 h-10 rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-[#C7A24A]/30 transition-all shadow-md" 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            aria-label="Scroll to top"
-          >
-            <ChevronDown className="h-5 w-5 rotate-180" />
-          </button>
-          <LanguageSwitcher />
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-5 pb-2 flex flex-col items-center gap-3">
-          {/* Trust line - stacked on mobile, inline on desktop */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-[11px] sm:text-[10px] font-semibold text-blue-300/70 tracking-wide text-center">
-            <span>UAE Licensed Tutoring Service</span>
-            <span className="hidden sm:inline text-blue-300/40">|</span>
-            <span>Supporting Students Across the UAE</span>
-            <span className="hidden sm:inline text-blue-300/40">|</span>
-            <span>Registered Ustaad® Trademark</span>
+          <div className="uf-panels">
+            {EMIRATES.map((em, i) => {
+              let tileIndex = 0;
+              return (
+                <div
+                  key={em.id}
+                  className="uf-panel"
+                  role="tabpanel"
+                  id={`uf-panel-${em.id}`}
+                  aria-labelledby={`uf-tab-${em.id}`}
+                  tabIndex={0}
+                  hidden={active !== i}
+                >
+                  {em.groups.map((g) => (
+                    <div key={g.label} className="uf-group" style={{ ['--span' as string]: g.span }}>
+                      <h3 className="uf-group__label">{g.label}</h3>
+                      {g.tiles ? (
+                        <ul className="uf-tiles">
+                          {g.tiles.map((t) => {
+                            const idx = tileIndex++;
+                            return (
+                              <li key={t.href} style={{ ['--i' as string]: idx }}>
+                                <a className="uf-tile" href={t.href} {...(t.ga ? { 'data-ga-event': 'footer_landing_click' } : {})}>
+                                  <span className="uf-tile__top" aria-hidden="true">
+                                    <span className="uf-tile__num">{String(idx + 1).padStart(2, '0')}</span>
+                                    <ArrowUpRight />
+                                  </span>
+                                  <span className="uf-tile__sym" aria-hidden="true">{t.sym}</span>
+                                  <span className="uf-tile__text">
+                                    <span className="uf-tile__title">{t.title}</span>{' '}
+                                    <span className="uf-tile__city">{t.city}</span>
+                                  </span>
+                                </a>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      ) : (
+                        g.note && <NoteCard kind={g.note} index={tileIndex} />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              );
+            })}
           </div>
-          {/* Copyright */}
-          <span className="text-xs text-blue-300/60 font-medium">© 2026 Ustaad LLC. All Rights Reserved.</span>
-          {/* Links */}
-          <div className="flex items-center gap-3 sm:gap-4 text-xs text-blue-300/60 font-medium">
-            <a href="/privacy" className="hover:text-white transition">Privacy</a>
-            <span className="text-blue-300/30">|</span>
-            <a href="/terms" className="hover:text-white transition">Terms</a>
-            <span className="text-blue-300/30">|</span>
-            <a href="/sitemap.xml" className="hover:text-white transition">Sitemap</a>
+
+          <div className="uf-finder__foot">
+            <a className="uf-browse" href="/tutors">Meet all our tutors <span className="uf-arrow uf-flip" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      {/* Curved divider */}
+      <svg className="uf-curve" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0 0 H1440 V18 Q720 92 0 18 Z" fill="#f4f7fc" />
+        <path className="uf-curve__line" d="M0 18 Q720 92 1440 18" fill="none" stroke="#c7a24a" strokeWidth="1.5" vectorEffect="non-scaling-stroke" pathLength={1} />
+      </svg>
+
+      {/* Tier 2: Links */}
+      <div className="uf-main">
+        <div className="uf__wrap">
+          <div className="uf-cols">
+            <div className="uf-brand">
+              <a className="uf-logo" href="/" aria-label="Ustaad home">
+                <img src="/ustaad-private-tutors-uae-logo.png" alt={logoAlt} width={140} height={46} loading="lazy" />
+              </a>
+              <p className="uf-brand__desc">Online 1-to-1 tutoring for British, IB and American curriculum students across the UAE, since 2015.</p>
+              <div className="uf-contact">
+                <a href={WA_URL} target="_blank" rel="noopener noreferrer" data-ga-event="footer_whatsapp_click" aria-label="WhatsApp Ustaad on +971 56 124 9005">
+                  <span className="uf-contact__icon"><WaIcon size={16} /></span>
+                  <span><strong className="notranslate" translate="no">+971 56 124 9005</strong><small>WhatsApp</small></span>
+                </a>
+                <a href="mailto:support@ustaad.ae">
+                  <span className="uf-contact__icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>
+                  </span>
+                  <span><strong className="notranslate" translate="no">support@ustaad.ae</strong><small>Parent support</small></span>
+                </a>
+              </div>
+              <div className="uf-social">
+                <a href="https://www.instagram.com/ustaad.ae" target="_blank" rel="noopener noreferrer" aria-label="Ustaad on Instagram">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" /></svg>
+                </a>
+                <a href="https://www.linkedin.com/company/ustaaduae/" target="_blank" rel="noopener noreferrer" aria-label="Ustaad on LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M8 10v7" /><path d="M8 7v.01" /><path d="M12 17v-7" /><path d="M12 13a3 3 0 0 1 6 0v4" /></svg>
+                </a>
+                <a href="https://www.facebook.com/share/1DaNLFKHg1/" target="_blank" rel="noopener noreferrer" aria-label="Ustaad on Facebook">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 3h-2a4 4 0 0 0-4 4v3H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2z" /></svg>
+                </a>
+                <a href="https://x.com/ustaadAE" target="_blank" rel="noopener noreferrer" aria-label="Ustaad on X">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 4l16 16" /><path d="M20 4L4 20" /></svg>
+                </a>
+              </div>
+            </div>
+
+            <nav className="uf-col uf-col--subjects" aria-label="Subjects">
+              {colHead('subjects', 'Subjects')}
+              <div className={`uf-col__panel${openCols.subjects ? ' is-open' : ''}`} id="uf-list-subjects">
+                <ul className="uf-links uf-links--2">
+                  {SUBJECTS.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
+                  <li className="uf-span2"><a href="/exam-preparation">Exam preparation</a></li>
+                  <li className="uf-span2"><a className="uf-more" href="/subjects">All subjects <span className="uf-flip" aria-hidden="true">→</span></a></li>
+                </ul>
+              </div>
+            </nav>
+
+            <nav className="uf-col uf-col--curriculum" aria-label="Curriculum">
+              {colHead('curriculum', 'Curriculum')}
+              <div className={`uf-col__panel${openCols.curriculum ? ' is-open' : ''}`} id="uf-list-curriculum">
+                {CURRICULA.map((c) => (
+                  <div className="uf-cur" key={c.hub[1]}>
+                    <a className="uf-cur__hub" href={c.hub[1]}>{c.hub[0]} <span className="uf-flip" aria-hidden="true">→</span></a>
+                    <ul className="uf-inline">
+                      {c.items.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
+                    </ul>
+                  </div>
+                ))}
+                <a className="uf-more" href="/curriculum">All curricula <span className="uf-flip" aria-hidden="true">→</span></a>
+              </div>
+            </nav>
+
+            <nav className="uf-col uf-col--company" aria-label="Ustaad">
+              {colHead('company', 'Ustaad')}
+              <div className={`uf-col__panel${openCols.company ? ' is-open' : ''}`} id="uf-list-company">
+                <ul className="uf-links uf-links--1">
+                  {COMPANY.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
+                </ul>
+              </div>
+            </nav>
+          </div>
+
+          <div className="uf-bar">
+            <div className="uf-bar__legal">
+              <span>© 2026 Ustaad LLC. Ustaad® is a registered trademark.</span>
+              <a href="/privacy">Privacy</a>
+              <a href="/terms">Terms</a>
+              <a href="/sitemap.xml">Sitemap</a>
+            </div>
+            <div className="uf-bar__tools">
+              <LanguageSwitcher />
+              <button className="uf-top" type="button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0, behavior: motion ? 'smooth' : 'auto' })}>
+                <svg className="uf-top__ring" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true">
+                  <circle cx="22" cy="22" r="20" fill="none" stroke="rgba(255,255,255,.18)" strokeWidth="2" />
+                  <circle className="uf-top__progress" cx="22" cy="22" r="20" fill="none" stroke="#c7a24a" strokeWidth="2" strokeLinecap="round" strokeDasharray={CIRC} strokeDashoffset={(CIRC * (1 - progress)).toFixed(2)} />
+                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 19V5" /><path d="M6 11l6-6 6 6" /></svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
