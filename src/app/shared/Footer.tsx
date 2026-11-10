@@ -324,7 +324,7 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
           </div>
 
           <div className="uf-finder__foot">
-            <a className="uf-browse" href="/tutors">Meet all our tutors <span className="uf-arrow uf-flip" aria-hidden="true">→</span></a>
+            <a className="uf-browse" href="/tutors">Meet all our tutors</a>
           </div>
         </div>
       </section>
@@ -378,7 +378,7 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
                 <ul className="uf-links uf-links--2">
                   {SUBJECTS.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
                   <li className="uf-span2"><a href="/exam-preparation">Exam preparation</a></li>
-                  <li className="uf-span2"><a className="uf-more" href="/subjects">All subjects <span className="uf-flip" aria-hidden="true">→</span></a></li>
+                  <li className="uf-span2"><a className="uf-more" href="/subjects">All subjects</a></li>
                 </ul>
               </div>
             </nav>
@@ -388,13 +388,13 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
               <div className={`uf-col__panel${openCols.curriculum ? ' is-open' : ''}`} id="uf-list-curriculum">
                 {CURRICULA.map((c) => (
                   <div className="uf-cur" key={c.hub[1]}>
-                    <a className="uf-cur__hub" href={c.hub[1]}>{c.hub[0]} <span className="uf-flip" aria-hidden="true">→</span></a>
+                    <a className="uf-cur__hub" href={c.hub[1]}>{c.hub[0]}</a>
                     <ul className="uf-inline">
                       {c.items.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
                     </ul>
                   </div>
                 ))}
-                <a className="uf-more" href="/curriculum">All curricula <span className="uf-flip" aria-hidden="true">→</span></a>
+                <a className="uf-more" href="/curriculum">All curricula</a>
               </div>
             </nav>
 
