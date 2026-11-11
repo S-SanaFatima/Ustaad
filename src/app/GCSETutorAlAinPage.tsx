@@ -101,6 +101,31 @@ function GcseAlAinHeroBackground() {
     <div className="absolute inset-0 w-full h-full pointer-events-none select-none overflow-hidden z-0" aria-hidden="true">
       <div className="absolute -top-24 left-1/2 w-[580px] h-[580px] rounded-full blur-[90px] opacity-40" style={{ background: 'radial-gradient(circle, rgba(15,74,155,0.45) 0%, rgba(15,74,155,0) 70%)', transform: 'translateX(-50%)' }} />
       <div className="absolute top-8 -right-12 w-[420px] h-[420px] rounded-full blur-[80px] opacity-20" style={{ background: 'radial-gradient(circle, rgba(240,201,106,0.3) 0%, rgba(240,201,106,0) 70%)' }} />
+      {/* Mobile and tablet: the same motifs, smaller and fainter, pinned to the corners */}
+      <svg viewBox="0 0 200 200" className="absolute -right-24 -top-10 w-[190px] h-[190px] lg:hidden opacity-80" aria-hidden="true">
+        <g transform="translate(100 100)">
+          <circle r="96" fill="none" stroke="rgba(255,255,255,0.09)" />
+          <circle r="64" fill="none" stroke="rgba(240,201,106,0.28)" strokeDasharray="3 6" />
+          <circle r="28" fill="rgba(240,201,106,0.06)" stroke="rgba(240,201,106,0.45)" />
+          <circle cx="-83" cy="48" r="3" fill="#5b8fd6" opacity="0.7" />
+          <circle cx="-48" cy="-83" r="3" fill="#5b8fd6" opacity="0.7" />
+          <circle cx="0" cy="96" r="3" fill="#f0c96a" opacity="0.6" />
+        </g>
+      </svg>
+      <svg viewBox="0 0 160 220" className="absolute -left-6 bottom-2 w-[96px] h-[132px] lg:hidden opacity-80" aria-hidden="true">
+        <defs>
+          <linearGradient id="gal-line-m" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stopColor="#5b8fd6" stopOpacity="0.15" />
+            <stop offset="70%" stopColor="#5b8fd6" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#f0c96a" stopOpacity="0.7" />
+          </linearGradient>
+        </defs>
+        <line x1="12" y1="212" x2="150" y2="212" stroke="rgba(255,255,255,0.08)" strokeDasharray="3 5" />
+        <polyline points="12,205 34,198 54,186 72,168 88,144 102,114 114,78 124,40" fill="none" stroke="url(#gal-line-m)" strokeWidth="2" />
+        {[[34, 198], [54, 186], [72, 168], [88, 144], [102, 114], [114, 78], [124, 40]].map(([x, y], k) => (
+          <circle key={k} cx={x} cy={y} r={k === 6 ? 4 : 2.5} fill={k >= 5 ? '#f0c96a' : '#5b8fd6'} opacity={0.6} />
+        ))}
+      </svg>
       <svg viewBox="0 0 1440 560" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full hidden lg:block">
         <defs>
           <linearGradient id="gal-line" x1="0" y1="1" x2="1" y2="0">
@@ -209,11 +234,11 @@ export default function GCSETutorAlAinPage() {
             Live online GCSE tuition for Al Ain students, one to one, at Foundation or Higher tier. Maths, English and the sciences, from the first Year 10 topic to the last Year 11 paper.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full px-4 mb-4">
-            <a href={BOOKING} className="inline-flex items-center justify-center gap-2 px-7 h-11 rounded-full font-bold text-xs sm:text-sm text-white transition-all hover:-translate-y-0.5 shadow-lg"
+            <a href={BOOKING} className="inline-flex items-center justify-center gap-2 w-full max-w-[290px] sm:w-auto sm:max-w-none sm:min-w-[220px] px-7 h-11 rounded-full font-bold text-xs sm:text-sm text-white transition-all hover:-translate-y-0.5 shadow-lg"
               style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}>
               Book Your First Session
             </a>
-            <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 h-11 rounded-full font-bold text-xs sm:text-sm text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-md shadow-[#25D366]/20">
+            <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full max-w-[290px] sm:w-auto sm:max-w-none sm:min-w-[220px] px-6 h-11 rounded-full font-bold text-xs sm:text-sm text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-md shadow-[#25D366]/20">
               <MessageCircle className="w-4 h-4" /> WhatsApp Us
             </a>
           </div>
