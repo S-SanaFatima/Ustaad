@@ -145,6 +145,8 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
   const [jsReady, setJsReady] = useState(false);
   const [motion, setMotion] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [mtab, setMtab] = useState<'subjects' | 'curriculum'>('subjects');
+  const mtabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [progress, setProgress] = useState(0);
 
   const rootRef = useRef<HTMLElement>(null);
@@ -235,6 +237,14 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
     }
   };
 
+  const MTABS = ['subjects', 'curriculum'] as const;
+  const onMtabKey = (e: KeyboardEvent<HTMLButtonElement>, i: number) => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    const next = (i + 1) % 2;
+    setMtab(MTABS[next]);
+    mtabRefs.current[next]?.focus();
+  };
   const CIRC = 125.66;
 
   const rootCls = ['uf', jsReady && 'uf--js', jsReady && motion && 'uf--motion', visible && 'is-visible'].filter(Boolean).join(' ');
@@ -340,7 +350,7 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
       {/* Tier 2: Links */}
       <div className="uf-main">
         <div className="uf__wrap">
-          <div className="uf-cols">
+          <div className="uf-cols" data-mtab={mtab}>
             <div className="uf-brand">
               <a className="uf-logo" href="/" aria-label="Ustaad home">
                 <img src="/ustaad-private-tutors-uae-logo.png" alt={logoAlt} width={140} height={46} loading="lazy" />
@@ -372,6 +382,26 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 4l16 16" /><path d="M20 4L4 20" /></svg>
                 </a>
               </div>
+            </div>
+
+            {/* Phones only: one switch for the two long lists (no dropdowns). Hidden on wider screens and without JS. */}
+            <div className="uf-mtabs" role="tablist" aria-label="Browse by">
+              {MTABS.map((k, i) => (
+                <button
+                  key={k}
+                  ref={(el) => { mtabRefs.current[i] = el; }}
+                  type="button"
+                  role="tab"
+                  id={`uf-mtab-${k}`}
+                  aria-controls={`uf-col-${k}`}
+                  aria-selected={mtab === k}
+                  tabIndex={mtab === k ? 0 : -1}
+                  onClick={() => setMtab(k)}
+                  onKeyDown={(e) => onMtabKey(e, i)}
+                >
+                  {k === 'subjects' ? 'Subjects' : 'Curriculum'}
+                </button>
+              ))}
             </div>
 
             <nav className="uf-col uf-col--subjects" id="uf-col-subjects" aria-label="Subjects">
