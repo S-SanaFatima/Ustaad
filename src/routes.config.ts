@@ -858,7 +858,7 @@ export const ROUTES: RouteConfig[] = [
     seo: {
       title: 'IGCSE Tutor Al Ain | Online 1-to-1 IGCSE Tutors | Ustaad',
       description: 'Online 1-to-1 IGCSE tutors for Al Ain students in Years 9-11. Cambridge and Edexcel Maths, Sciences and English. Free 15-min orientation with your first lesson.',
-      keywords: 'IGCSE tutor Al Ain, IGCSE tutors Al Ain, private IGCSE tutor Al Ain, online IGCSE tutor UAE, Cambridge IGCSE tutor Al Ain, Edexcel IGCSE tutor Al Ain, IGCSE Maths tutor Al Ain, IGCSE Physics tutor Al Ain, IGCSE Chemistry tutor Al Ain, IGCSE Biology tutor Al Ain, IGCSE English tutor Al Ain, GCSE tutor Al Ain, IGCSE exam preparation Al Ain, Core vs Extended IGCSE, IGCSE Paper 6 help, Year 9 to IGCSE transition, IGCSE subject choices, IGCSE resit support UAE',
+      keywords: 'IGCSE tutor Al Ain, IGCSE tutors Al Ain, private IGCSE tutor Al Ain, online IGCSE tutor UAE, Cambridge IGCSE tutor Al Ain, Edexcel IGCSE tutor Al Ain, IGCSE Maths tutor Al Ain, IGCSE Physics tutor Al Ain, IGCSE Chemistry tutor Al Ain, IGCSE Biology tutor Al Ain, IGCSE English tutor Al Ain, IGCSE exam preparation Al Ain, Core vs Extended IGCSE, IGCSE Paper 6 help, Year 9 to IGCSE transition, IGCSE subject choices, IGCSE resit support UAE',
       priority: 0.85,
       changefreq: 'monthly',
       lastmod: '2026-11-04',
@@ -872,12 +872,25 @@ export const ROUTES: RouteConfig[] = [
     seo: {
       title: 'IGCSE Tutor Al Ain | Online 1-to-1 IGCSE Tutors | Ustaad',
       description: 'Online 1-to-1 IGCSE tutors for Al Ain students in Years 9-11. Cambridge and Edexcel Maths, Sciences and English. Free 15-min orientation with your first lesson.',
-      keywords: 'IGCSE tutor Al Ain, IGCSE tutors Al Ain, private IGCSE tutor Al Ain, online IGCSE tutor UAE, Cambridge IGCSE tutor Al Ain, Edexcel IGCSE tutor Al Ain, IGCSE Maths tutor Al Ain, IGCSE Physics tutor Al Ain, IGCSE Chemistry tutor Al Ain, IGCSE Biology tutor Al Ain, IGCSE English tutor Al Ain, GCSE tutor Al Ain, IGCSE exam preparation Al Ain, Core vs Extended IGCSE, IGCSE Paper 6 help',
+      keywords: 'IGCSE tutor Al Ain, IGCSE tutors Al Ain, private IGCSE tutor Al Ain, online IGCSE tutor UAE, Cambridge IGCSE tutor Al Ain, Edexcel IGCSE tutor Al Ain, IGCSE Maths tutor Al Ain, IGCSE Physics tutor Al Ain, IGCSE Chemistry tutor Al Ain, IGCSE Biology tutor Al Ain, IGCSE English tutor Al Ain, IGCSE exam preparation Al Ain, Core vs Extended IGCSE, IGCSE Paper 6 help',
       priority: 0.90,
       changefreq: 'monthly',
       lastmod: '2026-11-11'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IGCSE', url: '/igcse' }, { name: 'IGCSE Tutor Al Ain', url: '/igcse-tutor-al-ain' }]
+  },
+  {
+    path: '/gcse-tutor-al-ain',
+    component: 'GCSETutorAlAinPage',
+    seo: {
+      title: 'GCSE Tutor Al Ain | Online AQA, Edexcel & OCR | Ustaad',
+      description: 'Online 1-to-1 GCSE tutors for Al Ain students in Years 10 and 11. AQA, Edexcel and OCR Maths, English and Science. Free 15-min orientation.',
+      keywords: 'GCSE tutor Al Ain, GCSE tuition Al Ain, online GCSE tutor Al Ain, GCSE maths tutor Al Ain, GCSE English tutor Al Ain, GCSE science tutor Al Ain, AQA GCSE tutor, Edexcel GCSE tutor, OCR GCSE tutor, GCSE Foundation and Higher tier, GCSE resit Al Ain',
+      priority: 0.90,
+      changefreq: 'monthly',
+      lastmod: '2026-11-11'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'GCSE', url: '/gcse' }, { name: 'GCSE Tutor Al Ain', url: '/gcse-tutor-al-ain' }]
   },
   {
     path: '/editorial',

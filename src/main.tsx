@@ -78,6 +78,7 @@ const loadBiologyTutorDubaiLanding = () => import('./app/BiologyTutorDubaiPage')
 const loadALevelTutorLanding = () => import('./app/ALevelTutorAbuDhabiPage');
 const loadALevelTutorAlAinPage = () => import('./app/ALevelTutorAlAinPage');
 const loadIGCSETutorAlAinPage = () => import('./app/IGCSETutorAlAinPage');
+const loadGCSETutorAlAinPage = () => import('./app/GCSETutorAlAinPage');
 const loadALevelTutorDubaiPage = () => import('./app/ALevelTutorDubaiPage');
 const loadIBTutorLanding = () => import('./app/IBTutorAbuDhabiPage');
 const loadIBTutorDubaiLanding = () => import('./app/IBTutorDubaiPage');
@@ -200,6 +201,7 @@ const PAGE_LOADERS: Record<string, PageLoader> = {
   '/a-level-tutor-al-ain': loadALevelTutorAlAinPage,
   '/al-ain/igcse-tutor-al-ain': loadIGCSETutorAlAinPage,
   '/igcse-tutor-al-ain': loadIGCSETutorAlAinPage,
+  '/gcse-tutor-al-ain': loadGCSETutorAlAinPage,
   '/ib-tutor-abu-dhabi': loadIBTutorLanding,
   '/curriculum/ib-tutor-dubai': loadIBTutorDubaiLanding,
   '/ib-tutor-dubai': loadIBTutorDubaiLanding,
@@ -303,6 +305,7 @@ const ALevelTutorDubaiPage = lazy(loadALevelTutorDubaiPage);
 const ALevelTutorLanding = lazy(loadALevelTutorLanding);
 const ALevelTutorAlAinPage = lazy(loadALevelTutorAlAinPage);
 const IGCSETutorAlAinPage = lazy(loadIGCSETutorAlAinPage);
+const GCSETutorAlAinPage = lazy(loadGCSETutorAlAinPage);
 const IBTutorLanding = lazy(loadIBTutorLanding);
 const IBTutorDubaiLanding = lazy(loadIBTutorDubaiLanding);
 const AcademicBlogsPage = lazy(loadAcademicBlogsPage);
@@ -455,6 +458,7 @@ function AppRoutes() {
             <Route path="/igcse-a-levels"                        element={<Navigate to="/igcse" replace />} />
             <Route path="/a-levels"                              element={<Navigate to="/a-level" replace />} />
           <Route path="/igcse-tutor-al-ain"                    element={<IGCSETutorAlAinPage />} />
+          <Route path="/gcse-tutor-al-ain"                     element={<GCSETutorAlAinPage />} />
           <Route path="/ib-tutor-abu-dhabi"                  element={<IBTutorLanding />} />
           <Route path="/curriculum/ib-tutor-dubai"           element={<Navigate to="/ib-tutor-dubai" replace />} />
           <Route path="/ib-tutor-dubai"                      element={<IBTutorDubaiLanding />} />

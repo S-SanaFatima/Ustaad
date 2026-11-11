@@ -93,6 +93,7 @@ import BiologyTutorDubaiPage from "./app/BiologyTutorDubaiPage.tsx";
 import ALevelTutorLanding from "./app/ALevelTutorAbuDhabiPage.tsx";
 import ALevelTutorAlAinPage from "./app/ALevelTutorAlAinPage.tsx";
 import IGCSETutorAlAinPage from "./app/IGCSETutorAlAinPage.tsx";
+import GCSETutorAlAinPage from "./app/GCSETutorAlAinPage.tsx";
 import ALevelTutorDubaiPage from "./app/ALevelTutorDubaiPage.tsx";
 import IBTutorAbuDhabiPage from "./app/IBTutorAbuDhabiPage.tsx";
 import IBTutorDubaiPage from "./app/IBTutorDubaiPage.tsx";
@@ -161,6 +162,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   ALevelTutorLanding,
   ALevelTutorAlAinPage,
   IGCSETutorAlAinPage,
+  GCSETutorAlAinPage,
   MockExamsUAEBlog,
   WhatDoesGradientMeanBlog,
   WhatDoesYInterceptMeanBlog,

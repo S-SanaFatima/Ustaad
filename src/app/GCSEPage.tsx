@@ -74,7 +74,8 @@ export default function GCSEPage() {
               Studying IGCSE instead?{' '}
               <a href="/igcse" className="text-[#0f4a9b] font-semibold underline">Read about Ustaad's IGCSE tutoring across Cambridge and Edexcel.</a>{' '}
               Based in Dubai? <a href="/gcse-tutor-dubai" className="text-[#0f4a9b] font-semibold underline">GCSE tutor Dubai</a> hub available.{' '}
-              Based in Abu Dhabi? <a href="/gcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">GCSE tutor Abu Dhabi</a> hub available.
+              Based in Abu Dhabi? <a href="/gcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">GCSE tutor Abu Dhabi</a> hub available.{' '}
+              In Al Ain? See <a href="/gcse-tutor-al-ain" className="text-[#0f4a9b] font-semibold underline">GCSE tutor Al Ain</a>.
             </p>
             <HeroCTABlock className="mb-0">
               Book Your First GCSE Lesson
@@ -1142,7 +1143,7 @@ export default function GCSEPage() {
               { city: "Dubai",          note: "Most populous emirate", href: "/gcse-tutor-dubai" },
               { city: "Sharjah",        note: "Growing GCSE community" },
               { city: "Ajman",          note: "AQA & Edexcel coverage" },
-              { city: "Al Ain",         note: "Garden City" },
+              { city: "Al Ain",         note: "Garden City", href: "/gcse-tutor-al-ain" },
               { city: "Ras Al Khaimah", note: "Northern Emirates" },
               { city: "Fujairah",       note: "East coast" },
               { city: "Umm Al Quwain",  note: "Smallest emirate" },
