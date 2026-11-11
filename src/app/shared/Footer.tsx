@@ -51,13 +51,14 @@ const EMIRATES: Emirate[] = [
     ],
   },
   {
-    id: 'aa', name: 'Al Ain', count: 2,
+    id: 'aa', name: 'Al Ain', count: 3,
     groups: [
-      { label: 'By curriculum', span: 2, tiles: [
-        { href: '/a-level-tutor-al-ain', icon: 'alevel', title: 'A-Level tutor', city: 'Al Ain', ga: true },
+      { label: 'By curriculum', span: 3, tiles: [
         { href: '/igcse-tutor-al-ain', icon: 'igcse', title: 'IGCSE tutor', city: 'Al Ain', ga: true },
+        { href: '/gcse-tutor-al-ain', icon: 'gcse', title: 'GCSE tutor', city: 'Al Ain', ga: true },
+        { href: '/a-level-tutor-al-ain', icon: 'alevel', title: 'A-Level tutor', city: 'Al Ain', ga: true },
       ] },
-      { label: 'Other subjects', span: 6, note: 'alain' },
+      { label: 'Other subjects', span: 5, note: 'alain' },
     ],
   },
   {
