@@ -350,9 +350,9 @@ export default function GCSETutorAlAinPage() {
             title={<>GCSE subjects we tutor, <span className="text-[#0f4a9b]">by exam board</span></>}
             intro="Each subject has its own specification code. We match the tutor to that code, so lessons follow the same topics, papers and mark scheme as your child’s school."
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-px-4 sm:scroll-px-0 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 pb-1 sm:pb-0 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {SUBJECTS.map((s) => (
-              <article key={s.name} className="group flex flex-col rounded-2xl border border-[#0f4a9b]/10 bg-white p-6 shadow-[0_4px_20px_rgba(15,74,155,0.05)] hover:shadow-[0_14px_34px_rgba(15,74,155,0.12)] hover:-translate-y-1 hover:border-[#0f4a9b]/25 transition-all duration-300">
+              <article key={s.name} className="shrink-0 w-[84%] sm:w-auto snap-start group flex flex-col rounded-2xl border border-[#0f4a9b]/10 bg-white p-6 shadow-[0_4px_20px_rgba(15,74,155,0.05)] hover:shadow-[0_14px_34px_rgba(15,74,155,0.12)] hover:-translate-y-1 hover:border-[#0f4a9b]/25 transition-all duration-300">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="w-11 h-11 rounded-xl bg-[#f6efdc] text-[#0a3a79] flex items-center justify-center shrink-0"><s.Icon className="w-5 h-5" /></span>
                   <h3 className="text-[17px] font-extrabold text-[#0a1f3d] leading-snug">{s.name}</h3>
@@ -363,6 +363,7 @@ export default function GCSETutorAlAinPage() {
               </article>
             ))}
           </div>
+          <p className="sm:hidden mt-3 text-center text-[12px] font-semibold text-[#4a5a72]">Scroll to view more</p>
         </div>
       </section>
 
@@ -371,10 +372,10 @@ export default function GCSETutorAlAinPage() {
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead light eyebrow="The GCSE years" title={<>From Year 10 to <span className="text-[#f0c96a]">results day</span></>} intro="The two GCSE years have clear checkpoints. Here is what we focus on at each one." />
-          <ol className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <ol className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-px-4 sm:scroll-px-0 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 pb-1 sm:pb-0 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {TIMELINE.map((t, i) => (
               <motion.li key={t.title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="rounded-2xl border border-white/12 bg-white/[0.06] p-5 backdrop-blur-sm">
+                className="shrink-0 w-[84%] sm:w-auto snap-start rounded-2xl border border-white/12 bg-white/[0.06] p-5 backdrop-blur-sm">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="w-8 h-8 rounded-full flex items-center justify-center text-[13px] font-extrabold text-[#0a1f3d]" style={{ background: 'linear-gradient(135deg,#f0c96a,#C7A24A)' }}>{i + 1}</span>
                   <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#f0d58c]">{t.when}</span>
@@ -384,6 +385,7 @@ export default function GCSETutorAlAinPage() {
               </motion.li>
             ))}
           </ol>
+          <p className="sm:hidden mt-3 text-center text-[12px] font-semibold text-blue-100/75">Scroll to view more</p>
         </div>
       </section>
 
