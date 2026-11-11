@@ -2,7 +2,7 @@ import { useState, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import {
   Calculator, BookOpen, FlaskConical, Atom, Briefcase, PenLine,
-  ChevronDown, MessageCircle, Search, ClipboardCheck, CalendarCheck, CheckCircle2, Info,
+  ChevronDown, MessageCircle, Star, Search, ClipboardCheck, CalendarCheck, CheckCircle2, Info,
 } from 'lucide-react';
 import { Layout, StatsBar, SchoolsMarquee, HowOnlineSessions3DSection, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -412,36 +412,102 @@ export default function GCSETutorAlAinPage() {
         </div>
       </section>
 
-      {/* ── 08 FAQ ── */}
-      <section className="py-14 lg:py-20 bg-[#f4f7fc]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHead eyebrow="FAQ" title="GCSE Tutor Al Ain: FAQs" />
-          <div className="flex flex-col gap-3">
-            {FAQS.map((f, i) => {
-              const isOpen = openFaq === i;
-              return (
-                <div key={f.q} className="rounded-2xl bg-white border border-[#0f4a9b]/8 overflow-hidden" style={{ boxShadow: isOpen ? '0 10px 30px rgba(15,74,155,0.07)' : '0 2px 10px rgba(15,74,155,0.03)' }}>
-                  <button type="button" onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen} className="w-full text-left px-5 py-4 flex items-center justify-between gap-4">
-                    <h3 className="font-bold text-[#0a1f3d] text-[15px]">{f.q}</h3>
-                    <span className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? 'bg-[#0f4a9b] text-white' : 'bg-[#f4f7fc] text-[#0f4a9b]'}`}>
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
-                    </span>
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.28 }} className="overflow-hidden">
-                        <p className="px-5 pb-5 pt-1 text-[14px] text-[#4a5a72] leading-relaxed">{f.a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+      {/* ── 08 GOOGLE REVIEW (same card as the IGCSE Al Ain page) ── */}
+      <section className="py-14 sm:py-20 bg-gradient-to-b from-[#f8fafc] to-white relative overflow-hidden border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-7">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-bold text-[#0a1f3d] mb-3 shadow-xs">
+              <span className="text-[#C7A24A] tracking-tighter">★★★★★</span>
+              <span>5.0 · Verified Google reviews</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d]">What Parents Say on Google</h2>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}
+              className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-[0_8px_32px_rgba(15,74,155,0.08)] relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0f4a9b] via-[#1e5ba8] to-[#C7A24A]" />
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map((j) => <Star key={j} className="h-4 w-4 fill-[#C7A24A] text-[#C7A24A]" />)}
                 </div>
-              );
-            })}
+                <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/8 px-3 py-1 rounded-full border border-[#0f4a9b]/15">GOOGLE REVIEW</span>
+              </div>
+              <p className="text-[#374151] text-[15px] sm:text-[16px] leading-relaxed mb-6 italic">
+                &ldquo;I had very good experience with Ustad for my daughter &hellip; her math teacher is one of the best tuters i experienced .. he explains the concepts very well and have an excellent experience of IGCSE and A levels examination. Highly recommended&rdquo;
+              </p>
+              <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100">
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#0f4a9b] to-[#1e5ba8] flex items-center justify-center text-white font-bold text-sm shadow-[0_2px_8px_rgba(15,74,155,0.28)] notranslate shrink-0" translate="no">SA</div>
+                <div className="min-w-0">
+                  <div className="font-extrabold text-[#0a1f3d] text-[15px] notranslate truncate" translate="no">Sumayya Alamri</div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5 truncate">Google review</div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── 09 CTA ── */}
+      {/* ── 09 FAQ (same layout as the IGCSE Al Ain page) ── */}
+      <section id="faqs" className="py-16 sm:py-20 bg-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+              className="lg:col-span-5 flex flex-col items-start text-left lg:sticky lg:top-24">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f4a9b]/5 border border-[#0f4a9b]/12 text-[#0f4a9b] text-xs font-bold mb-4">
+                <span className="flex items-center justify-center w-4 h-4 rounded-full bg-[#0f4a9b]/10 text-[10px]">?</span>
+                COMMON QUESTIONS
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0a1f3d] leading-tight mb-3">
+                What Al Ain Families <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Ask About GCSE Tutoring</span>
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                GCSE or IGCSE, exam boards, tiers, passes and resits, answered for Al Ain families.
+              </p>
+            </motion.div>
+
+            <div className="lg:col-span-7 flex flex-col gap-3.5">
+              {FAQS.map((faq, i) => {
+                const isOpen = openFaq === i;
+                const tone = { background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', color: isOpen ? '#fff' : '#0f4a9b' };
+                return (
+                  <motion.div key={faq.q} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }} className="flex flex-col gap-2">
+                    <div className="flex items-center gap-3">
+                      <button type="button" onClick={() => setOpenFaq(isOpen ? null : i)} aria-label={`Toggle FAQ: ${faq.q}`}
+                        className="flex-shrink-0 flex items-center justify-center font-extrabold text-base rounded-full"
+                        style={{ width: 40, height: 40, minWidth: 40, minHeight: 40, ...tone, transition: 'background 300ms ease, color 300ms ease', cursor: 'pointer', border: 'none', boxShadow: 'inset 0 0 0 2px #fff' }}>
+                        ?
+                      </button>
+                      <button type="button" onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen}
+                        className="flex-1 flex items-center gap-3 text-left rounded-full border bg-white shadow-xs transition-colors hover:border-[#0f4a9b]/50"
+                        style={{ minHeight: '52px', padding: '10px 18px', cursor: 'pointer', borderColor: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.12)' }}>
+                        <h3 className="flex-1 font-semibold text-[#0a1f3d] text-[13.5px] sm:text-[14px] leading-snug">{faq.q}</h3>
+                        <span className="flex-shrink-0 flex items-center justify-center"
+                          style={{ width: 32, height: 32, minWidth: 32, minHeight: 32, borderRadius: '50%', ...tone, transition: 'background 300ms ease, color 300ms ease, transform 300ms cubic-bezier(0.22,1,0.36,1)', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+                          <ChevronDown className="h-4 w-4" />
+                        </span>
+                      </button>
+                    </div>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }} className="ml-[52px] overflow-hidden">
+                          <div className="flex items-start gap-3 rounded-2xl border p-4 sm:p-4.5 bg-[#f8fafc]" style={{ borderColor: 'rgba(15,74,155,0.15)', boxShadow: '0 4px 16px rgba(15,74,155,0.06)' }}>
+                            <p className="flex-1 text-gray-600 text-[13px] sm:text-[13.5px] leading-relaxed">{faq.a}</p>
+                            <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ width: 32, height: 32, minWidth: 32, minHeight: 32, background: '#0f4a9b', color: '#fff' }}>
+                              <MessageCircle className="h-4 w-4" />
+                            </span>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 10 CTA ── */}
       <section className="py-14 lg:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl p-8 sm:p-12 text-center text-white shadow-xl" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 60%, #1e5ba8 100%)' }}>
