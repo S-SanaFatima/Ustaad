@@ -168,22 +168,43 @@
   .uf-col--subjects, .uf-col--curriculum, .uf-col--company { grid-column: auto; }
 }
 
-/* ---------- Below 768px: stacked sections, no dropdowns ---------- */
+/* ---------- Below 768px: no dropdowns ---------- */
+/* "About Ustaad" links stay visible as chips. Subjects / Curriculum share one
+   switch, the same pattern parents just used for the emirate tabs. */
+.uf-mtabs { display: none; }
 @media (max-width: 767px) {
   .uf-cols { display: flex; flex-direction: column; row-gap: 0; }
-  .uf-brand { padding-bottom: 28px; }
-  .uf-col { padding-block: 24px; border-top: 1px solid var(--uf-rule); }
-  .uf-col__title { margin-bottom: 12px; font-size: 11.5px; }
-  .uf-links--1, .uf-links--2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; row-gap: 0; }
-  .uf-links a { display: flex; align-items: center; min-height: 42px; font-size: 15px; }
-  .uf-links .uf-span2 { grid-column: span 2; }
-  .uf-links a.uf-more, .uf-more { min-height: 42px; margin-top: 2px; font-size: 14px; }
-  .uf-cur { gap: 2px; margin-bottom: 14px; }
-  .uf-cur__hub { font-size: 12px; letter-spacing: 0.02em; min-height: 26px; align-items: center; }
-  .uf-inline { gap: 0 22px; }
-  .uf-inline a { display: inline-flex; align-items: center; min-height: 40px; font-size: 15px; }
+  .uf-brand { order: 1; margin-bottom: 30px; }
+  .uf-col--company { order: 2; margin-bottom: 30px; }
+  .uf-mtabs { order: 3; }
+  .uf-col--subjects { order: 4; }
+  .uf-col--curriculum { order: 5; }
+  .uf-col__title { margin-bottom: 14px; font-size: 11.5px; }
+
+  /* Chip style for every link list on phones */
+  .uf-links--1, .uf-links--2, .uf-inline { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  .uf-links a, .uf-inline a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.04); font-size: 14px; color: rgba(255, 255, 255, 0.92); transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+  .uf-links a:active, .uf-inline a:active { background: var(--uf-gold); border-color: var(--uf-gold); color: #fff; }
+  .uf-links .uf-span2 { grid-column: auto; }
+  .uf-links li.uf-span2:last-child { flex-basis: 100%; }
+  .uf-links a.uf-more { border: 0; background: none; padding: 0; min-height: 44px; font-size: 14px; }
+  .uf-more { min-height: 44px; font-size: 14px; }
+  .uf-cur { margin-bottom: 20px; gap: 10px; }
+  .uf-cur__hub { align-self: flex-start; min-height: 30px; align-items: center; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--uf-gold-soft); }
+
+  /* Subjects | Curriculum switch */
+  .uf-mtabs { display: flex; padding: 4px; margin-bottom: 22px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.04); }
+  .uf-mtabs button { flex: 1; height: 44px; border: 0; border-radius: 999px; background: transparent; color: rgba(255, 255, 255, 0.78); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: background 0.3s ease, color 0.3s ease; }
+  .uf-mtabs button[aria-selected='true'] { background: linear-gradient(90deg, #c7a24a 0%, #a8892a 50%, #7a5e10 100%); color: #fff; box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.5); }
+  .uf-mtabs button:focus-visible { outline: 2px solid var(--uf-gold); outline-offset: 3px; }
+  .uf:not(.uf--js) .uf-mtabs { display: none; }
+  /* the switch replaces these two headings visually; keep them for screen readers */
+  .uf--js .uf-col--subjects .uf-col__title, .uf--js .uf-col--curriculum .uf-col__title { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .uf--js .uf-cols[data-mtab='subjects'] .uf-col--curriculum,
+  .uf--js .uf-cols[data-mtab='curriculum'] .uf-col--subjects { display: none; }
+  .uf--motion .uf-col--subjects, .uf--motion .uf-col--curriculum { animation: ufRise 0.35s ease both; }
   .uf-social a { width: 44px; height: 44px; }
-  .uf-bar { margin-top: 0; }
+  .uf-bar { margin-top: 30px; }
 }
 
 /* ---------- Phone: below 640px ---------- */
