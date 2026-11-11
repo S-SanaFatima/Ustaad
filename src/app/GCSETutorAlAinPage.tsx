@@ -93,49 +93,57 @@ function SectionHead({ eyebrow, title, intro, light = false }: { eyebrow: string
   );
 }
 
-function HeroGraphic() {
-  // 9–1 grade ladder: bars rise from grade 1 to grade 9, with the two tier ranges marked.
-  const bars = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+function GcseAlAinHeroBackground() {
+  // Faint decorative canvas, in the same style as the other landing-page heroes:
+  // a rising 1→9 grade line on the left, an orbit of exam-board codes on the right.
+  const pts = [[60, 470], [96, 458], [132, 444], [168, 425], [204, 400], [240, 370], [276, 332], [312, 286], [348, 232]];
   return (
-    <svg viewBox="0 0 420 300" className="w-full h-auto" role="img" aria-label="GCSE grades 1 to 9, with Foundation tier covering grades 1 to 5 and Higher tier covering grades 4 to 9">
-      <defs>
-        <linearGradient id="gal-bar" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%" stopColor="#1e5ba8" />
-          <stop offset="100%" stopColor="#5b8fd6" />
-        </linearGradient>
-        <linearGradient id="gal-gold" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%" stopColor="#A8892A" />
-          <stop offset="100%" stopColor="#f0c96a" />
-        </linearGradient>
-      </defs>
-      <line x1="30" y1="240" x2="400" y2="240" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" />
-      {bars.map((g, i) => {
-        const x = 40 + i * 40;
-        const h = 22 + g * 21;
-        const top = g >= 7;
-        return (
-          <g key={g}>
-            <rect x={x} y={240 - h} width="26" height={h} rx="6" fill={top ? 'url(#gal-gold)' : 'url(#gal-bar)'} opacity={g === 4 ? 1 : 0.92} />
-            <text x={x + 13} y="258" textAnchor="middle" fontSize="13" fontWeight="800" fill={top ? '#f0c96a' : 'rgba(255,255,255,0.85)'} fontFamily="ui-sans-serif, system-ui">{g}</text>
+    <div className="absolute inset-0 w-full h-full pointer-events-none select-none overflow-hidden z-0" aria-hidden="true">
+      <div className="absolute -top-24 left-1/2 w-[580px] h-[580px] rounded-full blur-[90px] opacity-40" style={{ background: 'radial-gradient(circle, rgba(15,74,155,0.45) 0%, rgba(15,74,155,0) 70%)', transform: 'translateX(-50%)' }} />
+      <div className="absolute top-8 -right-12 w-[420px] h-[420px] rounded-full blur-[80px] opacity-20" style={{ background: 'radial-gradient(circle, rgba(240,201,106,0.3) 0%, rgba(240,201,106,0) 70%)' }} />
+      <svg viewBox="0 0 1440 560" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full hidden lg:block">
+        <defs>
+          <linearGradient id="gal-line" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stopColor="#5b8fd6" stopOpacity="0.15" />
+            <stop offset="60%" stopColor="#5b8fd6" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="#f0c96a" stopOpacity="0.95" />
+          </linearGradient>
+          <filter id="gal-glow"><feGaussianBlur stdDeviation="3" /></filter>
+        </defs>
+        {/* Left: grade progression 1 → 9 */}
+        <line x1="50" y1="490" x2="370" y2="490" stroke="rgba(255,255,255,0.08)" strokeDasharray="4 6" />
+        <line x1="50" y1="500" x2="50" y2="200" stroke="rgba(255,255,255,0.08)" strokeDasharray="4 6" />
+        <polyline points={pts.map((p) => p.join(',')).join(' ')} fill="none" stroke="url(#gal-line)" strokeWidth="3" filter="url(#gal-glow)" />
+        <polyline points={pts.map((p) => p.join(',')).join(' ')} fill="none" stroke="url(#gal-line)" strokeWidth="1.5" />
+        {pts.map(([x, y], i) => (
+          <g key={i}>
+            <circle cx={x} cy={y} r={i === 8 ? 6 : 3.5} fill={i >= 6 ? '#f0c96a' : '#5b8fd6'} opacity={i >= 6 ? 0.95 : 0.7} />
+            <text x={x} y="512" textAnchor="middle" fontSize="11" fill="rgba(255,255,255,0.32)" fontFamily="ui-monospace, monospace">{i + 1}</text>
           </g>
-        );
-      })}
-      {/* Tier ranges */}
-      <line x1="40" y1="276" x2="226" y2="276" stroke="rgba(255,255,255,0.55)" strokeWidth="2" strokeLinecap="round" />
-      <text x="40" y="293" fontSize="11" fill="rgba(255,255,255,0.75)" fontFamily="ui-monospace, monospace">Foundation 1–5</text>
-      <line x1="160" y1="270" x2="386" y2="270" stroke="#f0c96a" strokeWidth="2" strokeLinecap="round" />
-      <text x="386" y="293" textAnchor="end" fontSize="11" fill="#f0c96a" fontFamily="ui-monospace, monospace">Higher 4–9</text>
-      {/* Pass marker */}
-      <line x1="40" y1="131" x2="400" y2="131" stroke="rgba(255,255,255,0.35)" strokeWidth="1" strokeDasharray="4 5" />
-      <text x="34" y="124" fontSize="11" fill="rgba(255,255,255,0.8)" fontFamily="ui-monospace, monospace">grade 4 = standard pass</text>
-      {/* Board chips */}
-      {[['AQA', 40, 54], ['Edexcel', 104, 76], ['OCR', 190, 54]].map(([b, x, w]) => (
-        <g key={b as string}>
-          <rect x={x as number} y="10" width={w as number} height="26" rx="13" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" />
-          <text x={(x as number) + (w as number) / 2} y="27" textAnchor="middle" fontSize="12" fontWeight="700" fill="#fff" fontFamily="ui-sans-serif, system-ui">{b}</text>
+        ))}
+        <text x="336" y="214" textAnchor="end" fontSize="13" fontWeight="700" fill="rgba(240,201,106,0.85)" fontFamily="ui-monospace, monospace">Grade 9</text>
+        <line x1="50" y1="425" x2="370" y2="425" stroke="rgba(255,255,255,0.10)" strokeDasharray="2 6" />
+        <text x="60" y="417" fontSize="11" fill="rgba(255,255,255,0.35)" fontFamily="ui-monospace, monospace">grade 4 · standard pass</text>
+        {/* Right: orbit of exam-board codes around Al Ain */}
+        <g transform="translate(1260 260)">
+          <circle r="150" fill="none" stroke="rgba(255,255,255,0.07)" />
+          <circle r="104" fill="none" stroke="rgba(240,201,106,0.25)" strokeDasharray="3 7" />
+          <circle r="46" fill="rgba(240,201,106,0.06)" stroke="rgba(240,201,106,0.6)" />
+          <text y="-3" textAnchor="middle" fontSize="15" fontWeight="800" fill="#f0c96a" fontFamily="ui-sans-serif, system-ui">GCSE</text>
+          <text y="15" textAnchor="middle" fontSize="9.5" fill="rgba(255,255,255,0.5)" fontFamily="ui-monospace, monospace" letterSpacing="1.5">AL AIN</text>
+          {[[-70, 'AQA 8300'], [160, 'Edexcel 1MA1'], [80, 'OCR J560']].map(([a, label]) => {
+            const r = ((a as number) * Math.PI) / 180;
+            const x = Math.cos(r) * 150; const y = Math.sin(r) * 150;
+            return (
+              <g key={label as string}>
+                <circle cx={x} cy={y} r="3.5" fill="#5b8fd6" />
+                <text x={x + 10} y={y + 4} textAnchor="start" fontSize="11" fill="rgba(147,197,253,0.7)" fontFamily="ui-monospace, monospace">{label}</text>
+              </g>
+            );
+          })}
         </g>
-      ))}
-    </svg>
+      </svg>
+    </div>
   );
 }
 
@@ -184,44 +192,39 @@ export default function GCSETutorAlAinPage() {
       />
 
       {/* ── 01 HERO ── */}
-      <section className="relative -mt-16 overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #060f22 0%, #0a1f3d 45%, #0f3a7a 100%)' }}>
-        <div className="absolute inset-0 pointer-events-none opacity-60" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '26px 26px' }} />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-14 lg:pt-36 lg:pb-20 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center">
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: 'easeOut' }}>
-            <nav aria-label="Breadcrumb" className="text-[12px] text-blue-100/60 mb-4">
-              <a href="/" className="hover:text-white">Home</a> <span className="mx-1">/</span>
-              <a href="/gcse" className="hover:text-white">GCSE</a> <span className="mx-1">/</span>
-              <span className="text-blue-100/90">GCSE Tutor Al Ain</span>
-            </nav>
-            <h1 className="font-extrabold tracking-tight leading-[1.08] mb-4 text-[clamp(2rem,5vw,3.3rem)]">
-              GCSE Tutor Al Ain{' '}
-              <span className="block mt-1" style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                1-to-1 Online Tutoring
+      <section className="relative -mt-10 overflow-hidden bg-[#060f22] flex flex-col items-center justify-center pt-14 pb-12 sm:pt-16 sm:pb-14">
+        <GcseAlAinHeroBackground />
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="relative z-10 flex flex-col items-center text-center px-4 max-w-4xl w-full">
+          <div className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold text-blue-100/90 bg-white/[0.08] border border-white/15 mb-3 shadow-sm">
+            AL AIN | AQA, EDEXCEL &amp; OCR | YEARS 10 &amp; 11
+          </div>
+          <h1 className="font-extrabold tracking-tight text-white leading-[1.14] mb-3 text-[clamp(1.75rem,4.2vw,3rem)] max-w-3xl">
+            GCSE Tutor in Al Ain,{' '}
+            <span style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Matched to Your Exam Board
+            </span>
+          </h1>
+          <p className="text-blue-100/85 text-xs sm:text-sm lg:text-base leading-relaxed max-w-2xl mb-5 px-4 font-medium">
+            Live online GCSE tuition for Al Ain students, one to one, at Foundation or Higher tier. Maths, English and the sciences, from the first Year 10 topic to the last Year 11 paper.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full px-4 mb-4">
+            <a href={BOOKING} className="inline-flex items-center justify-center gap-2 px-7 h-11 rounded-full font-bold text-xs sm:text-sm text-white transition-all hover:-translate-y-0.5 shadow-lg"
+              style={{ background: 'linear-gradient(135deg,#1e5bb3,#0f4a9b,#0a3a79)', boxShadow: '0 4px 16px rgba(15,74,155,0.5)' }}>
+              Book Your First Session
+            </a>
+            <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 h-11 rounded-full font-bold text-xs sm:text-sm text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all hover:-translate-y-0.5 shadow-md shadow-[#25D366]/20">
+              <MessageCircle className="w-4 h-4" /> WhatsApp Us
+            </a>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-xs text-blue-200/75">
+            {['1-to-1 online', 'Free 15-min orientation', 'Foundation & Higher'].map((t) => (
+              <span key={t} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#f0c96a]" /> {t}
               </span>
-            </h1>
-            <p className="text-blue-100/85 text-[15px] sm:text-base leading-relaxed max-w-xl mb-6">
-              Live online GCSE tuition for Al Ain students, matched to your child’s exam board (AQA, Pearson Edexcel or OCR) and tier. Maths, English and the sciences, from the first Year 10 topic to the last Year 11 paper.
-            </p>
-            <ul className="flex flex-wrap gap-2 mb-8" aria-label="What is included">
-              {['Years 10 & 11', 'AQA · Edexcel · OCR', 'Foundation & Higher', 'Mock paper marking', 'Free 15-min orientation'].map((t) => (
-                <li key={t} className="px-3 py-1.5 rounded-full text-[12px] font-semibold text-white/90 bg-white/10 border border-white/15">{t}</li>
-              ))}
-            </ul>
-            <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
-              <a href={BOOKING} className="inline-flex items-center justify-center h-12 px-7 rounded-full font-bold text-[15px] text-white shadow-lg hover:brightness-110 transition" style={{ background: GOLD }}>
-                Book First Session
-              </a>
-              <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-full font-bold text-[15px] text-white bg-[#25D366] hover:bg-[#20bd5a] shadow-lg transition">
-                <MessageCircle className="w-4 h-4" /> WhatsApp Us
-              </a>
-            </div>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
-            className="rounded-3xl border border-white/12 bg-white/[0.04] p-5 sm:p-7 backdrop-blur-sm shadow-2xl">
-            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#f0d58c] mb-3">GCSE grades at a glance</p>
-            <HeroGraphic />
-          </motion.div>
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       <StatsBar />
