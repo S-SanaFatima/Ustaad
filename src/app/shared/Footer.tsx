@@ -8,7 +8,8 @@ import './footer.css';
  * `hidden` attribute, so all 18 landing-page URLs are in the HTML of every page.
  */
 
-type Tile = { href: string; sym: string; title: string; city: string; ga?: boolean };
+type IconName = 'maths' | 'physics' | 'chemistry' | 'biology' | 'igcse' | 'gcse' | 'alevel' | 'ib' | 'pin';
+type Tile = { href: string; icon: IconName; title: string; city: string; ga?: boolean };
 type Group = { label: string; span: number; tiles?: Tile[]; note?: 'alain' | 'other' };
 type Emirate = { id: string; name: string; count?: number; groups: Group[] };
 
@@ -19,16 +20,16 @@ const EMIRATES: Emirate[] = [
     id: 'ad', name: 'Abu Dhabi', count: 8,
     groups: [
       { label: 'By subject', span: 4, tiles: [
-        { href: '/maths-tutor-abu-dhabi', sym: 'Ma', title: 'Maths tutor', city: 'Abu Dhabi', ga: true },
-        { href: '/physics-tutor-abu-dhabi', sym: 'Ph', title: 'Physics tutor', city: 'Abu Dhabi', ga: true },
-        { href: '/chemistry-tutor-abu-dhabi', sym: 'Ch', title: 'Chemistry tutor', city: 'Abu Dhabi', ga: true },
-        { href: '/biology-tutor-abu-dhabi', sym: 'Bi', title: 'Biology tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/maths-tutor-abu-dhabi', icon: 'maths', title: 'Maths tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/physics-tutor-abu-dhabi', icon: 'physics', title: 'Physics tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/chemistry-tutor-abu-dhabi', icon: 'chemistry', title: 'Chemistry tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/biology-tutor-abu-dhabi', icon: 'biology', title: 'Biology tutor', city: 'Abu Dhabi', ga: true },
       ] },
       { label: 'By curriculum', span: 4, tiles: [
-        { href: '/igcse-tutor-abu-dhabi', sym: 'IG', title: 'IGCSE tutor', city: 'Abu Dhabi', ga: true },
-        { href: '/gcse-tutor-abu-dhabi', sym: 'GC', title: 'GCSE tutor', city: 'Abu Dhabi', ga: true },
-        { href: '/a-level-tutor-abu-dhabi', sym: 'AL', title: 'A-Level tutor', city: 'Abu Dhabi', ga: true },
-        { href: '/ib-tutor-abu-dhabi', sym: 'IB', title: 'IB tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/igcse-tutor-abu-dhabi', icon: 'igcse', title: 'IGCSE tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/gcse-tutor-abu-dhabi', icon: 'gcse', title: 'GCSE tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/a-level-tutor-abu-dhabi', icon: 'alevel', title: 'A-Level tutor', city: 'Abu Dhabi', ga: true },
+        { href: '/ib-tutor-abu-dhabi', icon: 'ib', title: 'IB tutor', city: 'Abu Dhabi', ga: true },
       ] },
     ],
   },
@@ -36,16 +37,16 @@ const EMIRATES: Emirate[] = [
     id: 'du', name: 'Dubai', count: 8,
     groups: [
       { label: 'By subject', span: 4, tiles: [
-        { href: '/maths-tutor-dubai', sym: 'Ma', title: 'Maths tutor', city: 'Dubai', ga: true },
-        { href: '/physics-tutor-dubai', sym: 'Ph', title: 'Physics tutor', city: 'Dubai', ga: true },
-        { href: '/chemistry-tutor-dubai', sym: 'Ch', title: 'Chemistry tutor', city: 'Dubai', ga: true },
-        { href: '/biology-tutor-dubai', sym: 'Bi', title: 'Biology tutor', city: 'Dubai', ga: true },
+        { href: '/maths-tutor-dubai', icon: 'maths', title: 'Maths tutor', city: 'Dubai', ga: true },
+        { href: '/physics-tutor-dubai', icon: 'physics', title: 'Physics tutor', city: 'Dubai', ga: true },
+        { href: '/chemistry-tutor-dubai', icon: 'chemistry', title: 'Chemistry tutor', city: 'Dubai', ga: true },
+        { href: '/biology-tutor-dubai', icon: 'biology', title: 'Biology tutor', city: 'Dubai', ga: true },
       ] },
       { label: 'By curriculum', span: 4, tiles: [
-        { href: '/igcse-tutor-dubai', sym: 'IG', title: 'IGCSE tutor', city: 'Dubai', ga: true },
-        { href: '/gcse-tutor-dubai', sym: 'GC', title: 'GCSE tutor', city: 'Dubai', ga: true },
-        { href: '/a-level-tutor-dubai', sym: 'AL', title: 'A-Level tutor', city: 'Dubai', ga: true },
-        { href: '/ib-tutor-dubai', sym: 'IB', title: 'IB tutor', city: 'Dubai', ga: true },
+        { href: '/igcse-tutor-dubai', icon: 'igcse', title: 'IGCSE tutor', city: 'Dubai', ga: true },
+        { href: '/gcse-tutor-dubai', icon: 'gcse', title: 'GCSE tutor', city: 'Dubai', ga: true },
+        { href: '/a-level-tutor-dubai', icon: 'alevel', title: 'A-Level tutor', city: 'Dubai', ga: true },
+        { href: '/ib-tutor-dubai', icon: 'ib', title: 'IB tutor', city: 'Dubai', ga: true },
       ] },
     ],
   },
@@ -53,8 +54,8 @@ const EMIRATES: Emirate[] = [
     id: 'aa', name: 'Al Ain', count: 2,
     groups: [
       { label: 'By curriculum', span: 2, tiles: [
-        { href: '/a-level-tutor-al-ain', sym: 'AL', title: 'A-Level tutor', city: 'Al Ain', ga: true },
-        { href: '/igcse-tutor-al-ain', sym: 'IG', title: 'IGCSE tutor', city: 'Al Ain', ga: true },
+        { href: '/a-level-tutor-al-ain', icon: 'alevel', title: 'A-Level tutor', city: 'Al Ain', ga: true },
+        { href: '/igcse-tutor-al-ain', icon: 'igcse', title: 'IGCSE tutor', city: 'Al Ain', ga: true },
       ] },
       { label: 'Other subjects', span: 6, note: 'alain' },
     ],
@@ -63,11 +64,11 @@ const EMIRATES: Emirate[] = [
     id: 'ot', name: 'Other emirates',
     groups: [
       { label: 'Northern Emirates', span: 5, tiles: [
-        { href: '/tutors?city=sharjah', sym: 'Sh', title: 'Sharjah', city: 'Online tutors' },
-        { href: '/tutors?city=ajman', sym: 'Aj', title: 'Ajman', city: 'Online tutors' },
-        { href: '/tutors?city=ras-al-khaimah', sym: 'RK', title: 'Ras Al Khaimah', city: 'Online tutors' },
-        { href: '/tutors?city=fujairah', sym: 'Fj', title: 'Fujairah', city: 'Online tutors' },
-        { href: '/tutors?city=umm-al-quwain', sym: 'UQ', title: 'Umm Al Quwain', city: 'Online tutors' },
+        { href: '/tutors?city=sharjah', icon: 'pin', title: 'Sharjah', city: 'Online tutors' },
+        { href: '/tutors?city=ajman', icon: 'pin', title: 'Ajman', city: 'Online tutors' },
+        { href: '/tutors?city=ras-al-khaimah', icon: 'pin', title: 'Ras Al Khaimah', city: 'Online tutors' },
+        { href: '/tutors?city=fujairah', icon: 'pin', title: 'Fujairah', city: 'Online tutors' },
+        { href: '/tutors?city=umm-al-quwain', icon: 'pin', title: 'Umm Al Quwain', city: 'Online tutors' },
       ] },
       { label: 'How it works there', span: 3, note: 'other' },
     ],
@@ -96,8 +97,23 @@ const WaIcon = ({ size = 18, stroke = 'currentColor' }: { size?: number; stroke?
     <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z" />
   </svg>
 );
-const Chevron = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+/* Icon sprite: 32px grid, 1.75 stroke, navy line (currentColor) + one gold accent (--uf-acc). */
+const ACC = { style: { stroke: 'var(--uf-acc, #a8892a)' } };
+const ACCF = { style: { fill: 'var(--uf-acc, #a8892a)' } };
+const IconSprite = () => (
+  <svg className="uf-sprite" aria-hidden="true" focusable="false" width="0" height="0">
+    <defs>
+      <symbol id="uf-i-maths" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"><path d="M6 10.5h8" /><path d="M10 6.5v8" /><path d="M18.5 10.5h8" /><path d="M7.2 18.7l5.6 5.6" /><path d="M12.8 18.7l-5.6 5.6" /></g><path d="M18.5 21.5h8" fill="none" strokeWidth="1.75" strokeLinecap="round" {...ACC} /><circle cx="22.5" cy="17.6" r="1.35" {...ACCF} /><circle cx="22.5" cy="25.4" r="1.35" {...ACCF} /></symbol>
+      <symbol id="uf-i-physics" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" strokeWidth="1.75"><ellipse cx="16" cy="16" rx="12" ry="4.75" /><ellipse cx="16" cy="16" rx="12" ry="4.75" transform="rotate(60 16 16)" /><ellipse cx="16" cy="16" rx="12" ry="4.75" transform="rotate(120 16 16)" /></g><circle cx="16" cy="16" r="2.5" {...ACCF} /></symbol>
+      <symbol id="uf-i-chemistry" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 4.5h8" /><path d="M13.5 4.5v8L6.9 24.3A2.5 2.5 0 0 0 9.1 28h13.8a2.5 2.5 0 0 0 2.2-3.7L18.5 12.5v-8" /></g><path d="M9.4 20h13.2" fill="none" strokeWidth="1.75" strokeLinecap="round" {...ACC} /><circle cx="13.8" cy="24" r="1.4" {...ACCF} /><circle cx="18.6" cy="23.1" r="1.05" {...ACCF} /></symbol>
+      <symbol id="uf-i-biology" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"><path d="M10 4c0 6 12 6 12 12s-12 6-12 12" /><path d="M22 4c0 6-12 6-12 12s12 6 12 12" /></g><g fill="none" strokeWidth="1.75" strokeLinecap="round" {...ACC}><path d="M12.8 7.6h6.4" /><path d="M12.8 12.6h6.4" /><path d="M12.8 19.4h6.4" /><path d="M12.8 24.4h6.4" /></g></symbol>
+      <symbol id="uf-i-igcse" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"><circle cx="16" cy="16" r="11" /><ellipse cx="16" cy="16" rx="4.6" ry="11" /><path d="M6.6 10.5h18.8" /><path d="M6.6 21.5h18.8" /></g><path d="M5 16h22" fill="none" strokeWidth="1.75" strokeLinecap="round" {...ACC} /></symbol>
+      <symbol id="uf-i-gcse" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M16 9c-2.6-2-6.4-2.6-11-2.2v17.4c4.6-.4 8.4.2 11 2.2 2.6-2 6.4-2.6 11-2.2V6.8C22.4 6.4 18.6 7 16 9z" /><path d="M16 9v17.4" /></g><path d="M20.6 7.5v7l1.9-1.5 1.9 1.5V7" fill="none" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...ACC} /></symbol>
+      <symbol id="uf-i-alevel" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12.5 16 6.5l13 6-13 6z" /><path d="M8.5 15.3v5.9c0 2.2 3.4 4.3 7.5 4.3s7.5-2.1 7.5-4.3v-5.9" /></g><path d="M27 13.4v6.4" fill="none" strokeWidth="1.75" strokeLinecap="round" {...ACC} /><circle cx="27" cy="21.5" r="1.7" {...ACCF} /></symbol>
+      <symbol id="uf-i-ib" viewBox="0 0 32 32"><path d="M16 4.5 26 10.25v11.5L16 27.5 6 21.75v-11.5z" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinejoin="round" /><g fill="none" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...ACC}><path d="M6 10.25 16 16l10-5.75" /><path d="M16 16v11.5" /></g></symbol>
+      <symbol id="uf-i-pin" viewBox="0 0 32 32"><path d="M16 28.5s-8.5-7.8-8.5-14.5a8.5 8.5 0 0 1 17 0c0 6.7-8.5 14.5-8.5 14.5z" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinejoin="round" /><circle cx="16" cy="14" r="3.1" {...ACCF} /></symbol>
+    </defs>
+  </svg>
 );
 
 function NoteCard({ kind, index }: { kind: 'alain' | 'other'; index: number }) {
@@ -129,7 +145,8 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
   const [jsReady, setJsReady] = useState(false);
   const [motion, setMotion] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [openCols, setOpenCols] = useState<Record<string, boolean>>({});
+  const [mtab, setMtab] = useState<'subjects' | 'curriculum'>('subjects');
+  const mtabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [progress, setProgress] = useState(0);
 
   const rootRef = useRef<HTMLElement>(null);
@@ -220,22 +237,21 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
     }
   };
 
-  const toggleCol = (id: string) => setOpenCols((p) => ({ ...p, [id]: !p[id] }));
+  const MTABS = ['subjects', 'curriculum'] as const;
+  const onMtabKey = (e: KeyboardEvent<HTMLButtonElement>, i: number) => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    const next = (i + 1) % 2;
+    setMtab(MTABS[next]);
+    mtabRefs.current[next]?.focus();
+  };
   const CIRC = 125.66;
 
   const rootCls = ['uf', jsReady && 'uf--js', jsReady && motion && 'uf--motion', visible && 'is-visible'].filter(Boolean).join(' ');
 
-  const colHead = (id: string, label: string) => (
-    <h2 className="uf-col__title">
-      <span className="uf-col__label">{label}</span>
-      <button className="uf-acc" type="button" aria-expanded={!!openCols[id]} aria-controls={`uf-list-${id}`} onClick={() => toggleCol(id)}>
-        {label} <Chevron />
-      </button>
-    </h2>
-  );
-
   return (
     <footer ref={rootRef} className={rootCls} onClick={onFooterClick}>
+      <IconSprite />
       {/* Tier 1: Find a tutor */}
       <section className="uf-finder" aria-labelledby="uf-find-title">
         <div className="uf__wrap">
@@ -295,9 +311,11 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
                               <li key={t.href} style={{ ['--i' as string]: idx }}>
                                 <a className="uf-tile" href={t.href} {...(t.ga ? { 'data-ga-event': 'footer_landing_click' } : {})}>
                                   <span className="uf-tile__top" aria-hidden="true">
-                                    <span className="uf-tile__num">{String(idx + 1).padStart(2, '0')}</span>
+                                    <span className="uf-tile__num" />
                                   </span>
-                                  <span className="uf-tile__sym" aria-hidden="true">{t.sym}</span>
+                                  <span className="uf-tile__icon" aria-hidden="true">
+                                    <svg viewBox="0 0 32 32" focusable="false"><use href={`#uf-i-${t.icon}`} /></svg>
+                                  </span>
                                   <span className="uf-tile__text">
                                     <span className="uf-tile__title">{t.title}</span>{' '}
                                     <span className="uf-tile__city">{t.city}</span>
@@ -332,7 +350,7 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
       {/* Tier 2: Links */}
       <div className="uf-main">
         <div className="uf__wrap">
-          <div className="uf-cols">
+          <div className="uf-cols" data-mtab={mtab}>
             <div className="uf-brand">
               <a className="uf-logo" href="/" aria-label="Ustaad home">
                 <img src="/ustaad-private-tutors-uae-logo.png" alt={logoAlt} width={140} height={46} loading="lazy" />
@@ -366,39 +384,53 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
               </div>
             </div>
 
-            <nav className="uf-col uf-col--subjects" aria-label="Subjects">
-              {colHead('subjects', 'Subjects')}
-              <div className={`uf-col__panel${openCols.subjects ? ' is-open' : ''}`} id="uf-list-subjects">
-                <ul className="uf-links uf-links--2">
-                  {SUBJECTS.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
-                  <li className="uf-span2"><a href="/exam-preparation">Exam preparation</a></li>
-                  <li className="uf-span2"><a className="uf-more" href="/subjects">All subjects</a></li>
-                </ul>
-              </div>
+            {/* Phones only: one switch for the two long lists (no dropdowns). Hidden on wider screens and without JS. */}
+            <div className="uf-mtabs" role="tablist" aria-label="Browse by">
+              {MTABS.map((k, i) => (
+                <button
+                  key={k}
+                  ref={(el) => { mtabRefs.current[i] = el; }}
+                  type="button"
+                  role="tab"
+                  id={`uf-mtab-${k}`}
+                  aria-controls={`uf-col-${k}`}
+                  aria-selected={mtab === k}
+                  tabIndex={mtab === k ? 0 : -1}
+                  onClick={() => setMtab(k)}
+                  onKeyDown={(e) => onMtabKey(e, i)}
+                >
+                  {k === 'subjects' ? 'Subjects' : 'Curriculum'}
+                </button>
+              ))}
+            </div>
+
+            <nav className="uf-col uf-col--subjects" id="uf-col-subjects" aria-label="Subjects">
+              <h2 className="uf-col__title">Subjects</h2>
+              <ul className="uf-links uf-links--2">
+                {SUBJECTS.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
+                <li className="uf-span2"><a href="/exam-preparation">Exam preparation</a></li>
+                <li className="uf-span2"><a className="uf-more" href="/subjects">All subjects</a></li>
+              </ul>
             </nav>
 
-            <nav className="uf-col uf-col--curriculum" aria-label="Curriculum">
-              {colHead('curriculum', 'Curriculum')}
-              <div className={`uf-col__panel${openCols.curriculum ? ' is-open' : ''}`} id="uf-list-curriculum">
-                {CURRICULA.map((c) => (
-                  <div className="uf-cur" key={c.hub[1]}>
-                    <a className="uf-cur__hub" href={c.hub[1]}>{c.hub[0]}</a>
-                    <ul className="uf-inline">
-                      {c.items.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
-                    </ul>
-                  </div>
-                ))}
-                <a className="uf-more" href="/curriculum">All curricula</a>
-              </div>
+            <nav className="uf-col uf-col--curriculum" id="uf-col-curriculum" aria-label="Curriculum">
+              <h2 className="uf-col__title">Curriculum</h2>
+              {CURRICULA.map((c) => (
+                <div className="uf-cur" key={c.hub[1]}>
+                  <a className="uf-cur__hub" href={c.hub[1]}>{c.hub[0]}</a>
+                  <ul className="uf-inline">
+                    {c.items.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
+                  </ul>
+                </div>
+              ))}
+              <a className="uf-more" href="/curriculum">All curricula</a>
             </nav>
 
-            <nav className="uf-col uf-col--company" aria-label="Ustaad">
-              {colHead('company', 'Ustaad')}
-              <div className={`uf-col__panel${openCols.company ? ' is-open' : ''}`} id="uf-list-company">
-                <ul className="uf-links uf-links--1">
-                  {COMPANY.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
-                </ul>
-              </div>
+            <nav className="uf-col uf-col--company" aria-label="About Ustaad">
+              <h2 className="uf-col__title">About Ustaad</h2>
+              <ul className="uf-links uf-links--1">
+                {COMPANY.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
+              </ul>
             </nav>
           </div>
 
