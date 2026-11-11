@@ -11,9 +11,9 @@ const BLOG = {
   titleLine2: 'Velocity-Time, Force-Extension and More, Explained',
   slug: 'area-under-graph-meaning-physics-maths',
   description: 'What the area under a velocity-time, force-extension or current-time graph represents, how to calculate it, and how to estimate it under curves. IGCSE, GCSE and A-Level.',
-  heroImage: '/images/blogs/area-under-velocity-time-graph-hero.jpg',
-  heroAlt: 'Velocity-time graph with the area under the line shaded and split into a triangle, a rectangle and a second triangle, labelled area equals distance travelled',
-  heroCaption: 'Split the shape, add the areas, and the total is the distance travelled: 108 metres in this example.',
+  heroImage: '/images/blogs/area-under-graph-three-graphs-hero.webp',
+  heroAlt: 'Three graphs with the area under each line shaded: velocity-time gives distance in metres, force-extension gives energy in joules, and current-time gives charge in coulombs',
+  heroCaption: 'Same method, three graphs: the units of the shaded area tell you what it means.',
   datePublished: '2026-11-06',
   dateModified: '2026-11-06',
   author: 'Tabraiz Khan',
@@ -84,19 +84,6 @@ function NarrativeBox({ label, children }: { label: string; children: React.Reac
   );
 }
 
-function InlineImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
-  return (
-    <figure className="mx-auto my-6 max-w-xl">
-      <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md aspect-[16/9] bg-slate-100">
-        <img src={src} alt={alt} width={1408} height={768} loading="lazy" className="w-full h-full object-cover block" />
-      </div>
-      {caption && (
-        <figcaption className="mt-2.5 text-center text-xs text-gray-400 italic leading-relaxed px-2">{caption}</figcaption>
-      )}
-    </figure>
-  );
-}
-
 // ── SVG Diagram 1: Velocity-time graph split into shapes ──
 function VelocityTimeAreaSVG() {
   // scale: x 0..14 s -> 50..380 (23.57 px/s), y 0..12 m/s -> 185..55 (10.83 px per m/s)
@@ -148,6 +135,46 @@ function VelocityTimeAreaSVG() {
         Accelerate for 6 s, cruise at 12 m/s for 4 s, then brake for 4 s. Each shape is a separate distance, and the total is 108 m.
       </p>
     </div>
+  );
+}
+
+// ── SVG Diagram: Force-extension graph for a spring ──
+function ForceExtensionSVG() {
+  // scale: x 0..0.05 m -> 50..380 (6600 px/m), y 0..8 N -> 185..45 (17.5 px/N)
+  return (
+    <figure className="my-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#f8faff] to-[#edf3fc] border border-[#0f4a9b]/15 shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#0f4a9b]" />
+          <span className="text-xs font-extrabold text-[#0a1f3d] uppercase tracking-wider">Force-Extension Graph (F-x)</span>
+        </div>
+        <span className="text-[11px] font-mono font-bold text-[#0f4a9b] bg-white px-2.5 py-0.5 rounded-md border border-[#0f4a9b]/20">Area = Energy (J)</span>
+      </div>
+      <div className="w-full bg-white rounded-xl p-3 sm:p-4 border border-slate-200/80">
+        <svg viewBox="0 0 420 225" className="w-full h-auto max-h-[240px]" role="img" aria-label="Force-extension graph for a spring, with the triangle under the line shaded to show 0.12 joules of stored elastic energy">
+          <line x1="50" y1="185" x2="400" y2="185" stroke="#94a3b8" strokeWidth="1.5" />
+          <line x1="50" y1="185" x2="50" y2="30" stroke="#94a3b8" strokeWidth="1.5" />
+          <text x="270" y="215" fontSize="10.5" fill="#475569" fontWeight="bold">Extension x (m)</text>
+          <text x="8" y="22" fontSize="10.5" fill="#475569" fontWeight="bold">Force F (N)</text>
+
+          <polygon points="50,185 314,80 314,185" fill="rgba(22,163,74,0.18)" />
+          <line x1="50" y1="80" x2="314" y2="80" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="314" y1="80" x2="314" y2="185" stroke="#94a3b8" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="50" y1="185" x2="314" y2="80" stroke="#0a1f3d" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="314" cy="80" r="4" fill="#0a1f3d" />
+
+          <text x="38" y="84" fontSize="10" fill="#64748b" fontWeight="bold">6</text>
+          <text x="47" y="199" fontSize="10" fill="#64748b" fontWeight="bold">0</text>
+          <text x="170" y="199" fontSize="10" fill="#64748b" fontWeight="bold">0.02</text>
+          <text x="302" y="199" fontSize="10" fill="#64748b" fontWeight="bold">0.04</text>
+
+          <text x="238" y="160" fontSize="11" fill="#15803d" fontWeight="bold" textAnchor="middle">½ × 6 × 0.04 = 0.12 J</text>
+        </svg>
+      </div>
+      <figcaption className="text-center text-xs text-gray-500 mt-2 font-medium">
+        A spring stretched 0.04 m by 6 N: the shaded triangle is 0.12 J of stored energy.
+      </figcaption>
+    </figure>
   );
 }
 
@@ -437,10 +464,8 @@ export default function AreaUnderGraphBlog() {
               sameAs: 'https://www.linkedin.com/company/ustaad-ae',
             },
             reviewer: {
-              name: 'Nimra Shahzada',
-              url: '/authors/nimra-shahzada',
-              jobTitle: 'Content Lead & Academic Consultant, Ustaad UAE',
-              sameAs: 'https://www.linkedin.com/company/ustaad-ae',
+              name: 'Ustaad Editorial Team',
+              url: '/editorial',
             },
             image: BLOG.heroImage,
           }),
@@ -497,9 +522,9 @@ export default function AreaUnderGraphBlog() {
                 <User className="h-3.5 w-3.5 text-[#C7A24A] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   <span className="font-medium">Reviewed by:</span>{' '}
-                  <a href="/authors/nimra-shahzada" className="text-[#0f4a9b] font-semibold underline">Nimra Shahzada</a>
-                  <span className="block sm:inline">
-                    {' '}<a href="/authors/nimra-shahzada" className="text-gray-500 hover:text-[#0f4a9b]">| Content Lead &amp; Academic Consultant, Ustaad UAE</a>
+                  <a href="/editorial" className="text-[#0f4a9b] font-semibold underline">Ustaad Editorial Team</a>
+                  <span className="block sm:inline text-gray-500">
+                    {' '}| Every guide is checked for accuracy and parent clarity
                   </span>
                 </span>
               </div>
@@ -637,13 +662,9 @@ export default function AreaUnderGraphBlog() {
             </div>
 
             <p><strong>Force-extension example:</strong> a spring obeys Hooke’s law and stretches 0.04 m under a 6 N force. The graph is a straight line through the origin, so the area is a triangle: ½ × 6 × 0.04 = <strong>0.12 J</strong> of elastic potential energy. Students who forget the ½ lose the mark every time.</p>
+            <ForceExtensionSVG />
             <p><strong>Current-time example:</strong> a steady 2 A current for 30 s is a rectangle: 2 × 30 = <strong>60 C</strong> of charge. This is the graph version of Q = It.</p>
 
-            <InlineImage
-              src="/images/blogs/igcse-physics-student-revision-uae.webp"
-              alt="IGCSE Physics student in the UAE revising graph questions at a desk with a calculator and past paper booklet"
-              caption="The habit to build: read both axis labels and multiply the units before touching the numbers."
-            />
 
             {/* 06 */}
             <SectionHeading num="06" id="curved-graphs">Curved Graphs: Counting Squares and the Trapezium Rule</SectionHeading>
@@ -652,7 +673,7 @@ export default function AreaUnderGraphBlog() {
             <NarrativeBox label="Physics: Counting Squares">
               <ul className="space-y-1.5 text-xs">
                 <li>• <strong>Count every whole square</strong> under the curve.</li>
-                <li>• <strong>Pair up part squares:</strong> count a square if it is at least half under the curve, and ignore it if it is less than half.</li>
+                <li>• <strong>Part squares:</strong> count a square if it is at least half under the curve, and ignore it if it is less than half.</li>
                 <li>• <strong>Find the value of one square:</strong> its width in x-units multiplied by its height in y-units.</li>
                 <li>• <strong>Multiply:</strong> number of squares × value of one square, and give the unit.</li>
               </ul>
@@ -744,14 +765,6 @@ export default function AreaUnderGraphBlog() {
               <a href="/contact#form" className={linkCls}>book your first session with Tabraiz Khan</a>.
             </p>
 
-            <div className="my-5 flex flex-col items-center gap-1.5">
-              <a href="/contact#form"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-white text-sm hover:brightness-110 transition"
-                style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book Your First Session with Tabraiz Khan
-              </a>
-              <p className="text-xs text-gray-500 font-medium">No commitment. Cancel anytime.</p>
-            </div>
 
           </div>
 
@@ -789,9 +802,9 @@ export default function AreaUnderGraphBlog() {
                 <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-[#A8892A] border border-[#C7A24A]/20 bg-[#C7A24A]/6">Reviewed By</span>
               </div>
               <p className="font-extrabold text-[#0a1f3d] text-sm mb-1 pr-24 mt-4">
-                <a href="/authors/nimra-shahzada" className="hover:text-[#0f4a9b] hover:underline">Nimra Shahzada</a> | Content Lead &amp; Academic Consultant
+                <a href="/editorial" className="hover:text-[#0f4a9b] hover:underline">Ustaad Editorial Team</a>
               </p>
-              <p className="text-xs text-gray-500 leading-relaxed text-justify">Nimra Shahzada reviewed this article as part of Ustaad’s editorial process, checking that each explanation is clear and easy to follow for students and parents. She holds a Bachelor’s degree in Psychology and leads content at Ustaad UAE.</p>
+              <p className="text-xs text-gray-500 leading-relaxed text-justify">Every guide is checked for accuracy and parent clarity before it is published.</p>
             </div>
           </div>
 
@@ -809,17 +822,11 @@ export default function AreaUnderGraphBlog() {
               Work one-to-one with Cambridge Certified specialist <a href="/tutors/tabraiz-khan" className="text-[#F5D77F] font-bold underline hover:text-white">Tabraiz Khan</a> to master graph questions, from gradients to areas, across IGCSE, GCSE, A-Level and IB Maths &amp; Physics.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
-              <a href="/contact#form"
-                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto sm:min-w-[210px] h-11 px-6 rounded-full font-bold text-white hover:brightness-110 transition text-sm shadow-md whitespace-nowrap"
-                style={{ background: 'linear-gradient(90deg, #C7A24A 0%, #A8892A 50%, #7A5E10 100%)' }}>
-                Book First Session
-              </a>
               <a href="https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%20would%20like%20to%20book%20a%20first%20Physics%20session." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Ustaad to book a first session"
                 className="inline-flex items-center justify-center gap-2 w-full sm:w-auto sm:min-w-[210px] h-11 px-6 bg-[#25D366] hover:bg-[#20bd5a] rounded-full font-bold text-white transition text-sm shadow-md whitespace-nowrap">
                 <img src="/whatsapp-book-private-tutor-ustaad-uae.png" alt="" className="h-4 w-4" /> WhatsApp Us
               </a>
             </div>
-            <p className="mt-3 text-xs text-white/60 font-medium">No commitment · Cancel anytime</p>
           </div>
 
           <div className="mt-6 mb-8 px-4 py-4 rounded-2xl bg-[#f8fafd] border border-[#0f4a9b]/10 text-center">

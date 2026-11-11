@@ -22,7 +22,7 @@ export const ROUTES = [
   // Curriculum
   { path: '/curriculum', component: 'CurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/british-curriculum', component: 'BritishCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-12' },
-  { path: '/igcse', component: 'IGCSEPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-10-09' },
+  { path: '/igcse', component: 'IGCSEPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-11-11' },
   { path: '/gcse', component: 'GCSEPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/a-level', component: 'ALevelPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-10-12' },
   { path: '/ib-curriculum', component: 'IBCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
@@ -85,8 +85,8 @@ export const ROUTES = [
   { path: '/blogs/how-to-read-examiner-reports-igcse-a-level', component: 'HowToReadExaminerReportsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-26' },
   { path: '/blogs/winter-break-revision-plan-uae-students', component: 'WinterBreakRevisionPlanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-30' },
   { path: '/blogs/chatgpt-for-studying-does-ai-hurt-memory', component: 'ChatGPTForStudyingBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-02' },
-  { path: '/blogs/area-under-graph-meaning-physics-maths', component: 'AreaUnderGraphBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-06' },
-  { path: '/blogs/how-to-choose-igcse-subjects-uae', component: 'ChooseIGCSESubjectsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-09' },
+  { path: '/blogs/area-under-graph-meaning-physics-maths', component: 'AreaUnderGraphBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-11' },
+  { path: '/blogs/how-to-choose-igcse-subjects-uae', component: 'ChooseIGCSESubjectsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-11' },
 
   // City × subject landings
   { path: '/maths-tutor-abu-dhabi', component: 'MathematicsLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
@@ -106,7 +106,7 @@ export const ROUTES = [
   { path: '/a-level-tutor-abu-dhabi', component: 'ALevelTutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-19' },
   { path: '/a-level-tutor-al-ain', component: 'ALevelTutorAlAinPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-10-28' },
   { path: '/al-ain/igcse-tutor-al-ain', component: 'IGCSETutorAlAinPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-11-04', noindex: true },
-  { path: '/igcse-tutor-al-ain', component: 'IGCSETutorAlAinPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-11-04' },
+  { path: '/igcse-tutor-al-ain', component: 'IGCSETutorAlAinPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-11-11' },
   { path: '/ib-tutor-dubai', component: 'IBTutorDubaiPage', priority: 0.95, changefreq: 'weekly', lastmod: '2026-10-21' },
 
   { path: '/privacy', component: 'PrivacyPage', priority: 0.3, changefreq: 'monthly', lastmod: '2026-09-11' },

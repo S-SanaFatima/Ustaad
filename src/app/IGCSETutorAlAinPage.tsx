@@ -791,28 +791,36 @@ const MathsTrapDiagram = () => (
 
     {/* SVG Parabola graph */}
     <div className="relative my-auto flex items-center justify-center py-2">
-      <svg viewBox="0 0 280 110" className="w-full max-w-[260px] h-auto overflow-visible">
-        <line x1="20" y1="75" x2="260" y2="75" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="3 3" />
-        <line x1="120" y1="10" x2="120" y2="100" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="3 3" />
-        <text x="255" y="70" fill="#64748b" fontSize="10" fontFamily="monospace">x</text>
-        <text x="125" y="16" fill="#64748b" fontSize="10" fontFamily="monospace">y</text>
+      <svg viewBox="0 0 280 120" className="w-full max-w-[260px] h-auto overflow-visible" role="img" aria-label="Graph of y = 2x² + 7x − 4 crossing the x-axis at x = −4 and x = 0.5, with its lowest point at x = −1.75 and y-intercept −4">
+        {/* To scale: x from −5 to 1.5, y-axis at x = 0 */}
+        <line x1="12" y1="40" x2="268" y2="40" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="3 3" />
+        <line x1="204.6" y1="4" x2="204.6" y2="112" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="3 3" />
+        <text x="262" y="34" fill="#64748b" fontSize="10" fontFamily="monospace">x</text>
+        <text x="209" y="11" fill="#64748b" fontSize="10" fontFamily="monospace">y</text>
 
         <motion.path
-          d="M 30,15 Q 100,120 180,75 T 250,15"
+          d="M 38.5,10.4 L 43.1,18.3 L 47.7,25.9 L 52.3,33.1 L 56.9,40.0 L 61.5,46.5 L 66.2,52.6 L 70.8,58.3 L 75.4,63.7 L 80.0,68.7 L 84.6,73.3 L 89.2,77.6 L 93.8,81.5 L 98.5,85.0 L 103.1,88.1 L 107.7,90.9 L 112.3,93.3 L 116.9,95.4 L 121.5,97.0 L 126.2,98.3 L 130.8,99.3 L 135.4,99.8 L 140.0,100.0 L 144.6,99.8 L 149.2,99.3 L 153.8,98.3 L 158.5,97.0 L 163.1,95.4 L 167.7,93.3 L 172.3,90.9 L 176.9,88.1 L 181.5,85.0 L 186.2,81.5 L 190.8,77.6 L 195.4,73.3 L 200.0,68.7 L 204.6,63.7 L 209.2,58.3 L 213.8,52.6 L 218.5,46.5 L 223.1,40.0 L 227.7,33.1 L 232.3,25.9 L 236.9,18.3 L 241.5,10.4"
           fill="none"
           stroke="#0f4a9b"
           strokeWidth="3"
           strokeLinecap="round"
+          strokeLinejoin="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
         />
 
-        <circle cx="58" cy="75" r="4.5" fill="#f0c96a" stroke="#0a1f3d" strokeWidth="2" />
-        <text x="36" y="93" fill="#0a1f3d" fontSize="10.5" fontWeight="bold" fontFamily="monospace">x = -4</text>
+        <circle cx="56.9" cy="40" r="4.5" fill="#f0c96a" stroke="#0a1f3d" strokeWidth="2" />
+        <text x="78" y="56" fill="#0a1f3d" fontSize="10.5" fontWeight="bold" fontFamily="monospace">x = −4</text>
 
-        <circle cx="180" cy="75" r="4.5" fill="#f0c96a" stroke="#0a1f3d" strokeWidth="2" />
-        <text x="184" y="93" fill="#0a1f3d" fontSize="10.5" fontWeight="bold" fontFamily="monospace">x = 0.5</text>
+        <circle cx="223.1" cy="40" r="4.5" fill="#f0c96a" stroke="#0a1f3d" strokeWidth="2" />
+        <text x="231" y="56" fill="#0a1f3d" fontSize="10.5" fontWeight="bold" fontFamily="monospace">x = 0.5</text>
+
+        <circle cx="204.6" cy="63.7" r="3" fill="#0a1f3d" />
+        <text x="194" y="70" textAnchor="end" fill="#64748b" fontSize="9.5" fontFamily="monospace">(0, −4)</text>
+
+        <circle cx="140" cy="100" r="3" fill="#0a1f3d" />
+        <text x="140" y="116" textAnchor="middle" fill="#64748b" fontSize="9.5" fontFamily="monospace">lowest point x = −1.75</text>
       </svg>
     </div>
 
@@ -929,8 +937,8 @@ const EXAM_HACKS = [
     tabLabel: "Maths",
     question: "Show that 2x² + 7x - 4 = 0 has solutions x = 0.5 and x = -4.",
     marks: "2 Marks",
-    trap: "Writing the final solutions without factorisation loses both method marks.",
-    fix: "Write (2x − 1)(x + 4) = 0 first to capture the M1 mark before stating roots.",
+    trap: "Writing x = 0.5 and x = −4 with no working. In a \"show that\" question the answer is already given, so the marks are for the method.",
+    fix: "Show the factorised form (2x − 1)(x + 4) = 0, or substitute both values into the equation, before stating the solutions.",
     icon: Calculator,
     diagram: MathsTrapDiagram
   },
@@ -1268,7 +1276,7 @@ export default function IGCSETutorAlAinPage() {
                     {/* Header: Grade Cap Badge & Route Tag */}
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-200 shrink-0">
-                        Max Grade: C / Level 5
+                        Highest grade: C (Edexcel Foundation: 5)
                       </span>
                       <span className="text-[11px] font-bold text-slate-500 text-right">
                         Foundational Route
@@ -1291,7 +1299,7 @@ export default function IGCSETutorAlAinPage() {
                       </div>
                       <div className="flex items-start gap-2">
                         <AlertTriangle className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
-                        <span className="text-amber-950"><strong className="text-amber-900">Grade Ceiling:</strong> Results are capped at Grade C (or Level 5 in Edexcel).</span>
+                        <span className="text-amber-950"><strong className="text-amber-900">Grade Ceiling:</strong> Results are capped at grade C (grade 5 in Edexcel Foundation).</span>
                       </div>
                     </div>
                   </div>
@@ -1304,7 +1312,7 @@ export default function IGCSETutorAlAinPage() {
                     </div>
                     <div className="flex items-center sm:justify-end gap-1.5 text-slate-600">
                       <span className="font-bold text-[#0a1f3d]">Target:</span>
-                      <span className="font-semibold text-[#0f4a9b]">Grades C–G (Levels 5–1)</span>
+                      <span className="font-semibold text-[#0f4a9b]">Grades C–G (Edexcel 5–1)</span>
                     </div>
                   </div>
                 </motion.div>
@@ -1321,7 +1329,7 @@ export default function IGCSETutorAlAinPage() {
                     {/* Header: Grade Cap Badge & Route Tag */}
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#0f4a9b] text-white shadow-2xs shrink-0">
-                        Max Grade: A* / Level 9
+                        Highest grade: A* (Edexcel Higher: 9)
                       </span>
                       <span className="text-[11px] font-bold text-[#0f4a9b] text-right">
                         A-Level &amp; IB Pathway
@@ -1344,7 +1352,7 @@ export default function IGCSETutorAlAinPage() {
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-[#C7A24A] shrink-0 mt-0.5" />
-                        <span><strong className="text-[#0a1f3d]">Uncapped Grades:</strong> Unlocks every top grade from A* down to E (or 9 to 4).</span>
+                        <span><strong className="text-[#0a1f3d]">Full Grade Range:</strong> Every grade from A* down to E (Edexcel Higher: 9 to 4).</span>
                       </div>
                     </div>
                   </div>
@@ -1357,7 +1365,7 @@ export default function IGCSETutorAlAinPage() {
                     </div>
                     <div className="flex items-center sm:justify-end gap-1.5 text-slate-600">
                       <span className="font-bold text-[#0a1f3d]">Target:</span>
-                      <span className="font-semibold text-[#0f4a9b]">Grades A*–B (Levels 9–7)</span>
+                      <span className="font-semibold text-[#0f4a9b]">Grades A*–A (Edexcel 9–7)</span>
                     </div>
                   </div>
                 </motion.div>
@@ -1368,7 +1376,7 @@ export default function IGCSETutorAlAinPage() {
           {/* Our Role Clarification Box */}
           <div className="bg-slate-50/90 rounded-xl px-4 py-2.5 sm:py-3 border border-slate-200/80 text-center max-w-2xl mx-auto shadow-2xs">
             <p className="text-xs sm:text-[13px] text-gray-700 leading-relaxed">
-              <strong className="text-[#0a1f3d]">Our Guidance:</strong> After initial diagnostic sessions, tutors share an honest assessment of working levels so families choose the right tier with total confidence.
+              <strong className="text-[#0a1f3d]">Our Guidance:</strong> After the first lessons, the tutor shares an honest view of where your child is working, so you can choose the tier together with the school.
             </p>
           </div>
         </div>
@@ -1912,10 +1920,6 @@ export default function IGCSETutorAlAinPage() {
                     <Award className="w-3 h-3 text-[#C7A24A]" />
                     Cambridge Certified
                   </span>
-                  <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200/80 px-2 py-0.5 rounded-full">
-                    <Star className="w-3 h-3 text-amber-500 fill-amber-500" />
-                    5.0 Rating
-                  </span>
                 </div>
 
                 <p className="text-xs font-semibold text-[#0f4a9b] mb-3">
@@ -2103,7 +2107,9 @@ export default function IGCSETutorAlAinPage() {
               </h2>
 
               <p className="text-blue-50 text-xs sm:text-sm md:text-[14px] leading-relaxed max-w-xl mx-auto font-normal">
-                Sixth-form places usually depend on IGCSE grades in the subjects a student wants to continue, so subject and tier choices in Year 9 matter. We help students check which grades their chosen A-Level or IB subjects ask for and plan Years 10 and 11 around them.
+                Sixth-form places usually depend on IGCSE grades in the subjects a student wants to continue, so subject and tier choices in Year 9 matter. We help students check which grades their chosen A-Level or IB subjects ask for and plan Years 10 and 11 around them. Our guide on{' '}
+                <a href="/blogs/how-to-choose-igcse-subjects-uae" className="font-semibold text-[#f0c96a] underline underline-offset-2 hover:text-white">how to choose IGCSE subjects</a>{' '}
+                walks through each Year 9 decision.
               </p>
 
               {/* Pathway Indicator Badges */}

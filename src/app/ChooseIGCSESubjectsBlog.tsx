@@ -503,8 +503,8 @@ export default function ChooseIGCSESubjectsBlog() {
 
           <InlineImage
             src="/images/blogs/igcse-options-evening-students-noticeboard-uae.webp"
-            alt="Two Year 9 students at a school options evening in the UAE pointing at subject cards on a noticeboard"
-            caption="Options evening is the best chance to hear how each subject is actually taught and assessed."
+            alt="Two Year 9 students in a UAE school corridor pointing at notes pinned to a noticeboard"
+            caption="Talking options through with friends helps, but the final choice should rest on interest, evidence and the doors it keeps open."
           />
 
           {/* 02 */}
@@ -556,7 +556,7 @@ export default function ChooseIGCSESubjectsBlog() {
             rows={[
               ['Separate (triple) science: Biology, Chemistry, Physics', '3', 'Most content', 'Students who enjoy science and are likely to take science A-Levels, medicine or engineering'],
               ['Co-ordinated Sciences (Cambridge) or Science Double Award (Edexcel)', '2', 'Solid core of all three', 'Students who may take a science A-Level and want time for other options'],
-              ['Combined Science (Cambridge)', '1', 'Least content', 'Students unlikely to study science after Year 11'],
+              ['Combined Science (Cambridge) or Science Single Award (Edexcel)', '1', 'Least content', 'Students unlikely to study science after Year 11'],
             ]}
           />
           <div className={proseCls}>
@@ -575,7 +575,7 @@ export default function ChooseIGCSESubjectsBlog() {
           <SectionHeading num="05" id="maths-tiers-and-additional-maths">Maths: tiers and Additional Maths</SectionHeading>
           <div className={proseCls}>
             <p>
-              IGCSE Maths is set at two levels. In Cambridge IGCSE Maths they are called Core and Extended. In Pearson Edexcel they are Foundation and Higher. The lower tier caps the top grade, at grade C on the Cambridge A* to G scale.
+              IGCSE Maths is set at two levels. In Cambridge IGCSE Maths they are called Core and Extended. In Pearson Edexcel they are Foundation and Higher. The lower tier caps the top grade, at grade C on the Cambridge A* to G scale and at grade 5 in Edexcel Foundation.
             </p>
             <p>
               That cap matters. A-Level Maths, Physics, Economics and Chemistry usually expect a strong grade from the higher tier. If your child is near the boundary in Year 9, a few months of focused work can decide which tier they sit, so it is worth asking the Maths teacher directly where they stand.

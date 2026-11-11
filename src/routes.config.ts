@@ -141,7 +141,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 15-min orientation with the first lesson.',
       priority: 0.95,
       changefreq: 'monthly',
-      lastmod: '2026-10-09'
+      lastmod: '2026-11-11'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Curriculum', url: '/curriculum' }, { name: 'IGCSE', url: '/igcse' }]
   },
@@ -875,7 +875,7 @@ export const ROUTES: RouteConfig[] = [
       keywords: 'IGCSE tutor Al Ain, IGCSE tutors Al Ain, private IGCSE tutor Al Ain, online IGCSE tutor UAE, Cambridge IGCSE tutor Al Ain, Edexcel IGCSE tutor Al Ain, IGCSE Maths tutor Al Ain, IGCSE Physics tutor Al Ain, IGCSE Chemistry tutor Al Ain, IGCSE Biology tutor Al Ain, IGCSE English tutor Al Ain, GCSE tutor Al Ain, IGCSE exam preparation Al Ain, Core vs Extended IGCSE, IGCSE Paper 6 help',
       priority: 0.90,
       changefreq: 'monthly',
-      lastmod: '2026-11-04'
+      lastmod: '2026-11-11'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IGCSE', url: '/igcse' }, { name: 'IGCSE Tutor Al Ain', url: '/igcse-tutor-al-ain' }]
   },
@@ -1153,7 +1153,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'Choosing IGCSE subjects in Year 9? A UAE parent guide to core and option subjects, triple vs combined science, how many IGCSEs, and keeping A-Level doors open.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-11-09'
+      lastmod: '2026-11-11'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'How to Choose IGCSE Subjects', url: '/blogs/how-to-choose-igcse-subjects-uae' }]
   },
@@ -1165,7 +1165,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'What the area under a velocity-time, force-extension or current-time graph represents, how to calculate it, and how to estimate it under curves. IGCSE, GCSE and A-Level.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-11-06'
+      lastmod: '2026-11-11'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic', url: '/blogs/academic-exam-skills' }, { name: 'Area Under a Graph', url: '/blogs/area-under-graph-meaning-physics-maths' }]
   },

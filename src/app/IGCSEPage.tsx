@@ -489,7 +489,14 @@ export default function IGCSEPage() {
                   >
                     A-Level
                   </a>{' '}
-                  combination in reach, and our tutors help families plan the mix with the chosen course in view.
+                  combination in reach, and our tutors help families plan the mix with the chosen course in view. The groundwork starts in Year 9, when families{' '}
+                  <a
+                    href="/blogs/how-to-choose-igcse-subjects-uae"
+                    className="font-bold underline decoration-[#f0d080] underline-offset-4 text-[#f0d080] hover:text-white transition-colors"
+                  >
+                    choose IGCSE subjects
+                  </a>
+                  , the science route and the Maths tier.
                 </motion.p>
 
               </div>
