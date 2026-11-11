@@ -3,6 +3,8 @@ import { ReactNode } from 'react';
 export interface SchoolLogoItem {
   name: string;
   file: string;
+  /** Full image path; overrides file (for logos outside /school-logos). */
+  src?: string;
   alt?: string;
   scale?: number;
 }
@@ -61,9 +63,9 @@ const SchoolLogoCard = ({ logo, isAriaHidden }: { logo: SchoolLogoItem; isAriaHi
     className="shrink-0 w-[180px] sm:w-[240px] h-[100px] sm:h-[130px] flex items-center justify-center px-4 cursor-default relative transition-all duration-300 hover:scale-110 hover:-translate-y-1"
   >
     <img
-      src={`/school-logos/${logo.file}`}
-      srcSet={`/school-logos/${logo.file} 280w`}
-      sizes="(max-width: 640px) 180px, 240px"
+      src={logo.src || `/school-logos/${logo.file}`}
+      srcSet={logo.src ? undefined : `/school-logos/${logo.file} 280w`}
+      sizes={logo.src ? undefined : "(max-width: 640px) 180px, 240px"}
       alt={logo.alt || `${logo.name} logo`}
       width={240}
       height={100}

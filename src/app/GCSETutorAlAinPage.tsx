@@ -4,7 +4,7 @@ import {
   Calculator, BookOpen, FlaskConical, Atom, Briefcase, PenLine,
   ChevronDown, MessageCircle, Search, ClipboardCheck, CalendarCheck, CheckCircle2, Info,
 } from 'lucide-react';
-import { Layout, StatsBar, HowOnlineSessions3DSection, RelatedContent } from './shared';
+import { Layout, StatsBar, SchoolsMarquee, HowOnlineSessions3DSection, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
@@ -26,6 +26,15 @@ const TITLE = 'GCSE Tutor Al Ain | Online AQA, Edexcel & OCR | Ustaad';
 const DESCRIPTION = 'Online 1-to-1 GCSE tutors for Al Ain students in Years 10 and 11. AQA, Edexcel and OCR Maths, English and Science. Free 15-min orientation.';
 
 /* ── Content ─────────────────────────────────────────────────────────── */
+
+const AL_AIN_SCHOOL_LOGOS = [
+  { name: 'Brighton College Al Ain', file: 'brighton-college-al-ain.webp', src: '/images/schools/al-ain/brighton-college-al-ain.webp', alt: 'Brighton College Al Ain logo, a British-curriculum school in Al Ain' },
+  { name: 'Al Ain British Academy', file: 'al-ain-british-academy.webp', src: '/images/schools/al-ain/al-ain-british-academy.webp', alt: 'Al Ain British Academy logo, an Aldar Academies British-curriculum school' },
+  { name: 'Al Ain English Speaking School', file: 'aaess.webp', src: '/images/schools/al-ain/aaess.webp', alt: 'Al Ain English Speaking School (AAESS) logo, a UK National Curriculum school in Al Ain' },
+  { name: 'Belvedere International School', file: 'belvedere-international.webp', src: '/images/schools/al-ain/belvedere-international.webp', alt: 'Belvedere International School Al Ain logo, a National Curriculum for England school' },
+  { name: 'Excel International School', file: 'excel-international.webp', src: '/images/schools/al-ain/excel-international.webp', alt: 'Excel International School Al Ain logo' },
+  { name: 'Global English School', file: 'global-english-school.webp', src: '/images/schools/al-ain/global-english-school.webp', alt: 'Global English School Al Muwaiji, Al Ain logo' },
+];
 
 const COMPARE = [
   { label: 'Who sets it', gcse: 'UK boards: AQA, Pearson Edexcel, OCR', igcse: 'Cambridge (CAIE) or Pearson Edexcel International' },
@@ -253,6 +262,8 @@ export default function GCSETutorAlAinPage() {
       </section>
 
       <StatsBar />
+
+      <SchoolsMarquee logoList={AL_AIN_SCHOOL_LOGOS} title="Supporting Students at British-Curriculum Schools in Al Ain" />
 
       {/* ── 02 GCSE OR IGCSE ── */}
       <section className="py-14 lg:py-20 bg-white">
