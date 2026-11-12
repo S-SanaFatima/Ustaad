@@ -250,7 +250,7 @@ function SubjectSpotlight({ items }: { items: Subject[] }) {
             <button key={s.name} ref={(el) => { tabRefs.current[i] = el; }} type="button" role="tab" id={`gsp-tab-${i}`}
               aria-selected={on} aria-controls={`gsp-panel-${i}`} tabIndex={on ? 0 : -1}
               onClick={() => choose(i)} onKeyDown={(e) => onKey(e, i)}
-              className={`gsp-tab relative shrink-0 flex items-center gap-3 rounded-2xl border text-left overflow-hidden transition-all duration-300 px-3 py-2.5 lg:px-3.5 lg:py-3 ${on ? 'bg-white border-[#e3eaf5] shadow-[0_12px_30px_-20px_rgba(10,58,121,0.5)] text-[#0a1f3d]' : 'bg-transparent border-transparent text-[#33465f] hover:bg-white/70'}`}>
+              className={`gsp-tab relative shrink-0 flex items-center gap-3 rounded-2xl border text-left overflow-hidden transition-all duration-300 px-3 py-2.5 lg:px-3.5 lg:py-2 ${on ? 'bg-white border-[#e3eaf5] shadow-[0_12px_30px_-20px_rgba(10,58,121,0.5)] text-[#0a1f3d]' : 'bg-transparent border-transparent text-[#33465f] hover:bg-white/70'}`}>
               <span className={`w-8 h-8 lg:w-9 lg:h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-300 ${on ? 'bg-[#0a3a79] text-[#f0c96a]' : 'bg-[#f6efdc] text-[#0a3a79]'}`}>
                 <s.Icon className="w-4 h-4 lg:w-[18px] lg:h-[18px]" />
               </span>
@@ -262,11 +262,11 @@ function SubjectSpotlight({ items }: { items: Subject[] }) {
       </div>
       <p className="lg:hidden -mt-1 text-center text-[12px] font-semibold text-[#4a5a72]">Scroll to view more</p>
 
-      <div className="relative rounded-3xl overflow-hidden text-white min-h-[290px]" style={{ background: 'linear-gradient(150deg, #0a1f3d 0%, #0a3a79 60%, #0f4a9b 100%)' }}>
+      <div className="relative rounded-3xl overflow-hidden text-white min-h-[290px] lg:min-h-0" style={{ background: 'linear-gradient(150deg, #0a1f3d 0%, #0a3a79 60%, #0f4a9b 100%)' }}>
         <div className="absolute -right-20 -top-20 w-64 h-64 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(199,162,74,0.35), transparent 70%)' }} aria-hidden="true" />
         {items.map((s, i) => (
           <div key={s.name} role="tabpanel" id={`gsp-panel-${i}`} aria-labelledby={`gsp-tab-${i}`} hidden={active !== i}
-            className="gsp-panel relative p-6 sm:p-8 lg:p-9">
+            className="gsp-panel relative p-6 sm:p-8 lg:px-9 lg:py-7">
             <div className="gsp-big w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/10 text-[#f0c96a] flex items-center justify-center mb-4">
               <s.Icon className="w-7 h-7 lg:w-8 lg:h-8" />
             </div>
@@ -493,7 +493,7 @@ function GradeStaircase() {
       {/* Staircase */}
       <div ref={ref} className={`lg:col-span-7 bg-white rounded-2xl border border-[#e3eaf5] p-4 sm:p-5 shadow-[0_14px_40px_-30px_rgba(10,58,121,0.5)] ${state} ${lens ? `gst-lens-${lens}` : ''}`}>
         <ul className="sr-only">{GRADES.map((r) => <li key={r.g}>Grade {r.g}: {r.note}</li>)}</ul>
-        <div className="relative h-[230px] sm:h-[270px] pt-12" aria-hidden={false}>
+        <div className="relative h-[220px] sm:h-[235px] pt-11" aria-hidden={false}>
           {sel !== null && (
             <div className="absolute top-0 z-10 px-3 py-1.5 rounded-xl bg-[#0a1f3d] text-white text-[12px] sm:text-[13px] font-bold whitespace-nowrap pointer-events-none"
               style={{ left: `${((sel + 0.5) / 9) * 100}%`, transform: `translateX(${sel <= 1 ? '-15%' : sel >= 7 ? '-85%' : '-50%'})` }}>
@@ -520,7 +520,7 @@ function GradeStaircase() {
           </div>
         </div>
         {/* Tier brackets */}
-        <div className="relative h-[62px] mt-2.5" aria-hidden="true">
+        <div className="relative h-[58px] mt-2" aria-hidden="true">
           <div className="gst-br gst-br-f absolute top-0 h-4 border-[2.5px] border-t-0 border-[#0f4a9b] rounded-b-[10px]" style={{ left: '0%', width: 'calc(5 / 9 * 100% - 4px)' }}>
             <span className="absolute -bottom-[19px] left-[38%] -translate-x-1/2 text-[10.5px] sm:text-[11.5px] font-extrabold tracking-[0.06em] text-[#0f4a9b] whitespace-nowrap">FOUNDATION 1–5</span>
           </div>
@@ -531,9 +531,9 @@ function GradeStaircase() {
       </div>
 
       {/* Tier cards + advice */}
-      <div className="lg:col-span-5 flex flex-col gap-3">
+      <div className="lg:col-span-5 flex flex-col gap-3 lg:gap-2.5">
         <button type="button" aria-pressed={lens === 'f'} onClick={() => setLens(lens === 'f' ? null : 'f')}
-          className={`gst-tier text-left bg-white rounded-2xl border-[1.5px] p-4 sm:p-5 ${tierCls('f')}`}>
+          className={`gst-tier text-left bg-white rounded-2xl border-[1.5px] p-4 sm:p-5 lg:px-5 lg:py-3.5 ${tierCls('f')}`}>
           <div className="flex items-center justify-between gap-2 mb-1.5">
             <h3 className="text-[15px] sm:text-[17px] font-extrabold text-[#0a1f3d]">Foundation tier</h3>
             <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#e6ecf6] text-[#0a1f3d] whitespace-nowrap">Grades 1 to 5</span>
@@ -541,14 +541,14 @@ function GradeStaircase() {
           <p className="text-[13px] sm:text-sm font-normal text-[#4a5a72] leading-relaxed">Shorter steps and more accessible questions. The highest grade available is 5, a strong pass.</p>
         </button>
         <button type="button" aria-pressed={lens === 'h'} onClick={() => setLens(lens === 'h' ? null : 'h')}
-          className={`gst-tier text-left bg-white rounded-2xl border-[1.5px] p-4 sm:p-5 ${tierCls('h')}`}>
+          className={`gst-tier text-left bg-white rounded-2xl border-[1.5px] p-4 sm:p-5 lg:px-5 lg:py-3.5 ${tierCls('h')}`}>
           <div className="flex items-center justify-between gap-2 mb-1.5">
             <h3 className="text-[15px] sm:text-[17px] font-extrabold text-[#0a1f3d]">Higher tier</h3>
             <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full text-white whitespace-nowrap" style={{ background: GOLD }}>Grades 4 to 9</span>
           </div>
           <p className="text-[13px] sm:text-sm font-normal text-[#4a5a72] leading-relaxed">Harder, multi-step questions. The only tier that can lead to grades 6 to 9.</p>
         </button>
-        <div className="flex-1 rounded-2xl p-4 sm:p-5 text-white" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f4a9b 100%)' }}>
+        <div className="flex-1 rounded-2xl p-4 sm:p-5 lg:px-5 lg:py-3.5 text-white" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f4a9b 100%)' }}>
           <h3 className="text-sm sm:text-base font-extrabold text-[#f0c96a] mb-1">Not sure which tier fits?</h3>
           <p className="text-[13px] sm:text-sm text-blue-100/85 leading-relaxed">The school decides entry. After the first lessons, your tutor shares an honest working grade so you can align with your child's teacher.</p>
         </div>
@@ -587,7 +587,7 @@ const CMP_CSS = `
   .gcp-lab{transition:background .3s,transform .3s,opacity .5s}
   .gcp-pre .gcp-lab{opacity:0}
 }
-@media (min-width:1024px){.gcp-row{height:86px}.gcp-duel{grid-template-columns:1fr 168px 1fr}}
+@media (min-width:1024px){.gcp-row{height:72px}.gcp-duel{grid-template-columns:1fr 168px 1fr}}
 @media (prefers-reduced-motion:reduce){.gcp-flip,.gcp-paper,.gcp-cell,.gcp-vs,.gcp-lab,.gcp-ind{transition:none!important}}
 `;
 const withCodes = (t: string) => t.split(/\b(8300|1MA1|J560|0580|4MA1)\b/).map((part, i) =>
@@ -612,7 +612,7 @@ function ComparePapers() {
 
   const paper = (k: 'l' | 'r') => (
     <div className={`gcp-paper ${k} rounded-2xl overflow-hidden bg-white border border-[#e3eaf5] shadow-[0_20px_50px_-34px_rgba(10,58,121,0.6)]`}>
-      <div className={`relative h-[76px] px-5 sm:px-6 flex items-center overflow-hidden ${k === 'l' ? 'text-white' : 'text-[#0a1f3d] border-b border-[#eadcb6]'}`}
+      <div className={`relative h-[76px] lg:h-[64px] px-5 sm:px-6 flex items-center overflow-hidden ${k === 'l' ? 'text-white' : 'text-[#0a1f3d] border-b border-[#eadcb6]'}`}
         style={{ background: k === 'l' ? 'linear-gradient(135deg, #0a1f3d, #0f4a9b)' : 'linear-gradient(135deg, #fbf6ea, #f3e7c9)' }}>
         <h3 className="text-[17px] sm:text-[19px] font-extrabold">
           {k === 'l' ? <>UK GCSE <span className="text-[13px] text-[#f0c96a] ml-1">(this page)</span></> : 'IGCSE / International GCSE'}
@@ -651,7 +651,7 @@ function ComparePapers() {
       <div className={`gcp-duel ${pre ? 'gcp-pre' : ''} ${side === 'r' ? 'gcp-showr' : ''}`}>
         <div className="gcp-flip">{paper('l')}{paper('r')}</div>
         <div className="gcp-mid flex-col" aria-hidden="true">
-          <div className="h-[76px] flex items-center justify-center">
+          <div className="h-[76px] lg:h-[64px] flex items-center justify-center">
             <span className="gcp-vs w-[54px] h-[54px] rounded-full bg-white border-2 border-[#C7A24A] text-[#8a6a1f] text-base font-black flex items-center justify-center shadow-[0_10px_24px_-12px_rgba(199,162,74,0.8)]">VS</span>
           </div>
           {COMPARE.map((r, i) => (
@@ -688,7 +688,7 @@ const JT_CSS = `
 .gjt-li.lit .gjt-dot,.gjt-nojs .gjt-dot{background:linear-gradient(135deg,#f0c96a,#C7A24A);border-color:#fff3d0;color:#0a1f3d;transform:scale(1.15);box-shadow:0 0 0 6px rgba(240,201,106,.18)}
 .gjt-li.lit .gjt-card{border-color:rgba(240,201,106,.45)}
 @media (min-width:1024px){
-  .gjt-road{height:540px;width:calc(100% - 56px);margin:0 auto;--w:min(300px,calc(33.333cqw - 18px),calc((41.667cqw - 18px) / 1.5))}
+  .gjt-road{height:430px;width:calc(100% - 56px);margin:0 auto;--w:min(300px,calc(33.333cqw - 18px),calc((41.667cqw - 18px) / 1.5))}
   .gjt-vline{display:none}
   .gjt-track{display:block;position:absolute;left:0;right:0;top:50%;height:6px;margin-top:-3px;border-radius:6px;background:rgba(255,255,255,.12)}
   .gjt-fill{position:absolute;left:0;top:0;bottom:0;width:100%;border-radius:6px;background:linear-gradient(90deg,#C7A24A,#f0c96a);box-shadow:0 0 18px rgba(240,201,106,.55)}
@@ -698,11 +698,11 @@ const JT_CSS = `
   .gjt-ol{position:static;padding:0}
   .gjt-li{position:absolute;top:50%;width:0;margin:0;left:calc((var(--i) + .5) / 6 * 100%)}
   .gjt-dot{left:-12px;top:-12px}
-  .gjt-stem{display:block;position:absolute;left:-1px;width:2px;height:44px;background:linear-gradient(#f0c96a,rgba(240,201,106,.2));transition:height .45s}
+  .gjt-stem{display:block;position:absolute;left:-1px;width:2px;height:30px;background:linear-gradient(#f0c96a,rgba(240,201,106,.2));transition:height .45s}
   .gjt-li.up .gjt-stem{bottom:14px}.gjt-li.down .gjt-stem{top:14px}
   .gjt-card{position:absolute;width:var(--w);left:calc(var(--w) / -2)}
   .gjt-li.first .gjt-card{left:-8.333cqw}.gjt-li.last .gjt-card{left:calc(8.333cqw - var(--w))}
-  .gjt-li.up .gjt-card{bottom:58px}.gjt-li.down .gjt-card{top:58px}
+  .gjt-li.up .gjt-card{bottom:44px}.gjt-li.down .gjt-card{top:44px}
   .gjt-js .gjt-li:not(.lit) .gjt-stem{height:0}
   .gjt-js .gjt-li.up:not(.lit) .gjt-card{opacity:0;transform:translateY(20px)}
   .gjt-js .gjt-li.down:not(.lit) .gjt-card{opacity:0;transform:translateY(-20px)}
@@ -972,11 +972,11 @@ export default function GCSETutorAlAinPage() {
       </section>
 
       {/* ── 09 FAQ (1-Desktop Viewport Compact) ── */}
-      <section id="faqs" className="py-7 sm:py-8 lg:py-9 bg-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="faqs" className="py-7 sm:py-8 lg:py-7 bg-white border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-              className="lg:col-span-5 flex flex-col items-start text-left lg:sticky lg:top-20">
+              className="lg:col-span-4 flex flex-col items-start text-left lg:sticky lg:top-20">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0f4a9b]/5 border border-[#0f4a9b]/12 text-[#0f4a9b] text-xs font-bold mb-2.5">
                 <span className="flex items-center justify-center w-4 h-4 rounded-full bg-[#0f4a9b]/10 text-[10px]">?</span>
                 COMMON QUESTIONS
@@ -989,7 +989,7 @@ export default function GCSETutorAlAinPage() {
               </p>
             </motion.div>
 
-            <div className="lg:col-span-7 flex flex-col gap-3.5">
+            <div className="lg:col-span-8 flex flex-col gap-2">
               {FAQS.map((faq, i) => {
                 const isOpen = openFaq === i;
                 const tone = { background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', color: isOpen ? '#fff' : '#0f4a9b' };
@@ -1003,7 +1003,7 @@ export default function GCSETutorAlAinPage() {
                       </button>
                       <button type="button" onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen}
                         className="flex-1 flex items-center gap-3 text-left rounded-full border bg-white shadow-xs transition-colors hover:border-[#0f4a9b]/50"
-                        style={{ minHeight: '52px', padding: '10px 18px', cursor: 'pointer', borderColor: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.12)' }}>
+                        style={{ minHeight: '44px', padding: '7px 16px', cursor: 'pointer', borderColor: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.12)' }}>
                         <h3 className="flex-1 font-semibold text-[#0a1f3d] text-[13.5px] sm:text-[14px] leading-snug">{faq.q}</h3>
                         <span className="flex-shrink-0 flex items-center justify-center"
                           style={{ width: 32, height: 32, minWidth: 32, minHeight: 32, borderRadius: '50%', ...tone, transition: 'background 300ms ease, color 300ms ease, transform 300ms cubic-bezier(0.22,1,0.36,1)', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
@@ -1014,7 +1014,7 @@ export default function GCSETutorAlAinPage() {
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }} className="ml-[52px] overflow-hidden">
-                          <div className="flex items-start gap-3 rounded-2xl border p-4 sm:p-4.5 bg-[#f8fafc]" style={{ borderColor: 'rgba(15,74,155,0.15)', boxShadow: '0 4px 16px rgba(15,74,155,0.06)' }}>
+                          <div className="flex items-start gap-3 rounded-2xl border p-4 sm:p-4.5 lg:px-4 lg:py-3 bg-[#f8fafc]" style={{ borderColor: 'rgba(15,74,155,0.15)', boxShadow: '0 4px 16px rgba(15,74,155,0.06)' }}>
                             <p className="flex-1 text-gray-600 text-[13px] sm:text-[13.5px] leading-relaxed">{faq.a}</p>
                             <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ width: 32, height: 32, minWidth: 32, minHeight: 32, background: '#0f4a9b', color: '#fff' }}>
                               <MessageCircle className="h-4 w-4" />
