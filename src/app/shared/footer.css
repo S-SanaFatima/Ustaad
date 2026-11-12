@@ -18,7 +18,7 @@
   --uf-gutter: clamp(20px, 5vw, 64px);
   --uf-max: 1240px;
   --uf-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --uf-float-clearance: 112px; /* room for the fixed WhatsApp bubble + promo bar */
+  --uf-float-clearance: 24px;
   background: var(--uf-navy);
   color: #fff;
   line-height: 1.5;
@@ -117,7 +117,14 @@
 .uf-social a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.22); color: rgba(255, 255, 255, 0.88); display: inline-flex; align-items: center; justify-content: center; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease; }
 .uf-social a:hover { background: var(--uf-gold); border-color: var(--uf-gold); color: #fff; transform: translateY(-2px); }
 
-.uf-col__title { margin-bottom: 16px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--uf-gold); }
+.uf-col__title-wrap { margin: 0 0 16px 0; padding: 0; font: inherit; }
+.uf-col__header { pointer-events: none; cursor: default; display: block; width: 100%; padding: 0; margin: 0; background: transparent; border: 0; color: inherit; font: inherit; text-align: left; }
+.uf-col__header:focus-visible { outline: none; }
+.uf-col__header-right,
+.uf-col__meta,
+.uf-col__chevron { display: none; }
+.uf-col__body { display: block !important; }
+.uf-col__title { margin: 0; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--uf-gold); }
 .uf-mtabs { display: none; }
 .uf-links { font-size: 14px; }
 .uf-links a, .uf-inline a { color: var(--uf-on-navy); transition: color 0.2s ease; }
@@ -131,7 +138,7 @@
 .uf-cur__hub { font-size: 13px; color: var(--uf-on-navy-dim); transition: color 0.2s ease; display: inline-flex; gap: 6px; }
 .uf-inline { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; }
 
-.uf-bar { margin-top: 48px; padding-block: 20px var(--uf-float-clearance); border-top: 1px solid var(--uf-rule); display: flex; justify-content: space-between; align-items: center; gap: 24px; font-size: 12.5px; color: var(--uf-on-navy-dim); }
+.uf-bar { margin-top: 36px; padding-block: 20px var(--uf-float-clearance); border-top: 1px solid var(--uf-rule); display: flex; justify-content: space-between; align-items: center; gap: 24px; font-size: 12.5px; color: var(--uf-on-navy-dim); }
 .uf-bar__legal { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
 .uf-bar__legal a { transition: color 0.2s ease; }
 .uf-bar__legal a:hover { color: #fff; }
@@ -169,40 +176,199 @@
   .uf-col--subjects, .uf-col--curriculum, .uf-col--company { grid-column: auto; }
 }
 
-/* ---------- Below 768px: no dropdowns ---------- */
-/* About Ustaad links stay visible as chips. Subjects / Curriculum share one switch. */
+/* ---------- Below 768px: Mobile Dropdown Accordions ---------- */
 @media (max-width: 767px) {
   .uf-cols { display: flex; flex-direction: column; row-gap: 0; }
-  .uf-brand { order: 1; margin-bottom: 26px; }
-  .uf-col--company { order: 2; margin-bottom: 24px; }
-  .uf-mtabs { order: 3; }
-  .uf-col--subjects { order: 4; }
-  .uf-col--curriculum { order: 5; }
-  .uf-col__title { margin-bottom: 12px; }
+  .uf-brand { order: 1; margin-bottom: 22px; }
+  .uf-col--subjects { order: 2; }
+  .uf-col--curriculum { order: 3; }
+  .uf-col--company { order: 4; }
 
-  .uf-links--1, .uf-links--2, .uf-inline { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; }
-  .uf-links a, .uf-inline a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 15px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.22); font-size: 13.5px; color: rgba(255, 255, 255, 0.92); transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
-  .uf-links a:active, .uf-inline a:active { background: var(--uf-gold); border-color: var(--uf-gold); color: #fff; }
-  .uf-links a.uf-more { border: 0; padding: 0 4px; margin-top: 0; }
-  .uf-more { min-height: 40px; margin-top: 0; }
-  .uf-cur { margin-bottom: 14px; gap: 6px; }
-  .uf-cur__hub { align-self: flex-start; min-height: 28px; align-items: center; }
+  /* Mobile Dropdown Accordion Cards */
+  .uf-col {
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+  .uf-col.is-open {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(199, 162, 74, 0.35);
+  }
 
-  .uf-mtabs { display: flex; padding: 4px; margin-bottom: 16px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.2); }
-  .uf-mtabs button { flex: 1; height: 42px; border: 0; border-radius: 999px; background: transparent; color: rgba(255, 255, 255, 0.75); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: background 0.3s ease, color 0.3s ease; }
-  .uf-mtabs button[aria-selected='true'] { background: linear-gradient(90deg, #c7a24a 0%, #a8892a 100%); color: #fff; }
-  .uf:not(.uf--js) .uf-mtabs { display: none; }
-  .uf--js .uf-col--subjects .uf-col__title, .uf--js .uf-col--curriculum .uf-col__title { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
-  .uf--js .uf-cols[data-mtab='subjects'] .uf-col--curriculum,
-  .uf--js .uf-cols[data-mtab='curriculum'] .uf-col--subjects { display: none; }
-  .uf--motion .uf-col--subjects, .uf--motion .uf-col--curriculum { animation: ufRise 0.35s ease both; }
+  .uf-col__title-wrap {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+  }
+
+  .uf-col__header {
+    pointer-events: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 48px;
+    padding: 13px 16px;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    text-align: left;
+    transition: background 0.2s ease;
+  }
+  .uf-col__header:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .uf-col__header:focus-visible {
+    outline: 2px solid var(--uf-gold);
+    outline-offset: -2px;
+  }
+
+  .uf-col__title {
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    transition: color 0.2s ease;
+  }
+  .uf-col.is-open .uf-col__title,
+  .uf-col__header:hover .uf-col__title {
+    color: var(--uf-gold);
+  }
+
+  .uf-col__header-right {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .uf-col__meta {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.65);
+    letter-spacing: 0.02em;
+  }
+  .uf-col.is-open .uf-col__meta {
+    background: rgba(199, 162, 74, 0.15);
+    color: var(--uf-gold-soft);
+  }
+
+  .uf-col__chevron {
+    display: block;
+    color: var(--uf-gold);
+    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+    flex-shrink: 0;
+  }
+  .uf-col__chevron.is-open {
+    transform: rotate(180deg);
+  }
+
+  .uf--js .uf-col:not(.is-open) .uf-col__body {
+    display: none !important;
+  }
+  .uf-col.is-open .uf-col__body {
+    display: block !important;
+    padding: 4px 16px 16px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    animation: ufFadeIn 0.22s ease both;
+  }
+
+  @keyframes ufFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Link pills inside the open accordion */
+  .uf-links--2, .uf-links--1 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .uf-links a, .uf-inline a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .uf-links a:hover, .uf-inline a:hover {
+    background: rgba(199, 162, 74, 0.15);
+    border-color: rgba(199, 162, 74, 0.4);
+    color: #fff;
+  }
+  .uf-links a:active, .uf-inline a:active {
+    background: var(--uf-gold);
+    border-color: var(--uf-gold);
+    color: #fff;
+  }
+  .uf-links a.uf-more {
+    grid-column: 1 / -1;
+    border: 1px dashed rgba(199, 162, 74, 0.4);
+    background: transparent;
+    color: var(--uf-gold);
+    font-weight: 700;
+  }
+  .uf-links .uf-span2 {
+    grid-column: span 2;
+  }
+
+  .uf-cur {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.15);
+  }
+  .uf-cur__hub {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--uf-gold-soft);
+    margin-bottom: 6px;
+  }
+  .uf-inline {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .uf-col--curriculum .uf-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    border-radius: 10px;
+    border: 1px dashed rgba(199, 162, 74, 0.4);
+    color: var(--uf-gold);
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
   .uf-social a { width: 42px; height: 42px; }
   .uf-bar { border-top: 0; }
 }
 
 /* ---------- Phone: below 640px (compact, so each tier fits about one screen) ---------- */
 @media (max-width: 639px) {
-  .uf { --uf-gutter: 16px; --uf-float-clearance: 56px; }
+  .uf { --uf-gutter: 16px; --uf-float-clearance: 16px; }
   .uf-finder { padding-block: 24px 10px; }
   .uf-finder__head { gap: 14px; margin-bottom: 14px; }
   .uf-eyebrow { display: none; }
@@ -248,19 +414,15 @@
   .uf-contact__icon { width: 32px; height: 32px; }
   .uf-contact strong { font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .uf-contact a > span:last-child { min-width: 0; }
-  .uf-col--company { margin-bottom: 16px; }
-  .uf-col__title { margin-bottom: 10px; }
-  .uf-links a, .uf-inline a { min-height: 36px; padding: 0 12px; font-size: 13px; }
+  .uf-col { margin-bottom: 8px; }
+  .uf-col__header { min-height: 44px; padding: 11px 14px; }
+  .uf-col__body { padding: 4px 14px 14px 14px; }
+  .uf-links a, .uf-inline a { min-height: 36px; padding: 0 10px; font-size: 12.5px; }
   .uf-links--1, .uf-links--2, .uf-inline { gap: 6px; }
-  .uf-links a.uf-more { min-height: 36px; padding: 0 8px; }
-  .uf-mtabs { margin-bottom: 12px; }
-  .uf-mtabs button { height: 40px; }
-  .uf-cur { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 8px; }
-  .uf-cur__hub { flex-basis: 100%; min-height: 22px; font-size: 12px; }
-  .uf-col--curriculum > .uf-more { min-height: 36px; }
+  .uf-cur { padding: 8px 10px; margin-bottom: 8px; }
   /* Bottom bar kept to the left so the fixed WhatsApp bubble (bottom right) never covers it;
      the clearance keeps the last row above the promo bar. */
-  .uf-bar { flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--uf-rule); font-size: 12px; }
+  .uf-bar { flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 14px; padding-top: 12px; padding-bottom: 16px; border-top: 1px solid var(--uf-rule); font-size: 12px; }
   .uf-bar__tools { order: -1; gap: 10px; margin-bottom: 4px; }
   .uf-bar__legal { gap: 0 14px; max-width: calc(100% - 84px); }
   .uf-bar__legal > span { flex-basis: 100%; }

@@ -146,8 +146,15 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
   const [jsReady, setJsReady] = useState(false);
   const [motion, setMotion] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [mtab, setMtab] = useState<'subjects' | 'curriculum'>('subjects');
-  const mtabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>({
+    subjects: false,
+    curriculum: false,
+    company: false,
+  });
+
+  const toggleSection = (id: string) => {
+    setOpenSections((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
   const [progress, setProgress] = useState(0);
 
   const rootRef = useRef<HTMLElement>(null);
@@ -238,14 +245,7 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
     }
   };
 
-  const MTABS = ['subjects', 'curriculum'] as const;
-  const onMtabKey = (e: KeyboardEvent<HTMLButtonElement>, i: number) => {
-    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-    e.preventDefault();
-    const next = (i + 1) % 2;
-    setMtab(MTABS[next]);
-    mtabRefs.current[next]?.focus();
-  };
+
   const CIRC = 125.66;
 
   const rootCls = ['uf', jsReady && 'uf--js', jsReady && motion && 'uf--motion', visible && 'is-visible'].filter(Boolean).join(' ');
@@ -351,7 +351,7 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
       {/* Tier 2: Links */}
       <div className="uf-main">
         <div className="uf__wrap">
-          <div className="uf-cols" data-mtab={mtab}>
+          <div className="uf-cols">
             <div className="uf-brand">
               <a className="uf-logo" href="/" aria-label="Ustaad home">
                 <img src="/ustaad-private-tutors-uae-logo.png" alt={logoAlt} width={140} height={46} loading="lazy" />
@@ -385,53 +385,90 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
               </div>
             </div>
 
-            {/* Phones only: one switch for the two long lists (no dropdowns). Hidden on wider screens and without JS. */}
-            <div className="uf-mtabs" role="tablist" aria-label="Browse by">
-              {MTABS.map((k, i) => (
+            {/* Subjects column: mobile dropdown accordion, permanent grid on desktop */}
+            <nav className={`uf-col uf-col--subjects ${openSections.subjects ? 'is-open' : ''}`} id="uf-col-subjects" aria-label="Subjects">
+              <h2 className="uf-col__title-wrap">
                 <button
-                  key={k}
-                  ref={(el) => { mtabRefs.current[i] = el; }}
                   type="button"
-                  role="tab"
-                  id={`uf-mtab-${k}`}
-                  aria-controls={`uf-col-${k}`}
-                  aria-selected={mtab === k}
-                  tabIndex={mtab === k ? 0 : -1}
-                  onClick={() => setMtab(k)}
-                  onKeyDown={(e) => onMtabKey(e, i)}
+                  className="uf-col__header"
+                  onClick={() => toggleSection('subjects')}
+                  aria-expanded={openSections.subjects}
+                  aria-controls="uf-col-subjects-body"
                 >
-                  {k === 'subjects' ? 'Subjects' : 'Curriculum'}
+                  <span className="uf-col__title">Subjects</span>
+                  <span className="uf-col__header-right">
+                    <span className="uf-col__meta">14 subjects</span>
+                    <svg className={`uf-col__chevron ${openSections.subjects ? 'is-open' : ''}`} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </span>
                 </button>
-              ))}
-            </div>
-
-            <nav className="uf-col uf-col--subjects" id="uf-col-subjects" aria-label="Subjects">
-              <h2 className="uf-col__title">Subjects</h2>
-              <ul className="uf-links uf-links--2">
-                {SUBJECTS.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
-                <li className="uf-span2"><a href="/exam-preparation">Exam preparation</a></li>
-                <li className="uf-span2"><a className="uf-more" href="/subjects">All subjects</a></li>
-              </ul>
+              </h2>
+              <div className="uf-col__body" id="uf-col-subjects-body">
+                <ul className="uf-links uf-links--2">
+                  {SUBJECTS.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
+                  <li className="uf-span2"><a href="/exam-preparation">Exam preparation</a></li>
+                  <li className="uf-span2"><a className="uf-more" href="/subjects">All subjects</a></li>
+                </ul>
+              </div>
             </nav>
 
-            <nav className="uf-col uf-col--curriculum" id="uf-col-curriculum" aria-label="Curriculum">
-              <h2 className="uf-col__title">Curriculum</h2>
-              {CURRICULA.map((c) => (
-                <div className="uf-cur" key={c.hub[1]}>
-                  <a className="uf-cur__hub" href={c.hub[1]}>{c.hub[0]}</a>
-                  <ul className="uf-inline">
-                    {c.items.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
-                  </ul>
-                </div>
-              ))}
-              <a className="uf-more" href="/curriculum">All curricula</a>
+            {/* Curriculum column: mobile dropdown accordion, permanent grid on desktop */}
+            <nav className={`uf-col uf-col--curriculum ${openSections.curriculum ? 'is-open' : ''}`} id="uf-col-curriculum" aria-label="Curriculum">
+              <h2 className="uf-col__title-wrap">
+                <button
+                  type="button"
+                  className="uf-col__header"
+                  onClick={() => toggleSection('curriculum')}
+                  aria-expanded={openSections.curriculum}
+                  aria-controls="uf-col-curriculum-body"
+                >
+                  <span className="uf-col__title">Curriculum</span>
+                  <span className="uf-col__header-right">
+                    <span className="uf-col__meta">3 systems</span>
+                    <svg className={`uf-col__chevron ${openSections.curriculum ? 'is-open' : ''}`} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </span>
+                </button>
+              </h2>
+              <div className="uf-col__body" id="uf-col-curriculum-body">
+                {CURRICULA.map((c) => (
+                  <div className="uf-cur" key={c.hub[1]}>
+                    <a className="uf-cur__hub" href={c.hub[1]}>{c.hub[0]}</a>
+                    <ul className="uf-inline">
+                      {c.items.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
+                    </ul>
+                  </div>
+                ))}
+                <a className="uf-more" href="/curriculum">All curricula</a>
+              </div>
             </nav>
 
-            <nav className="uf-col uf-col--company" aria-label="About Ustaad">
-              <h2 className="uf-col__title">About Ustaad</h2>
-              <ul className="uf-links uf-links--1">
-                {COMPANY.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
-              </ul>
+            {/* About Ustaad column: mobile dropdown accordion, permanent grid on desktop */}
+            <nav className={`uf-col uf-col--company ${openSections.company ? 'is-open' : ''}`} id="uf-col-company" aria-label="About Ustaad">
+              <h2 className="uf-col__title-wrap">
+                <button
+                  type="button"
+                  className="uf-col__header"
+                  onClick={() => toggleSection('company')}
+                  aria-expanded={openSections.company}
+                  aria-controls="uf-col-company-body"
+                >
+                  <span className="uf-col__title">About Ustaad</span>
+                  <span className="uf-col__header-right">
+                    <span className="uf-col__meta">7 links</span>
+                    <svg className={`uf-col__chevron ${openSections.company ? 'is-open' : ''}`} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </span>
+                </button>
+              </h2>
+              <div className="uf-col__body" id="uf-col-company-body">
+                <ul className="uf-links uf-links--1">
+                  {COMPANY.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
+                </ul>
+              </div>
             </nav>
           </div>
 
