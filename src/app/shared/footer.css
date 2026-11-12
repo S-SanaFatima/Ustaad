@@ -288,8 +288,9 @@
 
   /* Link pills inside the open accordion */
   .uf-links--2, .uf-links--1 {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 8px;
     margin-top: 6px;
   }
@@ -325,7 +326,11 @@
     font-weight: 700;
   }
   .uf-links .uf-span2 {
-    grid-column: span 2;
+    grid-column: auto;
+  }
+  /* "All subjects" always starts its own line */
+  .uf-links li:has(> a.uf-more) {
+    flex-basis: 100%;
   }
 
   .uf-cur {
