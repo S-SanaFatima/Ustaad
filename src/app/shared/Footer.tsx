@@ -397,7 +397,6 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
                 >
                   <span className="uf-col__title">Subjects</span>
                   <span className="uf-col__header-right">
-                    <span className="uf-col__meta">14 subjects</span>
                     <svg className={`uf-col__chevron ${openSections.subjects ? 'is-open' : ''}`} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <polyline points="6 9 12 15 18 9" />
                     </svg>
@@ -425,7 +424,6 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
                 >
                   <span className="uf-col__title">Curriculum</span>
                   <span className="uf-col__header-right">
-                    <span className="uf-col__meta">3 systems</span>
                     <svg className={`uf-col__chevron ${openSections.curriculum ? 'is-open' : ''}`} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <polyline points="6 9 12 15 18 9" />
                     </svg>
@@ -457,7 +455,6 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
                 >
                   <span className="uf-col__title">About Ustaad</span>
                   <span className="uf-col__header-right">
-                    <span className="uf-col__meta">7 links</span>
                     <svg className={`uf-col__chevron ${openSections.company ? 'is-open' : ''}`} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <polyline points="6 9 12 15 18 9" />
                     </svg>
