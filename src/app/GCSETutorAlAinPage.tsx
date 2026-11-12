@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import {
   Calculator, BookOpen, FlaskConical, Atom, Briefcase, PenLine,
@@ -284,6 +285,167 @@ function SubjectSpotlight({ items }: { items: Subject[] }) {
   );
 }
 
+/* ── "How we match your GCSE tutor": three desk objects that open into a big card ──
+   Step titles sit under each object; the full step text is in the HTML (sr-only) and in
+   the dialog. Dialog: Esc / × / backdrop close, focus returns to the object, page scroll
+   locked while open, zoom-from-object animation (off under prefers-reduced-motion). */
+const BookStackArt = () => (
+  <svg viewBox="0 0 200 170" aria-hidden="true">
+    <rect x="28" y="118" width="144" height="30" rx="5" fill="#0a3a79" /><rect x="160" y="121" width="9" height="24" rx="2" fill="#f7f1e3" />
+    <text x="44" y="138" fontFamily="Inter, system-ui, sans-serif" fontWeight="800" fontSize="13" fill="#fff" letterSpacing="1.5">AQA</text>
+    <rect x="38" y="88" width="128" height="30" rx="5" fill="#C7A24A" /><rect x="154" y="91" width="9" height="24" rx="2" fill="#fff8e6" />
+    <text x="52" y="108" fontFamily="Inter, system-ui, sans-serif" fontWeight="800" fontSize="13" fill="#0a1f3d" letterSpacing="1">EDEXCEL</text>
+    <rect x="32" y="58" width="134" height="30" rx="5" fill="#1e5ba8" /><rect x="154" y="61" width="9" height="24" rx="2" fill="#eef3fa" />
+    <text x="46" y="78" fontFamily="Inter, system-ui, sans-serif" fontWeight="800" fontSize="13" fill="#fff" letterSpacing="1.5">OCR</text>
+    <g transform="rotate(-18 150 40)">
+      <circle cx="146" cy="36" r="20" fill="rgba(255,255,255,0.55)" stroke="#0a1f3d" strokeWidth="6" />
+      <line x1="160" y1="51" x2="178" y2="70" stroke="#0a1f3d" strokeWidth="8" strokeLinecap="round" />
+      <circle cx="139" cy="29" r="5" fill="#fff" opacity="0.8" />
+    </g>
+  </svg>
+);
+const NotepadArt = () => (
+  <svg viewBox="0 0 200 170" aria-hidden="true">
+    <rect x="42" y="26" width="112" height="132" rx="12" fill="#fff" stroke="#c9d6ea" strokeWidth="3" />
+    <rect x="42" y="26" width="112" height="22" rx="12" fill="#0a3a79" /><rect x="42" y="38" width="112" height="10" fill="#0a3a79" />
+    {[62, 82, 102, 122].map((x) => <circle key={x} cx={x} cy="26" r="5" fill="#C7A24A" />)}
+    {[70, 86, 102, 118, 134].map((y) => <line key={y} x1="56" y1={y} x2="140" y2={y} stroke="#dde5f1" strokeWidth="2.5" />)}
+    <path d="M66 100 l16 16 l34 -40" fill="none" stroke="#C7A24A" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
+    <g transform="rotate(38 150 96)">
+      <rect x="140" y="34" width="22" height="96" rx="4" fill="#f0c96a" /><rect x="140" y="34" width="22" height="14" rx="4" fill="#e7a3a3" />
+      <rect x="140" y="46" width="22" height="7" fill="#9aa9bf" /><rect x="146" y="53" width="3" height="77" fill="#d9ad45" />
+      <path d="M140 130 L151 152 L162 130 Z" fill="#f3dcb0" /><path d="M147 144 L151 152 L155 144 Z" fill="#0a1f3d" />
+    </g>
+  </svg>
+);
+const CalendarArt = () => (
+  <svg viewBox="0 0 200 170" aria-hidden="true">
+    <rect x="30" y="36" width="140" height="118" rx="14" fill="#fff" stroke="#c9d6ea" strokeWidth="3" />
+    <rect x="30" y="36" width="140" height="32" rx="14" fill="#0a3a79" /><rect x="30" y="54" width="140" height="14" fill="#0a3a79" />
+    <rect x="62" y="24" width="8" height="24" rx="4" fill="#C7A24A" /><rect x="130" y="24" width="8" height="24" rx="4" fill="#C7A24A" />
+    {[0, 1, 2, 3].map((r) => [0, 1, 2, 3, 4].map((c) => (
+      <rect key={`${r}${c}`} x={44 + c * 24} y={78 + r * 18} width="18" height="13" rx="3" fill={c === 2 ? '#C7A24A' : '#eef3fa'} />
+    )))}
+    <g transform="translate(150 128)">
+      <circle r="26" fill="#fff" stroke="#0a1f3d" strokeWidth="5" />
+      <line x1="0" y1="0" x2="0" y2="-15" stroke="#0a1f3d" strokeWidth="4" strokeLinecap="round" />
+      <line x1="0" y1="0" x2="11" y2="5" stroke="#C7A24A" strokeWidth="4" strokeLinecap="round" />
+      <circle r="3" fill="#0a1f3d" />
+    </g>
+  </svg>
+);
+const STEP_ART = [BookStackArt, NotepadArt, CalendarArt];
+
+const OBJ_CSS = `
+.gso-art svg{width:100%;height:100%;overflow:visible;animation:gsoFloat 4s ease-in-out infinite;animation-delay:var(--d);transition:transform .35s cubic-bezier(.3,.8,.25,1),filter .35s}
+@media (hover:hover){.gso-obj:hover .gso-art svg{transform:translateY(-10px) rotate(-2deg) scale(1.04);filter:drop-shadow(0 18px 24px rgba(10,58,121,.22))}}
+@keyframes gsoFloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
+.gso-shadow{animation:gsoShad 4s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes gsoShad{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.82);opacity:.6}}
+.gso-ov{background:rgba(6,15,34,0);backdrop-filter:blur(0);transition:background .35s,backdrop-filter .35s}
+.gso-ov.is-open{background:rgba(6,15,34,.55);backdrop-filter:blur(6px)}
+.gso-card{opacity:0;transform:translate(var(--dx,0),var(--dy,0)) scale(.18);transition:transform .5s cubic-bezier(.2,.9,.25,1.05),opacity .3s}
+.gso-ov.is-open .gso-card{opacity:1;transform:none}
+.gso-pop{animation:gsoPop .6s .15s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes gsoPop{from{transform:scale(.6) rotate(-8deg);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.gso-art svg,.gso-shadow,.gso-pop{animation:none!important}.gso-card,.gso-ov{transition:none!important}}
+`;
+
+function StepObjects({ steps }: { steps: { title: string; text: string }[] }) {
+  const [mounted, setMounted] = useState(false);
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const [shown, setShown] = useState(false);
+  const [delta, setDelta] = useState({ dx: 0, dy: 0 });
+  const objRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const nextRef = useRef<HTMLButtonElement>(null);
+  const lastObj = useRef<number>(0);
+
+  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    if (openIdx === null) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: globalThis.KeyboardEvent) => { if (e.key === 'Escape') close(); };
+    window.addEventListener('keydown', onKey);
+    return () => { document.body.style.overflow = prev; window.removeEventListener('keydown', onKey); };
+  }, [openIdx]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const open = (i: number) => {
+    const el = objRefs.current[i];
+    if (el) {
+      const r = el.getBoundingClientRect();
+      setDelta({ dx: r.left + r.width / 2 - window.innerWidth / 2, dy: r.top + r.height / 2 - window.innerHeight / 2 });
+    }
+    lastObj.current = i;
+    setOpenIdx(i);
+    setShown(false);
+    requestAnimationFrame(() => requestAnimationFrame(() => { setShown(true); nextRef.current?.focus({ preventScroll: true }); }));
+  };
+  const close = () => {
+    setShown(false);
+    window.setTimeout(() => { setOpenIdx(null); objRefs.current[lastObj.current]?.focus({ preventScroll: true }); }, 280);
+  };
+  const next = () => { if (openIdx === null) return; if (openIdx < steps.length - 1) setOpenIdx(openIdx + 1); else close(); };
+
+  const Art = openIdx !== null ? STEP_ART[openIdx] : null;
+
+  return (
+    <>
+      <style>{OBJ_CSS}</style>
+      <ol className="grid grid-cols-3 gap-2 sm:gap-6 max-w-4xl mx-auto">
+        {steps.map((s, i) => {
+          const ArtI = STEP_ART[i];
+          return (
+            <li key={s.title}>
+              <button ref={(el) => { objRefs.current[i] = el; }} type="button" aria-haspopup="dialog" onClick={() => open(i)}
+                className="gso-obj w-full flex flex-col items-center gap-2 sm:gap-2.5 rounded-3xl px-1 pt-2 pb-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0f4a9b]"
+                style={{ ['--d' as string]: `${i * 0.6}s` } as CSSProperties}>
+                <span className="relative w-full max-w-[230px] aspect-[200/170]">
+                  <span className="gso-art absolute inset-0"><ArtI /></span>
+                  <span className="gso-shadow absolute left-[18%] right-[18%] -bottom-0.5 h-3.5 rounded-[50%]" style={{ background: 'radial-gradient(closest-side, rgba(10,31,61,0.18), transparent)' }} aria-hidden="true" />
+                </span>
+                <span className="text-[10.5px] sm:text-xs font-extrabold tracking-[0.14em] text-[#8a6a1f]">STEP {String(i + 1).padStart(2, '0')}</span>
+                <h3 className="text-[13px] sm:text-[17px] font-extrabold text-[#0a1f3d] text-center leading-snug">{s.title}</h3>
+                <span className="hidden sm:inline text-[12.5px] font-bold text-[#0f4a9b]/80">Tap to open</span>
+                <span className="sr-only">{s.text}</span>
+              </button>
+            </li>
+          );
+        })}
+      </ol>
+
+      {mounted && openIdx !== null && Art && createPortal(
+        <div className={`gso-ov fixed inset-0 z-[1000] flex items-center justify-center p-4 sm:p-5 ${shown ? 'is-open' : ''}`}
+          onClick={(e) => { if (e.target === e.currentTarget) close(); }}>
+          <div role="dialog" aria-modal="true" aria-labelledby="gso-title"
+            className="gso-card relative w-full max-w-[600px] rounded-3xl bg-white overflow-hidden shadow-[0_40px_80px_-30px_rgba(0,0,0,0.5)]"
+            style={{ ['--dx' as string]: `${delta.dx}px`, ['--dy' as string]: `${delta.dy}px` } as CSSProperties}>
+            <button type="button" onClick={close} aria-label="Close"
+              className="absolute top-3.5 right-3.5 z-10 w-9 h-9 rounded-full bg-[#0a3a79] text-white text-xl leading-none flex items-center justify-center">×</button>
+            <div className="relative h-[150px] sm:h-[190px] flex items-center justify-center overflow-hidden border-b border-[#e3eaf5]" style={{ background: 'linear-gradient(150deg, #f7f1e3 0%, #eef3fa 100%)' }}>
+              <div className="absolute -right-14 -top-14 w-56 h-56 rounded-full" style={{ background: 'radial-gradient(circle, rgba(199,162,74,0.28), transparent 70%)' }} aria-hidden="true" />
+              <div key={openIdx} className="gso-pop relative h-[125px] sm:h-[160px] aspect-[200/170]"><Art /></div>
+            </div>
+            <div className="px-5 sm:px-7 pt-5 sm:pt-6 pb-6 sm:pb-7">
+              <span className="block text-[11px] font-extrabold tracking-[0.14em] text-[#8a6a1f] mb-2">STEP {String(openIdx + 1).padStart(2, '0')}</span>
+              <h3 id="gso-title" className="text-[22px] sm:text-[26px] font-extrabold text-[#0a1f3d] mb-2.5">{steps[openIdx].title}</h3>
+              <p className="text-[15px] sm:text-base leading-relaxed text-[#4a5a72] mb-5">{steps[openIdx].text}</p>
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-[13px] font-bold text-[#8a6a1f]">{openIdx + 1} of {steps.length}</span>
+                <button ref={nextRef} type="button" onClick={next}
+                  className="h-11 px-6 rounded-full text-sm font-bold text-white hover:brightness-110 transition" style={{ background: GOLD }}>
+                  {openIdx < steps.length - 1 ? 'Next step' : 'Done'}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>,
+        document.body,
+      )}
+    </>
+  );
+}
+
 /* ── Page ────────────────────────────────────────────────────────────── */
 
 export default function GCSETutorAlAinPage() {
@@ -497,23 +659,12 @@ export default function GCSETutorAlAinPage() {
       </section>
 
 
-      {/* ── 07 HOW WE MATCH (1-Desktop Viewport Compact) ── */}
+      {/* ── 07 HOW WE MATCH (three desk objects that open into a card) ── */}
       <section className="py-7 sm:py-8 lg:py-9 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead eyebrow="Getting started" title={<>How we match your <span className="text-[#0f4a9b]">GCSE tutor</span></>} intro="Three steps, from your first message to a regular weekly lesson." />
-          <ol className="grid md:grid-cols-3 gap-3.5 sm:gap-4">
-            {STEPS.map((s, i) => (
-              <li key={s.title} className="relative rounded-xl bg-[#f4f7fc] border border-[#0f4a9b]/10 p-4 sm:p-4.5 flex flex-col justify-between">
-                <span className="absolute top-3.5 right-4 text-[22px] font-black text-[#0f4a9b]/12 leading-none">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <span className="w-8 h-8 rounded-lg bg-white text-[#0f4a9b] border border-[#0f4a9b]/10 flex items-center justify-center mb-2.5 shadow-2xs"><s.Icon className="w-4 h-4" /></span>
-                  <h3 className="text-sm sm:text-[15px] font-extrabold text-[#0a1f3d] mb-1">{s.title}</h3>
-                  <p className="text-xs sm:text-[12.5px] text-[#4a5a72] leading-relaxed">{s.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-          <ul className="mt-4 grid sm:grid-cols-3 gap-2 text-xs sm:text-[12.5px] text-[#2c3e5c]">
+          <StepObjects steps={STEPS} />
+          <ul className="mt-6 sm:mt-7 max-w-4xl mx-auto grid sm:grid-cols-3 gap-2 text-xs sm:text-[12.5px] text-[#2c3e5c]">
             {['Tutor matched to the exact board and tier', 'Mock and past papers marked against the mark scheme', 'Lessons at times that fit the school week'].map((t) => (
               <li key={t} className="flex items-start gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#0f4a9b] mt-0.5 shrink-0" /><span>{t}</span></li>
             ))}
