@@ -261,14 +261,8 @@ export default function IGCSEBiology6MarkBlog() {
       "name": "Ustaad UAE",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ustaad.ae/logo.png"
+        "url": "https://ustaad.ae/ustaad-private-tutors-uae-logo.png"
       }
-    },
-    "reviewedBy": {
-      "@type": "Person",
-      "name": "Nida Iqbal",
-      "jobTitle": "Editorial Reviewer",
-      "description": "MPhil in Education Leadership and Management"
     },
     "isBasedOn": [
       "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-biology-0610",
@@ -286,7 +280,7 @@ export default function IGCSEBiology6MarkBlog() {
   return (
     <Layout>
       <SEOHead 
-        title={BLOG.title}
+        title="IGCSE Biology 6-Mark Answers: Why Marks Are Lost | Ustaad"
         description={BLOG.description}
         canonical={`/blogs/${BLOG.slug}`}
         author="Ustaad UAE Editorial Team"

@@ -1,62 +1,82 @@
-# Ustaad — Private Tutors UAE
-# https://ustaad.ae
+# Ustaad
 
-## About
-Ustaad is a UAE-based private tutoring service providing expert 1-to-1 academic support to students across Dubai, Abu Dhabi, Sharjah, Ajman, Al Ain, Ras Al Khaimah, and Fujairah. Founded in 2015, Ustaad has supported over 2,500 students across all major curricula.
+> Ustaad (ustaad.ae) is a UAE private tutoring service, founded in 2015, offering live online 1-to-1 lessons for IGCSE, GCSE, A-Level, IB (MYP, DP SL/HL) and American curriculum (AP) students in Dubai, Abu Dhabi, Al Ain, Sharjah and the Northern Emirates. Tutors are matched to the student's exam board (Cambridge, Pearson Edexcel, AQA, OCR, IB, College Board).
 
-## Services
-- Private 1-to-1 tutoring for IGCSE, GCSE, A-Level, IB (MYP, DP SL/HL), and American Curriculum (AP, SAT)
-- Subject expertise: Mathematics, Physics, Chemistry, Biology, English, Economics, Business Studies, Accounting, Finance, Statistics, Engineering
-- Exam preparation: Past paper practice, mark scheme training, exam technique
-- Curriculum-aligned teaching: Cambridge, Edexcel, AQA, IB, College Board
-- Free homework question service: written solution in 15 minutes via WhatsApp
+Every first lesson includes a free 15-minute orientation. Families book through the contact form or WhatsApp (+971 56 124 9005). Email: support@ustaad.ae.
 
-## Key Pages
-- Homepage: https://ustaad.ae/
-- About: https://ustaad.ae/about
-- Subjects: https://ustaad.ae/subjects
-- Curriculum: https://ustaad.ae/curriculum
-- British Curriculum (IGCSE, GCSE, A-Level): https://ustaad.ae/british-curriculum
-- IB Curriculum (MYP, DP): https://ustaad.ae/ib-curriculum
-- American Curriculum (AP, SAT): https://ustaad.ae/american-curriculum
-- IGCSE Tutoring: https://ustaad.ae/igcse
-- GCSE Tutoring: https://ustaad.ae/gcse
-- A-Level Tutoring: https://ustaad.ae/a-level
-- IB MYP Tutoring: https://ustaad.ae/myp
-- IB DP SL Tutoring: https://ustaad.ae/dp-sl
-- IB DP HL Tutoring: https://ustaad.ae/dp-hl
-- AP Tutoring: https://ustaad.ae/ap
-- Maths Tutoring: https://ustaad.ae/maths
-- Physics Tutoring: https://ustaad.ae/physics
-- Chemistry Tutoring: https://ustaad.ae/chemistry
-- Biology Tutoring: https://ustaad.ae/biology
-- English Tutoring: https://ustaad.ae/english
-- Economics Tutoring: https://ustaad.ae/economics
-- Sciences Tutoring: https://ustaad.ae/sciences
-- Exam Preparation: https://ustaad.ae/exam-preparation
-- How It Works: https://ustaad.ae/how-it-works
-- Tutors: https://ustaad.ae/tutors
-- Blog: https://ustaad.ae/blogs
-- Contact: https://ustaad.ae/contact
+## Curricula
 
-## Location-Specific Pages
-- Maths Tutor Abu Dhabi: https://ustaad.ae/maths-tutor-abu-dhabi
-- Physics Tutor Abu Dhabi: https://ustaad.ae/physics-tutor-abu-dhabi
-- Chemistry Tutor Abu Dhabi: https://ustaad.ae/chemistry-tutor-abu-dhabi
+- [IGCSE tutoring](https://ustaad.ae/igcse): Cambridge and Pearson Edexcel International GCSE, Years 9 to 11
+- [GCSE tutoring](https://ustaad.ae/gcse): UK GCSE for AQA, Pearson Edexcel and OCR
+- [A-Level tutoring](https://ustaad.ae/a-level): AS and A2 for Cambridge, Edexcel, AQA and OCR
+- [IB MYP tutoring](https://ustaad.ae/myp): IB Middle Years Programme
+- [IB DP SL tutoring](https://ustaad.ae/dp-sl): IB Diploma Standard Level
+- [IB DP HL tutoring](https://ustaad.ae/dp-hl): IB Diploma Higher Level
+- [AP tutoring](https://ustaad.ae/ap): Advanced Placement courses and exam prep
+- [British curriculum](https://ustaad.ae/british-curriculum): overview of the British pathway in the UAE
+- [IB curriculum](https://ustaad.ae/ib-curriculum): overview of the IB pathway
+- [American curriculum](https://ustaad.ae/american-curriculum): middle school, high school and AP
 
-## Blog Articles
-- Why IGCSE Maths Students Lose Marks After Hours of Revision: https://ustaad.ae/blogs/igcse-maths-revision-low-marks
-- My Child Only Panics Right Before Exams: https://ustaad.ae/blogs/exam-panic-before-exams-uae
-- Why Physics Understanding Does Not Mean High Marks: https://ustaad.ae/blogs/physics-understanding-vs-marks
-- IGCSE Physics Formulas for Exams: https://ustaad.ae/blogs/igcse-physics-formulas-exam
-- Why Students Forget Chemistry So Quickly: https://ustaad.ae/blogs/why-chemistry-fades-from-memory
-- Early Signs Your Child Needs Help in Chemistry: https://ustaad.ae/blogs/early-signs-chemistry-help-uae
-- How to Read a UAE School Report Card Like an Education Counsellor: https://ustaad.ae/blogs/read-uae-school-report-card
+## Subjects
 
-## Contact
-- Phone/WhatsApp: +971561249005
-- Email: support@ustaad.ae
-- Location: United Arab Emirates
+- [Maths](https://ustaad.ae/maths)
+- [Physics](https://ustaad.ae/physics)
+- [Chemistry](https://ustaad.ae/chemistry)
+- [Biology](https://ustaad.ae/biology)
+- [English](https://ustaad.ae/english)
+- [Economics](https://ustaad.ae/economics)
+- [Business](https://ustaad.ae/business)
+- [Accounting](https://ustaad.ae/accounting)
+- [Finance](https://ustaad.ae/finance)
+- [Statistics](https://ustaad.ae/statistics)
+- [Engineering](https://ustaad.ae/engineering)
+- [Exam preparation](https://ustaad.ae/exam-preparation)
 
-## Sitemap
-https://ustaad.ae/sitemap.xml
+## Tutors by city
+
+- [Maths tutor Dubai](https://ustaad.ae/maths-tutor-dubai)
+- [Physics tutor Dubai](https://ustaad.ae/physics-tutor-dubai)
+- [Chemistry tutor Dubai](https://ustaad.ae/chemistry-tutor-dubai)
+- [Biology tutor Dubai](https://ustaad.ae/biology-tutor-dubai)
+- [IGCSE tutor Dubai](https://ustaad.ae/igcse-tutor-dubai)
+- [GCSE tutor Dubai](https://ustaad.ae/gcse-tutor-dubai)
+- [A-Level tutor Dubai](https://ustaad.ae/a-level-tutor-dubai)
+- [IB tutor Dubai](https://ustaad.ae/ib-tutor-dubai)
+- [Maths tutor Abu Dhabi](https://ustaad.ae/maths-tutor-abu-dhabi)
+- [Physics tutor Abu Dhabi](https://ustaad.ae/physics-tutor-abu-dhabi)
+- [Chemistry tutor Abu Dhabi](https://ustaad.ae/chemistry-tutor-abu-dhabi)
+- [Biology tutor Abu Dhabi](https://ustaad.ae/biology-tutor-abu-dhabi)
+- [IGCSE tutor Abu Dhabi](https://ustaad.ae/igcse-tutor-abu-dhabi)
+- [GCSE tutor Abu Dhabi](https://ustaad.ae/gcse-tutor-abu-dhabi)
+- [A-Level tutor Abu Dhabi](https://ustaad.ae/a-level-tutor-abu-dhabi)
+- [IB tutor Abu Dhabi](https://ustaad.ae/ib-tutor-abu-dhabi)
+- [IGCSE tutor Al Ain](https://ustaad.ae/igcse-tutor-al-ain)
+- [GCSE tutor Al Ain](https://ustaad.ae/gcse-tutor-al-ain)
+- [A-Level tutor Al Ain](https://ustaad.ae/a-level-tutor-al-ain)
+
+## About Ustaad
+
+- [About us](https://ustaad.ae/about)
+- [How it works](https://ustaad.ae/how-it-works)
+- [Our tutors](https://ustaad.ae/tutors)
+- [Editorial standards](https://ustaad.ae/editorial)
+- [Contact](https://ustaad.ae/contact)
+
+## Guides for parents and students
+
+- [Private tutoring in the UAE: a parent guide](https://ustaad.ae/blogs/private-tutoring-uae-parent-guide)
+- [How to choose IGCSE subjects in the UAE](https://ustaad.ae/blogs/how-to-choose-igcse-subjects-uae)
+- [IGCSE vs GCSE: curriculum differences for UAE parents](https://ustaad.ae/blogs/igcse-vs-gcse-curriculum-differences-uae)
+- [10 questions before hiring a private tutor in Abu Dhabi](https://ustaad.ae/blogs/10-questions-hiring-private-tutor-abu-dhabi)
+- [Command words in IGCSE and A-Level exams](https://ustaad.ae/blogs/command-words-igcse-a-level-exams)
+- [How to read examiner reports](https://ustaad.ae/blogs/how-to-read-examiner-reports-igcse-a-level)
+- [What does gradient mean in maths and physics](https://ustaad.ae/blogs/what-does-gradient-mean-maths-physics)
+- [What the area under a graph means](https://ustaad.ae/blogs/area-under-graph-meaning-physics-maths)
+- [Winter break revision plan for UAE students](https://ustaad.ae/blogs/winter-break-revision-plan-uae-students)
+- [All articles](https://ustaad.ae/blogs)
+
+## Optional
+
+- [Sitemap](https://ustaad.ae/sitemap.xml)
+- [Privacy policy](https://ustaad.ae/privacy)
+- [Terms of use](https://ustaad.ae/terms)

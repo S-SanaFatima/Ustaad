@@ -595,7 +595,7 @@ export const ROUTES: RouteConfig[] = [
     path: '/blogs/what-does-gradient-mean-maths-physics',
     component: 'WhatDoesGradientMeanBlog',
     seo: {
-      title: 'What Does the Gradient Actually Mean? A Teacher Explains It from Maths to Physics | Ustaad',
+      title: 'What Does Gradient Mean? Maths & Physics Explained | Ustaad',
       description: 'A Maths and Physics teacher explains what the gradient number actually tells you, not just how to calculate it, across straight-line graphs, distance-time and velocity-time graphs.',
       priority: 0.9,
       changefreq: 'monthly',
@@ -757,7 +757,7 @@ export const ROUTES: RouteConfig[] = [
     path: '/maths-tutor-dubai',
     component: 'MathsTutorDubaiLanding',
     seo: {
-      title: 'Maths Tutor Dubai | Online GCSE, IGCSE & A-Level Maths Tuition | Ustaad',
+      title: 'Maths Tutor Dubai | GCSE, IGCSE & A-Level Maths Tuition | Ustaad',
       description: 'One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Book your first lesson with Ustaad.',
       priority: 0.90,
       changefreq: 'monthly',
@@ -1031,7 +1031,7 @@ export const ROUTES: RouteConfig[] = [
     path: '/blogs/illusion-of-competence-revision-false-confidence',
     component: 'IllusionOfCompetenceBlog',
     seo: {
-      title: 'The Illusion of Competence in Revision: Why Reading Notes Fails | Ustaad',
+      title: 'Illusion of Competence: Why Re-Reading Notes Fails | Ustaad',
       description: 'Why highlighting and re-reading notes tricks the brain into false exam confidence, and how UAE students can build real retrieval strength.',
       priority: 0.9,
       changefreq: 'monthly',
@@ -1203,7 +1203,7 @@ export const ROUTES: RouteConfig[] = [
     path: '/privacy',
     component: 'PrivacyPage',
     seo: {
-      title: 'Privacy Policy | Ustaad UAE Tutoring · Data Protection & PDPL Compliance',
+      title: 'Privacy Policy | Ustaad UAE · Data Protection & PDPL',
       description: 'Official Privacy Policy of Ustaad UAE. Learn how we safeguard student and parent data under UAE Federal Decree Law No. 45 of 2021 (PDPL), KHDA & ADEK standards.',
       priority: 0.3,
       changefreq: 'monthly',

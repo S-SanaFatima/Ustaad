@@ -72,7 +72,7 @@ export default function PrivacyPage() {
   return (
     <Layout>
       <SEOHead
-        title="Privacy Policy | Ustaad UAE Tutoring · Data Protection & PDPL Compliance"
+        title="Privacy Policy | Ustaad UAE · Data Protection & PDPL"
         description="Official Privacy Policy of Ustaad UAE. Learn how we safeguard student and parent data under UAE Federal Decree Law No. 45 of 2021 (PDPL), KHDA & ADEK standards."
         canonical="/privacy"
         placename="United Arab Emirates"

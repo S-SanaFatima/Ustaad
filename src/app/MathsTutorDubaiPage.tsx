@@ -375,7 +375,7 @@ export default function MathsTutorDubaiPage() {
   return (
     <Layout>
       <SEOHead
-        title="Maths Tutor Dubai | Online GCSE, IGCSE & A-Level Maths Tuition | Ustaad"
+        title="Maths Tutor Dubai | GCSE, IGCSE & A-Level Maths Tuition | Ustaad"
         description="One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Free 15-min orientation with the first lesson."
         canonical="/maths-tutor-dubai"
         ogImage="/UpdatedImages/gcse-tutor-abu-dhabi-online-year-11-session.webp"

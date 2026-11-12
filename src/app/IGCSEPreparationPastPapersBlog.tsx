@@ -317,15 +317,8 @@ export default function IGCSEPreparationPastPapersBlog() {
       "name": "Ustaad UAE",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ustaad.ae/logo.png"
+        "url": "https://ustaad.ae/ustaad-private-tutors-uae-logo.png"
       }
-    },
-    "reviewedBy": {
-      "@type": "Person",
-      "name": "Nida Iqbal",
-      "url": "https://ustaad.ae/authors/nida-iqbal",
-      "jobTitle": "MPhil in Education Leadership and Management",
-      "description": "Ustaad Editorial"
     }
   };
 

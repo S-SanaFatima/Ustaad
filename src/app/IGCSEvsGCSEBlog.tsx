@@ -241,12 +241,8 @@ export default function IGCSEvsGCSEBlog() {
       "name": "Ustaad UAE",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ustaad.ae/logo.webp"
+        "url": "https://ustaad.ae/ustaad-private-tutors-uae-logo.png"
       }
-    },
-    "reviewedBy": {
-      "@type": "Person",
-      "name": "Curriculum Expert"
     }
   };
 

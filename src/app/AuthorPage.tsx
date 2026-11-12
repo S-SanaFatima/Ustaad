@@ -62,7 +62,7 @@ export default function AuthorPage() {
   return (
     <Layout>
       <SEOHead
-        title={`${author.name} | ${author.role} | Ustaad Editorial`}
+        title={`${author.name} | ${author.role} | Ustaad`.length <= 60 ? `${author.name} | ${author.role} | Ustaad` : `${author.name} | Author at Ustaad UAE`}
         description={author.credentials}
         canonical={profileUrl}
         ogImage={author.photo}

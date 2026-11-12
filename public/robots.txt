@@ -1,30 +1,60 @@
 User-agent: *
 Allow: /
+# Filter and tracking variants of real pages: the clean URLs (/tutors, /contact) are the
+# canonical versions. Blocking these stops duplicate / hreflang-conflict reports.
+Disallow: /tutors?
+Disallow: /contact?
+Disallow: /*?intent=
+Disallow: /*?source=
+Disallow: /*?offer=
 
 # Sitemap
 Sitemap: https://ustaad.ae/sitemap.xml
 
-# Allow major AI crawlers for GEO/AIEO visibility
+# Allow major AI crawlers for GEO/AIEO visibility (same parameter rules: a named
+# group replaces the * group for that bot, so the Disallow lines are repeated).
 User-agent: GPTBot
 Allow: /
+Disallow: /tutors?
+Disallow: /contact?
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /tutors?
+Disallow: /contact?
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /tutors?
+Disallow: /contact?
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /tutors?
+Disallow: /contact?
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /tutors?
+Disallow: /contact?
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /tutors?
+Disallow: /contact?
 
 User-agent: Googlebot
 Allow: /
+Disallow: /tutors?
+Disallow: /contact?
+Disallow: /*?intent=
+Disallow: /*?source=
+Disallow: /*?offer=
 
 User-agent: Bingbot
 Allow: /
+Disallow: /tutors?
+Disallow: /contact?
+Disallow: /*?intent=
+Disallow: /*?source=
+Disallow: /*?offer=

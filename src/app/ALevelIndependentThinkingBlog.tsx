@@ -275,15 +275,8 @@ export default function ALevelIndependentThinkingBlog() {
       "name": "Ustaad UAE",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ustaad.ae/logo.png"
+        "url": "https://ustaad.ae/ustaad-private-tutors-uae-logo.png"
       }
-    },
-    "reviewedBy": {
-      "@type": "Person",
-      "name": "Nida Iqbal",
-      "url": "https://ustaad.ae/authors/nida-iqbal",
-      "jobTitle": "Editorial Reviewer",
-      "description": "MPhil in Education Leadership and Management"
     }
   };
 

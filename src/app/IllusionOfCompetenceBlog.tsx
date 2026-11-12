@@ -10,7 +10,7 @@ import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, articleSchema, faqSchema } from './shared/schemas';
 
 const BLOG = {
-  title: 'The Illusion of Competence in Revision: Why Reading Notes Fails | Ustaad',
+  title: 'Illusion of Competence: Why Re-Reading Notes Fails | Ustaad',
   titleLine1: 'The Illusion of Competence:',
   titleLine2: 'Why Re-Reading Notes Gives UAE Students False Confidence',
   categoryBadge: 'USTAAD UAE · PSYCHOLOGY OF LEARNING',

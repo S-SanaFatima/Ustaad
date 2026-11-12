@@ -6,7 +6,7 @@ import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, articleSchema, faqSchema } from './shared/schemas';
 
 const BLOG = {
-  title: 'What Does the Gradient Actually Mean? A Teacher Explains It from Maths to Physics | Ustaad',
+  title: 'What Does Gradient Mean? Maths & Physics Explained | Ustaad',
   titleLine1: 'What Does the Gradient Actually Mean?',
   titleLine2: 'A Teacher Explains It from Maths to Physics',
   slug: 'what-does-gradient-mean-maths-physics',

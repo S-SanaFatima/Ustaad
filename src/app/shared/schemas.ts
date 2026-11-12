@@ -87,7 +87,6 @@ export const localBusinessSchema = {
   telephone: "+971561249005",
   email: "support@ustaad.ae",
   foundingDate: "2015",
-  numberOfStudents: 2500,
   areaServed: [
     { "@type": "City", name: "Dubai" },
     { "@type": "City", name: "Abu Dhabi" },
@@ -341,7 +340,6 @@ export const articleSchema = ({
   dateModified: dateModified || datePublished,
   ...(timeRequired && { timeRequired }),
   author: personNode(author),
-  ...(reviewer && { reviewedBy: reviewerNode(reviewer) }),
   publisher: {
     "@type": "EducationalOrganization",
     "@id": `${BASE_URL}/#organization`,
@@ -349,7 +347,12 @@ export const articleSchema = ({
     url: BASE_URL,
     logo: { "@type": "ImageObject", url: `${BASE_URL}/ustaad-private-tutors-uae-logo.png` },
   },
-  mainEntityOfPage: { "@type": "WebPage", "@id": url.startsWith("http") ? url : `${BASE_URL}${url}` },
+  // reviewedBy is a WebPage property (not valid on BlogPosting), so it lives on the page entity.
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": url.startsWith("http") ? url : `${BASE_URL}${url}`,
+    ...(reviewer && { reviewedBy: reviewerNode(reviewer) }),
+  },
   ...(image && {
     image: {
       "@type": "ImageObject",
