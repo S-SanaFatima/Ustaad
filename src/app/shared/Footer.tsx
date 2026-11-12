@@ -79,7 +79,7 @@ const EMIRATES: Emirate[] = [
 const SUBJECTS = [
   ['Maths', '/maths'], ['English', '/english'], ['Physics', '/physics'], ['Economics', '/economics'],
   ['Chemistry', '/chemistry'], ['Business', '/business'], ['Biology', '/biology'], ['Accounting', '/accounting'],
-  ['Sciences', '/sciences'], ['Finance', '/finance'], ['Engineering', '/engineering'], ['Statistics', '/statistics'],
+  ['Finance', '/finance'], ['Engineering', '/engineering'], ['Statistics', '/statistics'],
 ];
 
 const CURRICULA = [
