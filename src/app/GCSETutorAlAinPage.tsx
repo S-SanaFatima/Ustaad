@@ -669,6 +669,122 @@ function ComparePapers() {
   );
 }
 
+/* ── From Year 10 to results day: journey timeline ──
+   One list, two layouts. ≥1024px: a gold road draws left→right, a cap marker rides it and
+   each checkpoint lights up as it is reached (cards alternate above/below; widths use
+   container units so they never overlap). <1024px: a vertical line fills as you scroll and
+   cards light up as they reach the middle of the screen. Without JS or with reduced
+   motion every card is simply shown. */
+const JT_CSS = `
+.gjt-road{position:relative;container-type:inline-size}
+.gjt-ol{list-style:none;margin:0;padding:0 0 0 34px;position:relative}
+.gjt-li{position:relative;margin-bottom:14px}
+.gjt-dot{position:absolute;left:-34px;top:16px;width:24px;height:24px;border-radius:50%;background:#0a1f3d;border:3px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:rgba(255,255,255,.55);z-index:2;transition:all .4s}
+.gjt-card{position:relative;border-radius:18px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);backdrop-filter:blur(4px);padding:16px 18px;transition:opacity .5s,transform .55s cubic-bezier(.3,1.3,.5,1),border-color .4s}
+.gjt-stem,.gjt-track,.gjt-cap,.gjt-spark{display:none}
+.gjt-vline{position:absolute;left:11px;top:6px;bottom:6px;width:4px;border-radius:4px;background:rgba(255,255,255,.12)}
+.gjt-vfill{position:absolute;left:0;top:0;width:100%;border-radius:4px;background:linear-gradient(#f0c96a,#C7A24A);box-shadow:0 0 14px rgba(240,201,106,.5)}
+.gjt-js .gjt-li:not(.lit) .gjt-card{opacity:.35;transform:translateX(12px)}
+.gjt-li.lit .gjt-dot,.gjt-nojs .gjt-dot{background:linear-gradient(135deg,#f0c96a,#C7A24A);border-color:#fff3d0;color:#0a1f3d;transform:scale(1.15);box-shadow:0 0 0 6px rgba(240,201,106,.18)}
+.gjt-li.lit .gjt-card{border-color:rgba(240,201,106,.45)}
+@media (min-width:1024px){
+  .gjt-road{height:540px;width:calc(100% - 56px);margin:0 auto;--w:min(300px,calc(33.333cqw - 18px),calc((41.667cqw - 18px) / 1.5))}
+  .gjt-vline{display:none}
+  .gjt-track{display:block;position:absolute;left:0;right:0;top:50%;height:6px;margin-top:-3px;border-radius:6px;background:rgba(255,255,255,.12)}
+  .gjt-fill{position:absolute;left:0;top:0;bottom:0;width:100%;border-radius:6px;background:linear-gradient(90deg,#C7A24A,#f0c96a);box-shadow:0 0 18px rgba(240,201,106,.55)}
+  .gjt-cap{display:flex;position:absolute;top:50%;left:100%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff;color:#0a3a79;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.35);z-index:3}
+  .gjt-js .gjt-fill{width:0}.gjt-js .gjt-cap{left:0}
+  .gjt-go .gjt-fill{width:100%;transition:width 6s linear}.gjt-go .gjt-cap{left:100%;transition:left 6s linear}
+  .gjt-ol{position:static;padding:0}
+  .gjt-li{position:absolute;top:50%;width:0;margin:0;left:calc((var(--i) + .5) / 6 * 100%)}
+  .gjt-dot{left:-12px;top:-12px}
+  .gjt-stem{display:block;position:absolute;left:-1px;width:2px;height:44px;background:linear-gradient(#f0c96a,rgba(240,201,106,.2));transition:height .45s}
+  .gjt-li.up .gjt-stem{bottom:14px}.gjt-li.down .gjt-stem{top:14px}
+  .gjt-card{position:absolute;width:var(--w);left:calc(var(--w) / -2)}
+  .gjt-li.first .gjt-card{left:-8.333cqw}.gjt-li.last .gjt-card{left:calc(8.333cqw - var(--w))}
+  .gjt-li.up .gjt-card{bottom:58px}.gjt-li.down .gjt-card{top:58px}
+  .gjt-js .gjt-li:not(.lit) .gjt-stem{height:0}
+  .gjt-js .gjt-li.up:not(.lit) .gjt-card{opacity:0;transform:translateY(20px)}
+  .gjt-js .gjt-li.down:not(.lit) .gjt-card{opacity:0;transform:translateY(-20px)}
+  .gjt-li.lit .gjt-dot{transform:scale(1.25)}
+  .gjt-spark{display:block;position:absolute;left:-3px;top:-3px;width:6px;height:6px;border-radius:50%;background:#f0c96a;opacity:0}
+  .gjt-li.burst .gjt-spark{animation:gjtSp .9s ease-out forwards}
+}
+@keyframes gjtSp{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(.4)}}
+@media (prefers-reduced-motion:reduce){.gjt-card,.gjt-dot,.gjt-stem,.gjt-fill,.gjt-cap{transition:none!important}.gjt-spark{animation:none!important}}
+`;
+
+function JourneyTimeline({ items }: { items: { when: string; title: string; text: string }[] }) {
+  const [mode, setMode] = useState<'nojs' | 'static' | 'anim'>('nojs');
+  const [go, setGo] = useState(false);
+  const [lit, setLit] = useState(-1);
+  const [vfill, setVfill] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const olRef = useRef<HTMLOListElement>(null);
+
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { setMode('static'); setLit(items.length - 1); setVfill(100); return; }
+    setMode('anim');
+    const wide = window.matchMedia('(min-width: 1024px)');
+    let timers: number[] = [];
+    let io: IntersectionObserver | undefined;
+    const onScroll = () => {
+      const ol = olRef.current; if (!ol || wide.matches) return;
+      const r = ol.getBoundingClientRect(), mid = window.innerHeight * 0.6;
+      setVfill(Math.min(100, Math.max(0, ((mid - r.top) / r.height) * 100)));
+      let n = -1;
+      Array.from(ol.children).forEach((li, i) => { if ((li as HTMLElement).getBoundingClientRect().top < mid) n = i; });
+      setLit(n);
+    };
+    const startWide = () => {
+      if (!ref.current) return;
+      io = new IntersectionObserver(([e]) => {
+        if (!e.isIntersecting) return;
+        io?.disconnect(); setGo(true);
+        timers = items.map((_, i) => window.setTimeout(() => setLit(i), 6000 * ((i + 0.5) / items.length)));
+      }, { threshold: 0.35 });
+      io.observe(ref.current);
+    };
+    if (wide.matches) startWide(); else onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    const onChange = () => { if (wide.matches) { setLit(items.length - 1); setGo(true); } else onScroll(); };
+    wide.addEventListener('change', onChange);
+    return () => { timers.forEach(clearTimeout); io?.disconnect(); window.removeEventListener('scroll', onScroll); wide.removeEventListener('change', onChange); };
+  }, [items]);
+
+  const sparks = Array.from({ length: 12 }, (_, k) => {
+    const a = (k / 12) * Math.PI * 2;
+    return <i key={k} className="gjt-spark" style={{ ['--x' as string]: `${Math.cos(a) * 46}px`, ['--y' as string]: `${Math.sin(a) * 46}px` } as CSSProperties} />;
+  });
+
+  return (
+    <div ref={ref} className={`gjt-road ${mode === 'anim' ? 'gjt-js' : ''} ${mode === 'nojs' ? 'gjt-nojs' : ''} ${go || mode === 'static' ? 'gjt-go' : ''}`}>
+      <style>{JT_CSS}</style>
+      <div className="gjt-track" aria-hidden="true"><div className="gjt-fill" /></div>
+      <div className="gjt-cap" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg>
+      </div>
+      <div className="gjt-vline" aria-hidden="true"><div className="gjt-vfill" style={{ height: `${mode === 'nojs' ? 100 : vfill}%` }} /></div>
+      <ol ref={olRef} className="gjt-ol">
+        {items.map((t, i) => (
+          <li key={t.title} style={{ ['--i' as string]: i } as CSSProperties}
+            className={`gjt-li ${i % 2 ? 'down' : 'up'} ${i === 0 ? 'first' : ''} ${i === items.length - 1 ? 'last' : ''} ${lit >= i ? 'lit' : ''} ${t.title === 'Results day' && lit >= i && mode === 'anim' ? 'burst' : ''}`}>
+            <span className="gjt-stem" aria-hidden="true" />
+            <span className="gjt-dot" aria-hidden="true">{i + 1}</span>
+            {t.title === 'Results day' && sparks}
+            <div className="gjt-card">
+              <span className="block text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#f0d58c] mb-1.5">{t.when}</span>
+              <h3 className="text-[15px] sm:text-base font-extrabold mb-1">{t.title}</h3>
+              <p className="text-[13px] sm:text-[13.5px] leading-relaxed text-blue-100/85">{t.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 /* ── Page ────────────────────────────────────────────────────────────── */
 
 export default function GCSETutorAlAinPage() {
@@ -797,26 +913,12 @@ export default function GCSETutorAlAinPage() {
         </div>
       </section>
 
-      {/* ── 05 YEAR 10 TO RESULTS (1-Desktop Viewport Compact) ── */}
+      {/* ── 05 YEAR 10 TO RESULTS (journey timeline) ── */}
       <section className="py-7 sm:py-8 lg:py-9 relative overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 60%, #1e5ba8 100%)' }}>
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead light eyebrow="The GCSE years" title={<>From Year 10 to <span className="text-[#f0c96a]">results day</span></>} intro="The two GCSE years have clear checkpoints. Here is what we focus on at each one." />
-          <ol className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-px-4 sm:scroll-px-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden -mx-4 px-4 sm:mx-0 sm:px-0 pb-1 sm:pb-0 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-3.5">
-            {TIMELINE.map((t, i) => (
-              <motion.li key={t.title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="shrink-0 w-[84%] sm:w-auto snap-start rounded-xl border border-white/12 bg-white/[0.06] p-3.5 sm:p-4 backdrop-blur-sm flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-extrabold text-[#0a1f3d]" style={{ background: 'linear-gradient(135deg,#f0c96a,#C7A24A)' }}>{i + 1}</span>
-                    <span className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-[#f0d58c]">{t.when}</span>
-                  </div>
-                  <h3 className="text-sm sm:text-[15px] font-extrabold mb-1">{t.title}</h3>
-                  <p className="text-xs sm:text-[12.5px] text-blue-100/85 leading-relaxed">{t.text}</p>
-                </div>
-              </motion.li>
-            ))}
-          </ol>
+          <JourneyTimeline items={TIMELINE} />
         </div>
       </section>
 
