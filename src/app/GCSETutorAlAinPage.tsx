@@ -557,6 +557,118 @@ function GradeStaircase() {
   );
 }
 
+/* ── GCSE or IGCSE: exam-paper face-off ──
+   Desktop: two paper covers with a VS badge and shared row labels between them; hover a
+   row to highlight it on both papers. Mobile: a UK GCSE / IGCSE switch flips one paper.
+   Both papers and every row are server-rendered; motion off under reduced motion. */
+const CMP_CSS = `
+.gcp-duel{display:grid;grid-template-columns:1fr;perspective:1200px}
+.gcp-flip{display:grid;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.4,.2,.2,1)}
+.gcp-paper{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.gcp-paper.r{transform:rotateY(180deg)}
+.gcp-showr .gcp-flip{transform:rotateY(180deg)}
+.gcp-mid{display:none}
+.gcp-cell{transition:background .3s,opacity .5s,transform .5s}
+.gcp-pre .gcp-cell{opacity:0;transform:translateY(10px)}
+.gcp-pre .gcp-paper.l{opacity:0}
+.gcp-paper{transition:transform .8s cubic-bezier(.2,.9,.25,1),opacity .6s}
+.gcp-ind{transition:transform .45s cubic-bezier(.3,.8,.25,1),background .3s}
+@media (min-width:768px){
+  .gcp-duel{grid-template-columns:1fr 150px 1fr;perspective:none}
+  .gcp-flip{display:contents}
+  .gcp-paper{grid-area:auto;backface-visibility:visible}
+  .gcp-paper.l{order:1}.gcp-mid{display:flex;order:2}.gcp-paper.r{order:3;transform:none}
+  .gcp-pre .gcp-paper.l{transform:translateX(-60px) rotate(-3deg);opacity:0}
+  .gcp-pre .gcp-paper.r{transform:translateX(60px) rotate(3deg);opacity:0}
+  .gcp-row{height:100px}
+  .gcp-cl{display:none}
+  .gcp-vs{transition:transform .6s cubic-bezier(.3,1.6,.5,1) .5s}
+  .gcp-pre .gcp-vs{transform:scale(0)}
+  .gcp-lab{transition:background .3s,transform .3s,opacity .5s}
+  .gcp-pre .gcp-lab{opacity:0}
+}
+@media (min-width:1024px){.gcp-row{height:86px}.gcp-duel{grid-template-columns:1fr 168px 1fr}}
+@media (prefers-reduced-motion:reduce){.gcp-flip,.gcp-paper,.gcp-cell,.gcp-vs,.gcp-lab,.gcp-ind{transition:none!important}}
+`;
+const withCodes = (t: string) => t.split(/\b(8300|1MA1|J560|0580|4MA1)\b/).map((part, i) =>
+  i % 2 ? <span key={i} className="inline-flex items-center rounded-md border border-[#0f4a9b]/15 bg-[#f4f7fc] px-1.5 py-0.5 font-mono text-[12.5px] font-bold text-[#0f4a9b]">{part}</span> : part);
+
+function ComparePapers() {
+  const [motionOk, setMotionOk] = useState(false);
+  const [shown, setShown] = useState(false);
+  const [side, setSide] = useState<'l' | 'r'>('l');
+  const [hl, setHl] = useState<number | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const ok = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setMotionOk(ok);
+    if (!ok || !('IntersectionObserver' in window) || !ref.current) { setShown(true); return; }
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setShown(true); io.disconnect(); } }, { threshold: 0.25 });
+    io.observe(ref.current);
+    return () => io.disconnect();
+  }, []);
+  const pre = motionOk && !shown;
+  const delay = (i: number) => (motionOk ? { transitionDelay: `0s, ${0.6 + i * 0.15}s, ${0.6 + i * 0.15}s` } : undefined);
+
+  const paper = (k: 'l' | 'r') => (
+    <div className={`gcp-paper ${k} rounded-2xl overflow-hidden bg-white border border-[#e3eaf5] shadow-[0_20px_50px_-34px_rgba(10,58,121,0.6)]`}>
+      <div className={`relative h-[76px] px-5 sm:px-6 flex items-center overflow-hidden ${k === 'l' ? 'text-white' : 'text-[#0a1f3d] border-b border-[#eadcb6]'}`}
+        style={{ background: k === 'l' ? 'linear-gradient(135deg, #0a1f3d, #0f4a9b)' : 'linear-gradient(135deg, #fbf6ea, #f3e7c9)' }}>
+        <h3 className="text-[17px] sm:text-[19px] font-extrabold">
+          {k === 'l' ? <>UK GCSE <span className="text-[13px] text-[#f0c96a] ml-1">(this page)</span></> : 'IGCSE / International GCSE'}
+        </h3>
+        <span className={`absolute -right-8 -top-8 w-28 h-28 rounded-full border-[14px] ${k === 'l' ? 'border-white/10' : 'border-[#C7A24A]/20'}`} aria-hidden="true" />
+        <span className="absolute left-5 right-5 bottom-0 h-1.5" aria-hidden="true"
+          style={{ background: `repeating-linear-gradient(90deg, ${k === 'l' ? 'rgba(255,255,255,0.25)' : 'rgba(199,162,74,0.45)'} 0 10px, transparent 10px 16px)` }} />
+      </div>
+      {COMPARE.map((r, i) => (
+        <div key={r.label} onMouseEnter={() => setHl(i)} onMouseLeave={() => setHl(null)}
+          className={`gcp-cell gcp-row px-5 sm:px-6 py-3.5 flex flex-col justify-center border-t border-[#eef2f8] first-of-type:border-t-0 ${hl === i ? (k === 'l' ? 'bg-[#f4f7fc]' : 'bg-[#fbf6ea]') : ''}`}
+          style={delay(i)}>
+          <span className="gcp-cl block text-[10.5px] font-extrabold tracking-[0.1em] uppercase text-[#8a6a1f] mb-1">{r.label}</span>
+          <span className="text-[14px] sm:text-[14.5px] leading-relaxed text-[#2c3e5c]">{withCodes(k === 'l' ? r.gcse : r.igcse)}</span>
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <div ref={ref}>
+      <style>{CMP_CSS}</style>
+      {/* Mobile switch */}
+      <div className="md:hidden flex justify-center mb-3.5">
+        <div role="tablist" aria-label="Choose a qualification" className="relative inline-flex p-1 rounded-full bg-white border border-[#dde5f1]">
+          <span className="gcp-ind absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full" aria-hidden="true"
+            style={{ transform: side === 'r' ? 'translateX(100%)' : 'none', background: side === 'r' ? GOLD : '#0a3a79' }} />
+          {(['l', 'r'] as const).map((k) => (
+            <button key={k} type="button" role="tab" aria-selected={side === k} onClick={() => setSide(k)}
+              className={`relative z-10 px-5 py-2 rounded-full text-[13px] font-extrabold transition-colors ${side === k ? 'text-white' : 'text-[#0a3a79]'}`}>
+              {k === 'l' ? 'UK GCSE' : 'IGCSE'}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className={`gcp-duel ${pre ? 'gcp-pre' : ''} ${side === 'r' ? 'gcp-showr' : ''}`}>
+        <div className="gcp-flip">{paper('l')}{paper('r')}</div>
+        <div className="gcp-mid flex-col" aria-hidden="true">
+          <div className="h-[76px] flex items-center justify-center">
+            <span className="gcp-vs w-[54px] h-[54px] rounded-full bg-white border-2 border-[#C7A24A] text-[#8a6a1f] text-base font-black flex items-center justify-center shadow-[0_10px_24px_-12px_rgba(199,162,74,0.8)]">VS</span>
+          </div>
+          {COMPARE.map((r, i) => (
+            <div key={r.label} className="gcp-row relative flex items-center justify-center px-1.5" onMouseEnter={() => setHl(i)} onMouseLeave={() => setHl(null)}>
+              <span className="absolute -left-1.5 -right-1.5 top-1/2 border-t-2 border-dashed border-[#d3ddec]" />
+              <span className="gcp-lab relative w-full text-center rounded-full px-3 py-2 text-[11.5px] font-extrabold leading-tight text-white"
+                style={{ background: hl === i ? '#b8963c' : '#0a3a79', transform: hl === i ? 'scale(1.05)' : undefined, ...(motionOk ? { transitionDelay: `0s, 0s, ${0.6 + i * 0.15}s` } : {}) }}>
+                {r.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ── Page ────────────────────────────────────────────────────────────── */
 
 export default function GCSETutorAlAinPage() {
@@ -641,7 +753,7 @@ export default function GCSETutorAlAinPage() {
 
       <SchoolsMarquee logoList={AL_AIN_SCHOOL_LOGOS} title="Supporting Students at British-Curriculum Schools in Al Ain" />
 
-      {/* ── 02 GCSE OR IGCSE (1-Desktop Viewport Compact) ── */}
+      {/* ── 02 GCSE OR IGCSE (exam-paper face-off) ── */}
       <section className="py-7 sm:py-8 lg:py-9 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead
@@ -649,21 +761,8 @@ export default function GCSETutorAlAinPage() {
             title={<>GCSE or IGCSE? <span className="text-[#0f4a9b]">Check before you book</span></>}
             intro="Parents in Al Ain often hear both names. They are different qualifications with different papers, so we confirm which one your child sits before choosing a tutor."
           />
-          <div className="rounded-xl border border-[#0f4a9b]/12 overflow-hidden shadow-xs">
-            <div className="hidden md:grid grid-cols-[0.8fr_1.1fr_1.1fr] bg-[#0a1f3d] text-white text-xs font-bold">
-              <div className="px-4 py-2.5" />
-              <div className="px-4 py-2.5">UK GCSE <span className="text-[#f0d58c]">(this page)</span></div>
-              <div className="px-4 py-2.5">IGCSE / International GCSE</div>
-            </div>
-            {COMPARE.map((r, i) => (
-              <div key={r.label} className={`grid md:grid-cols-[0.8fr_1.1fr_1.1fr] text-xs sm:text-[13px] ${i % 2 ? 'bg-[#f8fafd]' : 'bg-white'} border-t border-[#0f4a9b]/8 first:border-t-0`}>
-                <div className="px-4 py-2 sm:py-2.5 font-bold text-[#0a1f3d]">{r.label}</div>
-                <div className="px-4 py-1.5 sm:py-2.5 text-[#2c3e5c]"><span className="md:hidden block text-[10px] font-bold uppercase tracking-wider text-[#8a6a1f] mb-0.5">UK GCSE</span>{r.gcse}</div>
-                <div className="px-4 pb-2.5 sm:py-2.5 text-[#4a5a72]"><span className="md:hidden block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-0.5">IGCSE</span>{r.igcse}</div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-3.5 flex items-center gap-2.5 rounded-xl bg-[#f4f7fc] border border-[#0f4a9b]/10 px-4 py-2 text-xs sm:text-[12.5px] text-[#2c3e5c] leading-relaxed">
+          <ComparePapers />
+          <div className="mt-4 flex items-center gap-2.5 rounded-xl bg-[#f4f7fc] border border-[#0f4a9b]/10 px-4 py-2 text-xs sm:text-[12.5px] text-[#2c3e5c] leading-relaxed">
             <Info className="w-4 h-4 text-[#0f4a9b] shrink-0" />
             <p>
               Sitting IGCSE instead? See our <a href="/igcse-tutor-al-ain" className="font-bold text-[#0f4a9b] underline underline-offset-2">IGCSE Tutor Al Ain</a> page. For differences, read{' '}
