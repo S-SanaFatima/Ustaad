@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import {
   Calculator, BookOpen, FlaskConical, Atom, Briefcase, PenLine,
@@ -182,6 +182,108 @@ function GcseAlAinHeroBackground() {
   );
 }
 
+
+/* ── Subjects spotlight: list on the left, animated detail panel on the right ──
+   Every panel is server-rendered (inactive ones use `hidden`), so all subjects and
+   specification codes stay in the HTML for search engines. Auto-advance runs only
+   while the section is on screen, pauses on hover/focus, stops after the first
+   interaction, and is off under prefers-reduced-motion. */
+const SPOT_CSS = `
+.gsp-bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:linear-gradient(90deg,#C7A24A,#0f4a9b);border-radius:3px}
+.gsp-run .gsp-tab[aria-selected="true"] .gsp-bar{animation:gspFill 4.5s linear forwards}
+.gsp-hold .gsp-tab[aria-selected="true"] .gsp-bar{animation-play-state:paused}
+@keyframes gspFill{to{width:100%}}
+.gsp-panel:not([hidden]) .gsp-big svg *{stroke-dasharray:120;stroke-dashoffset:120;animation:gspDraw 1.1s ease forwards}
+@keyframes gspDraw{to{stroke-dashoffset:0}}
+.gsp-panel:not([hidden]) .gsp-up{opacity:0;transform:translateY(8px);animation:gspUp .45s ease forwards}
+@keyframes gspUp{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.gsp-bar,.gsp-big svg *,.gsp-up{animation:none!important;opacity:1!important;transform:none!important;stroke-dashoffset:0!important}}
+`;
+
+function SubjectSpotlight({ items }: { items: Subject[] }) {
+  const [active, setActive] = useState(0);
+  const [auto, setAuto] = useState(false);
+  const [inView, setInView] = useState(false);
+  const [hold, setHold] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useEffect(() => { setAuto(!window.matchMedia('(prefers-reduced-motion: reduce)').matches); }, []);
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold: 0.35 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!auto || !inView || hold) return;
+    const t = window.setTimeout(() => setActive((a) => (a + 1) % items.length), 4500);
+    return () => window.clearTimeout(t);
+  }, [auto, inView, hold, active, items.length]);
+  // keep the active tab visible inside the horizontal row on phones
+  useEffect(() => {
+    const row = listRef.current, tab = tabRefs.current[active];
+    if (row && tab && row.scrollWidth > row.clientWidth) row.scrollTo({ left: tab.offsetLeft - 16, behavior: 'smooth' });
+  }, [active]);
+
+  const choose = (i: number, focus = false) => { setAuto(false); setActive(i); if (focus) tabRefs.current[i]?.focus(); };
+  const onKey = (e: KeyboardEvent<HTMLButtonElement>, i: number) => {
+    const n = items.length; let next: number | null = null;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = (i + 1) % n;
+    else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = (i - 1 + n) % n;
+    else if (e.key === 'Home') next = 0; else if (e.key === 'End') next = n - 1;
+    if (next !== null) { e.preventDefault(); choose(next, true); }
+  };
+
+  return (
+    <div ref={rootRef} className={`grid lg:grid-cols-[320px_1fr] gap-4 lg:gap-6 items-stretch ${auto && inView ? 'gsp-run' : ''} ${hold ? 'gsp-hold' : ''}`}
+      onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)} onFocusCapture={() => setHold(true)} onBlurCapture={() => setHold(false)}>
+      <style>{SPOT_CSS}</style>
+      <div ref={listRef} role="tablist" aria-label="GCSE subjects" aria-orientation="vertical"
+        className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible -mx-4 px-4 lg:mx-0 lg:px-0 pb-1 lg:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {items.map((s, i) => {
+          const on = active === i;
+          return (
+            <button key={s.name} ref={(el) => { tabRefs.current[i] = el; }} type="button" role="tab" id={`gsp-tab-${i}`}
+              aria-selected={on} aria-controls={`gsp-panel-${i}`} tabIndex={on ? 0 : -1}
+              onClick={() => choose(i)} onKeyDown={(e) => onKey(e, i)}
+              className={`gsp-tab relative shrink-0 flex items-center gap-3 rounded-2xl border text-left overflow-hidden transition-all duration-300 px-3 py-2.5 lg:px-3.5 lg:py-3 ${on ? 'bg-white border-[#e3eaf5] shadow-[0_12px_30px_-20px_rgba(10,58,121,0.5)] text-[#0a1f3d]' : 'bg-transparent border-transparent text-[#33465f] hover:bg-white/70'}`}>
+              <span className={`w-8 h-8 lg:w-9 lg:h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-300 ${on ? 'bg-[#0a3a79] text-[#f0c96a]' : 'bg-[#f6efdc] text-[#0a3a79]'}`}>
+                <s.Icon className="w-4 h-4 lg:w-[18px] lg:h-[18px]" />
+              </span>
+              <span className="text-[13px] lg:text-[15px] font-bold whitespace-nowrap">{s.name}</span>
+              <span className="gsp-bar" aria-hidden="true" />
+            </button>
+          );
+        })}
+      </div>
+      <p className="lg:hidden -mt-1 text-center text-[12px] font-semibold text-[#4a5a72]">Scroll to view more</p>
+
+      <div className="relative rounded-3xl overflow-hidden text-white min-h-[290px]" style={{ background: 'linear-gradient(150deg, #0a1f3d 0%, #0a3a79 60%, #0f4a9b 100%)' }}>
+        <div className="absolute -right-20 -top-20 w-64 h-64 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(199,162,74,0.35), transparent 70%)' }} aria-hidden="true" />
+        {items.map((s, i) => (
+          <div key={s.name} role="tabpanel" id={`gsp-panel-${i}`} aria-labelledby={`gsp-tab-${i}`} hidden={active !== i}
+            className="gsp-panel relative p-6 sm:p-8 lg:p-9">
+            <div className="gsp-big w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/10 text-[#f0c96a] flex items-center justify-center mb-4">
+              <s.Icon className="w-7 h-7 lg:w-8 lg:h-8" />
+            </div>
+            <h3 className="text-xl sm:text-2xl lg:text-[26px] font-extrabold mb-3">{s.name}</h3>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {s.codes.split(' · ').map((c, k) => (
+                <span key={c} className="gsp-up inline-flex items-center rounded-lg border border-white/20 bg-white/[0.08] px-2.5 py-1 text-[11.5px] font-mono font-semibold" style={{ animationDelay: `${0.08 * k}s` }}>{c}</span>
+              ))}
+            </div>
+            <p className="gsp-up text-[14.5px] sm:text-base leading-relaxed text-white/85 max-w-xl mb-5" style={{ animationDelay: '0.35s' }}>{s.focus}</p>
+            <a href={s.href} className="gsp-up inline-flex text-sm font-bold text-[#f0c96a] hover:text-white transition-colors" style={{ animationDelay: '0.5s' }}>{s.link}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ── Page ────────────────────────────────────────────────────────────── */
 
 export default function GCSETutorAlAinPage() {
@@ -359,7 +461,7 @@ export default function GCSETutorAlAinPage() {
         </div>
       </section>
 
-      {/* ── 04 SUBJECTS BY BOARD (1-Desktop Viewport Compact 2x3 Grid) ── */}
+      {/* ── 04 SUBJECTS BY BOARD (Spotlight: list + animated panel) ── */}
       <section className="py-7 sm:py-8 lg:py-9 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead
@@ -367,21 +469,7 @@ export default function GCSETutorAlAinPage() {
             title={<>GCSE subjects we tutor, <span className="text-[#0f4a9b]">by exam board</span></>}
             intro="Each subject has its own specification code. We match the tutor to that code, so lessons follow the same topics, papers and mark scheme as your child’s school."
           />
-          <div className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-px-4 sm:scroll-px-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden -mx-4 px-4 sm:mx-0 sm:px-0 pb-1 sm:pb-0 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-3.5">
-            {SUBJECTS.map((s) => (
-              <article key={s.name} className="shrink-0 w-[84%] sm:w-auto snap-start group flex flex-col justify-between rounded-xl border border-[#0f4a9b]/10 bg-white p-3.5 sm:p-4 shadow-2xs hover:shadow-md hover:-translate-y-0.5 hover:border-[#0f4a9b]/30 transition-all duration-300">
-                <div>
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <span className="w-8 h-8 rounded-lg bg-[#f6efdc] text-[#0a3a79] flex items-center justify-center shrink-0"><s.Icon className="w-4 h-4" /></span>
-                    <h3 className="text-sm sm:text-[15px] font-extrabold text-[#0a1f3d] leading-snug">{s.name}</h3>
-                  </div>
-                  <p className="text-[11px] font-mono font-semibold text-[#0f4a9b] bg-[#f4f7fc] border border-[#0f4a9b]/10 rounded-md px-2 py-0.5 mb-2 truncate">{s.codes}</p>
-                  <p className="text-xs sm:text-[12.5px] text-[#4a5a72] leading-relaxed mb-2.5 line-clamp-3 sm:line-clamp-2">{s.focus}</p>
-                </div>
-                <a href={s.href} className="text-xs font-bold text-[#0f4a9b] hover:text-[#1e5ba8] inline-flex items-center gap-1">{s.link}</a>
-              </article>
-            ))}
-          </div>
+          <SubjectSpotlight items={SUBJECTS} />
         </div>
       </section>
 
