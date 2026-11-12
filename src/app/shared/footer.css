@@ -18,7 +18,7 @@
   --uf-gutter: clamp(20px, 5vw, 64px);
   --uf-max: 1240px;
   --uf-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --uf-float-clearance: 24px;
+  --uf-float-clearance: 120px; /* keeps the language switch and back-to-top above the fixed WhatsApp bubble + promo bar */
   background: var(--uf-navy);
   color: #fff;
   line-height: 1.5;
