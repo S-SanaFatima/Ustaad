@@ -446,6 +446,117 @@ function StepObjects({ steps }: { steps: { title: string; text: string }[] }) {
   );
 }
 
+/* ── Grades and tiers: animated grade staircase ──
+   Bars render at full height on the server (no-JS and crawlers see everything; every
+   grade meaning is in an sr-only list and in the bar labels). With motion allowed, the
+   bars grow 1→9 and the tier brackets draw in when the section scrolls into view. */
+const STAIR_CSS = `
+.gst-pre .gst-bar{transform:scaleY(0)}
+.gst-bar{transform-origin:bottom;transition:transform .7s cubic-bezier(.3,1.2,.4,1),opacity .35s,filter .35s,translate .25s}
+.gst-in .gst-bar{transform:scaleY(1)}
+.gst-bar:hover,.gst-bar[data-on="true"]{translate:0 -4px;filter:brightness(1.06)}
+.gst-lens-f .gst-bar:not([data-f]),.gst-lens-h .gst-bar:not([data-h]){opacity:.25;filter:grayscale(.6)}
+.gst-br{transform-origin:left;transition:transform .8s cubic-bezier(.3,.8,.25,1),opacity .35s}
+.gst-pre .gst-br{transform:scaleX(0)}.gst-in .gst-br{transform:scaleX(1)}
+.gst-lens-f .gst-br-h,.gst-lens-h .gst-br-f{opacity:.25}
+.gst-pass{transition:opacity .6s .9s}.gst-pre .gst-pass{opacity:0}.gst-in .gst-pass{opacity:1}
+.gst-tier{transition:border-color .3s,box-shadow .3s,transform .3s}
+@media (prefers-reduced-motion:reduce){.gst-bar,.gst-br,.gst-pass,.gst-tier{transition:none!important;transform:none!important}}
+`;
+
+function GradeStaircase() {
+  const asc = [...GRADES].reverse(); // 1 → 9
+  const [motionOk, setMotionOk] = useState(false);
+  const [grown, setGrown] = useState(false);
+  const [sel, setSel] = useState<number | null>(null);
+  const [lens, setLens] = useState<'f' | 'h' | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ok = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setMotionOk(ok);
+    if (!ok || !('IntersectionObserver' in window) || !ref.current) { setGrown(true); return; }
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setGrown(true); io.disconnect(); } }, { threshold: 0.3 });
+    io.observe(ref.current);
+    return () => io.disconnect();
+  }, []);
+
+  const h = (i: number) => 14 + ((i + 1) / 9) * 86; // % of the bar area
+  const state = motionOk ? (grown ? 'gst-in' : 'gst-pre') : '';
+  const tierCls = (k: 'f' | 'h') => lens === k
+    ? (k === 'f' ? 'border-[#0f4a9b] shadow-[0_14px_34px_-22px_rgba(15,74,155,0.7)]' : 'border-[#C7A24A] shadow-[0_14px_34px_-22px_rgba(199,162,74,0.8)]')
+    : 'border-[#e3eaf5] shadow-xs';
+
+  return (
+    <div className="grid lg:grid-cols-12 gap-4 lg:gap-5 items-stretch">
+      <style>{STAIR_CSS}</style>
+      {/* Staircase */}
+      <div ref={ref} className={`lg:col-span-7 bg-white rounded-2xl border border-[#e3eaf5] p-4 sm:p-5 shadow-[0_14px_40px_-30px_rgba(10,58,121,0.5)] ${state} ${lens ? `gst-lens-${lens}` : ''}`}>
+        <ul className="sr-only">{GRADES.map((r) => <li key={r.g}>Grade {r.g}: {r.note}</li>)}</ul>
+        <div className="relative h-[230px] sm:h-[270px] pt-12" aria-hidden={false}>
+          {sel !== null && (
+            <div className="absolute top-0 z-10 px-3 py-1.5 rounded-xl bg-[#0a1f3d] text-white text-[12px] sm:text-[13px] font-bold whitespace-nowrap pointer-events-none"
+              style={{ left: `${((sel + 0.5) / 9) * 100}%`, transform: `translateX(${sel <= 1 ? '-15%' : sel >= 7 ? '-85%' : '-50%'})` }}>
+              <span className="text-[#f0c96a] mr-1.5">{asc[sel].g}</span>{asc[sel].note}
+            </div>
+          )}
+          <div className="relative h-full grid grid-cols-9 gap-1.5 sm:gap-2 items-end">
+            <div className="gst-pass absolute left-0 right-0 z-[2] border-t-2 border-dashed border-[#0a1f3d]/25 pointer-events-none" style={{ bottom: `${h(3)}%` }}>
+              <span className="absolute left-0 -top-5 text-[10.5px] sm:text-[11px] font-bold text-[#4a5a72] bg-white pr-1">grade 4 · standard pass</span>
+            </div>
+            {asc.map((r, i) => {
+              const g = Number(r.g);
+              const bg = r.band === 'top' ? 'linear-gradient(180deg,#f0c96a,#A8892A)' : r.band === 'mid' ? 'linear-gradient(180deg,#2f6fc4,#0f4a9b)' : '#dfe7f3';
+              return (
+                <button key={r.g} type="button" aria-label={`Grade ${r.g}: ${r.note}`} data-on={sel === i}
+                  {...(g <= 5 ? { 'data-f': '' } : {})} {...(g >= 4 ? { 'data-h': '' } : {})}
+                  onMouseEnter={() => setSel(i)} onFocus={() => setSel(i)} onClick={() => setSel(i)}
+                  className="gst-bar relative rounded-t-[10px] rounded-b-md flex items-end justify-center pb-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f4a9b]"
+                  style={{ height: `${h(i)}%`, background: bg, transitionDelay: grown && motionOk ? `${i * 90}ms, 0s, 0s, 0s` : undefined }}>
+                  <span className={`text-sm sm:text-[17px] font-extrabold ${r.band === 'low' ? 'text-[#0a1f3d]' : 'text-white'}`}>{r.g}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+        {/* Tier brackets */}
+        <div className="relative h-[62px] mt-2.5" aria-hidden="true">
+          <div className="gst-br gst-br-f absolute top-0 h-4 border-[2.5px] border-t-0 border-[#0f4a9b] rounded-b-[10px]" style={{ left: '0%', width: 'calc(5 / 9 * 100% - 4px)' }}>
+            <span className="absolute -bottom-[19px] left-[38%] -translate-x-1/2 text-[10.5px] sm:text-[11.5px] font-extrabold tracking-[0.06em] text-[#0f4a9b] whitespace-nowrap">FOUNDATION 1–5</span>
+          </div>
+          <div className="gst-br gst-br-h absolute top-8 h-4 border-[2.5px] border-t-0 border-[#C7A24A] rounded-b-[10px]" style={{ left: 'calc(3 / 9 * 100% + 2px)', width: 'calc(6 / 9 * 100% - 2px)', transitionDelay: '.25s' }}>
+            <span className="absolute -bottom-[19px] left-1/2 -translate-x-1/2 text-[10.5px] sm:text-[11.5px] font-extrabold tracking-[0.06em] text-[#8a6a1f] whitespace-nowrap">HIGHER 4–9</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Tier cards + advice */}
+      <div className="lg:col-span-5 flex flex-col gap-3">
+        <button type="button" aria-pressed={lens === 'f'} onClick={() => setLens(lens === 'f' ? null : 'f')}
+          className={`gst-tier text-left bg-white rounded-2xl border-[1.5px] p-4 sm:p-5 ${tierCls('f')}`}>
+          <div className="flex items-center justify-between gap-2 mb-1.5">
+            <h3 className="text-[15px] sm:text-[17px] font-extrabold text-[#0a1f3d]">Foundation tier</h3>
+            <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#e6ecf6] text-[#0a1f3d] whitespace-nowrap">Grades 1 to 5</span>
+          </div>
+          <p className="text-[13px] sm:text-sm font-normal text-[#4a5a72] leading-relaxed">Shorter steps and more accessible questions. The highest grade available is 5, a strong pass.</p>
+        </button>
+        <button type="button" aria-pressed={lens === 'h'} onClick={() => setLens(lens === 'h' ? null : 'h')}
+          className={`gst-tier text-left bg-white rounded-2xl border-[1.5px] p-4 sm:p-5 ${tierCls('h')}`}>
+          <div className="flex items-center justify-between gap-2 mb-1.5">
+            <h3 className="text-[15px] sm:text-[17px] font-extrabold text-[#0a1f3d]">Higher tier</h3>
+            <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full text-white whitespace-nowrap" style={{ background: GOLD }}>Grades 4 to 9</span>
+          </div>
+          <p className="text-[13px] sm:text-sm font-normal text-[#4a5a72] leading-relaxed">Harder, multi-step questions. The only tier that can lead to grades 6 to 9.</p>
+        </button>
+        <div className="flex-1 rounded-2xl p-4 sm:p-5 text-white" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f4a9b 100%)' }}>
+          <h3 className="text-sm sm:text-base font-extrabold text-[#f0c96a] mb-1">Not sure which tier fits?</h3>
+          <p className="text-[13px] sm:text-sm text-blue-100/85 leading-relaxed">The school decides entry. After the first lessons, your tutor shares an honest working grade so you can align with your child's teacher.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ── Page ────────────────────────────────────────────────────────────── */
 
 export default function GCSETutorAlAinPage() {
@@ -562,7 +673,7 @@ export default function GCSETutorAlAinPage() {
         </div>
       </section>
 
-      {/* ── 03 GRADES AND TIERS (1-Desktop Viewport Balanced) ── */}
+      {/* ── 03 GRADES AND TIERS (animated grade staircase) ── */}
       <section className="py-7 sm:py-8 lg:py-9 bg-[#f4f7fc]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead
@@ -570,55 +681,7 @@ export default function GCSETutorAlAinPage() {
             title={<>What the <span className="text-[#0f4a9b]">9 to 1 grades</span> mean</>}
             intro="GCSEs are graded from 9, the highest, down to 1. In Maths and the sciences your child is also entered for a Foundation or Higher tier, which sets the grades they can reach."
           />
-          <div className="grid lg:grid-cols-12 gap-4 lg:gap-5 items-stretch">
-            {/* Left: Compact 9-to-1 Scale */}
-            <div className="lg:col-span-5 bg-white rounded-xl border border-[#0f4a9b]/10 p-3.5 sm:p-4 shadow-xs flex flex-col justify-between">
-              <ol className="flex flex-col gap-1" aria-label="GCSE grades from 9 to 1">
-                {GRADES.map((r) => (
-                  <li key={r.g} className="grid grid-cols-[34px_1fr] items-center gap-2.5">
-                    <span className={`h-7 w-8.5 rounded-md flex items-center justify-center font-extrabold text-xs shrink-0 ${r.band === 'top' ? 'text-white' : r.band === 'mid' ? 'bg-[#0f4a9b] text-white' : 'bg-[#e6ecf6] text-[#0a1f3d]'}`}
-                      style={r.band === 'top' ? { background: GOLD } : undefined}>{r.g}</span>
-                    <span className={`text-xs ${r.note ? 'text-[#0a1f3d] font-semibold' : 'text-gray-400'}`}>{r.note || '—'}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            {/* Right: Tier Cards + Concise Tier Decision Strip */}
-            <div className="lg:col-span-7 flex flex-col gap-3">
-              <div className="grid sm:grid-cols-2 gap-3 lg:flex-1">
-                {/* Foundation Tier Card */}
-                <div className="bg-white rounded-xl border border-[#0f4a9b]/10 p-3.5 sm:p-4 shadow-xs flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-1.5">
-                      <h3 className="text-sm sm:text-[15px] font-extrabold text-[#0a1f3d]">Foundation tier</h3>
-                      <span className="text-[10.5px] font-bold px-2 py-0.5 rounded-full bg-[#e6ecf6] text-[#0a1f3d]">Grades 1 to 5</span>
-                    </div>
-                    <p className="text-xs text-[#4a5a72] leading-relaxed">Shorter steps and more accessible questions. The highest grade available is 5, a strong pass.</p>
-                  </div>
-                </div>
-
-                {/* Higher Tier Card */}
-                <div className="bg-white rounded-xl border border-[#C7A24A]/40 p-3.5 sm:p-4 shadow-xs flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-1.5">
-                      <h3 className="text-sm sm:text-[15px] font-extrabold text-[#0a1f3d]">Higher tier</h3>
-                      <span className="text-[10.5px] font-bold px-2 py-0.5 rounded-full text-white" style={{ background: GOLD }}>Grades 4 to 9</span>
-                    </div>
-                    <p className="text-xs text-[#4a5a72] leading-relaxed">Harder, multi-step questions. The only tier that can lead to grades 6 to 9.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Guidance Card */}
-              <div className="rounded-xl p-3.5 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 shadow-xs" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f4a9b 100%)' }}>
-                <div className="min-w-0">
-                  <h3 className="text-xs sm:text-sm font-extrabold text-[#f0c96a] mb-0.5">Not sure which tier fits?</h3>
-                  <p className="text-[11.5px] sm:text-xs text-blue-100/85 leading-relaxed">The school decides entry. After the first lessons, your tutor shares an honest working grade so you can align with your child's teacher.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <GradeStaircase />
           <p className="mt-3 text-center text-[11px] sm:text-xs text-[#4a5a72]">English Language and English Literature are not tiered: every student sits the same papers.</p>
         </div>
       </section>
