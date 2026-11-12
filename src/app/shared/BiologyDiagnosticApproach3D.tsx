@@ -12,7 +12,7 @@ export function BiologyDiagnosticApproach() {
     {
       name: "DIAGNOSE",
       subtitle: "Diagnostic Baseline",
-      desc: "We pinpoint whether marks leak from content gaps, answer structure, data skills, or the IA. A 30-minute diagnostic reveals the exact mark-scheme barrier.",
+      desc: "We pinpoint whether marks leak from content gaps, answer structure, data skills, or the IA. The free 15-minute orientation in the first lesson shows which one is costing marks.",
       image: "/images/biology/bio_card1_clean.png",
     },
     {

@@ -976,16 +976,6 @@ export default function IBTutorAbuDhabiPage() {
                 </p>
               </div>
 
-              {/* Helper CTA */}
-              <div className="mt-6 text-center">
-                <a
-                  href="/contact#form?intent=sl-hl-advice"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-extrabold text-[#0a1f3d] border border-slate-300 hover:border-[#C7A24A] hover:bg-gradient-to-r hover:from-[#E4C069] hover:to-[#C9A24C] hover:text-[#0a1f3d] transition-all shadow-sm hover:shadow-md"
-                >
-                  Book a 30-minute SL/HL consultation
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
             </div>
           </div>
         </div>

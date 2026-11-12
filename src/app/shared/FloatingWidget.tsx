@@ -197,7 +197,7 @@ export default function FloatingWidget() {
               Prefer a form? Request a session
             </a>
             <p style={{ margin: '16px 0 0', fontSize: 11, color: '#666', textAlign: 'center' }}>
-              30 minutes with a UAE subject specialist. See the gaps, plan the next steps.
+              A 1-hour first lesson with a UAE subject specialist, starting with a free 15-minute orientation to find the gaps.
             </p>
           </div>
         )}

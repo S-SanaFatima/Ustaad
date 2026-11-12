@@ -4,7 +4,7 @@ import {
   Calculator, BookOpen, FlaskConical, Atom, Briefcase, PenLine,
   ChevronDown, MessageCircle, Star, Search, ClipboardCheck, CalendarCheck, CheckCircle2, Info,
 } from 'lucide-react';
-import { Layout, StatsBar, SchoolsMarquee, HowOnlineSessions3DSection, RelatedContent } from './shared';
+import { Layout, StatsBar, SchoolsMarquee, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
@@ -38,7 +38,7 @@ const AL_AIN_SCHOOL_LOGOS = [
 
 const COMPARE = [
   { label: 'Who sets it', gcse: 'UK boards: AQA, Pearson Edexcel, OCR', igcse: 'Cambridge (CAIE) or Pearson Edexcel International' },
-  { label: 'Grades', gcse: '9 to 1 in every subject', igcse: 'A* to G (Cambridge) or 9 to 1 (Edexcel International)' },
+  { label: 'Grades', gcse: '9 to 1 in every subject', igcse: 'A* to G or 9 to 1 (Cambridge), 9 to 1 (Edexcel International)' },
   { label: 'Typical code on the exam entry', gcse: '8300 (AQA Maths), 1MA1 (Edexcel Maths), J560 (OCR Maths)', igcse: '0580 (Cambridge Maths), 4MA1 (Edexcel International Maths)' },
   { label: 'Content', gcse: 'Written for schools in England, with set UK texts in English Literature', igcse: 'Written for international schools, with wider text choices' },
 ];
@@ -66,7 +66,7 @@ const SUBJECTS: Subject[] = [
 ];
 
 const TIMELINE = [
-  { when: 'Year 10, autumn', title: 'Start of the GCSE course', text: 'A short diagnostic shows which Year 9 topics are shaky before new GCSE content builds on them.' },
+  { when: 'Year 10, autumn', title: 'Start of the GCSE course', text: 'The first lessons find the Year 9 topics that are still shaky, before new GCSE content builds on them.' },
   { when: 'Year 10, summer', title: 'End-of-year exams', text: 'The first full papers. The results usually guide the school’s Foundation or Higher tier decision.' },
   { when: 'Year 11, Nov to Jan', title: 'Mock exams', text: 'Mock papers are marked against the board mark scheme so your child sees where each mark was won or lost.' },
   { when: 'Year 11, May to June', title: 'GCSE exam season', text: 'Sessions switch to past papers and timing. New teaching stops a few weeks before the first paper.' },
@@ -81,13 +81,14 @@ const STEPS = [
 ];
 
 const FAQS = [
-  { q: 'Does my child in Al Ain take GCSE or IGCSE?', a: 'Many British-curriculum schools in Al Ain enter students for IGCSE, and some use UK GCSE in certain subjects. The quickest check is the code on your child’s exam entry or subject handbook. Codes such as 8300, 1MA1 or J560 are UK GCSE. Codes such as 0580 or 4MA1 are IGCSE, and our IGCSE Tutor Al Ain page covers those.' },
-  { q: 'Are your GCSE lessons online or in person in Al Ain?', a: 'All lessons are live and online, one-to-one, with a shared whiteboard. Students in Al Ain work with the same subject specialists as families in Abu Dhabi and Dubai, without travelling to a centre.' },
-  { q: 'Which GCSE exam boards do you tutor?', a: 'AQA, Pearson Edexcel and OCR. Many schools use different boards for different subjects, so we match each subject to a tutor who knows that board’s papers and mark scheme.' },
-  { q: 'What is the difference between Foundation and Higher tier?', a: 'In tiered subjects such as Maths and the sciences, Foundation tier papers lead to grades 1 to 5 and Higher tier papers to grades 4 to 9. If your child needs a 6 or above for A-Level, they usually need to sit Higher tier. The school makes the final entry decision.' },
-  { q: 'What GCSE grade counts as a pass?', a: 'Grade 4 is a standard pass and grade 5 is a strong pass. Grade 7 is roughly the old A, and grade 9 is above the old A*. Sixth forms often ask for a 6 or 7 in the subjects a student wants to take at A-Level.' },
+  { q: 'Can a GCSE tutor come to our home in Al Ain?', a: 'No. Ustaad teaches online only, so our tutors do not visit homes in Al Ain or anywhere else. Your child joins from home on a laptop, with the tutor and a shared whiteboard on screen. Teaching online lets us match a specialist in your child’s exact exam board, not just whoever lives nearby.' },
+  { q: 'Are GCSE lessons one-to-one or in a group?', a: 'One-to-one only. Every lesson is your child and one tutor, so the whole hour goes on their own papers, their mistakes and their board’s mark scheme. We do not run group classes.' },
+  { q: 'How much do GCSE lessons cost, and how long is each lesson?', a: 'Each lesson is one hour. The price depends on the subject and how many lessons a week your child takes, so we confirm it on WhatsApp once you tell us the subject, exam board and tier, before anything is paid.' },
+  { q: 'Is there a free trial or demo class?', a: 'A free trial is available on request. Most families start with the first 1-hour lesson instead, which opens with a free 15-minute orientation where the tutor finds the gaps before any teaching begins.' },
+  { q: 'Can we ask for a female GCSE tutor?', a: 'Yes. Tell us when you message, and we will match a female GCSE specialist for that subject and exam board where one is available.' },
+  { q: 'My child is homeschooled or a private candidate. Can you help with GCSE?', a: 'Yes. We tutor homeschooled students and private candidates through the course, following the exact specification they will sit. Private candidates book their exams through a registered centre, such as the British Council, so share the entry and exam dates and we plan the lessons around them.' },
+  { q: 'My child takes some subjects at GCSE and others at IGCSE. Can you cover both?', a: 'Yes. We match each subject to its own specification code, so AQA 8300 Maths and Cambridge 0620 Chemistry, for example, are taught by tutors who know those exact papers and mark schemes.' },
   { q: 'Can you help with a GCSE resit?', a: 'Yes. GCSE Maths and English Language can be resat in November as well as in the summer, for students who meet the board’s age rule. Other subjects are resat in the summer series. A resit plan starts from the marks lost on the last attempt.' },
-  { q: 'When should we start GCSE tutoring?', a: 'Starting in Year 10 gives the most time, because gaps can be fixed before they affect new topics. Many families start in Year 11, before the mock exams. A short exam-focused plan is also possible in the final weeks before the May and June papers.' },
 ];
 
 /* ── Small building blocks ───────────────────────────────────────────── */
@@ -320,8 +321,8 @@ export default function GCSETutorAlAinPage() {
             </div>
 
             {/* Right: Tier Cards + Concise Tier Decision Strip */}
-            <div className="lg:col-span-7 flex flex-col justify-between gap-3">
-              <div className="grid sm:grid-cols-2 gap-3">
+            <div className="lg:col-span-7 flex flex-col gap-3">
+              <div className="grid sm:grid-cols-2 gap-3 lg:flex-1">
                 {/* Foundation Tier Card */}
                 <div className="bg-white rounded-xl border border-[#0f4a9b]/10 p-3.5 sm:p-4 shadow-xs flex flex-col justify-between">
                   <div>
@@ -329,7 +330,7 @@ export default function GCSETutorAlAinPage() {
                       <h3 className="text-sm sm:text-[15px] font-extrabold text-[#0a1f3d]">Foundation tier</h3>
                       <span className="text-[10.5px] font-bold px-2 py-0.5 rounded-full bg-[#e6ecf6] text-[#0a1f3d]">Grades 1 to 5</span>
                     </div>
-                    <p className="text-xs text-[#4a5a72] leading-relaxed">Shorter steps and more accessible questions. Maximum achievable mark is Grade 5 (strong pass).</p>
+                    <p className="text-xs text-[#4a5a72] leading-relaxed">Shorter steps and more accessible questions. The highest grade available is 5, a strong pass.</p>
                   </div>
                 </div>
 
@@ -340,7 +341,7 @@ export default function GCSETutorAlAinPage() {
                       <h3 className="text-sm sm:text-[15px] font-extrabold text-[#0a1f3d]">Higher tier</h3>
                       <span className="text-[10.5px] font-bold px-2 py-0.5 rounded-full text-white" style={{ background: GOLD }}>Grades 4 to 9</span>
                     </div>
-                    <p className="text-xs text-[#4a5a72] leading-relaxed">Harder, multi-step questions. Required for Grades 6 to 9 and Sixth-Form A-Level entry.</p>
+                    <p className="text-xs text-[#4a5a72] leading-relaxed">Harder, multi-step questions. The only tier that can lead to grades 6 to 9.</p>
                   </div>
                 </div>
               </div>
@@ -407,8 +408,6 @@ export default function GCSETutorAlAinPage() {
         </div>
       </section>
 
-      {/* ── 06 HOW ONLINE SESSIONS RUN ── */}
-      <HowOnlineSessions3DSection location="Al Ain" title="How Online GCSE Lessons Run from Al Ain" />
 
       {/* ── 07 HOW WE MATCH (1-Desktop Viewport Compact) ── */}
       <section className="py-7 sm:py-8 lg:py-9 bg-white">
@@ -483,7 +482,7 @@ export default function GCSETutorAlAinPage() {
                 What Al Ain Families <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Ask About GCSE Tutoring</span>
               </h2>
               <p className="text-gray-600 text-xs sm:text-[13.5px] leading-relaxed">
-                GCSE or IGCSE, exam boards, tiers, passes and resits, answered for Al Ain families.
+                Home visits, one-to-one lessons, fees, first lessons, private candidates and resits, answered for Al Ain families.
               </p>
             </motion.div>
 
