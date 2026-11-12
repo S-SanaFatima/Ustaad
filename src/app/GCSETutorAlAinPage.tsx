@@ -590,8 +590,8 @@ const CMP_CSS = `
 @media (min-width:1024px){.gcp-row{height:72px}.gcp-duel{grid-template-columns:1fr 168px 1fr}}
 @media (prefers-reduced-motion:reduce){.gcp-flip,.gcp-paper,.gcp-cell,.gcp-vs,.gcp-lab,.gcp-ind{transition:none!important}}
 `;
-const withCodes = (t: string) => t.split(/\b(8300|1MA1|J560|0580|4MA1)\b/).map((part, i) =>
-  i % 2 ? <span key={i} className="inline-flex items-center rounded-md border border-[#0f4a9b]/15 bg-[#f4f7fc] px-1.5 py-0.5 font-mono text-[12.5px] font-bold text-[#0f4a9b]">{part}</span> : part);
+const withCodes = (t: string, gold = false) => t.split(/\b(8300|1MA1|J560|0580|4MA1)\b/).map((part, i) =>
+  i % 2 ? <span key={i} className="inline-flex items-center rounded-full px-2 py-0.5 text-[12px] font-bold tracking-[0.02em] text-white align-middle" style={{ background: gold ? '#A8892A' : '#0a3a79' }}>{part}</span> : part);
 
 function ComparePapers() {
   const [motionOk, setMotionOk] = useState(false);
@@ -626,7 +626,7 @@ function ComparePapers() {
           className={`gcp-cell gcp-row px-5 sm:px-6 py-3.5 flex flex-col justify-center border-t border-[#eef2f8] first-of-type:border-t-0 ${hl === i ? (k === 'l' ? 'bg-[#f4f7fc]' : 'bg-[#fbf6ea]') : ''}`}
           style={delay(i)}>
           <span className="gcp-cl block text-[10.5px] font-extrabold tracking-[0.1em] uppercase text-[#8a6a1f] mb-1">{r.label}</span>
-          <span className="text-[14px] sm:text-[14.5px] leading-relaxed text-[#2c3e5c]">{withCodes(k === 'l' ? r.gcse : r.igcse)}</span>
+          <span className="text-[14px] sm:text-[14.5px] font-medium leading-[1.65] text-[#33465f]">{withCodes(k === 'l' ? r.gcse : r.igcse, k === 'r')}</span>
         </div>
       ))}
     </div>
