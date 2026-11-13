@@ -22,7 +22,7 @@ export const ROUTES = [
   // Curriculum
   { path: '/curriculum', component: 'CurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/british-curriculum', component: 'BritishCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-12' },
-  { path: '/igcse', component: 'IGCSEPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-11-11' },
+  { path: '/igcse', component: 'IGCSEPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-11-13' },
   { path: '/gcse', component: 'GCSEPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/a-level', component: 'ALevelPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-10-12' },
   { path: '/ib-curriculum', component: 'IBCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
@@ -86,6 +86,7 @@ export const ROUTES = [
   { path: '/blogs/winter-break-revision-plan-uae-students', component: 'WinterBreakRevisionPlanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-30' },
   { path: '/blogs/chatgpt-for-studying-does-ai-hurt-memory', component: 'ChatGPTForStudyingBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-02' },
   { path: '/blogs/area-under-graph-meaning-physics-maths', component: 'AreaUnderGraphBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-11' },
+  { path: '/blogs/what-is-igcse-full-form-meaning-uae', component: 'WhatIsIGCSEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-13' },
   { path: '/blogs/how-to-choose-igcse-subjects-uae', component: 'ChooseIGCSESubjectsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-11' },
 
   // City × subject landings

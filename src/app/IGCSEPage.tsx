@@ -87,7 +87,8 @@ export default function IGCSEPage() {
             <p className="text-gray-500 text-xs sm:text-sm mb-5 leading-relaxed max-w-xl">
               Studying GCSE instead?{' '}
               <a href="/gcse" className="text-[#0f4a9b] font-semibold underline">Read about Ustaad's GCSE tutoring across AQA, OCR, and Pearson Edexcel.</a>{' '}
-              Based in Dubai or Abu Dhabi? See our <a href="/igcse-tutor-dubai" className="text-[#0f4a9b] font-semibold underline">IGCSE tutor Dubai</a> and <a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">IGCSE tutor Abu Dhabi</a> pages.
+              Based in Dubai or Abu Dhabi? See our <a href="/igcse-tutor-dubai" className="text-[#0f4a9b] font-semibold underline">IGCSE tutor Dubai</a> and <a href="/igcse-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">IGCSE tutor Abu Dhabi</a> pages.{' '}
+              New to the qualification? Read <a href="/blogs/what-is-igcse-full-form-meaning-uae" className="text-[#0f4a9b] font-semibold underline">what IGCSE is and how it is graded</a>.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 mb-2.5">

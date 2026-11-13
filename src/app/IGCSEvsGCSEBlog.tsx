@@ -58,6 +58,12 @@ const TOC_ITEMS = [
 
 const RELATED = [
   {
+    slug: 'what-is-igcse-full-form-meaning-uae',
+    category: 'Parent Guidance',
+    title: 'What Is IGCSE? Full Form, Meaning and Grades Explained',
+    description: 'What the letters stand for, who sets the exams, the two tiers, both grade scales and when results arrive.',
+  },
+  {
     slug: 'how-to-choose-igcse-subjects-uae',
     category: 'Parent Guidance',
     title: 'How to Help Your Child Choose IGCSE Subjects',

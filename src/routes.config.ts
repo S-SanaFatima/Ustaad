@@ -1159,6 +1159,19 @@ export const ROUTES: RouteConfig[] = [
     ]
   },
   {
+    path: '/blogs/what-is-igcse-full-form-meaning-uae',
+    component: 'WhatIsIGCSEBlog',
+    seo: {
+      title: 'What Is IGCSE? Full Form, Meaning, Grades | Ustaad',
+      description: 'IGCSE full form and meaning for UAE parents: who sets the exams, subjects, Core and Extended tiers, A*–G and 9–1 grades, exam dates and results.',
+      keywords: 'what is IGCSE, IGCSE full form, IGCSE meaning, Cambridge IGCSE, IGCSE curriculum, IGCSE grades, IGCSE subjects, IGCSE exam dates, IGCSE results, Edexcel International GCSE',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-11-13'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'What Is IGCSE?', url: '/blogs/what-is-igcse-full-form-meaning-uae' }]
+  },
+  {
     path: '/blogs/how-to-choose-igcse-subjects-uae',
     component: 'ChooseIGCSESubjectsBlog',
     seo: {

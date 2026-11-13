@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'what-is-igcse-full-form-meaning-uae',
+    image: '/images/blogs/what-is-igcse-full-form-meaning-uae-hero.webp',
+    alt: 'IGCSE full form spelled out letter by letter: International General Certificate of Secondary Education',
+    category: 'Parent Guidance',
+    title: 'What Is IGCSE? Full Form, Meaning, Subjects and Grades Explained for UAE Parents',
+    description: 'What IGCSE stands for, who sets the exams, subjects, Core and Extended tiers, A*–G and 9–1 grades, exam dates and what comes next.',
+    date: '13 Nov 2026',
+    readTime: '10 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'how-to-choose-igcse-subjects-uae',
     image: '/images/blogs/choose-igcse-subjects-student-options-desk-dubai.webp',
     alt: 'Year 9 student at a study desk in Dubai comparing two IGCSE subject option sheets with a highlighter',

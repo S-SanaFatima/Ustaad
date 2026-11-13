@@ -102,10 +102,12 @@ const loadWinterBreakRevisionPlanBlog = () => import('./app/WinterBreakRevisionP
 const loadChatGPTForStudyingBlog = () => import('./app/ChatGPTForStudyingBlog');
 const loadAreaUnderGraphBlog = () => import('./app/AreaUnderGraphBlog');
 const loadChooseIGCSESubjectsBlog = () => import('./app/ChooseIGCSESubjectsBlog');
+const loadWhatIsIGCSEBlog = () => import('./app/WhatIsIGCSEBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/how-to-choose-igcse-subjects-uae': loadChooseIGCSESubjectsBlog,
+  '/blogs/what-is-igcse-full-form-meaning-uae': loadWhatIsIGCSEBlog,
   '/blog/how-to-choose-igcse-subjects-uae': loadChooseIGCSESubjectsBlog,
   '/blogs/area-under-graph-meaning-physics-maths': loadAreaUnderGraphBlog,
   '/blog/area-under-graph-meaning-physics-maths': loadAreaUnderGraphBlog,
@@ -291,6 +293,7 @@ const WinterBreakRevisionPlanBlog = lazy(loadWinterBreakRevisionPlanBlog);
 const ChatGPTForStudyingBlog = lazy(loadChatGPTForStudyingBlog);
 const AreaUnderGraphBlog = lazy(loadAreaUnderGraphBlog);
 const ChooseIGCSESubjectsBlog = lazy(loadChooseIGCSESubjectsBlog);
+const WhatIsIGCSEBlog = lazy(loadWhatIsIGCSEBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
@@ -433,6 +436,7 @@ function AppRoutes() {
           <Route path="/blog/chatgpt-for-studying-does-ai-hurt-memory" element={<ChatGPTForStudyingBlog />} />
           <Route path="/blogs/area-under-graph-meaning-physics-maths" element={<AreaUnderGraphBlog />} />
           <Route path="/blog/area-under-graph-meaning-physics-maths" element={<AreaUnderGraphBlog />} />
+          <Route path="/blogs/what-is-igcse-full-form-meaning-uae" element={<WhatIsIGCSEBlog />} />
           <Route path="/blogs/how-to-choose-igcse-subjects-uae" element={<ChooseIGCSESubjectsBlog />} />
           <Route path="/blog/how-to-choose-igcse-subjects-uae" element={<ChooseIGCSESubjectsBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />
