@@ -28,3 +28,7 @@ Set `lastmod` in `routes.config.mjs` whenever a page's content changes. The site
 - OpenSEO project `USTAAD.AE` (id `77c926ea-3ced-4795-83b1-d62436f105a8`) is connected to Search Console property `sc-domain:ustaad.ae`.
 - IndexNow keys hosted in `public/`: `82c9829535fe4e56949b90607d53f4c6.txt` (repo script) and `d90272b0d0644d408fc4ea6c62d4de10.txt` (OpenSEO).
 - Indexing status and backlink plan: `INDEXING_AND_BACKLINK_PLAN.md`. More architecture notes: `TECHNICAL_CONTEXT.md`.
+
+## Commits
+- No AI attribution in commits: no `Co-Authored-By: Claude` line, no `Claude-Session` link, and no AI or model name in commit messages, PR text or code comments.
+- Commit as `devsynx <242815470+devsynxoffical@users.noreply.github.com>` (set with `git config user.name` / `user.email` in the clone).
