@@ -985,7 +985,7 @@ export default function GCSETutorAlAinPage() {
                 What Al Ain Families <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Ask About GCSE Tutoring</span>
               </h2>
               <p className="text-gray-600 text-xs sm:text-[13.5px] leading-relaxed">
-                Home visits, one-to-one lessons, fees, first lessons, private candidates and resits, answered for Al Ain families.
+                Online-only lessons, one-to-one teaching, fees, first lessons, private candidates and resits, answered for Al Ain families.
               </p>
             </motion.div>
 

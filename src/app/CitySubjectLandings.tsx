@@ -33,12 +33,12 @@ const CONFIGS: Record<string, LandingConfig> = {
     bullets: [
       'Matched to Cambridge, Edexcel, AQA, IB, or AP Biology',
       'Diagram practice, practical write-ups, and timed paper drills',
-      'Home and online sessions across Abu Dhabi Island, Khalifa City, Yas, and Al Raha',
+      'Live online 1-to-1 sessions for students across Abu Dhabi Island, Khalifa City, Yas, and Al Raha',
     ],
     faqs: [
       { q: 'Do you cover IGCSE and A-Level Biology in Abu Dhabi?', a: 'Yes. Tutors specialise in Cambridge and Edexcel IGCSE Biology plus A-Level pathways, including practical and paper technique.' },
       { q: 'Can tutors help with IB Biology IA?', a: 'Yes. DP SL and HL students receive topic support and Internal Assessment structure guidance alongside exam practice.' },
-      { q: 'Is online Biology tutoring available?', a: 'Yes. Families can choose home visits across Abu Dhabi or online sessions on UAE evenings.' },
+      { q: 'Is Biology tutoring online?', a: 'Yes. Ustaad teaches online only, so there are no home visits. Lessons are live and 1-to-1 on UAE evenings, for students anywhere in Abu Dhabi.' },
     ],
     subjects: [
       { label: 'Maths Tutor Abu Dhabi', href: '/maths-tutor-abu-dhabi' },
