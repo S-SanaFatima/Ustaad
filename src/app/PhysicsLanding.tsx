@@ -1682,6 +1682,16 @@ export default function PhysicsLanding() {
       a: <>Yes. We schedule around school hours, mock windows, exam leave, UAE public holidays and Ramadan, in Abu Dhabi time.</>,
     },
     {
+      q: 'Is there a physics tutor near me in Abu Dhabi?',
+      plain: 'Lessons are online, so the tutor is chosen for your child\'s exact physics course rather than for how close they live. Students in Al Reem, Khalifa City, Yas Island, Al Raha, Saadiyat, Mohammed Bin Zayed City and the rest of the emirate get the same specialist, with no travel time.',
+      a: <>Lessons are online, so the tutor is chosen for your child&apos;s exact physics course rather than for how close they live. Students in Al Reem, Khalifa City, Yas Island, Al Raha, Saadiyat, Mohammed Bin Zayed City and the rest of the emirate get the same specialist, with no travel time.</>,
+    },
+    {
+      q: 'My child is at an American or IB school in Abu Dhabi. Can you help with physics?',
+      plain: 'Yes. Students at American-curriculum schools are taught to the AP Physics course their school offers, and IB students to DP Physics at SL or HL. We confirm the course and the school\'s order of topics before the first lesson.',
+      a: <>Yes. Students at American-curriculum schools are taught to the <a href="/ap" className="text-[#0f4a9b] font-semibold underline">AP Physics</a> course their school offers, and IB students to DP Physics at SL or HL with our <a href="/ib-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold underline">IB tutors in Abu Dhabi</a>. We confirm the course and the school&apos;s order of topics before the first lesson.</>,
+    },
+    {
       q: 'What happens in the free 15-minute orientation?',
       plain: 'Every first lesson includes 15 free minutes with a matched tutor to meet and discuss learning goals, followed by an honest look at where marks are lost. You leave with a clear starting point and plan.',
       a: <>Every first lesson includes 15 free minutes with a matched tutor to meet and discuss learning goals, followed by an honest look at where marks are lost. You leave with a clear starting point and plan.</>,
@@ -1691,8 +1701,8 @@ export default function PhysicsLanding() {
   return (
     <Layout>
       <SEOHead
-        title="IGCSE & A-Level Physics Tutor | Abu Dhabi & UAE | Ustaad"
-        description="One-to-one IGCSE and A-Level physics tutoring for Abu Dhabi families, taught online across the UAE. Cambridge 0625, Edexcel 4PH1 and A-Level 9702, including the practical papers. Free 15-min orientation with the first lesson."
+        title="Physics Tutor Abu Dhabi | IGCSE & A-Level Physics | Ustaad"
+        description="Online physics tutor for Abu Dhabi students: Cambridge 0625, Edexcel 4PH1, A-Level 9702 and AP Physics, matched to your school. Free 15-min orientation."
         canonical="/physics-tutor-abu-dhabi"
         placename="Abu Dhabi, UAE"
         schema={[
@@ -1704,13 +1714,12 @@ export default function PhysicsLanding() {
           }),
           breadcrumbSchema([
             { name: 'Home', url: '/' },
-            { name: 'Curriculum', url: '/curriculum' },
-            { name: 'Abu Dhabi', url: '/physics-tutor-abu-dhabi' },
-            { name: 'Physics', url: '/physics-tutor-abu-dhabi' },
+            { name: 'Physics', url: '/physics' },
+            { name: 'Physics Tutor Abu Dhabi', url: '/physics-tutor-abu-dhabi' },
           ]),
           serviceSchema('Private Physics Tutoring', 'One-to-one IGCSE and A-Level physics tutoring for Abu Dhabi families, taught online across the UAE. Cambridge 0625, Edexcel 4PH1 and A-Level 9702, including practical papers.', '/physics-tutor-abu-dhabi'),
           courseSchema({
-            courseName: 'IGCSE & A-Level Physics Tutoring Abu Dhabi',
+            courseName: 'Physics Tutoring for Abu Dhabi Students: IGCSE, A-Level and AP',
             description: 'One-to-one IGCSE and A-Level physics tutoring for Abu Dhabi families, taught online across the UAE.',
             url: '/physics-tutor-abu-dhabi',
             city: 'Abu Dhabi',
@@ -1918,15 +1927,16 @@ export default function PhysicsLanding() {
 
           {/* H1 Heading */}
           <h1 className="font-extrabold tracking-tight text-white leading-[1.08] mb-3 md:mb-4 text-[clamp(1.6rem,4.8vw,3.2rem)] max-w-3xl">
-            IGCSE and A-Level Physics Tutor in{' '}
+            Physics Tutor in{' '}
             <span style={{ background:'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>
               Abu Dhabi
-            </span>
+            </span>{' '}
+            for IGCSE and A-Level
           </h1>
 
           {/* Subtitle */}
           <p className="text-blue-100/80 text-[clamp(0.88rem,2vw,1.02rem)] leading-relaxed max-w-2xl mb-6 md:mb-8 px-4">
-            One-to-one physics tutoring, matched to your child's exam board and taught online across the UAE.
+            One-to-one online physics lessons for students at Abu Dhabi schools, matched to the exact board, tier and practical paper your child sits.
           </p>
 
           {/* Action Buttons */}
@@ -2074,6 +2084,60 @@ export default function PhysicsLanding() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* SECTION 04b — PHYSICS IN ABU DHABI SCHOOLS (curriculum + school year) */}
+      <section className="py-10 sm:py-12 lg:py-14 bg-[#f8fafd] border-y border-slate-100" aria-labelledby="ad-physics-year">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <Eyebrow icon={<MapPin className="h-3.5 w-3.5" />} text="Abu Dhabi Schools" />
+            <h2 id="ad-physics-year" className="text-2xl lg:text-3xl font-extrabold text-[#0a1f3d] leading-tight mb-2">
+              Physics in Abu Dhabi schools,{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">term by term</span>
+            </h2>
+            <p className="text-gray-600 text-[14px] sm:text-[14.5px] leading-relaxed">
+              Abu Dhabi&apos;s private schools, regulated by ADEK, teach three main physics routes. Which one your child follows decides the papers, and the school year decides when each part of the course matters most.
+            </p>
+          </div>
+
+          {/* Three curriculum routes */}
+          <div className="grid sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
+            {[
+              { tag: 'British curriculum', title: 'IGCSE, then A-Level', body: 'Cambridge 0625 or Edexcel 4PH1 in Years 10 and 11, then A-Level 9702 or Edexcel in Years 12 and 13. The most common route in Abu Dhabi.', href: '/igcse-tutor-abu-dhabi', link: 'IGCSE tutors in Abu Dhabi' },
+              { tag: 'American curriculum', title: 'High school physics and AP', body: 'Physics within the high school programme, with AP Physics for students taking College Board exams in May.', href: '/ap', link: 'AP tutoring' },
+              { tag: 'IB schools', title: 'MYP sciences, then DP Physics', body: 'Physics at SL or HL in the Diploma, with an internal assessment investigation that counts towards the final grade.', href: '/ib-tutor-abu-dhabi', link: 'IB tutors in Abu Dhabi' },
+            ].map((r) => (
+              <div key={r.tag} className="rounded-2xl border border-[#0f4a9b]/12 bg-white p-4 sm:p-5 shadow-2xs">
+                <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-[#8a6a1f]">{r.tag}</span>
+                <h3 className="text-[15px] sm:text-base font-extrabold text-[#0a1f3d] mt-1 mb-1.5 leading-snug">{r.title}</h3>
+                <p className="text-[12.5px] sm:text-[13px] text-gray-600 leading-relaxed mb-2">{r.body}</p>
+                <a href={r.href} className="text-[12.5px] font-semibold text-[#0f4a9b] underline hover:text-[#0a3a79]">{r.link}</a>
+              </div>
+            ))}
+          </div>
+
+          {/* School year timeline */}
+          <ol className="relative grid gap-3 sm:grid-cols-4 sm:gap-4">
+            {[
+              { when: 'Term 1', months: 'Late August to December', focus: 'Year 10 and Year 12 start new courses. The first weeks are where algebra and unit habits are set, and where the IGCSE to A-Level jump shows.' },
+              { when: 'Winter break', months: 'December to January', focus: 'A short, planned review of Term 1 topics before mocks, without losing the rest. Our winter break plan shows how.' },
+              { when: 'Term 2', months: 'January to March', focus: 'Mock exams for Years 11 and 13, and the evidence teachers use for predicted grades. Lesson times shift for Ramadan when it falls in term.' },
+              { when: 'Term 3', months: 'April to June', focus: 'Final papers in May and June, including the Cambridge practical paper. Lessons move to timed past papers, paper by paper.' },
+            ].map((t, i) => (
+              <li key={t.when} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-2xs">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="flex w-6 h-6 items-center justify-center rounded-full bg-[#0f4a9b] text-white text-[11px] font-extrabold">{i + 1}</span>
+                  <span className="text-[14px] font-extrabold text-[#0a1f3d]">{t.when}</span>
+                </div>
+                <span className="block text-[11px] font-bold text-[#8a6a1f] mb-1.5">{t.months}</span>
+                <p className="text-[12.5px] text-gray-600 leading-relaxed">
+                  {t.when === 'Winter break' ? (<>A short, planned review of Term 1 topics before mocks, without losing the rest. Our <a href="/blogs/winter-break-revision-plan-uae-students" className="text-[#0f4a9b] font-semibold underline">winter break revision plan</a> shows how.</>) : t.focus}
+                </p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-4 text-center text-[11.5px] text-gray-500">Term dates vary by school; your school calendar confirms exact mock and exam weeks.</p>
         </div>
       </section>
 
@@ -2718,24 +2782,15 @@ export default function PhysicsLanding() {
                       </button>
                     </div>
 
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -8 }}
-                          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                          className="ml-[56px]"
-                        >
-                          <div className="flex items-start gap-3 rounded-2xl border p-4" style={{ background: '#f8fafc', borderColor: 'rgba(15,74,155,0.15)', boxShadow: '0 4px 16px rgba(15,74,155,0.06)' }}>
-                            <p className="flex-1 text-gray-600 text-[13px] leading-relaxed">{f.a}</p>
-                            <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ width: 32, height: 32, minWidth: 32, minHeight: 32, background: '#0f4a9b', color: '#fff' }}>
-                              <HelpCircle className="h-4 w-4" />
-                            </span>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    {/* Always in the HTML (indexable); shown when open */}
+                    <div hidden={!isOpen} className="ml-[56px]">
+                      <div className="flex items-start gap-3 rounded-2xl border p-4" style={{ background: '#f8fafc', borderColor: 'rgba(15,74,155,0.15)', boxShadow: '0 4px 16px rgba(15,74,155,0.06)' }}>
+                        <p className="flex-1 text-gray-600 text-[13px] leading-relaxed">{f.a}</p>
+                        <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ width: 32, height: 32, minWidth: 32, minHeight: 32, background: '#0f4a9b', color: '#fff' }}>
+                          <HelpCircle className="h-4 w-4" />
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 );
               })}

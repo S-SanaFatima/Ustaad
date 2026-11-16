@@ -669,12 +669,12 @@ export const ROUTES: RouteConfig[] = [
     path: '/physics-tutor-abu-dhabi',
     component: 'PhysicsLanding',
     seo: {
-      title: 'IGCSE & A-Level Physics Tutor | Abu Dhabi & UAE | Ustaad',
-      description: 'One-to-one IGCSE and A-Level physics tutoring for Abu Dhabi families, taught online across the UAE. Cambridge 0625, Edexcel 4PH1 and A-Level 9702, including the practical papers. Free 15-min orientation with the first lesson.',
+      title: 'Physics Tutor Abu Dhabi | IGCSE & A-Level Physics | Ustaad',
+      description: 'Online physics tutor for Abu Dhabi students: Cambridge 0625, Edexcel 4PH1, A-Level 9702 and AP Physics, matched to your school. Free 15-min orientation.',
       priority: 0.90,
       changefreq: 'monthly'
     },
-    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Physics Tutor Abu Dhabi', url: '/physics-tutor-abu-dhabi' }]
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Physics', url: '/physics' }, { name: 'Physics Tutor Abu Dhabi', url: '/physics-tutor-abu-dhabi' }]
   },
   {
     path: '/chemistry-tutor-abu-dhabi',
