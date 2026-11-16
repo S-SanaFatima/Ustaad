@@ -320,6 +320,7 @@ const chemFAQs = [
   { q: "How do you support lab work and practical write-ups?",                  a: "Lab work is walked through step by step. Tutors cover apparatus, method, observation language, and the write-up style each board credits with marks." },
   { q: "What kind of update do parents get after each chemistry session?",      a: "Parents receive a short note covering the topic taught, the student's progress on it, and one or two practice tasks for the week ahead." },
   { q: "Can the tutor align lessons with the school teacher's plan?",           a: "Yes. The tutor can mirror the school's teaching order if requested, so tutoring supports rather than competes with what is happening in class." },
+  { q: "Do you offer AP Chemistry tutoring?",                             a: "Yes. AP Chemistry tutors work through the College Board units, from atomic structure and bonding to equilibrium, acids and bases and thermodynamics, with lab-based and free-response questions practised for the May exam." },
   { q: "How do you prepare students for top chemistry grades?",                 a: "Top chemistry grades come from very clean working and a deep grasp of mechanism logic. Tutors build those two together across every session." },
 ];
 
@@ -454,8 +455,8 @@ const data: SubjectPageProps = {
 
   floatingIcon: <FlaskConical className="h-4 w-4" />,
   seo: {
-    title: "Chemistry Tutors UAE | IGCSE, A-Level, IB Chemistry | Ustaad",
-    description: "Expert private Chemistry tutoring in Dubai & Abu Dhabi. IGCSE, A-Level, IB SL/HL & AP Chemistry. 1-to-1 sessions with proven exam results.",
+    title: "Chemistry Tuition UAE | IGCSE, A-Level, IB & AP | Ustaad",
+    description: "Online 1-to-1 chemistry tuition for IGCSE, GCSE, A-Level, IB SL/HL and AP Chemistry students across the UAE. Free 15-min orientation.",
     canonical: "/chemistry",
     schema: [
       localBusinessSchema,

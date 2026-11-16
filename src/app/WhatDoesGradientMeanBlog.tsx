@@ -6,16 +6,16 @@ import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, articleSchema, faqSchema } from './shared/schemas';
 
 const BLOG = {
-  title: 'What Does Gradient Mean? Maths & Physics Explained | Ustaad',
+  title: 'What Is Gradient? Meaning in Maths & Physics | Ustaad',
   titleLine1: 'What Does the Gradient Actually Mean?',
   titleLine2: 'A Teacher Explains It from Maths to Physics',
   slug: 'what-does-gradient-mean-maths-physics',
-  description: 'A Maths and Physics teacher explains what the gradient number actually tells you, not just how to calculate it, across straight-line graphs, distance-time and velocity-time graphs.',
+  description: 'What is gradient? The rate of change: how much y changes per unit of x. A teacher explains it on straight-line, distance-time and velocity-time graphs.',
   heroImage: '/images/blogs/what-does-gradient-mean-hero.jpg',
   heroAlt: 'Secondary student in Dubai attending an online one-to-one tutoring session with a specialist teacher explaining motion formulas on a digital board',
   heroCaption: 'One-to-one online coaching breaks down the physical meaning behind kinematics formulas and graph gradients.',
   datePublished: '2026-09-18',
-  dateModified: '2026-11-06',
+  dateModified: '2026-11-16',
   author: 'Tabraiz Khan',
   authorFull: 'Tabraiz Khan | Cambridge Certified Maths & Physics Specialist, Ustaad UAE',
   authorUrl: '/tutors/tabraiz-khan',

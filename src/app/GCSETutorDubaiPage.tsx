@@ -107,6 +107,10 @@ const FAQS = [
     a: 'Yes. All three boards publish past papers publicly, and our tutors use them live in every session. There is no logistical barrier for a Dubai-based student sitting UK GCSE with a British Council or private exam centre in the UAE.',
   },
   {
+    q: 'Is there GCSE tuition near me in Dubai, or are lessons online?',
+    a: 'Lessons are live online and 1-to-1, so the tutor is chosen for the exact GCSE specification rather than for how close they live. Families in Jumeirah, Dubai Marina, Mirdif, Arabian Ranches or Dubai Silicon Oasis get the same AQA, Edexcel or OCR specialist, with no travel time and lessons fitted around school and activities.',
+  },
+  {
     q: 'What if my child sits GCSE in some subjects and IGCSE in others?',
     a: 'This is more common than parents realise. We match a separate specialist per subject to the exact syllabus, so an AQA GCSE English tutor and a Cambridge IGCSE Maths tutor run side by side in the same weekly plan.',
   },
@@ -1179,8 +1183,8 @@ export default function GCSETutorDubaiPage() {
   return (
     <Layout>
       <SEOHead
-        title="GCSE Tutor Dubai | AQA, Edexcel & OCR | Ustaad"
-        description="Expert online GCSE tutors in Dubai. AQA, Edexcel & OCR specialists. Private 1-to-1, recorded lessons. Free 15-min orientation with the first lesson. Trusted UAE families since 2015."
+        title="GCSE Tutor Dubai | GCSE Tuition, AQA, Edexcel & OCR | Ustaad"
+        description="Online GCSE tutors in Dubai for AQA, Edexcel and OCR: private 1-to-1 GCSE tuition with recorded lessons. Free 15-min orientation with the first lesson."
         canonical="/gcse-tutor-dubai"
         ogImage="/UpdatedImages/gcse-tutor-abu-dhabi-online-year-11-session.webp"
         placename="Dubai, UAE"

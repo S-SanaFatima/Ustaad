@@ -406,8 +406,8 @@ export default function APPage() {
   return (
     <Layout>
       <SEOHead
-        title="AP Tutors in Dubai & Abu Dhabi | AP Exam Prep UAE | Ustaad"
-        description="Online 1-to-1 AP tutors for Statistics, Physics, Chemistry, Biology and Economics. AP classes and exam prep through to May. Free 15-min orientation with the first lesson."
+        title="AP Tutoring in Dubai & Abu Dhabi | AP Exam Prep | Ustaad"
+        description="Online 1-to-1 AP tutoring for Calculus, Statistics, Physics, Chemistry, Biology and Economics, with exam prep through to May. Free 15-min orientation."
         canonical="/ap"
         ogImage="/UpdatedImages/Ap-img.webp"
         schema={[

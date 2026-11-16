@@ -321,6 +321,7 @@ const engFAQs = [
   { q: "How does engineering tutoring differ from a standard physics or maths class?",         a: "Engineering blends physics, maths, and design judgement. Tutors connect those three at every session so the student sees how each topic fits into one applied subject." },
   { q: "Can my child start engineering tutoring without prior workshop experience?",            a: "Yes. Many students start without practical workshop work. Tutors rebuild the basics through clear worked examples and applied questions before any project work begins." },
   { q: "How do you support students working on engineering projects or coursework?",            a: "Project work is planned and reviewed step by step. Tutors give feedback on each draft until it meets the examiner brief and shows the right working depth." },
+  { q: "Do you tutor electrical engineering?",                                                a: "Yes. Electrical and electronic engineering is covered for BTEC Engineering and A-Level Electronics, from circuit analysis and signals to the maths behind them, with each circuit drawn and solved step by step." },
   { q: "Do tutors cover CAD and technical drawing skills?",                                    a: "Yes. CAD basics, isometric drawing, and orthographic projection are covered with clear standards and examples ready for paper and screen work." },
   { q: "How do you help students who struggle with calculation-heavy questions?",              a: "Calculation-heavy questions need clean setup, careful unit handling, and step-by-step working. Tutors slow that working down until every step feels obvious every time." },
   { q: "How will parents see real progress in engineering work?",                              a: "Cleaner working, neater diagrams, and stronger reports usually appear first. Parents notice the shift well before the next school assessment arrives." },
@@ -422,8 +423,8 @@ const data: SubjectPageProps = {
 
   floatingIcon: <Wrench className="h-4 w-4" />,
   seo: {
-    title: "Engineering Tutors UAE | A-Level & University | Ustaad",
-    description: "Expert private Engineering tutoring in Dubai & Abu Dhabi. IGCSE, A-Level & BTEC. Mechanical, electrical, civil & drawing support.",
+    title: "Engineering Tutor UAE | Online A-Level & BTEC | Ustaad",
+    description: "Online 1-to-1 engineering tutor for A-Level and BTEC students across the UAE: mechanical, electrical and electronic, civil, maths and CAD.",
     canonical: "/engineering",
     schema: [
       localBusinessSchema,

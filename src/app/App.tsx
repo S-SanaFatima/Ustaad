@@ -174,8 +174,8 @@ const FAQ_ITEMS: { q: string; a: React.ReactNode; aText: string }[] = [
   },
   {
     q: 'Which curriculums and exam boards does Ustaad cover?',
-    a: <>We cover every major international curriculum taught in the UAE — IGCSE, GCSE, A-Level (Edexcel, Cambridge, AQA), IB (MYP and DP SL/HL), American Curriculum (AP, SAT, Common Core), and more. <a href="/curriculum" className="text-[#0f4a9b] font-medium hover:underline">Explore each curriculum in detail →</a></>,
-    aText: 'We cover every major international curriculum taught in the UAE — IGCSE, GCSE, A-Level (Edexcel, Cambridge, AQA), IB (MYP and DP SL/HL), American Curriculum (AP, SAT, Common Core), and more.',
+    a: <>We cover every major international curriculum taught in the UAE — IGCSE, GCSE, A-Level (Edexcel, Cambridge, AQA), IB (MYP and DP SL/HL), American Curriculum (AP and Common Core), and more. <a href="/curriculum" className="text-[#0f4a9b] font-medium hover:underline">Explore each curriculum in detail →</a></>,
+    aText: 'We cover every major international curriculum taught in the UAE — IGCSE, GCSE, A-Level (Edexcel, Cambridge, AQA), IB (MYP and DP SL/HL), American Curriculum (AP and Common Core), and more.',
   },
   {
     q: 'Can I get a tutor who has actually taught at a UAE school?',
@@ -205,8 +205,8 @@ const FAQ_ITEMS: { q: string; a: React.ReactNode; aText: string }[] = [
 ];
 
 const homepageSEO = {
-  title: "Private Tutors UAE | IGCSE, IB & A-Level | Ustaad",
-  description: "Trusted private tutors in the UAE for IGCSE, A-Level, IB, and American curriculum students. Online 1-to-1 across all emirates. Free 15-min orientation with the first lesson.",
+  title: "Private Tutors in UAE | IGCSE, A-Level, IB & AP | Ustaad",
+  description: "Online tutoring for UAE families: private tutors for IGCSE, GCSE, A-Level, IB and AP, live 1-to-1 in every emirate. Free 15-min orientation.",
   canonical: "/",
   ogImage: "/UpdatedImages/private-tutor-student-1-to-1-session-uae.webp",
   schema: [

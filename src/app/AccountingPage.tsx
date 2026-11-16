@@ -316,6 +316,7 @@ const accountingFAQs = [
   { q: "Can my child start accounting tutoring without prior bookkeeping experience?",      a: "Yes. Many students begin without prior bookkeeping. Tutors start with single-entry basics and build up to full double-entry over a few weeks." },
   { q: "How do tutors help students struggling with double-entry?",                         a: "Double-entry slips usually trace back to misunderstanding debit and credit rules. Tutors slow that foundation down until the rule feels obvious every time." },
   { q: "Do you cover ratio analysis and interpretation properly?",                          a: "Yes. Profitability, liquidity, and gearing ratios are covered formula by formula, with each result interpreted in plain language ready for the answer paper." },
+  { q: "Do you have accounting tutors for students in Dubai?",                              a: "Yes. Lessons are live online and 1-to-1, so students in Dubai, Abu Dhabi and every other emirate are matched with an accounting tutor who knows their syllabus, such as Cambridge IGCSE 0452 or A-Level 9706, without travelling." },
   { q: "How will parents see real progress in accounting?",                                 a: "Cleaner workings, tidier statements, and stronger interpretation paragraphs are the first signs. Parents notice the shift before the next school assessment." },
   { q: "Do tutors help with sample-paper marking and feedback?",                            a: "Yes. Past papers and sample papers are marked together so your child sees exactly where marks were gained or lost on each question part." },
 ];
@@ -416,8 +417,8 @@ const data: SubjectPageProps = {
 
   floatingIcon: <ClipboardCheck className="h-4 w-4" />,
   seo: {
-    title: "Accounting Tutors UAE | IGCSE & A-Level | Ustaad",
-    description: "Expert private Accounting tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level Accounting. Double-entry, financial statements, ratio analysis. Free 15-min orientation with the first lesson.",
+    title: "Accounting Tutor Dubai & UAE | IGCSE & A-Level | Ustaad",
+    description: "Online accounting tutor for IGCSE and A-Level students in Dubai, Abu Dhabi and across the UAE: double-entry, final accounts and ratio analysis.",
     canonical: "/accounting",
     schema: [
       localBusinessSchema,

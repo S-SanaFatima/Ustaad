@@ -3,7 +3,7 @@
 
 export const ROUTES = [
   // Core Pages
-  { path: '/', component: 'App', priority: 1.0, changefreq: 'weekly', lastmod: '2026-07-28' },
+  { path: '/', component: 'App', priority: 1.0, changefreq: 'weekly', lastmod: '2026-11-16' },
   { path: '/about', component: 'AboutPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/contact', component: 'ContactPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/tutors', component: 'TutorsPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-07-28' },
@@ -30,22 +30,22 @@ export const ROUTES = [
   { path: '/dp-sl', component: 'DPSLPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/dp-hl', component: 'DPHLPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/american-curriculum', component: 'AmericanCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/ap', component: 'APPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-10-07' },
+  { path: '/ap', component: 'APPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/middle-school', component: 'MiddleSchoolPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/high-school', component: 'HighSchoolPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
 
   // Subjects
-  { path: '/maths', component: 'MathsPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/physics', component: 'PhysicsPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/chemistry', component: 'ChemistryPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
+  { path: '/maths', component: 'MathsPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-11-16' },
+  { path: '/physics', component: 'PhysicsPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-16' },
+  { path: '/chemistry', component: 'ChemistryPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/biology', component: 'BiologyPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/english', component: 'EnglishPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
+  { path: '/english', component: 'EnglishPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/economics', component: 'EconomicsPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/business', component: 'BusinessPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/accounting', component: 'AccountingPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/finance', component: 'FinancePage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
+  { path: '/accounting', component: 'AccountingPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-11-16' },
+  { path: '/finance', component: 'FinancePage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/statistics', component: 'StatisticsPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/engineering', component: 'EngineeringPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
+  { path: '/engineering', component: 'EngineeringPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/sciences', component: 'SciencesPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
 
   // Other
@@ -71,7 +71,7 @@ export const ROUTES = [
   { path: '/blogs/igcse-preparation-past-papers-final-step', component: 'IGCSEPreparationPastPapersBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-27' },
   { path: '/blogs/gcse-revision-tips-uae-parents', component: 'GCSERevisionTipsParentsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-08-31' },
   { path: '/blogs/mock-exams-uae-not-what-they-were', component: 'MockExamsUAEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-14' },
-  { path: '/blogs/what-does-gradient-mean-maths-physics', component: 'WhatDoesGradientMeanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-06' },
+  { path: '/blogs/what-does-gradient-mean-maths-physics', component: 'WhatDoesGradientMeanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/blogs/illusion-of-competence-revision-false-confidence', component: 'IllusionOfCompetenceBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-21' },
   { path: '/blogs/command-words-igcse-a-level-exams', component: 'CommandWordsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-25' },
   { path: '/blogs/sleep-and-memory-why-all-nighters-backfire', component: 'SleepAndMemoryBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-28' },
@@ -101,7 +101,7 @@ export const ROUTES = [
   { path: '/ib-tutor-abu-dhabi', component: 'IBTutorAbuDhabiPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-25' },
   { path: '/igcse-tutor-abu-dhabi', component: 'IGCSETutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-07-28' },
   { path: '/gcse-tutor-abu-dhabi', component: 'GCSETutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-12' },
-  { path: '/gcse-tutor-dubai', component: 'GCSETutorDubaiLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-02' },
+  { path: '/gcse-tutor-dubai', component: 'GCSETutorDubaiLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/igcse-tutor-dubai', component: 'IgcseTutorDubaiLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-09-09' },
   { path: '/a-level-tutor-dubai', component: 'ALevelTutorDubaiPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-10-07' },
   { path: '/a-level-tutor-abu-dhabi', component: 'ALevelTutorLanding', priority: 0.90, changefreq: 'monthly', lastmod: '2026-08-19' },

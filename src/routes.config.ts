@@ -22,8 +22,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/',
     component: 'App',
     seo: {
-      title: 'Private Tutors UAE | IGCSE, A-Level, IB & AP | Ustaad',
-      description: 'Expert 1-to-1 private tutoring across UAE for IGCSE, GCSE, A-Level, IB, AP & SAT. Serving Dubai, Abu Dhabi, Sharjah & all Emirates since 2015.',
+      title: 'Private Tutors in UAE | IGCSE, A-Level, IB & AP | Ustaad',
+      description: 'Online tutoring for UAE families: private tutors for IGCSE, GCSE, A-Level, IB and AP, live 1-to-1 in every emirate. Free 15-min orientation.',
       priority: 1.0,
       changefreq: 'weekly'
     },
@@ -231,8 +231,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/ap',
     component: 'APPage',
     seo: {
-      title: 'AP Tutors in Dubai & Abu Dhabi | AP Exam Prep UAE | Ustaad',
-      description: 'Online 1-to-1 AP tutors for Statistics, Physics, Chemistry, Biology and Economics. AP classes and exam prep through to May. Free 15-min orientation with the first lesson.',
+      title: 'AP Tutoring in Dubai & Abu Dhabi | AP Exam Prep | Ustaad',
+      description: 'Online 1-to-1 AP tutoring for Calculus, Statistics, Physics, Chemistry, Biology and Economics, with exam prep through to May. Free 15-min orientation.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -266,8 +266,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/maths',
     component: 'MathsPage',
     seo: {
-      title: 'Maths Tutors UAE | IGCSE, A-Level, IB & AP | Ustaad',
-      description: 'Expert private Maths tutoring in Dubai & Abu Dhabi. IGCSE, A-Level, IB & AP Mathematics. Algebra, Calculus & Statistics. Book your first session.',
+      title: 'Maths Tutor UAE | Online IGCSE, A-Level, IB & AP | Ustaad',
+      description: 'Find a maths tutor for IGCSE, GCSE, A-Level, IB or AP Calculus. Live online 1-to-1 maths tuition across the UAE, with a free 15-min orientation.',
       priority: 0.95,
       changefreq: 'monthly'
     },
@@ -277,8 +277,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/physics',
     component: 'PhysicsPage',
     seo: {
-      title: 'Physics Tutors UAE | IGCSE, A-Level, IB & AP | Ustaad',
-      description: 'Online 1-to-1 physics tutoring for students across the UAE, from IGCSE and GCSE to A-Level, IB and AP. 15-min orientation with your first lesson.',
+      title: 'Physics Tutor UAE | Online IGCSE, A-Level, IB & AP | Ustaad',
+      description: 'Find a physics tutor for IGCSE, GCSE, A-Level, IB or AP Physics. Live online 1-to-1 lessons across the UAE, with a free 15-min orientation.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -288,8 +288,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/chemistry',
     component: 'ChemistryPage',
     seo: {
-      title: 'Chemistry Tutors UAE | IGCSE, A-Level, IB Chemistry — Ustaad',
-      description: 'Expert private Chemistry tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Chemistry. Organic, Inorganic, Physical. Lab prep. Book your first session.',
+      title: 'Chemistry Tuition UAE | IGCSE, A-Level, IB & AP | Ustaad',
+      description: 'Online 1-to-1 chemistry tuition for IGCSE, GCSE, A-Level, IB SL/HL and AP Chemistry students across the UAE. Free 15-min orientation.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -310,8 +310,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/english',
     component: 'EnglishPage',
     seo: {
-      title: 'English Tutors UAE | IGCSE, A-Level, IB English — Ustaad',
-      description: 'Expert private English tutoring in Dubai & Abu Dhabi. IGCSE, A-Level & IB English Language & Literature. Essay writing & analysis technique.',
+      title: 'English Tutor UAE | British English, IGCSE & IB | Ustaad',
+      description: 'Online 1-to-1 English tutor for British-curriculum IGCSE, GCSE and A-Level, plus IB and AP English, Language and Literature, across the UAE.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -343,8 +343,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/accounting',
     component: 'AccountingPage',
     seo: {
-      title: 'Accounting Tutors UAE | IGCSE & A-Level | Ustaad',
-      description: 'Expert private Accounting tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Accounting. Financial, Management, Cost accounting. Book your first session.',
+      title: 'Accounting Tutor Dubai & UAE | IGCSE & A-Level | Ustaad',
+      description: 'Online accounting tutor for IGCSE and A-Level students in Dubai, Abu Dhabi and across the UAE: double-entry, final accounts and ratio analysis.',
       priority: 0.8,
       changefreq: 'monthly'
     },
@@ -354,8 +354,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/finance',
     component: 'FinancePage',
     seo: {
-      title: 'Finance Tutors UAE | A-Level, IB & University | Ustaad',
-      description: 'Expert private Finance tutoring in Dubai, Abu Dhabi & UAE. A-Level, IB, University Finance. Corporate finance, Investment, Financial markets. Book your first session.',
+      title: 'Finance Tutor UAE | A-Level, IB & University | Ustaad',
+      description: 'Online 1-to-1 finance tutor for students in Dubai, Abu Dhabi and across the UAE: A-Level, IB and university finance. Free 15-min orientation.',
       priority: 0.8,
       changefreq: 'monthly'
     },
@@ -376,8 +376,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/engineering',
     component: 'EngineeringPage',
     seo: {
-      title: 'Engineering Tutors UAE | A-Level & University | Ustaad',
-      description: 'Expert private Engineering tutoring in Dubai, Abu Dhabi & UAE. A-Level, University Engineering. Mechanical, Electrical, Civil fundamentals. Book your first session.',
+      title: 'Engineering Tutor UAE | Online A-Level & BTEC | Ustaad',
+      description: 'Online 1-to-1 engineering tutor for A-Level and BTEC students across the UAE: mechanical, electrical and electronic, civil, maths and CAD.',
       priority: 0.8,
       changefreq: 'monthly'
     },
@@ -595,8 +595,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/blogs/what-does-gradient-mean-maths-physics',
     component: 'WhatDoesGradientMeanBlog',
     seo: {
-      title: 'What Does Gradient Mean? Maths & Physics Explained | Ustaad',
-      description: 'A Maths and Physics teacher explains what the gradient number actually tells you, not just how to calculate it, across straight-line graphs, distance-time and velocity-time graphs.',
+      title: 'What Is Gradient? Meaning in Maths & Physics | Ustaad',
+      description: 'What is gradient? The rate of change: how much y changes per unit of x. A teacher explains it on straight-line, distance-time and velocity-time graphs.',
       priority: 0.9,
       changefreq: 'monthly',
       lastmod: '2026-09-18'
@@ -735,8 +735,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/gcse-tutor-dubai',
     component: 'GCSETutorDubaiLanding',
     seo: {
-      title: 'GCSE Tutor Dubai | AQA, Edexcel & OCR | Ustaad',
-      description: 'Expert online GCSE tutors in Dubai. AQA, Edexcel & OCR specialists. Private 1-to-1, recorded lessons. Book your first session. Trusted UAE families since 2015.',
+      title: 'GCSE Tutor Dubai | GCSE Tuition, AQA, Edexcel & OCR | Ustaad',
+      description: 'Online GCSE tutors in Dubai for AQA, Edexcel and OCR: private 1-to-1 GCSE tuition with recorded lessons. Free 15-min orientation with the first lesson.',
       priority: 0.90,
       changefreq: 'monthly'
     },

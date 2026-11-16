@@ -298,6 +298,7 @@ const physicsFAQs = [
   { q: "How do you help students who freeze in physics exams?",           a: "Exam freeze in physics usually links to past papers. We work through real questions in low-pressure settings until the format feels familiar." },
   { q: "Do tutors prepare students for tough exam-day pressure?",         a: "Yes. Exam-day routines, timed practice, and simple breathing techniques become part of the lead-up to every major paper." },
   { q: "Do tutors give short physics tasks between lessons?",             a: "Yes. Short practice tasks are set between lessons so new habits become routine before the next session begins." },
+  { q: "Do you have tutors for AP Physics?",                            a: "Yes. AP Physics students are matched with a tutor who knows the College Board course they are taking, covers its units in the school's order, and builds up to the May exam with timed free-response practice." },
   { q: "How do you adapt physics tutoring for advanced students?",        a: "Advanced students get harder past papers, stretching synoptic questions, and exam-board specific A-star essays for the longer answers." },
 ];
 
@@ -432,8 +433,8 @@ const data: SubjectPageProps = {
 
   floatingIcon: <Atom className="h-4 w-4" />,
   seo: {
-    title: "Physics Tutors UAE | IGCSE, A-Level, IB & AP | Ustaad",
-    description: "Online 1-to-1 physics tutoring for students across the UAE, from IGCSE and GCSE to A-Level, IB and AP. 15-min orientation with your first lesson.",
+    title: "Physics Tutor UAE | Online IGCSE, A-Level, IB & AP | Ustaad",
+    description: "Find a physics tutor for IGCSE, GCSE, A-Level, IB or AP Physics. Live online 1-to-1 lessons across the UAE, with a free 15-min orientation.",
     canonical: "/physics",
     schema: [
       localBusinessSchema,

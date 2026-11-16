@@ -1554,9 +1554,9 @@ export default function MathsTutorDubaiPage() {
             note: 'Moles calculations, stoichiometry, and kinetics support in Dubai.'
           },
           {
-            label: 'Maths Subject Hub',
+            label: 'Online Maths Tutor, all UAE',
             href: '/maths',
-            note: 'Comprehensive overview of maths faculty and curriculum tracks.'
+            note: 'Maths tutoring for every curriculum and level, for students in any emirate.'
           },
         ]}
         curricula={[

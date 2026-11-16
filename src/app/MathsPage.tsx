@@ -19,6 +19,46 @@ const C = "h-6 w-6 text-[#0f4a9b]";
 const P = "h-7 w-7 text-white";
 const R = "h-7 w-7 text-white";
 
+// FAQ data
+const mathFAQs = [
+  {
+    q: "Which school boards and curricula do your specialists cover?",
+    a: "Our specialists know the marking schemes of major international systems in depth. We cover Pearson Edexcel, Cambridge CIE, AQA, and OCR across GCSE, IGCSE, and A-Level routes, plus the IB Diploma Programme (AA and AI) and Advanced Placement (AP Calculus AB and BC)."
+  },
+  {
+    q: "How do you support students preparing for IGCSE vs GCSE exams?",
+    a: "IGCSE papers demand quick algebraic manipulation, while domestic GCSE papers lean on multi-step word problems. For IGCSE or GCSE, we target the exact calculation habits each paper rewards."
+  },
+  {
+    q: "What is the main difference between IB Maths AA and IB Maths AI?",
+    a: "Analysis & Approaches (AA) leans on abstract derivation and calculus fluency. Applications & Interpretation (AI) leans on calculator-driven data modelling. An IB-trained specialist helps your child close the operational gaps unique to their level and pathway."
+  },
+  {
+    q: "How do you help students move into advanced levels?",
+    a: "Advanced tracks such as AP Calculus or A-Level demand a big jump in independent calculation stamina. Families preparing for A-Level find our diagnostic surfaces hidden gaps from earlier years before real pressure builds."
+  },
+  {
+    q: "Can my child use a graphic display calculator (GDC) in assessments?",
+    a: "Yes, though leaning on the calculator often makes a student skip critical written lines. We train students to use models like the TI-84 Plus or Casio fx-CG50 as verification tools, so the written script still contains every step the examiner needs to award full credit."
+  },
+  {
+    q: "Are Ustaad mathematics sessions online?",
+    a: "Yes. Every maths session is live, online and 1-to-1, for families in every emirate."
+  },
+  {
+    q: "Is there a maths tutor near me, or do lessons only happen online?",
+    a: "Lessons are online, so where you live does not limit the choice of tutor. A student in Al Ain, Sharjah or Ras Al Khaimah gets the same maths specialist as a student in Dubai, matched to the exact exam board and level, with no travel time on either side."
+  },
+  {
+    q: "What are the rates for a private mathematics tutor in Dubai?",
+    a: "Rates depend on your child's academic level, from early secondary foundations to advanced university-track pathways requiring a specialist curriculum expert. Our academic advisors design packages aligned to your family's milestone goals."
+  },
+  {
+    q: "How quickly can my child be matched with a mathematics tutor?",
+    a: "We match your child with a curriculum-specific expert within 24 to 48 hours. The process opens with a script review of recent school papers so the operational gap is mapped, and a confidence-recovery plan is in place from day one."
+  }
+];
+
 const data: SubjectPageProps = {
   badgeIcon:    <Calculator className="h-4 w-4" />,
   heroBadgeLabel: "Mathematics Specialist",
@@ -84,18 +124,14 @@ const data: SubjectPageProps = {
   ],
   floatingIcon: <Calculator className="h-4 w-4" />,
   seo: {
-    title: "Maths Tutors UAE | IGCSE, A-Level, IB & AP | Ustaad",
-    description: "Expert private Maths tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB AA/AI, AP Calculus. 1-to-1 sessions, proven results. Free 15-min orientation with the first lesson.",
+    title: "Maths Tutor UAE | Online IGCSE, A-Level, IB & AP | Ustaad",
+    description: "Find a maths tutor for IGCSE, GCSE, A-Level, IB or AP Calculus. Live online 1-to-1 maths tuition across the UAE, with a free 15-min orientation.",
     canonical: "/maths",
     schema: [
       localBusinessSchema,
       serviceSchema("Private Mathematics Tutoring UAE", "Expert 1-to-1 Maths tutoring for IGCSE, GCSE, A-Level, IB, and AP students across UAE.", "/maths"),
       breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Subjects", url: "/subjects" }, { name: "Mathematics", url: "/maths" }]),
-      faqSchema([
-        { q: "What Maths levels do you tutor in UAE?", a: "We cover all levels: IGCSE, GCSE, A-Level (Pure, Stats, Mechanics), IB AA SL/HL, IB AI SL/HL, AP Calculus AB/BC, and Further Mathematics." },
-        { q: "How do you help students who struggle with Maths?", a: "We diagnose exact topic gaps, rebuild from foundations, and build method clarity so students solve problems independently, not by memorising steps." },
-        { q: "Are Ustaad mathematics sessions online?", a: "Yes. Every maths session is live, online and 1-to-1, for families in every emirate." },
-      ]),
+      faqSchema(mathFAQs),
     ],
   },
 };
@@ -555,41 +591,6 @@ const customResultsSection = (
   </section>
 );
 
-// FAQ data
-const mathFAQs = [
-  {
-    q: "Which school boards and curricula do your specialists cover?",
-    a: "Our specialists know the marking schemes of major international systems in depth. We cover Pearson Edexcel, Cambridge CIE, AQA, and OCR across GCSE, IGCSE, and A-Level routes, plus the IB Diploma Programme (AA and AI) and Advanced Placement (AP Calculus AB and BC)."
-  },
-  {
-    q: "How do you support students preparing for IGCSE vs GCSE exams?",
-    a: "IGCSE papers demand quick algebraic manipulation, while domestic GCSE papers lean on multi-step word problems. For IGCSE or GCSE, we target the exact calculation habits each paper rewards."
-  },
-  {
-    q: "What is the main difference between IB Maths AA and IB Maths AI?",
-    a: "Analysis & Approaches (AA) leans on abstract derivation and calculus fluency. Applications & Interpretation (AI) leans on calculator-driven data modelling. An IB-trained specialist helps your child close the operational gaps unique to their level and pathway."
-  },
-  {
-    q: "How do you help students move into advanced levels?",
-    a: "Advanced tracks such as AP Calculus or A-Level demand a big jump in independent calculation stamina. Families preparing for A-Level find our diagnostic surfaces hidden gaps from earlier years before real pressure builds."
-  },
-  {
-    q: "Can my child use a graphic display calculator (GDC) in assessments?",
-    a: "Yes, though leaning on the calculator often makes a student skip critical written lines. We train students to use models like the TI-84 Plus or Casio fx-CG50 as verification tools, so the written script still contains every step the examiner needs to award full credit."
-  },
-  {
-    q: "Are Ustaad mathematics sessions online?",
-    a: "Yes. Every maths session is live, online and 1-to-1, for families in every emirate."
-  },
-  {
-    q: "What are the rates for a private mathematics tutor in Dubai?",
-    a: "Rates depend on your child's academic level, from early secondary foundations to advanced university-track pathways requiring a specialist curriculum expert. Our academic advisors design packages aligned to your family's milestone goals."
-  },
-  {
-    q: "How quickly can my child be matched with a mathematics tutor?",
-    a: "We match your child with a curriculum-specific expert within 24 to 48 hours. The process opens with a script review of recent school papers so the operational gap is mapped, and a confidence-recovery plan is in place from day one."
-  }
-];
 
 // FAQ Component - matching MathematicsLanding.tsx design exactly
 const FAQSection = () => {

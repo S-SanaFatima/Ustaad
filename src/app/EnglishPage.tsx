@@ -346,6 +346,7 @@ const englishFAQs = [
   { q: "How do you help students preparing for unseen text questions?",               a: "Unseen text questions need a fast reading routine and a clear method. We practise both with past papers until the unseen feels familiar." },
   { q: "How does the tutor review essays the student writes between lessons?",        a: "The tutor marks every essay against the exact mark scheme, then talks through the feedback in the next session so your child sees exactly where marks were lost or gained." },
   { q: "Do tutors set short writing tasks between lessons?",                          a: "Yes. Short writing tasks keep the habits fresh and give the tutor real work to review in the next session." },
+  { q: "Do you teach British English?",                                        a: "Yes. Tutoring follows the British curriculum, so students practise British spelling, grammar and punctuation and write for UK mark schemes such as Cambridge IGCSE 0500, Edexcel 4EA1 and AQA GCSE 8700. IB and AP students are taught to their own course requirements." },
   { q: "How do you tailor English tutoring to different exam boards?",                a: "The tutor is matched to your child's exact board (Cambridge, Edexcel, AQA, OCR, IB English A, AP English) so the style and mark scheme always fit." },
 ];
 
@@ -445,8 +446,8 @@ const data: SubjectPageProps = {
 
   floatingIcon: <BookOpen className="h-4 w-4" />,
   seo: {
-    title: "English Tutors UAE | IGCSE, A-Level, IB English | Ustaad",
-    description: "Expert private English tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB English Language & Literature, AP English. 1-to-1 sessions, proven results.",
+    title: "English Tutor UAE | British English, IGCSE & IB | Ustaad",
+    description: "Online 1-to-1 English tutor for British-curriculum IGCSE, GCSE and A-Level, plus IB and AP English, Language and Literature, across the UAE.",
     canonical: "/english",
     schema: [
       localBusinessSchema,

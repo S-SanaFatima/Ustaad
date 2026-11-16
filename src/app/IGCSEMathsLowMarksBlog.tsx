@@ -556,7 +556,8 @@ export default function IGCSEMathsLowMarksBlog() {
             <p>Platforms like Ustaad are becoming increasingly relevant for UAE families because the approach focuses more on diagnostic learning, behavioural understanding, and concept clarity instead of simply increasing worksheet volume.</p>
             <p>For Abu Dhabi families looking for this kind of focused, concept-led support, Ustaad's{' '}
               <a href="/maths-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">maths tutoring in Abu Dhabi</a>{' '}
-              is built around exactly these principles.</p>
+              is built around exactly these principles. Students in other emirates can work the same way with an online{' '}
+              <a href="/maths" className="text-[#0f4a9b] font-semibold hover:underline">maths tutor</a>.</p>
             <p>And in many cases, that shift changes far more than marks alone. It changes how students experience the subject emotionally.</p>
 
             {/* 08 */}

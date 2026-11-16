@@ -390,8 +390,8 @@ const data: SubjectPageProps = {
 
   floatingIcon: <DollarSign className="h-4 w-4" />,
   seo: {
-    title: "Finance Tutors UAE | A-Level, IB & University | Ustaad",
-    description: "Expert private Finance tutoring in Dubai, Abu Dhabi & UAE. A-Level, IB, and university-level Finance. 1-to-1 sessions with expert tutors. Free 15-min orientation with the first lesson.",
+    title: "Finance Tutor UAE | A-Level, IB & University | Ustaad",
+    description: "Online 1-to-1 finance tutor for students in Dubai, Abu Dhabi and across the UAE: A-Level, IB and university finance. Free 15-min orientation.",
     canonical: "/finance",
     schema: [localBusinessSchema, serviceSchema("Private Finance Tutoring UAE", "1-to-1 Finance tutoring for A-Level, IB, and university students across UAE.", "/finance"), breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Subjects", url: "/subjects" }, { name: "Finance", url: "/finance" }]), faqSchema(financeFAQs)],
   },
