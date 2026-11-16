@@ -139,6 +139,7 @@ export const AUTHORS: Author[] = [
     photoAlt: 'Ustaad Subject Specialists contributing Maths, Science and English guidance for UAE families',
     linkedIn: 'https://www.linkedin.com/company/ustaad-ae',
     articles: [
+      { title: 'IB Exams and Grade Boundaries Explained: How 1–7 Grades, 45 Points and Predicted Grades Work', href: '/blogs/ib-exams-grade-boundaries-uae', role: 'authored' },
       { title: 'How to Read an Examiner Report for IGCSE, A-Level and IB', href: '/blogs/how-to-read-examiner-reports-igcse-a-level', role: 'authored' },
       { title: 'What Does the Gradient Actually Mean? A Teacher Explains It from Maths to Physics', href: '/blogs/what-does-gradient-mean-maths-physics', role: 'authored' },
       { title: 'IGCSE Physics Formulas for Exams', href: '/blogs/igcse-physics-formulas-exam', role: 'authored' },

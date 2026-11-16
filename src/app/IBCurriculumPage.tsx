@@ -16,8 +16,8 @@ const ibSchemaFaqs = [
   { q: "How does Ustaad help students manage IB workload?", a: "Tutors build term-by-term plans around mock dates, IA deadlines, EE drafts, and TOK milestones." },
   { q: "Which IB subjects does Ustaad support?", a: "Mathematics (AA and AI), Physics, Chemistry, Biology, English, and Economics across SL and HL." },
   { q: "Does Ustaad support TOK essays and CAS reflection?", a: "Yes. TOK essay planning and CAS reflection writing are covered separately from subject tutoring." },
-  { q: "Is the IB Diploma recognised by UAE universities?", a: "Yes. Most UAE universities accept the IB Diploma; minimum points and subject requirements vary by university." },
-  { q: "Does Ustaad support IB students across the UAE?", a: "Yes. Students across all seven emirates are supported online and at home." },
+  { q: "Is the IB Diploma recognised by UAE universities?", a: "Yes. Most UAE universities accept the IB Diploma; minimum points and subject requirements vary by university. Our guide to IB exams and grade boundaries explains how the 45 points are calculated." },
+  { q: "Does Ustaad support IB students across the UAE?", a: "Yes. Lessons are online and 1-to-1, so students in all seven emirates are supported." },
 ];
 
 export default function IBCurriculumPage() {
@@ -29,8 +29,8 @@ export default function IBCurriculumPage() {
     { q: "How does Ustaad help students manage IB workload?", a: "Tutors build term-by-term plans around mock dates, IA deadlines, EE drafts, and TOK milestones." },
     { q: "Which IB subjects does Ustaad support?", a: <><a href="/maths" className="text-[#0f4a9b] font-semibold underline">Mathematics</a> (AA and AI), <a href="/physics" className="text-[#0f4a9b] font-semibold underline">Physics</a>, <a href="/chemistry" className="text-[#0f4a9b] font-semibold underline">Chemistry</a>, <a href="/biology" className="text-[#0f4a9b] font-semibold underline">Biology</a>, <a href="/english" className="text-[#0f4a9b] font-semibold underline">English</a>, and <a href="/economics" className="text-[#0f4a9b] font-semibold underline">Economics</a> across SL and HL.</> },
     { q: "Does Ustaad support TOK essays and CAS reflection?", a: <>Yes. <a href="/exam-preparation" className="text-[#0f4a9b] font-semibold underline">TOK essay planning and CAS reflection writing</a> are covered separately from subject tutoring.</> },
-    { q: "Is the IB Diploma recognised by UAE universities?", a: "Yes. Most UAE universities accept the IB Diploma; minimum points and subject requirements vary by university." },
-    { q: "Does Ustaad support IB students across the UAE?", a: <>Yes. Students across all seven emirates are supported online and at home. Looking for dedicated tuition in Dubai? See our specialist <a href="/ib-tutor-dubai" className="text-[#0f4a9b] font-semibold underline">IB tutors in Dubai</a>.</> },
+    { q: "Is the IB Diploma recognised by UAE universities?", a: <>Yes. Most UAE universities accept the IB Diploma; minimum points and subject requirements vary by university. Our guide to <a href="/blogs/ib-exams-grade-boundaries-uae" className="text-[#0f4a9b] font-semibold underline">IB exams and grade boundaries</a> explains how the 45 points are calculated.</> },
+    { q: "Does Ustaad support IB students across the UAE?", a: <>Yes. Lessons are online and 1-to-1, so students in all seven emirates are supported. Looking for dedicated tuition in Dubai? See our specialist <a href="/ib-tutor-dubai" className="text-[#0f4a9b] font-semibold underline">IB tutors in Dubai</a>.</> },
   ];
   return (
     <Layout>
@@ -443,15 +443,14 @@ export default function IBCurriculumPage() {
                         </span>
                       </button>
                     </div>
-                    {isOpen && (
-                      <div className="ml-[56px] flex items-start gap-3 rounded-2xl border p-4"
-                        style={{ background:'#f8fafc', borderColor:'rgba(15,74,155,0.15)', boxShadow:'0 4px 16px rgba(15,74,155,0.06)' }}>
-                        <p className="flex-1 text-gray-600 text-[13px] leading-relaxed">{faq.a}</p>
-                        <span style={{ width:32, height:32, background:'#0f4a9b', color:'#fff', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 }}>
-                          <MessageCircle className="h-4 w-4" />
-                        </span>
-                      </div>
-                    )}
+                    {/* Always in the HTML (indexable); shown when open */}
+                    <div hidden={!isOpen} className="ml-[56px] flex items-start gap-3 rounded-2xl border p-4"
+                      style={{ background:'#f8fafc', borderColor:'rgba(15,74,155,0.15)', boxShadow:'0 4px 16px rgba(15,74,155,0.06)' }}>
+                      <p className="flex-1 text-gray-600 text-[13px] leading-relaxed">{faq.a}</p>
+                      <span style={{ width:32, height:32, background:'#0f4a9b', color:'#fff', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 }}>
+                        <MessageCircle className="h-4 w-4" />
+                      </span>
+                    </div>
                   </div>
                 );
               })}

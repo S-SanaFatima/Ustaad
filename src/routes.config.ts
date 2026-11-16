@@ -1159,6 +1159,19 @@ export const ROUTES: RouteConfig[] = [
     ]
   },
   {
+    path: '/blogs/ib-exams-grade-boundaries-uae',
+    component: 'IBExamsGradeBoundariesBlog',
+    seo: {
+      title: 'IB Exams and Grade Boundaries: UAE Guide 2027 | Ustaad',
+      description: 'How IB exams are graded: the 1–7 scale, 45 points, how grade boundaries are set, predicted grades, results day and remarks, explained for UAE students.',
+      keywords: 'IB grade boundaries, IB exams, IB predicted grades, IB Diploma points, IB 45 points, IB passing score, IB results day 2027, IB exams UAE, IB remark',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-11-16'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' }, { name: 'IB Exams and Grade Boundaries', url: '/blogs/ib-exams-grade-boundaries-uae' }]
+  },
+  {
     path: '/blogs/what-is-igcse-full-form-meaning-uae',
     component: 'WhatIsIGCSEBlog',
     seo: {

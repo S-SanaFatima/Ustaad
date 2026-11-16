@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'ib-exams-grade-boundaries-uae',
+    image: '/images/blogs/ib-exams-grade-boundaries-uae-hero.webp',
+    alt: 'IB Diploma points explained: six subjects graded 1 to 7, plus 3 core points for TOK and the Extended Essay, for a maximum of 45 and 24 to pass',
+    category: 'Academic',
+    title: 'IB Exams and Grade Boundaries Explained: How 1–7 Grades, 45 Points and Predicted Grades Work for UAE Students',
+    description: 'How IB papers become a 1–7 grade and a score out of 45, why grade boundaries move every session, predicted grades, results day and remarks.',
+    date: '16 Nov 2026',
+    readTime: '8 min read',
+    author: 'Ustaad Subject Specialists',
+    featured: true,
+  },
+  {
     slug: 'what-is-igcse-full-form-meaning-uae',
     image: '/images/blogs/what-is-igcse-full-form-meaning-uae-hero.webp',
     alt: 'IGCSE full form spelled out letter by letter: International General Certificate of Secondary Education',

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import {
   Calendar,
   User,
@@ -650,21 +650,21 @@ export default function WhatIsIGCSEBlog() {
               const isOpen = openFaq === index;
               return (
                 <div key={index} className="border border-slate-200 rounded-2xl overflow-hidden transition-all bg-white">
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 font-bold text-[#0a1f3d] text-sm sm:text-base hover:bg-slate-50 transition cursor-pointer"
-                    aria-expanded={isOpen}
-                  >
-                    <span>{faq.q}</span>
-                    <ChevronDown className={`w-4 h-4 text-[#0f4a9b] transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
-                        <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100">{faq.a}</div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <h3 className="m-0">
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : index)}
+                      className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 font-bold text-[#0a1f3d] text-sm sm:text-base hover:bg-slate-50 transition cursor-pointer"
+                      aria-expanded={isOpen}
+                      aria-controls={`igcse-faq-${index}`}
+                    >
+                      <span>{faq.q}</span>
+                      <ChevronDown className={`w-4 h-4 text-[#0f4a9b] transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                  </h3>
+                  {/* Always in the HTML (indexable); shown when open */}
+                  <div id={`igcse-faq-${index}`} hidden={!isOpen} className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100">
+                    {faq.a}
+                  </div>
                 </div>
               );
             })}

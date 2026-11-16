@@ -61,6 +61,7 @@ import ChatGPTForStudyingBlog from "./app/ChatGPTForStudyingBlog.tsx";
 import AreaUnderGraphBlog from "./app/AreaUnderGraphBlog.tsx";
 import ChooseIGCSESubjectsBlog from "./app/ChooseIGCSESubjectsBlog.tsx";
 import WhatIsIGCSEBlog from "./app/WhatIsIGCSEBlog.tsx";
+import IBExamsGradeBoundariesBlog from "./app/IBExamsGradeBoundariesBlog.tsx";
 
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
 import MathsPage from "./app/MathsPage.tsx";
@@ -178,6 +179,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   AreaUnderGraphBlog,
   ChooseIGCSESubjectsBlog,
   WhatIsIGCSEBlog,
+  IBExamsGradeBoundariesBlog,
   IllusionOfCompetenceBlog,
   CommandWordsBlog,
   SleepAndMemoryBlog,

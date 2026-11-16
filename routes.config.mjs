@@ -25,7 +25,7 @@ export const ROUTES = [
   { path: '/igcse', component: 'IGCSEPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-11-13' },
   { path: '/gcse', component: 'GCSEPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/a-level', component: 'ALevelPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-10-12' },
-  { path: '/ib-curriculum', component: 'IBCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
+  { path: '/ib-curriculum', component: 'IBCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/myp', component: 'MYPPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/dp-sl', component: 'DPSLPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/dp-hl', component: 'DPHLPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
@@ -82,11 +82,12 @@ export const ROUTES = [
   { path: '/blogs/parent-teacher-meeting-questions-uae', component: 'ParentTeacherMeetingBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-16' },
   { path: '/blogs/maths-anxiety-teenagers-signs-causes-help', component: 'MathsAnxietyTeenagersBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-20' },
   { path: '/blogs/why-students-freeze-exam-questions-scaffolding-trap', component: 'WhyStudentsFreezeExamQuestionsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-23' },
-  { path: '/blogs/how-to-read-examiner-reports-igcse-a-level', component: 'HowToReadExaminerReportsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-26' },
+  { path: '/blogs/how-to-read-examiner-reports-igcse-a-level', component: 'HowToReadExaminerReportsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/blogs/winter-break-revision-plan-uae-students', component: 'WinterBreakRevisionPlanBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-30' },
   { path: '/blogs/chatgpt-for-studying-does-ai-hurt-memory', component: 'ChatGPTForStudyingBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-02' },
   { path: '/blogs/area-under-graph-meaning-physics-maths', component: 'AreaUnderGraphBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-11' },
-  { path: '/blogs/what-is-igcse-full-form-meaning-uae', component: 'WhatIsIGCSEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-13' },
+  { path: '/blogs/ib-exams-grade-boundaries-uae', component: 'IBExamsGradeBoundariesBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-16' },
+  { path: '/blogs/what-is-igcse-full-form-meaning-uae', component: 'WhatIsIGCSEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/blogs/how-to-choose-igcse-subjects-uae', component: 'ChooseIGCSESubjectsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-11' },
 
   // City × subject landings

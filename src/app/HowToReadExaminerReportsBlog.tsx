@@ -414,7 +414,8 @@ export default function HowToReadExaminerReportsBlog() {
             </SectionHeading>
 
             <p>
-              After each exam series, once papers are marked and grade boundaries set, the Principal Examiner for each paper writes a question-by-question review of how candidates performed. Cambridge calls it an examiner report, Pearson Edexcel an examiners&apos; report, and the IB a subject report.
+              After each exam series, once papers are marked and grade boundaries set, the Principal Examiner for each paper writes a question-by-question review of how candidates performed. Cambridge calls it an examiner report, Pearson Edexcel an examiners&apos; report, and the IB a subject report. (For how those boundaries are set in the IB, see our guide to{' '}
+              <a href="/blogs/ib-exams-grade-boundaries-uae" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">IB exams and grade boundaries</a>.)
             </p>
             <p>
               Many heads of department read these reports closely to see where their students slipped.
