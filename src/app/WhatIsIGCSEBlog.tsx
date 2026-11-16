@@ -52,7 +52,7 @@ const BLOG = {
     'IGCSE full form spelled out letter by letter: International General Certificate of Secondary Education',
   heroCaption: 'Five words, one qualification: the International General Certificate of Secondary Education.',
   datePublished: '2026-11-13',
-  dateModified: '2026-11-13',
+  dateModified: '2026-11-16',
   publishedText: '13 November 2026',
   author: 'Nimra Shahzada',
   authorRole: 'Writer on learning and the psychology of studying',
@@ -84,11 +84,11 @@ const FAQS = [
   },
   {
     q: 'Which grade is IGCSE equivalent to?',
-    a: 'IGCSE is usually completed at the end of Year 11, which is the same stage as Grade 10 in the American system and Grade 10 in the Indian CBSE system. It is a school-leaving level qualification, not a university-entry one: students normally go on to A-Levels, the IB Diploma or another post-16 course.',
+    a: 'IGCSE is usually completed at the end of Year 11, which is the same stage as Grade 10 in the American system and Grade 10 in the Indian CBSE system. It is a Year 11 qualification, not a university-entry one: students normally go on to A-Levels, the IB Diploma or another post-16 course.',
   },
   {
     q: 'How many subjects do students take at IGCSE?',
-    a: 'There is no fixed number. In UAE British-curriculum schools most students take between 7 and 10, including English, Maths and at least one science. Universities look more closely at the grades in relevant subjects than at the total count.',
+    a: 'There is no fixed number. In UAE British-curriculum schools most students take between 8 and 10, including English, Maths and at least one science. Universities look more closely at the grades in relevant subjects than at the total count.',
   },
   {
     q: 'Is IGCSE recognised in the UAE?',
@@ -276,7 +276,7 @@ function AtAGlance() {
   const items = [
     { icon: GraduationCap, label: 'Usual age', value: '14 to 16', note: 'Years 10 and 11' },
     { icon: CalendarDays, label: 'Course length', value: '2 years', note: 'Exams at the end of Year 11' },
-    { icon: Layers, label: 'Typical load', value: '7 to 10', note: 'subjects per student' },
+    { icon: Layers, label: 'Typical load', value: '8 to 10', note: 'subjects per student' },
     { icon: Globe2, label: 'Main boards', value: '2', note: 'Cambridge and Pearson Edexcel' },
   ];
   return (
@@ -307,7 +307,7 @@ function GradeBridge() {
     <div className="my-7 rounded-2xl border border-[#0f4a9b]/15 bg-[#f8fafd] p-4 sm:p-5 shadow-sm">
       <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
         <span className="text-xs font-extrabold text-[#0a1f3d] uppercase tracking-wider">Two grade scales</span>
-        <span className="text-[11px] font-bold text-[#0f4a9b] bg-white px-2.5 py-0.5 rounded-md border border-[#0f4a9b]/20">9 is the top grade, then A*</span>
+        <span className="text-[11px] font-bold text-[#0f4a9b] bg-white px-2.5 py-0.5 rounded-md border border-[#0f4a9b]/20">Grade 9 sits above A*</span>
       </div>
       {[['9 to 1 scale', nine], ['A* to G scale', letters]].map(([label, row]) => (
         <div key={label as string} className="mb-3 last:mb-0">
@@ -451,7 +451,7 @@ export default function WhatIsIGCSEBlog() {
           <div className="my-6 p-4 sm:p-5 rounded-2xl text-white shadow-md" style={{ background: THEME_GRADIENT }}>
             <span className="block text-[10px] uppercase tracking-[0.14em] text-[#F5D77F] font-extrabold mb-1.5">Quick answer</span>
             <p className="text-[13.5px] leading-relaxed text-white/95">
-              IGCSE stands for International General Certificate of Secondary Education. It is a two-year qualification, usually taken in Years 10 and 11 (ages 14 to 16), set mainly by Cambridge International or Pearson Edexcel. Students take one exam per subject, often 7 to 10 subjects, graded A* to G or 9 to 1. It leads on to A-Levels, the IB Diploma or other post-16 courses.
+              IGCSE stands for International General Certificate of Secondary Education. It is a two-year qualification, usually taken in Years 10 and 11 (ages 14 to 16), set mainly by Cambridge International or Pearson Edexcel. Each subject is examined at the end of the course, usually in two or three papers. Most students take 8 to 10 subjects, graded A* to G or 9 to 1. It leads on to A-Levels, the IB Diploma or other post-16 courses.
             </p>
           </div>
 
@@ -502,7 +502,7 @@ export default function WhatIsIGCSEBlog() {
           <SectionHeading num="03" id="who-takes-igcse-in-the-uae">Who takes IGCSE in the UAE</SectionHeading>
           <div className={proseCls}>
             <p>
-              IGCSE is taught in British-curriculum and many international schools across Dubai, Abu Dhabi, Al Ain, Sharjah and the Northern Emirates. These private schools are regulated by KHDA in Dubai and ADEK in Abu Dhabi.
+              IGCSE is taught in British-curriculum and many international schools across Dubai, Abu Dhabi, Al Ain, Sharjah and the Northern Emirates. These private schools are regulated by KHDA in Dubai, ADEK in Abu Dhabi and Al Ain, SPEA in Sharjah, and the Ministry of Education in the Northern Emirates.
             </p>
             <p>
               Most students start their IGCSE courses in Year 10, at around 14, and sit the final exams in May or June of Year 11. Some schools begin parts of the content in Year 9 or let strong students sit a subject early, such as a second language or Maths. Students joining from the American, Indian or IB systems usually join at the start of Year 10, and the first term is where gaps in prior knowledge show up most.
@@ -513,7 +513,7 @@ export default function WhatIsIGCSEBlog() {
           <SectionHeading num="04" id="igcse-subjects">IGCSE subjects: how many and which</SectionHeading>
           <div className={proseCls}>
             <p>
-              Cambridge alone offers more than 70 IGCSE subjects, but each school offers a smaller menu. In UAE schools most students take between 7 and 10 IGCSEs, made up of:
+              Cambridge alone offers more than 70 IGCSE subjects, but each school offers a smaller menu. In UAE schools most students take between 8 and 10 IGCSEs, made up of:
             </p>
             <CheckList
               items={[
@@ -533,7 +533,7 @@ export default function WhatIsIGCSEBlog() {
           <SectionHeading num="05" id="core-and-extended-tiers">Core and Extended: the two tiers</SectionHeading>
           <div className={proseCls}>
             <p>
-              In subjects such as Maths and the sciences, students are entered for one of two tiers. The tier decides which papers they sit and which grades they can reach.
+              In Maths, and in the sciences at Cambridge, students are entered for one of two tiers. The tier decides which papers they sit and which grades they can reach. Edexcel International GCSE sciences have a single tier.
             </p>
           </div>
           <ResponsiveTable
@@ -632,11 +632,11 @@ export default function WhatIsIGCSEBlog() {
               ]}
             />
             <p>
-              If a subject is slipping, or your child has joined from another curriculum, a few months of targeted support in Year 10 is worth more than a rush before the exams. Ustaad teaches online and one-to-one, matched to the exact board and syllabus, with{' '}
-              <a href="/igcse-tutor-dubai" className={linkCls}>IGCSE tutors in Dubai</a>,{' '}
-              <a href="/igcse-tutor-abu-dhabi" className={linkCls}>IGCSE tutors in Abu Dhabi</a> and{' '}
-              <a href="/igcse-tutor-al-ain" className={linkCls}>IGCSE tutors in Al Ain</a>. You can also read about our{' '}
-              <a href="/igcse" className={linkCls}>IGCSE tutoring</a> across the UAE.
+              If a subject is slipping, or your child has joined from another curriculum, a few months of targeted support in Year 10 is worth more than a rush before the exams. Ustaad teaches online and one-to-one, matched to the exact board and syllabus code. Families can start with an IGCSE tutor in{' '}
+              <a href="/igcse-tutor-dubai" className={linkCls}>Dubai</a>,{' '}
+              <a href="/igcse-tutor-abu-dhabi" className={linkCls}>Abu Dhabi</a> or{' '}
+              <a href="/igcse-tutor-al-ain" className={linkCls}>Al Ain</a>, or see how our{' '}
+              <a href="/igcse" className={linkCls}>IGCSE tutoring</a> works across the UAE.
             </p>
           </div>
           <NarrativeBox>
