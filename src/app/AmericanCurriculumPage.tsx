@@ -109,7 +109,7 @@ export default function AmericanCurriculumPage() {
     <Layout>
       <SEOHead
         title="American Curriculum Tutors UAE | K-12 & AP | Ustaad"
-        description="Online tutoring for American Curriculum students across Middle School, High School, and AP courses. Expert tutors matched to your child's grade and school district across the UAE."
+        description="American Curriculum tutoring in the UAE from Grade 6 to AP, planned around course standards, GPA goals and the rhythm of your child's school year."
         canonical="/american-curriculum"
         ogImage="/UpdatedImages/american-curriculum-ap-sat-private-tutoring-uae.webp"
         schema={[

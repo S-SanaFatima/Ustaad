@@ -102,12 +102,12 @@ export default function GCSETutorAbuDhabiPage() {
     <Layout>
       <SEOHead
         title="Online GCSE Tutor Abu Dhabi | AQA, OCR, Edexcel"
-        description="Live online GCSE tutors for Abu Dhabi families. AQA, OCR and Pearson Edexcel. Foundation and Higher tier support in Years 10 and 11."
+        description="Foundation or Higher? Abu Dhabi GCSE students get that answered first, then steady AQA, OCR or Edexcel practice on the papers that decide the grade."
         canonical="/gcse-tutor-abu-dhabi"
         ogImage="/UpdatedImages/gcse-tutor-abu-dhabi-online-year-11-session.webp"
         placename="Abu Dhabi, UAE"
         schema={[
-          cityLocalBusinessSchema({ city: 'Abu Dhabi', url: '/gcse-tutor-abu-dhabi', name: 'Ustaad — GCSE Tutor Abu Dhabi', description: 'Live online GCSE tutors for Abu Dhabi families. AQA, OCR and Pearson Edexcel. Foundation and Higher tier support in Years 10 and 11.' }),
+          cityLocalBusinessSchema({ city: 'Abu Dhabi', url: '/gcse-tutor-abu-dhabi', name: 'Ustaad — GCSE Tutor Abu Dhabi', description: 'Foundation or Higher? Abu Dhabi GCSE students get that answered first, then steady AQA, OCR or Edexcel practice on the papers that decide the grade.' }),
           breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'GCSE', url: '/gcse' }, { name: 'GCSE Tutor Abu Dhabi', url: '/gcse-tutor-abu-dhabi' }]),
           serviceSchema('GCSE Tutor Abu Dhabi', 'Live online GCSE tutors matched to your child\'s board and syllabus.', '/gcse-tutor-abu-dhabi'),
         ]}

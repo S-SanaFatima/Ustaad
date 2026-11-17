@@ -125,15 +125,15 @@ export default function ALevelPage() {
   return (
     <Layout>
       <SEOHead
-        title="A-Level Tutors in Dubai, Abu Dhabi & UAE | Ustaad"
-        description="Online 1-to-1 AS and A-Level tutors for Cambridge, Edexcel, AQA and OCR. Maths, Physics, Chemistry, Biology and more. Free 15-min orientation with the first lesson."
+        title="A-Level Tutors UAE | Cambridge, Edexcel, AQA & OCR | Ustaad"
+        description="A-Level is where predicted grades start shaping UCAS offers. One-to-one AS and A-Level support in every emirate, on Cambridge, Edexcel, AQA or OCR."
         canonical="/a-level"
         ogImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
         schema={[
           localBusinessSchema,
           serviceSchema(
             "Private A-Level Tutoring UAE",
-            "Online 1-to-1 AS and A-Level tutors for Cambridge, Edexcel, AQA and OCR. Maths, Physics, Chemistry, Biology and more. Free 15-min orientation with the first lesson.",
+            "A-Level is where predicted grades start shaping UCAS offers. One-to-one AS and A-Level support in every emirate, on Cambridge, Edexcel, AQA or OCR.",
             "/a-level"
           ),
           breadcrumbSchema([
@@ -173,7 +173,7 @@ export default function ALevelPage() {
               <Landmark className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> A-Level
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[50px] font-extrabold text-[#0a1f3d] mb-2 leading-[1.15] tracking-tight">
-              A-Level Tutors in Dubai and Across the UAE
+              AS and A-Level Tutoring Across the Emirates, Year 12 to Finals
             </h1>
             <p className="text-base sm:text-lg lg:text-xl font-bold text-[#0f4a9b] mb-2.5 leading-snug">
               AS and A-Level subject specialists for Year 12 and Year 13.

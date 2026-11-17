@@ -421,7 +421,7 @@ const chemRelatedReading = (
 const data: SubjectPageProps = {
   badgeIcon:        <FlaskConical className="h-4 w-4" />,
   heroBadgeLabel:   "Chemistry Specialist",
-  heroTitle:        "Calmer Chemistry. Stronger Grades.",
+  heroTitle:        "Chemistry Tutors Who Explain the Why Behind Each Reaction",
   heroSubtitle:     "Dedicated chemistry mentoring for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
   heroCTAText:      "Book Your First Session",
@@ -456,7 +456,7 @@ const data: SubjectPageProps = {
   floatingIcon: <FlaskConical className="h-4 w-4" />,
   seo: {
     title: "Chemistry Tuition UAE | IGCSE, A-Level, IB & AP | Ustaad",
-    description: "Online 1-to-1 chemistry tuition for IGCSE, GCSE, A-Level, IB SL/HL and AP Chemistry students across the UAE. Free 15-min orientation.",
+    description: "Moles, bonding and organic mechanisms, explained until they stick. Chemistry tutoring for IGCSE, AP, A-Level and IB SL/HL, wherever in the UAE you study.",
     canonical: "/chemistry",
     schema: [
       localBusinessSchema,

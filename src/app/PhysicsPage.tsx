@@ -434,7 +434,7 @@ const data: SubjectPageProps = {
   floatingIcon: <Atom className="h-4 w-4" />,
   seo: {
     title: "Physics Tutor UAE | Online IGCSE, A-Level, IB & AP | Ustaad",
-    description: "Find a physics tutor for IGCSE, GCSE, A-Level, IB or AP Physics. Live online 1-to-1 lessons across the UAE, with a free 15-min orientation.",
+    description: "Physics marks slip on units, graphs and six-mark explanations. Live help for UAE students sitting GCSE, IGCSE, AP, IB or A-Level papers.",
     canonical: "/physics",
     schema: [
       localBusinessSchema,

@@ -1726,7 +1726,7 @@ export default function ChemistryTutorDubaiPage() {
     <Layout>
       <SEOHead
         title="Chemistry Tutor Dubai | IGCSE, GCSE, A-Level & IB | Ustaad"
-        description="One-to-one online chemistry tutors in Dubai for IGCSE, GCSE, A-Level and IB. Fix mole calculations, organic and 6-mark answers. Free 15-min orientation with the first lesson."
+        description="Dubai students who know their chemistry but drop marks in calculations and practicals get exactly that fixed, whether they sit GCSE, IGCSE, A-Level or IB."
         keywords="chemistry tutor Dubai, IGCSE chemistry tutor Dubai, GCSE chemistry tutor Dubai, A-Level chemistry tutor Dubai, IB chemistry tutor Dubai, online chemistry tuition Dubai, private chemistry tutor UAE"
         canonical="/chemistry-tutor-dubai"
         placename="Dubai, UAE"
@@ -1981,9 +1981,9 @@ export default function ChemistryTutorDubaiPage() {
             variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}
             className="font-extrabold tracking-tight text-white leading-[1.08] mb-3 md:mb-5 text-[28px] sm:text-4xl md:text-5xl lg:text-[54px] max-w-[95%] sm:max-w-none"
           >
-            Chemistry Tutors in Dubai{' '}
+            Chemistry Tutors in Dubai,{' '}
             <span className="block sm:inline" style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              Who Turn Grades Around
+              From Mole Calculations to Organic Mechanisms
             </span>
           </motion.h1>
 

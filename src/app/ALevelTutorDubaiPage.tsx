@@ -1366,7 +1366,7 @@ export default function ALevelTutorDubaiPage() {
     <Layout>
       <SEOHead
         title="A-Level Tutors in Dubai | Cambridge, Edexcel & AQA | Ustaad"
-        description="Online 1-to-1 A-Level tuition in Dubai for Maths, Further Maths, Physics, Chemistry, Biology and Economics. Cambridge, Edexcel and AQA. Free 15-min orientation with the first lesson."
+        description="A-Level tutoring in Dubai planned around mocks and UCAS deadlines, for Maths, Further Maths, the sciences and Economics on Cambridge, Edexcel or AQA."
         canonical="/a-level-tutor-dubai"
         ogImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
         preloadHeroImage="/UpdatedImages/a-level-tutoring-cambridge-aqa-edexcel-students-uae.webp"
@@ -1486,9 +1486,9 @@ export default function ALevelTutorDubaiPage() {
             variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}
             className="font-extrabold tracking-tight text-white leading-[1.08] mb-3 md:mb-5 text-[28px] sm:text-4xl md:text-5xl lg:text-[54px] max-w-[95%] sm:max-w-none"
           >
-            A-Level Tutors in Dubai{' '}
+            Dubai A-Level Tutoring{' '}
             <span className="block sm:inline" style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              Who Turn Grades Around
+              for Year 12 and Year 13
             </span>
           </motion.h1>
 

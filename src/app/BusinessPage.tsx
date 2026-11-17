@@ -357,7 +357,7 @@ function BusinessFAQs() {
 const data: SubjectPageProps = {
   badgeIcon:        <Briefcase className="h-4 w-4" />,
   heroBadgeLabel:   "Business Specialist",
-  heroTitle:        "Practical Business. Real Decisions.",
+  heroTitle:        "Business Studies Tutoring With Case-Study Practice",
   heroSubtitle:     "Grounded business studies for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
   heroCTAText:      "Book Your First Session",
@@ -392,7 +392,7 @@ const data: SubjectPageProps = {
   floatingIcon: <Briefcase className="h-4 w-4" />,
   seo: {
     title: "Business Studies Tutors UAE | IGCSE, A-Level & IB | Ustaad",
-    description: "Expert private Business Studies tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level, IB Business Management. 1-to-1 sessions with proven results.",
+    description: "Case studies, ratio calculations and evaluation for IB Business Management, A-Level and IGCSE, with feedback written against each board's levels.",
     canonical: "/business",
     schema: [
       localBusinessSchema,

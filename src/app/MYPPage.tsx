@@ -36,7 +36,7 @@ export default function MYPPage() {
     <Layout>
       <SEOHead
         title="MYP Tutors UAE | IB Middle Years Programme | Ustaad"
-        description="Grades 6 to 10 tutoring focused on criteria, ATL skills, and conceptual depth. Book your first MYP lesson."
+        description="IB MYP tutoring for Years 1 to 5 in the UAE. We decode criteria A to D, so your child knows what each task is marked on before it is handed in."
         canonical="/myp"
         schema={[
           localBusinessSchema,

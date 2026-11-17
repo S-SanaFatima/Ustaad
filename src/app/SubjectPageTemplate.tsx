@@ -296,7 +296,7 @@ export default function SubjectPageTemplate(p: SubjectPageProps) {
           breadcrumbs={[
             { name: 'Home', href: '/' },
             { name: 'Subjects', href: '/subjects' },
-            { name: p.heroTitle.replace(/<[^>]+>/g, '').slice(0, 48) || 'Subject', href: p.seo.canonical },
+            { name: p.seo.canonical.replace(/^\//, '').split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || 'Subject', href: p.seo.canonical },
           ]}
           subjects={[
             { label: 'Maths', href: '/maths' },

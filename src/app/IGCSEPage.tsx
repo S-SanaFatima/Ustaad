@@ -36,14 +36,14 @@ export default function IGCSEPage() {
     >
       <SEOHead
         title="IGCSE Tutors & Tuition UAE | Cambridge & Edexcel | Ustaad"
-        description="Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 15-min orientation with the first lesson."
+        description="Years 9 to 11 decide the IGCSE grades that shape sixth form. Cambridge and Edexcel tuition in maths, sciences, English and business, taught online."
         canonical="/igcse"
         ogImage="/UpdatedImages/year-10-igcse-cambridge-0580-edexcel-4ma1-mathematics-tutor-uae.webp"
         schema={[
           localBusinessSchema,
           serviceSchema(
             "IGCSE Tutoring and Tuition in the UAE",
-            "Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 15-min orientation with the first lesson.",
+            "Years 9 to 11 decide the IGCSE grades that shape sixth form. Cambridge and Edexcel tuition in maths, sciences, English and business, taught online.",
             "/igcse"
           ),
           breadcrumbSchema([

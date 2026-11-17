@@ -366,7 +366,7 @@ export default function MathsTutorDubaiPage() {
   const serviceNode = {
     ...serviceSchema(
       'Maths Tutor Dubai',
-      'One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Free 15-min orientation with the first lesson.',
+      'GCSE, IGCSE and A-Level maths for Dubai students on AQA, Edexcel, OCR or Cambridge papers, practised until the method holds under exam timing.',
       '/maths-tutor-dubai'
     ),
     areaServed: { '@type': 'City', name: 'Dubai' },
@@ -376,7 +376,7 @@ export default function MathsTutorDubaiPage() {
     <Layout>
       <SEOHead
         title="Maths Tutor Dubai | GCSE, IGCSE & A-Level Maths Tuition | Ustaad"
-        description="One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Free 15-min orientation with the first lesson."
+        description="GCSE, IGCSE and A-Level maths for Dubai students on AQA, Edexcel, OCR or Cambridge papers, practised until the method holds under exam timing."
         canonical="/maths-tutor-dubai"
         ogImage="/UpdatedImages/gcse-tutor-abu-dhabi-online-year-11-session.webp"
         placename="Dubai, UAE"
@@ -385,7 +385,7 @@ export default function MathsTutorDubaiPage() {
             city: 'Dubai',
             url: '/maths-tutor-dubai',
             name: 'Ustaad, Maths Tutor Dubai',
-            description: 'One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Free 15-min orientation with the first lesson.',
+            description: 'GCSE, IGCSE and A-Level maths for Dubai students on AQA, Edexcel, OCR or Cambridge papers, practised until the method holds under exam timing.',
           }),
           breadcrumbSchema([
             { name: 'Home', url: '/' },
@@ -495,9 +495,9 @@ export default function MathsTutorDubaiPage() {
             variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}
             className="font-extrabold tracking-tight text-white leading-[1.08] mb-3 md:mb-5 text-[28px] sm:text-4xl md:text-5xl lg:text-[54px] max-w-[95%] sm:max-w-none"
           >
-            Maths Tutors in Dubai{' '}
+            Maths Tutors in Dubai,{' '}
             <span className="block sm:inline" style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              Who Turn Grades Around
+              One Method at a Time
             </span>
           </motion.h1>
 

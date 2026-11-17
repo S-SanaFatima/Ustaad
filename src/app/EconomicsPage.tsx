@@ -381,7 +381,7 @@ function EconomicsFAQs() {
 const data: SubjectPageProps = {
   badgeIcon:        <LineChart className="h-4 w-4" />,
   heroBadgeLabel:   "Economics Specialist",
-  heroTitle:        "Modern Economics. Clean Answers.",
+  heroTitle:        "Economics Tutors for Diagrams, Data Response and Essays",
   heroSubtitle:     "Practical economics support for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
   heroCTAText:      "Book Your First Session",
@@ -416,7 +416,7 @@ const data: SubjectPageProps = {
   floatingIcon: <LineChart className="h-4 w-4" />,
   seo: {
     title: "Economics Tutors UAE | IGCSE, A-Level, IB Economics | Ustaad",
-    description: "Expert private Economics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level, IB Economics SL/HL. Clear diagrams, strong evaluation skills. Free 15-min orientation with the first lesson.",
+    description: "Economics marks come from diagrams and evaluation, not definitions. Essay and data-response coaching for IB SL/HL, A-Level and IGCSE students.",
     canonical: "/economics",
     schema: [
       localBusinessSchema,

@@ -741,7 +741,7 @@ export default function IGCSETutorAbuDhabiPage() {
     <Layout>
       <SEOHead
         title="IGCSE Tutor Abu Dhabi | Cambridge, Edexcel & OxfordAQA"
-        description="1-to-1 IGCSE tutors Abu Dhabi. Cambridge, Edexcel, OxfordAQA. Each tutor carefully vetted by our academic and operations team. Free 15-min orientation with the first lesson."
+        description="Every IGCSE tutor teaching Abu Dhabi students is checked by our academic team first. Cambridge, Edexcel and OxfordAQA papers, taught live, one to one."
         canonical="/igcse-tutor-abu-dhabi"
         ogImage="/UpdatedImages/igcse-abudhabi-hero.jpg"
         placename="Abu Dhabi, UAE"

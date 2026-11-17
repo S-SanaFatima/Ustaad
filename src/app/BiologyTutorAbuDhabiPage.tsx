@@ -1081,7 +1081,7 @@ export default function BiologyLanding() {
     <Layout>
       <SEOHead
         title="Biology Tutor Abu Dhabi | IGCSE, A-Level & IB | Ustaad"
-        description="Specialist 1-to-1 biology tutors in Abu Dhabi for IGCSE, A-Level and IB. Master genetics, physiology and IA. Ideal for medicine pathways. Free 15-min orientation with the first lesson."
+        description="Heading towards medicine from an Abu Dhabi school? Biology lessons give extra time to genetics, physiology and the IA, from IGCSE to A-Level and the IB."
         canonical="/biology-tutor-abu-dhabi"
         ogImage="/UpdatedImages/private-subject-tutoring-igcse-ib-a-level-uae.webp"
         placename="Abu Dhabi, UAE"

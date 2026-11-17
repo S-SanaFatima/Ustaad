@@ -62,7 +62,7 @@ const mathFAQs = [
 const data: SubjectPageProps = {
   badgeIcon:    <Calculator className="h-4 w-4" />,
   heroBadgeLabel: "Mathematics Specialist",
-  heroTitle:    "Stronger Maths. Better Results.",
+  heroTitle:    "Maths Tutors for Every Curriculum, From Algebra to Calculus",
   heroSubtitle: "One-to-one mathematics tutoring for IGCSE, A-Level, IB, and AP students.",
   heroDesc:     "",
   heroCTAText:  "Book Your First Session",
@@ -125,7 +125,7 @@ const data: SubjectPageProps = {
   floatingIcon: <Calculator className="h-4 w-4" />,
   seo: {
     title: "Maths Tutor UAE | Online IGCSE, A-Level, IB & AP | Ustaad",
-    description: "Find a maths tutor for IGCSE, GCSE, A-Level, IB or AP Calculus. Live online 1-to-1 maths tuition across the UAE, with a free 15-min orientation.",
+    description: "From IGCSE algebra to IB Analysis and AP Calculus, maths tutors who rebuild the method first and exam speed second. One-to-one lessons, UAE-wide.",
     canonical: "/maths",
     schema: [
       localBusinessSchema,

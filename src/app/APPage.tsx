@@ -407,7 +407,7 @@ export default function APPage() {
     <Layout>
       <SEOHead
         title="AP Tutoring in Dubai & Abu Dhabi | AP Exam Prep | Ustaad"
-        description="Online 1-to-1 AP tutoring for Calculus, Statistics, Physics, Chemistry, Biology and Economics, with exam prep through to May. Free 15-min orientation."
+        description="AP exams arrive in May, but the groundwork starts in autumn. Tutors for AP Statistics, Physics, Chemistry, Biology and Economics, online in the UAE."
         canonical="/ap"
         ogImage="/UpdatedImages/Ap-img.webp"
         schema={[
@@ -452,7 +452,7 @@ export default function APPage() {
               <Award className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> AP Courses
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[50px] font-extrabold text-[#0a1f3d] mb-2 leading-[1.15] tracking-tight">
-              AP Tutors in Dubai and Across the UAE
+              AP Tutors for UAE Students Taking College Board Exams
             </h1>
             <p className="text-base sm:text-lg lg:text-xl font-bold text-[#0f4a9b] mb-2.5 leading-snug">
               One-to-one AP classes and exam prep, live online.

@@ -98,7 +98,14 @@ RewriteRule ^igcse-a-level/?$ /igcse [R=301,L]
 RewriteRule ^igcse-a-levels/?$ /igcse [R=301,L]
 RewriteRule ^a-levels/?$ /a-level [R=301,L]
 RewriteRule ^subjects/biology-tutor-dubai/?$ /biology-tutor-dubai [R=301,L]
-RewriteRule ^al-ain/igcse-tutor-al-ain/?$ /igcse-tutor-al-ain [R=301,L]
+RewriteRule ^al-ain(/.*)?$ /igcse-tutor-al-ain [R=301,L]
+RewriteRule ^blogs/sleep-and-memory-students/?$ /blogs/sleep-and-memory-why-all-nighters-backfire [R=301,L]
+RewriteRule ^blogs/command-words-gcse-science/?$ /blogs/command-words-igcse-a-level-exams [R=301,L]
+RewriteRule ^blogs/early-signs-chemistry-struggles/?$ /blogs/early-signs-chemistry-help-uae [R=301,L]
+RewriteRule ^ib-ap-as/?$ /curriculum [R=301,L]
+RewriteRule ^american/?$ /american-curriculum [R=301,L]
+RewriteRule ^apply-now/?$ /contact [R=301,L]
+RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}/lazy-students-effective-strategies.*$ /blogs/why-teenagers-procrastinate-on-revision [R=301,L]
 
 # --- 1. Real Existing Files (Images, WebP, JS, CSS, fonts, direct .html) → Serve as-is immediately ---
 RewriteCond %{REQUEST_FILENAME} -f
@@ -115,10 +122,7 @@ RewriteRule ^curriculum/ib-tutor-dubai/?$ /ib-tutor-dubai [R=301,L]
 RewriteRule ^subjects/biology-tutor-dubai/?$ /biology-tutor-dubai [R=301,L]
 
 # Alias & Old Slug 301 Redirects
-RewriteRule ^apply-now/?$ /contact [R=301,L]
-RewriteRule ^american/?$ /american-curriculum [R=301,L]
 RewriteRule ^british/?$ /british-curriculum [R=301,L]
-RewriteRule ^ib-ap-as/?$ /curriculum [R=301,L]
 RewriteRule ^ib/?$ /ib-curriculum [R=301,L]
 RewriteRule ^sat-emsat/?$ /exam-preparation [R=301,L]
 RewriteRule ^gcse-cbse/?$ /gcse [R=301,L]
@@ -130,7 +134,6 @@ RewriteRule ^tutors-private-tutor/?$ /tutors [R=301,L]
 RewriteRule ^faqs/?$ /#faqs [R=301,L,NE]
 
 # Specific legacy blog post redirects before generic 410
-RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}/lazy-students-effective-strategies.*$ /blogs/psychology-of-learning [R=301,L]
 
 # --- WordPress-era Legacy Debris → HTTP 410 Gone ---
 RewriteRule ^/?author(/.*)?$ - [G,L]

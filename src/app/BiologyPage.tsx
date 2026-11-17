@@ -357,7 +357,7 @@ function BiologyFAQs() {
 const data: SubjectPageProps = {
   badgeIcon:        <Dna className="h-4 w-4" />,
   heroBadgeLabel:   "Biology Specialist",
-  heroTitle:        "Confident Biology. Higher Scores.",
+  heroTitle:        "Biology Tutoring for Every Stage, IGCSE to IB Diploma",
   heroSubtitle:     "Tailored biology tuition for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
   heroCTAText:      "Book Your First Session",
@@ -392,7 +392,7 @@ const data: SubjectPageProps = {
   floatingIcon: <Dna className="h-4 w-4" />,
   seo: {
     title: "Biology Tutors UAE | IGCSE, A-Level, IB Biology | Ustaad",
-    description: "Expert private Biology tutoring in Dubai, Abu Dhabi & UAE. IGCSE, A-Level, IB SL/HL, AP Biology. 1-to-1 sessions with proven exam results. Free 15-min orientation with the first lesson.",
+    description: "Biology rewards exact wording. We help students across the Emirates, from IGCSE through to IB and AP, turn what they already know into full-mark answers.",
     canonical: "/biology",
     schema: [
       localBusinessSchema,

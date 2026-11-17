@@ -1635,7 +1635,7 @@ export default function IgcseTutorDubaiPage() {
     <Layout>
       <SEOHead
         title="IGCSE Tutor Dubai | Cambridge & Edexcel Specialists | Ustaad"
-        description="Expert online IGCSE tutors in Dubai for Cambridge and Edexcel. Private 1-to-1 tutoring for Mathematics, Sciences, English and Business. Free 15-min orientation with the first lesson."
+        description="Dubai IGCSE students from Year 9 are matched to a Cambridge or Edexcel tutor who knows their school's subject options. Every lesson runs live online."
         canonical="/igcse-tutor-dubai"
         ogImage="/UpdatedImages/private-subject-tutoring-igcse-ib-a-level-uae.webp"
         placename="Dubai, UAE"
@@ -1743,8 +1743,8 @@ export default function IgcseTutorDubaiPage() {
           </motion.div>
 
           <motion.h1 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }} className="font-extrabold tracking-tight text-white leading-[1.08] mb-3 md:mb-5 text-[28px] sm:text-4xl md:text-5xl lg:text-[54px] max-w-[95%] sm:max-w-none">
-            IGCSE Tutors in Dubai{' '}
-            <span className="block sm:inline" style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Who Elevate Grades</span>
+            IGCSE Tutors in Dubai,{' '}
+            <span className="block sm:inline" style={{ background: 'linear-gradient(92deg,#f0c96a 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Matched to Your Exam Board</span>
           </motion.h1>
 
           <motion.p variants={{ hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }} className="text-blue-100/80 text-sm sm:text-base md:text-[17px] leading-relaxed max-w-2xl mb-6 md:mb-8 px-2 italic">

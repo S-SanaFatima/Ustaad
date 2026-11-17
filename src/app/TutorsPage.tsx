@@ -100,7 +100,7 @@ export default function TutorsPage() {
     <Layout>
       <SEOHead
         title="Private Tutors in Dubai & UAE — IGCSE, A-Level, IB & AP | Ustaad"
-        description="Meet Ustaad's curriculum-specialist private tutors in Dubai, Abu Dhabi and across the UAE. Expert 1-to-1 tutoring for IGCSE, GCSE, A-Level, IB (MYP/SL/HL) and AP. Free 15-min orientation with the first lesson."
+        description="Meet the Ustaad tutors: board specialists for British, IB and American programmes, each chosen for one exam board rather than listed in a directory."
         canonical="/tutors"
         ogImage="/UpdatedImages/tutor-page.webp"
         schema={[

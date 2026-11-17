@@ -67,7 +67,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'TutorProfilePage',
     seo: {
       title: 'Tabraiz Khan · Maths, Physics & Statistics Tutor Dubai | Ustaad',
-      description: 'Tabraiz Khan is a Cambridge Certified Maths, Physics and Statistics tutor at Ustaad with 9 years teaching across IGCSE, GCSE, A-Level, IB and American curricula. Book your first session today.',
+      description: 'Meet the Ustaad tutors: board specialists for British, IB and American programmes, each chosen for one exam board rather than listed in a directory.',
       priority: 0.8,
       changefreq: 'monthly'
     },
@@ -113,7 +113,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'CurriculumPage',
     seo: {
       title: 'Curriculum Tutoring UAE | British, IB & American | Ustaad',
-      description: 'Private tutoring for all major curricula in UAE: British (IGCSE, A-Level), IB (MYP, DP), and American (AP, SAT). 1-to-1 sessions in Dubai & Abu Dhabi.',
+      description: 'How Ustaad works: a short diagnostic, a tutor matched to your child\'s board, and progress shared as lessons go. It begins with a 15-minute orientation.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -138,7 +138,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'IGCSEPage',
     seo: {
       title: 'IGCSE Tutors & Tuition UAE | Cambridge & Edexcel | Ustaad',
-      description: 'Online 1-to-1 IGCSE tuition for Cambridge and Edexcel, Years 9 to 11. Maths, Physics, Chemistry, Biology, English and Business. Free 15-min orientation with the first lesson.',
+      description: 'Years 9 to 11 decide the IGCSE grades that shape sixth form. Cambridge and Edexcel tuition in maths, sciences, English and business, taught online.',
       priority: 0.95,
       changefreq: 'monthly',
       lastmod: '2026-11-11'
@@ -160,8 +160,8 @@ export const ROUTES: RouteConfig[] = [
     path: '/a-level',
     component: 'ALevelPage',
     seo: {
-      title: 'A-Level Tutors UAE | Dubai & Abu Dhabi | Ustaad',
-      description: 'Expert private A-Level tutoring in Dubai, Abu Dhabi & UAE. AQA, Edexcel & Cambridge A-Level subjects. 1-to-1 sessions with proven grade results.',
+      title: 'A-Level Tutors UAE | Cambridge, Edexcel, AQA & OCR | Ustaad',
+      description: 'A-Level is where predicted grades start shaping UCAS offers. One-to-one AS and A-Level support in every emirate, on Cambridge, Edexcel, AQA or OCR.',
       priority: 0.95,
       changefreq: 'monthly',
       lastmod: '2026-10-12'
@@ -186,7 +186,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'MYPPage',
     seo: {
       title: 'MYP Tutors UAE | IB Middle Years Programme | Ustaad',
-      description: 'Expert private IB MYP tutoring in Dubai & Abu Dhabi. Criteria-based assessment and E-Assessment prep for all MYP subjects. Book your first session.',
+      description: 'IB MYP tutoring for Years 1 to 5 in the UAE. We decode criteria A to D, so your child knows what each task is marked on before it is handed in.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -221,7 +221,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'AmericanCurriculumPage',
     seo: {
       title: 'American Curriculum Tutors UAE | K-12 & AP | Ustaad',
-      description: 'Expert private American curriculum tutoring in Dubai & UAE. AP subjects, SAT prep, High School support. 1-to-1 sessions with expert tutors.',
+      description: 'American Curriculum tutoring in the UAE from Grade 6 to AP, planned around course standards, GPA goals and the rhythm of your child\'s school year.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -232,7 +232,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'APPage',
     seo: {
       title: 'AP Tutoring in Dubai & Abu Dhabi | AP Exam Prep | Ustaad',
-      description: 'Online 1-to-1 AP tutoring for Calculus, Statistics, Physics, Chemistry, Biology and Economics, with exam prep through to May. Free 15-min orientation.',
+      description: 'AP exams arrive in May, but the groundwork starts in autumn. Tutors for AP Statistics, Physics, Chemistry, Biology and Economics, online in the UAE.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -267,7 +267,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'MathsPage',
     seo: {
       title: 'Maths Tutor UAE | Online IGCSE, A-Level, IB & AP | Ustaad',
-      description: 'Find a maths tutor for IGCSE, GCSE, A-Level, IB or AP Calculus. Live online 1-to-1 maths tuition across the UAE, with a free 15-min orientation.',
+      description: 'From IGCSE algebra to IB Analysis and AP Calculus, maths tutors who rebuild the method first and exam speed second. One-to-one lessons, UAE-wide.',
       priority: 0.95,
       changefreq: 'monthly'
     },
@@ -278,7 +278,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'PhysicsPage',
     seo: {
       title: 'Physics Tutor UAE | Online IGCSE, A-Level, IB & AP | Ustaad',
-      description: 'Find a physics tutor for IGCSE, GCSE, A-Level, IB or AP Physics. Live online 1-to-1 lessons across the UAE, with a free 15-min orientation.',
+      description: 'Physics marks slip on units, graphs and six-mark explanations. Live help for UAE students sitting GCSE, IGCSE, AP, IB or A-Level papers.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -289,7 +289,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'ChemistryPage',
     seo: {
       title: 'Chemistry Tuition UAE | IGCSE, A-Level, IB & AP | Ustaad',
-      description: 'Online 1-to-1 chemistry tuition for IGCSE, GCSE, A-Level, IB SL/HL and AP Chemistry students across the UAE. Free 15-min orientation.',
+      description: 'Moles, bonding and organic mechanisms, explained until they stick. Chemistry tutoring for IGCSE, AP, A-Level and IB SL/HL, wherever in the UAE you study.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -300,7 +300,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'BiologyPage',
     seo: {
       title: 'Biology Tutors UAE | IGCSE, A-Level, IB Biology — Ustaad',
-      description: 'Expert private Biology tutoring in Dubai & Abu Dhabi. IGCSE, A-Level & IB Biology. Cell biology, Genetics, Ecology & Human physiology.',
+      description: 'Biology rewards exact wording. We help students across the Emirates, from IGCSE through to IB and AP, turn what they already know into full-mark answers.',
       priority: 0.9,
       changefreq: 'monthly'
     },
@@ -322,7 +322,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'EconomicsPage',
     seo: {
       title: 'Economics Tutors UAE | IGCSE, A-Level, IB Economics — Ustaad',
-      description: 'Expert private Economics tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Economics. Micro, Macro, Development, International. Book your first session.',
+      description: 'Economics marks come from diagrams and evaluation, not definitions. Essay and data-response coaching for IB SL/HL, A-Level and IGCSE students.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -333,7 +333,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'BusinessPage',
     seo: {
       title: 'Business Studies Tutors UAE | IGCSE, A-Level & IB | Ustaad',
-      description: 'Expert private Business Studies tutoring in Dubai, Abu Dhabi & UAE. IGCSE, GCSE, A-Level, IB Business. Marketing, Finance, HR, Operations. Book your first session.',
+      description: 'Case studies, ratio calculations and evaluation for IB Business Management, A-Level and IGCSE, with feedback written against each board\'s levels.',
       priority: 0.85,
       changefreq: 'monthly'
     },
@@ -366,7 +366,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'StatisticsPage',
     seo: {
       title: 'Statistics Tutors UAE | IGCSE, A-Level & IB | Ustaad',
-      description: 'Expert private Statistics tutoring in Dubai & Abu Dhabi. IGCSE, A-Level & IB Statistics. Data analysis, Probability & Hypothesis testing.',
+      description: 'Hypothesis tests, distributions and calculator method for A-Level Maths, IB Maths AI and AP Statistics, worked through slowly until each step is clear.',
       priority: 0.8,
       changefreq: 'monthly'
     },
@@ -659,7 +659,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'MathematicsLanding',
     seo: {
       title: 'Maths Tutor Abu Dhabi | IGCSE, A-Level, IB Maths — Ustaad',
-      description: 'One-to-one maths tutors in Abu Dhabi fixing algebra, fractions, and word problems. IGCSE 0580, A-Level, IB AA/AI, and AP maths support. Trusted since 2015.',
+      description: 'Abu Dhabi maths tutoring that follows your child\'s exam board, whether IGCSE, A-Level, IB AA/AI or AP, for families from Khalifa City to Reem Island.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -692,7 +692,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'BiologyTutorAbuDhabiPage',
     seo: {
       title: 'Biology Tutor Abu Dhabi | Expert IGCSE, A-Level & IB Tutors | Ustaad',
-      description: 'Specialist 1-to-1 biology tutors in Abu Dhabi for Cambridge 0610, Edexcel, IB HL, and A-Level. Medicine prep, IA support, and targeted topic rebuilds. Free 15-min orientation with the first lesson.',
+      description: 'Heading towards medicine from an Abu Dhabi school? Biology lessons give extra time to genetics, physiology and the IA, from IGCSE to A-Level and the IB.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -703,7 +703,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'IBTutorAbuDhabiPage',
     seo: {
       title: 'IB Tutor Abu Dhabi | MYP, DP SL & HL | Math AA/AI + Physics',
-      description: 'IB tutor Abu Dhabi where one tutor connects Math AA/AI, Physics and Statistics. MYP to DP HL. Vetted by our academic and operations team.',
+      description: 'Looking for an IB tutor in Abu Dhabi? Maths AA/AI, Physics and IA support for MYP and Diploma students, from tutors who know IB mark bands work.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -714,7 +714,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'IGCSETutorLanding',
     seo: {
       title: 'IGCSE Tutor Abu Dhabi | Private IGCSE Tutoring – Ustaad',
-      description: 'Private IGCSE tutors in Abu Dhabi for Maths, Physics, Chemistry, Biology, English and more. Cambridge and Edexcel aligned. Book your first session.',
+      description: 'Every IGCSE tutor teaching Abu Dhabi students is checked by our academic team first. Cambridge, Edexcel and OxfordAQA papers, taught live, one to one.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -725,7 +725,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'GCSETutorLanding',
     seo: {
       title: 'GCSE Tutor Abu Dhabi | Private GCSE Tutoring — Ustaad',
-      description: 'Private GCSE tutors in Abu Dhabi for Maths, Physics, Chemistry, Biology, English and more. AQA, OCR, and Edexcel aligned. Book your first session.',
+      description: 'Foundation or Higher? Abu Dhabi GCSE students get that answered first, then steady AQA, OCR or Edexcel practice on the papers that decide the grade.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -747,7 +747,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'IgcseTutorDubaiLanding',
     seo: {
       title: 'IGCSE Tutor Dubai | Cambridge & Edexcel Specialists | Ustaad',
-      description: 'Expert online IGCSE tutors in Dubai for Cambridge and Edexcel. Private 1-to-1 tutoring for Mathematics, Sciences, English and Business. Book your first session today.',
+      description: 'Dubai IGCSE students from Year 9 are matched to a Cambridge or Edexcel tutor who knows their school\'s subject options. Every lesson runs live online.',
       priority: 0.90,
       changefreq: 'monthly'
     },
@@ -758,7 +758,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'MathsTutorDubaiLanding',
     seo: {
       title: 'Maths Tutor Dubai | GCSE, IGCSE & A-Level Maths Tuition | Ustaad',
-      description: 'One-to-one Maths tutoring in Dubai for GCSE, IGCSE and A-Level students. AQA, Edexcel, OCR and Cambridge specialists. Book your first lesson with Ustaad.',
+      description: 'GCSE, IGCSE and A-Level maths for Dubai students on AQA, Edexcel, OCR or Cambridge papers, practised until the method holds under exam timing.',
       priority: 0.90,
       changefreq: 'monthly',
       lastmod: '2026-09-16'
@@ -781,7 +781,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'ChemistryTutorDubaiPage',
     seo: {
       title: 'Chemistry Tutor Dubai | IGCSE, GCSE, A-Level & IB | Ustaad',
-      description: 'One-to-one online chemistry tutors in Dubai for IGCSE, GCSE, A-Level and IB. Fix mole calculations, organic and 6-mark answers. Book your first session.',
+      description: 'Dubai students who know their chemistry but drop marks in calculations and practicals get exactly that fixed, whether they sit GCSE, IGCSE, A-Level or IB.',
       keywords: 'chemistry tutor Dubai, IGCSE chemistry tutor Dubai, GCSE chemistry tutor Dubai, A-Level chemistry tutor Dubai, IB chemistry tutor Dubai, online chemistry tuition Dubai, private chemistry tutor UAE',
       priority: 0.90,
       changefreq: 'monthly',
@@ -794,7 +794,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'BiologyTutorDubaiPage',
     seo: {
       title: 'Biology Tutor Dubai | IGCSE, A-Level & IB Biology | Ustaad',
-      description: '1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Free 15-min orientation with the first lesson.',
+      description: 'Six-mark answers, required practicals and the IA: where Dubai biology students lose marks, covered in live lessons for IB DP, A-Level and IGCSE.',
       keywords: 'biology tutor Dubai, IB Biology tutor Dubai, IGCSE Biology tutor Dubai, A-Level Biology tutor Dubai, private Biology tutor Dubai, online Biology tutor UAE, IB Biology HL tutor, Biology IA help Dubai, Biology tuition Dubai, best Biology tutor in Dubai',
       priority: 0.90,
       changefreq: 'monthly',
@@ -807,7 +807,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'ALevelTutorDubaiPage',
     seo: {
       title: 'A-Level Tutors in Dubai | Cambridge, Edexcel & AQA | Ustaad',
-      description: 'Online 1-to-1 A-Level tuition in Dubai for Maths, Further Maths, Physics, Chemistry, Biology and Economics. Cambridge, Edexcel and AQA. Book your first session.',
+      description: 'A-Level tutoring in Dubai planned around mocks and UCAS deadlines, for Maths, Further Maths, the sciences and Economics on Cambridge, Edexcel or AQA.',
       keywords: 'A-Level tutor Dubai, A level tutoring Dubai, Cambridge A level tutor Dubai, Edexcel A level tutor Dubai, online A Level tuition Dubai, A Level maths physics chemistry tutor UAE',
       priority: 0.90,
       changefreq: 'monthly',
@@ -820,7 +820,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'IBTutorDubaiPage',
     seo: {
       title: 'IB Tutor Dubai | 1-to-1 IB DP & MYP Tutors | Ustaad',
-      description: 'Private IB tutors in Dubai for DP SL/HL and MYP. Get expert help with the IA, Extended Essay and exams. Free 15-min orientation with the first lesson.',
+      description: 'Private IB tutoring in Dubai for DP SL/HL and the MYP. Help with the IA, the Extended Essay and Paper 1 timing, in sessions matched to your subjects.',
       keywords: 'IB tutor Dubai, IB DP tutor Dubai, private IB tutor Dubai, online IB tutor UAE, IB Maths tutor Dubai, IB Physics tutor Dubai, IB Chemistry tutor Dubai, IB Biology tutor Dubai, IB Economics tutor Dubai, IB IA help Dubai, IB Extended Essay help, MYP tutor Dubai, IB HL / SL tutor',
       priority: 0.95,
       changefreq: 'weekly',
@@ -851,20 +851,6 @@ export const ROUTES: RouteConfig[] = [
       lastmod: '2026-10-28'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'A-Level', url: '/a-level' }, { name: 'A-Level Tutor Al Ain', url: '/a-level-tutor-al-ain' }]
-  },
-  {
-    path: '/al-ain/igcse-tutor-al-ain',
-    component: 'IGCSETutorAlAinPage',
-    seo: {
-      title: 'IGCSE Tutor Al Ain | Online 1-to-1 IGCSE Tutors | Ustaad',
-      description: 'Online 1-to-1 IGCSE tutors for Al Ain students in Years 9-11. Cambridge and Edexcel Maths, Sciences and English. Free 15-min orientation with your first lesson.',
-      keywords: 'IGCSE tutor Al Ain, IGCSE tutors Al Ain, private IGCSE tutor Al Ain, online IGCSE tutor UAE, Cambridge IGCSE tutor Al Ain, Edexcel IGCSE tutor Al Ain, IGCSE Maths tutor Al Ain, IGCSE Physics tutor Al Ain, IGCSE Chemistry tutor Al Ain, IGCSE Biology tutor Al Ain, IGCSE English tutor Al Ain, IGCSE exam preparation Al Ain, Core vs Extended IGCSE, IGCSE Paper 6 help, Year 9 to IGCSE transition, IGCSE subject choices, IGCSE resit support UAE',
-      priority: 0.85,
-      changefreq: 'monthly',
-      lastmod: '2026-11-04',
-      noindex: true
-    },
-    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IGCSE', url: '/igcse' }, { name: 'IGCSE Tutor Al Ain', url: '/igcse-tutor-al-ain' }]
   },
   {
     path: '/igcse-tutor-al-ain',

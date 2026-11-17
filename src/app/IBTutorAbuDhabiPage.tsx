@@ -416,7 +416,7 @@ export default function IBTutorAbuDhabiPage() {
     <Layout>
       <SEOHead
         title="IB Tutor Abu Dhabi | MYP, DP SL & HL | Math AA/AI + Physics"
-        description="IB tutor Abu Dhabi where one tutor connects Math AA/AI, Physics and Statistics. MYP to DP HL. Vetted by our academic and operations team. Free 15-min orientation with the first lesson."
+        description="Looking for an IB tutor in Abu Dhabi? Maths AA/AI, Physics and IA support for MYP and Diploma students, from tutors who know IB mark bands work."
         canonical="/ib-tutor-abu-dhabi"
         schema={[
           cityLocalBusinessSchema({

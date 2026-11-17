@@ -2181,7 +2181,7 @@ export default function BiologyTutorDubaiPage() {
     <Layout>
       <SEOHead
         title="Biology Tutor Dubai | IGCSE, A-Level & IB Biology | Ustaad"
-        description="1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Free 15-min orientation with the first lesson."
+        description="Six-mark answers, required practicals and the IA: where Dubai biology students lose marks, covered in live lessons for IB DP, A-Level and IGCSE."
         canonical="/biology-tutor-dubai"
         placename="Dubai, UAE"
         schema={[
@@ -2189,7 +2189,7 @@ export default function BiologyTutorDubaiPage() {
             city: 'Dubai',
             url: '/biology-tutor-dubai',
             name: 'Ustaad | Biology Tutor Dubai',
-            description: '1-to-1 Biology tutors in Dubai for IGCSE, A-Level & IB DP SL/HL. Master 6-mark answers, practicals and the IA. Free 15-min orientation with the first lesson.',
+            description: 'Six-mark answers, required practicals and the IA: where Dubai biology students lose marks, covered in live lessons for IB DP, A-Level and IGCSE.',
             address: {
               "@type": "PostalAddress",
               addressLocality: "Abu Dhabi",
@@ -2222,9 +2222,9 @@ export default function BiologyTutorDubaiPage() {
         
         <div className="relative z-10 flex flex-col items-center text-center px-4 pt-20 pb-3 sm:pt-24 sm:pb-4 max-w-4xl w-full">
           <h1 className="font-extrabold tracking-tight text-white leading-[1.12] mb-3 text-[clamp(1.75rem,4.5vw,3.1rem)] max-w-3xl">
-            Biology Tutors in Dubai{' '}
+            Biology Lessons in Dubai{' '}
             <span style={{ background: 'linear-gradient(92deg,#34d399 0%,#fde68a 50%,#C7A24A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              for IGCSE, A-Level and IB
+              Built Around How Examiners Mark
             </span>
           </h1>
 

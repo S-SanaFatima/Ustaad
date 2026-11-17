@@ -742,7 +742,7 @@ export default function MathematicsLanding() {
     <Layout>
       <SEOHead
         title="Maths Tutor Abu Dhabi | IGCSE, A-Level, IB Maths — Ustaad"
-        description="One-to-one maths tutors in Abu Dhabi fixing algebra, fractions & word problems. IGCSE, A-Level, IB AA/AI & AP maths support across Abu Dhabi."
+        description="Abu Dhabi maths tutoring that follows your child's exam board, whether IGCSE, A-Level, IB AA/AI or AP, for families from Khalifa City to Reem Island."
         canonical="/maths-tutor-abu-dhabi"
         placename="Abu Dhabi, UAE"
         schema={[
@@ -750,7 +750,7 @@ export default function MathematicsLanding() {
             city: 'Abu Dhabi',
             url: '/maths-tutor-abu-dhabi',
             name: 'Ustaad — Maths Tutor Abu Dhabi',
-            description: 'One-to-one maths tutors in Abu Dhabi fixing algebra, fractions & word problems. IGCSE, A-Level, IB AA/AI & AP maths support across Abu Dhabi.',
+            description: 'Abu Dhabi maths tutoring that follows your child\'s exam board, whether IGCSE, A-Level, IB AA/AI or AP, for families from Khalifa City to Reem Island.',
           }),
           breadcrumbSchema([
             { name: 'Home', url: '/' },

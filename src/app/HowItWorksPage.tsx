@@ -1743,7 +1743,7 @@ export default function HowItWorksPage() {
     <Layout>
       <SEOHead 
         title="How It Works | Ustaad Private Tutoring Process UAE" 
-        description="Discover how Ustaad's 1-to-1 private tutoring works. Diagnostic assessment, personalised plan, curriculum-aligned sessions, and tracked progress. Free 15-min orientation with the first lesson." 
+        description="How Ustaad works: a short diagnostic, a tutor matched to your child's board, and progress shared as lessons go. It begins with a 15-minute orientation." 
         canonical="/how-it-works" 
         ogImage="/UpdatedImages/how-ustaad-private-tutoring-works-uae-families.webp" 
         preloadHeroImage="/UpdatedImages/how-ustaad-private-tutoring-works-uae-families.webp"

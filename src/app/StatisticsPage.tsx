@@ -357,7 +357,7 @@ function StatsFAQs() {
 const data: SubjectPageProps = {
   badgeIcon:        <BarChart2 className="h-4 w-4" />,
   heroBadgeLabel:   "Statistics Specialist",
-  heroTitle:        "Reliable Data. Useful Conclusions.",
+  heroTitle:        "Statistics Tutoring, From Probability to Hypothesis Tests",
   heroSubtitle:     "Hands-on statistics tutoring for IGCSE, A-Level, IB, and AP students.",
   heroDesc:         "",
   heroCTAText:      "Book Your First Session",
@@ -392,7 +392,7 @@ const data: SubjectPageProps = {
   floatingIcon: <BarChart3 className="h-4 w-4" />,
   seo: {
     title: "Statistics Tutors UAE | IGCSE, A-Level, IB & AP | Ustaad",
-    description: "Expert private Statistics tutoring in Dubai & Abu Dhabi. IGCSE, A-Level, IB Maths AI & AP Statistics. 1-to-1 sessions with proven results.",
+    description: "Hypothesis tests, distributions and calculator method for A-Level Maths, IB Maths AI and AP Statistics, worked through slowly until each step is clear.",
     canonical: "/statistics",
     schema: [
       localBusinessSchema,

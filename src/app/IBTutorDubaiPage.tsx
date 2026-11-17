@@ -17,7 +17,7 @@ const WA_URL = 'https://wa.me/971561249005?text=Hi%20Ustaad%2C%20I%27m%20looking
 
 // SEO Metas
 const PAGE_TITLE = "IB Tutor Dubai | 1-to-1 IB DP & MYP Tutors | Ustaad";
-const PAGE_DESC = "Private IB tutors in Dubai for DP SL/HL and MYP. Get expert help with the IA, Extended Essay and exams. Free 15-min orientation with the first lesson.";
+const PAGE_DESC = "Private IB tutoring in Dubai for DP SL/HL and the MYP. Help with the IA, the Extended Essay and Paper 1 timing, in sessions matched to your subjects.";
 const CANONICAL_PATH = "/ib-tutor-dubai";
 const KEYWORDS_LIST = "IB tutor Dubai, IB DP tutor Dubai, private IB tutor Dubai, online IB tutor UAE, IB Maths tutor Dubai, IB Physics tutor Dubai, IB Chemistry tutor Dubai, IB Biology tutor Dubai, IB Economics tutor Dubai, IB IA help Dubai, IB Extended Essay help, MYP tutor Dubai, IB HL / SL tutor";
 
