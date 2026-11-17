@@ -98,6 +98,7 @@ RewriteRule ^igcse-a-level/?$ /igcse [R=301,L]
 RewriteRule ^igcse-a-levels/?$ /igcse [R=301,L]
 RewriteRule ^a-levels/?$ /a-level [R=301,L]
 RewriteRule ^subjects/biology-tutor-dubai/?$ /biology-tutor-dubai [R=301,L]
+RewriteRule ^al-ain/igcse-tutor-al-ain/?$ /igcse-tutor-al-ain [R=301,L]
 
 # --- 1. Real Existing Files (Images, WebP, JS, CSS, fonts, direct .html) → Serve as-is immediately ---
 RewriteCond %{REQUEST_FILENAME} -f
