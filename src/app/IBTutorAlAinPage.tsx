@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import {
   Calculator, Atom, FlaskConical, Dna, BookOpen, TrendingUp,
   ChevronDown, MessageCircle, Search, ClipboardCheck, CalendarCheck, CheckCircle2, Info,
-  School, Repeat, Globe2, ShieldCheck,
+  School, Repeat, Globe2, ShieldCheck, Layers, Award, ClipboardList, CalendarDays, ArrowRight,
 } from 'lucide-react';
 import { Layout, StatsBar, SchoolsMarquee, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -97,16 +97,16 @@ const CORE = [
 ];
 
 const SWITCH = [
-  { label: 'Number of subjects', a: '8 to 10 IGCSEs', b: '6 subjects, 3 at HL and 3 at SL, plus the core' },
-  { label: 'Grades', a: 'A* to G or 9 to 1', b: '1 to 7 per subject, 45 points in total' },
-  { label: 'Coursework', a: 'In a few subjects only', b: 'An IA in every subject, plus the EE and TOK' },
-  { label: 'Final exams', a: 'End of Year 11', b: 'May of Year 13 (DP2)' },
+  { Icon: Layers, label: 'Number of subjects', a: '8 to 10 IGCSEs', b: '6 subjects, 3 at HL and 3 at SL, plus the core' },
+  { Icon: Award, label: 'Grades', a: 'A* to G or 9 to 1', b: '1 to 7 per subject, 45 points in total' },
+  { Icon: ClipboardList, label: 'Coursework', a: 'In a few subjects only', b: 'An IA in every subject, plus the EE and TOK' },
+  { Icon: CalendarDays, label: 'Final exams', a: 'End of Year 11', b: 'May of Year 13 (DP2)' },
 ];
 
 const STEPS = [
-  { Icon: Search, title: 'Tell us the programme and subjects', text: 'MYP year, or DP subjects with HL and SL. A photo of the subject list or timetable is enough.' },
-  { Icon: ClipboardCheck, title: 'First lesson, plus orientation', text: 'A free 15-minute orientation starts the first lesson: the tutor reviews a recent IA draft, test or MYP task and sets the first goal with your child.' },
-  { Icon: CalendarCheck, title: 'A steady weekly slot', text: 'One fixed online slot per subject each week, on weekday evenings or weekends, adjusted around IA, EE and mock deadlines.' },
+  { Icon: Search, tag: 'WhatsApp or the form', title: 'Tell us the programme and subjects', text: 'MYP year, or DP subjects with HL and SL. A photo of the subject list or timetable is enough.' },
+  { Icon: ClipboardCheck, tag: 'Free 15-minute orientation', title: 'First lesson, plus orientation', text: 'A free 15-minute orientation starts the first lesson: the tutor reviews a recent IA draft, test or MYP task and sets the first goal with your child.' },
+  { Icon: CalendarCheck, tag: 'Evenings or weekends', title: 'A steady weekly slot', text: 'One fixed online slot per subject each week, on weekday evenings or weekends, adjusted around IA, EE and mock deadlines.' },
 ];
 
 const FAQS = [
@@ -868,48 +868,81 @@ export default function IBTutorAlAinPage() {
       </section>
 
       {/* ── 06 IGCSE TO IB ── */}
-      <section className="py-8 sm:py-10 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-6 sm:py-6 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead
             eyebrow="Switching curriculum"
             title={<>From IGCSE to the <span className="text-[#0f4a9b]">IB Diploma</span></>}
             intro="Many Al Ain students start the Diploma after IGCSE at a British-curriculum school. Here is what changes."
           />
-          <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
-            <div className="hidden sm:grid grid-cols-[1fr_1fr_1.3fr] bg-[#0f4a9b] text-white text-[12px] font-extrabold uppercase tracking-wider">
-              <span className="px-4 py-2.5">&nbsp;</span><span className="px-4 py-2.5">IGCSE</span><span className="px-4 py-2.5">IB Diploma</span>
-            </div>
-            {SWITCH.map((r, i) => (
-              <div key={r.label} className={`grid sm:grid-cols-[1fr_1fr_1.3fr] text-[13px] ${i % 2 ? 'bg-[#f8fafd]' : 'bg-white'} border-t border-slate-100 first:border-t-0`}>
-                <span className="px-4 pt-3 sm:py-3 font-extrabold text-[#0a1f3d]">{r.label}</span>
-                <span className="px-4 py-1 sm:py-3 text-[#4a5a72]"><span className="sm:hidden font-bold text-[#8a6a1f]">IGCSE: </span>{r.a}</span>
-                <span className="px-4 pb-3 sm:py-3 text-[#0a1f3d] font-semibold"><span className="sm:hidden font-bold text-[#0f4a9b]">IB: </span>{r.b}</span>
-              </div>
-            ))}
+          {/* column badges: aligned over the value columns */}
+          <div className="grid grid-cols-[1fr_28px_1.2fr] sm:grid-cols-[190px_1fr_36px_1.25fr] gap-x-2 sm:gap-x-3 items-end px-2.5 sm:px-3 mb-1.5 sm:mb-2">
+            <span className="hidden sm:block" />
+            <span className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.12em] sm:tracking-[0.14em] text-[#6b7a90]"><span className="w-2 h-2 rounded-full bg-slate-300" />IGCSE<span className="hidden sm:inline"> · Years 10 to 11</span></span>
+            <span />
+            <span className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.12em] sm:tracking-[0.14em] text-[#0f4a9b]"><span className="w-2 h-2 rounded-full" style={{ background: GOLD }} />IB Diploma<span className="hidden sm:inline"> · Years 12 to 13</span></span>
           </div>
-          <div className="mt-4 flex items-start gap-2.5 rounded-xl bg-[#f4f7fc] border border-[#0f4a9b]/10 px-4 py-2.5 text-xs sm:text-[12.5px] text-[#2c3e5c] leading-relaxed">
-            <Info className="w-4 h-4 text-[#0f4a9b] shrink-0 mt-0.5" />
-            <p>
-              Still at IGCSE? See our <a href="/igcse-tutor-al-ain" className="font-bold text-[#0f4a9b] underline underline-offset-2">IGCSE Tutor Al Ain</a> page, or compare with the <a href="/a-level-tutor-al-ain" className="font-bold text-[#0f4a9b] underline underline-offset-2">A-Level route in Al Ain</a>.
-            </p>
+          <ul className="space-y-2" aria-label="What changes from IGCSE to the IB Diploma">
+            {SWITCH.map(({ Icon, label, a, b }) => (
+              <li key={label} className="rounded-2xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_10px_28px_-24px_rgba(10,31,61,0.35)] p-2.5 sm:grid sm:grid-cols-[190px_1fr_36px_1.25fr] sm:gap-x-3 sm:items-center">
+                <div className="flex items-center gap-2 sm:gap-2.5 mb-1.5 sm:mb-0">
+                  <span className="flex w-7 h-7 sm:w-9 sm:h-9 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-[#0a1f3d] text-[#f0c96a]"><Icon className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px]" /></span>
+                  <span className="text-[13px] sm:text-[13.5px] font-extrabold text-[#0a1f3d] leading-tight">{label}</span>
+                </div>
+                <div className="grid grid-cols-[1fr_28px_1.2fr] sm:contents items-stretch gap-x-2">
+                  <p className="rounded-xl bg-slate-50 border border-slate-200/70 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[12px] sm:text-[13px] text-[#4a5a72] leading-snug">
+                    <span className="sr-only">IGCSE: </span>{a}
+                  </p>
+                  <span className="self-center flex w-6 h-6 sm:w-8 sm:h-8 mx-auto items-center justify-center rounded-full text-white shadow-sm" style={{ background: GOLD }} aria-hidden="true"><ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" /></span>
+                  <p className="rounded-xl bg-[#0f4a9b]/[0.06] border border-[#0f4a9b]/15 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[12px] sm:text-[13px] font-bold text-[#0a1f3d] leading-snug">
+                    <span className="sr-only">IB Diploma: </span>{b}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-2xl bg-[#f4f7fc] border border-[#0f4a9b]/10 px-4 py-2.5">
+            <p className="flex items-center gap-2 text-[12.5px] sm:text-[13px] font-semibold text-[#2c3e5c] sm:mr-auto"><Info className="w-4 h-4 text-[#0f4a9b] shrink-0" />Not at the IB stage yet?</p>
+            <div className="flex flex-wrap gap-2">
+              <a href="/igcse-tutor-al-ain" className="inline-flex items-center gap-1.5 rounded-full bg-white border border-[#0f4a9b]/20 px-3.5 py-1.5 text-[12.5px] font-bold text-[#0f4a9b] hover:border-[#0f4a9b]/50 hover:bg-[#0f4a9b]/[0.04] transition-colors">IGCSE Tutor Al Ain <ArrowRight className="w-3.5 h-3.5" /></a>
+              <a href="/a-level-tutor-al-ain" className="inline-flex items-center gap-1.5 rounded-full bg-white border border-[#0f4a9b]/20 px-3.5 py-1.5 text-[12.5px] font-bold text-[#0f4a9b] hover:border-[#0f4a9b]/50 hover:bg-[#0f4a9b]/[0.04] transition-colors">A-Level route in Al Ain <ArrowRight className="w-3.5 h-3.5" /></a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── 07 HOW WE MATCH ── */}
-      <section className="py-8 sm:py-10 bg-[#f4f7fc]">
+      <section className="py-6 sm:py-8 bg-[#f4f7fc]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead eyebrow="Getting started" title={<>How we match your <span className="text-[#0f4a9b]">IB tutor</span></>} intro="From a WhatsApp message to a fixed weekly IB lesson in three steps." />
-          <ol className="grid sm:grid-cols-3 gap-3 sm:gap-4">
-            {STEPS.map(({ Icon, title, text }, i) => (
-              <li key={title} className="relative rounded-2xl bg-white border border-slate-200 p-5 shadow-xs">
-                <span className="absolute top-4 right-4 text-[11px] font-extrabold text-[#0f4a9b]/40">0{i + 1}</span>
-                <span className="flex w-10 h-10 items-center justify-center rounded-xl bg-[#0f4a9b]/8 text-[#0f4a9b] mb-3"><Icon className="w-5 h-5" /></span>
-                <h3 className="text-[15px] font-extrabold text-[#0a1f3d] mb-1.5">{title}</h3>
-                <p className="text-[12.5px] sm:text-[13px] text-[#4a5a72] leading-relaxed">{text}</p>
+          <ol className="relative grid md:grid-cols-3 gap-2.5 md:gap-5">
+            {/* connecting line between the step markers (desktop) */}
+            <div className="hidden md:block absolute top-[22px] left-[16.66%] right-[16.66%] h-[2px] rounded-full" style={{ background: 'linear-gradient(90deg,#0f4a9b,#C7A24A)' }} aria-hidden="true" />
+            {STEPS.map(({ Icon, tag, title, text }, i) => (
+              <li key={title} className="relative flex md:flex-col gap-3 md:gap-0 md:items-center">
+                {/* marker: number in a ring; on phones a vertical rail joins the markers */}
+                <div className="relative flex flex-col items-center md:mb-4">
+                  <span className="relative z-10 flex w-9 h-9 md:w-11 md:h-11 items-center justify-center rounded-full bg-[#0a1f3d] text-[#f0c96a] text-[14px] md:text-[15px] font-black ring-4 ring-[#f4f7fc] shadow-[0_8px_18px_-8px_rgba(10,31,61,0.6)]">{i + 1}</span>
+                  {i < STEPS.length - 1 && <span className="md:hidden flex-1 w-[2px] mt-1 -mb-3 rounded-full bg-gradient-to-b from-[#0f4a9b]/40 to-[#C7A24A]/40" aria-hidden="true" />}
+                </div>
+                <div className="flex-1 w-full rounded-2xl bg-white border border-slate-200/80 px-3.5 py-3 md:p-5 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_12px_30px_-24px_rgba(10,31,61,0.4)] md:text-center">
+                  <div className="flex md:justify-center items-center gap-2 mb-1.5 md:mb-2">
+                    <span className="flex w-7 h-7 md:w-8 md:h-8 items-center justify-center rounded-lg bg-[#0f4a9b]/[0.07] text-[#0f4a9b]"><Icon className="w-4 h-4" /></span>
+                    <span className="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-[#8a6a1f]">Step {i + 1}</span>
+                    <span className="md:hidden ml-auto inline-flex items-center gap-1 rounded-full bg-[#fbf3df] border border-[#C7A24A]/40 px-2 py-0.5 text-[10.5px] font-bold text-[#7A5E10]">{tag}</span>
+                  </div>
+                  <h3 className="text-[14.5px] md:text-[15px] font-extrabold text-[#0a1f3d] mb-1 md:mb-1.5 leading-snug">{title}</h3>
+                  <p className="text-[12.5px] sm:text-[13px] text-[#4a5a72] leading-relaxed md:mb-3">{text}</p>
+                  <span className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-[#fbf3df] border border-[#C7A24A]/40 px-2.5 py-0.5 text-[11px] font-bold text-[#7A5E10]"><CheckCircle2 className="w-3 h-3" />{tag}</span>
+                </div>
               </li>
             ))}
           </ol>
+          <div className="mt-4 md:mt-5 flex justify-center">
+            <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#0a1f3d] hover:bg-[#0f4a9b] text-white px-5 py-2.5 text-[13px] font-bold shadow-md transition-colors">
+              <MessageCircle className="w-4 h-4 text-[#f0c96a]" /> Start step 1 on WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
