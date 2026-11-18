@@ -297,6 +297,125 @@ function AlAinCarousel() {
   );
 }
 
+/* ── Subjects: a 3D cube with one IB subject on each face ─────────────────────
+   The cube turns to the chosen subject; the list and the detail panel carry the
+   real text (all six panels are in the HTML, inactive ones use `hidden`). The
+   cube faces are decorative. Auto-turns while on screen, pauses on hover/focus/
+   touch, and stays still under reduced motion. */
+
+const CUBE_SHORT = ['Maths AA', 'Maths AI', 'Physics', 'Chemistry', 'Biology', 'English & Econ'];
+const CUBE_LINK = ['Maths tutoring', 'Statistics tutoring', 'Physics tutoring', 'Chemistry tutoring', 'Biology tutoring', 'English tutoring'];
+const FACE_T = ['rotateY(0deg)', 'rotateY(90deg)', 'rotateY(180deg)', 'rotateY(-90deg)', 'rotateX(90deg)', 'rotateX(-90deg)'];
+const FACE_R: [number, number][] = [[0, 0], [0, -90], [0, -180], [0, 90], [-90, 0], [90, 0]];
+
+const CUBE_CSS = `
+.ibq-scene{perspective:1100px;--cs:176px}
+@media (min-width:640px){.ibq-scene{--cs:220px}}
+.ibq-cube{width:var(--cs);height:var(--cs);transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.22,1,.36,1)}
+.ibq-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px}
+@keyframes ibqBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.ibq-bob{animation:ibqBob 4.5s ease-in-out infinite}
+@keyframes ibqShadow{0%,100%{transform:scaleX(1);opacity:.28}50%{transform:scaleX(.86);opacity:.18}}
+.ibq-shadow{animation:ibqShadow 4.5s ease-in-out infinite}
+@keyframes ibqRing{to{transform:rotate(360deg)}}
+.ibq-ring{animation:ibqRing 26s linear infinite}
+@media (prefers-reduced-motion: reduce){.ibq-cube{transition:none}.ibq-bob,.ibq-shadow,.ibq-ring{animation:none}}
+`;
+
+function SubjectCube() {
+  const n = SUBJECTS.length;
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold: 0.3 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  useEffect(() => {
+    if (paused || !inView || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const t = setInterval(() => setActive((a) => (a + 1) % n), 3800);
+    return () => clearInterval(t);
+  }, [paused, inView, n]);
+
+  const [rx, ry] = FACE_R[active];
+  const pick = (i: number) => { setActive(i); setPaused(true); };
+
+  return (
+    <div ref={ref} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}
+      onTouchStart={() => setPaused(true)}
+      className="grid lg:grid-cols-[230px_1fr_330px] gap-6 lg:gap-8 items-center">
+      <style>{CUBE_CSS}</style>
+
+      {/* Subject list (desktop column; a scrollable chip row on phones, under the cube) */}
+      <div className="order-2 lg:order-1">
+        <div role="tablist" aria-label="IB subjects" className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-col gap-2">
+          {SUBJECTS.map(({ Icon }, i) => {
+            const on = i === active;
+            return (
+              <button key={CUBE_SHORT[i]} role="tab" id={`ibq-tab-${i}`} aria-selected={on} aria-controls={`ibq-panel-${i}`} onClick={() => pick(i)}
+                className={`flex items-center gap-2.5 rounded-full lg:rounded-xl pl-1.5 pr-4 lg:pr-3 py-1.5 lg:py-2 text-left text-[12.5px] sm:text-[13px] font-bold whitespace-nowrap border transition-all ${on ? 'bg-[#0f4a9b] text-white border-[#0f4a9b] shadow-md lg:translate-x-1' : 'bg-white text-[#0a1f3d] border-[#0f4a9b]/12 hover:border-[#0f4a9b]/40'}`}>
+                <span className={`flex w-7 h-7 items-center justify-center rounded-full lg:rounded-lg ${on ? 'bg-white/15 text-[#f0c96a]' : 'bg-[#f6efdc] text-[#0a3a79]'}`}><Icon className="w-4 h-4" /></span>
+                {CUBE_SHORT[i]}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* The cube */}
+      <div className="order-1 lg:order-2 flex flex-col items-center">
+        <div className="ibq-scene relative flex items-center justify-center w-full h-[250px] sm:h-[320px]" aria-hidden="true">
+          <div className="ibq-ring absolute w-[250px] h-[250px] sm:w-[310px] sm:h-[310px] rounded-full border border-dashed border-[#C7A24A]/35" />
+          <div className="absolute w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(199,162,74,0.16) 0%, rgba(199,162,74,0) 70%)' }} />
+          <div className="ibq-bob relative cursor-pointer" onClick={() => pick((active + 1) % n)}>
+            <div className="ibq-cube relative" style={{ transform: `rotateX(-12deg) rotateY(-18deg) rotateX(${rx}deg) rotateY(${ry}deg)` }}>
+              {SUBJECTS.map(({ Icon }, i) => (
+                <div key={i} className="ibq-face flex flex-col items-center justify-center gap-3 border-[1.5px] border-[#C7A24A]/35"
+                  style={{ transform: `${FACE_T[i]} translateZ(calc(var(--cs) / 2))`, background: 'linear-gradient(150deg, #ffffff 0%, #fffaf0 55%, #f7ecd2 100%)', boxShadow: 'inset 0 0 0 6px rgba(255,255,255,0.6), inset 0 -18px 30px rgba(199,162,74,0.12)' }}>
+                  <span className="relative flex w-[64px] h-[64px] sm:w-[76px] sm:h-[76px] items-center justify-center rounded-[20px] text-white overflow-hidden"
+                    style={{ background: 'linear-gradient(145deg, #1e5ba8 0%, #0f4a9b 45%, #0a2a5c 100%)', boxShadow: '0 14px 24px -12px rgba(10,31,61,0.55), inset 0 2px 0 rgba(255,255,255,0.35), inset 0 -4px 8px rgba(0,0,0,0.25)' }}>
+                    <span className="absolute -top-3 -left-6 w-16 h-10 bg-white/20 rotate-[-25deg]" />
+                    <Icon className="w-8 h-8 sm:w-9 sm:h-9 relative" strokeWidth={1.8} />
+                  </span>
+                  <span className="text-[15px] sm:text-[17px] font-extrabold text-[#0a1f3d] text-center px-3 leading-tight">{CUBE_SHORT[i]}</span>
+                  <span className="text-[10px] font-extrabold tracking-wider text-[#7A5E10] bg-[#C7A24A]/15 border border-[#C7A24A]/40 px-2.5 py-0.5 rounded-full">SL · HL</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="ibq-shadow absolute bottom-3 sm:bottom-5 w-[150px] sm:w-[190px] h-5 rounded-[50%] bg-[#0a1f3d] blur-md" />
+        </div>
+        <span className="hidden lg:block text-[11px] font-semibold text-[#8a6a1f] tracking-wide">Click the cube or a subject to turn it</span>
+      </div>
+
+      {/* Detail panel: all six in the HTML */}
+      <div className="order-3">
+        {SUBJECTS.map(({ name, levels, watch, href }, i) => (
+          <div key={name} role="tabpanel" id={`ibq-panel-${i}`} aria-labelledby={`ibq-tab-${i}`} hidden={i !== active}
+            className="relative rounded-[22px] bg-white border border-[#C7A24A]/25 p-6 shadow-[0_24px_50px_-30px_rgba(10,31,61,0.35)]">
+            <div className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full" style={{ background: GOLD }} />
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-[11px] font-extrabold tracking-[0.16em] text-[#8a6a1f]">0{i + 1} / 0{n}</span>
+              <span className="text-[10.5px] font-extrabold tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 px-2.5 py-0.5 rounded-full">{levels}</span>
+            </div>
+            <h3 className="text-lg font-extrabold text-[#0a1f3d] mb-2 leading-snug">{name}</h3>
+            <p className="text-[13px] sm:text-[13.5px] text-[#4a5a72] leading-relaxed mb-4">{watch}</p>
+            <a href={href} className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#0f4a9b] hover:text-[#0a3a79]">
+              {CUBE_LINK[i]} <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* MYP / DP1 / DP2 switcher. All three panels are server-rendered; inactive ones use `hidden`. */
 function StageSwitcher() {
   const [active, setActive] = useState(1);
@@ -435,27 +554,15 @@ export default function IBTutorAlAinPage() {
         </div>
       </section>
 
-      {/* ── 04 SUBJECTS AT SL AND HL ── */}
-      <section className="py-8 sm:py-10 bg-white">
+      {/* ── 04 SUBJECTS AT SL AND HL (3D cube) ── */}
+      <section className="py-8 sm:py-10 overflow-hidden" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead
             eyebrow="Diploma subjects"
             title={<>IB subjects we tutor, <span className="text-[#0f4a9b]">at SL and HL</span></>}
-            intro="Each card shows where students in that subject most often lose marks, and what lessons work on first."
+            intro="Turn the cube to a subject to see where students most often lose marks, and what lessons work on first."
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            {SUBJECTS.map(({ Icon, name, levels, watch, href }, i) => (
-              <motion.a key={name} href={href} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.05 }}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:shadow-md hover:border-[#0f4a9b]/35 transition-all">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="flex w-10 h-10 items-center justify-center rounded-xl bg-[#f6efdc] text-[#0a3a79]"><Icon className="w-5 h-5" /></span>
-                  <span className="text-[10.5px] font-extrabold tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 px-2.5 py-0.5 rounded-full">{levels}</span>
-                </div>
-                <h3 className="text-[15px] font-extrabold text-[#0a1f3d] mb-1.5 leading-snug group-hover:text-[#0f4a9b] transition-colors">{name}</h3>
-                <p className="text-[12.5px] sm:text-[13px] text-[#4a5a72] leading-relaxed">{watch}</p>
-              </motion.a>
-            ))}
-          </div>
+          <SubjectCube />
           <p className="mt-4 text-center text-[12px] text-[#4a5a72]">
             Comparing levels? See <a href="/dp-hl" className="font-bold text-[#0f4a9b] underline underline-offset-2">DP Higher Level</a> and <a href="/dp-sl" className="font-bold text-[#0f4a9b] underline underline-offset-2">DP Standard Level</a> tutoring.
           </p>
