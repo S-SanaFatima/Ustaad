@@ -250,7 +250,7 @@ function AlAinCarousel() {
       <div ref={stageRef} className="ibc-stage relative select-none touch-pan-y" onPointerDown={onDown} onPointerUp={onUp} onPointerCancel={() => { startX.current = null; }}>
         {/* soft floor shadow under the front card */}
         <div className="absolute left-1/2 bottom-1 -translate-x-1/2 w-[62%] sm:w-[34%] h-6 rounded-[50%] blur-xl bg-[#0a1f3d]/15 pointer-events-none" aria-hidden="true" />
-        <div className="grid justify-items-center py-4 sm:py-6 [--ibc-side:58%] [--ibc-side-op:0.28] sm:[--ibc-side:80%] sm:[--ibc-side-op:0.62]">
+        <div className="grid justify-items-center py-4 sm:py-3 [--ibc-side:58%] [--ibc-side-op:0.28] sm:[--ibc-side:80%] sm:[--ibc-side-op:0.62]">
           {AL_AIN_CONTEXT.map(({ Icon, title, text }, i) => {
             let d = (i - active + n) % n; if (d === n - 1) d = -1;
             const front = d === 0;
@@ -263,28 +263,28 @@ function AlAinCarousel() {
                 className={`ibc-card ${front ? 'ibc-front' : 'cursor-pointer'} [grid-area:1/1] w-[min(80vw,390px)] rounded-[26px] bg-white border border-[#C7A24A]/20 overflow-hidden`}
                 style={{ ...style, boxShadow: front ? '0 30px 60px -28px rgba(10,31,61,0.35), 0 2px 0 rgba(199,162,74,0.25) inset' : '0 18px 40px -26px rgba(10,31,61,0.3)' }}>
                 {/* top band: cream with a floating 3D badge and a large number */}
-                <div className="relative h-[118px] overflow-hidden" style={{ background: 'linear-gradient(135deg, #fbf3df 0%, #fffaf0 55%, #f4f7fc 100%)', transformStyle: 'preserve-3d' }}>
+                <div className="relative h-[118px] sm:h-[96px] overflow-hidden" style={{ background: 'linear-gradient(135deg, #fbf3df 0%, #fffaf0 55%, #f4f7fc 100%)', transformStyle: 'preserve-3d' }}>
                   <div className="absolute -right-6 -top-10 w-40 h-40 rounded-full bg-[#C7A24A]/10" aria-hidden="true" />
                   <div className="absolute -left-8 bottom-[-46px] w-32 h-32 rounded-full bg-[#0f4a9b]/[0.06]" aria-hidden="true" />
                   <span className="ibc-num absolute right-5 top-3 text-[64px] leading-none font-black text-transparent select-none" style={{ WebkitTextStroke: '1.5px rgba(168,137,42,0.45)' }} aria-hidden="true">0{i + 1}</span>
-                  <span className="ibc-badge absolute left-6 top-6 flex w-[68px] h-[68px] items-center justify-center rounded-[20px] text-white overflow-hidden"
+                  <span className="ibc-badge absolute left-6 top-6 sm:top-4 flex w-[68px] h-[68px] items-center justify-center rounded-[20px] text-white overflow-hidden"
                     style={{ background: 'linear-gradient(145deg, #1e5ba8 0%, #0f4a9b 45%, #0a2a5c 100%)', boxShadow: '0 16px 26px -12px rgba(10,31,61,0.55), inset 0 2px 0 rgba(255,255,255,0.35), inset 0 -4px 8px rgba(0,0,0,0.25)' }}>
                     <span className="ibc-shine absolute inset-y-0 left-0 w-1/3 bg-white/25" aria-hidden="true" />
                     <Icon className="w-8 h-8 relative" strokeWidth={1.8} />
                     <span className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-2 border-white" style={{ background: 'linear-gradient(135deg,#f0c96a,#A8892A)' }} aria-hidden="true" />
                   </span>
                 </div>
-                <div className="p-6 pt-5">
+                <div className="p-6 pt-5 sm:px-6 sm:pt-4 sm:pb-5">
                   <h3 className="text-[17px] sm:text-lg font-extrabold text-[#0a1f3d] mb-2 leading-snug">{title}</h3>
                   <p className="text-[13px] sm:text-[13.5px] text-[#4a5a72] leading-relaxed">{text}</p>
-                  <div className="mt-5 h-[3px] w-14 rounded-full" style={{ background: GOLD }} aria-hidden="true" />
+                  <div className="mt-5 sm:mt-4 h-[3px] w-14 rounded-full" style={{ background: GOLD }} aria-hidden="true" />
                 </div>
               </div>
             );
           })}
         </div>
       </div>
-      <div className="mt-2 flex flex-col items-center gap-2">
+      <div className="mt-2 sm:mt-1 flex flex-col items-center gap-2 sm:gap-1.5">
         <div className="flex items-center gap-2">
           {AL_AIN_CONTEXT.map((c, i) => (
             <button key={c.title} type="button" onClick={() => go(i)} aria-label={`Show card ${i + 1}: ${c.title}`} aria-current={i === active}
@@ -559,7 +559,7 @@ export default function IBTutorAlAinPage() {
       <SchoolsMarquee logoList={AL_AIN_SCHOOL_LOGOS} title="Supporting Students From Schools Across Al Ain" />
 
       {/* ── 02 THE IB IN AL AIN (light 3D carousel) ── */}
-      <section className="py-8 sm:py-10 overflow-hidden" style={{ background: 'radial-gradient(70% 60% at 50% 55%, rgba(199,162,74,0.10) 0%, rgba(199,162,74,0) 70%), linear-gradient(180deg, #fbf7ee 0%, #ffffff 100%)' }}>
+      <section className="py-8 sm:py-6 overflow-hidden bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead
             eyebrow="The IB in Al Ain"
