@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import {
   Calculator, Atom, FlaskConical, Dna, BookOpen, TrendingUp,
   ChevronDown, MessageCircle, Search, ClipboardCheck, CalendarCheck, CheckCircle2, Info,
-  School, Repeat, Globe2, FileText, PenTool, Lightbulb, ShieldCheck,
+  School, Repeat, Globe2, ShieldCheck,
 } from 'lucide-react';
 import { Layout, StatsBar, SchoolsMarquee, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -91,9 +91,9 @@ const SUBJECTS: Subject[] = [
 ];
 
 const CORE = [
-  { Icon: FileText, name: 'Internal Assessment (IA)', what: 'Every DP subject has one, marked by the teacher and checked by an IB moderator.', help: ['Picking a focused research question', 'Reading the criteria before writing', 'Feedback on structure, data handling and evaluation'] },
-  { Icon: PenTool, name: 'Extended Essay (EE)', what: 'A 4,000-word research essay, graded A to E, that counts towards the 3 core points.', help: ['Narrowing the topic to a question that can be answered', 'Planning research and sources', 'Questions that help the student improve their own draft'] },
-  { Icon: Lightbulb, name: 'Theory of Knowledge (TOK)', what: 'An essay on a set title and an exhibition, also graded A to E and combined with the EE.', help: ['Unpacking the prescribed title', 'Building real-life examples', 'Practising a clear, balanced argument'] },
+  { code: 'IA', name: 'Internal Assessment', what: 'Every DP subject has one, marked by the teacher and checked by an IB moderator.', facts: [['6 of 6', 'subjects'], ['Moderated', 'by the IB']], help: ['Picking a focused research question', 'Reading the criteria before writing', 'Feedback on structure, data handling and evaluation'] },
+  { code: 'EE', name: 'Extended Essay', what: 'An independent research essay in one subject, graded A to E.', facts: [['4,000', 'word limit'], ['A to E', 'grade']], help: ['Narrowing the topic to a question that can be answered', 'Planning research and sources', 'Questions that help the student improve their own draft'] },
+  { code: 'TOK', name: 'Theory of Knowledge', what: 'An essay on a prescribed title and an exhibition, also graded A to E.', facts: [['1,600', 'word essay limit'], ['3 objects', 'in the exhibition']], help: ['Unpacking the prescribed title', 'Building real-life examples', 'Practising a clear, balanced argument'] },
 ];
 
 const SWITCH = [
@@ -617,6 +617,57 @@ function SubjectScenes() {
   );
 }
 
+/* Diploma core: three cards side by side from md up; on phones a segmented
+   IA / EE / TOK control shows one card at a time (all three are in the HTML). */
+function CoreCards() {
+  const [active, setActive] = useState(0);
+  return (
+    <>
+      <div role="tablist" aria-label="Diploma core components" className="md:hidden grid grid-cols-3 gap-1 p-1 mb-3 rounded-xl bg-white border border-slate-200/80">
+        {CORE.map(({ code }, i) => (
+          <button key={code} type="button" role="tab" id={`core-tab-${i}`} aria-selected={i === active} aria-controls={`core-card-${i}`} onClick={() => setActive(i)}
+            className={`rounded-lg py-2 text-[13px] font-extrabold transition-colors ${i === active ? 'bg-[#0a1f3d] text-[#f0c96a]' : 'text-[#0a1f3d] hover:bg-[#0f4a9b]/[0.06]'}`}>{code}</button>
+        ))}
+      </div>
+      <div className="grid md:grid-cols-3 gap-3 sm:gap-4">
+        {CORE.map(({ code, name, what, facts, help }, i) => (
+          <article key={code} id={`core-card-${i}`} aria-labelledby={`core-h-${i}`}
+            className={`${i === active ? 'flex' : 'hidden md:flex'} relative flex-col rounded-2xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_12px_32px_-24px_rgba(10,31,61,0.35)] transition-shadow hover:shadow-[0_1px_2px_rgba(10,31,61,0.04),0_20px_40px_-24px_rgba(10,31,61,0.45)] overflow-hidden`}>
+            <div className="h-[3px] w-full" style={{ background: 'linear-gradient(90deg,#0f4a9b,#C7A24A)' }} aria-hidden="true" />
+            <div className="px-4 sm:px-5 pt-4 pb-3">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="flex w-10 h-10 shrink-0 items-center justify-center rounded-xl bg-[#0a1f3d] text-[#f0c96a] text-[12.5px] font-black tracking-wide" aria-hidden="true">{code}</span>
+                <h3 id={`core-h-${i}`} className="text-[15.5px] font-extrabold text-[#0a1f3d] leading-tight">{name} <span className="font-bold text-[#8a6a1f]">({code})</span></h3>
+              </div>
+              <p className="text-[12.5px] text-[#4a5a72] leading-relaxed">{what}</p>
+            </div>
+            <dl className="grid grid-cols-2 mx-4 sm:mx-5 rounded-xl border border-slate-200/80 divide-x divide-slate-200/80 bg-[#fafbfd]">
+              {facts.map(([v, l]) => (
+                <div key={l} className="px-3 py-1.5">
+                  <dt className="sr-only">{l}</dt>
+                  <dd className="text-[15px] font-black text-[#0f4a9b] leading-tight">{v}</dd>
+                  <dd className="text-[10px] font-semibold uppercase tracking-wider text-[#6b7a90]">{l}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="px-4 sm:px-5 pt-2.5 pb-3.5">
+              <p className="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-[#8a6a1f] mb-1.5">How lessons help</p>
+              <ol className="space-y-1.5">
+                {help.map((h, k) => (
+                  <li key={h} className="flex items-start gap-2.5 text-[12.5px] text-[#2c3e5c] leading-snug">
+                    <span className="flex w-[18px] h-[18px] shrink-0 items-center justify-center rounded-md bg-[#0f4a9b]/[0.08] text-[#0f4a9b] text-[10px] font-extrabold mt-px">{k + 1}</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </article>
+        ))}
+      </div>
+    </>
+  );
+}
+
 /* MYP / DP1 / DP2: a progress stepper with a two-column detail panel.
    All three panels are server-rendered; inactive ones use `hidden`. */
 const STAGE_META = [
@@ -799,27 +850,19 @@ export default function IBTutorAlAinPage() {
       </section>
 
       {/* ── 05 THE CORE ── */}
-      <section className="py-8 sm:py-10 relative overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #0a1f3d 0%, #0f3a7a 60%, #1e5ba8 100%)' }}>
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHead light eyebrow="The Diploma core" title={<>IA, Extended Essay and TOK, <span className="text-[#f0c96a]">done the right way</span></>} intro="Coursework and the core can decide a Diploma. We guide the thinking and the planning; the work your child submits is always their own." />
-          <div className="grid md:grid-cols-3 gap-3 sm:gap-4">
-            {CORE.map(({ Icon, name, what, help }) => (
-              <div key={name} className="rounded-2xl bg-white/[0.06] border border-white/15 p-5 backdrop-blur-sm">
-                <span className="flex w-10 h-10 items-center justify-center rounded-xl bg-[#f0c96a]/15 text-[#f0c96a] mb-3"><Icon className="w-5 h-5" /></span>
-                <h3 className="text-[15px] font-extrabold text-white mb-1">{name}</h3>
-                <p className="text-[12.5px] text-blue-100/80 leading-relaxed mb-3">{what}</p>
-                <ul className="space-y-1.5">
-                  {help.map((h) => (
-                    <li key={h} className="flex items-start gap-2 text-[12.5px] text-white/90"><CheckCircle2 className="w-3.5 h-3.5 text-[#f0c96a] mt-0.5 shrink-0" /><span>{h}</span></li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div className="mt-5 max-w-3xl mx-auto flex items-start gap-2.5 rounded-xl bg-white/[0.07] border border-white/15 px-4 py-3 text-[12px] sm:text-[12.5px] text-blue-50/90 leading-relaxed">
-            <ShieldCheck className="w-4 h-4 text-[#f0c96a] shrink-0 mt-0.5" />
-            <p>The IB treats work written by someone else as academic misconduct, which can cost a student the Diploma. Our tutors never write IA, EE or TOK work for a student.</p>
+      <section className="py-6 sm:py-5 bg-[#f6f8fc] border-y border-[#0f4a9b]/[0.06]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHead eyebrow="The Diploma core" title={<>IA, Extended Essay and TOK, <span className="text-[#0f4a9b]">done the right way</span></>} intro="Coursework and the core can decide a Diploma. We guide the thinking and the planning; the work your child submits is always their own." />
+          <CoreCards />
+          <div className="mt-3 grid md:grid-cols-[0.8fr_1.2fr] gap-2 sm:gap-3">
+            <div className="flex items-center gap-3 rounded-xl bg-white border border-slate-200/80 px-4 py-2.5">
+              <span className="text-[26px] font-black leading-none text-[#0f4a9b]">+3</span>
+              <p className="text-[12px] sm:text-[12.5px] text-[#2c3e5c] leading-snug"><strong className="text-[#0a1f3d]">Core points.</strong> The EE and TOK grades combine for up to 3 of the 45 Diploma points.</p>
+            </div>
+            <div className="flex items-start gap-3 rounded-xl bg-[#fffaf0] border border-[#C7A24A]/35 px-4 py-2.5">
+              <ShieldCheck className="w-5 h-5 text-[#A8892A] shrink-0 mt-0.5" />
+              <p className="text-[12px] sm:text-[12.5px] text-[#4a3a12] leading-snug"><strong className="text-[#0a1f3d]">Academic honesty.</strong> The IB treats work written by someone else as academic misconduct, which can cost a student the Diploma. Our tutors never write IA, EE or TOK work for a student.</p>
+            </div>
           </div>
         </div>
       </section>
