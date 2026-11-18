@@ -297,32 +297,235 @@ function AlAinCarousel() {
   );
 }
 
-/* ── Subjects: a 3D cube with one IB subject on each face ─────────────────────
-   The cube turns to the chosen subject; the list and the detail panel carry the
-   real text (all six panels are in the HTML, inactive ones use `hidden`). The
-   cube faces are decorative. Auto-turns while on screen, pauses on hover/focus/
-   touch, and stays still under reduced motion. */
+/* ── Subjects: an animated scene for each subject ─────────────────────────────
+   Picking a subject plays a short SVG animation about that subject (a curve and
+   its tangent for Maths AA, a line of best fit for AI, a pendulum and a wave for
+   Physics, and so on). The list and the detail panel carry the real text (all six
+   panels are in the HTML, inactive ones use `hidden`); the scenes are decorative.
+   Auto-advances while on screen, pauses on hover/focus/touch, and stays still
+   under reduced motion. */
 
-const CUBE_SHORT = ['Maths AA', 'Maths AI', 'Physics', 'Chemistry', 'Biology', 'English & Econ'];
-const CUBE_LINK = ['Maths tutoring', 'Statistics tutoring', 'Physics tutoring', 'Chemistry tutoring', 'Biology tutoring', 'English tutoring'];
-const FACE_T = ['rotateY(0deg)', 'rotateY(90deg)', 'rotateY(180deg)', 'rotateY(-90deg)', 'rotateX(90deg)', 'rotateX(-90deg)'];
-const FACE_R: [number, number][] = [[0, 0], [0, -90], [0, -180], [0, 90], [-90, 0], [90, 0]];
+const SUBJ_SHORT = ['Maths AA', 'Maths AI', 'Physics', 'Chemistry', 'Biology', 'English & Econ'];
+const SUBJ_LINK = ['Maths tutoring', 'Statistics tutoring', 'Physics tutoring', 'Chemistry tutoring', 'Biology tutoring', 'English tutoring'];
 
-const CUBE_CSS = `
-.ibq-scene{perspective:1100px;--cs:176px}
-@media (min-width:640px){.ibq-scene{--cs:220px}}
-.ibq-cube{width:var(--cs);height:var(--cs);transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.22,1,.36,1)}
-.ibq-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px}
-@keyframes ibqBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.ibq-bob{animation:ibqBob 4.5s ease-in-out infinite}
-@keyframes ibqShadow{0%,100%{transform:scaleX(1);opacity:.28}50%{transform:scaleX(.86);opacity:.18}}
-.ibq-shadow{animation:ibqShadow 4.5s ease-in-out infinite}
-@keyframes ibqRing{to{transform:rotate(360deg)}}
-.ibq-ring{animation:ibqRing 26s linear infinite}
-@media (prefers-reduced-motion: reduce){.ibq-cube{transition:none}.ibq-bob,.ibq-shadow,.ibq-ring{animation:none}}
+const SCENE_CSS = `
+.ibs-scene{animation:ibsIn .5s ease both}
+@keyframes ibsIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ibs-draw{stroke-dasharray:1;stroke-dashoffset:1;animation:ibsDraw 1.4s cubic-bezier(.45,0,.2,1) forwards;animation-delay:var(--d,0s)}
+@keyframes ibsDraw{to{stroke-dashoffset:0}}
+.ibs-pop{opacity:0;transform-box:fill-box;transform-origin:center;animation:ibsPop .5s cubic-bezier(.34,1.56,.64,1) forwards;animation-delay:var(--d,0s)}
+@keyframes ibsPop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+.ibs-fade{opacity:0;animation:ibsFade .8s ease forwards;animation-delay:var(--d,0s)}
+@keyframes ibsFade{to{opacity:1}}
+.ibs-growx{transform-box:fill-box;transform-origin:left center;transform:scaleX(0);animation:ibsGrowX .7s ease-out forwards;animation-delay:var(--d,0s)}
+@keyframes ibsGrowX{to{transform:scaleX(1)}}
+.ibs-swing{transform-box:view-box;transform-origin:88px 34px;animation:ibsSwing 2.4s ease-in-out infinite alternate}
+@keyframes ibsSwing{from{transform:rotate(-26deg)}to{transform:rotate(26deg)}}
+.ibs-wave{animation:ibsWave 1.6s linear infinite}
+@keyframes ibsWave{to{transform:translateX(-60px)}}
+.ibs-bubble{transform-box:fill-box;transform-origin:center;opacity:0;animation:ibsBubble 2.6s ease-in infinite;animation-delay:var(--d,0s)}
+@keyframes ibsBubble{0%{opacity:0;transform:translateY(0) scale(.6)}15%{opacity:.9}100%{opacity:0;transform:translateY(-70px) scale(1.1)}}
+.ibs-slosh{animation:ibsSlosh 2.2s ease-in-out infinite alternate}
+@keyframes ibsSlosh{from{transform:translateX(-14px)}to{transform:translateX(0)}}
+.ibs-spin{transform-box:fill-box;transform-origin:center;animation:ibsSpin 14s linear infinite}
+@keyframes ibsSpin{to{transform:rotate(360deg)}}
+.ibs-rung{transform-box:fill-box;transform-origin:center;animation:ibsRung 3.2s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes ibsRung{0%,100%{transform:scaleX(1)}50%{transform:scaleX(-1)}}
+.ibs-pulse{transform-box:fill-box;transform-origin:center;animation:ibsPulse 3s ease-in-out infinite}
+@keyframes ibsPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.ibs-float{animation:ibsFloat 3.4s ease-in-out infinite alternate;animation-delay:var(--d,0s)}
+@keyframes ibsFloat{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+.ibs-shift{animation:ibsShift 1s cubic-bezier(.22,1,.36,1) forwards;animation-delay:var(--d,0s);transform:translateX(-25px);opacity:0}
+@keyframes ibsShift{0%{transform:translateX(0);opacity:0}25%{opacity:1}100%{transform:translateX(0);opacity:1}}
+@media (prefers-reduced-motion: reduce){
+  .ibs-scene,.ibs-swing,.ibs-wave,.ibs-bubble,.ibs-slosh,.ibs-spin,.ibs-rung,.ibs-pulse,.ibs-float{animation:none}
+  .ibs-draw{animation:none;stroke-dashoffset:0}.ibs-pop,.ibs-fade,.ibs-shift{animation:none;opacity:1;transform:none}.ibs-growx{animation:none;transform:none}
+  .ibs-bubble{opacity:.6}
+}
 `;
 
-function SubjectCube() {
+const NAVY = '#0f4a9b';
+const NAVY_D = '#0a2a5c';
+const GOLD_C = '#C7A24A';
+const INK = '#0a1f3d';
+const d = (s: number) => ({ '--d': `${s}s` }) as CSSProperties;
+
+function Axes({ x0 = 40, y0 = 186, x1 = 300, y1 = 22 }: { x0?: number; y0?: number; x1?: number; y1?: number }) {
+  return (
+    <g stroke={INK} strokeOpacity="0.55" strokeWidth="1.6" strokeLinecap="round" fill="none">
+      <path d={`M${x0} ${y0}H${x1}M${x1 - 6} ${y0 - 4}l6 4-6 4`} />
+      <path d={`M${x0} ${y0}V${y1}M${x0 - 4} ${y1 + 6}l4-6 4 6`} />
+    </g>
+  );
+}
+
+function Chip({ x, y, w, text, delay = 0, gold = false }: { x: number; y: number; w: number; text: string; delay?: number; gold?: boolean }) {
+  return (
+    <g className="ibs-pop" style={d(delay)}>
+      <g className="ibs-float" style={d(delay)}>
+        <rect x={x} y={y} width={w} height="24" rx="12" fill={gold ? '#fbf3df' : '#ffffff'} stroke={gold ? GOLD_C : NAVY} strokeOpacity="0.45" />
+        <text x={x + w / 2} y={y + 16} textAnchor="middle" fontSize="12" fontWeight="800" fill={gold ? '#7A5E10' : NAVY} fontStyle="italic">{text}</text>
+      </g>
+    </g>
+  );
+}
+
+const AA_CURVE = 'M48 160 C 92 30, 150 34, 178 104 S 252 196, 292 52';
+
+function SceneMathsAA() {
+  return (
+    <>
+      <Axes />
+      <path d="M48 186 V160 C 92 30, 150 34, 178 104 V186 Z" fill={NAVY} fillOpacity="0.09" className="ibs-fade" style={d(1.3)} />
+      <path d={AA_CURVE} pathLength={1} className="ibs-draw" fill="none" stroke={NAVY} strokeWidth="3.5" strokeLinecap="round" />
+      <g className="ibs-fade" style={d(1.4)}>
+        <g>
+          <animateMotion path={AA_CURVE} dur="6s" begin="1.4s" repeatCount="indefinite" rotate="auto"
+            keyPoints="0.04;0.96;0.04" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" />
+          <line x1="-34" y1="0" x2="34" y2="0" stroke={GOLD_C} strokeWidth="3" strokeLinecap="round" />
+          <circle r="6.5" fill="#fff" stroke={NAVY} strokeWidth="3" />
+        </g>
+      </g>
+      <Chip x={196} y={20} w={78} text="f′(x) = 0" delay={1.6} gold />
+      <Chip x={70} y={148} w={70} text="∫ f(x) dx" delay={1.9} />
+    </>
+  );
+}
+
+const AI_PTS: [number, number][] = [[62, 168], [84, 150], [98, 160], [120, 132], [140, 138], [160, 112], [184, 104], [204, 92], [222, 98], [246, 70], [268, 64]];
+function SceneMathsAI() {
+  return (
+    <>
+      <Axes />
+      {[60, 100, 140].map((y) => <line key={y} x1="40" x2="296" y1={y} y2={y} stroke={NAVY} strokeOpacity="0.07" />)}
+      {AI_PTS.map(([x, y], i) => <circle key={i} cx={x} cy={y} r="5.5" fill={i % 3 === 0 ? GOLD_C : NAVY} className="ibs-pop" style={d(0.1 + i * 0.08)} />)}
+      <path d="M52 176 L284 56" pathLength={1} className="ibs-draw" style={d(1.1)} stroke={NAVY_D} strokeWidth="3" strokeLinecap="round" strokeDasharray="1" fill="none" />
+      <Chip x={60} y={22} w={76} text="r = 0.96" delay={2} gold />
+      <Chip x={196} y={140} w={96} text="ŷ = 0.5x + 3" delay={2.3} />
+    </>
+  );
+}
+
+function wavePath() {
+  let p = 'M160 118';
+  for (let x = 160; x < 400; x += 60) p += ` q 15 -34 30 0 t 30 0`;
+  return p;
+}
+function ScenePhysics() {
+  return (
+    <>
+      <path d="M44 34 H132" stroke={INK} strokeOpacity="0.5" strokeWidth="3" strokeLinecap="round" />
+      {[52, 64, 76, 88, 100, 112, 124].map((x) => <path key={x} d={`M${x} 34 l-8 -9`} stroke={INK} strokeOpacity="0.25" strokeWidth="1.5" />)}
+      <path d="M44 132 A 104 104 0 0 0 132 132" fill="none" stroke={NAVY} strokeOpacity="0.25" strokeDasharray="4 5" className="ibs-fade" />
+      <line x1="88" y1="34" x2="88" y2="146" stroke={NAVY} strokeOpacity="0.15" strokeDasharray="3 4" />
+      <g className="ibs-swing">
+        <line x1="88" y1="34" x2="88" y2="140" stroke={INK} strokeWidth="2" />
+        <circle cx="88" cy="146" r="15" fill="url(#ibsBall)" />
+        <circle cx="83" cy="141" r="4" fill="#fff" fillOpacity="0.45" />
+      </g>
+      <circle cx="88" cy="34" r="4" fill={INK} />
+      <clipPath id="ibsWaveClip"><rect x="160" y="60" width="140" height="120" /></clipPath>
+      <line x1="160" y1="118" x2="300" y2="118" stroke={NAVY} strokeOpacity="0.15" />
+      <g clipPath="url(#ibsWaveClip)">
+        <path className="ibs-wave" d={wavePath()} fill="none" stroke={NAVY} strokeWidth="3.5" strokeLinecap="round" />
+      </g>
+      <path d="M188 74 H248" stroke={GOLD_C} strokeWidth="2" className="ibs-fade" style={d(0.6)} />
+      <path d="M188 70 v8 M248 70 v8" stroke={GOLD_C} strokeWidth="2" className="ibs-fade" style={d(0.6)} />
+      <text x="218" y="66" textAnchor="middle" fontSize="14" fontWeight="800" fontStyle="italic" fill="#7A5E10" className="ibs-fade" style={d(0.6)}>λ</text>
+      <Chip x={196} y={170} w={70} text="v = fλ" delay={0.9} gold />
+      <Chip x={40} y={176} w={96} text="T = 2π√(l/g)" delay={1.2} />
+    </>
+  );
+}
+
+function SceneChemistry() {
+  const hex = [0, 1, 2, 3, 4, 5].map((k) => { const a = (Math.PI / 3) * k - Math.PI / 2; return [234 + 46 * Math.cos(a), 104 + 46 * Math.sin(a)]; });
+  return (
+    <>
+      <clipPath id="ibsFlask"><path d="M80 40 h36 v44 l44 90 a10 10 0 0 1 -9 14 h-106 a10 10 0 0 1 -9 -14 l44 -90 z" /></clipPath>
+      <g clipPath="url(#ibsFlask)">
+        <rect x="20" y="40" width="200" height="160" fill="#f7fbff" />
+        <g className="ibs-slosh">
+          <path d="M20 128 q 14 -8 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0 V200 H20 Z" fill={NAVY} fillOpacity="0.85" />
+          <path d="M20 128 q 14 -8 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0" fill="none" stroke="#5f8fd0" strokeWidth="3" />
+        </g>
+        {[[84, 180, 0], [100, 186, 0.7], [118, 178, 1.3], [94, 170, 1.9], [126, 188, 0.4]].map(([x, y, t], i) => (
+          <circle key={i} cx={x} cy={y} r={3 + (i % 3)} fill="#fff" fillOpacity="0.85" className="ibs-bubble" style={d(t)} />
+        ))}
+      </g>
+      <path d="M80 40 h36 v44 l44 90 a10 10 0 0 1 -9 14 h-106 a10 10 0 0 1 -9 -14 l44 -90 z" fill="none" stroke={INK} strokeOpacity="0.7" strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M74 40 h48" stroke={INK} strokeOpacity="0.7" strokeWidth="3" strokeLinecap="round" />
+      <g className="ibs-spin">
+        <polygon points={hex.map((p) => p.join(',')).join(' ')} fill="none" stroke={NAVY} strokeWidth="3" strokeLinejoin="round" />
+        <circle cx="234" cy="104" r="26" fill="none" stroke={GOLD_C} strokeWidth="2.5" strokeDasharray="5 5" />
+        {hex.map(([x, y], i) => <circle key={i} cx={x} cy={y} r="7" fill={i % 2 ? '#ffffff' : NAVY} stroke={NAVY} strokeWidth="2.5" />)}
+      </g>
+      <Chip x={204} y={164} w={60} text="C₆H₆" delay={0.5} gold />
+      <Chip x={172} y={18} w={124} text="2H₂ + O₂ → 2H₂O" delay={0.9} />
+    </>
+  );
+}
+
+function SceneBiology() {
+  return (
+    <>
+      {Array.from({ length: 9 }, (_, i) => {
+        const y = 28 + i * 20;
+        return (
+          <g key={i} className="ibs-rung" style={d(-i * 0.32)}>
+            <line x1="56" y1={y} x2="136" y2={y} stroke={i % 2 ? GOLD_C : NAVY} strokeOpacity="0.55" strokeWidth="3" strokeLinecap="round" />
+            <circle cx="56" cy={y} r="6.5" fill={NAVY} />
+            <circle cx="136" cy={y} r="6.5" fill={GOLD_C} />
+          </g>
+        );
+      })}
+      <g className="ibs-pulse">
+        <ellipse cx="232" cy="104" rx="62" ry="54" fill="#eef4fc" stroke={NAVY} strokeOpacity="0.6" strokeWidth="2.5" />
+        <circle cx="240" cy="98" r="20" fill={NAVY} fillOpacity="0.85" />
+        <circle cx="246" cy="92" r="6" fill="#fff" fillOpacity="0.5" />
+      </g>
+      <g className="ibs-float" style={d(0)}>
+        <ellipse cx="202" cy="128" rx="13" ry="7" fill={GOLD_C} fillOpacity="0.8" transform="rotate(-20 202 128)" />
+      </g>
+      <g className="ibs-float" style={d(1.2)}>
+        <ellipse cx="268" cy="134" rx="11" ry="6" fill={GOLD_C} fillOpacity="0.8" transform="rotate(25 268 134)" />
+      </g>
+      <g className="ibs-float" style={d(0.6)}>
+        <circle cx="206" cy="76" r="4" fill={NAVY} fillOpacity="0.5" />
+        <circle cx="274" cy="80" r="3" fill={NAVY} fillOpacity="0.5" />
+      </g>
+      <Chip x={196} y={172} w={74} text="ATP" delay={0.6} gold />
+    </>
+  );
+}
+
+function SceneEnglishEcon() {
+  return (
+    <>
+      <rect x="22" y="26" width="128" height="162" rx="12" fill="#fff" stroke={INK} strokeOpacity="0.2" />
+      <rect x="36" y="42" width="64" height="8" rx="4" fill={NAVY} className="ibs-growx" style={d(0.1)} />
+      {[66, 82, 98, 114, 130, 146, 162].map((y, i) => (
+        <rect key={y} x="36" y={y} width={i % 3 === 2 ? 62 : 100} height="5" rx="2.5" fill={INK} fillOpacity="0.22" className="ibs-growx" style={d(0.35 + i * 0.22)} />
+      ))}
+      <rect x="36" y="82" width="58" height="5" rx="2.5" fill={GOLD_C} fillOpacity="0.8" className="ibs-growx" style={d(0.6)} />
+      <Axes x0={176} y0={186} x1={304} y1={30} />
+      <path d="M182 184 L296 66" pathLength={1} className="ibs-draw" style={d(0.4)} stroke={NAVY} strokeWidth="3" strokeLinecap="round" fill="none" />
+      <path d="M185 75 L285 185" pathLength={1} className="ibs-draw" style={d(0.8)} stroke={GOLD_C} strokeWidth="3" strokeLinecap="round" fill="none" />
+      <circle cx="236.3" cy="131.5" r="5.5" fill="#fff" stroke={INK} strokeWidth="2.5" className="ibs-pop" style={d(1.6)} />
+      <g className="ibs-shift" style={d(2.1)}>
+        <path d="M210 75 L310 185" stroke={GOLD_C} strokeWidth="2.5" strokeDasharray="6 5" strokeLinecap="round" fill="none" />
+      </g>
+      <circle cx="249.1" cy="118.1" r="5.5" fill={NAVY} className="ibs-pop" style={d(2.9)} />
+      <text x="298" y="62" fontSize="12" fontWeight="800" fill={NAVY} className="ibs-fade" style={d(1.2)}>S</text>
+      <text x="270" y="198" fontSize="12" fontWeight="800" fill="#7A5E10" className="ibs-fade" style={d(1.4)}>D</text>
+      <text x="296" y="170" fontSize="12" fontWeight="800" fill="#7A5E10" className="ibs-fade" style={d(2.6)}>D₁</text>
+    </>
+  );
+}
+
+const SCENES = [SceneMathsAA, SceneMathsAI, ScenePhysics, SceneChemistry, SceneBiology, SceneEnglishEcon];
+
+function SubjectScenes() {
   const n = SUBJECTS.length;
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -338,76 +541,74 @@ function SubjectCube() {
   }, []);
   useEffect(() => {
     if (paused || !inView || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const t = setInterval(() => setActive((a) => (a + 1) % n), 3800);
+    const t = setInterval(() => setActive((a) => (a + 1) % n), 6000);
     return () => clearInterval(t);
   }, [paused, inView, n]);
 
-  const [rx, ry] = FACE_R[active];
   const pick = (i: number) => { setActive(i); setPaused(true); };
+  const Scene = SCENES[active];
+  const { Icon } = SUBJECTS[active];
 
   return (
     <div ref={ref} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}
       onTouchStart={() => setPaused(true)}
-      className="grid lg:grid-cols-[230px_1fr_330px] gap-6 lg:gap-8 items-center">
-      <style>{CUBE_CSS}</style>
+      className="grid lg:grid-cols-[220px_1fr_320px] gap-3 sm:gap-5 lg:gap-7 items-center">
+      <style>{SCENE_CSS}</style>
 
-      {/* Subject list (desktop column; a scrollable chip row on phones, under the cube) */}
+      {/* Subject list */}
       <div className="order-2 lg:order-1">
-        <div role="tablist" aria-label="IB subjects" className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-col gap-2">
-          {SUBJECTS.map(({ Icon }, i) => {
+        <div role="tablist" aria-label="IB subjects" className="grid grid-cols-3 lg:flex lg:flex-col gap-1.5 sm:gap-2">
+          {SUBJECTS.map(({ Icon: TabIcon }, i) => {
             const on = i === active;
             return (
-              <button key={CUBE_SHORT[i]} role="tab" id={`ibq-tab-${i}`} aria-selected={on} aria-controls={`ibq-panel-${i}`} onClick={() => pick(i)}
-                className={`flex items-center gap-2.5 rounded-full lg:rounded-xl pl-1.5 pr-4 lg:pr-3 py-1.5 lg:py-2 text-left text-[12.5px] sm:text-[13px] font-bold whitespace-nowrap border transition-all ${on ? 'bg-[#0f4a9b] text-white border-[#0f4a9b] shadow-md lg:translate-x-1' : 'bg-white text-[#0a1f3d] border-[#0f4a9b]/12 hover:border-[#0f4a9b]/40'}`}>
-                <span className={`flex w-7 h-7 items-center justify-center rounded-full lg:rounded-lg ${on ? 'bg-white/15 text-[#f0c96a]' : 'bg-[#f6efdc] text-[#0a3a79]'}`}><Icon className="w-4 h-4" /></span>
-                {CUBE_SHORT[i]}
+              <button key={SUBJ_SHORT[i]} role="tab" id={`ibq-tab-${i}`} aria-selected={on} aria-controls={`ibq-panel-${i}`} onClick={() => pick(i)}
+                className={`flex items-center justify-center sm:justify-start gap-2.5 rounded-full lg:rounded-xl px-2 sm:pl-1.5 sm:pr-4 lg:pr-3 py-2 sm:py-1.5 lg:py-2 text-center sm:text-left text-[11.5px] sm:text-[13px] font-bold whitespace-nowrap border transition-all ${on ? 'bg-[#0f4a9b] text-white border-[#0f4a9b] shadow-md lg:translate-x-1' : 'bg-white text-[#0a1f3d] border-[#0f4a9b]/12 hover:border-[#0f4a9b]/40'}`}>
+                <span className={`hidden sm:flex w-7 h-7 items-center justify-center rounded-full lg:rounded-lg ${on ? 'bg-white/15 text-[#f0c96a]' : 'bg-[#f6efdc] text-[#0a3a79]'}`}><TabIcon className="w-4 h-4" /></span>
+                {SUBJ_SHORT[i]}
               </button>
             );
           })}
         </div>
       </div>
 
-      {/* The cube */}
-      <div className="order-1 lg:order-2 flex flex-col items-center">
-        <div className="ibq-scene relative flex items-center justify-center w-full h-[250px] sm:h-[320px]" aria-hidden="true">
-          <div className="ibq-ring absolute w-[250px] h-[250px] sm:w-[310px] sm:h-[310px] rounded-full border border-dashed border-[#C7A24A]/35" />
-          <div className="absolute w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(199,162,74,0.16) 0%, rgba(199,162,74,0) 70%)' }} />
-          <div className="ibq-bob relative cursor-pointer" onClick={() => pick((active + 1) % n)}>
-            <div className="ibq-cube relative" style={{ transform: `rotateX(-12deg) rotateY(-18deg) rotateX(${rx}deg) rotateY(${ry}deg)` }}>
-              {SUBJECTS.map(({ Icon }, i) => (
-                <div key={i} className="ibq-face flex flex-col items-center justify-center gap-3 border-[1.5px] border-[#C7A24A]/35"
-                  style={{ transform: `${FACE_T[i]} translateZ(calc(var(--cs) / 2))`, background: 'linear-gradient(150deg, #ffffff 0%, #fffaf0 55%, #f7ecd2 100%)', boxShadow: 'inset 0 0 0 6px rgba(255,255,255,0.6), inset 0 -18px 30px rgba(199,162,74,0.12)' }}>
-                  <span className="relative flex w-[64px] h-[64px] sm:w-[76px] sm:h-[76px] items-center justify-center rounded-[20px] text-white overflow-hidden"
-                    style={{ background: 'linear-gradient(145deg, #1e5ba8 0%, #0f4a9b 45%, #0a2a5c 100%)', boxShadow: '0 14px 24px -12px rgba(10,31,61,0.55), inset 0 2px 0 rgba(255,255,255,0.35), inset 0 -4px 8px rgba(0,0,0,0.25)' }}>
-                    <span className="absolute -top-3 -left-6 w-16 h-10 bg-white/20 rotate-[-25deg]" />
-                    <Icon className="w-8 h-8 sm:w-9 sm:h-9 relative" strokeWidth={1.8} />
-                  </span>
-                  <span className="text-[15px] sm:text-[17px] font-extrabold text-[#0a1f3d] text-center px-3 leading-tight">{CUBE_SHORT[i]}</span>
-                  <span className="text-[10px] font-extrabold tracking-wider text-[#7A5E10] bg-[#C7A24A]/15 border border-[#C7A24A]/40 px-2.5 py-0.5 rounded-full">SL · HL</span>
-                </div>
-              ))}
-            </div>
+      {/* Animated scene */}
+      <div className="order-1 lg:order-2" aria-hidden="true">
+        <div className="relative rounded-[24px] border border-[#0f4a9b]/12 bg-white overflow-hidden shadow-[0_24px_50px_-32px_rgba(10,31,61,0.4)]"
+          style={{ backgroundImage: 'radial-gradient(rgba(15,74,155,0.10) 1px, transparent 1px)', backgroundSize: '18px 18px' }}>
+          <div className="flex items-center justify-between px-4 pt-3 sm:pt-3.5">
+            <span className="inline-flex items-center gap-2 text-[12.5px] font-extrabold text-[#0a1f3d]">
+              <span className="flex w-7 h-7 items-center justify-center rounded-lg text-white" style={{ background: 'linear-gradient(145deg,#1e5ba8,#0a2a5c)' }}><Icon className="w-4 h-4" /></span>
+              {SUBJ_SHORT[active]}
+            </span>
+            <span className="text-[10px] font-extrabold tracking-wider text-[#7A5E10] bg-[#C7A24A]/15 border border-[#C7A24A]/40 px-2.5 py-0.5 rounded-full">SL · HL</span>
           </div>
-          <div className="ibq-shadow absolute bottom-3 sm:bottom-5 w-[150px] sm:w-[190px] h-5 rounded-[50%] bg-[#0a1f3d] blur-md" />
+          <svg key={active} viewBox="0 0 320 210" className="ibs-scene block w-full h-[178px] sm:h-[250px]" fontFamily="inherit">
+            <defs>
+              <radialGradient id="ibsBall" cx="35%" cy="35%" r="70%"><stop offset="0%" stopColor="#3b78c8" /><stop offset="100%" stopColor={NAVY_D} /></radialGradient>
+            </defs>
+            <Scene />
+          </svg>
+          <div className="flex justify-center gap-1.5 pb-2.5 sm:pb-3">
+            {SUBJECTS.map((_, i) => <span key={i} className={`h-1.5 rounded-full transition-all ${i === active ? 'w-5 bg-[#0f4a9b]' : 'w-1.5 bg-[#0f4a9b]/20'}`} />)}
+          </div>
         </div>
-        <span className="hidden lg:block text-[11px] font-semibold text-[#8a6a1f] tracking-wide">Click the cube or a subject to turn it</span>
       </div>
 
       {/* Detail panel: all six in the HTML */}
       <div className="order-3">
         {SUBJECTS.map(({ name, levels, watch, href }, i) => (
           <div key={name} role="tabpanel" id={`ibq-panel-${i}`} aria-labelledby={`ibq-tab-${i}`} hidden={i !== active}
-            className="relative rounded-[22px] bg-white border border-[#C7A24A]/25 p-6 shadow-[0_24px_50px_-30px_rgba(10,31,61,0.35)]">
+            className="relative rounded-[22px] bg-white border border-[#C7A24A]/25 px-5 py-4 sm:p-6 shadow-[0_24px_50px_-30px_rgba(10,31,61,0.35)]">
             <div className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full" style={{ background: GOLD }} />
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-2 sm:mb-3">
               <span className="text-[11px] font-extrabold tracking-[0.16em] text-[#8a6a1f]">0{i + 1} / 0{n}</span>
               <span className="text-[10.5px] font-extrabold tracking-wider text-[#0f4a9b] bg-[#0f4a9b]/8 border border-[#0f4a9b]/15 px-2.5 py-0.5 rounded-full">{levels}</span>
             </div>
-            <h3 className="text-lg font-extrabold text-[#0a1f3d] mb-2 leading-snug">{name}</h3>
-            <p className="text-[13px] sm:text-[13.5px] text-[#4a5a72] leading-relaxed mb-4">{watch}</p>
+            <h3 className="text-base sm:text-lg font-extrabold text-[#0a1f3d] mb-1.5 sm:mb-2 leading-snug">{name}</h3>
+            <p className="text-[13px] sm:text-[13.5px] text-[#4a5a72] leading-relaxed mb-3 sm:mb-4">{watch}</p>
             <a href={href} className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#0f4a9b] hover:text-[#0a3a79]">
-              {CUBE_LINK[i]} <span aria-hidden="true">→</span>
+              {SUBJ_LINK[i]} <span aria-hidden="true">→</span>
             </a>
           </div>
         ))}
@@ -582,16 +783,16 @@ export default function IBTutorAlAinPage() {
         </div>
       </section>
 
-      {/* ── 04 SUBJECTS AT SL AND HL (3D cube) ── */}
-      <section className="py-8 sm:py-10 overflow-hidden" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)' }}>
+      {/* ── 04 SUBJECTS AT SL AND HL (animated subject scenes) ── */}
+      <section className="py-6 sm:py-10 overflow-hidden" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead
             eyebrow="Diploma subjects"
             title={<>IB subjects we tutor, <span className="text-[#0f4a9b]">at SL and HL</span></>}
-            intro="Turn the cube to a subject to see where students most often lose marks, and what lessons work on first."
+            intro="Pick a subject to see where students most often lose marks, and what lessons work on first."
           />
-          <SubjectCube />
-          <p className="mt-4 text-center text-[12px] text-[#4a5a72]">
+          <SubjectScenes />
+          <p className="mt-3 sm:mt-4 text-center text-[12px] text-[#4a5a72]">
             Comparing levels? See <a href="/dp-hl" className="font-bold text-[#0f4a9b] underline underline-offset-2">DP Higher Level</a> and <a href="/dp-sl" className="font-bold text-[#0f4a9b] underline underline-offset-2">DP Standard Level</a> tutoring.
           </p>
         </div>
