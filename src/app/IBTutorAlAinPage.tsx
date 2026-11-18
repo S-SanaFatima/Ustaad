@@ -608,7 +608,7 @@ function SubjectScenes() {
             <h3 className="text-base sm:text-lg font-extrabold text-[#0a1f3d] mb-1.5 sm:mb-2 leading-snug">{name}</h3>
             <p className="text-[13px] sm:text-[13.5px] text-[#4a5a72] leading-relaxed mb-3 sm:mb-4">{watch}</p>
             <a href={href} className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#0f4a9b] hover:text-[#0a3a79]">
-              {SUBJ_LINK[i]} <span aria-hidden="true">→</span>
+              {SUBJ_LINK[i]}
             </a>
           </div>
         ))}
@@ -696,7 +696,7 @@ function StageSwitcher() {
               </span>
               <h3 className="mt-1.5 sm:mt-2.5 text-[15.5px] sm:text-xl font-extrabold text-[#0a1f3d] leading-snug">{s.title}</h3>
               <a href={s.link.href} className="mt-1.5 sm:mt-4 inline-flex items-center gap-2 sm:h-10 sm:px-4 sm:rounded-lg sm:border border-[#0f4a9b]/25 text-[12.5px] sm:text-[13px] font-bold text-[#0f4a9b] sm:hover:bg-[#0f4a9b] sm:hover:text-white hover:border-[#0f4a9b] transition-colors">
-                {s.link.text} <span aria-hidden="true">→</span>
+                {s.link.text}
               </a>
             </div>
             <ol className="px-4 py-3 sm:px-6 sm:py-5 divide-y divide-slate-100">
