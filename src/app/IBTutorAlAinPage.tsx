@@ -939,8 +939,8 @@ export default function IBTutorAlAinPage() {
             ))}
           </ol>
           <div className="mt-4 md:mt-5 flex justify-center">
-            <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#0a1f3d] hover:bg-[#0f4a9b] text-white px-5 py-2.5 text-[13px] font-bold shadow-md transition-colors">
-              <MessageCircle className="w-4 h-4 text-[#f0c96a]" /> Start step 1 on WhatsApp
+            <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#1ebe5a] text-white px-5 py-2.5 text-[13px] font-bold shadow-md shadow-[#25D366]/30 transition-colors">
+              <MessageCircle className="w-4 h-4" /> Start step 1 on WhatsApp
             </a>
           </div>
         </div>
