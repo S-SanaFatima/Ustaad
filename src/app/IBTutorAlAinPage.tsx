@@ -5,7 +5,7 @@ import {
   ChevronDown, MessageCircle, Search, ClipboardCheck, CalendarCheck, CheckCircle2, Info,
   School, Repeat, Globe2, FileText, PenTool, Lightbulb, ShieldCheck,
 } from 'lucide-react';
-import { Layout, StatsBar, RelatedContent } from './shared';
+import { Layout, StatsBar, SchoolsMarquee, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
@@ -29,6 +29,16 @@ const TITLE = 'IB Tutor Al Ain | Online MYP & DP Tutors, SL and HL | Ustaad';
 const DESCRIPTION = 'Online IB tutor for Al Ain students: MYP criteria, DP Maths AA/AI, sciences, Economics and English at SL or HL, plus IA, EE and TOK guidance.';
 
 /* ── Content ─────────────────────────────────────────────────────────── */
+
+/* Al Ain schools whose students we support, including those moving from IGCSE to the IB Diploma */
+const AL_AIN_SCHOOL_LOGOS = [
+  { name: 'Brighton College Al Ain', file: 'brighton-college-al-ain.webp', src: '/images/schools/al-ain/brighton-college-al-ain.webp', alt: 'Brighton College Al Ain logo, a school whose Al Ain students Ustaad supports online' },
+  { name: 'Al Ain British Academy', file: 'al-ain-british-academy.webp', src: '/images/schools/al-ain/al-ain-british-academy.webp', alt: 'Al Ain British Academy logo, an Aldar Academies school in Al Ain' },
+  { name: 'Al Ain English Speaking School', file: 'aaess.webp', src: '/images/schools/al-ain/aaess.webp', alt: 'Al Ain English Speaking School (AAESS) logo, an Al Ain school for ages 3 to 18' },
+  { name: 'Belvedere International School', file: 'belvedere-international.webp', src: '/images/schools/al-ain/belvedere-international.webp', alt: 'Belvedere International School Al Ain logo' },
+  { name: 'Excel International School', file: 'excel-international.webp', src: '/images/schools/al-ain/excel-international.webp', alt: 'Excel International School Al Ain logo' },
+  { name: 'Global English School', file: 'global-english-school.webp', src: '/images/schools/al-ain/global-english-school.webp', alt: 'Global English School Al Muwaiji, Al Ain logo' },
+];
 
 const AL_AIN_CONTEXT = [
   { Icon: School, title: 'Few IB schools in the city', text: 'Most Al Ain schools teach the British or American curriculum, so IB year groups are small. A student may be the only one taking HL Physics, with fewer classmates to work through problems with.' },
@@ -290,6 +300,8 @@ export default function IBTutorAlAinPage() {
       </section>
 
       <StatsBar />
+
+      <SchoolsMarquee logoList={AL_AIN_SCHOOL_LOGOS} title="Supporting Students From Schools Across Al Ain" />
 
       {/* ── 02 THE IB IN AL AIN ── */}
       <section className="py-8 sm:py-10 bg-white">
