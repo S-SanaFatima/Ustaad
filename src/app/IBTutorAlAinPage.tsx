@@ -91,9 +91,9 @@ const SUBJECTS: Subject[] = [
 ];
 
 const CORE = [
-  { code: 'IA', name: 'Internal Assessment', what: 'Every DP subject has one, marked by the teacher and checked by an IB moderator.', facts: [['6 of 6', 'subjects'], ['Moderated', 'by the IB']], help: ['Picking a focused research question', 'Reading the criteria before writing', 'Feedback on structure, data handling and evaluation'] },
-  { code: 'EE', name: 'Extended Essay', what: 'An independent research essay in one subject, graded A to E.', facts: [['4,000', 'word limit'], ['A to E', 'grade']], help: ['Narrowing the topic to a question that can be answered', 'Planning research and sources', 'Questions that help the student improve their own draft'] },
-  { code: 'TOK', name: 'Theory of Knowledge', what: 'An essay on a prescribed title and an exhibition, also graded A to E.', facts: [['1,600', 'word essay limit'], ['3 objects', 'in the exhibition']], help: ['Unpacking the prescribed title', 'Building real-life examples', 'Practising a clear, balanced argument'] },
+  { code: 'IA', name: 'Internal Assessment', what: 'Every DP subject has one, marked by the teacher and checked by an IB moderator.', fact: 'In every subject · IB-moderated', help: ['Picking a focused research question', 'Reading the criteria before writing', 'Feedback on structure, data handling and evaluation'] },
+  { code: 'EE', name: 'Extended Essay', what: 'An independent research essay in one subject.', fact: 'Up to 4,000 words · Graded A to E', help: ['Narrowing the topic to an answerable question', 'Planning research and sources', 'Questions that help improve their own draft'] },
+  { code: 'TOK', name: 'Theory of Knowledge', what: 'An essay on a prescribed title, plus an exhibition of three objects.', fact: '1,600-word essay · Graded A to E', help: ['Unpacking the prescribed title', 'Building real-life examples', 'Practising a clear, balanced argument'] },
 ];
 
 const SWITCH = [
@@ -617,50 +617,33 @@ function SubjectScenes() {
   );
 }
 
-/* Diploma core: three cards side by side from md up; on phones a segmented
-   IA / EE / TOK control shows one card at a time (all three are in the HTML). */
+/* Diploma core: one quiet panel with three columns from md up; on phones an
+   IA / EE / TOK switch shows one column at a time (all three are in the HTML). */
 function CoreCards() {
   const [active, setActive] = useState(0);
   return (
     <>
-      <div role="tablist" aria-label="Diploma core components" className="md:hidden grid grid-cols-3 gap-1 p-1 mb-3 rounded-xl bg-white border border-slate-200/80">
+      <div role="tablist" aria-label="Diploma core components" className="md:hidden flex justify-center gap-6 mb-3 border-b border-slate-200">
         {CORE.map(({ code }, i) => (
           <button key={code} type="button" role="tab" id={`core-tab-${i}`} aria-selected={i === active} aria-controls={`core-card-${i}`} onClick={() => setActive(i)}
-            className={`rounded-lg py-2 text-[13px] font-extrabold transition-colors ${i === active ? 'bg-[#0a1f3d] text-[#f0c96a]' : 'text-[#0a1f3d] hover:bg-[#0f4a9b]/[0.06]'}`}>{code}</button>
+            className={`-mb-px px-2 pb-2 text-[13px] font-extrabold border-b-2 transition-colors ${i === active ? 'border-[#0f4a9b] text-[#0f4a9b]' : 'border-transparent text-[#6b7a90]'}`}>{code}</button>
         ))}
       </div>
-      <div className="grid md:grid-cols-3 gap-3 sm:gap-4">
-        {CORE.map(({ code, name, what, facts, help }, i) => (
-          <article key={code} id={`core-card-${i}`} aria-labelledby={`core-h-${i}`}
-            className={`${i === active ? 'flex' : 'hidden md:flex'} relative flex-col rounded-2xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_12px_32px_-24px_rgba(10,31,61,0.35)] transition-shadow hover:shadow-[0_1px_2px_rgba(10,31,61,0.04),0_20px_40px_-24px_rgba(10,31,61,0.45)] overflow-hidden`}>
-            <div className="h-[3px] w-full" style={{ background: 'linear-gradient(90deg,#0f4a9b,#C7A24A)' }} aria-hidden="true" />
-            <div className="px-4 sm:px-5 pt-4 pb-3">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="flex w-10 h-10 shrink-0 items-center justify-center rounded-xl bg-[#0a1f3d] text-[#f0c96a] text-[12.5px] font-black tracking-wide" aria-hidden="true">{code}</span>
-                <h3 id={`core-h-${i}`} className="text-[15.5px] font-extrabold text-[#0a1f3d] leading-tight">{name} <span className="font-bold text-[#8a6a1f]">({code})</span></h3>
-              </div>
-              <p className="text-[12.5px] text-[#4a5a72] leading-relaxed">{what}</p>
-            </div>
-            <dl className="grid grid-cols-2 mx-4 sm:mx-5 rounded-xl border border-slate-200/80 divide-x divide-slate-200/80 bg-[#fafbfd]">
-              {facts.map(([v, l]) => (
-                <div key={l} className="px-3 py-1.5">
-                  <dt className="sr-only">{l}</dt>
-                  <dd className="text-[15px] font-black text-[#0f4a9b] leading-tight">{v}</dd>
-                  <dd className="text-[10px] font-semibold uppercase tracking-wider text-[#6b7a90]">{l}</dd>
-                </div>
+      <div className="rounded-2xl bg-white border border-slate-200 md:grid md:grid-cols-3 md:divide-x md:divide-slate-200">
+        {CORE.map(({ code, name, what, fact, help }, i) => (
+          <article key={code} id={`core-card-${i}`} aria-labelledby={`core-h-${i}`} className={`${i === active ? 'block' : 'hidden md:block'} p-5 lg:p-6`}>
+            <p className="text-[11px] font-extrabold tracking-[0.18em] text-[#A8892A] mb-1.5">{code}</p>
+            <h3 id={`core-h-${i}`} className="text-[16px] font-extrabold text-[#0a1f3d] leading-tight mb-1.5">{name}</h3>
+            <p className="text-[13px] text-[#4a5a72] leading-relaxed mb-2 md:min-h-[42px]">{what}</p>
+            <p className="text-[12px] font-semibold text-[#0f4a9b] mb-4">{fact}</p>
+            <ul className="space-y-2 border-t border-slate-100 pt-4">
+              {help.map((h) => (
+                <li key={h} className="flex items-start gap-2.5 text-[13px] text-[#2c3e5c] leading-snug">
+                  <span className="mt-[7px] w-1.5 h-1.5 shrink-0 rounded-full bg-[#C7A24A]" aria-hidden="true" />
+                  <span>{h}</span>
+                </li>
               ))}
-            </dl>
-            <div className="px-4 sm:px-5 pt-2.5 pb-3.5">
-              <p className="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-[#8a6a1f] mb-1.5">How lessons help</p>
-              <ol className="space-y-1.5">
-                {help.map((h, k) => (
-                  <li key={h} className="flex items-start gap-2.5 text-[12.5px] text-[#2c3e5c] leading-snug">
-                    <span className="flex w-[18px] h-[18px] shrink-0 items-center justify-center rounded-md bg-[#0f4a9b]/[0.08] text-[#0f4a9b] text-[10px] font-extrabold mt-px">{k + 1}</span>
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
+            </ul>
           </article>
         ))}
       </div>
@@ -854,16 +837,10 @@ export default function IBTutorAlAinPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead eyebrow="The Diploma core" title={<>IA, Extended Essay and TOK, <span className="text-[#0f4a9b]">done the right way</span></>} intro="Coursework and the core can decide a Diploma. We guide the thinking and the planning; the work your child submits is always their own." />
           <CoreCards />
-          <div className="mt-3 grid md:grid-cols-[0.8fr_1.2fr] gap-2 sm:gap-3">
-            <div className="flex items-center gap-3 rounded-xl bg-white border border-slate-200/80 px-4 py-2.5">
-              <span className="text-[26px] font-black leading-none text-[#0f4a9b]">+3</span>
-              <p className="text-[12px] sm:text-[12.5px] text-[#2c3e5c] leading-snug"><strong className="text-[#0a1f3d]">Core points.</strong> The EE and TOK grades combine for up to 3 of the 45 Diploma points.</p>
-            </div>
-            <div className="flex items-start gap-3 rounded-xl bg-[#fffaf0] border border-[#C7A24A]/35 px-4 py-2.5">
-              <ShieldCheck className="w-5 h-5 text-[#A8892A] shrink-0 mt-0.5" />
-              <p className="text-[12px] sm:text-[12.5px] text-[#4a3a12] leading-snug"><strong className="text-[#0a1f3d]">Academic honesty.</strong> The IB treats work written by someone else as academic misconduct, which can cost a student the Diploma. Our tutors never write IA, EE or TOK work for a student.</p>
-            </div>
-          </div>
+          <p className="mt-4 max-w-3xl mx-auto text-center text-[12px] sm:text-[12.5px] text-[#4a5a72] leading-relaxed">
+            The EE and TOK grades combine for up to <strong className="text-[#0a1f3d]">3 of the 45 Diploma points</strong>.
+            <span className="block mt-1"><ShieldCheck className="inline w-3.5 h-3.5 -mt-0.5 mr-1 text-[#A8892A]" aria-hidden="true" />Work written by someone else is academic misconduct under IB rules. Our tutors never write IA, EE or TOK work for a student.</span>
+          </p>
         </div>
       </section>
 
