@@ -51,14 +51,15 @@ const EMIRATES: Emirate[] = [
     ],
   },
   {
-    id: 'aa', name: 'Al Ain', count: 3,
+    id: 'aa', name: 'Al Ain', count: 4,
     groups: [
-      { label: 'By curriculum', span: 3, tiles: [
+      { label: 'By curriculum', span: 4, tiles: [
         { href: '/igcse-tutor-al-ain', icon: 'igcse', title: 'IGCSE tutor', city: 'Al Ain', ga: true },
         { href: '/gcse-tutor-al-ain', icon: 'gcse', title: 'GCSE tutor', city: 'Al Ain', ga: true },
         { href: '/a-level-tutor-al-ain', icon: 'alevel', title: 'A-Level tutor', city: 'Al Ain', ga: true },
+        { href: '/ib-tutor-al-ain', icon: 'ib', title: 'IB tutor', city: 'Al Ain', ga: true },
       ] },
-      { label: 'Other subjects', span: 5, note: 'alain' },
+      { label: 'Other subjects', span: 4, note: 'alain' },
     ],
   },
   {
@@ -122,7 +123,7 @@ function NoteCard({ kind, index }: { kind: 'alain' | 'other'; index: number }) {
     return (
       <div className="uf-note" style={{ ['--i' as string]: index }}>
         <div>
-          <p className="uf-note__title">Need Maths, Physics, Chemistry, Biology or IB in Al Ain?</p>
+          <p className="uf-note__title">Need Maths, Physics, Chemistry or Biology in Al Ain?</p>
           <p className="uf-note__text">Our tutors teach online, so the same specialists work with Al Ain families. Tell us the subject and year group and we will suggest a match.</p>
         </div>
         <a className="uf-btn-wa" href={WA_URL} target="_blank" rel="noopener noreferrer" data-ga-event="footer_whatsapp_click">

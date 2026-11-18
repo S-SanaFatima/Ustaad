@@ -379,21 +379,24 @@ export default function IBCurriculumPage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-12">
             {[
-              { city: "Abu Dhabi", note: "Khalifa City · Saadiyat · Yas" },
-              { city: "Dubai", note: "Dubai Hills · Ranches · Palm" },
+              { city: "Abu Dhabi", note: "Khalifa City · Saadiyat · Yas", href: "/ib-tutor-abu-dhabi" },
+              { city: "Dubai", note: "Dubai Hills · Ranches · Palm", href: "/ib-tutor-dubai" },
               { city: "Sharjah", note: "MYP and DP schools" },
               { city: "Ajman", note: "IB curriculum" },
-              { city: "Al Ain", note: "Criteria-based" },
+              { city: "Al Ain", note: "MYP and Diploma", href: "/ib-tutor-al-ain" },
               { city: "Ras Al Khaimah", note: "Northern Emirates" },
               { city: "Fujairah", note: "East coast" },
-            ].map((loc, i) => (
-              <div key={i} className="group relative bg-white/5 hover:bg-white/10 border border-white/8 hover:border-white/20 rounded-2xl px-4 py-4 transition-all duration-200 cursor-default overflow-hidden">
+            ].map((loc: { city: string; note: string; href?: string }, i) => {
+              const Card = loc.href ? 'a' : 'div';
+              return (
+              <Card key={i} {...(loc.href ? { href: loc.href } : {})} className="group relative bg-white/5 hover:bg-white/10 border border-white/8 hover:border-white/20 rounded-2xl px-4 py-4 transition-all duration-200 cursor-default overflow-hidden">
                 <div className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_6px_rgba(199,162,74,0.8)]" />
                 <MapPin className="h-4 w-4 text-[#4a90d9] mb-2.5" strokeWidth={1.5} />
                 <p className="text-white font-bold text-sm leading-tight">{loc.city}</p>
                 <p className="text-white/35 text-[10px] mt-1 leading-snug">{loc.note}</p>
-              </div>
-            ))}
+              </Card>
+              );
+            })}
             <div className="group relative bg-white/5 hover:bg-white/10 border border-white/8 hover:border-white/20 rounded-2xl px-4 py-4 transition-all duration-200 cursor-default overflow-hidden">
               <div className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-[#C7A24A] shadow-[0_0_6px_rgba(199,162,74,0.8)]" />
               <MapPin className="h-4 w-4 text-[#4a90d9] mb-2.5" strokeWidth={1.5} />

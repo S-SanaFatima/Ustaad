@@ -2021,7 +2021,7 @@ export default function IBTutorAbuDhabiPage() {
           </div>
 
           <p className="text-center text-xs font-semibold text-gray-500 mb-6">
-            Free 15-min orientation. Evening, weekend and Ramadan slots. Serving Abu Dhabi families, delivered online across the UAE. For students based in Dubai, see our dedicated <a href="/ib-tutor-dubai" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">IB Tutor Dubai</a> support. Ustaad has operated in the UAE since 2015.
+            Free 15-min orientation. Evening, weekend and Ramadan slots. Serving Abu Dhabi families, delivered online across the UAE. For students based in Dubai, see our dedicated <a href="/ib-tutor-dubai" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">IB Tutor Dubai</a> support, and in Al Ain, our <a href="/ib-tutor-al-ain" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">IB Tutor Al Ain</a> page. Ustaad has operated in the UAE since 2015.
           </p>
         </div>
       </section>

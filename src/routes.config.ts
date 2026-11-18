@@ -879,6 +879,19 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'GCSE', url: '/gcse' }, { name: 'GCSE Tutor Al Ain', url: '/gcse-tutor-al-ain' }]
   },
   {
+    path: '/ib-tutor-al-ain',
+    component: 'IBTutorAlAinPage',
+    seo: {
+      title: 'IB Tutor Al Ain | Online MYP & DP Tutors, SL and HL | Ustaad',
+      description: 'Online IB tutor for Al Ain students: MYP criteria, DP Maths AA/AI, sciences, Economics and English at SL or HL, plus IA, EE and TOK guidance.',
+      keywords: 'IB tutor Al Ain, IB tutors Al Ain, IB tutoring Al Ain, online IB tutor UAE, MYP tutor Al Ain, IB Diploma tutor Al Ain, IB Maths AA tutor, IB Maths AI tutor, IB Physics tutor, IB Chemistry tutor, IB Biology tutor, IB Economics tutor, IA help, Extended Essay support, TOK essay help, IGCSE to IB',
+      priority: 0.90,
+      changefreq: 'monthly',
+      lastmod: '2026-11-18'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IB Curriculum', url: '/ib-curriculum' }, { name: 'IB Tutor Al Ain', url: '/ib-tutor-al-ain' }]
+  },
+  {
     path: '/editorial',
     component: 'EditorialPage',
     seo: {
