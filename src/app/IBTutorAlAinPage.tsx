@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useState, type ReactNode, type PointerEvent as RPointerEvent } from 'react';
 import { motion } from 'motion/react';
 import {
   Calculator, Atom, FlaskConical, Dna, BookOpen, TrendingUp,
@@ -189,6 +189,193 @@ function IbAlAinHeroBackground() {
   );
 }
 
+/* ── "The IB in Al Ain": 3D tilt cards with animated isometric scenes ──────────
+   Text stays in normal HTML; the scenes are decorative (aria-hidden).
+   Tilt follows the mouse only (not touch); all motion stops under reduced motion. */
+
+const ISO_C = Math.cos(Math.PI / 6);
+const ISO_S = Math.sin(Math.PI / 6);
+const iso = (x: number, y: number, z: number, s = 10, ox = 110, oy = 40) => [ox + (x - y) * ISO_C * s, oy + (x + y) * ISO_S * s - z * s];
+const pts = (arr: number[][]) => arr.map(([a, b]) => `${a.toFixed(1)},${b.toFixed(1)}`).join(' ');
+
+function IsoBox({ x, y, w, d, h, top, left, right, s, ox, oy, className }: { x: number; y: number; w: number; d: number; h: number; top: string; left: string; right: string; s?: number; ox?: number; oy?: number; className?: string }) {
+  const P = (a: number, b: number, c: number) => iso(a, b, c, s, ox, oy);
+  return (
+    <g className={className}>
+      <polygon points={pts([P(x + w, y, 0), P(x + w, y + d, 0), P(x + w, y + d, h), P(x + w, y, h)])} fill={right} />
+      <polygon points={pts([P(x, y + d, 0), P(x + w, y + d, 0), P(x + w, y + d, h), P(x, y + d, h)])} fill={left} />
+      <polygon points={pts([P(x, y, h), P(x + w, y, h), P(x + w, y + d, h), P(x, y + d, h)])} fill={top} />
+    </g>
+  );
+}
+
+const IB3D_CSS = `
+.ib3d-card{transform-style:preserve-3d;transition:transform .25s ease-out, box-shadow .25s ease-out;will-change:transform}
+.ib3d-card:hover{box-shadow:0 22px 48px -18px rgba(10,31,61,.35)}
+.ib3d-pop{transform:translateZ(38px)}
+.ib3d-text{transform:translateZ(18px)}
+.ib3d-glare{background:radial-gradient(circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.22),transparent 55%);opacity:0;transition:opacity .25s}
+.ib3d-card:hover .ib3d-glare{opacity:1}
+@keyframes ib3dBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes ib3dPulse{0%{opacity:.75;transform:scale(.6)}100%{opacity:0;transform:scale(1.6)}}
+@keyframes ib3dSlide{0%{transform:translate(0,0);opacity:0}8%{opacity:1}42%{transform:translate(82px,47px);opacity:1}50%,100%{transform:translate(92px,53px);opacity:0}}
+@keyframes ib3dDash{to{stroke-dashoffset:-24}}
+@keyframes ib3dBlink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes ib3dGrow{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.06)}}
+.ib3d-bob{animation:ib3dBob 3.2s ease-in-out infinite}
+.ib3d-pulse{transform-box:fill-box;transform-origin:center;animation:ib3dPulse 2.4s ease-out infinite}
+.ib3d-pulse2{transform-box:fill-box;transform-origin:center;animation:ib3dPulse 2.4s ease-out 1.2s infinite}
+.ib3d-a{animation:ib3dSlide 5s ease-in-out infinite}
+.ib3d-b{animation:ib3dSlide 5s ease-in-out 2.5s infinite;opacity:0}
+.ib3d-dash{stroke-dasharray:4 8;animation:ib3dDash 1.2s linear infinite}
+.ib3d-blink{animation:ib3dBlink 1.6s ease-in-out infinite}
+.ib3d-grow{transform-box:fill-box;transform-origin:bottom;animation:ib3dGrow 3s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.ib3d-scene *{animation:none!important}.ib3d-b{display:none}.ib3d-a{opacity:1}.ib3d-card{transition:none}}
+`;
+
+/* Scene 1: an Al Ain grid of schools, only one of them IB */
+function CityScene() {
+  const S = 10, OX = 130, OY = 48;
+  const P = (x: number, y: number, z: number) => iso(x, y, z, S, OX, OY);
+  const blocks: { x: number; y: number; h: number }[] = [];
+  const heights = [2, 3, 1.5, 2.5, 2, 1.5, 3.5, 2, 1.5, 2.5, 2, 3, 1.5, 2, 2.5, 1.5];
+  for (let gx = 0; gx < 4; gx++) for (let gy = 0; gy < 4; gy++) {
+    if (gx === 2 && gy === 1) continue;
+    blocks.push({ x: gx * 2.4, y: gy * 2.4, h: heights[gx * 4 + gy] });
+  }
+  const ib = { x: 2 * 2.4, y: 1 * 2.4, h: 5 };
+  const all = [...blocks.map((b) => ({ ...b, ib: false })), { ...ib, ib: true }].sort((a, b) => a.x + a.y - (b.x + b.y));
+  const [gx, gy] = P(ib.x + 0.8, ib.y + 0.8, 0);
+  const [tx, ty] = P(ib.x + 0.8, ib.y + 0.8, ib.h);
+  return (
+    <svg viewBox="0 0 260 150" className="w-full h-full ib3d-scene" aria-hidden="true">
+      <polygon points={pts([P(-0.6, -0.6, 0), P(9.6, -0.6, 0), P(9.6, 9.6, 0), P(-0.6, 9.6, 0)])} fill="rgba(255,255,255,0.05)" stroke="rgba(147,197,253,0.18)" />
+      <ellipse cx={gx} cy={gy} rx="24" ry="12" fill="none" stroke="#f0c96a" strokeWidth="1.5" className="ib3d-pulse" />
+      <ellipse cx={gx} cy={gy} rx="24" ry="12" fill="none" stroke="#f0c96a" strokeWidth="1.5" className="ib3d-pulse2" />
+      {all.map((b, i) => b.ib
+        ? <IsoBox key={i} x={b.x} y={b.y} w={1.6} d={1.6} h={b.h} s={S} ox={OX} oy={OY} top="#f6dc8f" left="#C7A24A" right="#9c7d2a" className="ib3d-grow" />
+        : <IsoBox key={i} x={b.x} y={b.y} w={1.6} d={1.6} h={b.h} s={S} ox={OX} oy={OY} top="#3d6db3" left="#1d4a8a" right="#163a6e" />)}
+      <g className="ib3d-bob">
+        <polygon points={pts([0, 1, 2, 3, 4, 5].map((k) => [tx + Math.cos((Math.PI / 3) * k - Math.PI / 2) * 12, ty - 24 + Math.sin((Math.PI / 3) * k - Math.PI / 2) * 12]))} fill="#0a1f3d" stroke="#f0c96a" strokeWidth="1.5" />
+        <text x={tx} y={ty - 20.5} textAnchor="middle" fontSize="10" fontWeight="800" fill="#f0c96a" fontFamily="ui-sans-serif, system-ui">IB</text>
+        <line x1={tx} y1={ty - 12} x2={tx} y2={ty - 3} stroke="#f0c96a" strokeWidth="1.2" />
+      </g>
+    </svg>
+  );
+}
+
+/* Scene 2: IGCSE and AP blocks taking turns along one lane onto the Diploma platform */
+function PathwayScene() {
+  const S = 10, OX = 58, OY = 34;
+  const P = (x: number, y: number, z: number) => iso(x, y, z, S, OX, OY);
+  const R = 3.3;
+  const hex = [0, 1, 2, 3, 4, 5].map((k) => { const a = (Math.PI / 3) * k + Math.PI / 6; return [12.4 + Math.cos(a) * R, Math.sin(a) * R]; });
+  const [hx, hy] = P(12.4, 0, 0);
+  const label = P(1, 0, 2.4);
+  return (
+    <svg viewBox="0 0 260 150" className="w-full h-full ib3d-scene" aria-hidden="true">
+      <polygon points={pts([P(0, -1, 0), P(9.4, -1, 0), P(9.4, 1, 0), P(0, 1, 0)])} fill="rgba(255,255,255,0.06)" stroke="rgba(147,197,253,0.22)" />
+      <line x1={P(0.3, 0, 0)[0]} y1={P(0.3, 0, 0)[1]} x2={P(9.2, 0, 0)[0]} y2={P(9.2, 0, 0)[1]} stroke="rgba(240,201,106,0.55)" strokeWidth="1.3" className="ib3d-dash" />
+      <ellipse cx={hx} cy={hy} rx="40" ry="20" fill="none" stroke="#f0c96a" strokeWidth="1.3" className="ib3d-pulse" />
+      <polygon points={pts(hex.map(([x, y]) => P(x, y, -0.8)))} fill="#9c7d2a" />
+      <polygon points={pts(hex.map(([x, y]) => P(x, y, 0)))} fill="#f0c96a" stroke="#fde68a" />
+      <text x={hx} y={hy + 4} textAnchor="middle" fontSize="11" fontWeight="900" fill="#0a1f3d" fontFamily="ui-sans-serif, system-ui">IB DP</text>
+      {[[hx + 46, hy - 30], [hx - 40, hy + 34], [hx + 52, hy + 20]].map(([x, y], i) => (
+        <path key={i} d={`M ${x} ${y - 4} L ${x + 1.2} ${y - 1.2} L ${x + 4} ${y} L ${x + 1.2} ${y + 1.2} L ${x} ${y + 4} L ${x - 1.2} ${y + 1.2} L ${x - 4} ${y} L ${x - 1.2} ${y - 1.2} Z`} fill="#fde68a" className="ib3d-blink" style={{ animationDelay: `${i * 0.5}s` }} />
+      ))}
+      <g className="ib3d-a">
+        <IsoBox x={0.3} y={-0.7} w={1.4} d={1.4} h={1.4} s={S} ox={OX} oy={OY} top="#7fb0f0" left="#2f63ad" right="#1d4a8a" />
+        <text x={label[0]} y={label[1]} textAnchor="middle" fontSize="8.5" fontWeight="800" fill="#cfe0fb" fontFamily="ui-monospace, monospace">IGCSE</text>
+      </g>
+      <g className="ib3d-b">
+        <IsoBox x={0.3} y={-0.7} w={1.4} d={1.4} h={1.4} s={S} ox={OX} oy={OY} top="#9ad3c0" left="#2b8a72" right="#1d6b58" />
+        <text x={label[0]} y={label[1]} textAnchor="middle" fontSize="8.5" fontWeight="800" fill="#cdeee3" fontFamily="ui-monospace, monospace">AP</text>
+      </g>
+    </svg>
+  );
+}
+
+/* Scene 3: a laptop lesson linked live to four Al Ain areas */
+function OnlineScene() {
+  const S = 10, OX = 128, OY = 62;
+  const P = (x: number, y: number, z: number) => iso(x, y, z, S, OX, OY);
+  const base = [P(0, 0, 0.35), P(5, 0, 0.35), P(5, 3.6, 0.35), P(0, 3.6, 0.35)];
+  const screen = [P(0, 0, 0.35), P(5, 0, 0.35), P(5, -0.9, 4.2), P(0, -0.9, 4.2)];
+  const [cx, cy] = P(2.5, -0.45, 2.3);
+  const pins = [
+    { label: 'Al Jimi', x: 68, y: 50 }, { label: 'Al Towayya', x: 204, y: 40 },
+    { label: 'Zakher', x: 58, y: 126 }, { label: 'Al Hili', x: 210, y: 122 },
+  ];
+  const dot = P(4.4, -0.75, 3.8);
+  return (
+    <svg viewBox="0 0 260 150" className="w-full h-full ib3d-scene" aria-hidden="true">
+      {pins.map((p) => <line key={p.label} x1={p.x} y1={p.y - 6} x2={cx} y2={cy} stroke="rgba(240,201,106,0.55)" strokeWidth="1.2" className="ib3d-dash" />)}
+      <IsoBox x={0} y={0} w={5} d={3.6} h={0.35} s={S} ox={OX} oy={OY} top="#c9d6ea" left="#7e93b4" right="#62789b" />
+      <polygon points={pts(base)} fill="#dbe5f3" />
+      <polygon points={pts(screen)} fill="#0b1a33" stroke="#7e93b4" strokeWidth="1.2" />
+      <circle cx={cx} cy={cy - 3} r="8" fill="#3d6db3" />
+      <circle cx={cx} cy={cy - 5.5} r="3" fill="#cfe0fb" />
+      <path d={`M ${cx - 5} ${cy + 2} q 5 -6 10 0`} fill="#cfe0fb" />
+      <circle cx={dot[0]} cy={dot[1]} r="2.2" fill="#ef4444" className="ib3d-blink" />
+      {pins.map((p, i) => (
+        <g key={p.label} className="ib3d-bob" style={{ animationDelay: `${i * 0.4}s` }}>
+          <path d={`M ${p.x} ${p.y} c -6 -7 -6 -14 0 -14 c 6 0 6 7 0 14 z`} fill="#f0c96a" />
+          <circle cx={p.x} cy={p.y - 9} r="2.3" fill="#0a1f3d" />
+          <text x={p.x} y={p.y + 10} textAnchor="middle" fontSize="8.5" fontWeight="700" fill="#cfe0fb" fontFamily="ui-sans-serif, system-ui">{p.label}</text>
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+const CONTEXT_SCENES = [CityScene, PathwayScene, OnlineScene];
+
+function TiltCard({ children, index }: { children: ReactNode; index: number }) {
+  const onMove = (e: RPointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== 'mouse' || (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    const el = e.currentTarget; const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width; const py = (e.clientY - r.top) / r.height;
+    el.style.transform = `perspective(900px) rotateX(${(0.5 - py) * 10}deg) rotateY(${(px - 0.5) * 12}deg)`;
+    el.style.setProperty('--gx', `${px * 100}%`); el.style.setProperty('--gy', `${py * 100}%`);
+  };
+  const onLeave = (e: RPointerEvent<HTMLDivElement>) => { e.currentTarget.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)'; };
+  return (
+    <motion.div initial={{ opacity: 0, y: 24, rotateX: 12 }} whileInView={{ opacity: 1, y: 0, rotateX: 0 }} viewport={{ once: true, margin: '-40px' }} transition={{ duration: 0.55, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }} style={{ perspective: 900 }}>
+      <div onPointerMove={onMove} onPointerLeave={onLeave} className="ib3d-card relative h-full rounded-[22px] bg-white border border-[#0f4a9b]/12 shadow-[0_10px_30px_-16px_rgba(10,31,61,0.25)] overflow-hidden">
+        {children}
+        <div className="ib3d-glare absolute inset-0 pointer-events-none" />
+      </div>
+    </motion.div>
+  );
+}
+
+function AlAinContext3D() {
+  return (
+    <>
+      <style>{IB3D_CSS}</style>
+      <div className="grid sm:grid-cols-3 gap-4 sm:gap-5">
+        {AL_AIN_CONTEXT.map(({ Icon, title, text }, i) => {
+          const Scene = CONTEXT_SCENES[i];
+          return (
+            <TiltCard key={title} index={i}>
+              <div className="ib3d-pop relative h-[160px] m-2.5 mb-0 rounded-[16px] overflow-hidden" style={{ background: 'radial-gradient(120% 90% at 50% 0%, #17407e 0%, #0a1f3d 70%)' }}>
+                <div className="absolute inset-0 opacity-60" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px)', backgroundSize: '14px 14px' }} />
+                <Scene />
+                <span className="absolute top-2.5 left-2.5 flex w-8 h-8 items-center justify-center rounded-lg bg-white/10 border border-white/15 text-[#f0c96a] backdrop-blur-sm"><Icon className="w-4 h-4" /></span>
+                <span className="absolute top-2.5 right-3 text-[10px] font-extrabold tracking-[0.18em] text-white/35">0{i + 1}</span>
+              </div>
+              <div className="ib3d-text p-5 pt-4">
+                <h3 className="text-[15.5px] font-extrabold text-[#0a1f3d] mb-1.5 leading-snug">{title}</h3>
+                <p className="text-[12.5px] sm:text-[13px] text-[#4a5a72] leading-relaxed">{text}</p>
+              </div>
+            </TiltCard>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
 /* MYP / DP1 / DP2 switcher. All three panels are server-rendered; inactive ones use `hidden`. */
 function StageSwitcher() {
   const [active, setActive] = useState(1);
@@ -311,16 +498,7 @@ export default function IBTutorAlAinPage() {
             title={<>Why IB students in Al Ain <span className="text-[#0f4a9b]">look for a tutor</span></>}
             intro="The IB is taught in only a handful of Al Ain schools, such as Emirates National School, which offers the programme from primary through to the Diploma. That shapes the support IB students here need."
           />
-          <div className="grid sm:grid-cols-3 gap-3 sm:gap-4">
-            {AL_AIN_CONTEXT.map(({ Icon, title, text }, i) => (
-              <motion.div key={title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="rounded-2xl border border-[#0f4a9b]/12 bg-[#f8fbff] p-5 shadow-xs">
-                <span className="flex w-10 h-10 items-center justify-center rounded-xl bg-[#0f4a9b] text-white mb-3"><Icon className="w-5 h-5" /></span>
-                <h3 className="text-[15px] font-extrabold text-[#0a1f3d] mb-1.5 leading-snug">{title}</h3>
-                <p className="text-[12.5px] sm:text-[13px] text-[#4a5a72] leading-relaxed">{text}</p>
-              </motion.div>
-            ))}
-          </div>
+          <AlAinContext3D />
         </div>
       </section>
 
