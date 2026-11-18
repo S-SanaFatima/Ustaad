@@ -430,20 +430,20 @@ function StageSwitcher() {
   return (
     <div className="max-w-5xl mx-auto">
       {/* Stepper */}
-      <div className="relative max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
-        <div className="absolute left-[16.66%] right-[16.66%] top-[22px] h-[3px] rounded-full bg-[#0f4a9b]/12" aria-hidden="true" />
-        <div className="absolute left-[16.66%] top-[22px] h-[3px] rounded-full transition-all duration-500 ease-out" style={{ width: `calc((100% - 33.32%) * ${pct / 100})`, background: 'linear-gradient(90deg,#0f4a9b,#C7A24A)' }} aria-hidden="true" />
+      <div className="relative max-w-3xl mx-auto mb-4 sm:mb-5 px-2">
+        <div className="absolute left-[16.66%] right-[16.66%] top-[18px] sm:top-[22px] h-[3px] rounded-full bg-[#0f4a9b]/12" aria-hidden="true" />
+        <div className="absolute left-[16.66%] top-[18px] sm:top-[22px] h-[3px] rounded-full transition-all duration-500 ease-out" style={{ width: `calc((100% - 33.32%) * ${pct / 100})`, background: 'linear-gradient(90deg,#0f4a9b,#C7A24A)' }} aria-hidden="true" />
         <div role="tablist" aria-label="IB stage" className="relative grid grid-cols-3">
           {STAGES.map((s, i) => {
             const on = i === active; const done = i < active;
             return (
               <button key={s.key} role="tab" id={`ib-stage-tab-${s.key}`} aria-selected={on} aria-controls={`ib-stage-${s.key}`} onClick={() => setActive(i)}
-                className="group flex flex-col items-center gap-2 focus:outline-none">
-                <span className={`flex w-11 h-11 items-center justify-center rounded-full text-[13px] font-extrabold border-2 transition-all duration-300 ${on ? 'bg-[#0f4a9b] border-[#0f4a9b] text-white shadow-[0_6px_16px_-4px_rgba(15,74,155,0.5)] scale-105' : done ? 'bg-white border-[#0f4a9b] text-[#0f4a9b]' : 'bg-white border-[#0f4a9b]/20 text-[#0a1f3d]/50 group-hover:border-[#0f4a9b]/50'} group-focus-visible:ring-4 group-focus-visible:ring-[#0f4a9b]/20`}>
+                className="group flex flex-col items-center gap-1 sm:gap-1.5 focus:outline-none">
+                <span className={`flex w-9 h-9 sm:w-11 sm:h-11 items-center justify-center rounded-full text-[12px] sm:text-[13px] font-extrabold border-2 transition-all duration-300 ${on ? 'bg-[#0f4a9b] border-[#0f4a9b] text-white shadow-[0_6px_16px_-4px_rgba(15,74,155,0.5)] scale-105' : done ? 'bg-white border-[#0f4a9b] text-[#0f4a9b]' : 'bg-white border-[#0f4a9b]/20 text-[#0a1f3d]/50 group-hover:border-[#0f4a9b]/50'} group-focus-visible:ring-4 group-focus-visible:ring-[#0f4a9b]/20`}>
                   {done ? <CheckCircle2 className="w-5 h-5" /> : s.label}
                 </span>
                 <span className={`text-[13px] sm:text-sm font-extrabold transition-colors ${on ? 'text-[#0a1f3d]' : 'text-[#0a1f3d]/60 group-hover:text-[#0a1f3d]'}`}>{s.label} <span className="hidden sm:inline font-semibold text-[#4a5a72]">· {STAGE_META[i].name}</span></span>
-                <span className="text-[11px] font-semibold text-[#8a6a1f]">{STAGE_META[i].when}</span>
+                <span className="text-[10.5px] sm:text-[11px] font-semibold text-[#8a6a1f]">{STAGE_META[i].when}</span>
               </button>
             );
           })}
@@ -455,20 +455,20 @@ function StageSwitcher() {
         <div key={s.key} id={`ib-stage-${s.key}`} role="tabpanel" aria-labelledby={`ib-stage-tab-${s.key}`} hidden={i !== active}
           className="rounded-2xl bg-white border border-slate-200 shadow-[0_12px_40px_-24px_rgba(10,31,61,0.25)] overflow-hidden">
           <div className="grid md:grid-cols-[0.85fr_1.15fr]">
-            <div className="p-6 sm:p-7 md:border-r border-b md:border-b-0 border-slate-100 bg-[#fbfcfe]">
+            <div className="px-4 py-3.5 sm:p-5 md:border-r border-b md:border-b-0 border-slate-100 bg-[#fbfcfe]">
               <span className="inline-flex items-center gap-2 text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-[#8a6a1f]">
                 <span className="w-5 h-[2px]" style={{ background: GOLD }} />{s.years}
               </span>
-              <h3 className="mt-3 text-lg sm:text-xl font-extrabold text-[#0a1f3d] leading-snug">{s.title}</h3>
-              <a href={s.link.href} className="mt-5 inline-flex items-center gap-2 h-10 px-4 rounded-lg border border-[#0f4a9b]/25 text-[13px] font-bold text-[#0f4a9b] hover:bg-[#0f4a9b] hover:text-white hover:border-[#0f4a9b] transition-colors">
+              <h3 className="mt-1.5 sm:mt-2.5 text-[15.5px] sm:text-xl font-extrabold text-[#0a1f3d] leading-snug">{s.title}</h3>
+              <a href={s.link.href} className="mt-1.5 sm:mt-4 inline-flex items-center gap-2 sm:h-10 sm:px-4 sm:rounded-lg sm:border border-[#0f4a9b]/25 text-[12.5px] sm:text-[13px] font-bold text-[#0f4a9b] sm:hover:bg-[#0f4a9b] sm:hover:text-white hover:border-[#0f4a9b] transition-colors">
                 {s.link.text} <span aria-hidden="true">→</span>
               </a>
             </div>
-            <ol className="p-6 sm:p-7 divide-y divide-slate-100">
+            <ol className="px-4 py-3 sm:px-6 sm:py-5 divide-y divide-slate-100">
               {s.points.map((p, k) => (
-                <li key={p} className="flex gap-4 py-3.5 first:pt-0 last:pb-0">
-                  <span className="shrink-0 text-[12px] font-extrabold tabular-nums text-[#0f4a9b] bg-[#0f4a9b]/[0.07] rounded-md w-8 h-7 flex items-center justify-center">0{k + 1}</span>
-                  <span className="text-[13px] sm:text-[14px] text-[#2c3e5c] leading-relaxed">{p}</span>
+                <li key={p} className="flex gap-3 sm:gap-4 py-2 sm:py-2.5 first:pt-0 last:pb-0">
+                  <span className="shrink-0 text-[12px] font-extrabold tabular-nums text-[#0f4a9b] bg-[#0f4a9b]/[0.07] rounded-md w-7 h-6 sm:w-8 sm:h-7 flex items-center justify-center">0{k + 1}</span>
+                  <span className="text-[12.5px] sm:text-[14px] text-[#2c3e5c] leading-snug sm:leading-relaxed">{p}</span>
                 </li>
               ))}
             </ol>
@@ -571,7 +571,7 @@ export default function IBTutorAlAinPage() {
       </section>
 
       {/* ── 03 STAGE SWITCHER ── */}
-      <section className="py-8 sm:py-10 bg-[#f4f7fc]">
+      <section className="py-6 sm:py-7 bg-[#f4f7fc]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead
             eyebrow="Your child’s stage"
