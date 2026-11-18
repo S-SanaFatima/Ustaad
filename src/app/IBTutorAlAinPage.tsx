@@ -881,8 +881,8 @@ export default function IBTutorAlAinPage() {
           <div className="mt-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-2xl bg-[#f4f7fc] border border-[#0f4a9b]/10 px-4 py-2.5">
             <p className="flex items-center gap-2 text-[12.5px] sm:text-[13px] font-semibold text-[#2c3e5c] sm:mr-auto"><Info className="w-4 h-4 text-[#0f4a9b] shrink-0" />Not at the IB stage yet?</p>
             <div className="flex flex-wrap gap-2">
-              <a href="/igcse-tutor-al-ain" className="inline-flex items-center gap-1.5 rounded-full bg-white border border-[#0f4a9b]/20 px-3.5 py-1.5 text-[12.5px] font-bold text-[#0f4a9b] hover:border-[#0f4a9b]/50 hover:bg-[#0f4a9b]/[0.04] transition-colors">IGCSE Tutor Al Ain <ArrowRight className="w-3.5 h-3.5" /></a>
-              <a href="/a-level-tutor-al-ain" className="inline-flex items-center gap-1.5 rounded-full bg-white border border-[#0f4a9b]/20 px-3.5 py-1.5 text-[12.5px] font-bold text-[#0f4a9b] hover:border-[#0f4a9b]/50 hover:bg-[#0f4a9b]/[0.04] transition-colors">A-Level route in Al Ain <ArrowRight className="w-3.5 h-3.5" /></a>
+              <a href="/igcse-tutor-al-ain" className="inline-flex items-center gap-1.5 rounded-full bg-white border border-[#0f4a9b]/20 px-3.5 py-1.5 text-[12.5px] font-bold text-[#0f4a9b] hover:border-[#0f4a9b]/50 hover:bg-[#0f4a9b]/[0.04] transition-colors">IGCSE Tutor Al Ain</a>
+              <a href="/a-level-tutor-al-ain" className="inline-flex items-center gap-1.5 rounded-full bg-white border border-[#0f4a9b]/20 px-3.5 py-1.5 text-[12.5px] font-bold text-[#0f4a9b] hover:border-[#0f4a9b]/50 hover:bg-[#0f4a9b]/[0.04] transition-colors">A-Level route in Al Ain</a>
             </div>
           </div>
         </div>
