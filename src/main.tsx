@@ -105,12 +105,14 @@ const loadAreaUnderGraphBlog = () => import('./app/AreaUnderGraphBlog');
 const loadChooseIGCSESubjectsBlog = () => import('./app/ChooseIGCSESubjectsBlog');
 const loadWhatIsIGCSEBlog = () => import('./app/WhatIsIGCSEBlog');
 const loadIBExamsGradeBoundariesBlog = () => import('./app/IBExamsGradeBoundariesBlog');
+const loadPhoneDistractionStudyingBlog = () => import('./app/PhoneDistractionStudyingBlog');
 
 
 const PAGE_LOADERS: Record<string, PageLoader> = {
   '/blogs/how-to-choose-igcse-subjects-uae': loadChooseIGCSESubjectsBlog,
   '/blogs/what-is-igcse-full-form-meaning-uae': loadWhatIsIGCSEBlog,
   '/blogs/ib-exams-grade-boundaries-uae': loadIBExamsGradeBoundariesBlog,
+  '/blogs/phone-distraction-while-studying-uae': loadPhoneDistractionStudyingBlog,
   '/blog/how-to-choose-igcse-subjects-uae': loadChooseIGCSESubjectsBlog,
   '/blogs/area-under-graph-meaning-physics-maths': loadAreaUnderGraphBlog,
   '/blog/area-under-graph-meaning-physics-maths': loadAreaUnderGraphBlog,
@@ -299,6 +301,7 @@ const AreaUnderGraphBlog = lazy(loadAreaUnderGraphBlog);
 const ChooseIGCSESubjectsBlog = lazy(loadChooseIGCSESubjectsBlog);
 const WhatIsIGCSEBlog = lazy(loadWhatIsIGCSEBlog);
 const IBExamsGradeBoundariesBlog = lazy(loadIBExamsGradeBoundariesBlog);
+const PhoneDistractionStudyingBlog = lazy(loadPhoneDistractionStudyingBlog);
 const BiologyLanding = lazy(loadBiologyLanding);
 
 const IGCSETutorLanding = lazy(loadIGCSETutorLanding);
@@ -444,6 +447,7 @@ function AppRoutes() {
           <Route path="/blog/area-under-graph-meaning-physics-maths" element={<AreaUnderGraphBlog />} />
           <Route path="/blogs/what-is-igcse-full-form-meaning-uae" element={<WhatIsIGCSEBlog />} />
           <Route path="/blogs/ib-exams-grade-boundaries-uae" element={<IBExamsGradeBoundariesBlog />} />
+          <Route path="/blogs/phone-distraction-while-studying-uae" element={<PhoneDistractionStudyingBlog />} />
           <Route path="/blogs/how-to-choose-igcse-subjects-uae" element={<ChooseIGCSESubjectsBlog />} />
           <Route path="/blog/how-to-choose-igcse-subjects-uae" element={<ChooseIGCSESubjectsBlog />} />
           <Route path="/sciences"                            element={<SciencesPage />} />

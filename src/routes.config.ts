@@ -1171,6 +1171,19 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' }, { name: 'IB Exams and Grade Boundaries', url: '/blogs/ib-exams-grade-boundaries-uae' }]
   },
   {
+    path: '/blogs/phone-distraction-while-studying-uae',
+    component: 'PhoneDistractionStudyingBlog',
+    seo: {
+      title: 'Phone Distraction While Studying: A UAE Guide | Ustaad',
+      description: 'Why a phone breaks focus even on silent, what the UAE school phone ban means for study at home, and a 5-step plan to revise without phone distraction.',
+      keywords: 'phone distraction while studying, how to stop getting distracted by phone while studying, how to focus while studying, phone ban UAE schools, screen time and grades, study tips for teenagers UAE',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-11-20'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' }, { name: 'Phone Distraction While Studying', url: '/blogs/phone-distraction-while-studying-uae' }]
+  },
+  {
     path: '/blogs/what-is-igcse-full-form-meaning-uae',
     component: 'WhatIsIGCSEBlog',
     seo: {

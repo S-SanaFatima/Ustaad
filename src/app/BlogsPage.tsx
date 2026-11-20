@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'phone-distraction-while-studying-uae',
+    image: '/images/blogs/phone-distraction-while-studying-uae-hero.webp',
+    alt: 'Teenage student in a Dubai apartment writing maths working at a study desk while a smartphone sits face down in a basket by the door, away from the desk',
+    category: 'Psychology of Learning',
+    title: 'Phone Distraction While Studying: Why Teenagers Lose Focus, and What Actually Works for UAE Students',
+    description: 'Why a phone breaks focus even on silent, what the UAE school phone ban means for study at home, and a five-step plan for phone-free revision.',
+    date: '20 Nov 2026',
+    readTime: '8 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'ib-exams-grade-boundaries-uae',
     image: '/images/blogs/ib-exams-grade-boundaries-uae-hero.webp',
     alt: 'IB Diploma points explained: six subjects graded 1 to 7, plus 3 core points for TOK and the Extended Essay, for a maximum of 45 and 24 to pass',
