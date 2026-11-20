@@ -303,6 +303,18 @@ function FocusTimeline() {
   );
 }
 
+/* In-article photo: lazy-loaded, fixed dimensions to avoid layout shift */
+function BlogFigure({ src, alt, caption }: { src: string; alt: string; caption: string }) {
+  return (
+    <figure className="my-7">
+      <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm aspect-[16/9] bg-slate-100">
+        <img src={src} alt={alt} width={1344} height={752} loading="lazy" decoding="async" className="w-full h-full object-cover block" />
+      </div>
+      <figcaption className="mt-2 text-center text-xs text-gray-400 italic">{caption}</figcaption>
+    </figure>
+  );
+}
+
 export default function PhoneDistractionStudyingBlog() {
   const canonical = `/blogs/${BLOG.slug}`;
   const [tocOpen, setTocOpen] = useState(true);
@@ -444,6 +456,13 @@ export default function PhoneDistractionStudyingBlog() {
             <p>
               The phone does not even need to be picked up. In a 2015 study published in the <em>Journal of Experimental Psychology</em>, researchers at Florida State University found that simply receiving a call or text notification, without answering it, disrupted performance on a task that needed sustained attention. The alert starts a train of thought that has nothing to do with the work.
             </p>
+          </div>
+          <BlogFigure
+            src="/images/blogs/phone-notification-interrupting-maths-homework.webp"
+            alt="Student's hand pausing over half-finished algebra working in an exercise book as a phone beside it lights up with a notification"
+            caption="The pencil stops the moment the screen lights up, even before the phone is picked up."
+          />
+          <div className={proseCls}>
             <p>
               Teenagers are also more drawn than adults to rewards they can have right now, which is why a phone beats a textbook in any contest held on the spot. Our article on <a href="/blogs/why-teenagers-procrastinate-on-revision" className={linkCls}>why teenagers procrastinate on revision</a> explains that pull in more detail.
             </p>
@@ -505,6 +524,13 @@ export default function PhoneDistractionStudyingBlog() {
             <p>
               Students often need a device for past papers, a calculator app or online homework. Use a laptop or tablet with only the study tab open where possible, download past papers and mark schemes before the block starts, and use a real calculator, which is what they will have in the exam anyway. If the phone must be used, keep it in focus mode with social apps hidden.
             </p>
+          </div>
+          <BlogFigure
+            src="/images/blogs/phone-free-study-block-timer-past-paper.webp"
+            alt="Teenage girl in a UAE home working through a printed past paper with a calculator and a kitchen timer, a laptop open on one document and no phone on the desk"
+            caption="A timed block, a paper past paper and a real calculator: everything needed, nothing that buzzes."
+          />
+          <div className={proseCls}>
             <p>
               Phone-free time also makes revision itself more honest. Without constant interruptions, students notice which topics they cannot actually do from memory, which is the gap our guide to <a href="/blogs/illusion-of-competence-revision-false-confidence" className={linkCls}>the illusion of competence</a> warns about.
             </p>
@@ -524,6 +550,13 @@ export default function PhoneDistractionStudyingBlog() {
                 <>Check the work, not the phone. Asking your child to explain one thing they learned is a better measure than minutes logged. Our guide on <a href="/blogs/how-much-should-parents-help-with-homework" className={linkCls}>how much parents should help with homework</a> has more on getting that balance right.</>,
               ]}
             />
+          </div>
+          <BlogFigure
+            src="/images/blogs/parent-teen-agree-study-plan-phones-charging.webp"
+            alt="Father and teenage son in an Abu Dhabi apartment agreeing a weekly study plan at the dining table while their phones charge on a tray across the room"
+            caption="Agreed together, with the phones charging across the room: a plan a teenager is more likely to keep."
+          />
+          <div className={proseCls}>
             <p>
               Sometimes phone use is a sign of something else. If your child cannot stop even when they want to, is losing sleep, or seems anxious without the phone, speak to the school counsellor. Avoiding schoolwork can also mean the work feels too hard, which is a learning gap rather than a discipline problem.
             </p>
