@@ -63,6 +63,7 @@ import ChooseIGCSESubjectsBlog from "./app/ChooseIGCSESubjectsBlog.tsx";
 import WhatIsIGCSEBlog from "./app/WhatIsIGCSEBlog.tsx";
 import IBExamsGradeBoundariesBlog from "./app/IBExamsGradeBoundariesBlog.tsx";
 import PhoneDistractionStudyingBlog from "./app/PhoneDistractionStudyingBlog.tsx";
+import ChooseALevelSubjectsBlog from "./app/ChooseALevelSubjectsBlog.tsx";
 
 import MathematicsLanding from "./app/MathematicsLanding.tsx";
 import MathsPage from "./app/MathsPage.tsx";
@@ -184,6 +185,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   WhatIsIGCSEBlog,
   IBExamsGradeBoundariesBlog,
   PhoneDistractionStudyingBlog,
+  ChooseALevelSubjectsBlog,
   IllusionOfCompetenceBlog,
   CommandWordsBlog,
   SleepAndMemoryBlog,

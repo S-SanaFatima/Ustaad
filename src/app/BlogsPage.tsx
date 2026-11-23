@@ -50,6 +50,18 @@ export const CATEGORY_META = {
 
 export const BLOGS: BlogPost[] = [
   {
+    slug: 'how-to-choose-a-level-subjects-uae',
+    image: '/images/blogs/choose-a-level-subjects-uae-parent-hero.webp',
+    alt: 'Year 11 student and her mother at a kitchen table in Dubai reviewing a sixth form options booklet and an A-Level subject choice form',
+    category: 'Parent Guidance',
+    title: 'How to Choose A-Level Subjects: A UAE Parent Guide to Year 11 Options',
+    description: 'How many A-Levels to take, which subjects medicine, engineering and economics ask for, UAE university checks and the mistakes to avoid.',
+    date: '23 Nov 2026',
+    readTime: '8 min read',
+    author: 'Nimra Shahzada',
+    featured: true,
+  },
+  {
     slug: 'phone-distraction-while-studying-uae',
     image: '/images/blogs/phone-distraction-while-studying-uae-hero.webp',
     alt: 'Teenage student in a Dubai apartment writing maths working at a study desk while a smartphone sits face down in a basket by the door, away from the desk',

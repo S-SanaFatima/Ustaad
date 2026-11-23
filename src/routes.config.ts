@@ -1171,6 +1171,19 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' }, { name: 'IB Exams and Grade Boundaries', url: '/blogs/ib-exams-grade-boundaries-uae' }]
   },
   {
+    path: '/blogs/how-to-choose-a-level-subjects-uae',
+    component: 'ChooseALevelSubjectsBlog',
+    seo: {
+      title: 'How to Choose A-Level Subjects: UAE Parent Guide | Ustaad',
+      description: 'How many A-Levels to take, which subjects medicine, engineering and economics ask for, UAE university checks and the mistakes to avoid in Year 11.',
+      keywords: 'how to choose A-Level subjects, A-Level subject choices, how many A-Levels should I take, A-Level subjects for medicine, A-Levels for engineering, A-Level options UAE, A-Levels for UAE universities',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-11-23'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'How to Choose A-Level Subjects', url: '/blogs/how-to-choose-a-level-subjects-uae' }]
+  },
+  {
     path: '/blogs/phone-distraction-while-studying-uae',
     component: 'PhoneDistractionStudyingBlog',
     seo: {

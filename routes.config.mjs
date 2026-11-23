@@ -50,10 +50,10 @@ export const ROUTES = [
 
   // Other
   { path: '/exam-preparation', component: 'ExamPreparationPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/blogs', component: 'BlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-11-20' },
+  { path: '/blogs', component: 'BlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-11-23' },
   { path: '/blogs/academic-exam-skills', component: 'AcademicBlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-08-13' },
   { path: '/blogs/psychology-of-learning', component: 'PsychologyBlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-11-20' },
-  { path: '/blogs/parent-guidance', component: 'ParentGuidanceBlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-08-13' },
+  { path: '/blogs/parent-guidance', component: 'ParentGuidanceBlogsPage', priority: 0.9, changefreq: 'weekly', lastmod: '2026-11-23' },
   { path: '/blogs/exam-panic-before-exams-uae', component: 'ExamPanicBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-23' },
   { path: '/blogs/uae-exams-return-students-never-sat-one', component: 'UAEExamsReturnBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-03' },
   { path: '/blogs/exam-stamina-uae-students', component: 'ExamStaminaBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-09-07' },
@@ -88,6 +88,7 @@ export const ROUTES = [
   { path: '/blogs/area-under-graph-meaning-physics-maths', component: 'AreaUnderGraphBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-11' },
   { path: '/blogs/ib-exams-grade-boundaries-uae', component: 'IBExamsGradeBoundariesBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-23' },
   { path: '/blogs/phone-distraction-while-studying-uae', component: 'PhoneDistractionStudyingBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-20' },
+  { path: '/blogs/how-to-choose-a-level-subjects-uae', component: 'ChooseALevelSubjectsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-23' },
   { path: '/blogs/what-is-igcse-full-form-meaning-uae', component: 'WhatIsIGCSEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/blogs/how-to-choose-igcse-subjects-uae', component: 'ChooseIGCSESubjectsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-23' },
 
