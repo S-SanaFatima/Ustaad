@@ -84,14 +84,15 @@ const SUBJECTS = [
 ];
 
 const CURRICULA = [
-  { hub: ['British curriculum', '/british-curriculum'], items: [['IGCSE', '/igcse'], ['GCSE', '/gcse'], ['A-Level', '/a-level']] },
-  { hub: ['IB curriculum', '/ib-curriculum'], items: [['MYP', '/myp'], ['DP SL', '/dp-sl'], ['DP HL', '/dp-hl']] },
-  { hub: ['American curriculum', '/american-curriculum'], items: [['Middle School', '/middle-school'], ['High School', '/high-school'], ['AP', '/ap']] },
+  { hub: ['British Curriculum', '/british-curriculum'], items: [['IGCSE', '/igcse'], ['GCSE', '/gcse'], ['A-Level', '/a-level']] },
+  { hub: ['IB Curriculum', '/ib-curriculum'], items: [['MYP', '/myp'], ['DP SL', '/dp-sl'], ['DP HL', '/dp-hl']] },
+  { hub: ['American Curriculum', '/american-curriculum'], items: [['Middle School', '/middle-school'], ['High School', '/high-school'], ['AP', '/ap']] },
 ];
 
 const COMPANY = [
-  ['About us', '/about'], ['How it works', '/how-it-works'], ['Our tutors', '/tutors'], ['Editorial', '/editorial'],
-  ['Blog', '/blogs'], ['Contact', '/contact'], ['Careers', 'mailto:career@ustaad.ae'],
+  ['About', '/about'], ['Curriculum', '/curriculum'], ['Subjects', '/subjects'], ['Tutors', '/tutors'],
+  ['Editorial', '/editorial'], ['Blogs', '/blogs'], ['Contact Us', '/contact'], ['How It Works', '/how-it-works'],
+  ['Careers', 'mailto:career@ustaad.ae'],
 ];
 
 const WaIcon = ({ size = 18, stroke = 'currentColor' }: { size?: number; stroke?: string }) => (
@@ -357,18 +358,48 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
               <a className="uf-logo" href="/" aria-label="Ustaad home">
                 <img src="/ustaad-private-tutors-uae-logo.png" alt={logoAlt} width={140} height={46} loading="lazy" />
               </a>
-              <p className="uf-brand__desc">Online 1-to-1 tutoring for British, IB and American curriculum students across the UAE, since 2015.</p>
+              <p className="uf-brand__desc">Premium private tutoring across the UAE since 2015. Expert 1-to-1 tutoring for British, American, and IB curriculum students in Dubai, Abu Dhabi, Sharjah and every Emirate.</p>
               <div className="uf-contact">
-                <a href={WA_URL} target="_blank" rel="noopener noreferrer" data-ga-event="footer_whatsapp_click" aria-label="WhatsApp Ustaad on +971 56 124 9005">
+                <a href="tel:8009005" aria-label="Call Ustaad student support on 800 9005">
+                  <span className="uf-contact__icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" /></svg>
+                  </span>
+                  <span><strong className="notranslate" translate="no">800 9005 (USTAAD)</strong><small>Student Support</small></span>
+                </a>
+                <a href={WA_URL} target="_blank" rel="noopener noreferrer" data-ga-event="footer_whatsapp_click" aria-label="Book your first session with Ustaad on WhatsApp, +971 56 124 9005">
                   <span className="uf-contact__icon"><WaIcon size={16} /></span>
-                  <span><strong className="notranslate" translate="no">+971 56 124 9005</strong><small>WhatsApp</small></span>
+                  <span><strong className="notranslate" translate="no">+971 56 124 9005</strong><small>Book Your First Session</small></span>
+                </a>
+                <a href="mailto:career@ustaad.ae">
+                  <span className="uf-contact__icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>
+                  </span>
+                  <span><strong className="notranslate" translate="no">career@ustaad.ae</strong><small>Join us Today!</small></span>
                 </a>
                 <a href="mailto:support@ustaad.ae">
                   <span className="uf-contact__icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>
                   </span>
-                  <span><strong className="notranslate" translate="no">support@ustaad.ae</strong><small>Parent support</small></span>
+                  <span><strong className="notranslate" translate="no">support@ustaad.ae</strong><small>Parents Support</small></span>
                 </a>
+                <a href="mailto:care@ustaad.ae">
+                  <span className="uf-contact__icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>
+                  </span>
+                  <span><strong className="notranslate" translate="no">care@ustaad.ae</strong><small>Parents Care</small></span>
+                </a>
+                <div className="uf-contact__item">
+                  <span className="uf-contact__icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+                  </span>
+                  <span><strong>24/7 Support</strong><small>Always Available</small></span>
+                </div>
+                <div className="uf-contact__item">
+                  <span className="uf-contact__icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 21s-7-6.4-7-11.5a7 7 0 0 1 14 0C19 14.6 12 21 12 21z" /><circle cx="12" cy="9.5" r="2.5" /></svg>
+                  </span>
+                  <span><strong>United Arab Emirates</strong><small>Dubai • Abu Dhabi • Sharjah • All Emirates</small></span>
+                </div>
               </div>
               <div className="uf-social">
                 <a href="https://www.instagram.com/ustaad.ae" target="_blank" rel="noopener noreferrer" aria-label="Ustaad on Instagram">
@@ -407,7 +438,7 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
               <div className="uf-col__body" id="uf-col-subjects-body">
                 <ul className="uf-links uf-links--2">
                   {SUBJECTS.map(([label, href]) => <li key={href}><a href={href}>{label}</a></li>)}
-                  <li className="uf-span2"><a href="/exam-preparation">Exam preparation</a></li>
+                  <li className="uf-span2"><a href="/exam-preparation">Exam Preparation</a></li>
                   <li className="uf-span2"><a className="uf-more" href="/subjects">All subjects</a></li>
                 </ul>
               </div>
@@ -472,7 +503,8 @@ export default function Footer({ logoAlt = 'Ustaad logo' }: { logoAlt?: string }
 
           <div className="uf-bar">
             <div className="uf-bar__legal">
-              <span>© 2026 Ustaad LLC. Ustaad® is a registered trademark.</span>
+              <span>UAE Licensed Tutoring Service | Supporting Students Across the UAE | Registered Ustaad® Trademark</span>
+              <span>© 2026 Ustaad LLC. All Rights Reserved.</span>
               <a href="/privacy">Privacy</a>
               <a href="/terms">Terms</a>
               <a href="/sitemap.xml">Sitemap</a>

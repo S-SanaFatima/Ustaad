@@ -107,7 +107,7 @@
 .uf-logo img { display: block; height: 46px; width: auto; filter: brightness(0) invert(1); }
 .uf-brand__desc { font-size: 14px; line-height: 1.65; color: var(--uf-on-navy); max-width: 340px; }
 .uf-contact { display: flex; flex-direction: column; gap: 10px; }
-.uf-contact a { display: inline-flex; align-items: center; gap: 12px; min-height: 34px; color: var(--uf-on-navy); transition: color 0.2s ease; }
+.uf-contact a, .uf-contact__item { display: inline-flex; align-items: center; gap: 12px; min-height: 34px; color: var(--uf-on-navy); transition: color 0.2s ease; }
 .uf-contact a:hover { color: var(--uf-gold-soft); }
 .uf-contact__icon { width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); display: inline-flex; align-items: center; justify-content: center; color: var(--uf-gold); flex-shrink: 0; transition: background 0.2s ease, color 0.2s ease; }
 .uf-contact a:hover .uf-contact__icon { background: var(--uf-gold); color: #fff; }
@@ -140,6 +140,7 @@
 
 .uf-bar { margin-top: 36px; padding-block: 20px var(--uf-float-clearance); border-top: 1px solid var(--uf-rule); display: flex; justify-content: space-between; align-items: center; gap: 24px; font-size: 12.5px; color: var(--uf-on-navy-dim); }
 .uf-bar__legal { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+.uf-bar__legal > span:first-child { flex-basis: 100%; }
 .uf-bar__legal a { transition: color 0.2s ease; }
 .uf-bar__legal a:hover { color: #fff; }
 .uf-bar__tools { display: flex; align-items: center; gap: 14px; }
@@ -417,10 +418,11 @@
   .uf-social { order: 2; gap: 8px; margin-top: 0; }
   .uf-social a { width: 40px; height: 40px; }
   .uf-contact { order: 3; width: 100%; flex-direction: row; gap: 8px; }
-  .uf-contact a { flex: 1; min-width: 0; min-height: 48px; padding: 6px 10px 6px 6px; gap: 8px; border-radius: 12px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.12); }
+  .uf-contact { flex-wrap: wrap; }
+  .uf-contact a, .uf-contact__item { flex: 1 1 calc(50% - 4px); min-width: 0; min-height: 48px; padding: 6px 10px 6px 6px; gap: 8px; border-radius: 12px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.12); }
   .uf-contact__icon { width: 32px; height: 32px; }
-  .uf-contact strong { font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .uf-contact a > span:last-child { min-width: 0; }
+  .uf-contact strong { font-size: 12px; white-space: normal; overflow-wrap: anywhere; line-height: 1.3; }
+  .uf-contact a > span:last-child, .uf-contact__item > span:last-child { min-width: 0; }
   .uf-col { margin-bottom: 8px; }
   .uf-col__header { min-height: 44px; padding: 11px 14px; }
   .uf-col__body { padding: 4px 14px 14px 14px; }
