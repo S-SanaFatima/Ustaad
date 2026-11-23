@@ -106,12 +106,13 @@
 .uf-col--company { grid-column: span 2; }
 .uf-logo img { display: block; height: 46px; width: auto; filter: brightness(0) invert(1); }
 .uf-brand__desc { font-size: 14px; line-height: 1.65; color: var(--uf-on-navy); max-width: 340px; }
-.uf-contact { display: flex; flex-direction: column; gap: 10px; }
-.uf-contact a, .uf-contact__item { display: inline-flex; align-items: center; gap: 12px; min-height: 34px; color: var(--uf-on-navy); transition: color 0.2s ease; }
+.uf-contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 14px; width: 100%; }
+.uf-contact > :last-child { grid-column: 1 / -1; }
+.uf-contact a, .uf-contact__item { display: flex; align-items: center; gap: 10px; min-width: 0; min-height: 34px; color: var(--uf-on-navy); transition: color 0.2s ease; }
 .uf-contact a:hover { color: var(--uf-gold-soft); }
-.uf-contact__icon { width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); display: inline-flex; align-items: center; justify-content: center; color: var(--uf-gold); flex-shrink: 0; transition: background 0.2s ease, color 0.2s ease; }
+.uf-contact__icon { width: 30px; height: 30px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); display: inline-flex; align-items: center; justify-content: center; color: var(--uf-gold); flex-shrink: 0; transition: background 0.2s ease, color 0.2s ease; }
 .uf-contact a:hover .uf-contact__icon { background: var(--uf-gold); color: #fff; }
-.uf-contact strong { display: block; font-size: 14px; font-weight: 700; color: #fff; }
+.uf-contact strong { display: block; font-size: 13px; overflow-wrap: anywhere; font-weight: 700; color: #fff; }
 .uf-contact small { display: block; font-size: 11px; color: var(--uf-on-navy-dim); }
 .uf-social { display: flex; gap: 10px; }
 .uf-social a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.22); color: rgba(255, 255, 255, 0.88); display: inline-flex; align-items: center; justify-content: center; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease; }
@@ -174,6 +175,7 @@
   .uf-note--stack { height: auto; }
   .uf-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 36px; }
   .uf-brand { grid-column: 1 / -1; }
+  .uf-contact { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .uf-col--subjects, .uf-col--curriculum, .uf-col--company { grid-column: auto; }
 }
 
@@ -417,7 +419,7 @@
   .uf-brand__desc { display: none; }
   .uf-social { order: 2; gap: 8px; margin-top: 0; }
   .uf-social a { width: 40px; height: 40px; }
-  .uf-contact { order: 3; width: 100%; flex-direction: row; gap: 8px; }
+  .uf-contact { order: 3; width: 100%; display: flex; flex-direction: row; gap: 8px; }
   .uf-contact { flex-wrap: wrap; }
   .uf-contact a, .uf-contact__item { flex: 1 1 calc(50% - 4px); min-width: 0; min-height: 48px; padding: 6px 10px 6px 6px; gap: 8px; border-radius: 12px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.12); }
   .uf-contact__icon { width: 32px; height: 32px; }
