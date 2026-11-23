@@ -887,7 +887,7 @@ export const ROUTES: RouteConfig[] = [
       keywords: 'IB tutor Al Ain, IB tutors Al Ain, IB tutoring Al Ain, online IB tutor UAE, MYP tutor Al Ain, IB Diploma tutor Al Ain, IB Maths AA tutor, IB Maths AI tutor, IB Physics tutor, IB Chemistry tutor, IB Biology tutor, IB Economics tutor, IA help, Extended Essay support, TOK essay help, IGCSE to IB',
       priority: 0.90,
       changefreq: 'monthly',
-      lastmod: '2026-11-18'
+      lastmod: '2026-11-23'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'IB Curriculum', url: '/ib-curriculum' }, { name: 'IB Tutor Al Ain', url: '/ib-tutor-al-ain' }]
   },

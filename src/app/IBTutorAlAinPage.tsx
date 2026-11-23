@@ -5,7 +5,7 @@ import {
   ChevronDown, MessageCircle, Search, ClipboardCheck, CalendarCheck, CheckCircle2, Info,
   School, Repeat, Globe2, ShieldCheck, Layers, Award, ClipboardList, CalendarDays, ArrowRight,
 } from 'lucide-react';
-import { Layout, StatsBar, SchoolsMarquee, RelatedContent } from './shared';
+import { Layout, StatsBar, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema } from './shared/schemas';
 
@@ -31,15 +31,6 @@ const DESCRIPTION = 'Online IB tutor for Al Ain students: MYP criteria, DP Maths
 /* ── Content ─────────────────────────────────────────────────────────── */
 
 /* Al Ain schools whose students we support, including those moving from IGCSE to the IB Diploma */
-const AL_AIN_SCHOOL_LOGOS = [
-  { name: 'Brighton College Al Ain', file: 'brighton-college-al-ain.webp', src: '/images/schools/al-ain/brighton-college-al-ain.webp', alt: 'Brighton College Al Ain logo, a school whose Al Ain students Ustaad supports online' },
-  { name: 'Al Ain British Academy', file: 'al-ain-british-academy.webp', src: '/images/schools/al-ain/al-ain-british-academy.webp', alt: 'Al Ain British Academy logo, an Aldar Academies school in Al Ain' },
-  { name: 'Al Ain English Speaking School', file: 'aaess.webp', src: '/images/schools/al-ain/aaess.webp', alt: 'Al Ain English Speaking School (AAESS) logo, an Al Ain school for ages 3 to 18' },
-  { name: 'Belvedere International School', file: 'belvedere-international.webp', src: '/images/schools/al-ain/belvedere-international.webp', alt: 'Belvedere International School Al Ain logo' },
-  { name: 'Excel International School', file: 'excel-international.webp', src: '/images/schools/al-ain/excel-international.webp', alt: 'Excel International School Al Ain logo' },
-  { name: 'Global English School', file: 'global-english-school.webp', src: '/images/schools/al-ain/global-english-school.webp', alt: 'Global English School Al Muwaiji, Al Ain logo' },
-];
-
 const AL_AIN_CONTEXT = [
   { Icon: School, title: 'Few IB schools in the city', text: 'Most Al Ain schools teach the British or American curriculum, so IB year groups are small. A student may be the only one taking HL Physics, with fewer classmates to work through problems with.' },
   { Icon: Repeat, title: 'Many students join the IB later', text: 'Students often arrive in the Diploma from IGCSE or an American high school, or move between Al Ain and Abu Dhabi schools. The first DP term is where gaps from the old curriculum show up.' },
@@ -116,8 +107,12 @@ const FAQS = [
   { q: 'Should my child take Maths AA or Maths AI, and at HL or SL?', a: 'It depends on the university course. Engineering, physics and many maths-heavy degrees ask for AA HL, while some economics, psychology and social science courses accept AI. Check the entry requirements for the courses your child is considering before DP1 begins.' },
   { q: 'My child is moving from an IGCSE school in Al Ain to the IB Diploma. Can you help?', a: 'Yes. The usual gaps are algebra for HL Maths, extended writing, and coursework habits for the IA. A few lessons in the summer before DP1, or in the first term, make the switch much easier.' },
   { q: 'Do you support the MYP as well as the Diploma?', a: 'Yes. MYP lessons follow the criteria A to D your child is marked on, and help with planning task responses, the Personal Project and eAssessment preparation where the school uses it.' },
-  { q: 'How much do IB lessons cost?', a: 'Each lesson is one hour. The price depends on the programme, the subject and how many lessons a week your child takes, so we confirm it on WhatsApp once you tell us the details, before anything is paid.' },
+  { q: 'How much do IB lessons cost?', a: 'Every lesson runs for one hour. What you pay depends on whether your child is in the MYP or the Diploma, which subjects they take, and how many lessons a week they need. Send those details on WhatsApp and we quote the price before you book.' },
   { q: 'Is a female IB tutor available?', a: 'Often, yes. Mention it in your first message and we look for a female specialist in that IB subject and level; if none is free for your preferred times, we tell you before booking.' },
+  { q: 'Can you help at short notice, a few days before an IB exam or IA deadline?', a: 'Send us the subject, the level and the date, and we tell you whether an IB specialist is free in time. A few focused lessons before a paper can sharpen exam technique and fix one or two weak topics, but they cannot replace months of work, so we are honest about what is realistic. For a coursework deadline, the tutor gives feedback on the draft; the writing stays your child’s.' },
+  { q: 'How many IB lessons a week does my child need?', a: 'Most Diploma students take one hour a week for each subject they need help with. Many families add a second weekly lesson in DP2, from the mocks through to May, or in an HL subject with bigger gaps. MYP students usually do well with one lesson a week. After the first lesson the tutor suggests a pattern, and you decide.' },
+  { q: 'My child gets stuck on IB homework between lessons. Can you help?', a: 'Yes. Reply Solution on our WhatsApp and send a photo of the question your child is stuck on. We send back a written, worked solution, so they can see the method and not just the answer. This covers practice and homework questions only: IA, Extended Essay and TOK work is never solved or written for a student.' },
+  { q: 'Is there a free demo before we pay for IB lessons?', a: 'A free trial can be arranged if you ask for one. Most families book the first 1-hour lesson instead, because its opening 15 minutes are free: the tutor looks at a recent test, IA draft or MYP task with your child and spots what is missing, so you see how they teach before settling on a weekly slot.' },
 ];
 
 /* ── Small building blocks ───────────────────────────────────────────── */
@@ -791,7 +786,6 @@ export default function IBTutorAlAinPage() {
 
       <StatsBar />
 
-      <SchoolsMarquee logoList={AL_AIN_SCHOOL_LOGOS} title="Supporting Students From Schools Across Al Ain" />
 
       {/* ── 02 THE IB IN AL AIN (light 3D carousel) ── */}
       <section className="py-8 sm:py-6 overflow-hidden bg-white">
@@ -799,7 +793,7 @@ export default function IBTutorAlAinPage() {
           <SectionHead
             eyebrow="The IB in Al Ain"
             title={<>Why IB students in Al Ain <span className="text-[#0f4a9b]">look for a tutor</span></>}
-            intro="The IB is taught in only a handful of Al Ain schools, such as Emirates National School, which offers the programme from primary through to the Diploma. That shapes the support IB students here need."
+            intro="Few Al Ain schools teach the IB. Emirates National School is the main one, offering it from primary through to the Diploma. That shapes the support IB students here need."
           />
           <AlAinCarousel />
         </div>
