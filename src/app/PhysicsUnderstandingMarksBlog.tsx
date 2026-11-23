@@ -413,7 +413,8 @@ export default function PhysicsUnderstandingMarksBlog() {
 
             <p>If the gap between home performance and exam marks persists despite consistent effort, structured support from an experienced tutor can help identify precisely where retrieval is breaking down and build habits that address it directly. For Abu Dhabi students, Ustaad's{' '}
               <a href="/physics-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">physics tutoring in Abu Dhabi</a>{' '}
-              works through this kind of diagnostic, one question at a time. Students who struggle with the maths side of Physics will also find practical guidance in our article on{' '}
+              works through this kind of diagnostic, one question at a time, and Dubai families can do the same with a{' '}
+              <a href="/physics-tutor-dubai" className="text-[#0f4a9b] font-semibold hover:underline">physics tutor in Dubai</a>. Students who struggle with the maths side of Physics will also find practical guidance in our article on{' '}
               <a href="/blogs/igcse-maths-revision-low-marks" className="text-[#0f4a9b] font-semibold hover:underline">why IGCSE students lose marks after hours of revision</a>, and Ustaad's{' '}
               <a href="/maths" className="text-[#0f4a9b] font-semibold hover:underline">maths tutoring</a>{' '}
               is available across the UAE for students who need targeted support on that side.</p>

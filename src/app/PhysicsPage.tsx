@@ -85,7 +85,7 @@ const customStrugglesSection = (
           <GradientHeadingText text="Ustaad Physics Support" />
         </h2>
         <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-          Stress shows at home long before the report card changes. Our dedicated <a href="/a-level" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">A-Level physics tutors</a> rebuild the paper habits through four structured steps.
+          Stress shows at home long before the report card changes. Our dedicated <a href="/a-level" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">A-Level physics tutors</a> rebuild the paper habits through four structured steps. Families in Dubai can start with a <a href="/physics-tutor-dubai" className="text-[#0f4a9b] font-bold underline hover:text-[#0a3a79]">physics tutor in Dubai</a> matched to their school's exam board.
         </p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">

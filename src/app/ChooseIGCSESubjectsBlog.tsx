@@ -479,7 +479,7 @@ export default function ChooseIGCSESubjectsBlog() {
           <SectionHeading num="01" id="when-uae-schools-ask-you-to-choose">When UAE schools ask you to choose</SectionHeading>
           <div className={proseCls}>
             <p>
-              In most British-curriculum schools in Dubai, Abu Dhabi and Sharjah, Year 9 students choose their IGCSE or GCSE options during the second term. A typical calendar looks like this, though every school sets its own dates:
+              In most British-curriculum schools in Dubai, Abu Dhabi and Sharjah, Year 9 students choose their IGCSE or GCSE options during the second term. If you would like a second opinion before the options form is due, our <a href="/igcse-tutor-dubai" className={linkCls}>IGCSE tutors in Dubai</a> know how local schools run Year 9 choices. A typical calendar looks like this, though every school sets its own dates:
             </p>
           </div>
           <ResponsiveTable

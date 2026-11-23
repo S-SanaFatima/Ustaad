@@ -828,7 +828,7 @@ export default function WinterBreakRevisionPlanBlog() {
             </div>
 
             <p>
-              For a Year 11 or Year 13 student, that comes to roughly 8 to 10 hours across three weeks, far less than most families fear, but spread so that it works.
+              For a Year 11 student heading into <a href="/igcse" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">IGCSE</a> mocks, or a Year 13 student preparing for <a href="/a-level" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">A-Level</a> mocks, that comes to roughly 8 to 10 hours across three weeks, far less than most families fear, but spread so that it works.
             </p>
             <p>
               <strong className="text-[#0a1f3d]">How much, by year group.</strong> These are starting points, not rules. If your school has set holiday work, do that first.

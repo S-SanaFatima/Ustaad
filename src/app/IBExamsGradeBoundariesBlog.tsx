@@ -577,7 +577,7 @@ export default function IBExamsGradeBoundariesBlog() {
               ]}
             />
             <p>
-              For students who missed real exams in 2026, timed practice matters even more. Sitting a full paper under exam conditions is a skill, and our article on <a href="/blogs/exam-stamina-uae-students" className={linkCls}>exam stamina</a> explains how to build it before May.
+              For students who missed real exams in 2026, timed practice matters even more. Sitting a full paper under exam conditions is a skill, and our article on <a href="/blogs/exam-stamina-uae-students" className={linkCls}>exam stamina</a> explains how to build it before May. Students who want a specialist to mark past papers with them can work online, one to one, with an <a href="/ib-tutor-dubai" className={linkCls}>IB tutor in Dubai</a> or an <a href="/ib-tutor-abu-dhabi" className={linkCls}>IB tutor in Abu Dhabi</a>.
             </p>
           </div>
           <NarrativeBox label="PARENT TAKEAWAY">

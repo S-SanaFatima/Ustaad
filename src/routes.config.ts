@@ -505,7 +505,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'Your child revises for hours but fades halfway through a paper. Exam stamina is the missing skill, and here is how to build it before exams start.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-09-07'
+      lastmod: '2026-11-23'
     },
     breadcrumbs: [
       { name: 'Home', url: '/' },
@@ -551,7 +551,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'UAE A-Level exams move to portfolios and coursework in 2026, so more past papers are not enough. See how independent thinking lifts your teen\'s grades.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-08-24'
+      lastmod: '2026-11-23'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' }, { name: 'A-Level Independent Thinking', url: '/blogs/a-level-tutoring-uae-independent-thinking' }]
   },
@@ -599,7 +599,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'What is gradient? The rate of change: how much y changes per unit of x. A teacher explains it on straight-line, distance-time and velocity-time graphs.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-09-18'
+      lastmod: '2026-11-23'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic', url: '/blogs/academic-exam-skills' }, { name: 'What Does the Gradient Mean', url: '/blogs/what-does-gradient-mean-maths-physics' }]
   },
@@ -954,7 +954,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'Why understanding Physics is not the same as scoring marks, and what UAE students can change before the next paper.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-07-07'
+      lastmod: '2026-11-23'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Physics Understanding vs Marks', url: '/blogs/physics-understanding-vs-marks' }]
   },
@@ -1010,7 +1010,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'Ten practical questions UAE parents should ask before hiring a private tutor in Abu Dhabi, plus a free interview worksheet to compare tutors side by side.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-08-28'
+      lastmod: '2026-11-23'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: '10 Questions Before Hiring a Tutor', url: '/blogs/10-questions-hiring-private-tutor-abu-dhabi' }]
   },
@@ -1114,7 +1114,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'Your child follows every lesson but freezes on exam questions? Learn how the scaffolding trap works and how UAE parents can build exam independence.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-10-23'
+      lastmod: '2026-11-23'
     },
     breadcrumbs: [
       { name: 'Home', url: '/' },
@@ -1131,7 +1131,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'Learn where to find Cambridge, Edexcel and IB examiner reports and how to use them after each past paper. Includes a free printable error log.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-10-26'
+      lastmod: '2026-11-23'
     },
     breadcrumbs: [
       { name: 'Home', url: '/' },
@@ -1148,7 +1148,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'UAE winter break runs 14 Dec to 3 Jan. A realistic three-week revision plan for IGCSE and A-Level students, with rest built in, before mocks.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-10-30'
+      lastmod: '2026-11-23'
     },
     breadcrumbs: [
       { name: 'Home', url: '/' },
@@ -1166,7 +1166,7 @@ export const ROUTES: RouteConfig[] = [
       keywords: 'IB grade boundaries, IB exams, IB predicted grades, IB Diploma points, IB 45 points, IB passing score, IB results day 2027, IB exams UAE, IB remark',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-11-16'
+      lastmod: '2026-11-23'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' }, { name: 'IB Exams and Grade Boundaries', url: '/blogs/ib-exams-grade-boundaries-uae' }]
   },
@@ -1204,7 +1204,7 @@ export const ROUTES: RouteConfig[] = [
       description: 'Choosing IGCSE subjects in Year 9? A UAE parent guide to core and option subjects, triple vs combined science, how many IGCSEs, and keeping A-Level doors open.',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-11-11'
+      lastmod: '2026-11-23'
     },
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'How to Choose IGCSE Subjects', url: '/blogs/how-to-choose-igcse-subjects-uae' }]
   },

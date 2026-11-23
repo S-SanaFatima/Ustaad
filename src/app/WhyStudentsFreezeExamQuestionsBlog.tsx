@@ -480,7 +480,7 @@ export default function WhyStudentsFreezeExamQuestionsBlog() {
           </SectionHeading>
 
           <p>
-            To understand why students freeze, we must look at what actually happens during classroom instruction. When a teacher or tutor presents a multi-step problem, whether in <a href="/maths" className="text-[#0f4a9b] font-semibold underline">IGCSE Mathematics</a>, <a href="/physics" className="text-[#0f4a9b] font-semibold underline">IB Physics</a>, or <a href="/chemistry" className="text-[#0f4a9b] font-semibold underline">A-Level Chemistry</a>, they provide three invisible cognitive supports that the student does not notice:
+            To understand why students freeze, we must look at what actually happens during classroom instruction. When a teacher or tutor presents a multi-step problem, whether in <a href="/maths" className="text-[#0f4a9b] font-semibold underline">IGCSE Mathematics</a>, <a href="/physics-tutor-dubai" className="text-[#0f4a9b] font-semibold underline">IB Physics</a>, or <a href="/chemistry" className="text-[#0f4a9b] font-semibold underline">A-Level Chemistry</a>, they provide three invisible cognitive supports that the student does not notice:
           </p>
 
           <ul className="space-y-3 pl-2">

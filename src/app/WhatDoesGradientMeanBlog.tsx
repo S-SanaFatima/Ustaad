@@ -686,7 +686,11 @@ export default function WhatDoesGradientMeanBlog() {
               can also look at Ustaad's{' '}
               <a href="/physics" className="text-[#0f4a9b] font-semibold hover:underline">
                 physics tutoring
-              </a>, which builds graph interpretation into every mechanics topic rather than treating it as a separate skill.
+              </a>, which builds graph interpretation into every mechanics topic rather than treating it as a separate skill. On the maths side, a{' '}
+              <a href="/maths-tutor-dubai" className="text-[#0f4a9b] font-semibold hover:underline">
+                maths tutor in Dubai
+              </a>{' '}
+              can work through gradient and rate-of-change questions on your child's own exam board.
             </p>
 
             {/* 06 */}

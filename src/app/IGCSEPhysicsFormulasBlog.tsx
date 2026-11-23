@@ -424,7 +424,8 @@ export default function IGCSEPhysicsFormulasBlog() {
 
             <p>For Abu Dhabi families looking for one-to-one support with habits like question reading and free body diagrams, Ustaad's{' '}
               <a href="/physics-tutor-abu-dhabi" className="text-[#0f4a9b] font-semibold hover:underline">IGCSE physics tutoring in Abu Dhabi</a>{' '}
-              is built around the same approach used in this class.</p>
+              is built around the same approach used in this class. Dubai families, like the Year 11 student in the case study above, can work the same way with a{' '}
+              <a href="/physics-tutor-dubai" className="text-[#0f4a9b] font-semibold hover:underline">physics tutor in Dubai</a>.</p>
 
             {/* 05 */}
             <SectionHeading num="05" id="where-physics-and-mathematics-meet">Where Physics and Mathematics Meet</SectionHeading>

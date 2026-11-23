@@ -551,7 +551,7 @@ export default function ALevelIndependentThinkingBlog() {
               <div className="p-3.5 bg-white rounded-xl border border-slate-200/80">
                 <p className="text-xs font-bold text-[#0f4a9b] mb-1">Dubai Student · Cambridge 9702 Physics</p>
                 <p className="text-xs text-gray-600 leading-relaxed mb-0">
-                  One Year 13 student in Al Barsha, Dubai, sitting Cambridge 9702 physics, had a wall of past papers and a stubborn C. Her Ustaad tutor stopped marking papers and spent three weeks on a single instruction: explain your first step out loud before writing. Her portfolio work moved to an A because she finally trusted her own reasoning.
+                  One Year 13 student in Al Barsha, Dubai, sitting Cambridge 9702 physics, had a wall of past papers and a stubborn C. Her Ustaad <a href="/physics-tutor-dubai" className="text-[#0f4a9b] font-semibold underline hover:text-[#0a3a79]">physics tutor in Dubai</a> stopped marking papers and spent three weeks on a single instruction: explain your first step out loud before writing. Her portfolio work moved to an A because she finally trusted her own reasoning.
                 </p>
               </div>
               <div className="p-3.5 bg-white rounded-xl border border-slate-200/80">
