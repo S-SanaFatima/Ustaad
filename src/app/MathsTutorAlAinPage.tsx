@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type ReactNode } from 'react';
+import { useState, type CSSProperties, type ReactNode, type UIEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, MessageCircle, CheckCircle2, Info, School, Repeat, Globe2 } from 'lucide-react';
 import { Layout, StatsBar, RelatedContent } from './shared';
@@ -405,21 +405,37 @@ function TopicArt({ k }: { k: string }) {
 }
 
 function TopicLab() {
+  const [active, setActive] = useState(0);
+  const onScroll = (e: UIEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    const card = el.firstElementChild as HTMLElement | null;
+    if (!card) return;
+    setActive(Math.min(TOPICS.length - 1, Math.round(el.scrollLeft / (card.offsetWidth + 12))));
+  };
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-      {TOPICS.map((t, i) => (
-        <motion.article key={t.key} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-          className="group rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_14px_32px_-24px_rgba(10,31,61,0.45)] hover:-translate-y-1 transition-transform">
-          <div className="relative h-[124px] px-6 pt-3 pb-2 mta-grid bg-gradient-to-b from-[#f7f9fd] to-white border-b border-slate-200/80 transition-transform duration-500 group-hover:scale-[1.04]" aria-hidden="true">
-            <TopicArt k={t.key} />
-          </div>
-          <div className="p-4">
-            <h3 className="text-[15px] font-extrabold text-[#0a1f3d] mb-2">{t.name}</h3>
-            <p className="text-[12.5px] text-[#4a5a72] leading-relaxed mb-1.5"><span className="font-extrabold text-[#b4432f]">Where marks go: </span>{t.slip}</p>
-            <p className="text-[12.5px] text-[#4a5a72] leading-relaxed"><span className="font-extrabold text-[#0f4a9b]">What we do: </span>{t.fix}</p>
-          </div>
-        </motion.article>
-      ))}
+    <div>
+      <div onScroll={onScroll}
+        className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-3.5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 pb-1 sm:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {TOPICS.map((t, i) => (
+          <article key={t.key}
+            className="group shrink-0 w-[84%] sm:w-auto snap-center rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_14px_32px_-24px_rgba(10,31,61,0.45)] hover:-translate-y-1 transition-transform">
+            <div className="relative h-[120px] sm:h-[88px] px-6 pt-2 pb-1 mta-grid bg-gradient-to-b from-[#f7f9fd] to-white border-b border-slate-200/80 transition-transform duration-500 group-hover:scale-[1.04]" aria-hidden="true">
+              <TopicArt k={t.key} />
+            </div>
+            <div className="px-4 py-3">
+              <h3 className="text-[15px] sm:text-[14.5px] font-extrabold text-[#0a1f3d] mb-1">{t.name}</h3>
+              <p className="text-[12.5px] sm:text-[12px] text-[#4a5a72] leading-snug mb-1"><span className="font-extrabold text-[#b4432f]">Where marks go: </span>{t.slip}</p>
+              <p className="text-[12.5px] sm:text-[12px] text-[#4a5a72] leading-snug"><span className="font-extrabold text-[#0f4a9b]">What we do: </span>{t.fix}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div className="sm:hidden mt-2.5 flex items-center justify-center gap-1.5" aria-hidden="true">
+        {TOPICS.map((t, i) => (
+          <span key={t.key} className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? 'w-5 bg-[#C7A24A]' : 'w-1.5 bg-[#0f4a9b]/25'}`} />
+        ))}
+        <span className="ml-2 text-[11px] font-semibold text-[#6b7a90]">Swipe for all 6 topics</span>
+      </div>
     </div>
   );
 }
@@ -623,15 +639,15 @@ export default function MathsTutorAlAinPage() {
       </section>
 
       {/* ── 04 TOPIC LAB ── */}
-      <section className="py-8 sm:py-10 bg-white">
+      <section className="py-6 sm:py-6 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead
             eyebrow="Where marks slip"
             title={<>Six topics where students <span style={{ color: NAVY }}>lose the most marks</span></>}
-            intro="Whatever the exam board, the same few habits cost marks. Each topic shows the usual mistake and how lessons fix it."
+            intro="The same few habits cost marks on every exam board. Here is each mistake and how lessons fix it."
           />
           <TopicLab />
-          <p className="mt-4 text-center text-[12.5px] text-[#4a5a72]">
+          <p className="mt-3 text-center text-[12px] sm:text-[12.5px] text-[#4a5a72]">
             More on this: <a href="/blogs/silly-mistakes-maths-exams" className="font-bold text-[#0f4a9b] underline underline-offset-2">why students make silly mistakes in maths exams</a>.
           </p>
         </div>
