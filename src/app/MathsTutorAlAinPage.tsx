@@ -220,39 +220,39 @@ const SCHOOL_GROUPS = [
 
 function AlAinReasons() {
   return (
-    <div className="grid lg:grid-cols-[5fr_7fr] gap-4 lg:gap-6 items-stretch">
+    <div className="grid lg:grid-cols-[5fr_7fr] gap-2.5 sm:gap-4 lg:gap-6 items-stretch">
       {/* left: heading panel */}
-      <div className="relative overflow-hidden rounded-3xl p-6 sm:p-8 text-white flex flex-col" style={{ background: 'linear-gradient(155deg,#0a1f3d 0%,#0f3a7a 70%,#164a96 100%)' }}>
-        <span className="absolute right-6 bottom-4 text-[130px] leading-none font-serif italic text-white/[0.06] select-none" aria-hidden="true">π</span>
-        <span className="relative inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#f0c96a] mb-3">
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white flex flex-col" style={{ background: 'linear-gradient(155deg,#0a1f3d 0%,#0f3a7a 70%,#164a96 100%)' }}>
+        <span className="hidden sm:block absolute right-6 bottom-4 text-[130px] leading-none font-serif italic text-white/[0.06] select-none" aria-hidden="true">π</span>
+        <span className="relative inline-flex items-center gap-2 text-[10.5px] sm:text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#f0c96a] mb-1.5 sm:mb-3">
           <span className="w-5 h-[2px] rounded-full" style={{ background: GOLD }} />Maths in Al Ain
         </span>
-        <h2 className="relative text-[24px] sm:text-[30px] font-extrabold leading-tight mb-3">
+        <h2 className="relative text-[19px] sm:text-[30px] font-extrabold leading-tight mb-1.5 sm:mb-3">
           Why Al Ain families look for <span style={GOLD_TEXT}>a private maths tutor</span>
         </h2>
-        <p className="relative text-[13px] sm:text-[14px] text-blue-100/80 leading-relaxed mb-5">
+        <p className="relative text-[12px] sm:text-[14px] text-blue-100/80 leading-snug sm:leading-relaxed mb-2.5 sm:mb-5">
           Students in Al Ain sit very different maths exams depending on the school: British IGCSE, GCSE and A-Level, the IB, or American courses. A good tutor starts from your child’s own course.
         </p>
-        <ul className="relative space-y-2 mb-6" aria-label="Al Ain schools and the curricula they teach">
+        <ul className="relative grid grid-cols-2 sm:grid-cols-1 gap-x-2 gap-y-1 sm:gap-y-2 sm:mb-6" aria-label="Al Ain schools and the curricula they teach">
           {SCHOOL_GROUPS.map((g) => g.names.map((n) => (
-            <li key={n} className="flex items-center gap-2.5 text-[13px] font-semibold text-white/90">
-              <span className="w-[62px] shrink-0 text-center rounded-full bg-white/10 border border-white/15 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-[#f0c96a]">{g.tag}</span>{n}
+            <li key={n} className="flex items-center gap-1.5 sm:gap-2.5 text-[11px] sm:text-[13px] font-semibold text-white/90 leading-tight">
+              <span className="w-[46px] sm:w-[62px] shrink-0 text-center rounded-full bg-white/10 border border-white/15 py-0.5 text-[8.5px] sm:text-[10px] font-extrabold uppercase tracking-wide text-[#f0c96a]">{g.tag}</span>{n}
             </li>
           )))}
         </ul>
-        <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="relative mt-auto self-start inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#1ebe5a] text-white px-5 py-2.5 text-[13px] font-bold shadow-md shadow-black/20 transition-colors">
+        <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="relative mt-auto self-start hidden sm:inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#1ebe5a] text-white px-5 py-2.5 text-[13px] font-bold shadow-md shadow-black/20 transition-colors">
           <MessageCircle className="w-4 h-4" /> WhatsApp Us
         </a>
       </div>
       {/* right: numbered reasons */}
-      <ol className="rounded-3xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_18px_40px_-30px_rgba(10,31,61,0.5)] divide-y divide-slate-200/80 overflow-hidden">
+      <ol className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_18px_40px_-30px_rgba(10,31,61,0.5)] divide-y divide-slate-200/80 overflow-hidden">
         {CONTEXT.map(({ title, text }, i) => (
           <motion.li key={title} initial={{ opacity: 0, x: 12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="group flex gap-4 sm:gap-5 p-5 sm:p-7 hover:bg-[#f7f9fd] transition-colors">
-            <span className="shrink-0 w-11 sm:w-14 text-[30px] sm:text-[38px] font-black leading-none tabular-nums text-transparent bg-clip-text" style={{ backgroundImage: GOLD }}>0{i + 1}</span>
+            className="group flex gap-3 sm:gap-5 px-4 py-3 sm:p-7 hover:bg-[#f7f9fd] transition-colors">
+            <span className="shrink-0 w-8 sm:w-14 text-[22px] sm:text-[38px] font-black leading-none tabular-nums text-transparent bg-clip-text" style={{ backgroundImage: GOLD }}>0{i + 1}</span>
             <div>
-              <h3 className="text-[16px] sm:text-[18px] font-extrabold text-[#0a1f3d] leading-snug mb-1.5">{title}</h3>
-              <p className="text-[13px] sm:text-[14px] text-[#4a5a72] leading-relaxed">{text}</p>
+              <h3 className="text-[14px] sm:text-[18px] font-extrabold text-[#0a1f3d] leading-snug mb-0.5 sm:mb-1.5">{title}</h3>
+              <p className="text-[12px] sm:text-[14px] text-[#4a5a72] leading-snug sm:leading-relaxed">{text}</p>
             </div>
           </motion.li>
         ))}
@@ -604,8 +604,8 @@ export default function MathsTutorAlAinPage() {
       <StatsBar />
 
       {/* ── 02 MATHS IN AL AIN ── */}
-      <section className="py-8 sm:py-10 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-4 sm:py-8 bg-white">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
           <AlAinReasons />
         </div>
       </section>
