@@ -1,28 +1,37 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { Calendar, User, Clock, BookOpen, ChevronDown, ChevronUp, Mail, Home, ChevronRight as ChevronRightIcon, MessageCircle } from 'lucide-react';
 import { Layout } from './shared';
 import SEOHead from './shared/SEOHead';
 import { localBusinessSchema, breadcrumbSchema, articleSchema, faqSchema } from './shared/schemas';
 
 const BLOG = {
-  title: 'Why Physics Understanding Does Not Mean High Marks | Ustaad',
+  title: 'Understands Physics but Low Marks? How to Fix It | Ustaad',
   titleLine1: 'Your Child Understands Physics.',
   titleLine2: 'So Why Are the Marks Still Low?',
   slug: 'physics-understanding-vs-marks',
-  description: 'Ustaad\'s content team explores the gap between comprehension and exam performance in Physics, and what parents can do when their child clearly understands but still scores poorly.',
+  description: 'Your child understands physics but still gets low marks? See where physics marks are lost, from units to method marks, plus a 4-week plan for UAE students.',
+  subtitle: 'Ustaad\'s content team explores the gap between understanding physics and scoring marks in it: why it happens, exactly where the marks go, and what UAE families can do before the next paper.',
   heroImage: '/images/blogs/uae-physics-student-understanding-vs-marks.webp',
   heroAlt: 'UAE physics student at home who understands the material but still receives low exam marks',
   heroCaption: 'Understanding a chapter at home does not always translate to the exam paper. Learning and performance are two different processes.',
   datePublished: '2026-07-07',
-  dateModified: '2026-08-05',
+  dateModified: '2026-11-25',
   author: 'Nimra Shahzada',
   reviewer: 'Nida Iqbal | MPhil in Education Leadership and Management',
-  readTime: '9 min read',
+  readTime: '11 min read',
   tags: ['Physics', 'Psychology of Learning', 'UAE Students', 'IGCSE', 'A-Level', 'Exam Performance'],
 };
 
 const FAQS = [
+  {
+    q: 'Why does my child lose marks in physics even when the final answer is right?',
+    a: 'Physics mark schemes award marks for more than the final number. A correct answer with missing or wrong units, too many significant figures, or no working shown can drop marks, and in explain questions a correct fact without the reason linking it to the question earns little. Most of these losses are habits that can be fixed with targeted practice.',
+  },
+  {
+    q: 'What are method marks in physics exams?',
+    a: 'Many physics mark schemes give marks for writing the correct equation and substituting the values, even if the final calculation goes wrong. Students who skip straight to an answer risk losing all the marks for one slip, while students who show each step keep most of them.',
+  },
   {
     q: 'My child understands Physics but still gets low marks. Why?',
     a: 'Understanding at home usually builds recognition, the ability to follow a worked example or spot a correct answer. Exams require retrieval: producing knowledge on a blank page under time pressure. These are different skills. A student can understand the chapter fully and still struggle to retrieve it during a timed exam.',
@@ -51,6 +60,8 @@ const TOC_ITEMS = [
   { label: 'Why Physics Overloads Working Memory More Than Other Subjects', id: 'working-memory-overload' },
   { label: 'Why Perfectionism Costs Bright Students Physics Marks', id: 'perfectionism-cost' },
   { label: 'When Anxiety Interrupts Thinking', id: 'when-anxiety-interrupts' },
+  { label: 'Where Physics Marks Actually Go', id: 'where-physics-marks-go' },
+  { label: 'A 4-Week Plan to Turn Understanding Into Marks', id: 'four-week-plan' },
   { label: 'A Note for Parents: How to Help', id: 'how-parents-can-help' },
   { label: 'Frequently Asked Questions', id: 'frequently-asked-questions' },
 ];
@@ -94,7 +105,7 @@ function InlineImage({ src, alt, caption }: { src: string; alt: string; caption?
   return (
     <figure className="mx-auto my-6 max-w-xl">
       <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
-        <img src={src} alt={alt} loading="lazy" className="w-full h-auto block" />
+        <img src={src} alt={alt} width={1408} height={768} loading="lazy" decoding="async" className="w-full h-auto block" />
       </div>
       {caption && (
         <figcaption className="mt-2.5 text-center text-xs text-gray-400 italic leading-relaxed px-2">{caption}</figcaption>
@@ -166,7 +177,7 @@ function FAQAccordion() {
                 style={{ width: 36, height: 36, minWidth: 36, background: isOpen ? '#0f4a9b' : 'rgba(15,74,155,0.08)', color: isOpen ? '#fff' : '#0f4a9b', transition: 'background 300ms, color 300ms', border: 'none', cursor: 'pointer' }}>
                 <span className="font-extrabold text-sm">?</span>
               </button>
-              <button onClick={() => setActive(isOpen ? null : i)} aria-expanded={isOpen}
+              <button onClick={() => setActive(isOpen ? null : i)} aria-expanded={isOpen} aria-controls={`pu-faq-${i}`}
                 className="flex-1 flex items-center gap-2.5 text-left rounded-full border"
                 style={{ minHeight: 44, padding: '7px 14px', cursor: 'pointer', background: 'transparent', borderColor: isOpen ? 'rgba(15,74,155,0.25)' : 'rgba(15,74,155,0.1)' }}>
                 <span className="flex-1 font-semibold text-[#0a1f3d] text-[13px] leading-snug">{faq.q}</span>
@@ -176,20 +187,17 @@ function FAQAccordion() {
                 </span>
               </button>
             </div>
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }} className="ml-[48px]">
-                  <div className="flex items-start gap-2.5 rounded-2xl border p-3.5"
-                    style={{ background: '#f8fafc', borderColor: 'rgba(15,74,155,0.12)', boxShadow: '0 3px 12px rgba(15,74,155,0.05)' }}>
-                    <p className="flex-1 text-gray-600 text-[13px] leading-relaxed text-justify">{faq.a}</p>
-                    <span className="flex-shrink-0 flex items-center justify-center rounded-full"
-                      style={{ width: 28, height: 28, minWidth: 28, background: '#0f4a9b', color: '#fff' }}>
-                      <MessageCircle className="h-3.5 w-3.5" />
-                    </span>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {/* Always in the HTML (indexable); shown when open */}
+            <div id={`pu-faq-${i}`} hidden={!isOpen} className="ml-[48px]">
+              <div className="flex items-start gap-2.5 rounded-2xl border p-3.5"
+                style={{ background: '#f8fafc', borderColor: 'rgba(15,74,155,0.12)', boxShadow: '0 3px 12px rgba(15,74,155,0.05)' }}>
+                <p className="flex-1 text-gray-600 text-[13px] leading-relaxed text-justify">{faq.a}</p>
+                <span className="flex-shrink-0 flex items-center justify-center rounded-full"
+                  style={{ width: 28, height: 28, minWidth: 28, background: '#0f4a9b', color: '#fff' }}>
+                  <MessageCircle className="h-3.5 w-3.5" />
+                </span>
+              </div>
+            </div>
           </div>
         );
       })}
@@ -205,7 +213,7 @@ export default function PhysicsUnderstandingMarksBlog() {
   return (
     <Layout>
       <SEOHead
-        title="Why Physics Understanding Does Not Mean High Marks | Ustaad"
+        title={BLOG.title}
         description={BLOG.description}
         canonical={canonical}
         ogImage={BLOG.heroImage}
@@ -217,10 +225,11 @@ export default function PhysicsUnderstandingMarksBlog() {
           breadcrumbSchema([
             { name: 'Home', url: '/' },
             { name: 'Blog', url: '/blogs' },
-            { name: BLOG.title, url: canonical },
+            { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' },
+            { name: 'Understands Physics but Low Marks', url: canonical },
           ]),
           articleSchema({
-            title: BLOG.title,
+            title: `${BLOG.titleLine1} ${BLOG.titleLine2}`,
             description: BLOG.description,
             url: canonical,
             datePublished: BLOG.datePublished,
@@ -276,7 +285,7 @@ export default function PhysicsUnderstandingMarksBlog() {
             </h1>
 
             {/* Description */}
-            <p className="text-gray-500 text-sm lg:text-[15px] leading-relaxed mb-3 text-justify">{BLOG.description}</p>
+            <p className="text-gray-500 text-sm lg:text-[15px] leading-relaxed mb-3 text-justify">{BLOG.subtitle}</p>
 
             {/* Meta */}
             <div className="mb-4 mt-2 space-y-2">
@@ -297,7 +306,7 @@ export default function PhysicsUnderstandingMarksBlog() {
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-400 pt-1">
                 <time dateTime={BLOG.dateModified} className="flex items-center gap-1">
                   <Calendar className="h-3.5 w-3.5 text-[#C7A24A] shrink-0" />
-                  Last reviewed: August 2026 · Ustaad UAE Editorial Team
+                  Updated November 2026 · Ustaad UAE Editorial Team
                 </time>
                 <span className="flex items-center gap-1">
                   <Clock className="h-3.5 w-3.5 text-[#C7A24A]" />{BLOG.readTime}
@@ -311,7 +320,7 @@ export default function PhysicsUnderstandingMarksBlog() {
           {/* Hero image */}
           <motion.figure initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }} className="mb-0">
             <div className="rounded-2xl overflow-hidden border-4 border-white shadow-[0_8px_40px_rgba(15,74,155,0.12)]">
-              <img src={BLOG.heroImage} alt={BLOG.heroAlt} fetchPriority="high" className="w-full h-auto block" />
+              <img src={BLOG.heroImage} alt={BLOG.heroAlt} width={1408} height={768} fetchPriority="high" className="w-full h-auto block" />
             </div>
             <figcaption className="mt-2.5 text-center text-xs text-gray-400 italic leading-relaxed px-2">{BLOG.heroCaption}</figcaption>
           </motion.figure>
@@ -393,7 +402,58 @@ export default function PhysicsUnderstandingMarksBlog() {
               <a href="/blogs/exam-panic-before-exams-uae" className="text-[#0f4a9b] font-semibold hover:underline">What UAE Parents Miss About Exam Panic</a>.</p>
 
             {/* 06 */}
-            <SectionHeading num="06" id="how-parents-can-help">A Note for Parents: How to Help</SectionHeading>
+            <SectionHeading num="06" id="where-physics-marks-go">Where Physics Marks Actually Go</SectionHeading>
+            <p>Psychology explains why a capable student underperforms. The mark scheme shows where the marks are actually lost. In IGCSE, A-Level and IB physics papers, the same small set of losses turns up again and again, and almost none of them are about understanding the physics.</p>
+            <div className="my-5 rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+              <table className="w-full text-left text-xs sm:text-[13px] border-collapse">
+                <thead className="hidden sm:table-header-group bg-[#0a1f3d] text-white">
+                  <tr>
+                    <th className="px-3.5 py-3 font-bold w-[26%]">Where marks go</th>
+                    <th className="px-3.5 py-3 font-bold w-[38%]">What the examiner sees</th>
+                    <th className="px-3.5 py-3 font-bold w-[36%]">The fix</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 bg-white">
+                  {[
+                    ['Units', 'A correct number with no unit, or the wrong one, such as N instead of J', 'Write the unit with every final answer, and check it matches the quantity asked for'],
+                    ['No working shown', 'A wrong final answer with nothing to award method marks for', 'Write the equation, then the substitution, then the answer, every time'],
+                    ['Significant figures', 'An answer copied straight from the calculator, to eight digits', 'Match the significant figures of the data in the question, usually 2 or 3'],
+                    ['Explain questions', 'A correct fact with no reason linking it to the situation', 'Use "because" and finish the chain: what happens, why, and what it causes'],
+                    ['Graphs and data', 'A gradient read from two data points close together, or axes without units', 'Draw a large triangle on the best-fit line and label axes with quantity and unit'],
+                    ['Practical paper', 'Readings without repeats, or a vague source of error', 'Name the specific uncertainty and a specific improvement for this experiment'],
+                  ].map(([a, b, c]) => (
+                    <tr key={a} className="block sm:table-row even:bg-slate-50/60">
+                      <td className="block sm:table-cell px-3.5 py-2.5 sm:align-top font-bold text-white bg-[#0f4a9b] sm:bg-transparent sm:text-[#0a1f3d]">{a}</td>
+                      <td className="block sm:table-cell px-3.5 py-2 sm:py-2.5 sm:align-top text-gray-700"><span className="sm:hidden block text-[10px] font-extrabold uppercase tracking-wider text-[#0f4a9b]/70 mb-0.5">What the examiner sees</span>{b}</td>
+                      <td className="block sm:table-cell px-3.5 py-2 sm:py-2.5 sm:align-top text-gray-700"><span className="sm:hidden block text-[10px] font-extrabold uppercase tracking-wider text-[#0f4a9b]/70 mb-0.5">The fix</span>{c}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p>Take a typical three-mark calculation: a 2.0 kg trolley accelerates at 1.5 m/s², find the resultant force. A student who writes only "3" may score one mark or none. A student who writes F = ma, then F = 2.0 × 1.5, then 3.0 N, collects every mark, and if they slip on the arithmetic they usually keep the marks for the equation and the substitution. Same understanding, very different score.</p>
+            <p>Explain questions work the same way. "The ball slows down because of friction" is true but thin. "Friction acts opposite to the motion, so there is a resultant force backwards, which causes a deceleration" is the chain examiners reward. Our guides to <a href="/blogs/command-words-igcse-a-level-exams" className="text-[#0f4a9b] font-semibold hover:underline">exam command words</a> and <a href="/blogs/igcse-physics-formulas-exam" className="text-[#0f4a9b] font-semibold hover:underline">why physics formulas stop working in exams</a> go deeper on both habits, and <a href="/blogs/how-to-read-examiner-reports-igcse-a-level" className="text-[#0f4a9b] font-semibold hover:underline">examiner reports</a> show which of these losses are most common in your child's paper.</p>
+
+            {/* 07 */}
+            <SectionHeading num="07" id="four-week-plan">A 4-Week Plan to Turn Understanding Into Marks</SectionHeading>
+            <p>Because the gap is about habits rather than knowledge, it closes faster than most families expect. A realistic plan before a mock or a final exam looks like this:</p>
+            <ol className="my-3 space-y-2.5 pl-1">
+              {[
+                ['Week 1', 'Find the leak. Mark one recent past paper against the mark scheme and sort every lost mark into the six categories above. Most students find two or three categories account for most of the losses.'],
+                ['Week 2', 'Fix the top habit. Do short sets of five to eight questions a day aimed only at that habit, such as writing equation, substitution, answer and unit for every calculation.'],
+                ['Week 3', 'Add timing. Do one section of a paper under timed conditions, then review the thinking behind each mistake, not just the answer.'],
+                ['Week 4', 'Sit a full paper. Do a complete timed paper, mark it, and compare the categories with week 1. The aim is fewer losses in the same places, not a perfect score.'],
+              ].map(([w, t]) => (
+                <li key={w} className="flex items-start gap-3">
+                  <span className="shrink-0 mt-0.5 inline-flex items-center justify-center px-2.5 h-6 rounded-full bg-[#0f4a9b] text-white text-[11px] font-extrabold">{w}</span>
+                  <span className="text-sm text-gray-700 leading-relaxed">{t}</span>
+                </li>
+              ))}
+            </ol>
+            <p>If your child is in Year 10 or Year 12, starting this cycle in the first term gives two or three rounds before the exams that count.</p>
+
+            {/* 08 */}
+            <SectionHeading num="08" id="how-parents-can-help">A Note for Parents: How to Help</SectionHeading>
             <p>The most useful shift for parents is moving from content focus to process focus. Rather than asking "did you revise chapter eight?" ask "did you practise a full exam question from chapter eight on a blank page, timed, without your notes?"</p>
             <p>These are not the same thing. The first builds familiarity. The second builds retrieval.</p>
 
@@ -417,7 +477,7 @@ export default function PhysicsUnderstandingMarksBlog() {
               <a href="/physics-tutor-dubai" className="text-[#0f4a9b] font-semibold hover:underline">physics tutor in Dubai</a>. Students who struggle with the maths side of Physics will also find practical guidance in our article on{' '}
               <a href="/blogs/igcse-maths-revision-low-marks" className="text-[#0f4a9b] font-semibold hover:underline">why IGCSE students lose marks after hours of revision</a>, and Ustaad's{' '}
               <a href="/maths" className="text-[#0f4a9b] font-semibold hover:underline">maths tutoring</a>{' '}
-              is available across the UAE for students who need targeted support on that side.</p>
+              and <a href="/physics" className="text-[#0f4a9b] font-semibold hover:underline">physics tutoring</a> are available across the UAE for students who need targeted support on that side.</p>
 
             <div className="my-5 flex flex-col items-center gap-1.5">
               <a href="/contact#form"

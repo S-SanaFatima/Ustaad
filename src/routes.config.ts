@@ -950,13 +950,14 @@ export const ROUTES: RouteConfig[] = [
     path: '/blogs/physics-understanding-vs-marks',
     component: 'PhysicsUnderstandingMarksBlog',
     seo: {
-      title: 'Physics Understanding vs Marks | Ustaad Blog',
-      description: 'Why understanding Physics is not the same as scoring marks, and what UAE students can change before the next paper.',
+      title: 'Understands Physics but Low Marks? How to Fix It | Ustaad',
+      description: 'Your child understands physics but still gets low marks? See where physics marks are lost, from units to method marks, plus a 4-week plan for UAE students.',
+      keywords: 'understands physics but low marks, why do I lose marks in physics, physics method marks, physics exam technique, IGCSE physics marks, A-Level physics marks',
       priority: 0.9,
       changefreq: 'monthly',
-      lastmod: '2026-11-23'
+      lastmod: '2026-11-25'
     },
-    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Physics Understanding vs Marks', url: '/blogs/physics-understanding-vs-marks' }]
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Psychology of Learning', url: '/blogs/psychology-of-learning' }, { name: 'Understands Physics but Low Marks', url: '/blogs/physics-understanding-vs-marks' }]
   },
   {
     path: '/blogs/igcse-physics-formulas-exam',

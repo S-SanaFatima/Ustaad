@@ -448,10 +448,10 @@ export const BLOGS: BlogPost[] = [
     alt: 'UAE physics student at home who understands the material but still receives low exam marks',
     category: 'Psychology of Learning',
     title: 'Your Child Understands Physics. So Why Are the Marks Still Low?',
-    description: 'The gap between understanding and exam performance: retrieval, working memory overload, and nerves.',
+    description: 'Why a child who understands physics still loses marks: retrieval, working memory, units, method marks and a 4-week plan.',
     date: '7 Jul 2026',
-    readTime: '9 min read',
-    author: 'Academic Mentor',
+    readTime: '11 min read',
+    author: 'Nimra Shahzada',
   },
   {
     slug: 'igcse-physics-formulas-exam',
