@@ -996,6 +996,7 @@ export default function IBTutorAlAinPage() {
         subtitle="Other Ustaad pages for IB students and for families in Al Ain."
         subjects={[
           { label: 'IB Curriculum Tutoring', href: '/ib-curriculum', note: 'Our main IB page, covering the MYP and the Diploma.' },
+          { label: 'Maths Tutor Al Ain', href: '/maths-tutor-al-ain', note: 'IB Maths AA and AI at SL and HL, plus MYP maths.' },
           { label: 'IB Tutor Abu Dhabi', href: '/ib-tutor-abu-dhabi', note: 'For families who move between Al Ain and Abu Dhabi schools.' },
           { label: 'IB Exams and Grade Boundaries', href: '/blogs/ib-exams-grade-boundaries-uae', note: 'How the 1 to 7 grades and 45 points are worked out.' },
         ]}

@@ -111,6 +111,7 @@ export const ROUTES = [
   { path: '/a-level-tutor-al-ain', component: 'ALevelTutorAlAinPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-10-28' },
   { path: '/igcse-tutor-al-ain', component: 'IGCSETutorAlAinPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-11-11' },
   { path: '/gcse-tutor-al-ain', component: 'GCSETutorAlAinPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-11-16' },
+  { path: '/maths-tutor-al-ain', component: 'MathsTutorAlAinPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-11-25' },
   { path: '/ib-tutor-al-ain', component: 'IBTutorAlAinPage', priority: 0.90, changefreq: 'monthly', lastmod: '2026-11-23' },
   { path: '/ib-tutor-dubai', component: 'IBTutorDubaiPage', priority: 0.95, changefreq: 'weekly', lastmod: '2026-11-25' },
 

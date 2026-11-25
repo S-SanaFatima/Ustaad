@@ -139,7 +139,7 @@ const IGCSE_RELATED_PATHWAYS = [
   {
     title: 'IGCSE Maths Tutor',
     sub: 'Algebra, Geometry & Statistics',
-    href: '/maths',
+    href: '/maths-tutor-al-ain',
     icon: Calculator,
     bg: 'bg-blue-50 border border-blue-100',
     color: 'text-[#0f4a9b]',

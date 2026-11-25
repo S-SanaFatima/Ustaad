@@ -535,11 +535,11 @@ const customPracticesSection = (
 
 // UAE Locations data
 const uaeLocations = [
-  { name: "Abu Dhabi", desc: "Capital • Most schools", icon: <MapPin className="h-4 w-4" /> },
-  { name: "Dubai", desc: "Largest city • All boards", icon: <MapPin className="h-4 w-4" /> },
+  { name: "Abu Dhabi", href: "/maths-tutor-abu-dhabi", desc: "Capital • Most schools", icon: <MapPin className="h-4 w-4" /> },
+  { name: "Dubai", href: "/maths-tutor-dubai", desc: "Largest city • All boards", icon: <MapPin className="h-4 w-4" /> },
   { name: "Sharjah", desc: "Growing IGCSE community", icon: <MapPin className="h-4 w-4" /> },
   { name: "Ajman", desc: "Cambridge & Edexcel", icon: <MapPin className="h-4 w-4" /> },
-  { name: "Al Ain", desc: "Cambridge focused", icon: <MapPin className="h-4 w-4" /> },
+  { name: "Al Ain", href: "/maths-tutor-al-ain", desc: "Cambridge focused", icon: <MapPin className="h-4 w-4" /> },
   { name: "Ras Al Khaimah", desc: "Northern Emirates", icon: <MapPin className="h-4 w-4" /> },
   { name: "Fujairah", desc: "East coast", icon: <MapPin className="h-4 w-4" /> },
   { name: "Umm Al Quwain", desc: "Northern Emirates", icon: <MapPin className="h-4 w-4" /> },
@@ -572,7 +572,7 @@ const customResultsSection = (
               </div>
               <div className="w-2 h-2 bg-[#C7A24A] rounded-full" />
             </div>
-            <h3 className="text-white font-bold text-base mb-1">{loc.name}</h3>
+            <h3 className="text-white font-bold text-base mb-1">{loc.href ? <a href={loc.href} className="hover:text-[#f0c96a] transition-colors after:absolute after:inset-0">{`Maths tutor ${loc.name}`}</a> : loc.name}</h3>
             <p className="text-white/50 text-xs">{loc.desc}</p>
           </div>
         ))}

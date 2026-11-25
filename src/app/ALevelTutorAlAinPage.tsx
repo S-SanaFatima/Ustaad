@@ -803,7 +803,7 @@ const RELATED_PATHWAYS = [
   {
     title: 'A-Level Maths Tutor',
     sub: 'Pure, Mechanics & Statistics',
-    href: '/maths-tutor-abu-dhabi',
+    href: '/maths-tutor-al-ain',
     icon: Calculator,
     bg: 'bg-blue-50 border border-blue-100',
     color: 'text-[#0f4a9b]',

@@ -879,6 +879,19 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'GCSE', url: '/gcse' }, { name: 'GCSE Tutor Al Ain', url: '/gcse-tutor-al-ain' }]
   },
   {
+    path: '/maths-tutor-al-ain',
+    component: 'MathsTutorAlAinPage',
+    seo: {
+      title: 'Maths Tutor Al Ain | Online IGCSE, A-Level & IB | Ustaad',
+      description: 'Online 1-to-1 maths tutor for Al Ain students: IGCSE, GCSE, A-Level, IB AA/AI and American maths, matched to the exact exam board. Free 15-min orientation.',
+      keywords: 'maths tutor Al Ain, math tutor Al Ain, maths tuition Al Ain, online maths tutor Al Ain, private maths tutor Al Ain, IGCSE maths tutor, GCSE maths tutor, A-Level maths tutor, Further Maths tutor, IB Maths AA tutor, IB Maths AI tutor, AP Calculus tutor, SAT Math tutor, non-calculator paper',
+      priority: 0.90,
+      changefreq: 'monthly',
+      lastmod: '2026-11-25'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Maths', url: '/maths' }, { name: 'Maths Tutor Al Ain', url: '/maths-tutor-al-ain' }]
+  },
+  {
     path: '/ib-tutor-al-ain',
     component: 'IBTutorAlAinPage',
     seo: {

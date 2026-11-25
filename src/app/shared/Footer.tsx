@@ -124,8 +124,8 @@ function NoteCard({ kind, index }: { kind: 'alain' | 'other'; index: number }) {
     return (
       <div className="uf-note" style={{ ['--i' as string]: index }}>
         <div>
-          <p className="uf-note__title">Need Maths, Physics, Chemistry or Biology in Al Ain?</p>
-          <p className="uf-note__text">Our tutors teach online, so the same specialists work with Al Ain families. Tell us the subject and year group and we will suggest a match.</p>
+          <p className="uf-note__title">Need Physics, Chemistry or Biology in Al Ain?</p>
+          <p className="uf-note__text">Our tutors teach online, so the same specialists work with Al Ain families. Tell us the subject and year group and we will suggest a match. For maths, see our <a href="/maths-tutor-al-ain" style={{ color: 'inherit', textDecoration: 'underline', fontWeight: 700 }}>maths tutor in Al Ain</a> page.</p>
         </div>
         <a className="uf-btn-wa" href={WA_URL} target="_blank" rel="noopener noreferrer" data-ga-event="footer_whatsapp_click">
           <WaIcon /> WhatsApp Us

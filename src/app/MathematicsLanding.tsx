@@ -1781,6 +1781,11 @@ export default function MathematicsLanding() {
             note: 'Moles calculations, stoichiometry, and kinetics support in Abu Dhabi.'
           },
           {
+            label: 'Maths Tutor Al Ain',
+            href: '/maths-tutor-al-ain',
+            note: 'Online maths lessons for Al Ain students, on every exam board.'
+          },
+          {
             label: 'Online Maths Tutor, all UAE',
             href: '/maths',
             note: 'Maths tutoring for every curriculum and level, for students in any emirate.'

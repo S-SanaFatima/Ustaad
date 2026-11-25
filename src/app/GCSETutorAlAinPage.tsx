@@ -1053,7 +1053,7 @@ export default function GCSETutorAlAinPage() {
         title="More support for Al Ain families"
         subtitle="Other Ustaad pages for students in Al Ain and across the UAE."
         subjects={[
-          { label: 'Maths Tutoring', href: '/maths', note: 'Number, algebra and problem solving for GCSE Foundation and Higher tier.' },
+          { label: 'Maths Tutor Al Ain', href: '/maths-tutor-al-ain', note: 'Number, algebra and problem solving for GCSE Foundation and Higher tier.' },
           { label: 'English Tutoring', href: '/english', note: 'GCSE English Language and Literature, including set texts.' },
           { label: 'Science Tutoring', href: '/sciences', note: 'Combined and separate sciences, with required practicals.' },
         ]}

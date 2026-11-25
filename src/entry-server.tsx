@@ -99,6 +99,7 @@ import ALevelTutorAlAinPage from "./app/ALevelTutorAlAinPage.tsx";
 import IGCSETutorAlAinPage from "./app/IGCSETutorAlAinPage.tsx";
 import GCSETutorAlAinPage from "./app/GCSETutorAlAinPage.tsx";
 import IBTutorAlAinPage from "./app/IBTutorAlAinPage.tsx";
+import MathsTutorAlAinPage from "./app/MathsTutorAlAinPage.tsx";
 import ALevelTutorDubaiPage from "./app/ALevelTutorDubaiPage.tsx";
 import IBTutorAbuDhabiPage from "./app/IBTutorAbuDhabiPage.tsx";
 import IBTutorDubaiPage from "./app/IBTutorDubaiPage.tsx";
@@ -169,6 +170,7 @@ const COMPONENT_REGISTRY: Record<string, React.ComponentType> = {
   IGCSETutorAlAinPage,
   GCSETutorAlAinPage,
   IBTutorAlAinPage,
+  MathsTutorAlAinPage,
   MockExamsUAEBlog,
   WhatDoesGradientMeanBlog,
   WhatDoesYInterceptMeanBlog,
