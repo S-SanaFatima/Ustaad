@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type UIEvent } from 'react';
-import { motion, AnimatePresence, useInView, useReducedMotion } from 'motion/react';
+import { motion, AnimatePresence, useInView } from 'motion/react';
 import { ChevronDown, MessageCircle, CheckCircle2, Info, School, Repeat, Globe2 } from 'lucide-react';
 import { Layout, StatsBar, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -269,26 +269,24 @@ function NumberLine() {
   const [active, setActive] = useState(0);     // card on show
   const [heading, setHeading] = useState(0);   // point the line is travelling to
   const [pausedUntil, setPausedUntil] = useState(0);
-  const [hover, setHover] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(rootRef, { amount: 0.4 });
-  const reduce = useReducedMotion();
+  const inView = useInView(rootRef, { amount: 0.2 });
   const s = STAGES[active];
   const pct = (heading / LAST) * 100;
   const looping = heading < active;
 
   // after a pause on each point, send the line on to the next point
   useEffect(() => {
-    if (reduce || !inView || hover || heading !== active) return;
+    if (!inView || heading !== active) return;
     const wait = Math.max(DWELL_MS, pausedUntil - Date.now());
     const t = window.setTimeout(() => setHeading(active === LAST ? 0 : active + 1), wait);
     return () => window.clearTimeout(t);
-  }, [active, heading, inView, hover, reduce, pausedUntil]);
+  }, [active, heading, inView, pausedUntil]);
 
-  const pick = (i: number) => { setHeading(i); setActive(i); setPausedUntil(Date.now() + 9000); };
+  const pick = (i: number) => { setHeading(i); setActive(i); setPausedUntil(Date.now() + DWELL_MS); };
 
   return (
-    <div ref={rootRef} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+    <div ref={rootRef}>
       <div className="relative px-4 sm:px-10 pt-2 pb-1" role="tablist" aria-label="Choose a year group">
         <div className="relative h-[3px] bg-[#0f4a9b]/15 rounded-full mt-[18px]">
           <motion.div className="absolute left-0 top-0 h-full rounded-full" style={{ background: GOLD }}
