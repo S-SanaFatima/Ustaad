@@ -51,15 +51,18 @@ const EMIRATES: Emirate[] = [
     ],
   },
   {
-    id: 'aa', name: 'Al Ain', count: 4,
+    id: 'aa', name: 'Al Ain', count: 5,
     groups: [
+      { label: 'By subject', span: 1, tiles: [
+        { href: '/maths-tutor-al-ain', icon: 'maths', title: 'Maths tutor', city: 'Al Ain', ga: true },
+      ] },
       { label: 'By curriculum', span: 4, tiles: [
         { href: '/igcse-tutor-al-ain', icon: 'igcse', title: 'IGCSE tutor', city: 'Al Ain', ga: true },
         { href: '/gcse-tutor-al-ain', icon: 'gcse', title: 'GCSE tutor', city: 'Al Ain', ga: true },
         { href: '/a-level-tutor-al-ain', icon: 'alevel', title: 'A-Level tutor', city: 'Al Ain', ga: true },
         { href: '/ib-tutor-al-ain', icon: 'ib', title: 'IB tutor', city: 'Al Ain', ga: true },
       ] },
-      { label: 'Other subjects', span: 4, note: 'alain' },
+      { label: 'Other subjects', span: 3, note: 'alain' },
     ],
   },
   {
@@ -122,13 +125,10 @@ const IconSprite = () => (
 function NoteCard({ kind, index }: { kind: 'alain' | 'other'; index: number }) {
   if (kind === 'alain') {
     return (
-      <div className="uf-note" style={{ ['--i' as string]: index }}>
-        <div>
-          <p className="uf-note__title">Need Physics, Chemistry or Biology in Al Ain?</p>
-          <p className="uf-note__text">Our tutors teach online, so the same specialists work with Al Ain families. Tell us the subject and year group and we will suggest a match. For maths, see our <a href="/maths-tutor-al-ain" style={{ color: 'inherit', textDecoration: 'underline', fontWeight: 700 }}>maths tutor in Al Ain</a> page.</p>
-        </div>
+      <div className="uf-note uf-note--stack" style={{ ['--i' as string]: index }}>
+        <p className="uf-note__text"><strong style={{ color: '#fff' }}>Need Physics, Chemistry or Biology in Al Ain?</strong> Our online specialists work with Al Ain families too. Tell us the subject and year group.</p>
         <a className="uf-btn-wa" href={WA_URL} target="_blank" rel="noopener noreferrer" data-ga-event="footer_whatsapp_click">
-          <WaIcon /> WhatsApp Us
+          <WaIcon size={16} /> WhatsApp Us
         </a>
       </div>
     );
