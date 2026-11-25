@@ -557,11 +557,6 @@ function StaircaseSteps() {
           </li>
         ))}
       </ol>
-      <div className="mt-4 flex justify-center">
-        <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#1ebe5a] text-white px-5 py-2.5 text-[13px] font-bold shadow-md shadow-[#25D366]/30 transition-colors">
-          <MessageCircle className="w-4 h-4" /> Start step 1 on WhatsApp
-        </a>
-      </div>
     </div>
   );
 }
