@@ -323,43 +323,43 @@ function NumberLine() {
 
 /* Section 4: one small animated diagram per topic */
 function TopicArt({ k }: { k: string }) {
-  const stroke = { fill: 'none', stroke: '#93c5fd', strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
+  const stroke = { fill: 'none', stroke: '#0f4a9b', strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
   if (k === 'algebra') return (
     <svg viewBox="0 0 220 140" className="w-full h-full">
-      <path d="M110 120 L96 132 H124 Z" fill="#f0c96a" />
+      <path d="M110 120 L96 132 H124 Z" fill="#C7A24A" />
       <line x1="110" y1="120" x2="110" y2="58" {...stroke} />
       <g className="mta-tilt" style={{ transformOrigin: '110px 58px' }}>
-        <line x1="40" y1="58" x2="180" y2="58" stroke="#f0c96a" strokeWidth="3" strokeLinecap="round" />
+        <line x1="40" y1="58" x2="180" y2="58" stroke="#C7A24A" strokeWidth="3" strokeLinecap="round" />
         <line x1="50" y1="58" x2="50" y2="80" {...stroke} /><line x1="170" y1="58" x2="170" y2="80" {...stroke} />
-        <rect x="22" y="80" width="56" height="26" rx="6" fill="#1e3a6e" stroke="#93c5fd" />
-        <text x="50" y="98" textAnchor="middle" fill="#fff" fontSize="13" fontWeight="700" fontFamily="ui-monospace,monospace">2x+3</text>
-        <rect x="142" y="80" width="56" height="26" rx="6" fill="#1e3a6e" stroke="#93c5fd" />
-        <text x="170" y="98" textAnchor="middle" fill="#fff" fontSize="13" fontWeight="700" fontFamily="ui-monospace,monospace">11</text>
+        <rect x="22" y="80" width="56" height="26" rx="6" fill="#eef3fb" stroke="#0f4a9b" />
+        <text x="50" y="98" textAnchor="middle" fill="#0a1f3d" fontSize="13" fontWeight="700" fontFamily="ui-monospace,monospace">2x+3</text>
+        <rect x="142" y="80" width="56" height="26" rx="6" fill="#eef3fb" stroke="#0f4a9b" />
+        <text x="170" y="98" textAnchor="middle" fill="#0a1f3d" fontSize="13" fontWeight="700" fontFamily="ui-monospace,monospace">11</text>
       </g>
-      <text x="110" y="28" textAnchor="middle" fill="#f0c96a" fontSize="13" fontWeight="700" fontFamily="ui-monospace,monospace" className="mta-fade">x = 4</text>
+      <text x="110" y="28" textAnchor="middle" fill="#9a7a1c" fontSize="13" fontWeight="700" fontFamily="ui-monospace,monospace" className="mta-fade">x = 4</text>
     </svg>
   );
   if (k === 'geometry') return (
     <svg viewBox="0 0 220 140" className="w-full h-full">
       <circle cx="110" cy="74" r="54" {...stroke} strokeOpacity=".5" />
-      <circle cx="110" cy="74" r="3" fill="#93c5fd" />
+      <circle cx="110" cy="74" r="3" fill="#0f4a9b" />
       <path d="M64 102 L110 74 L156 102" {...stroke} />
-      <path d="M64 102 L110 20 L156 102" fill="none" stroke="#f0c96a" strokeOpacity=".25" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M64 102 L110 20 L156 102" fill="none" stroke="#f0c96a" strokeWidth="2" strokeLinejoin="round" className="mta-draw" style={len(260)} />
-      <path d="M100 80 A 12 12 0 0 0 120 80" fill="none" stroke="#93c5fd" strokeWidth="2" />
-      <path d="M104 31 A 12 12 0 0 0 116 31" fill="none" stroke="#f0c96a" strokeWidth="2" />
-      <text x="110" y="122" textAnchor="middle" fill="#93c5fd" fontSize="11" fontWeight="700">2θ</text>
-      <text x="138" y="44" fill="#f0c96a" fontSize="11" fontWeight="700" className="mta-fade">θ</text>
+      <path d="M64 102 L110 20 L156 102" fill="none" stroke="#C7A24A" strokeOpacity=".25" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M64 102 L110 20 L156 102" fill="none" stroke="#C7A24A" strokeWidth="2" strokeLinejoin="round" className="mta-draw" style={len(260)} />
+      <path d="M100 80 A 12 12 0 0 0 120 80" fill="none" stroke="#0f4a9b" strokeWidth="2" />
+      <path d="M104 31 A 12 12 0 0 0 116 31" fill="none" stroke="#C7A24A" strokeWidth="2" />
+      <text x="110" y="122" textAnchor="middle" fill="#0f4a9b" fontSize="11" fontWeight="700">2θ</text>
+      <text x="138" y="44" fill="#9a7a1c" fontSize="11" fontWeight="700" className="mta-fade">θ</text>
     </svg>
   );
   if (k === 'trig') return (
     <svg viewBox="0 0 220 140" className="w-full h-full">
       <circle cx="70" cy="70" r="44" {...stroke} strokeOpacity=".5" />
-      <line x1="20" y1="70" x2="210" y2="70" stroke="#93c5fd" strokeOpacity=".3" />
-      <g className="mta-spin"><line x1="70" y1="70" x2="114" y2="70" stroke="#f0c96a" strokeWidth="2.5" strokeLinecap="round" /><circle cx="114" cy="70" r="4.5" fill="#f0c96a" /></g>
+      <line x1="20" y1="70" x2="210" y2="70" stroke="#0f4a9b" strokeOpacity=".3" />
+      <g className="mta-spin"><line x1="70" y1="70" x2="114" y2="70" stroke="#C7A24A" strokeWidth="2.5" strokeLinecap="round" /><circle cx="114" cy="70" r="4.5" fill="#C7A24A" /></g>
       <path d="M120 70 C 130 26, 140 26, 150 70 S 170 114, 180 70 S 200 26, 210 70" {...stroke} strokeOpacity=".25" />
       <path d="M120 70 C 130 26, 140 26, 150 70 S 170 114, 180 70 S 200 26, 210 70" {...stroke} className="mta-draw" style={len(260)} />
-      <text x="168" y="22" fill="#93c5fd" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace">sin θ</text>
+      <text x="168" y="22" fill="#0f4a9b" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace">sin θ</text>
     </svg>
   );
   if (k === 'calculus') {
@@ -368,12 +368,12 @@ function TopicArt({ k }: { k: string }) {
       <svg viewBox="0 0 220 140" className="w-full h-full">
         <path d={p} {...stroke} />
         <g>
-          <line x1="-34" y1="0" x2="34" y2="0" stroke="#f0c96a" strokeWidth="2.5" strokeLinecap="round" />
-          <circle r="4.5" fill="#f0c96a" />
+          <line x1="-34" y1="0" x2="34" y2="0" stroke="#C7A24A" strokeWidth="2.5" strokeLinecap="round" />
+          <circle r="4.5" fill="#C7A24A" />
           <animateMotion dur="5s" repeatCount="indefinite" rotate="auto" path={p} />
         </g>
-        <line x1="110" y1="24" x2="110" y2="128" stroke="#93c5fd" strokeOpacity=".35" strokeDasharray="4 4" />
-        <text x="118" y="16" fill="#f0c96a" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace" className="mta-fade">dy/dx = 0</text>
+        <line x1="110" y1="24" x2="110" y2="128" stroke="#0f4a9b" strokeOpacity=".35" strokeDasharray="4 4" />
+        <text x="118" y="16" fill="#9a7a1c" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace" className="mta-fade">dy/dx = 0</text>
       </svg>
     );
   }
@@ -381,25 +381,25 @@ function TopicArt({ k }: { k: string }) {
     <svg viewBox="0 0 220 140" className="w-full h-full">
       <line x1="20" y1="122" x2="206" y2="122" {...stroke} />
       {[[30, 30], [62, 58], [94, 86], [126, 64], [158, 38], [190, 18]].map(([x, h], i) => (
-        <rect key={x} x={x - 2} y={122 - h - 4} width="28" height={h + 4} rx="3" fill={i === 2 ? '#f0c96a' : '#3b6fc0'} className="mta-grow" style={d(i * 0.15)} />
+        <rect key={x} x={x - 2} y={122 - h - 4} width="28" height={h + 4} rx="3" fill={i === 2 ? '#C7A24A' : '#5b86c9'} className="mta-grow" style={d(i * 0.15)} />
       ))}
-      <line x1="106" y1="14" x2="106" y2="122" stroke="#f0c96a" strokeWidth="1.5" strokeDasharray="4 4" />
-      <text x="112" y="22" fill="#f0c96a" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace">median</text>
+      <line x1="106" y1="14" x2="106" y2="122" stroke="#C7A24A" strokeWidth="1.5" strokeDasharray="4 4" />
+      <text x="112" y="22" fill="#9a7a1c" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace">median</text>
     </svg>
   );
   return (
     <svg viewBox="0 0 220 140" className="w-full h-full">
-      <circle cx="24" cy="70" r="4" fill="#f0c96a" />
+      <circle cx="24" cy="70" r="4" fill="#C7A24A" />
       {[[24, 70, 100, 36], [24, 70, 100, 104], [100, 36, 190, 18], [100, 36, 190, 54], [100, 104, 190, 86], [100, 104, 190, 122]].map(([x1, y1, x2, y2], i) => (
         <g key={i}>
-          <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#93c5fd" strokeOpacity=".3" strokeWidth="2" strokeLinecap="round" />
-          <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={i === 0 || i === 2 ? '#f0c96a' : '#93c5fd'} strokeWidth="2" strokeLinecap="round" className="mta-draw" style={{ ...len(100), animationDelay: `${i < 2 ? 0 : 0.6}s` }} />
-          <circle cx={x2} cy={y2} r="3" fill={i === 0 || i === 2 ? '#f0c96a' : '#93c5fd'} />
+          <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#0f4a9b" strokeOpacity=".3" strokeWidth="2" strokeLinecap="round" />
+          <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={i === 0 || i === 2 ? '#C7A24A' : '#0f4a9b'} strokeWidth="2" strokeLinecap="round" className="mta-draw" style={{ ...len(100), animationDelay: `${i < 2 ? 0 : 0.6}s` }} />
+          <circle cx={x2} cy={y2} r="3" fill={i === 0 || i === 2 ? '#C7A24A' : '#0f4a9b'} />
         </g>
       ))}
-      <text x="52" y="44" fill="#93c5fd" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace">0.3</text>
-      <text x="140" y="20" fill="#f0c96a" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace">0.6</text>
-      <text x="124" y="136" fill="#f0c96a" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace" className="mta-fade">0.3 × 0.6</text>
+      <text x="52" y="44" fill="#0f4a9b" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace">0.3</text>
+      <text x="140" y="20" fill="#9a7a1c" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace">0.6</text>
+      <text x="124" y="136" fill="#9a7a1c" fontSize="11" fontWeight="700" fontFamily="ui-monospace,monospace" className="mta-fade">0.3 × 0.6</text>
     </svg>
   );
 }
@@ -410,7 +410,7 @@ function TopicLab() {
       {TOPICS.map((t, i) => (
         <motion.article key={t.key} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
           className="group rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_14px_32px_-24px_rgba(10,31,61,0.45)] hover:-translate-y-1 transition-transform">
-          <div className="relative h-[124px] px-6 pt-3 pb-2" style={{ background: 'radial-gradient(120% 120% at 20% 0%, #163a73 0%, #0a1f3d 70%)' }} aria-hidden="true">
+          <div className="relative h-[124px] px-6 pt-3 pb-2 mta-grid bg-gradient-to-b from-[#f7f9fd] to-white border-b border-slate-200/80 transition-transform duration-500 group-hover:scale-[1.04]" aria-hidden="true">
             <TopicArt k={t.key} />
           </div>
           <div className="p-4">
