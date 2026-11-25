@@ -1,5 +1,5 @@
-import { useState, type CSSProperties, type ReactNode, type UIEvent } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type UIEvent } from 'react';
+import { motion, AnimatePresence, useInView, useReducedMotion } from 'motion/react';
 import { ChevronDown, MessageCircle, CheckCircle2, Info, School, Repeat, Globe2 } from 'lucide-react';
 import { Layout, StatsBar, RelatedContent } from './shared';
 import SEOHead from './shared/SEOHead';
@@ -262,15 +262,42 @@ function AlAinReasons() {
 }
 
 /* Section 3: number line selector for the year group */
+const LAST = STAGES.length - 1;
+const DWELL_MS = 3200;
+
 function NumberLine() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);     // card on show
+  const [heading, setHeading] = useState(0);   // point the line is travelling to
+  const [pausedUntil, setPausedUntil] = useState(0);
+  const [hover, setHover] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(rootRef, { amount: 0.4 });
+  const reduce = useReducedMotion();
   const s = STAGES[active];
-  const pct = (active / (STAGES.length - 1)) * 100;
+  const pct = (heading / LAST) * 100;
+  const looping = heading < active;
+
+  // after a pause on each point, send the line on to the next point
+  useEffect(() => {
+    if (reduce || !inView || hover || heading !== active) return;
+    const wait = Math.max(DWELL_MS, pausedUntil - Date.now());
+    const t = window.setTimeout(() => setHeading(active === LAST ? 0 : active + 1), wait);
+    return () => window.clearTimeout(t);
+  }, [active, heading, inView, hover, reduce, pausedUntil]);
+
+  const pick = (i: number) => { setHeading(i); setActive(i); setPausedUntil(Date.now() + 9000); };
+
   return (
-    <div>
+    <div ref={rootRef} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <div className="relative px-4 sm:px-10 pt-2 pb-1" role="tablist" aria-label="Choose a year group">
-        <div className="relative h-[2px] bg-[#0f4a9b]/15 rounded-full mt-[18px]">
-          <motion.div className="absolute left-0 top-0 h-full rounded-full" style={{ background: GOLD }} animate={{ width: `${pct}%` }} transition={{ type: 'spring', stiffness: 120, damping: 20 }} />
+        <div className="relative h-[3px] bg-[#0f4a9b]/15 rounded-full mt-[18px]">
+          <motion.div className="absolute left-0 top-0 h-full rounded-full" style={{ background: GOLD }}
+            initial={false} animate={{ width: `${pct}%` }}
+            transition={{ duration: looping ? 0.7 : 1.3, ease: looping ? 'easeInOut' : 'linear' }}
+            onAnimationComplete={() => { if (heading !== active) setActive(heading); }}>
+            {/* travelling head of the line */}
+            <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 block w-3 h-3 rounded-full bg-[#f0c96a] shadow-[0_0_0_4px_rgba(240,201,106,0.3),0_0_14px_rgba(199,162,74,0.8)]" aria-hidden="true" />
+          </motion.div>
           <svg className="absolute -right-3 -top-[7px] w-4 h-4 text-[#0f4a9b]/40" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2 L14 8 L2 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </div>
         <div className="absolute inset-x-4 sm:inset-x-10 top-2">
@@ -278,7 +305,7 @@ function NumberLine() {
             const on = i === active;
             const passed = i < active;
             return (
-              <button key={st.key} type="button" role="tab" aria-selected={on} aria-controls="mta-stage-panel" onClick={() => setActive(i)}
+              <button key={st.key} type="button" role="tab" aria-selected={on} aria-controls="mta-stage-panel" onClick={() => pick(i)}
                 className="absolute top-0 flex flex-col items-center group" style={{ left: `${(i / (STAGES.length - 1)) * 100}%`, transform: 'translateX(-50%)' }}>
                 <span className={`block rounded-full transition-all duration-300 ${on ? 'w-9 h-9 bg-[#0a1f3d] ring-4 ring-[#f0c96a]/50 shadow-lg' : passed ? 'w-5 h-5 mt-2 bg-[#C7A24A]' : 'w-5 h-5 mt-2 bg-white border-2 border-[#0f4a9b]/35 group-hover:border-[#0f4a9b]'}`}>
                   {on && <span className="flex w-full h-full items-center justify-center text-[#f0c96a] text-[11px] font-black">{i + 1}</span>}
@@ -289,21 +316,21 @@ function NumberLine() {
           })}
         </div>
       </div>
-      <div className="h-16 sm:h-14" />
+      <div className="h-14 sm:h-14" />
       <AnimatePresence mode="wait">
         <motion.div key={s.key} id="mta-stage-panel" role="tabpanel" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }}
-          className="rounded-3xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_18px_40px_-28px_rgba(10,31,61,0.5)] overflow-hidden">
-          <div className="grid md:grid-cols-[260px_1fr]">
-            <div className="relative p-5 text-white overflow-hidden" style={{ background: 'linear-gradient(150deg,#0a1f3d 0%,#0f3a7a 100%)' }}>
+          className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_18px_40px_-28px_rgba(10,31,61,0.5)] overflow-hidden min-h-[430px] md:min-h-[222px]">
+          <div className="grid md:grid-cols-[260px_1fr] md:min-h-[222px]">
+            <div className="relative px-4 py-3.5 sm:p-5 text-white overflow-hidden" style={{ background: 'linear-gradient(150deg,#0a1f3d 0%,#0f3a7a 100%)' }}>
               <span className="absolute -right-2 -bottom-5 whitespace-nowrap text-[72px] leading-none font-black text-white/[0.06] select-none" aria-hidden="true">{s.mark}</span>
               <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#f0c96a] mb-1">{s.label}</p>
-              <h3 className="text-[17px] sm:text-[19px] font-extrabold leading-snug mb-3">{s.title}</h3>
-              <p className="text-[12px] text-blue-100/80 leading-relaxed">{s.boards}</p>
+              <h3 className="text-[16px] sm:text-[19px] font-extrabold leading-snug mb-1.5 sm:mb-3">{s.title}</h3>
+              <p className="text-[11.5px] sm:text-[12px] text-blue-100/80 leading-snug sm:leading-relaxed">{s.boards}</p>
             </div>
-            <div className="p-5">
-              <ul className="space-y-2.5 mb-4">
+            <div className="px-4 py-3.5 sm:p-5">
+              <ul className="space-y-1.5 sm:space-y-2.5 mb-3 sm:mb-4">
                 {s.points.map((p) => (
-                  <li key={p} className="flex gap-2.5 text-[13px] sm:text-[13.5px] text-[#2c3e5c] leading-relaxed">
+                  <li key={p} className="flex gap-2.5 text-[12.5px] sm:text-[13.5px] text-[#2c3e5c] leading-snug sm:leading-relaxed">
                     <span className="mt-[3px] flex w-4 h-4 shrink-0 items-center justify-center rounded-[4px] bg-[#0f4a9b]/[0.08] text-[#0f4a9b] text-[11px] font-black" aria-hidden="true">+</span>{p}
                   </li>
                 ))}
@@ -632,7 +659,7 @@ export default function MathsTutorAlAinPage() {
           <SectionHead
             eyebrow="By year group"
             title={<>From Year 7 to Year 13: <span style={{ color: NAVY }}>what lessons focus on</span></>}
-            intro="Choose a stage on the number line to see the courses we cover and where maths lessons put the time."
+            intro="Follow the number line through each stage, or tap a stage to stop on it and see the courses we cover."
           />
           <NumberLine />
         </div>
