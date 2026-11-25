@@ -212,34 +212,89 @@ function HeroGraph() {
   );
 }
 
-/* Section 2: three cards plotted as points A, B, C on a rising line */
-function PlottedContext() {
-  return (
-    <div className="relative rounded-3xl border border-[#0f4a9b]/10 mta-grid bg-white p-4 sm:p-6 lg:p-8 overflow-hidden">
-      {/* trend line (desktop) */}
-      <svg className="hidden md:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
-        <line x1="40" y1="372" x2="980" y2="372" stroke="#0f4a9b" strokeOpacity=".35" strokeWidth="1.5" />
-        <line x1="40" y1="20" x2="40" y2="372" stroke="#0f4a9b" strokeOpacity=".35" strokeWidth="1.5" />
-        <path d="M60 330 L 960 30" stroke={GOLD_C} strokeWidth="2.5" strokeDasharray="8 7" fill="none" className="mta-draw" style={len(960)} />
+/* Section 2: schools strip + three reason cards, each with its own small maths diagram */
+const SCHOOL_GROUPS = [
+  { tag: 'British', names: ['Brighton College Al Ain', 'Al Ain English Speaking School', 'Al Ain British Academy'] },
+  { tag: 'IB', names: ['Emirates National School'] },
+];
+
+function ReasonArt({ k }: { k: number }) {
+  const ink = '#cfe0ff', gold = '#f0c96a', line = 'rgba(147,197,253,.35)';
+  if (k === 0) {
+    const boards = ['CAIE', 'Edexcel', 'AQA', 'IB', 'AP'];
+    return (
+      <svg viewBox="0 0 280 110" className="w-full h-full" aria-hidden="true">
+        {boards.map((b, i) => (
+          <g key={b} className="mta-float" style={d(i * 0.35)}>
+            <rect x={8 + i * 54} y={30 + (i % 2) * 14} width="50" height="54" rx="7" fill={i === 1 ? 'rgba(240,201,106,.16)' : 'rgba(255,255,255,.06)'} stroke={i === 1 ? gold : line} />
+            <line x1={16 + i * 54} x2={50 + i * 54} y1={60 + (i % 2) * 14} y2={60 + (i % 2) * 14} stroke={line} />
+            <line x1={16 + i * 54} x2={44 + i * 54} y1={68 + (i % 2) * 14} y2={68 + (i % 2) * 14} stroke={line} />
+            <text x={33 + i * 54} y={50 + (i % 2) * 14} textAnchor="middle" fill={i === 1 ? gold : ink} fontSize="8.5" fontWeight="700" fontFamily="ui-monospace,monospace">{b}</text>
+          </g>
+        ))}
       </svg>
-      <div className="relative grid md:grid-cols-3 gap-3 md:gap-5 md:items-start">
-        {CONTEXT.map(({ Icon, pt, title, text }, i) => (
-          <motion.div key={pt} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.45, delay: i * 0.12 }}
-            className="relative" style={{ marginBottom: 0 }}>
-            <div className={i === 0 ? 'md:mt-[150px]' : i === 1 ? 'md:mt-[75px]' : ''}>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="relative flex w-9 h-9 items-center justify-center rounded-full bg-[#0a1f3d] text-[#f0c96a] text-sm font-black ring-4 ring-white shadow-md">{pt}</span>
-                <span className="font-mono text-[11.5px] font-bold text-[#0f4a9b]/70">({i + 1}, {(i + 1) * 2})</span>
-              </div>
-              <div className="rounded-2xl bg-white/95 backdrop-blur border border-slate-200/80 p-4 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_14px_32px_-22px_rgba(10,31,61,0.45)]">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <Icon className="w-4 h-4 text-[#0f4a9b]" />
-                  <h3 className="text-[14.5px] font-extrabold text-[#0a1f3d] leading-snug">{title}</h3>
-                </div>
-                <p className="text-[12.5px] sm:text-[13px] text-[#4a5a72] leading-relaxed">{text}</p>
-              </div>
+    );
+  }
+  if (k === 1) {
+    const nodes: [number, string, string][] = [[44, 'Y9', 'Algebra'], [140, 'Y11', 'Quadratics'], [236, 'A-Level', 'Calculus']];
+    return (
+      <svg viewBox="0 0 280 110" className="w-full h-full" aria-hidden="true">
+        <line x1="44" x2="236" y1="50" y2="50" stroke={line} strokeWidth="2" />
+        <line x1="44" x2="236" y1="50" y2="50" stroke={gold} strokeWidth="2" className="mta-draw" style={len(192)} />
+        {nodes.map(([x, top, sub], i) => (
+          <g key={top}>
+            <circle cx={x} cy="50" r="15" fill="#0a1f3d" stroke={i === 0 ? '#f87171' : gold} strokeWidth="2" />
+            {i === 0 && <path d={`M${x - 5} 44 l4 5 -3 3 5 5`} fill="none" stroke="#f87171" strokeWidth="1.6" strokeLinecap="round" />}
+            {i > 0 && <circle cx={x} cy="50" r="4" fill={gold} />}
+            <text x={x} y="84" textAnchor="middle" fill={ink} fontSize="10.5" fontWeight="700">{top}</text>
+            <text x={x} y="98" textAnchor="middle" fill="rgba(207,224,255,.7)" fontSize="9.5">{sub}</text>
+          </g>
+        ))}
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 280 110" className="w-full h-full" aria-hidden="true">
+      <rect x="92" y="16" width="96" height="62" rx="7" fill="rgba(255,255,255,.06)" stroke={gold} strokeWidth="1.5" />
+      <path d="M80 84 H200 L192 92 H88 Z" fill="rgba(240,201,106,.25)" />
+      <path d="M102 66 C 120 66, 128 26, 142 26 S 166 66, 180 66" fill="none" stroke={ink} strokeWidth="1.6" className="mta-draw" style={len(110)} />
+      <circle cx="171" cy="27" r="5" fill="rgba(240,201,106,.35)" stroke={gold} />
+      {[[30, 34], [30, 76], [250, 55]].map(([x, y], i) => (
+        <g key={i}>
+          <line x1={x} y1={y} x2={x < 140 ? 92 : 188} y2={i === 2 ? 47 : y < 50 ? 34 : 64} stroke={line} strokeDasharray="3 4" />
+          <circle cx={x} cy={y} r="5" fill="#0a1f3d" stroke={gold} strokeWidth="1.5" className="mta-fade" style={d(i * 0.5)} />
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+function AlAinReasons() {
+  return (
+    <div>
+      <div className="flex flex-wrap justify-center gap-2 mb-5" aria-label="Al Ain schools and the curricula they teach">
+        {SCHOOL_GROUPS.map((g) => g.names.map((n) => (
+          <span key={n} className="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 pl-1 pr-3 py-1 text-[12px] font-semibold text-[#2c3e5c] shadow-[0_1px_2px_rgba(10,31,61,0.05)]">
+            <span className="rounded-full bg-[#0a1f3d] text-[#f0c96a] px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide">{g.tag}</span>{n}
+          </span>
+        )))}
+      </div>
+      <div className="grid md:grid-cols-3 gap-3 sm:gap-4">
+        {CONTEXT.map(({ Icon, title, text }, i) => (
+          <motion.article key={title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.1 }}
+            className="flex flex-col rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_16px_36px_-26px_rgba(10,31,61,0.5)] hover:-translate-y-1 transition-transform">
+            <div className="relative h-[118px] px-5 pt-2" style={{ background: 'radial-gradient(120% 130% at 15% 0%, #163a73 0%, #0a1f3d 72%)' }}>
+              <span className="absolute left-3 top-3 font-mono text-[11px] font-black text-[#f0c96a]/80">0{i + 1}</span>
+              <ReasonArt k={i} />
             </div>
-          </motion.div>
+            <div className="p-4 sm:p-5 flex-1">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="flex w-7 h-7 shrink-0 items-center justify-center rounded-lg bg-[#0f4a9b]/[0.07] text-[#0f4a9b]"><Icon className="w-4 h-4" /></span>
+                <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug">{title}</h3>
+              </div>
+              <p className="text-[12.5px] sm:text-[13px] text-[#4a5a72] leading-relaxed">{text}</p>
+            </div>
+          </motion.article>
         ))}
       </div>
     </div>
@@ -594,9 +649,9 @@ export default function MathsTutorAlAinPage() {
           <SectionHead
             eyebrow="Maths in Al Ain"
             title={<>Why Al Ain families look for <span style={{ color: NAVY }}>a private maths tutor</span></>}
-            intro="Students in Al Ain sit very different maths exams depending on the school: British IGCSE, GCSE and A-Level at schools such as Brighton College Al Ain, Al Ain English Speaking School and Al Ain British Academy, the IB at Emirates National School, and American courses at others."
+            intro="Students in Al Ain sit very different maths exams depending on the school: British IGCSE, GCSE and A-Level, the IB, or American courses. A good tutor starts from your child’s own course."
           />
-          <PlottedContext />
+          <AlAinReasons />
         </div>
       </section>
 
