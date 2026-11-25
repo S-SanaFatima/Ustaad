@@ -218,85 +218,45 @@ const SCHOOL_GROUPS = [
   { tag: 'IB', names: ['Emirates National School'] },
 ];
 
-function ReasonArt({ k }: { k: number }) {
-  const ink = '#cfe0ff', gold = '#f0c96a', line = 'rgba(147,197,253,.35)';
-  if (k === 0) {
-    const boards = ['CAIE', 'Edexcel', 'AQA', 'IB', 'AP'];
-    return (
-      <svg viewBox="0 0 280 110" className="w-full h-full" aria-hidden="true">
-        {boards.map((b, i) => (
-          <g key={b} className="mta-float" style={d(i * 0.35)}>
-            <rect x={8 + i * 54} y={30 + (i % 2) * 14} width="50" height="54" rx="7" fill={i === 1 ? 'rgba(240,201,106,.16)' : 'rgba(255,255,255,.06)'} stroke={i === 1 ? gold : line} />
-            <line x1={16 + i * 54} x2={50 + i * 54} y1={60 + (i % 2) * 14} y2={60 + (i % 2) * 14} stroke={line} />
-            <line x1={16 + i * 54} x2={44 + i * 54} y1={68 + (i % 2) * 14} y2={68 + (i % 2) * 14} stroke={line} />
-            <text x={33 + i * 54} y={50 + (i % 2) * 14} textAnchor="middle" fill={i === 1 ? gold : ink} fontSize="8.5" fontWeight="700" fontFamily="ui-monospace,monospace">{b}</text>
-          </g>
-        ))}
-      </svg>
-    );
-  }
-  if (k === 1) {
-    const nodes: [number, string, string][] = [[44, 'Y9', 'Algebra'], [140, 'Y11', 'Quadratics'], [236, 'A-Level', 'Calculus']];
-    return (
-      <svg viewBox="0 0 280 110" className="w-full h-full" aria-hidden="true">
-        <line x1="44" x2="236" y1="50" y2="50" stroke={line} strokeWidth="2" />
-        <line x1="44" x2="236" y1="50" y2="50" stroke={gold} strokeWidth="2" className="mta-draw" style={len(192)} />
-        {nodes.map(([x, top, sub], i) => (
-          <g key={top}>
-            <circle cx={x} cy="50" r="15" fill="#0a1f3d" stroke={i === 0 ? '#f87171' : gold} strokeWidth="2" />
-            {i === 0 && <path d={`M${x - 5} 44 l4 5 -3 3 5 5`} fill="none" stroke="#f87171" strokeWidth="1.6" strokeLinecap="round" />}
-            {i > 0 && <circle cx={x} cy="50" r="4" fill={gold} />}
-            <text x={x} y="84" textAnchor="middle" fill={ink} fontSize="10.5" fontWeight="700">{top}</text>
-            <text x={x} y="98" textAnchor="middle" fill="rgba(207,224,255,.7)" fontSize="9.5">{sub}</text>
-          </g>
-        ))}
-      </svg>
-    );
-  }
-  return (
-    <svg viewBox="0 0 280 110" className="w-full h-full" aria-hidden="true">
-      <rect x="92" y="16" width="96" height="62" rx="7" fill="rgba(255,255,255,.06)" stroke={gold} strokeWidth="1.5" />
-      <path d="M80 84 H200 L192 92 H88 Z" fill="rgba(240,201,106,.25)" />
-      <path d="M102 66 C 120 66, 128 26, 142 26 S 166 66, 180 66" fill="none" stroke={ink} strokeWidth="1.6" className="mta-draw" style={len(110)} />
-      <circle cx="171" cy="27" r="5" fill="rgba(240,201,106,.35)" stroke={gold} />
-      {[[30, 34], [30, 76], [250, 55]].map(([x, y], i) => (
-        <g key={i}>
-          <line x1={x} y1={y} x2={x < 140 ? 92 : 188} y2={i === 2 ? 47 : y < 50 ? 34 : 64} stroke={line} strokeDasharray="3 4" />
-          <circle cx={x} cy={y} r="5" fill="#0a1f3d" stroke={gold} strokeWidth="1.5" className="mta-fade" style={d(i * 0.5)} />
-        </g>
-      ))}
-    </svg>
-  );
-}
-
 function AlAinReasons() {
   return (
-    <div>
-      <div className="flex flex-wrap justify-center gap-2 mb-5" aria-label="Al Ain schools and the curricula they teach">
-        {SCHOOL_GROUPS.map((g) => g.names.map((n) => (
-          <span key={n} className="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 pl-1 pr-3 py-1 text-[12px] font-semibold text-[#2c3e5c] shadow-[0_1px_2px_rgba(10,31,61,0.05)]">
-            <span className="rounded-full bg-[#0a1f3d] text-[#f0c96a] px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide">{g.tag}</span>{n}
-          </span>
-        )))}
+    <div className="grid lg:grid-cols-[5fr_7fr] gap-4 lg:gap-6 items-stretch">
+      {/* left: heading panel */}
+      <div className="relative overflow-hidden rounded-3xl p-6 sm:p-8 text-white flex flex-col" style={{ background: 'linear-gradient(155deg,#0a1f3d 0%,#0f3a7a 70%,#164a96 100%)' }}>
+        <span className="absolute right-6 bottom-4 text-[130px] leading-none font-serif italic text-white/[0.06] select-none" aria-hidden="true">π</span>
+        <span className="relative inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#f0c96a] mb-3">
+          <span className="w-5 h-[2px] rounded-full" style={{ background: GOLD }} />Maths in Al Ain
+        </span>
+        <h2 className="relative text-[24px] sm:text-[30px] font-extrabold leading-tight mb-3">
+          Why Al Ain families look for <span style={GOLD_TEXT}>a private maths tutor</span>
+        </h2>
+        <p className="relative text-[13px] sm:text-[14px] text-blue-100/80 leading-relaxed mb-5">
+          Students in Al Ain sit very different maths exams depending on the school: British IGCSE, GCSE and A-Level, the IB, or American courses. A good tutor starts from your child’s own course.
+        </p>
+        <ul className="relative space-y-2 mb-6" aria-label="Al Ain schools and the curricula they teach">
+          {SCHOOL_GROUPS.map((g) => g.names.map((n) => (
+            <li key={n} className="flex items-center gap-2.5 text-[13px] font-semibold text-white/90">
+              <span className="w-[62px] shrink-0 text-center rounded-full bg-white/10 border border-white/15 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-[#f0c96a]">{g.tag}</span>{n}
+            </li>
+          )))}
+        </ul>
+        <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="relative mt-auto self-start inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#1ebe5a] text-white px-5 py-2.5 text-[13px] font-bold shadow-md shadow-black/20 transition-colors">
+          <MessageCircle className="w-4 h-4" /> WhatsApp Us
+        </a>
       </div>
-      <div className="grid md:grid-cols-3 gap-3 sm:gap-4">
-        {CONTEXT.map(({ Icon, title, text }, i) => (
-          <motion.article key={title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="flex flex-col rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_16px_36px_-26px_rgba(10,31,61,0.5)] hover:-translate-y-1 transition-transform">
-            <div className="relative h-[118px] px-5 pt-2" style={{ background: 'radial-gradient(120% 130% at 15% 0%, #163a73 0%, #0a1f3d 72%)' }}>
-              <span className="absolute left-3 top-3 font-mono text-[11px] font-black text-[#f0c96a]/80">0{i + 1}</span>
-              <ReasonArt k={i} />
+      {/* right: numbered reasons */}
+      <ol className="rounded-3xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(10,31,61,0.04),0_18px_40px_-30px_rgba(10,31,61,0.5)] divide-y divide-slate-200/80 overflow-hidden">
+        {CONTEXT.map(({ title, text }, i) => (
+          <motion.li key={title} initial={{ opacity: 0, x: 12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.4, delay: i * 0.1 }}
+            className="group flex gap-4 sm:gap-5 p-5 sm:p-7 hover:bg-[#f7f9fd] transition-colors">
+            <span className="shrink-0 w-11 sm:w-14 text-[30px] sm:text-[38px] font-black leading-none tabular-nums text-transparent bg-clip-text" style={{ backgroundImage: GOLD }}>0{i + 1}</span>
+            <div>
+              <h3 className="text-[16px] sm:text-[18px] font-extrabold text-[#0a1f3d] leading-snug mb-1.5">{title}</h3>
+              <p className="text-[13px] sm:text-[14px] text-[#4a5a72] leading-relaxed">{text}</p>
             </div>
-            <div className="p-4 sm:p-5 flex-1">
-              <div className="flex items-center gap-2 mb-1.5">
-                <span className="flex w-7 h-7 shrink-0 items-center justify-center rounded-lg bg-[#0f4a9b]/[0.07] text-[#0f4a9b]"><Icon className="w-4 h-4" /></span>
-                <h3 className="text-[15px] font-extrabold text-[#0a1f3d] leading-snug">{title}</h3>
-              </div>
-              <p className="text-[12.5px] sm:text-[13px] text-[#4a5a72] leading-relaxed">{text}</p>
-            </div>
-          </motion.article>
+          </motion.li>
         ))}
-      </div>
+      </ol>
     </div>
   );
 }
@@ -646,11 +606,6 @@ export default function MathsTutorAlAinPage() {
       {/* ── 02 MATHS IN AL AIN ── */}
       <section className="py-8 sm:py-10 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHead
-            eyebrow="Maths in Al Ain"
-            title={<>Why Al Ain families look for <span style={{ color: NAVY }}>a private maths tutor</span></>}
-            intro="Students in Al Ain sit very different maths exams depending on the school: British IGCSE, GCSE and A-Level, the IB, or American courses. A good tutor starts from your child’s own course."
-          />
           <AlAinReasons />
         </div>
       </section>
