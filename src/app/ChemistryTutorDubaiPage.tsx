@@ -3035,7 +3035,7 @@ export default function ChemistryTutorDubaiPage() {
         curricula={[
           {
             label: 'IB DP Chemistry (SL & HL)',
-            href: '/ib-curriculum',
+            href: '/ib-tutor-dubai',
             note: 'Organic mechanisms, energetics and internal assessment guidance.'
           },
           {
@@ -3045,7 +3045,7 @@ export default function ChemistryTutorDubaiPage() {
           },
           {
             label: 'A-Level Chemistry',
-            href: '/a-level',
+            href: '/a-level-tutor-dubai',
             note: 'AQA, OCR and Edexcel inorganic, physical and organic chemistry.'
           },
         ]}

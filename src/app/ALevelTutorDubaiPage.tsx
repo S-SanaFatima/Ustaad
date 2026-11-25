@@ -2397,7 +2397,7 @@ export default function ALevelTutorDubaiPage() {
                     </div>
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10.5px] font-semibold text-white/90">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#f0c96a] animate-pulse" />
-                      Dubai
+                      Online 1-to-1
                     </span>
                   </div>
 
@@ -2527,15 +2527,8 @@ export default function ALevelTutorDubaiPage() {
                       </button>
                     </div>
 
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                          className="ml-[52px] overflow-hidden"
-                        >
+                    {/* Always in the HTML (indexable); shown when open */}
+                    <div hidden={!isOpen} className="ml-[52px]">
                           <div
                             className="flex items-start gap-3 rounded-2xl border p-4.5 bg-[#f8fafc]"
                             style={{
@@ -2560,9 +2553,7 @@ export default function ALevelTutorDubaiPage() {
                               <MessageCircle className="h-4 w-4" />
                             </span>
                           </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                        </div>
                   </motion.div>
                 );
               })}
@@ -2571,6 +2562,21 @@ export default function ALevelTutorDubaiPage() {
           </div>
         </div>
       </section>
+
+      {/* ── RELATED: Dubai subject and curriculum pages ── */}
+      <RelatedContent
+        subjects={[
+          { label: 'Maths Tutor Dubai', href: '/maths-tutor-dubai', note: 'A-Level Pure, Mechanics and Statistics, plus Further Maths.' },
+          { label: 'Physics Tutor Dubai', href: '/physics-tutor-dubai', note: 'Cambridge 9702 and Edexcel IAL mechanics, fields and practical skills.' },
+          { label: 'Chemistry Tutor Dubai', href: '/chemistry-tutor-dubai', note: 'Organic mechanisms, energetics and six-mark explanations.' },
+          { label: 'Biology Tutor Dubai', href: '/biology-tutor-dubai', note: 'Synoptic essays, data analysis and required practicals.' },
+        ]}
+        curricula={[
+          { label: 'IGCSE Tutor Dubai', href: '/igcse-tutor-dubai', note: 'Securing the IGCSE grades each A-Level subject asks for.' },
+          { label: 'IB Tutor Dubai', href: '/ib-tutor-dubai', note: 'For Dubai students weighing the IB Diploma against A-Levels.' },
+          { label: 'A-Level Tutoring UAE', href: '/a-level', note: 'Cambridge, Edexcel, AQA and OCR A-Level support across the Emirates.' },
+        ]}
+      />
 
       {/* ── SECTION 10: FINAL CTA ── */}
       <FinalCTA

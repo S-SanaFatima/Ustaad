@@ -73,7 +73,7 @@ const FAQS = [
     a: 'Yes. Lesson slots shift during Ramadan to align with fasting hours where families prefer, and UAE public holidays are built into the tutoring calendar. Recorded sessions cover any lesson your child needs to reschedule.',
   },
   {
-    q: 'Our child is finishing IGCSE in Dubai and moving to A-Level next year. How do you bridge that jump?',
+    q: 'Our child is finishing IGCSE and moving to A-Level next year. How do you bridge that jump?',
     a: 'Our IGCSE tutors flag which A-Level subjects the current IGCSE grade profile realistically opens, then hold the top-grade IGCSE topics steady so nothing is lost over the summer transition. Where families prefer, the same tutor can continue into A-Level. See our A-Level Tutor Dubai page for the transition path.',
   },
   {
@@ -1848,10 +1848,10 @@ export default function IgcseTutorDubaiPage() {
               <span>UAE Academic Assistance</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f3d] mb-2">
-              How Fast We Reply to Dubai Families
+              How Fast We Reply to Families
             </h2>
             <p className="text-gray-600 text-xs sm:text-sm font-medium max-w-xl mx-auto leading-relaxed">
-              Our academic team responds within 15 minutes across every Dubai community. WhatsApp the subject and school, and we match a specialist to your child&apos;s board.
+              Our academic team responds within 15 minutes, wherever you are in the city. WhatsApp the subject and school, and we match a specialist to your child&apos;s board.
             </p>
           </div>
 
@@ -1910,7 +1910,7 @@ export default function IgcseTutorDubaiPage() {
                 Parents <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Often Ask</span>
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                Honest answers to the IGCSE questions Dubai parents ask before their first session.
+                Honest answers to the IGCSE questions parents ask before their first session.
               </p>
             </motion.div>
 
@@ -1965,24 +1965,15 @@ export default function IgcseTutorDubaiPage() {
                       </button>
                     </div>
 
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                          className="ml-0 sm:ml-[48px] overflow-hidden"
-                        >
+                    {/* Always in the HTML (indexable); shown when open */}
+                    <div hidden={!isOpen} className="ml-0 sm:ml-[48px]">
                           <div className="flex items-start gap-2.5 sm:gap-3 rounded-2xl border p-3.5 sm:p-4.5 bg-[#f8fafc]" style={{ borderColor: 'rgba(15,74,155,0.15)', boxShadow: '0 4px 16px rgba(15,74,155,0.06)' }}>
                             <p className="flex-1 text-gray-600 text-[12.5px] sm:text-[13.5px] leading-relaxed">{f.a}</p>
                             <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ width: 28, height: 28, minWidth: 28, minHeight: 28, background: '#0f4a9b', color: '#fff' }}>
                               <MessageCircle className="h-3.5 w-3.5" />
                             </span>
                           </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                        </div>
                   </motion.div>
                 );
               })}
@@ -2054,7 +2045,7 @@ export default function IgcseTutorDubaiPage() {
           {
             label: 'Physics Tutor Dubai',
             href: '/physics-tutor-dubai',
-            note: 'Forces, motion, waves, and structured equation substitution in Dubai.'
+            note: 'Forces, motion, waves, and structured equation substitution.'
           },
           {
             label: 'Chemistry Tutor Dubai',
@@ -2069,9 +2060,14 @@ export default function IgcseTutorDubaiPage() {
             note: 'AQA, OCR, and Pearson Edexcel 9-1 GCSE tutoring across Dubai.'
           },
           {
-            label: 'A-Level Tutoring UAE',
-            href: '/a-level',
+            label: 'A-Level Tutor Dubai',
+            href: '/a-level-tutor-dubai',
             note: 'Sixth form transition, advanced subject mastery, and exam boards.'
+          },
+          {
+            label: 'IB Tutor Dubai',
+            href: '/ib-tutor-dubai',
+            note: 'Moving from IGCSE to the IB Diploma: DP SL and HL subjects, IA and EE support.'
           },
           {
             label: 'British Curriculum UAE',

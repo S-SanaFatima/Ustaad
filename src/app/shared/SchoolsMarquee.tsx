@@ -58,7 +58,7 @@ interface SchoolsMarqueeProps {
 
 const SchoolLogoCard = ({ logo, isAriaHidden }: { logo: SchoolLogoItem; isAriaHidden?: boolean }) => (
   <div
-    title={logo.name}
+    title={isAriaHidden ? undefined : logo.name}
     aria-hidden={isAriaHidden ? "true" : undefined}
     className="shrink-0 w-[180px] sm:w-[240px] h-[100px] sm:h-[130px] flex items-center justify-center px-4 cursor-default relative transition-all duration-300 hover:scale-110 hover:-translate-y-1"
   >
@@ -66,7 +66,7 @@ const SchoolLogoCard = ({ logo, isAriaHidden }: { logo: SchoolLogoItem; isAriaHi
       src={logo.src || `/school-logos/${logo.file}`}
       srcSet={logo.src ? undefined : `/school-logos/${logo.file} 280w`}
       sizes={logo.src ? undefined : "(max-width: 640px) 180px, 240px"}
-      alt={logo.alt || `${logo.name} logo`}
+      alt={isAriaHidden ? '' : logo.alt || `${logo.name} logo`}
       width={240}
       height={100}
       style={{ transform: logo.scale ? `scale(${logo.scale})` : undefined }}
@@ -78,8 +78,9 @@ const SchoolLogoCard = ({ logo, isAriaHidden }: { logo: SchoolLogoItem; isAriaHi
         e.currentTarget.nextElementSibling?.classList.add('flex');
       }}
     />
+    {/* Loop copies stay decorative: the school name is in the HTML once, on the first copy */}
     <div className="hidden absolute inset-0 items-center justify-center p-2 text-center bg-white text-[11px] font-bold text-[#0a1f3d] leading-tight">
-      {logo.name}
+      {isAriaHidden ? null : logo.name}
     </div>
   </div>
 );

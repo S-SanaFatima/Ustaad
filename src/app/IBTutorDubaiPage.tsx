@@ -2661,15 +2661,8 @@ export default function IBTutorDubaiPage() {
                       </button>
                     </div>
 
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                          className="ml-[52px] overflow-hidden"
-                        >
+                    {/* Always in the HTML (indexable); shown when open */}
+                    <div hidden={!isOpen} className="ml-[52px]">
                           <div
                             className="flex items-start gap-3 rounded-2xl border p-4.5 bg-[#f8fafc]"
                             style={{
@@ -2700,9 +2693,7 @@ export default function IBTutorDubaiPage() {
                               <MessageCircle className="h-4 w-4" />
                             </span>
                           </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                        </div>
                   </motion.div>
                 );
               })}
@@ -2829,6 +2820,11 @@ export default function IBTutorDubaiPage() {
             label: 'A-Level Tutors Dubai',
             href: '/a-level-tutor-dubai',
             note: 'Cambridge, Edexcel & AQA sixth form British curriculum pathways in Dubai.'
+          },
+          {
+            label: 'IGCSE Tutor Dubai',
+            href: '/igcse-tutor-dubai',
+            note: 'For Dubai students finishing IGCSE before starting the IB Diploma.'
           },
           {
             label: 'Abu Dhabi IB Tutors',

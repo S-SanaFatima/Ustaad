@@ -2474,17 +2474,17 @@ export default function BiologyTutorDubaiPage() {
         curricula={[
           {
             label: 'IB DP Biology (SL & HL)',
-            href: '/ib-curriculum',
+            href: '/ib-tutor-dubai',
             note: 'Core syllabus preparation, Themes A–D & Internal Assessment coaching.'
           },
           {
             label: 'IGCSE Biology',
-            href: '/igcse',
+            href: '/igcse-tutor-dubai',
             note: 'Cambridge 0610 & Edexcel 4BI1 Paper 4 theory & Paper 6 practical skills.'
           },
           {
             label: 'A-Level Biology',
-            href: '/a-level',
+            href: '/a-level-tutor-dubai',
             note: 'Cambridge 9700 & Edexcel IAL synoptic essay and data analysis.'
           },
           {

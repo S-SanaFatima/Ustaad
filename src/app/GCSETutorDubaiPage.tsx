@@ -1996,8 +1996,8 @@ export default function GCSETutorDubaiPage() {
             note: 'Cambridge 0580/0620 and Pearson Edexcel IGCSE tutoring.'
           },
           {
-            label: 'A-Level Tutoring UAE',
-            href: '/a-level',
+            label: 'A-Level Tutor Dubai',
+            href: '/a-level-tutor-dubai',
             note: 'Sixth form transition, advanced modules, and exam boards.'
           },
           {

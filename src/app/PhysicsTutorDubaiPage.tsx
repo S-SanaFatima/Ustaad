@@ -1126,7 +1126,7 @@ export default function PhysicsTutorDubaiPage() {
         curricula={[
           {
             label: 'IB DP Physics (SL & HL)',
-            href: '/ib-curriculum',
+            href: '/ib-tutor-dubai',
             note: 'Core syllabus preparation, HL theory & internal assessment coaching.'
           },
           {
@@ -1136,7 +1136,7 @@ export default function PhysicsTutorDubaiPage() {
           },
           {
             label: 'A-Level Physics',
-            href: '/a-level',
+            href: '/a-level-tutor-dubai',
             note: 'Cambridge & Edexcel mechanics, fields & exam preparation.'
           },
         ]}

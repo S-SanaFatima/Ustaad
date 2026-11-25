@@ -1562,7 +1562,7 @@ export default function MathsTutorDubaiPage() {
         curricula={[
           {
             label: 'IB DP Mathematics (AA & AI)',
-            href: '/ib-curriculum',
+            href: '/ib-tutor-dubai',
             note: 'Analysis & Approaches (HL/SL) and Applications & Interpretation.'
           },
           {
@@ -1572,7 +1572,7 @@ export default function MathsTutorDubaiPage() {
           },
           {
             label: 'A-Level Mathematics',
-            href: '/a-level',
+            href: '/a-level-tutor-dubai',
             note: 'Pure Maths, Mechanics, and Statistics module mastery.'
           },
         ]}
