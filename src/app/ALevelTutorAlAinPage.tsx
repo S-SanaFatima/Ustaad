@@ -1489,7 +1489,9 @@ export default function ALevelTutorAlAinPage() {
                 <h3 className="text-base font-bold text-[#0a1f3d] mb-1.5">Subjects for your goal</h3>
                 <p className="text-xs font-semibold text-[#92400e] mb-2.5">Medicine, engineering, business, law.</p>
                 <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed">
-                  Most Medicine courses ask for Chemistry, and most Engineering courses ask for Maths and usually Physics. Check each university’s entry page before Year 12 choices are fixed.
+                  Most Medicine courses ask for Chemistry, and most Engineering courses ask for Maths and usually Physics. Check each university’s entry page before Year 12 choices are fixed. Our guide to{' '}
+                  <a href="/blogs/how-to-choose-a-level-subjects-uae" className="text-[#0f4a9b] font-semibold underline underline-offset-2">choosing A-Level subjects</a>{' '}
+                  covers the full Year 11 decision.
                 </p>
               </div>
             </div>

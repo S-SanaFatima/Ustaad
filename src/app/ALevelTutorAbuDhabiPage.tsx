@@ -1514,6 +1514,7 @@ export default function ALevelTutorAbuDhabiPage() {
               { title: "Chemistry Tutor Abu Dhabi", desc: "For organic mechanisms, kinetics, and paper 4 essay technique.", href: "/chemistry-tutor-abu-dhabi" },
               { title: "Maths Tutor Abu Dhabi", desc: "For calculus, mechanics, statistics, and Pure Maths at A-Level depth.", href: "/maths-tutor-abu-dhabi" },
               { title: "Biology Tutor Abu Dhabi", desc: "For biochemistry, genetics, physiology, and required practicals.", href: "/biology-tutor-abu-dhabi" },
+              { title: "Choosing A-Level Subjects", desc: "A parent guide to the Year 11 options form and what each degree asks for.", href: "/blogs/how-to-choose-a-level-subjects-uae" },
             ].map((card, idx) => (
               <motion.a
                 key={idx}

@@ -2575,6 +2575,7 @@ export default function ALevelTutorDubaiPage() {
           { label: 'IGCSE Tutor Dubai', href: '/igcse-tutor-dubai', note: 'Securing the IGCSE grades each A-Level subject asks for.' },
           { label: 'IB Tutor Dubai', href: '/ib-tutor-dubai', note: 'For Dubai students weighing the IB Diploma against A-Levels.' },
           { label: 'A-Level Tutoring UAE', href: '/a-level', note: 'Cambridge, Edexcel, AQA and OCR A-Level support across the Emirates.' },
+          { label: 'How to Choose A-Level Subjects', href: '/blogs/how-to-choose-a-level-subjects-uae', note: 'Our Year 11 guide to picking subjects that fit the degree.' },
         ]}
       />
 

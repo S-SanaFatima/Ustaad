@@ -14,6 +14,7 @@ import {
   MathsArtifact, PhysicsArtifact, ChemistryArtifact, BiologyArtifact, BusinessArtifact, EnglishArtifact, ExamPrepArtifact,
 } from './shared';
 import SEOHead from './shared/SEOHead';
+import YearDates from './shared/YearDates';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, reviewSchema } from './shared/schemas';
 
 const PARENT_REVIEWS = [
@@ -79,6 +80,19 @@ const FAQS = [
   {
     q: "My child does IGCSE at a Dubai school but we're returning to the UK before Year 12. Is IGCSE accepted by UK sixth forms?",
     a: 'Yes. Cambridge IGCSE and Pearson Edexcel International GCSE are both accepted by UK sixth forms and used interchangeably with UK GCSE for entry. If your child is preparing for a UK GCSE syllabus specifically rather than IGCSE, see GCSE Tutor Dubai.',
+  },
+  {
+    q: 'When do Year 11 mocks happen in Dubai schools this year?',
+    a: 'Each school sets its own dates, but most British-curriculum schools in Dubai run Year 11 mocks in the weeks after term 2 starts on 4 January 2027. Mock results then guide tier entries and revision groups, so the winter break from 14 December is the last clear stretch to prepare.',
+  },
+  {
+    q: 'The spring break is only one week in 2027. Does that change revision plans?',
+    a: 'Yes. Spring break runs from 5 to 11 April 2027, and Cambridge June papers start on 26 April, so there is little time after the break. Plan full past papers for March, and keep the spring week for the two or three topics the mocks showed were weakest.',
+  },
+  {
+    q: 'What should my child revise over the winter break?',
+    a: 'Start with the topics that cost the most marks in recent tests, then sit one timed paper a week on your child’s own board, Cambridge or Edexcel. Short daily sessions work better than a last-week cram. Our winter break revision plan sets out a week-by-week approach.',
+    link: { text: 'winter break revision plan', href: '/blogs/winter-break-revision-plan-uae-students' },
   },
 ];
 
@@ -1891,6 +1905,19 @@ export default function IgcseTutorDubaiPage() {
         </div>
       </section>
 
+      <YearDates
+        eyebrow="Key dates"
+        heading="The 2026–27 IGCSE Year in Dubai"
+        intro="Dubai private schools follow the UAE school calendar this year, with a shorter spring break than before. These are the dates that shape Year 11 revision."
+        rows={[
+          { date: '14 Dec 2026 – 3 Jan 2027', text: 'Winter break. Three weeks this year, not four: the best window to fix one weak topic before mocks.' },
+          { date: '4 Jan 2027', text: 'Term 2 starts. Many Dubai schools hold Year 11 mocks in January or February; check your school’s dates.' },
+          { date: '5 – 11 Apr 2027', text: 'Spring break. One week this year, so final revision has to start earlier.' },
+          { date: 'From 26 Apr 2027', text: 'Cambridge June series written papers begin. Pearson Edexcel International GCSE papers run through May and June.' },
+          { date: '2 Jul 2027', text: 'Last day of the school year.' },
+        ]}
+      />
+
       {/* ── FAQS SECTION ── */}
       <section className="py-14 sm:py-16 bg-white border-b border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1968,7 +1995,7 @@ export default function IgcseTutorDubaiPage() {
                     {/* Always in the HTML (indexable); shown when open */}
                     <div hidden={!isOpen} className="ml-0 sm:ml-[48px]">
                           <div className="flex items-start gap-2.5 sm:gap-3 rounded-2xl border p-3.5 sm:p-4.5 bg-[#f8fafc]" style={{ borderColor: 'rgba(15,74,155,0.15)', boxShadow: '0 4px 16px rgba(15,74,155,0.06)' }}>
-                            <p className="flex-1 text-gray-600 text-[12.5px] sm:text-[13.5px] leading-relaxed">{f.a}</p>
+                            <p className="flex-1 text-gray-600 text-[12.5px] sm:text-[13.5px] leading-relaxed">{'link' in f && f.link ? (<>{f.a.split(f.link.text)[0]}<a href={f.link.href} className="text-[#0f4a9b] font-semibold underline underline-offset-2">{f.link.text}</a>{f.a.split(f.link.text)[1]}</>) : f.a}</p>
                             <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ width: 28, height: 28, minWidth: 28, minHeight: 28, background: '#0f4a9b', color: '#fff' }}>
                               <MessageCircle className="h-3.5 w-3.5" />
                             </span>

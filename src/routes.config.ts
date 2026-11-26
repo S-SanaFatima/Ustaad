@@ -703,7 +703,7 @@ export const ROUTES: RouteConfig[] = [
     component: 'IBTutorAbuDhabiPage',
     seo: {
       title: 'IB Tutor Abu Dhabi | MYP, DP SL & HL | Math AA/AI + Physics',
-      description: 'Looking for an IB tutor in Abu Dhabi? Maths AA/AI, Physics and IA support for MYP and Diploma students, from tutors who know IB mark bands work.',
+      description: 'Looking for an IB tutor in Abu Dhabi? Maths AA/AI, Physics and IA support for MYP and Diploma students, from tutors who know how IB mark bands work.',
       priority: 0.90,
       changefreq: 'monthly'
     },

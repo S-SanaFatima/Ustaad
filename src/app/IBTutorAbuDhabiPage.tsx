@@ -35,7 +35,10 @@ const FAQS = [
   { q: "Can lessons shift to post-Iftar timing during Ramadan?", a: "Yes. During Ramadan, we offer flexible evening and post-Iftar slots to match lower afternoon energy levels and prayer schedules. Session lengths can also be adjusted dynamically without losing weekly momentum." },
   { q: "We travel between Abu Dhabi and abroad often. Can the schedule follow us?", a: "Yes. Because tuition is online, the same tutor continues wherever your family is, across time zones. Tell us the travel dates in advance and we shift the weekly slot rather than losing the momentum you have built." },
   { q: "Can we pause during exams and the busiest coursework weeks?", a: "Yes. Sessions pause automatically through the April to May exam window so your child rests before papers, and we lighten weeks when CAS, EE or IA deadlines cluster. Paused weeks are never charged for." },
-  { q: "We only want help for the final stretch before May exams. Is that possible?", a: "Yes. Short, focused blocks are common: two or three sessions a week for the closing weeks, spent only on papers still to be sat. New content teaching stops and every session becomes past-paper practice." }
+  { q: "We only want help for the final stretch before May exams. Is that possible?", a: "Yes. Short, focused blocks are common: two or three sessions a week for the closing weeks, spent only on papers still to be sat. New content teaching stops and every session becomes past-paper practice." },
+  { q: "How close is spring break to the May 2027 IB exams?", a: "Very close. Spring break runs from 5 to 11 April 2027 and the first written papers follow in late April, so the break is part of exam preparation, not a rest before it. Most DP2 students plan to finish IA and EE work before it starts." },
+  { q: "What should a DP2 student do over the winter break?", a: "Finish whatever coursework is still open, then sit at least one timed past paper in each HL subject. Abu Dhabi schools return on 4 January 2027 and DP2 mocks often follow soon after, so the three-week break is the last quiet stretch before the exam term." },
+  { q: "My child is in DP1. Is January too early to start tutoring?", a: "No. DP1 end-of-year exams and IA topic choices both come in the second half of the year, and teachers lean on DP1 results when they write predictions and references. Starting in January gives a full term to close gaps in the HL subjects before those exams." },
 ];
 
 const SIGNALS = [
@@ -416,7 +419,7 @@ export default function IBTutorAbuDhabiPage() {
     <Layout>
       <SEOHead
         title="IB Tutor Abu Dhabi | MYP, DP SL & HL | Math AA/AI + Physics"
-        description="Looking for an IB tutor in Abu Dhabi? Maths AA/AI, Physics and IA support for MYP and Diploma students, from tutors who know IB mark bands work."
+        description="Looking for an IB tutor in Abu Dhabi? Maths AA/AI, Physics and IA support for MYP and Diploma students, from tutors who know how IB mark bands work."
         canonical="/ib-tutor-abu-dhabi"
         schema={[
           cityLocalBusinessSchema({
@@ -1470,6 +1473,9 @@ export default function IBTutorAbuDhabiPage() {
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                 Most Abu Dhabi IB schools sit the May session. Ustaad's tutoring block runs alongside DP1 and DP2 milestones.
               </p>
+              <p className="mt-2 text-[13px] sm:text-sm font-semibold text-[#0f4a9b] leading-relaxed">
+                2026–27 dates: winter break 14 December to 3 January, spring break 5 to 11 April, May exams from late April, results on 6 July 2027.
+              </p>
             </div>
 
             {/* 4-Phase Grid */}
@@ -1515,8 +1521,8 @@ export default function IBTutorAbuDhabiPage() {
                   title: "Real papers",
                   bullets: [
                     "IBDP May exam window",
-                    "Predicted grades finalised",
-                    "UCAS confirmations begin"
+                    "Predicted grades already with the IB",
+                    "Results on 6 July 2027, then UCAS confirms offers"
                   ]
                 }
               ].map((phase, pIdx) => (

@@ -632,6 +632,11 @@ export default function ChooseIGCSESubjectsBlog() {
               For how A-Level study differs from IGCSE, and why independent study habits matter so much in Year 12, see{' '}
               <a href="/blogs/a-level-tutoring-uae-independent-thinking" className={linkCls}>A-Level tutoring in the UAE and independent thinking</a>.
             </p>
+            <p>
+              When the next options form arrives in Year 11, our guide on{' '}
+              <a href="/blogs/how-to-choose-a-level-subjects-uae" className={linkCls}>how to choose A-Level subjects</a>{' '}
+              takes the same approach one stage further.
+            </p>
           </div>
 
           {/* 08 */}

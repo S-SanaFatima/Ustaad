@@ -1149,7 +1149,9 @@ export default function ALevelPage() {
                 </div>
 
                 <div className="pt-2 sm:pt-2.5 border-t border-white/10 text-[10px] sm:text-[11px] text-blue-200/70 italic text-left">
-                  Requirements differ by university, so check each course page before choosing.
+                  Requirements differ by university, so check each course page before choosing. Our guide to{' '}
+                  <a href="/blogs/how-to-choose-a-level-subjects-uae" className="underline underline-offset-2 text-blue-100 hover:text-white not-italic font-semibold">choosing A-Level subjects</a>{' '}
+                  walks through the Year 11 options form.
                 </div>
               </div>
 

@@ -16,6 +16,7 @@ import { Layout, GoldButton, FinalCTA, StatsBar, SchoolsMarquee, WhatsAppIcon, T
 
 import SEOHead from './shared/SEOHead';
 import { cityLocalBusinessSchema, breadcrumbSchema, serviceSchema, faqSchema, courseSchema } from './shared/schemas';
+import YearDates from './shared/YearDates';
 import RelatedContent from './shared/RelatedContent';
 
 const BOOKING = "/contact#form";
@@ -736,6 +737,9 @@ export default function MathematicsLanding() {
     { q: 'Can your tutors handle IB Maths AA HL or AI SL?', plain: 'Yes. We support both pathways: Analysis & Approaches and Applications & Interpretation, across MYP, DP SL, and DP HL. Internal Assessment guidance is included throughout.', a: <>Yes. We support both pathways: Analysis &amp; Approaches and Applications &amp; Interpretation, across <a href="/myp" className="text-[#0f4a9b] font-semibold underline">MYP</a>, <a href="/dp-sl" className="text-[#0f4a9b] font-semibold underline">DP SL</a>, and <a href="/dp-hl" className="text-[#0f4a9b] font-semibold underline">DP HL</a>. Internal Assessment guidance is included throughout.</> },
     { q: 'Do you offer home maths tutoring across Abu Dhabi?', plain: 'Yes. Tutors travel across Abu Dhabi Island, Khalifa City, Al Reem Island, Saadiyat, Yas Island, Al Raha, and Mussafah. Online sessions are also available for families who prefer them.', a: <>Yes. Tutors travel across Abu Dhabi Island, Khalifa City, Al Reem Island, Saadiyat, Yas Island, Al Raha, and Mussafah. Online sessions are also available for families who prefer them.</> },
     { q: 'How quickly do students see real maths progress?', plain: 'Topic confidence usually shifts within four weeks. Visible mark improvement on mocks normally follows in the second or third assessment cycle.', a: <>Topic confidence usually shifts within four weeks. Visible mark improvement on mocks normally follows in the second or third assessment cycle.</> },
+    { q: 'My child’s Abu Dhabi school uses Edexcel IGCSE 4MA1. Do you cover it?', plain: 'Yes. Edexcel International GCSE Maths (4MA1) has two papers, both with a calculator, at Foundation or Higher tier. Tutors work from 4MA1 past papers and mark schemes, so practice matches the exam your child will actually sit.', a: 'Yes. Edexcel International GCSE Maths (4MA1) has two papers, both with a calculator, at Foundation or Higher tier. Tutors work from 4MA1 past papers and mark schemes, so practice matches the exam your child will actually sit.' },
+    { q: 'When should maths revision start for the summer 2027 exams?', plain: 'Ideally straight after the winter break. Cambridge papers start on 26 April 2027 and spring break is only one week, from 5 to 11 April, so most of the gains come between January and March. Students with gaps in algebra or trigonometry do better starting in December.', a: 'Ideally straight after the winter break. Cambridge papers start on 26 April 2027 and spring break is only one week, from 5 to 11 April, so most of the gains come between January and March. Students with gaps in algebra or trigonometry do better starting in December.' },
+    { q: 'Does my child need a graphic display calculator for IB or AP maths?', plain: 'For IB Maths AA Paper 2 and HL Paper 3, and every IB Maths AI paper, yes. AP Calculus and AP Statistics also allow approved graphing calculators on set parts of the exam. Tell us the model your child uses and lessons will practise on it, so the key sequences are familiar on the day.', a: 'For IB Maths AA Paper 2 and HL Paper 3, and every IB Maths AI paper, yes. AP Calculus and AP Statistics also allow approved graphing calculators on set parts of the exam. Tell us the model your child uses and lessons will practise on it, so the key sequences are familiar on the day.' },
   ];
 
   return (
@@ -1636,6 +1640,18 @@ export default function MathematicsLanding() {
           </motion.div>
         </div>
       </section>
+
+      <YearDates
+        eyebrow="Key dates"
+        heading="Maths Dates for Abu Dhabi Students, 2026–27"
+        intro="Abu Dhabi private schools follow the UAE calendar for 2026–27. Whatever the course, the maths year has the same pressure points."
+        rows={[
+          { date: '14 Dec 2026 – 3 Jan 2027', text: 'Winter break. A good time to rebuild one weak strand, often algebra or trigonometry, before term 2.' },
+          { date: 'January – February', text: 'School mocks for IGCSE, A-Level and IB DP2 students in most schools. Dates vary, so check your school’s calendar.' },
+          { date: '5 – 11 Apr 2027', text: 'Spring break, one week.' },
+          { date: 'From 26 Apr 2027', text: 'Cambridge’s June 2027 written papers begin, including IGCSE and A-Level maths. IB Diploma exams also start in late April, and AP exams follow in May.' },
+        ]}
+      />
 
       {/* SECTION 15 — FAQs */}
       <section className="py-6 sm:py-7 lg:py-10 bg-white">
