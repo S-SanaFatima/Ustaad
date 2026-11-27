@@ -45,9 +45,9 @@ const BLOG = {
     'Moving from an American to a British school in the UAE? How grades map to year groups, when to switch before IGCSE, the usual gaps and a 6-week catch-up plan.',
   subtitle:
     'Families in Dubai, Abu Dhabi and Sharjah change curriculum all the time, after a move, a new job or a new school place. Here is how an American grade maps to a British year group, which timing works, and how to close the gaps before they show up in exams.',
-  heroImage: '/images/blogs/american-to-british-curriculum-uae-hero.webp',
+  heroImage: '/images/blogs/american-to-british-curriculum-uae-parent-hero.webp',
   heroAlt:
-    'Mother and teenage son at a dining table in a Dubai apartment comparing an American high school schedule with a British school Year 10 timetable and IGCSE subject list',
+    'Mother and teenage son seen from behind at a dining table in Dubai, reading an American high school schedule beside a British school Year 10 timetable and IGCSE subject list',
   heroCaption: 'A British year group is numbered one higher than the American grade for the same age.',
   datePublished: '2026-11-27',
   dateModified: '2026-11-27',
@@ -492,8 +492,8 @@ export default function AmericanToBritishCurriculumBlog() {
             ]}
           />
           <BlogFigure
-            src="/images/blogs/american-to-british-maths-catch-up-practice.webp"
-            alt="Teenage student in a UAE school polo shirt working through an exam-style maths paper on quadratic and simultaneous equations with a calculator and topic checklist"
+            src="/images/blogs/american-to-british-maths-revision-desk.webp"
+            alt="Teenage student in a UAE school polo shirt, seen over her shoulder, working through an exam-style maths paper on quadratic and simultaneous equations with a calculator and topic checklist"
             caption="Maths gaps are usually about order, not ability: topics the British course expects earlier."
           />
           <div className={proseCls}>

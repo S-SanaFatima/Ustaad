@@ -51,8 +51,8 @@ export const CATEGORY_META = {
 export const BLOGS: BlogPost[] = [
   {
     slug: 'american-to-british-curriculum-uae',
-    image: '/images/blogs/american-to-british-curriculum-uae-hero.webp',
-    alt: 'Mother and teenage son at a dining table in a Dubai apartment comparing an American high school schedule with a British school Year 10 timetable and IGCSE subject list',
+    image: '/images/blogs/american-to-british-curriculum-uae-parent-hero.webp',
+    alt: 'Mother and teenage son seen from behind at a dining table in Dubai, reading an American high school schedule beside a British school Year 10 timetable and IGCSE subject list',
     category: 'Parent Guidance',
     title: 'Switching From an American to a British School in the UAE: Year Groups, Gaps and How to Catch Up',
     description: 'How American grades map to British year groups, when to switch before IGCSE, the usual subject gaps and a 6-week catch-up plan.',
