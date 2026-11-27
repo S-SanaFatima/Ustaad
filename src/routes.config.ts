@@ -1185,6 +1185,19 @@ export const ROUTES: RouteConfig[] = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Academic & Exam Skills', url: '/blogs/academic-exam-skills' }, { name: 'IB Exams and Grade Boundaries', url: '/blogs/ib-exams-grade-boundaries-uae' }]
   },
   {
+    path: '/blogs/american-to-british-curriculum-uae',
+    component: 'AmericanToBritishCurriculumBlog',
+    seo: {
+      title: 'American to British Curriculum Switch: UAE Guide | Ustaad',
+      description: 'Moving from an American to a British school in the UAE? How grades map to year groups, when to switch before IGCSE, the usual gaps and a 6-week catch-up plan.',
+      keywords: 'American to British curriculum UAE, switching from American to British school, American grade to British year group, Grade 9 to Year 10, joining IGCSE from American curriculum, changing schools Dubai, curriculum transfer UAE',
+      priority: 0.9,
+      changefreq: 'monthly',
+      lastmod: '2026-11-27'
+    },
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blogs' }, { name: 'Parent Guidance', url: '/blogs/parent-guidance' }, { name: 'American to British Curriculum', url: '/blogs/american-to-british-curriculum-uae' }]
+  },
+  {
     path: '/blogs/how-to-choose-a-level-subjects-uae',
     component: 'ChooseALevelSubjectsBlog',
     seo: {

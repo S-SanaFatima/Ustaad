@@ -666,7 +666,7 @@ export default function BritishCurriculumPage() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Questions</span>
               </h2>
               <p className="text-gray-600 text-[15px] leading-relaxed">
-                Common questions from parents and students about the British Curriculum.
+                Common questions from parents and students about the British Curriculum. Joining from an American school? See our guide to <a href="/blogs/american-to-british-curriculum-uae" className="text-[#0f4a9b] font-semibold underline underline-offset-2">switching from American to British curriculum</a>.
               </p>
             </div>
 

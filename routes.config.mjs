@@ -21,7 +21,7 @@ export const ROUTES = [
 
   // Curriculum
   { path: '/curriculum', component: 'CurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/british-curriculum', component: 'BritishCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-10-12' },
+  { path: '/british-curriculum', component: 'BritishCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-27' },
   { path: '/igcse', component: 'IGCSEPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-11-17' },
   { path: '/gcse', component: 'GCSEPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/a-level', component: 'ALevelPage', priority: 0.95, changefreq: 'monthly', lastmod: '2026-11-26' },
@@ -29,7 +29,7 @@ export const ROUTES = [
   { path: '/myp', component: 'MYPPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-11-17' },
   { path: '/dp-sl', component: 'DPSLPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/dp-hl', component: 'DPHLPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-06-22' },
-  { path: '/american-curriculum', component: 'AmericanCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-17' },
+  { path: '/american-curriculum', component: 'AmericanCurriculumPage', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-27' },
   { path: '/ap', component: 'APPage', priority: 0.85, changefreq: 'monthly', lastmod: '2026-11-17' },
   { path: '/middle-school', component: 'MiddleSchoolPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
   { path: '/high-school', component: 'HighSchoolPage', priority: 0.8, changefreq: 'monthly', lastmod: '2026-06-22' },
@@ -88,6 +88,7 @@ export const ROUTES = [
   { path: '/blogs/area-under-graph-meaning-physics-maths', component: 'AreaUnderGraphBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-11' },
   { path: '/blogs/ib-exams-grade-boundaries-uae', component: 'IBExamsGradeBoundariesBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-23' },
   { path: '/blogs/phone-distraction-while-studying-uae', component: 'PhoneDistractionStudyingBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-20' },
+  { path: '/blogs/american-to-british-curriculum-uae', component: 'AmericanToBritishCurriculumBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-27' },
   { path: '/blogs/how-to-choose-a-level-subjects-uae', component: 'ChooseALevelSubjectsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-23' },
   { path: '/blogs/what-is-igcse-full-form-meaning-uae', component: 'WhatIsIGCSEBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-16' },
   { path: '/blogs/how-to-choose-igcse-subjects-uae', component: 'ChooseIGCSESubjectsBlog', priority: 0.9, changefreq: 'monthly', lastmod: '2026-11-26' },

@@ -363,7 +363,7 @@ export default function AmericanCurriculumPage() {
                 Frequently Asked{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0f4a9b] to-[#1e5ba8]">Questions</span>
               </h2>
-              <p className="text-gray-600 text-[15px] leading-relaxed">Common American Curriculum parent questions.</p>
+              <p className="text-gray-600 text-[15px] leading-relaxed">Common American Curriculum parent questions. Moving to a British school instead? Read our guide to <a href="/blogs/american-to-british-curriculum-uae" className="text-[#0f4a9b] font-semibold underline underline-offset-2">switching from an American to a British school in the UAE</a>.</p>
             </div>
             <div className="flex flex-col gap-[10px]">
               {faqs.map((faq, i) => {
